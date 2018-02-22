@@ -76,27 +76,27 @@ simulations of the cryogenic recirculation predict very slow change in temperatu
 
 Platinum sensors with \SI{100}{\ohm} resistance (PT100 series), produced by Lakeshore will be used except for the membrane sensors that may come from Minco. The sensor choice is adequate for the temperature range of interest: 83-92\si{K}. In this temperature range these sensors have high reproducibility of just \SI{5}{mK} and absolute temperature accuracy of \SI{100}{mK}. In addition, the plan is to use the 4-wire readout greatly reducing the issues related to the lead resistance, any parasitic resistances, connections through the flange and general electromagnetic noise pick-up.
 
-The Lakeshore PT102 sensors have being previously used in the 35t prototype and ProtoDUNE SP detector, giving excellent results as can be seen in Fig.~\ref{fig:sensor_pt102}.  As shown in the figure, the PT102 sensor has a length of \SI{21}{mm}, which can easily be accommodated in the DUNE T-gradient monitors. 
+The Lakeshore PT102 sensors have being previously used in the 35t prototype and ProtoDUNE SP detector, giving excellent results as can be seen in Fig.~\ref{fig:fd-slow-cryo-sensor-pt102}.  As shown in the figure, the PT102 sensor has a length of \SI{21}{mm}, which can easily be accommodated in the DUNE T-gradient monitors. 
 
-\begin{dunefigure}[diag PT102]{fig:sensor_pt102}
+\begin{dunefigure}[diag PT102]{fig:fd-slow-cryo-sensor-pt102}
   {Schematic diagram of the PT102 sensor from the Lakeshore company planned to be used in DUNE.}
-  \includegraphics[width=0.4\textwidth]{SensorPT102.png}
+  \includegraphics[width=0.4\textwidth]{fd-slow-cryo-sensor-pt102.png}
 \end{dunefigure}
 
 \subsubsection{Dynamic t-gradient monitor design}
-Dynamic T-gradient monitor consists of three distinct parts: carrier rod on which sensors are mounted, enclosure above the cryostat housing the space that allows vertical motion of the carrier rod 1.5\,m above its lowest location, and motion mechanism. The motion mechanism consists of a stepper motor connected to a gear and pinion motion mechanism through ferrofluidic dynamic seal. The sensors have two pins that are soldered to a printed circuit board (PCB). Two wires are soldered to the common soldering pad for each pin, individually.   There is a cutout in the PCB around the sensor that allows free flow of argon for more accurate temperature reading.  Stepper motors typically have very fine steps allowing high precision positioning of the sensors.  Figure~\ref{fig:DT_design} shows the overall design of the dynamic T-gradient monitor with the sensor carrier rod, enclosure above the cryostat and stepper motor mounted on the side of the enclosure. The enclosure consists of two parts connected by 6-cross flange. One side of the 6-cross flange will be used to for the signal wires, another side will be used as a viewing window, while the two other ports will be spares. Figure~\ref{fig:sensonr_on_pcb} shows the mounting of the PCB board on the carrier rod and mounting on the sensor on the PCB along with the four point connection to the signal readout wires. Finally, Figure~\ref{fig:stepper_motor} shows the stepper motor mounted on the side of the rod enclosure. The motor is kept outside, at room temperature and its power and control cables are also kept outside.
+Dynamic T-gradient monitor consists of three distinct parts: carrier rod on which sensors are mounted, enclosure above the cryostat housing the space that allows vertical motion of the carrier rod 1.5\,m above its lowest location, and motion mechanism. The motion mechanism consists of a stepper motor connected to a gear and pinion motion mechanism through ferrofluidic dynamic seal. The sensors have two pins that are soldered to a printed circuit board (PCB). Two wires are soldered to the common soldering pad for each pin, individually.   There is a cutout in the PCB around the sensor that allows free flow of argon for more accurate temperature reading.  Stepper motors typically have very fine steps allowing high precision positioning of the sensors.  Figure~\ref{fig:fd-slow-cryo-dt-monitor-overview} shows the overall design of the dynamic T-gradient monitor with the sensor carrier rod, enclosure above the cryostat and stepper motor mounted on the side of the enclosure. The enclosure consists of two parts connected by 6-cross flange. One side of the 6-cross flange will be used to for the signal wires, another side will be used as a viewing window, while the two other ports will be spares. Figure~\ref{fig:fd-slow-cryo-sensor-mount} shows the mounting of the PCB board on the carrier rod and mounting on the sensor on the PCB along with the four point connection to the signal readout wires. Finally, Figure~\ref{fig:fd-slow-cryo-motor} shows the stepper motor mounted on the side of the rod enclosure. The motor is kept outside, at room temperature and its power and control cables are also kept outside.
 
-\begin{dunefigure}[dyn-T-grad]{fig:DT_design}
+\begin{dunefigure}[dyn-T-grad]{fig:fd-slow-cryo-dt-monitor-overview}
   {An overview of the dynamic T-gradient monitor.}
- \includegraphics[width=0.11\textwidth,angle=90]{DTmonitorOverview.png}
+ \includegraphics[width=0.11\textwidth,angle=90]{fd-slow-cryo-dt-monitor-overview.png}
 \end{dunefigure}
-\begin{dunefigure}[]{fig:sensor_on_pcb}
+\begin{dunefigure}[]{fig:fd-slow-cryo-sensor-mount}
   {Sensor mounted on a PCB board and PCB board mounted on the rod. }
-  \includegraphics[width=0.30\textwidth]{SensorMount.png}
+  \includegraphics[width=0.30\textwidth]{fd-slow-cryo-sensor-mount.png}
 \end{dunefigure}
-\begin{dunefigure}[]{fig:stepper_motor}
+\begin{dunefigure}[]{fig:fd-slow-cryo-motor}
   {The driving mechanism of the dynamic T-gradient monitor. It consists of a stepper motor driving the pinion and gear linear motion mechanism. }
-  \includegraphics[width=0.12\textwidth]{Motor.png}
+  \includegraphics[width=0.12\textwidth]{fd-slow-cryo-motor.png}
 \end{dunefigure}
 
 % % % %
