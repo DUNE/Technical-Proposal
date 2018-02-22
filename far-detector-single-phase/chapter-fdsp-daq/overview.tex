@@ -18,9 +18,28 @@ exchange of trigger and monitoring messages.
 
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}
-  {A generalized overview of high-level far detector DAQ components showing one out of the four detector modules.  The electronics digitizes the detector signals and send the data to the DAQ Front-End Readout Hardware.  This component forms L0 Trigger Primitives and sends them and the data to a Front-End Computing Data Receiver.  The receiver sends the data to a RAM of sufficient size to buffer it longer than typical worse case trigger latency.  The L0 Trigger Primitives are forward to the Module Trigger Logic (MTL) unit which services the entire detector module.  The MTL forwards to the Global Trigger Logic unit which services the entire DUNE Far Detector.  Trigger commands are then sent back down and to the Event Builder Farm which, based on the trigger command information, queries the appropriate Front-End Computing units which return the requested data.  The Event Builder then aggregates the data and writes it to the Output Disk Buffer.  Each \SI{10}{\kton} module has specific differing details which are described below.}
+  {A generalized overview of high-level far detector \dword{daq}
+    components showcasing the \dword{sp} \dword{detmodule}. 
+    The electronics digitizes the detector signals and sends the data
+    to the DAQ \dword{fe} readout hardware which sends the data to the
+    \dword{fe} computing data receiver.
+    The \dword{fe} readout hardware also processes the data stream to
+    produce \dwords{trigprimitive} which are sent along with the data
+    itself.
+    The receiver sends the data to the \dword{ringbuffer} which is of
+    sufficient size to retain the data long enough for a
+    \dword{trigcommand} formed from the data itself to return.
+    The receiver is also responsible to send out
+    \dwords{trigcandidate}, formed from the \dwords{trigprimitive}, to
+    the \dword{mtl} as input to forming a \dword{trigcommand}. 
+    The \dword{mtl} forwards notification of this trigger process and
+    accepts external \dwords{trigcandidate} from the \dword{gtl}.
+    \Dwords{trigcommand} are then sent to the \dlong{eb} which queries
+    the appropriate \dword{fe} computing units, aggregates the
+    returned data and writes it to the \dword{diskbuffer} which is the
+    interface to the Offline.}
 % This PDF is made from the .dot of the same name.
-\includegraphics[width=0.8\textwidth]{daq-overview.pdf}%
+\includegraphics[width=0.8\textwidth]{daq-overview-sp.pdf}%
 \end{dunefigure}
 
 

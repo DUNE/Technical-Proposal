@@ -1,10 +1,12 @@
+// Note, this is the Single-Phase equivalent to daq-overview-dp.dot
+// The two are almost identical and should be kept in sync.
 digraph top {
         graph[compound=true,ordering=out,splines=true,layout=dot,rankdir=LR,fontsize=20];
         node[shape=box,style="rounded",fontsize=16];
 
         subgraph cluster_dets{
                 subgraph cluster_det1{
-                        label="Detector Module\n(SP, DP)";
+                        label="Single-Phase\nDetector Module";
                         labelloc=bottom;
                         
                         elec1[label="Electronics"];
@@ -15,7 +17,7 @@ digraph top {
                 labelloc=bottom;
                 
                 subgraph cluster_daq1 {
-                        label="DAQ Module (SP, DP)";
+                        label="Single-Phase DAQ Module";
                         labelloc=bottom;
                         
                         subgraph cluster_fero1 {
@@ -41,7 +43,7 @@ digraph top {
                         }
                         
                 }
-                gtl[label="Global Trigger Logic"];
+                gtl[label="External Trigger Logic"];
                 
         }
 
@@ -76,11 +78,11 @@ digraph top {
         
         // global trigger primitives
         edge[penwidth=1,style=dotted]
-        mtl1:nw->gtl:w[label="global\ntrigger\ncandidate\n\n"];
+        mtl1:nw->gtl:w[label="trigger\nnotification\n\n"];
         
         // global trigger commands
         edge[penwidth=1,style=dashed]
-        gtl:e->mtl1:ne[label="global\ntrigger\ncommand\n\n"];
+        gtl:e->mtl1:ne[label="external\ntrigger\ncandidate\n\n"];
         
         edge[style=invis];
         oob->gtl;

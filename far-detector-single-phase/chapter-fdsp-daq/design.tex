@@ -48,8 +48,8 @@ These partitions are viewed as essentially four types of
 \dwords{submodule} within the DAQ and will follow the same overall
 data collection scheme as shown in figure 1. 
 The readout is arranged in a hierarchical manner to allow localized
-\dword{l0primitive} decisions to be made at the \dword{detunit} level,
-at the cavern level before being combined over the full four caverns. 
+\dword{trigdecision} to be made at the \dword{detunit} level, at the
+cavern level before being combined over the full four caverns. 
 The control of the detector elements will allow a fault in one part to
 not halt data taking in another part, certainly at the per-cavern
 level, but maybe also at more local levels. 
@@ -90,10 +90,11 @@ buffering scheme is described in section~\ref{sec:fdsp-daq-ltr}
 
 % want a \subsubsection here?
 (Triggering Overview) In parallel with the data buffering scheme
-described above, summaries of detected hits \dwords{l0primitive} are
-assembled at the APA level to detect clusters of hits and apply
-algorithms to distingush them from background (either radioactive
-decays or detector noise). This is described in detail in
+described above, summaries of per-channel time-above-threshold
+waveform segments (\dwords{trigprimitive}) are assembled at the APA
+level to detect clusters in time an channel space and apply algorithms
+to distinguish signal from background (either radioactive decays) and
+from noise fluctuations. This is described in detail in
 Section~\ref{sec:fdsp-daq-ltp}.
 % 7.2.3. 
 Whether this process is more suitable for FPGAs or computers is under

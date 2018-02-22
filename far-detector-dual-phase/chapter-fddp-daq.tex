@@ -17,10 +17,26 @@ The system includes (whatever it includes), as shown in Figure....
 
 The operating principle is illustrated in Figure~\ref{figure-label}... (add figure)
 
-\begin{dunefigure}[optional caption for LoF]{fig:figure-label}
-{required full caption (Credit: xyz)}
-%\includegraphics[width=0.8\textwidth]{image-filename}
+\begin{dunefigure}[DP DAQ Overview]{fig:dp-daq-overview}
+  {A generalized overview of high-level far detector \dword{daq}
+    components showcasing the \dword{dp} \dword{detmodule}. 
+    The electronics digitizes the detector signals and sends the data
+    to the DAQ \dword{fe} readout hardware which sends the data to the
+    \dword{fe} computing data receiver.
+    The receiver sends the data to the \dword{ringbuffer} which is of
+    sufficient size to retain the data long enough for a
+    \dword{trigcommand} formed from the data itself to return.
+    The receiver is also responsible to send out \dwords{trigcandidate} to the
+    \dword{mtl} as input to forming a \dword{trigcommand}. 
+    The \dword{mtl} forwards notification of this trigger process
+    and accepts external \dwords{trigcandidate} from the \dword{gtl}.
+    \Dwords{trigcommand} are then sent to the \dlong{eb} which queries
+    the appropriate \dword{fe} computing units, aggregates the
+    returned data and writes it to the \dword{diskbuffer} which is the
+    interface to the Offline.}
+  \includegraphics[width=0.8\textwidth]{daq-overview-dp.pdf}%
 \end{dunefigure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Design Considerations}

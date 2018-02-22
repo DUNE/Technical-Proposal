@@ -1,0 +1,86 @@
+// Note, this is the Dual-Phase equivalent to daq-overview-sp.dot
+// The two are almost identical and should be kept in sync.
+digraph top {
+        graph[compound=true,ordering=out,splines=true,layout=dot,rankdir=LR,fontsize=20];
+        node[shape=box,style="rounded",fontsize=16];
+
+        subgraph cluster_dets{
+                subgraph cluster_det1{
+                        label="Dual-Phase\nDetector Module";
+                        labelloc=bottom;
+                        
+                        elec1[label="Electronics"];
+                }
+        }
+        subgraph cluster_daqs{
+                label="DUNE FD DAQ";
+                labelloc=bottom;
+                
+                subgraph cluster_daq1 {
+                        label="Dual-Phase DAQ Module";
+                        labelloc=bottom;
+                        
+                        subgraph cluster_fero1 {
+                                label="Front-End\nReadout";
+                                fero1[label="Electronics\nReadout HW"];
+                        }
+                        subgraph cluster_fecomp1 {
+                                label="Front-End Computing xN detector-units";
+                                labelloc=bottom;
+                                
+                                receive1[label="Data Receiver and\nTrigger Candidate\nExtractor"];
+                                buffer1[label="RAM\nBuffer"];
+                                selector1[label="Data\nSelector"];
+                        }
+                        subgraph cluster_becomp1 {
+                                label="Back-End Computing";
+                                labelloc=bottom;
+                                
+                                mtl1[label="Module Trigger\nLogic"];
+                                eb1[label="Event\nBuilder Farm"];
+                                disk1[label="Output\nDisk Buffer"];
+                        }
+                        
+                }
+                gtl[label="External Trigger Logic"];
+                
+        }
+
+        // full raw data
+        edge[penwidth=6];
+        elec1->fero1;
+        
+        fero1->receive1[label="Data"];
+
+        receive1->buffer1[label="\nData\n"];
+
+        // trigger primitives
+        edge[penwidth=1,style=dotted]
+
+        receive1->mtl1[label="\n\ntrigger\ncandidate"];
+
+        // trigger commands
+        edge[penwidth=1,style=dashed]
+        mtl1->eb1[label="\ntrigger command\n"];
+        eb1->selector1:w[label="readout\ncommand\n\n"];
+        selector1->buffer1;
+
+        
+        // Selected readout
+        edge[penwidth=2,style=solid]
+        buffer1->selector1;
+        selector1:e->eb1[label="selected data"];
+        eb1->disk1;
+        
+        // global trigger primitives
+        edge[penwidth=1,style=dotted]
+        mtl1:nw->gtl:w[label="trigger\nnotification\n\n"];
+        
+        // global trigger commands
+        edge[penwidth=1,style=dashed]
+        gtl:e->mtl1:ne[label="external\ntrigger\ncandidate\n\n"];
+        
+        edge[style=invis];
+        receive1->gtl;
+}
+
