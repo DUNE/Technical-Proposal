@@ -25,7 +25,7 @@ filling; to ensure that there is no bubbling near the ground planes
 state of movable parts in the detector (calibration devices, dynamic
 thermometers) as needed; and to closely inspect parts of the TPC as
 necessary following any seismic activity or other unanticipated
-occurence.  These functions will be performed using set of fixed
+occurrence.  These functions will be performed using set of fixed
 ``cold'' cameras permanently mounted at fixed points in the cryostat
 for use during filling and commissioning, and a movable, replaceable
 ``warm'' inspection camera that can be deployed through any free
@@ -121,13 +121,13 @@ Targets: * Status of profiles, endcaps (~ 0.5 mm)
 * observe HV discharge or corona on HV FT, cup, or FC
 
 Considerations: need operate only as long as inspection lasts, camera
-replacable in case of failure, can keep warm continuously during
+replaceable in case of failure, can keep warm continuously during
 deployment and have more options for commercial cameras (e.g., could
 deploy same model camera used successfully for HV spark observations
 in \cite{Auger:2015xlo}).
 
 Design: enclosure as for cold, mounted on movable/steerable fork, adjustable
-height over ~1m range using design similar to dynamic temperature probe.
+height over $\sim$\SI{1}{m} range using design similar to dynamic temperature probe.
 (Need figure from Jim S!)
 Deploy through
 gate valve with same purging system as deployable calibration source.
@@ -144,14 +144,16 @@ cameras.  Performance criteria for the light emission system are based
 on the efficiency of detection with the cameras, in conjunction with
 adding minimal heat to the cryostat. The use of very high efficiency
 LEDs will assist with the goal of reducing heat generation; as an
-exmple, one \SI{750}{nm} red LED has a specification of
+example, one \SI{750}{nm} LED has a specification of
 32\%\ conversion of electrical input power to light.
 
 While data on the performance of LEDs at cryogenic temperatures is sparse,
 there are some studies related to NASA projects\cite{Carron:2017zzz}, which
 indicate that LED efficiency increases with reduced temperature,
 and that the emitted wavelengths may change, particularly for ``blue'' LEDs,
-but the wavelength changes cited would have no impact on illumination.
+but the wavelength changes cited would have no impact on illumination, since
+such short wavelength LEDs would not used, to avoid degradation of wavelength
+shifting materials in the Photon Detection system.
 
 \begin{dunefigure}[LED chain for illumination]{fig:gen-cisc-LEDs}
   {Suggested LED chain for lighting inside the cryostat, with
@@ -166,5 +168,11 @@ LED in parallel with an opposite polarity LED and a resistor
 This allows two different wavelengths of illumination with a single installed
 chain (by changing the direction of the drive current) and 
 continued use of an LED chain even if individual LEDs have failed.
-Installation of multiple LED chains will also mitigate device failures,
-and will be necessary for full illumination of the detector.
+
+The LEDs should be placed as a `ring light' around the outside of each
+camera lens, pointing in the same direction as the lens, to 
+illuminate the part of the detector within the field of
+view of the camera. Commercially available LEDs can be obtained with
+a range of angular spreads, so can be matched to the needs of the
+cameras without additional optics. 
+
