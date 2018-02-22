@@ -154,7 +154,24 @@ The choices of wire tension and wire placement accuracy are made to ensure prope
 
 \fixme{Include an image of the subsystem (frame), indicating its parts. Show how the system fits into the overall system (APA).}
 
-The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_frame}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$ 0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints, as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique, described in Section~\ref{sec:apa:electrondiverter}, is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
+APA frames are a bolted assembly of rectangular hollow section (RHS) pieces,
+which are 6.06 m tall, and 2.30 m wide.  The exact dimensions of the RHS to be used in the DUNE far detector are currently being revisited from that used in ProtoDUNE due to the additional requirements on the frame.  The baseline design of 3'' $\times$ 4'' RHS with 0.120'' wall-thickness tubing, as used for the outer tubes in ProtoDUNE, will create significant challenges for cable carrying in the double-height APA assembly required in DUNE.  The current options under consideration are increasing the profile of the tube to 3''$\times$ 5'', which does not impact the fiducuial volume of the detector, or to 4'' $\times$ 4'', which will decrease the fiducial volume by 0.5$\%$.  The four central cross-pieces are made from 2'' $\times$ 3'' RHS, and are likely to be unaffected by the scaleup.  The robustness of the amended frame in both options is currently undergoing FEA analysis.  
+
+The head and foot tubes are attached to the side and center tubes via welded abuttment flanges, which are shimmed to create a flat, rectangular frame of the specified dimensions.  The central cross-pieces are attached to the side pieces in a similar manner.  In production, the pieces are individually machined, and cleaned prior to assembly, which gives flexibility both in the production processes and in terms of achieving the flatness necessary.  
+
+The APA frames are used both as the support structure for the wire plane
+readout and photon detector system, as well as the cabling for both of these
+systems. The foot tubes of two APA frames will be mechanically connected to
+form a 12 m tall structure, as depicted in Figure~\ref{fig:tpc_apa_dual}, and these assemblies are mounted edge to edge to form a continuous plane.  
+
+%The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_frame}) is
+%6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.
+%It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$
+%0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional
+%area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints,
+%as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}. 
+
+An APA is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique, described in Section~\ref{sec:apa:electrondiverter}, is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
 
 \begin{dunefigure}[APA dimensions]{fig:tpc_apa_frame}{An APA showing overall dimensions and main components. }
 %\includegraphics[width=0.9\textwidth]{figures/tpc_apa_frame} 
