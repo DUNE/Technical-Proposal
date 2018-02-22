@@ -64,10 +64,16 @@ few mK uncertainty in the measured vertical temperature profile over the entire 
 \item
 simulations of the cryogenic recirculation predict very slow change in temperature at meter scale except at the bottom and top of the cryostat. Thus, sensors will be placed every \SI{50}{cm} along the detector height with increased frequency in the first \SI{50}{cm}, closest to the bottom of the cryostat and the last \SI{50}{cm}, closest to the top of the cryostat, where spacing between sensors is reduced to \SI{10}{cm}.
  \end{itemize}
- 
+
+
+\fixme{The text above belongs to intro, I guess}
+
  In order to address concerns related to potential difference in the sensor reading prior to installation and after installation in DUNE FD dynamic temperature monitor allows cross-calibration of sensors in situ. Namely, this T-gradient monitor  can move vertically while installed in DUNE FD, which allows for precise cross-calibration between the sensors in-situ at predefined locations as well as in between them. The procedure for cross-calibrations is the following: the temperature reading is taken at the lowest position with all sensors. Then, the stepper motor moves the carrier rod up for \SI{50}{cm} putting all sensors in the location of their neighbor that is \SI{50}{cm} above them. Then the second reading is taken. In this manner, except for the lowest position we have temperature measurement at each location with two adjacent sensors, and by linking the temperature offsets between the two readings at each location, temperature readings from all sensors are cross-calibrated in situ, cancelling all offsets due to electromagnetic noise or any parasitic resistances that may have prevailed despite the four point connection to the sensors that should cancel most of the offsets. These measurements are taken with very stable current source, which ensures high precision of repeated temperature measurements over time. The motion of the dynamic T-monitor is stepper motor operated, delivering measurements with high spatial resolution. 
 
 \subsubsection{Sensor choice}
+
+\fixme{shorten and move it to intro, since it is the same choice for all systems}
+
 Platinum sensors with \SI{100}{\ohm} resistance (PT100 series), produced by Lakeshore will be used except for the membrane sensors that may come from Minco. The sensor choice is adequate for the temperature range of interest: 83-92\si{K}. In this temperature range these sensors have high reproducibility of just \SI{5}{mK} and absolute temperature accuracy of \SI{100}{mK}. In addition, the plan is to use the 4-wire readout greatly reducing the issues related to the lead resistance, any parasitic resistances, connections through the flange and general electromagnetic noise pick-up.
 
 The Lakeshore PT102 sensors have being previously used in the 35t prototype and ProtoDUNE SP detector, giving excellent results as can be seen in Fig.~\ref{fig:sensor_pt102}.  As shown in the figure, the PT102 sensor has a length of \SI{21}{mm}, which can easily be accommodated in the DUNE T-gradient monitors. 
@@ -82,11 +88,11 @@ Dynamic T-gradient monitor consists of three distinct parts: carrier rod on whic
 
 \begin{dunefigure}[dyn-T-grad]{fig:DT_design}
   {An overview of the dynamic T-gradient monitor.}
- \includegraphics[width=0.12\textwidth]{DTmonitorOverview.png}
+ \includegraphics[width=0.11\textwidth,angle=90]{DTmonitorOverview.png}
 \end{dunefigure}
 \begin{dunefigure}[]{fig:sensor_on_pcb}
   {Sensor mounted on a PCB board and PCB board mounted on the rod. }
-  \includegraphics[width=0.12\textwidth]{SensorMount.png}
+  \includegraphics[width=0.30\textwidth]{SensorMount.png}
 \end{dunefigure}
 \begin{dunefigure}[]{fig:stepper_motor}
   {The driving mechanism of the dynamic T-gradient monitor. It consists of a stepper motor driving the pinion and gear linear motion mechanism. }

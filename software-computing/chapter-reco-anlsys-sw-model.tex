@@ -68,16 +68,42 @@ time samples for the same channel are in neighboring memory locations.  Mitigati
 stuck bits is done at this stage via linear interpolation of neighboring time samples.  Correlated noise
 is subtracted off by computing the median of channel responses within a front-end motherboard within a wire plane,
 protecting potential signal pulses from being suppressed by neighboring signal pulses via a threshold identification
-of signal.  Noise filtering and the electronics and wire response functions are handled in a single step.
+of signal.  The pedestal is then subtracted, which aids in raw digit event displays.
+Noise filtering and the electronics and wire response functions are handled in a single step.
 An FFT is performed on the raw ADC values after the mitigation described above, the spectrum is multiplied by
 a kernel function including the filter and the multiplicative inverse of the spectrum of the field response and
 electronics response, and then an inverse FFT translates the result back into the time domain.  The filtered,
-deconvolved signal is stored in floating-point numbers.
+deconvolved signal is stored as floating-point numbers as functions of the time sample with the same time sampling
+as the initial ADC.  In the case of zero-suppressed data or Monte Carlo, regions of interest are defined in the
+filtered, deconvoluted waveforms for storage and CPU efficiency.
+
+A two-dimensional deconvolution~\cite{wirecell} has also been developed, which takes advantage of signals
+induced on neighboring wires, as well as the time structure of the measured waveform on a wire to estimate the
+undistorted arrival-time distribution of charge on the wire.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Liquid Argon Software Suites}
 
+\subsection{Hit Finding}
+
+Several algorithms have been developed to find hits, either in the raw waveforms which can be applied at the
+trigger level, or on the filtered, deconvoluted waveforms.  The hit-finder used for most offline work fits
+Gaussian functions to the waveforms.   
+
+\subsection{Disambiguation}
+
+In the case of induction-plane hits, a choice must be made of which
+wire segment a hit belongs to, as the wrapped wires have up to three wire segments.  This choice is made by
+matching hits in one induction plane with hits in the other two planes in time, and finding the most consistent
+solution.  Hits that cannot be unambiguosly assigned wire segments in this manner (for example, one hit in one
+view can correspond to many hits in another view, and the time of the large hit may be an average that doesn't
+correspond closely to all of the hits in the other view), then the ambiguity choice is extrapolated from nearby
+hits.
+
 \subsection{Clustering Algorithms}
+
+Clustering of hits can be done in 2D (one plane at a time) or in 3D.
+
 \subsection{Pattern Recognition}
 \subsection{Particle Tracking}
 \subsection{Vertexing and Interaction Point Determination}

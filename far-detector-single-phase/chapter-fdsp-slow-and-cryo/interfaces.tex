@@ -3,73 +3,95 @@
 \label{sec:fdsp-slow-cryo-intfc}
 % anselmo
 
-\fixme{Include an image of each interface in appropriate section.}
+\fixme{Include an image of each interface in appropriate section.  (?????)}
 
-\fixme{Add in appropriate subsections for the pieces that this interfaces with. These initial ones may not be right, or some interfaces may be missing.}
+The CISC consortium interfaces with all other consortia, task forces (calibration), working groups (physics, software/computing) and technical coordination.  
+A detailed description of all interfaces is available elsewhere (doc-db\#6383-v1, doc-db\#7072-v1, doc-db\#6991-v0, doc-db\#7018-v1, doc-db\#7045-v1).
+Here a brief summary is given. 
 
-The cryogenics instrumentation and slow control systems interface with most other DUNE systems, including LBNF and the cryogenics system.
-This section describes the interface between the DUNE SP Far Detector CISC System
-and several other consortia, task forces (TF) and wrorking groups (physics, software/computing). 
-A detailed description of all interfaces is available elsewhere (DUNE-doc-6383-v1). Here a brief summary is given.
-Many of the interfaces can be inferred from the scope in Section \ref{sec:fdsp-slow-cryo-scope}. 
-Some other aspects that are common to many consortia are: 
-\begin{itemize}
-\item Rack space distribution and interaction between slow controls (SC) modules and other modules (APAs, HV, PD, DAQ, etc)
-%\item For all racks, CISC will provide rack protection system status bit monitoring
-%\item In the case fan packs in racks are required CISC will provide the fan pack monitoring
-\item The choice of High/Low Voltage power supplies (PS) as well as the cables from any device connected to SC ethernet switches
-  ((PS, electronics, heaters, fans, ...) should be a combined decision with each consortium so that the harware choices 
-  allow for robust control/monitoring and precision needed 
-%\item The need of thermal interlocks for PS needs to be understood, as well as the necessary hardware (sensors, cables, etc.).
-%  CISC will provide the needed interlock status bit monitoring but not the hardware interlock mechanism.
-%\item Definition of quantities to be monitored/controlled by slow controls (HV, APA, PD, Electronics, CRP, calibration, sotfware/computing,  etc)
-%  and the corresponding alarms, archiving and GUIs
-\item SC signals into main DAQ data stream and viceversa
-\item Facility: Location of instrumentation devices, anchoring points, cryostat ports and flanges, space needed above cryostat, cable routing, rack space above cryostat, Mezzanine and CUC (Central Utility Cavern), etc 
-\item Installation: Installation of instrumentation devices will interfere with other devices (APA, CPA, CRP, PD, calibration, etc). This needs to be coordinated with the corresponding consortia
-  Some items (cables from SC switches to electronics or power supplies) will have to be installed in coordination with other consortia
-\item 
-\end{itemize}
+There are obvious iterfaces with detector consortia since CISC will provide full rack monitoring (rack fans, thermometers and rack protection system),
+interlock status bit monitoring (not the actual interlock mechanism) and monitoring and control for all power supplies (PS). The choice of these   
+PS as well as the cables from any device connected to SC ethernet switches (PS, electronics, heaters, fans, ...)
+should be a combined decision between CISC and each consortium so that the hardware choices allow for robust control/monitoring and precision needed.  
+Also, installation of instrumentation devices will interfere with other devices and must be coordinated with the respective consortia.  
+On the software side CISC will have to define in coordination with other consortia the quantities to be monitored/controlled by slow controls and the corresponding alarms,
+archiving and GUIs. 
 
+%Rack space distribution and interaction between slow controls (SC) modules and other modules (APAs, HV, PD, DAQ, etc)
+
+%SC signals into main DAQ data stream and viceversa
 
 Particularely important is the interface with HV system since several aspects related with safety must be taken into account. 
-Some interfaces specific for the HV system are: 
-\begin{itemize}
-\item   For all instrumentation devices inside the cryostat,
-  E-field simulations are needed to guaranty proper shielding is in place. Although this is a CISC responsibility, input from HV will be crucial.
-\item Understand the location of cold cameras and lights for inspection of HV related devices, as well as the requirements
-  of cold/warm cameras: resolution, field of view, light sensitivity, low light operation, frames per second, operation in triggered mode?,  etc. 
-\item During the deployment of inspection cameras, avoid generation of bubbles when HV is on as it can lead to discharges.
-\item As in ProtoDUNE-SP, ground planes (GP) could be used as support for temperature sensors (RTDs). GP could be also used as support for cold cameras. 
-\item Special software may be needed to detect discharges
-  using the camera system, which will be the responsibility of the HV consortium.
-\end{itemize}
+For all instrumentation devices inside the cryostat, E-field simulations are needed to guaranty proper shielding is in place.
+Although this is a CISC responsibility, input from HV will be crucial.
+%The location of cold cameras and lights for inspection of HV related devices,
+%as well as the requirements of cold/warm cameras (see Sec.~\ref{sec:fdsp-slow-cryo-cameras}) have to be understood
+%in cooperation with HV consortium.
+%Special software may be needed to detect discharges using the camera system,
+%which will be the responsibility of the HV consortium.
+During the deployment of inspection cameras, generation of bubbles must be avoided when HV is on, as it can lead to discharges.
+%Finally, ground planes will be used as support for temperature sensors. The integration of the two systems must be understood. 
 
- Assuming that the scope of SWC group includes scientific computing support to project activities, there are substancial interfaces with the group. 
- The hardware interfaces include networking installation and maintenance, maintenance of SC servers and any additional computing hardware needed by instrumentation devices.
- CISC will provide the needed monitoring for power distribution units (PDUs). The SWC group will provide: i) SC database maintenance, ii) API for accessing the SC database offline,
- iii) UPS packages, local installation and maintenace of software needed by CISC, and iv) SWC creating and maintaining computer accounts on production clusters. 
- On the other direction CISC will provide the required monitoring/control of SWC quantities including alarms, archiving and GUIs when applicable. 
-
-
-There are also interfaces with the Photon Detection system.
-Purity Monitors and Light emitting system for Cameras both emit light that might damage PDs.
-Although this should be understood and quantified, CISC and SP-PD may have to Define the necessary hardware interlocks
+There are also interfaces with the Photon Detection system. Purity monitors and light emitting system for cameras both emit light that might damage PDs.
+Although this should be understood and quantified, CISC and SP-PD may have to define the necessary hardware interlocks
 that avoid turning on any other light source accidentally when PDs are on.
 
+The DAQ/CISC interface is described in the DAQ Section~\ref{sec:fdsp-daq-intfc-ext}. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Interface with External Cryogenics Systems}
-\label{sec:fdsp-slow-cryo-ext-cryo}
+\fixme{Does this x-ref work?  The cut-n-paste below (commented out) from
+  the official interfaces document seems overkill.  Also, there are not
+  currently plans for a DAQ test stand at SURF.  The DAQ as a whole is
+  installed before APAs arrive, then the actual DAQ used to commission
+  the APAs as they go in.  If the there is a slow controls test facility
+  at SURF, the same software interfaces could be used as for the final
+  form, nothing new needs created.}
 
-\fixme{specify external interface of Cryo Inst. Systems with systems outside the cryostat (with LBNF), detector Interface to LBNF design teams working on the design on cryogenic systems (including cryogenic piping)}
+
+%DAQ status.  
+
+CISC also interfaces with the beam and cryogenics group since at least the status of those systems will be monitored.
+The interface with the facility: .... Building controls; Detector hall monitoring; ground impedance monitoring
+
+%  Power distribution units monitoring; Computer hardware monitoring
 
 
-This includes external cryogenics piping 
+Assuming that the scope of software \& computing (SWC) group includes scientific computing support to project activities, there are substancial interfaces with that group. 
+The hardware interfaces resposibility of the SWC include networking installation and maintenance,
+maintenance of SC servers and any additional computing hardware needed by instrumentation devices.
+CISC will provide the needed monitoring for power distribution units (PDUs). Regarding software interfaces the SWC group will provide:
+i) SC database maintenance, ii) API for accessing the SC database offline,
+iii) UPS packages, local installation and maintenace of software needed by CISC, and iv) SWC creating and maintaining computer accounts on production clusters. 
+On the other direction CISC will provide the required monitoring/control of SWC quantities including alarms, archiving and GUIs when applicable. 
 
-The external cryogenics piping is responsability of LNBF while the internal pipes are under CISC. The proper interfaces should be defined.
 
-The switchyard for the gas analyzers ... 
+CISC has profound hardware interfaces with the Calibration Task Force (CTF). Indeed, since CISC and CTF ports will be multi-purpose to enable deploying various devices,
+both systems will need to interact in terms of flange design and sharing space around the ports. Also, CISC might use calibration ports to extract cables from CISC devices. 
+At the software level CISC will be responsible for calibration device monitoring (and control to the extent needed) and will 
+monitor the interlock bit status for Laser and radioactive sources. 
+%Understand the location of Cold cameras & lights for inspection of CFT related devices, as well as the
+%requirements of Cold/Warm cameras: resolution, field of view, light sensitivity, low light operation, frames per second, operation in triggered mode?  etc.
+
+CISC indirectly interfaces to Physics through the CFT devices. One specific need for physics will be to extract
+instrumentation or slow controls data to correlate high level quantities to low level or calibration data.
+This requires tools to extract data from the slow controls database (see CISC-SWC interface document).
+A brief list of what CISC data is needed by Physics is given in the CISC-Physics interface document. 
+
+Interfaces between CISC and technical coordination are detailed in doc-db\#6991-v0 (facility), doc-db\#7018-v1 (intallation), doc-db\#7045-v1 (integration facility). 
+
+
+%Interfaces with the Facility are: Location of instrumentation devices, anchoring points, cryostat ports and flanges,
+%space needed above cryostat, cable routing, rack space above cryostat, Mezzanine and CUC (Central Utility Cavern), etc 
+
+
+
+%\fixme{Describe interface with DAQ system, including Interface with
+%  DAQ/Electronics groups for a slow controls test facility at SURF,
+%  possibly as part of the DAQ test stand.}  
+
+\fixme{specify external interface of Cryo Inst. Systems with systems outside the cryostat (with LBNF), detector Interface to LBNF design teams working on the design on cryogenic systems (including cryogenic piping), The switchyard for the gas analyzers ... }
+
+
+
 
 
 
@@ -81,95 +103,4 @@ The switchyard for the gas analyzers ...
 
 %Building Temperature, humidity and pressure will be monitored and integrated into the slow controls system. 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Interface with DAQ/Electronics}
-\label{sec:fdsp-slow-cryo-slow-daq}
-
-The DAQ/CISC interface is described in the DAQ
-Section~\ref{sec:fdsp-daq-intfc-ext}. 
-
-\fixme{Describe interface with DAQ system, including Interface with
-  DAQ/Electronics groups for a slow controls test facility at SURF,
-  possibly as part of the DAQ test stand.}  
-
-\fixme{Does this x-ref work?  The cut-n-paste below (commented out) from
-  the official interfaces document seems overkill.  Also, there are not
-  currently plans for a DAQ test stand at SURF.  The DAQ as a whole is
-  installed before APAs arrive, then the actual DAQ used to commission
-  the APAs as they go in.  If the there is a slow controls test facility
-  at SURF, the same software interfaces could be used as for the final
-  form, nothing new needs created.}
-
-%% Hardware: There is not a hardware interface between the systems.  However, CISC will need “N” servers in “M” racks
-%% drawing “Y” kVA of power in the DAQ server room in the CUC.  CISC will also need 2U of rack space for rack monitoring
-%% (e.g. rack protection status, rack temperatures, rack fans etc.) and any Slow Controls hardware in each of the DAQ front end racks.
-
-
-%% Software: The software interface between DAQ and CISC consists of the following components:
-
-%% Pipeline information from DAQ system (e.g. run status, CPU loads etc.) into SC archiving and
-%% status displays to integrate displays and warnings into one system for the operators and provide
-%% integrated archiving for sampled data in the archived SC database. 
-
-%% Provide DAQ server hardware monitoring to monitor the health of the servers e.g. fan speeds of the servers, system temperatures, server voltages etc.
-
-%% Provide monitoring of current loads on the power distribution units (PDUs) in the DAQ racks
-
-%% Provide rack monitoring including rack protection status, rack temperatures etc.
-
-%% Provide scripts to inject SC data (if any) into the main DAQ stream as needed. The requirements and implementation mechanism (if needed) will need to be defined.
-
-%% Signals: The format of the data, data packets, and database fields will be detailed in future Requirements and Specifications documents.
-%% L0: List of DAQ items CISC is monitoring, and CISC quantities DAQ needs to know 
-%% E.g., run status, CPU loads (DAQ->CISC)
-%% E.g., power supplies, rack status, LAr levels (CISC->DAQ)
-%% L1: CISC database format
-%% L2: DAQ/CISC status register
-
-
-%% Hardware: The hardware interface between CISC and SP-TPC-Elec has multiple components: 
-
-%% Ensure that CISC devices do not induce noise on cold electronics.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Interface with Physics/calibration}
-\label{sec:fdsp-slow-cryo-slow-phys/calib}
-
-%% Hardware: CISC currently doesn’t have a direct hardware interface with physics. But, CISC indirectly interfaces to physics through Calibration hardware devices that currently fall under the scope of the calibration Task Force group. Refer to the interface document b/n CISC and Calibration group (doc-db\#6383-v1).
-
-%% Software: One specific need for physics will be to extract instrumentation or slow controls data to correlate high level quantities to low level or calibration data. This requires tools to extract data from the slow controls database, currently this aspect is considered under the scope of the Software and Computing group (see doc-db\#6383-v1). 
-
-%% Signals: Physics quantities to be monitored/controlled by slow controls (SC) must be identified and well defined b/n both groups.
-%% Also it has to be understood if any SC quantities has to be passed to the main DAQ data stream. A brief list of what CISC data will PHY need is given below:
-%% Energy scale calibration/reconstruction can use input from data from purity monitors on electron lifetime 
-%% Drift velocity and impact on Fiducial Volume: input from data from Temperature monitors 
-%% Ion Flow and any local E-field distortions impacting recombination,
-%% energy scale uncertainties and PID: purity and temperature maps from instrumentation data, fluid flow modelling and validation will provide necessary input for this 
-%% Operations and Data Quality for physics: E.g. Purity Monitor analysis for near line purity monitoring and input to data quality in terms of purity of argon 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Interface with software and computing}
-%\label{sec:fdsp-slow-cryo-slow-soft/comp}
-
-% Below it is assumed that the scope of SWC group includes scientific computing support to project activities.
-
-% The hardware interfaces include networking installation and maintenance, maintenance of SC servers and any additional computing hardware needed by instrumentation devices.
-% CISC will provide the needed monitoring for power distribution units (PDUs). 
-
-% The SWC group will provide: i) SC database maintenance, ii) API for accessing the SC database offline,
-% iii) UPS packages, local installation and maintenace of software needed by CISC, and iv) SWC creating and maintaining computer accounts on production clusters. 
-% On the other direction CISC will provide the required monitoring/control of SWC quantities including alarms, archiving and GUIs when applicable. 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Interface with Other Systems}
-%\label{sec:fdsp-slow-cryo-slow-other}
-
-
-%There are also interfaces with the Photon Detection system.
-%Purity Monitors and Light emitting system for Cameras both emit light that might damage PDs.
-%Although this should be understood and quantified, CISC and SP-PD may have to Define the necessary hardware interlocks
-%that avoid turning on any other light source accidentally when PDs are on.
 

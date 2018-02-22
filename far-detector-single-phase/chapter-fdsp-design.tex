@@ -2,36 +2,89 @@
 \label{ch:fdsp-apa-design}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction to Single-Phase Far Detector in DUNE/LBNF}
+\section{Introduction to Single-Phase Far Detector in DUNE}
 \label{sec:fdsp-design-intro}
 
+The DUNE Single-Phase Far Detector will be the culmination of several decades
+of LArTPC technology development, and once operational it will open new windows of opportunity in the study
+of neutrinos.  DUNE's rich physics program, with discovery
+potential for CP-Violation in the neutrino sector, and capability to make
+significant observations of nucleon decay and astrophysical events, is enabled
+by the exquisite resolution of the LArTPC detector technique.
 
+Experience with design, construction, operation, and data
+analysis with numerous single-phase LArTPC experiments and prototypes has informed the approach to
+realizing the massive DUNE Single-Phase Far Detectors. Each far detector module will feature the largest LArTPCs ever
+constructed, at approximately 10 kTon active volume each.  Aside from the
+challenges inherit in such a large undertaking, DUNE presents the added complication of construction and operation in a location
+that is one mile underground with limited access.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{DUNE Physics}
-\label{sec:fdsp-design-phys}
+The design of the DUNE Single-Phase Far Detector module that is presented in this document
+reflects an approach to acheive the science goals of the experiment, and
+address the challenges of constructing and operating a massive detector in an
+underground environment.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Goals (Oscillation Physics, Supernova Neutrinos, Proton Decay)}
-\label{sec:fdsp-design-goals}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Requirements}
-\label{sec:fdsp-design-reqs}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Single-Phase LArTPC for DUNE}
-\label{sec:fdsp-design-tpc}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Operational Principle}
+\section{Single-Phase LArTPC Operational Principle}
 \label{sec:fdsp-design-op}
+
+The precision tracking and calorimetry offered by the single-phase LArTPC
+technology provides excellent ability to identify interactions of interest
+while mitigating sources of background.  The operational principle of a
+single-phase LArTPC is summarized here for reference.
+
+Charged particles traversing the active volume of the LArTPC ionize the medium,
+while also producing scintillation light.  The ionization drifts along
+an electric-field that is present throughout the volume, towards a series of
+anode layers.  Each anode layer is composed of finely-spaced wires arranged at
+characteristic angles, and appropriate biasing of these wires allows the
+ionization to drift through the successive layers before terminating on a wire
+in the Collection layer.  The individual wires in the anode layers can be
+instrumented with low-noise electronics that record the current in the wire as
+a function of time.  The argon scintillation light, which at 128 nm wavelength
+is deep in the UV spectrum, can be recorded by photon detectors that shift the
+wavelength closer to the visible spectrum and subsequently record the time and
+pulse characteristics of the incident light.
+
+\fixme{Include diagram of basic single-phase LArTPC operational principle}
+
+The performance of the LArTPC hinges on several key factors.  First, the
+purity of the liquid argon must be extremely high in order for ionization to
+be able to drift over several meters towards the anode planes.  The levels of
+electronegative contaminatns (e.g. oxygen, water), must be reduced and
+maintained to $\sim$ppt levels in order to achieve minimum charge attenuation
+over the longest drift lengths in the LArTPC.   Second, the electronic readout
+of the LArTPC requires very low noise levels so that the signal of drifting
+ionization is clearly discernable over the baseline of the electronics.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementation of Single-Phase LArTPC Design at DUNE}
 \label{sec:fdsp-design-impl}
 
-\fixme{e.g. underground locale/construction, wrapped wires, etc…}
- 
+The DUNE Single-Phase Far Detector builds on several decades of experience in
+designing, constructing, and operating LArPTCs.  It implements several
+unique design features to maximize the capability of the experiment, as well
+as new features specific to the unprecedented scale of the Far Detector
+modules and the deep underground location where construction will occur.
+
+Among the novel features of the Single-Phase Far Detector LArTPC are the
+presence of ``wrapped'' anode wires that follow a helical trajectory around
+the height of the APA.  This design choice was made to minimize the need to
+tile electronic readout around the perimeter of the APA, which would lead to
+dead space between neighboring APAs.  This choice also was driven by
+reconstruction performance, with the angle of the wrap chosen such that a
+given Induction plane wire does not intersect a given Collection plane wire
+more than once, which greatly reduces pathologies in pattern recognition. 
+
+Among the features driven by the underground location of the experiment, all
+detector components are sized to fit within the constraints of the SURF shafts
+and access pathways.
+
+
+
+
+
+
+
+
