@@ -76,7 +76,7 @@
 
 % data aquisition
 \newduneabbrev{daq}{DAQ}{data aquisition}{The Data Acquisition system
-  accepts data from the detector \acrshort{fe} electronics, buffers
+  accepts data from the detector FE electronics, buffers
   it, performs a \gls{trigdecision}, builds events from the selected
   data and delivers the result to the offline \gls{diskbuffer}}
 
@@ -149,7 +149,7 @@
 
 % primary DAQ buffer
 \newduneword{ringbuffer}{primary DAQ buffer}{A buffer in the
-  \dshort{daq} with sufficient size to store data long enough for a
+  DAQ with sufficient size to store data long enough for a
   trigger decision to be made and with sufficient endurance and
   throughput to allow constant flow of full-stream data}
 
@@ -183,23 +183,26 @@
   \gls{detmodule} by executing \glspl{trigcommand} by reading out
   the requested data}
 
-\newduneabbrev{rce}{RCE}{Reconfigurable Computing Element}{One of four
-  nodes in a \gls{cog} which consists of ARM CPU and FPGA resources. \fixme{Needs improvement}}
 
-
+% \fixme{Needs improvement}
 \newduneabbrev{cob}{COB}{Cluster On Board}{Four \glspl{rce} together
-  with networking an other hardware.\fixme{Needs improvement}}
+  with networking an other hardware}
 
-\newduneabbrev{acta}{ACTA}{ACTA}{A computer platform.\fixme{Needs
-    improvement}} 
+% \fixme{Needs improvement}
+\newduneabbrev{rce}{RCE}{Reconfigurable Computing Element}{One of four
+  nodes in a \gls{cob} which consists of ARM CPU and FPGA resources}
+
+% \fixme{Needs improvement}
+\newduneabbrev{acta}{ACTA}{ACTA}{A computer platform} 
 
 \newduneabbrev{rf}{RF}{radio frequency}{Electromagnetic emissions
   which are within the frequency band of sensitivity of the detector
   electronics.}
 
+% \fixme{Needs improvement}
 \newduneabbrev{fpga}{FPGA}{Field Programmable Gate Array}{An
   integrated circuit technology which the hardware to be reconfigured
-  to execute different algorithms after manufacture. \fixme{Needs improvement}}
+  to execute different algorithms after manufacture}
 
 \newduneabbrev{felix}{FELIX}{Front-End Link eXchange}{A
   high-throughput interface between front-end and trigger electronics
