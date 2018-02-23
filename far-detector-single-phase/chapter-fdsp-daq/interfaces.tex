@@ -11,18 +11,20 @@
 \subsection{TPC Electronics}
 \label{sec:fdsp-daq-intfc-elec}
 
-The interface between the Single Phase TPC detectors and the DAQ is described in Dune-DocDB-6742.
+The interface between the \dword{sp} TPC detectors and the DAQ is described in Dune-DocDB-6742.
+\fixme{Add reference.}
 
-Data from the cold electronics front end motherboards are 8b10 encoded
-and sent to the Warm Interface boards (WIBs) on copper cables at a bit
-rate of 1.28GBit/s. There are two options being considered for the
-WIBs. In one the data are simply converted to optical signals and
-transmitted to the DAQ in the CUC on 1.28GBit/s optical links with a
-total of 80 fibres per APA. In the second option the WIBs aggregate
-the data onto links running at ~ 10GBit/s before transmission to the
-DAQ with a total of ten fibres per APA. In both cases the data are
-received on rear transition modules connected to the COB ATCA boards
-that receive the data ( see section~{sec:fdsp-daq-ltr} ).
+Data from the cold electronics \dwords{femb} are 8b10 encoded and sent
+to the \dwords{wib} on copper cables at a bit rate of
+\SI{1.28}{\Gbps}. There are two options being considered for the
+\dwords{wib}. In one, the data are simply converted to optical signals
+and transmitted to the DAQ in the CUC on \SI{1.28}{\Gbps} optical
+links with a total of 80 fibres per APA. In the second option, the
+\dwords{wib} aggregate the data onto links running at
+$\approx$\SI{10}{\Gbps} before transmission to the DAQ with a total of
+ten fibres per APA. In both cases the data are received on rear
+transition modules connected to the \dword{cob} \dword{atca} boards
+(see Section~{sec:fdsp-daq-ltr}).
 
 
 
@@ -30,11 +32,10 @@ that receive the data ( see section~{sec:fdsp-daq-ltr} ).
 \subsection{PD Electronics}
 \label{sec:fdsp-daq-intfc-photon}
 
-The interface between the Single Phase Photon Detection System(PDS)
+The interface between the \dword{sp} \dword{pds}
 and the DAQ is described in DUNE-doc-6727. The signal to noise ratio
-of the SiPM signals is high enough to allow the data to be safely
-zero-suppressed. This reduces the data flow so that a bandwidth of
-8GBit/s per APA is sufficent to transfer the zero supressed data to
+of the \dword{sipm} signals is high enough to allow \dword{zs} to be safely applied to the data. This reduces the data flow so that a bandwidth of
+\SI{8}{\Gbps} per \dword{apa} is sufficent to transfer the zero supressed data to
 the DAQ, with an order of magnitude safety factor. The link from the
 single phase cryostats to the CUC will be implemented as either eight
 1000Base-SX links  or a single 10GBase-LR link per APA.
@@ -42,7 +43,7 @@ single phase cryostats to the CUC will be implemented as either eight
 The data on the links will be encoded using UDP/IP to allow easy
 reception by the DUNE DAQ server PCs.
 
-There is a single physical pathway between the PDS and the DAQ for
+There is a single physical pathway between the \dword{pds} and the DAQ for
 both data and information used for data selection. The first stage of
 the DAQ selects trigger primitives from this data stream and forwards
 them to the data selection system.
@@ -59,20 +60,21 @@ a dedicated network connection. A disk buffer will be provided by the
 \dword{daq} on or near the SURF site to hold the data from several days
 of data taking so that the operation of the experiment will not be affected
 if there happens to be a network disruption between SURF and Fermilab.
+\fixme{Add ref for docdb-7123.}
 
 During stable running, the data volume that will be produced by the
 \dword{daq} systems of all four \dwords{detmodule} will be no larger
-than 30 PB/yr. This rate is expected to be independent of the number
+than \SI{30}{\PB/\year}. This rate is expected to be independent of the number
 of \dwords{detmodule} that are operational. During the construction
 of the second, third, and fourth \dwords{detmodule}, the extra rate
 per \dword{detmodule} will be used to gather data to aid in the
 refinement of the data selection algorithms.
 During commissioning, the data rate is expected to  be higher,
 and it is anticipated that a data volume
-of 30 PB will be necessary to commission a \dword{detmodule}.
+of \SI{30}{\PB} will be necessary to commission a \dword{detmodule}.
 
-The disk buffer at SURF is planned to be 300 TB in size.  The data
-link from SURF to Fermilab will support 20 Gbps.  The Offline Computing
+The disk buffer at SURF is planned to be \SI{300}{\TB} in size.  The data
+link from SURF to Fermilab will support \SI{20}{\Gbps}.  The Offline Computing
 team will be responsible for developing the software to manage the
 transfer of files from SURF to Fermilab. The \dword{daq} team will be
 responsible for producing a
@@ -86,7 +88,7 @@ algorithms that run inside this framework.
 \subsection{Slow Control}
 \label{sec:fdsp-daq-intfc-ext}
 
-The Cryogenics and Slow Controls (CISC) systems monitor detector
+The \dword{cisc} systems monitor detector
 hardware and conditions not directly involved in taking the data
 described above.  That data will be stored both locally (in CISC
 database servers in the CUC) and offline (the databases will be
@@ -122,6 +124,8 @@ time to save data that has already been buffered (see
 Sec.~\ref{sec:fdsp-daq-ltr}), or changing the trigger or zero
 suppression criteria for data in the interesting time period.
 
+\fixme{Do we want subsubsections below instead of explicit paragraphs?}
+
 \paragraph{Beam Trigger:} The method for predicting and receiving the
 time of the beam spill is described in
 Sec.~\ref{sec:fdsp-daq-design-beamtiming}.  Once that time is known to
@@ -133,17 +137,17 @@ full data can be saved from the buffer and saved as an event.
 individually sensitive to the burst of neutrinos which would be observed
 from a core-collapse supernova somewhere in our galaxy.  While DUNE
 should be sensitive to such a burst on its own able to contribute to the
-coincidence network (Sec.~\ref{sec:fdsp-daq-sel}) via a tcp socket,
+coincidence network (Sec.~\ref{sec:fdsp-daq-sel}) via a TCP/IP socket,
 being able to save data based on other observations adds an additional
 chance to not miss saving this rare and valuable data.  A SNEWS alert is
 formed when two or more neutrino experiments report a potential
-supernova signal within \SI{10}{s}.  The earliest time in the
+supernova signal within \SI{10}{\s}.  The earliest time in the
 coincidence is then sent via running a script on the SNEWS server at BNL
 provided by the experiment wishing to receive the alert.  The latency
 from neutrino burst is set by the response time of the second fastest
 detector to report to SNEWS: this could be as short as seconds, but
-might be tens of seconds.  At latencies larger than \SI{10}{s}, full
-data might not be available, but compressed data might writeable.
+might be tens of seconds.  At latencies larger than \SI{10}{\s}, full
+data might not be available, but selected data is expected to be manageable.
 
 There are other astrophysical triggers available for occurrences which
 DUNE might not sensitive to individually, but could be either rarely or
