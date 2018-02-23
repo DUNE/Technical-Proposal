@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Thermometers}
-\label{sec:fdsp-slow-cryo-therm}
+\label{sec:fdgen-slow-cryo-therm}
 % anselmo, jelena,
 
 As mentioned above, a detailed 3D temperature map is important to monitor the correct functioning of the cryogenic system and the LAr uniformity.
@@ -98,13 +98,13 @@ simulations of the cryogenic recirculation predict very slow change in temperatu
  In order to address concerns related to potential difference in the sensor reading prior to installation and after installation in DUNE FD dynamic temperature monitor allows cross-calibration of sensors in situ. Namely, this T-gradient monitor  can move vertically while installed in DUNE FD, which allows for precise cross-calibration between the sensors in-situ at predefined locations as well as in between them. The procedure for cross-calibrations is the following: the temperature reading is taken at the lowest position with all sensors. Then, the stepper motor moves the carrier rod up for \SI{50}{cm} putting all sensors in the location of their neighbor that is \SI{50}{cm} above them. Then the second reading is taken. In this manner, except for the lowest position we have temperature measurement at each location with two adjacent sensors, and by linking the temperature offsets between the two readings at each location, temperature readings from all sensors are cross-calibrated in situ, cancelling all offsets due to electromagnetic noise or any parasitic resistances that may have prevailed despite the four point connection to the sensors that should cancel most of the offsets. These measurements are taken with very stable current source, which ensures high precision of repeated temperature measurements over time. The motion of the dynamic T-monitor is stepper motor operated, delivering measurements with high spatial resolution. 
 
 \subsubsection{Dynamic t-gradient monitor design}
-Dynamic T-gradient monitor consists of three distinct parts: carrier rod on which sensors are mounted, enclosure above the cryostat housing the space that allows vertical motion of the carrier rod 1.5\,m above its lowest location, and motion mechanism. The motion mechanism consists of a stepper motor connected to a gear and pinion motion mechanism through ferrofluidic dynamic seal. The sensors have two pins that are soldered to a printed circuit board (PCB). Two wires are soldered to the common soldering pad for each pin, individually.   There is a cutout in the PCB around the sensor that allows free flow of argon for more accurate temperature reading.  Stepper motors typically have very fine steps allowing high precision positioning of the sensors.  Figure~\ref{fig:DT_design} shows the overall design of the dynamic T-gradient monitor with the sensor carrier rod, enclosure above the cryostat and stepper motor mounted on the side of the enclosure. The enclosure consists of two parts connected by 6-cross flange. One side of the 6-cross flange will be used to for the signal wires, another side will be used as a viewing window, while the two other ports will be spares. Figure~\ref{fig:sensonr_on_pcb_motor}-Left shows the mounting of the PCB board on the carrier rod and mounting on the sensor on the PCB along with the four point connection to the signal readout wires. Finally, Figure~\ref{fig:sensonr_on_pcb_motor}-Right shows the stepper motor mounted on the side of the rod enclosure. The motor is kept outside, at room temperature and its power and control cables are also kept outside.
+Dynamic T-gradient monitor consists of three distinct parts: carrier rod on which sensors are mounted, enclosure above the cryostat housing the space that allows vertical motion of the carrier rod 1.5\,m above its lowest location, and motion mechanism. The motion mechanism consists of a stepper motor connected to a gear and pinion motion mechanism through ferrofluidic dynamic seal. The sensors have two pins that are soldered to a printed circuit board (PCB). Two wires are soldered to the common soldering pad for each pin, individually.   There is a cutout in the PCB around the sensor that allows free flow of argon for more accurate temperature reading.  Stepper motors typically have very fine steps allowing high precision positioning of the sensors.  Figure~\ref{fig:fd-slow-cryo-dt-monitor-overview} shows the overall design of the dynamic T-gradient monitor with the sensor carrier rod, enclosure above the cryostat and stepper motor mounted on the side of the enclosure. The enclosure consists of two parts connected by 6-cross flange. One side of the 6-cross flange will be used to for the signal wires, another side will be used as a viewing window, while the two other ports will be spares. Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Left shows the mounting of the PCB board on the carrier rod and mounting on the sensor on the PCB along with the four point connection to the signal readout wires. Finally, Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Right shows the stepper motor mounted on the side of the rod enclosure. The motor is kept outside, at room temperature and its power and control cables are also kept outside.
 
-\begin{dunefigure}[dyn-T-grad]{fig:DT_design}
+\begin{dunefigure}[dyn-T-grad]{fig:fd-slow-cryo-dt-monitor-overview}
   {An overview of the dynamic T-gradient monitor.}
  \includegraphics[width=0.11\textwidth,angle=90]{cisc_DTOverview.png}
 \end{dunefigure}
-\begin{dunefigure}[]{fig:sensor_on_pcb_motor}
+\begin{dunefigure}[]{fig:fd-slow-cryo-sensor-mount}
   {Left: Sensor mounted on a PCB board and PCB board mounted on the rod. Right:
     The driving mechanism of the dynamic T-gradient monitor. It consists of a stepper motor driving the pinion and gear linear motion mechanism. }
   \includegraphics[width=0.40\textwidth]{cisc_DTSensorMount.png}
@@ -133,7 +133,7 @@ The four wires of each cable will be soldered to the inner pins of male SUBD-25 
 
 % % % %
 \subsubsection{Readout system for thermometers}
-\label{sec:fdsp-slow-cryo-therm-readout}
+\label{sec:fdgen-slow-cryo-therm-readout}
 
 A high precision and very stable system is required to achieved the design precihsion of $< 5 mk$.
 The proposed readout system is the one used in ProtoDUNE-SP, which is based on a variant of an existing mass PT100 temperature readout system developed at
