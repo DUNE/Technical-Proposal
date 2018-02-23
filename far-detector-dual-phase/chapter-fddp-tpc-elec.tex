@@ -98,7 +98,7 @@ WR switches (\num{18} ports) & \num{16} \\ \colhline
 
 The CRO FE analog electronics is based on cryogenic ASIC chip with a large dynamic range (up to \SI{1200}{\femto\coulomb}) to accomodate the charge amplification in the dual-phase CRP. The FE cards read \num{64} CRP channels each. They are mounted in dedicated Signal FeedThrough (SFT) chimneys and are located within a short distance (\SI{<1}{\metre}) from each CRP to minimize the noise caused by long cables (large cable capacitance). The cards remain accessible throughout the detector operation. Each SFT chimney hosts \num{10} FE analog cards, which corresponds to the readout of \num{640} CRP channels per chimney. There are, therefore, \num{240} SFT chimneys to be installed for the charge readout in a given DP detector module.   
 
-The differential analog signals from the analog FE cards, routed via an interface flange of the SFT chimneys, are digitized by AMC cards located in the warm conditions outside of the cryostat. AMCs are hosted in uTCA crates. In the baseline version of the design (utilized currently in ProtoDUNE-DP), each AMC digitizes \num{64} channels corresponding to reading one FE analog card. Each uTCA in such case contains \num{10} AMCs (\num{640} channel). However, an implementation with AMCs supporting a higher channel density is also being investigated for cost reduction purposes. A given SFT chimney is serviced by one uTCA crate placed in its immediate vicinity.
+The differential analog signals (positive and negative polarity) from the analog FE cards, carried by the twisted-pair ribbon cables and routed via an interface flange of the SFT chimneys, are digitized by the AMC cards located in the warm conditions outside of the cryostat. These cards are hosted in uTCA crates placed in the immediate vicinity of the SFT chimneys (one crate per chimney). In the baseline version of the design currently used for ProtoDUNE-DP, each AMC digitizes \num{64} channels corresponding to reading one FE analog card. Each uTCA in such case contains \num{10} AMCs reading a total of \num{640} channels. However, an implementation with AMCs supporting a higher channel density is also being investigated for cost reduction purposes.
 
 The LRO FE analog and digital electronics is based on a custom-built AMC. The card contains a CATIROC ASIC, which is used to determine precisely the charge and start times of signals from each individual PMT. In addition, a \SI{14}{bit} \SI{65}{MHz} ADC digitizes the data for continuous streaming of the PMT signals. Each card can read up to \num{16} channels. A potential future upgrade is to increase the channel density per card to \num{32} channels. The LRO cards are housed in five dedicated uTCA crates located close to the PMT instrumentation feedthroughs.
 
@@ -145,27 +145,28 @@ A short summary of some of  the number of principal components and channel granu
 
 The cryogenic amplifer ASIC is the main component of the FE analog cards. Its design is based on the CMOS \SI{0.35}{\micro\meter} technology and is an outcome of an R\&D  activity started in 2006. Two principal version of ASIC chips have been produced for the dual-phase LArTPC operation. In the first version the amplifiers have a constant gain in the region of $0-1200$ \si{\femto\coulomb} ($0-40$ MIP). In the second, the amplifiers have a higher linear gain for signals up to \SI{400}{\femto\coulomb} (roughly 10 MIP signals) and a logarithmic response in the  $400-1200$ \si{\femto\coulomb} range. This double-slope behavior is obtained by using a MOSCAP capacitor in the feedback loop of the amplifier that changes its capacitance above a certain signal threshold. The aim of this solution is to optimize the resolution for small charge depositions (in a few MIP region) while preserving overall the large dynamic range of the amplifier.
 
-\todo{update figure with only two curves for -162 and 27 C}
-\begin{dunefigure}[Gain response of the cryogenic FE ASIC]{fig:dpele-fe-asic-gain}
-{Gain response of the cryogenic FE ASIC }
+%\todo{update figure with only two curves for -162 and 27 C}
+%\begin{dunefigure}[Gain response of the cryogenic FE ASIC]{fig:dpele-fe-asic-gain}
+%{Gain response of the cryogenic FE ASIC }
 %\includegraphics[width=0.5\textwidth]{dpele-fe-asic-gain}
-\includegraphics[width=0.5\textwidth]{larzic_2015_slope}
+%\includegraphics[width=0.5\textwidth]{larzic_2015_slope}
+%\end{dunefigure}
+
+\begin{dunefigure}[Cryogenic FE ASIC properties]{fig:dpele-fe-asic-prop}
+{Cryogenic FE ASIC propreties: amplifier response (left) and noise (right) at different temperatures measured at the output of differential buffer}
+\includegraphics[width=0.49\textwidth]{dpele-fe-asic-gain}
+\includegraphics[width=0.49\textwidth]{dpele-fe-asic-noise}
 \end{dunefigure}
 
-\begin{dunefigure}[Noise of the cryogenic FE ASIC as a function the detector capacitance]{fig:dpele-fe-asic-noise}
-{Measured noise of the cryogenic FE ASIC as a function the detector capacitance}
-%\includegraphics[width=0.5\textwidth]{dpele-fe-asic-noise}
-\includegraphics[width=0.5\textwidth]{dpele-fe-asic-noise}
-\end{dunefigure}
-
-The ASIC version with the double-slope gain has been selected for ProtoDUNE-DP and adopted in the DP TPC electronics design. Figure~\ref{fig:dpele-fe-asic-gain} illustrates the response of the amplifier as a function of the injected charge for this chip, while Figure~\ref{fig:dpele-fe-asic-noise} shows the measured noise in units of Equivalent Noise Charge (ENC) as a function of the ("detector")  capacitance at different temperatures. The ASIC contains \num{16} amplifier channels with differential line buffers and has a power consumption which is \SI{<18}{\milli\watt} per channel. 
+%Figure~\ref{fig:dpele-fe-asic-noise} 
+The ASIC version with the double-slope gain has been selected for ProtoDUNE-DP and adopted in the DP TPC electronics design. The left plot in Figure~\ref{fig:dpele-fe-asic-prop} illustrates the response of this amplifier for different values of the injected charge, while that on the right shows the measured noise in units of Equivalent Noise Charge (ENC) as a function of the "detector" capacitance at different temperatures. The ASIC contains \num{16} amplifier channels with differential line buffers and has a power consumption which is \SI{<18}{\milli\watt} per channel. 
 
 \begin{dunefigure}[Image of an analog FE card mounted on the extraction blade]{fig:dpele-fe-card-blade-image}
 {Image of an analog cryogenic FE card mounted on the extraction blade}
 \includegraphics[width=0.7\textwidth]{dpele-fe-card-blade-image}
 \end{dunefigure}
 
-Each cryogenic FE card, shown in Figure~\ref{fig:dpele-fe-card-blade-image}, hosts four ASIC amplifier chips and a few passive discrete components. The input stage of each amplifier channel has a \SI{1}{\giga\ohm} resistor to ground followed by a \SI{2.2}{\nano\farad} decoupling capacitor. The function of the resistor is to provide the ground reference for the anode strips of CRP. Each input stage is protected against discharges coming from the detector with a TVS diode (Bourns CDSOD323-T08LC). This component was selected after studying the performance of different ESD components subjected systematically to discharges of a few kV with an energy similar to that of LEMs in CRP. The FE cards also house the blocking capacitors for filtering the low voltage power lines.
+Each cryogenic FE card, shown in Figure~\ref{fig:dpele-fe-card-blade-image}, hosts four ASIC amplifier chips and a few passive discrete components. The input stage of each amplifier channel has a \SI{1}{\giga\ohm} resistor to ground followed by a \SI{2.2}{\nano\farad} decoupling capacitor; both are rated for HV operation. The function of the resistor is to ground the CRP anode strips. Each input stage is also protected against discharges coming from the detector with a TVS diode (Bourns CDSOD323-T08LC). This component was selected after studying the performance of different devices for the electrostatic discharge protection by subjecting them systematically to discharges of a few kV with an energy similar to that of LEMs in CRP. The FE cards also house the blocking capacitors for filtering the low voltage power lines.
 
 \begin{dunefigure}[Noise measurements in LArProto in different conditions]{fig:dpele-311-noise}
 {Noise of measurements in LArProto in different conditions. Left: at warm with the slow control cables connected to the cryostat flanges (red points) and disconnected (black points). Right: at warm (red points) and cold (black points) with the slow control cables disconnected. The channels with negative (positive) channel number correspond to the strips of \SI{3}{\meter} (\SI{1}{\meter})}
@@ -173,7 +174,7 @@ Each cryogenic FE card, shown in Figure~\ref{fig:dpele-fe-card-blade-image}, hos
 \includegraphics[width=0.45\textwidth]{dpele-311-noise-warm-cold}
 \end{dunefigure}
 
-While the FE amplifier ASICs are in the shielded environment provided by the chimneys (Faraday cage), interference from other equipment via a noisy ground or ground loops could significantly worsen the noise performance from the design target. Figure~\ref{fig:dpele-311-noise} shows some results of the noise measurements performed under different conditions in the LArProto detector. The channels reading \SI{3}{\meter} (\SI{1}{\metre}) long strip correspond to negative (positive) channel numbering in the plots and the 1 ADC count is equivalent to about 900 electrons. The left plot of Figure~\ref{fig:dpele-311-noise} shows the noise measurements performed at warm with and without slow control cables (CRP HV, CRP motors, level meters, temperature probes, etc.) connected. The noise is clearly affected by the grounding of the slow control: the average value of the noise RMS is around \num{1.7} ADC with slow control cables connected and decreases to about \num{1.5} ADC when those are removed. One interesting feature, particularly visible with the cables disconnected, is that the noise measured in LArProto is similar for the channels connected to the \SI{1}{\meter} and \SI{3}{\meter} long strips. Given that the longer strips have thrice the input capacitance than the shorter ones, the expected noise (see Figure~\ref{fig:dpele-fe-asic-noise}) for these should be larger by a factor of \num{2} as indicated by the dashed line in the plot. In addition, the noise on the short strips is also lower (\num{1.5} ADC) than expected for the \SI{160}{pF/m} strip input capacitance (1.7 ADC). The reason for such behaviour of the noise in the CRP of LArProto is still under investigation. However, measurements have shown that the capacitance of the CRP anode strips is not purely to ground, but rather it is driven by the inter-strip couplings, which creates a more complicated electrical network. 
+While the FE amplifier ASICs are in the shielded environment provided by the chimneys (Faraday cage), interference from other equipment via a noisy ground or ground loops could significantly worsen the noise performance from the design target. Figure~\ref{fig:dpele-311-noise} shows some results of the noise measurements performed under different conditions in the LArProto detector. The channels reading \SI{3}{\meter} (\SI{1}{\metre}) long strip correspond to negative (positive) channel numbering in the plots and the 1 ADC count is equivalent to about 900 electrons. The left plot of Figure~\ref{fig:dpele-311-noise} shows the noise measurements performed at warm with and without slow control cables (CRP HV, CRP motors, level meters, temperature probes, etc.) connected. The noise is clearly affected by the grounding of the slow control: the average value of the noise RMS is around \num{1.7} ADC with slow control cables connected and decreases to about \num{1.5} ADC when those are removed. One interesting feature, particularly visible with the cables disconnected, is that the noise measured in LArProto is similar for the channels connected to the \SI{1}{\meter} and \SI{3}{\meter} long strips. Given that the longer strips have thrice the input capacitance than the shorter ones, the expected noise (see Figure~\ref{fig:dpele-fe-asic-prop}) for these should be larger by a about factor of two as indicated with the dashed line in the plot. In addition, the noise on the short strips is also lower (\num{1.5} ADC) than expected for the \SI{160}{pF/m} strip input capacitance (1.7 ADC). The reason for such behaviour of the noise in the CRP of LArProto is still under investigation. However, measurements have shown that the capacitance of the CRP anode strips is not purely to ground, but rather it is driven by the inter-strip couplings, which creates a more complicated electrical network. 
 
 Figure~\ref{fig:dpele-311-noise} (right) also shows a comparison of the noise measurements in LArProto taken with the FE electronics at warm (red points) and cold (black points) at around \SI{150}{\kelvin}. The slow control cables were disconnected in both cases. However, the measurements at cold were performed with the re-circulation pump active and the cathode HV connection present. The RMS noise averaged over all channels decreases by about 25\% from roughly \SI{1.5} ADC to \SI{1.1} ADC when the FE analog cards are at cold. For comparison, the expected signal for a MIP with the CRP gain of 20 should be around \num{200} ADC. 
 
@@ -216,7 +217,24 @@ The procedure to access the FE cards at cold was successfully tested during the 
 \subsection{Digital AMC Electronics for Charge Readout}
 \label{sec:fddp-tpc-elec-design-amc}
 %THIS IS CHARGE READ OUT
-The function of the CRO AMC cards is to read and digitize the data from the FE amplifier and then transmit them to the DAQ system. Each card has eight ADC chips (AD9257), two dual-port memories (IDT70T3339), and an FPGA (ALTERA Cyclone V) on board. The FPGA provides a virtual processor (NIOS) that handles the readout and the data transmission.  The cards also include a last stage of analog shaping before the ADC input.
+The function of the CRO AMC cards is to read and digitize the data from the FE amplifier and then transmit them to the DAQ system. Each card has eight ADC chips (AD9257, Table~\ref{tab:dpele-adc9257}), two dual-port memories (IDT70T3339), and an FPGA (ALTERA Cyclone V) on board. The FPGA provides a virtual processor (NIOS) that handles the readout and the data transmission.  The cards also include a last stage of analog shaping before the ADC input.
+
+\begin{dunetable}
+[Main characteristics of ADC AD9257]
+{lr} {tab:dpele-adc9257}
+{Main characteristics of ADC AD9257}
+Item &   \\ \toprowrule
+Channels & \num{16} \\ \colhline
+Sampling & \SI{40}{MSPS}/\SI{65}{MSPS} \\ \colhline
+Resolution & \SI{0.122}{\milli\volt} \\ \colhline
+Dynamic range & \num{14} bit/ \SI{2}{\volt} \\ \colhline
+Differential Non-Linearity & Typical \num{\pm0.6} LSB\\ 
+& with Min. \num{-1.0} and Max. \num{+1.7} LSB  \\ \colhline
+Integral Non-Linearity & Typical \num{\pm1.1}  LSB\\
+& with Min. \num{-3.1} and Max. \num{+3.1} LSB  \\ \colhline
+%MEMORY??
+\end{dunetable}
+
 
 \begin{dunefigure}[Block diagram of AMC]{fig:dpele-amc-scheme}
 {Block diagram of AMC}
@@ -252,20 +270,21 @@ The analog signals from each PMT channel follow two separate branches (see Figur
 
 \subsubsection{Waveform branch} %ADC
 %details on CatiROC
-The main characteristics of the ADC used for continuous digitization of the PMT signals are shown in Table \ref{tab:dpele-adc}.
+The main characteristics of the ADC used for continuous digitization of the PMT signals are shown in Table \ref{tab:dpele-adc9249}.
 %RMS and PMT gain?
 \begin{dunetable}
 [Main characteristics of ADC AD9249]
-{lr} {tab:dpele-adc}
-{Main characteristics of the ADC AD9249}
+{lr} {tab:dpele-adc9249}
+{Main characteristics of ADC AD9249}
 Item &   \\ \toprowrule
-Time resolution & \SI{15}{ns} \\ \colhline
-Amplitude resolution (LSB) & \SI{0.122}{mV} \\ \colhline
-Dynamic range & \num{14} bit/ \SI{2}{V} \\ \colhline
-Differential Non-Linearity & Typical $\pm$\num{0.6} LSB\\
+Channels & \num{16} \\ \colhline
+Sampling & \SI{65}{MSPS} \\ \colhline
+Resolution & \SI{0.122}{\milli\volt} \\ \colhline
+Dynamic range & \num{14} bit/ \SI{2}{\volt} \\ \colhline
+Differential Non-Linearity & Typical \num{\pm0.6} LSB\\
 & with Min. \num{-0.9} and Max. \num{+1.6} LSB  \\ \colhline
-Integral Non-Linearity & Typical $\pm$\num{0.9}  LSB\\
-& with Min. \num{-3} and Max. \num{3} LSB  \\ \colhline
+Integral Non-Linearity & Typical \num{\pm0.9}  LSB\\
+& with Min. \num{-3} and Max. \num{+3} LSB  \\ \colhline
 %MEMORY??
 \end{dunetable}
 %noise llevel??
@@ -283,12 +302,6 @@ The CatiROC is a \num{16} channel ASIC dedicated to measurement of charge, and p
 
 Figure~\ref{fig:dpele-lro-catiroc} shows the schematic of the CatiROC ASIC. Its main properties are summarized in Table~\ref{tab:dpele-catiroc}. The slow channel, from which precision charge and timing measurements are made, is formed by two variable gain (\SI{8}{bit}) amplifiers followed by two variable slow shapers; one High Gain for small signals, and one Low Gain for larger signals, and two Track-and-Hold stages. The slow shaper has a tunable shaping time (up to \SI{100}{ns}) and a variable gain.  If the High Gain is saturated, corresponding to passing a pre-determined threshold common to all 16 channels, the Lower Gain value is chosen. The chosen charge value is converted by an internal 10-bit Wilkinson ADC operating at \SI{160}{MHz}.  This slow channel operates in a ping-pong mode, with two capacitors to store the slow shaper signals, giving an effective buffer of 2 events. If both capacitors are full, a deadtime of \SI{5}{\micro\second} arises.
 
-The fast channel is used to auto-trigger the ASIC and make the fine-timing measurement. It comprises a high gain preamplifier, fast shaper (shaping time \SI{5}{ns}) and discriminator with a \num{10} bit programmable threshold that is common to all \num{16} channels. The output of the discriminator is used for the two Time to Digital Convertors to get the fine-timing. A coarse timestamp could also be obtained from a \num{26} bit counter running at \SI{40}{MHz}.  Only the data from the triggered channels are digitized; their information is transferred to the internal memory, which is read by the external FPGA. 
-
-%Measurements performed in \cite{Blin2017} ..% SNR of 13 trigger efficiency etc...
-%total number of bits per channel, 50-bits from CatiROC?
-%COPY CAYETANO TABLE
-%SELMA'S SPE FROM JUNO?? or my spe??
 \begin{dunetable}
 [Main characteristics of CatiROC.]
 {lr} {tab:dpele-catiroc}
@@ -313,6 +326,13 @@ Programmable  &  Variable shaping and gain \\
 Features & Common trigger threshold \\
          & Common gain threshold \\ \colhline
 \end{dunetable}
+
+The fast channel is used to auto-trigger the ASIC and make the fine-timing measurement. It comprises a high gain preamplifier, fast shaper (shaping time \SI{5}{ns}) and discriminator with a \num{10} bit programmable threshold that is common to all \num{16} channels. The output of the discriminator is used for the two Time to Digital Convertors to get the fine-timing. A coarse timestamp could also be obtained from a \num{26} bit counter running at \SI{40}{MHz}.  Only the data from the triggered channels are digitized; their information is transferred to the internal memory, which is read by the external FPGA. 
+
+%Measurements performed in \cite{Blin2017} ..% SNR of 13 trigger efficiency etc...
+%total number of bits per channel, 50-bits from CatiROC?
+%COPY CAYETANO TABLE
+%SELMA'S SPE FROM JUNO?? or my spe??
  
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
