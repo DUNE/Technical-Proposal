@@ -793,20 +793,20 @@ The computing and network infrastructure that will be used in each
 of the four \dwords{detmodule} will be similar, if not identical.
 It will support the buffering, data selection, event
 building, and data flow functionality described
-above, and it will include the following computing elements:
+above, and it will include computing elements which consist of servers that:
 
 \begin{itemize}
-\item servers that buffer the data until a \dword{trigdecision}
+\item buffer the data until a \dword{trigdecision}
   is received
-\item servers that host the software processes that
+\item host the software processes that
   build the data fragments from the relevant
   parts of the detector into complete events
-\item servers that host the processes that make the
+\item host the processes that make the
   \dword{trigdecision}
-\item servers that host the data logging processes and
+\item host the data logging processes and
   the disk buffer where the data is written
-\item servers that host the real-time \dlong{dqm} processing
-\item servers that host the control and monitoring processes
+\item host the real-time \dlong{dqm} processing
+\item host the control and monitoring processes
 \end{itemize}
 
 The network infrastructure that will connect these computers
