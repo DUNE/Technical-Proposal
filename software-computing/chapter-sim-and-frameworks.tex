@@ -19,6 +19,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Event Generators}
 
+Event generators play a critical role in neutrino experiments and should receive the 
+same level of attention as paid to the experimental apparatus. 
+A generator must simulate all the details of every particle that appears in the final state on an event-by-event basis.
 The event generators provided with LArSoft create MCParticle and MCTruth data products in
 the {\it{art}} event store.  Any number of event generators, including multiple instances of the
 same generator, may be run for a given event.  This feature is useful in order to overlay cosmic
@@ -30,19 +33,67 @@ to additional generators without investing in software integration.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Neutrino Interaction simulations}
 
-Not only must the $V-A$ coupling of the neutrino to both the weak charged and neutral currents be simulated,
-but the struck nucleon and its environment must be simulated in detail in order for DUNE's oscillation
-program to succeed.  Typically the struck nucleon is ejected, but frequently a $\Delta$ resonance is made,
-which decays promptly, frequently into a pion and a nucleon.  In higher-energy scattering events, even
-more particles can be produced.  In interactions at all energies, nucleons can be emitted as a result
-of final-state interactions.  Correlations between nucleons in the initial state manifest themselves as
-correlated nucleon emission in the final state.  Neutrino interaction generators are in a state of rapid
-development and improvement, as data are collected from neutrino experiments of increasing sophistication
-and dataset size.  Below is a summary of some of the available generators, their features, and their
-computing footprints relevant for DUNE.
+An ideal input theory of neutrino-nucleus interactions
+ would provide internally consistent and fully-differential cross sections 
+in the kinematics of every final-state particle, over all reaction mechanisms, over the full energy range, for all combinations of neutrino flavor and helicity, and for every nucleus in the experiment.
+However, modern theory generally provides only the kinematics for the final state lepton, with minimal guidance on the hadronic side, and only for a subset of the experimentally accessible phase space.
+Thus, as implemented in event generators, neutrino-nucleus interactions are factorized as a ``product'' of a free nucleon scattering, a ground state nuclear model, hadronization, and hadron transport (and decay).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{GENIE $\nu$ interaction generator}
+
+GENIE (Generates Events for Neutrino Interaction Experiments) \cite{Andreopoulos:2009rq} is the most widely-used event generator in neutrino experiments today.
+It is a core component of the software stack for every running and planned neutrino beam experiment in the United States.
+In accelerator neutrino experiments, observables are a convolution of the flux, interaction physics, and detector response. 
+Three corresponding pieces combine to form the software stack, as illustrated in Figure \ref{fig:3partstack}.
+Event generators sit at the heart of the stack and provide experimenters with access to the physics of the neutrino interaction.
+GENIE is the primary generator for ArgoNeuT \cite{refargoneut}, DUNE \cite{refdune}, MicroBooNE \cite{refmicroboone}, MIER$\nu$A \cite{refminerva}, NO$\nu$A \cite{refnova}, and SBND \cite{refsbnd}, because of its flexible framework and fully-featured geometry and flux drivers.
+
+\begin{figure}
+  \centering
+  \includegraphics[height=0.32\textheight]{software-computing/figures/3partstack}
+  \caption{The accelerator neutrino experiment software stack. Figure provided by G. N. Perdue.}
+  \label{fig:3partstack}
+\end{figure}
+
+Neutrino experiments observe final state particle spectra, after transport through the dense nuclear medium.
+Relating these observable quantities to the true, underlying kinematics is only possible through a model, as implemented through an event generator.
+Experiments use event generators to connect observed event topologies to the true underlying kinematics.
+At best we may build a map, weighted by probability, that links all possible initial states to an observed final state.
+With this map, we may infer a probabilistic neutrino energy distribution (or a different kinematic distribution).
+
+GENIE provides a rich toolkit to its users:
+\begin{itemize}
+\item a geometry engine for modeling complex detectors (compatible with a Geant detector definition),
+\item flux drivers for computing exposure (atmospheric/solar sources) and normalizing responses to accelerator beams,
+\item event re-weighting engines for systematic uncertainties and error propagation,
+\item databases of electron, hadron, and neutrino scattering results with applications for comparing simulation and data,
+\item electron and hadron scattering event generator functionality,
+\item nucleon decay generators, and
+\item libraries of pre-computed cross sections.
+\end{itemize}
+
+The GENIE global physics model is built from a collection of exclusive state models (e.g., Llewellyn Smith QE, Rein-Sehgal resonant pion production, Bodek-Yang DIS, etc.).
+(Many of these are wrong but useful.) 
+When a new process is added (e.g., Nieves group MEC), it is necessary to retune the total cross section by controlling the strength of all the various exclusive processes to keep GENIE generally consistent with data for the total cross section.
+
+GENIE contains dozens of different physics models.
+The default nuclear model is the relativistic Fermi gas with Bodek and Ritchie corrections (to model high-momentum tails).
+GENIE also implements the Effective Spectral Function, and the Local Fermi Gas.
+Other spectral function implementations exist in development branches.
+The quasielastic process defaults to Llewellyn-Smith, but GENIE also contains the Nieves et al model. 
+The axial form factor model is the dipole but the z-expansion model is available as well.
+Excitation of nucleon resonances (decaying by meson emission) and coherent pion production are both described by default by models by Rein and Sehgal, but there are a number of alternatives (Berger and Sehgal, different form factor models, etc.).
+GENIE also contains a diffractive pion production model (Rein), but it is not activated by default.
+Models for neutrino-electron scattering and inverse muon decay are included and are mostly complete - additional radiative corrections required for neutrino-electron scattering.
+
+GENIE also offers a custom built and the Valencia ``2p2h'' models.
+Bodek and Yang (2003) is used for non-resonant inelastic scattering.
+Other interesting exclusive states (e.g., QEL hyperon production, single Kaon production, etc.) are optional (to avoid double counting in the hadronization model).
+The custom ``AGKY'' hadronization model covers a transition between PYTHIA at high ($W > 3$ GeV/c$^2$) invariant masses and an empirical model based on KNO-scaling at lower $W$.
+GENIE has two internally developed models for final-state interactions; one is a cascade model and the other (the default) parameterizes the cascade a single effective interaction for fast and simple re-weighting.
+GENIE uses the SKAT parametrization of formation zones (the effective distance over which a quark hadronizes).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{NEUT $\nu$ interaction generator}
