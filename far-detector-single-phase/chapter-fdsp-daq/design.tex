@@ -270,7 +270,7 @@ The majority of the data corresponds to the untriggered parts and
 never leaves the computers hosting the \dwords{ringbuffer}.
 The parts that exit do so in one of three circumstances: (a) as data
 selected by nominal \dwords{trigcommand}, (b) as \dwords{trignote} or
-(c) as previously triggered supernova burst candidate data which is
+(c) as previously triggered \dword{snb} candidate data which is
 sent out after being dumped to the SSD storage local to
 \dwords{rce} and as available bandwidth permits. 
 All three of these transfers live entirely in the software domain of a
@@ -392,166 +392,223 @@ object as this would produce a single \SI{15}{\TB} file.
 
 %This section describes the strategy for using the trigger/dataflow infrastructure, with example algorithms.
 
-	Data Selection will follow a hierarchical design, beginning with local,
-APA Level \dwords{trigcandidate}, Module (10 ktonne) Level triggers, and External
-Triggers,w hich include ``global,'' detector-wide, triggers. A high-level
-trigger (HLT) may also be active within the Module Level trigger.  The
-hierarchical approach is both natural from a design standpoint, as well as
-allowing for vertical slice testing and partitioning during commissioning of
-the system.
+\fixme{Need to add Josh's table of data volumes.}
 
-	As discussed above, trigger primitives will be generated in the RCEs
-from the data stream for each collection wires.  The trigger primitives will be
-summary information for each collection wire, such as the time of any
-threshold-crossing pulse, its integral charge, and time over threshold.  A
-collection wire with a non-null trigger primitive is said to be ``hit.''  These
-trigger primitives are then passed, along with the full data stream, to the
-\dword{fec}, each of which handles channels from a small
-number of APAs (likely two).  An APA Level trigger candidate is passed upward to
-a Module Level trigger, which arbirtrates between various trigger types,
-determining whether a given APA Level trigger candidate is a valid Module
-Trigger and whether there are other triggers that have a higher priority in any
-given slice of time.  At this level, a more sophisticated high-level trigger
-(HLT) may also be employed, which will allow a reduction in trigger rate from
-various backrounds, including instrumental backgrounds, if needed. 
+Data Selection will follow a hierarchical design. 
+It begins with forming local, APA-level \dwords{trigcandidate} which
+are used to form \dword{detmodule} \dwords{trigcommand} in the
+\dword{mtl} which lead to readout of a small subset of the total data. 
+In addition, \dwords{trigcandidate} will be provided to the
+\dword{mtl} from external sources such as the \dword{gtl} in order to
+indicate external events such as beam spills, or SNB candidates
+detected by the other \dwords{detmodule} or by SNEWS.
+A \dword{hlt} may also be active within the \dword{mtl}. 
+The hierarchical approach is both natural from a design standpoint, as
+well as allowing for vertical slice testing and partitioning during
+commissioning of the system.
 
-	A valid Module Level single-interaction trigger sends trigger commands
-back to the \dwords{fec} telling it which slice of time should be saved under
-the particular trigger header.  At the start of DUNE data taking, it is
-anticipated that for any given single-interaction trigger (a cosmic ray track,
-for example) waveforms for all wires will be recorded for a full 5.4~ms
-``readout window.'' Such an approach is clearly very conservative, but it
-ensures that associated low-energy physics (such as neutron captures from
-neutrons produced by neutrino interactions or cosmic rays) will be recorded
-without any need to fine-tune APA-level triggering, and will not depend on
-the noise environment across the APAs. In addition, the 5.4~ms readout window
-ensures that regardless of when a given even causes a trigger, the entire track
-is recorded.  We anticipate, however, that as we gain experience running DUNE
-the overall data volume will reduced by writing out data from only a
-subset of APAs for any given track, and possibly reducing the size of the
-readout window.
+As discussed above, \dwords{trigprimitive} will be generated in the
+\dwords{rce} from the data stream for each collection channel. 
+The \dwords{trigprimitive} will contain summary information for each
+collection wire, such as the time of any threshold-crossing pulse, its
+integral charge, and time over threshold. 
+A collection wire with an associated \dword{trigprimitive} is said to
+be ``hit'' for the time spanned by the primitive. 
+These trigger primitives are then passed, along with the full data
+stream, to the \dword{fec}, each of which handles channels from a pair
+of \dwords{apa}. 
+An APA-level \dword{trigcandidate} is passed upward to the
+\dword{mtl}, which arbitrates between various trigger types,
+determines trigger priority and ultimately the time range and detector
+coverage for a \dword{trigcommand} which it emits back to the
+\dwords{fec}.
+The \dword{mtl} assures that no overlapping \dwords{trigcommand} are
+issued.
+It also may emply a \dword{hlt} to allow for a reduction or an
+aggregation of triggers to reduce or optimize the subsequent readout
+of high rate activity such as due to various backgrounds, including
+instrumental effects, as needed.
 
-	Other trigger streams---calibrations, random triggers, and prescales of
-various trigger thresholds, will also be generated at the Module Level, and
-filtering and compression can be applied based upon the trigger stream. For
-example, a large fraction of random triggers may have their waveforms
-zero-suppressed, reducing the data volume substantially, as the dominant data
-source for these will be $^{39}$Ar events. Additional signal-processing can
-also be done on particular trigger streams if needed and if the processing is
-available, such as fast analyses of calibration data.
+A valid \dword{detmodule}-level, single-interaction trigger sends
+\dwords{trigcommand} back to the \dwords{fec} telling it which slice
+of time should be saved under the particular trigger header. 
+At the start of DUNE data taking, it is anticipated that for any given
+single-interaction trigger (a cosmic ray track, for example) waveforms
+for all wires will be recorded for a full \readout \dword{readout
+  window}. 
+Such an approach is clearly very conservative, but it ensures that
+associated low-energy physics (such as captures of neutrons from
+produced by neutrino interactions or cosmic rays) will be recorded
+without any need to fine-tune APA-level triggering, and will not
+depend on the noise environment across the APAs. 
+In addition, the \readout readout window ensures that regardless of when
+a given even causes a trigger, the entire track is recorded. 
+It is estimated that this generous \dword{readout window} will not
+produce an unmanageable data volume. 
+We anticipate, however, that as we gain experience running DUNE the
+overall data volume will reduced by writing out data from only a
+subset of APAs for any given track, and possibly reducing the size of
+the readout window.
 
-       At the Module Level, a decision can also be made on whether a series of
-interactions are consistent with a supernova burst.  If the number of APA Level
-low-energy \dwords{trigcandidate} exceeds a threshold for the number of such events
-in a given time, a trigger command is sent from the Module Level back to the
-RCEs, which store up to 10 seconds of unsuppressed, full waveform data.  That
-full waveform is then written out as a separate trigger stream for fast
-analysis by the supernova working group, perhaps as an automated process.  In
-addition, the Module Level passes information about APA Level trigger
-candidates  up to a detector-wide External Trigger, which among other functions
-can decide whether, integrated across all modules, enough APAs have detected
-interactions to qualify for a supernova burst even if within a particular
-module the threshold is not exceeded. Trigger commands from the External Trigger
-Level are passed downward to RCEs in the same way as any Module Level supernova
-burst trigger would be; at the Module Level, an External Trigger looks like
-just one more ``external'' trigger input.
+Other trigger streams---calibrations, random triggers, and prescales
+of various trigger thresholds, will also be generated at the
+\dword{detmodule} level, and filtering and compression can be applied
+based upon the trigger stream. 
+For example, a large fraction of random triggers may have \dword{zs}
+applied to their waveforms, reducing the data volume substantially, as
+the dominant data source for these will be $^{39}$Ar events.
+Additional signal-processing can also be done on particular trigger
+streams if needed and if the processing is available, such as fast
+analyses of calibration data.
 
-	APA Level \dwords{trigcandidate} will be generated within each server of the \dwords{fec}.  The trigger decision will be based on the number of adjacent wires hit
-in a given APA within a narrow time window (roughly 100$\mu$s), the total
-charge on these adjacent wires (or any wire with a non-null trigger primitive),
-and possibly the time-over-threshold for collection wires with hits. Our
-studies show that even for low-energy events (roughly 10-20 MeV) the reduction
-in radiological backgrounds is extremely high with such criteria. The
-highest-rate background, $^{39}$Ar, which has a decay rate of 10 MBq within a
-10 ktonne volume of argon, has an endpoint of 500 keV and requires significant
-pileup in both space and time to get near a 10 MeV threshold. Other important
-background sources are $^{42}$Ar, which has a 3.5 MeV endpoint and a decay rate
-of 1 kBq, and $^{222}$Rn which has a decay rate of XXXX and decays via a
-highly-quenched $\alpha$ of 5.5 MeV.  The radon decays to $^{218}$Po which
-a few minutes later leads to a quenched $\alpha$ of 6 MeV, and ultimately a
-$^{214}$Bi daughter (many minutes later) which has a $\beta$ decay with
-endpoint near 3.5 MeV.  The $\alpha$ ranges are short and will hit at most a
-few collection wires, but the charge deposit can be large, and therefore the
-charge threshold will have to be well above the $\alpha$ deposits plus any
+At the \dword{detmodule} level, a decision can also be made on whether
+a series of interactions are consistent with a \dword{snb}. 
+If the number of \dword{apa} level, low-energy \dwords{trigcandidate}
+exceeds a threshold for the number of such events in a given time, a
+trigger command is sent from the \dword{mtl} back to the \dwords{rce},
+which store up to \SI{10}{\s} of unsuppressed, full waveform data. 
+That full waveform is then written out as a separate trigger stream
+for fast analysis by the supernova working group, perhaps as an
+automated process. 
+In addition, the \dword{mtl} passes information about APA level
+\dwords{trigcandidate} up to a detector-wide \dword{gtl}, which among
+other functions can decide whether, integrated across all modules,
+enough APAs have detected interactions to qualify for a \dword{snb}
+even if within a particular module the threshold is not exceeded. 
+\Dwords{trigcandidate} from the \dword{gtl} are passed to the
+\dword{mtl} for dispatch to the \dwords{fec} (or \dwords{rce} in the
+case of SNB dump commands). 
+That is, to the \dword{mtl}, an \dword{externtrigger} looks like just
+one more ``external'' trigger input.
+
+APA level \dwords{trigcandidate} will be generated within each server
+of the \dwords{fec}. 
+The trigger decision will be based on the number of adjacent
+collection wires hit in a given APA within a time window (roughly
+\SI{100}{\us}), the total charge on these adjacent wires (or possibly
+on any hit wire in the collection plane), and possibly the union of
+time-over-threshold for the \dwords{trigprimitive} in the collection
+plane.
+Our studies show that even for low-energy events (roughly
+\SIrange{10}{20}{\MeV}) the reduction in radiological backgrounds is
+extremely high with such criteria.
+The highest-rate background, $^{39}$Ar, which has a decay rate of
+10~MBq within a \SI{10}{\kton} volume of argon, has an endpoint of 500
+keV and requires significant pileup in both space and time to get near
+a \SI{10}{\MeV} threshold.
+Other important background sources are $^{42}$Ar, which has a 3.5 MeV
+endpoint and a decay rate of 1 kBq, and $^{222}$Rn which has a decay
+rate of XXXX and decays via a highly-quenched $\alpha$ of 5.5 MeV.
+\fixme{Need Rn-222 decay rate.}
+The radon decays to $^{218}$Po which a few minutes later leads to a
+quenched $\alpha$ of 6 MeV, and ultimately a $^{214}$Bi daughter (many
+minutes later) which has a $\beta$ decay with endpoint near 3.5 MeV. 
+The $\alpha$ ranges are short and will hit at most a few collection
+wires, but the charge deposit can be large, and therefore the charge
+threshold will have to be well above the $\alpha$ deposits plus any
 pileup from $^{39}$Ar and noise.
 
-	At the APA Level, two kinds of local \dwords{trigcandidate} can be
-generated. One is a ``high-energy'' trigger, that indicates that within a given
-APA a candidate event with energy more than 10 MeV has been found. The
-thresholds in hit wires, total charge, and time-over-threshold, will be
-optimized for at least 50\% efficiency at this threshold, with efficiency
-increasing to 100\% via a turn-on curve that ensures at least 90\% efficiency
-at 20 MeV.  A second APA Level trigger candiate will be generated for
-low-energy events, between 5~MeV and 10 MeV. These low-energy APA trigger
-candidates will not by themselves generate valid  Module Level triggers, but
-rather be used at the Module Level to determine whether a burst of events
+At the APA level, two kinds of local \dwords{trigcandidate} can be
+generated.
+One is a ``high-energy'' trigger, that indicates that within a given
+APA a candidate event with energy more than \SI{10}{\MeV} has been
+found.
+The thresholds in hit wires, total charge, and time-over-threshold,
+will be optimized for at least 50\% efficiency at this threshold, with
+efficiency increasing to 100\% via a turn-on curve that ensures at
+least 90\% efficiency at \SI{20}{\MeV}. 
+A second APA level trigger candiate will be generated for low-energy
+events, between \SI{5}{\MeV} and \SI{10}{\MeV}. 
+These low-energy APA trigger candidates will not by themselves
+generate valid \dword{detmodule} level triggers, but rather be used at
+the \dword{detmodule} level to determine whether a burst of events
 across many APAs is consistent with a supernova.
 
-	The Module Level takes as input both APA Level \dwords{trigcandidate} (both
-low-energy and high-energy), as well as external trigger candidate sources,
-such as the External Trigger which includes global, detector-wide triggers,
-external trigger sources such as SNEWS, and information about the time of a
-Fermilab Beam spill.  The Module Level will also generate internal triggers,
-such as random triggers and calibration triggers (for example, telling a laser
-system to fire at a prescribed time).  In addition, at the Module Level
-prescales of all trigger types that normally would not generate a Module Level
-trigger will be made.  For example, a single low-energy trigger does not cause
-a Module Level trigger on its own, but at some large prescale fraction it could
-be accepted.
+The \dword{detmodule} level takes as input both APA level
+\dwords{trigcandidate} (both low-energy and high-energy), as well as
+\dword{externtrigger} sources, such as the \dword{gtl} which includes
+global, detector-wide triggers, external trigger sources such as
+SNEWS, and information about the time of a Fermilab beam spill. 
+The \dword{mtl} will also generate internal triggers, such as random
+triggers and calibration triggers (for example, telling a laser system
+to fire at a prescribed time). 
+In addition, at the \dword{mtl} prescales of all trigger types that
+normally would not generate a \dword{trigcommand} will be made. 
+For example, a single low-energy \dword{trigcandidate} does not cause
+a \dword{trigcommand} on its own, but at some large prescale fraction
+it could.
 
 
+The \dword{mtl} is responsible also for checking candidate triggers
+against the current \dword{rc} trigger mask: in some runs, for
+example, we may decide that only random triggers are accepted, or that
+certain APA trigger candidates should not be accepted because those
+APAs are noisy or misbehaving in some way. 
+In addition, the \dword{mtl} will count low-energy trigger candidates
+from the APAs and, based upon the number and distribution of those
+triggers in a long time interval (e.g., \SI{10}{\s}), decide to
+generate a \dword{snb} trigger command.
+ The trigger logic will be
+optimized to record the data due to at least 90\% of all Milky Way
+supernovae, and our studies of simple low-energy trigger criteria show
+that we can likely do much better than that.  
 
-	The Module Level is responsible also for checking candidate triggers
-against the current Run Control trigger mask: in some runs, for example, we
-may decide that only random triggers are accepted, or that certain APA trigger
-candidates should not be accepted because those APAs are noisy or misbehaving
-in some way.  In addition, the Module Level will count low-energy trigger
-candidates from the APAs and, based upon the number and distribution of those
-triggers in a long time interval (e.g., 10 seconds), decide to generate a
-supernova burst trigger command. The trigger logic for a supernova burst will
-be optimized to accept at least 90\% of all Milky Way supernovae, and our
-studies of simple low-energy trigger criteria show that we can likely do much
-better than that.  
+	
+The \dword{hlt} can also be applied at this level, particularly if
+there are unexpectedly higher rates from instrumental or low-energy
+backgrounds, that require some level of reconstruction or pattern
+recognition. 
+An \dword{hlt} might also allow for efficiently triggering on
+lower-energy single interactions, or allow for better sensitivity for
+supernovae beyond the Milky Way, by employing a weighting scheme to
+individual APA level \dwords{trigcandidate}---higher-energy
+\dwords{trigcandidate} receiving higher weights. 
+Thus, for example, two APA level \dwords{trigcandidate} consistent
+with \SI{10}{\MeV} interactions in \SI{10}{\s} might be enough to
+create a \dword{snb} candidate trigger, while 100 \SI{5}{\MeV} APA
+level trigger candiates in \SI{10}{\s} might not.
+Lastly, the \dword{hlt} can allow for dynamic thresholding; for
+example, if a trigger appears to be due to a cosmic-ray muon, the
+threshold for single interactions can be lowered (and possibly
+prescaled) for a short time after that to identify spallation
+products. 
+In addition, the \dword{hlt} could allow for a dynamic threshold after
+a \dword{snb}, to extend sensitivity beyond the \SI{10}{\s}
+\dword{snb} \dword{readout window}, while not increasing the data
+volume associated with \dword{snb} candidates linearly. 
 
-	The HLT can also be applied at this level, particularly if there are
-unexpectedly higher rates from instrumental or low-energy backgrounds, that
-require some level of reconstruction or pattern recognition.  An HLT might also
-allow for efficency triggering on lower-energy single interactions, or allow
-for better sensitivity for supernovae beyond the Milky Way, by employing a
-weighting scheme to individual APA Level \dwords{trigcandidate}---higher-energy
-\dwords{trigcandidate} receiving higher weights. Thus, for example, two APA Level
-\dwords{trigcandidate} consistent with 10 MeV interactions in 10 seconds might be
-enough to create a supernova burst candidate trigger, while 100 5 MeV APA Level
-trigger candiates in 10 seconds might not. Lastly, the HLT can allow for
-dynamic thresholding; for example, if a trigger appears to be a cosmic-ray
-muon, the threshold for single interactions can be lowered (and possibly
-prescaled) for a short time after that to identify spallation products. In
-addition, the HLT could allow for a dynamic threshold after a supernova burst,
-to extend sensitivity beyond the 10 s readout buffer, while not increasing the
-data volume associated with supernova burst candidates linearly. 
+All low-energy \dwords{trigcandidate} are also passed upwards to the
+\dword{gtl}, which can integrate the APA level trigger across all
+\SI{10}{\kton} \dwords{detmodule} and determine if enough APAs have
+\dwords{trigcandidate} that a \dword{snb} may be occuring. 
+This approach increases the sensitivity to trigger on bursts by a
+factor of four (for \SI{40}{\kton}), thus extending the burst
+sensitivity to a distance twice as far as for a single \SI{10}{\kton}
+\dword{detmodule}. 
 
-All low-energy \dwords{trigcandidate} are also passed upwards to the External
-Trigger level, which can integrate the APA level trigger across all 10 ktonne
-modules and determine if enough APAs have \dwords{trigcandidate} that a supernova
-burst may be occuring. This approach increases the sensitivity to trigger on
-bursts by a factor of four (for 40 ktonnes), thus extending the burst
-sensitivity to a distance twice as far as for a single 10 ktonne module. 
+	
+The \dword{mtl} is also responsible for creating a trigger header that
+includes a global timestamp for the trigger from its input
+\dwords{trigcandidate}, and information on what type of trigger was
+created. 
+A log of all APA level \dwords{trigcandidate} will also be kept,
+whether or not they contribute to the formation of a
+\dword{trigcommand}. 
+As described above, the \dword{readout window} for nominal
+\dwords{trigcommand} (those other than for \dword{snb} candidates) is
+\readout.
+Thus, a nominal DUNE ``event'' is \readout of data from all wires
+in the \dword{sp} \dword{detmodule} in response to a \dword{mtl}
+\dword{trigcommand}. 
+The \dword{mtl} is also responsible for sending the trigger commands
+that tell the RCEs to dump their \SI{10}{\s} ``supernova'' buffer. 
+If a supernova burst trigger is created at the \dword{gtl} level, an
+\dword{externtrigger} is passed back down to the \dword{mtl}, which
+then dispatches a dump \dword{trigcommand} to the RCEs for readout of
+the long (\SI{10}{\s}) unsuppressed buffer, the same way it would if a
+supernova burst is detected at the \dword{mtl}.
 
-	The Module Level is also responsible for creating a trigger header that
-includes a global timestamp for the trigger, and information on what type of
-trigger was created. A log of all APA Level \dwords{trigcandidate} will also be
-kept, whether or not they are part of a Module Trigger. As described above, for
-any high-energy APA Level trigger candidate, a Module Level trigger command is
-sent  to \dwords{fec} instructing it to save a 5.4~ms readout window will
-written for all wires across all APAs (providing the start and end times to the
-\dwords{fec}).  Thus, a DUNE ``event'' is 5.4~ms of data from all wires in
-response to a Module Level trigger.  The Module Level trigger is also
-responsible for sending the trigger commands that tell the RCEs to dump their
-10 s unsuppressed ``supernova'' buffer.  If a supernova burst trigger is
-created at the External Trigger level, a trigger command is passed back down to
-the Module Level, which then passes that on to the RCEs for readout of the long
-(10 s) unsuppressed buffer, the same way it would if a supernova burst is
-detected at the Module Level. 
+\fixme{There are still a lot of repetition of concepts and statements in the above section.}
 
 	
 

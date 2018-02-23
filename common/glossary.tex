@@ -52,6 +52,8 @@
 
 
 
+
+
 \newduneabbrev{sp}{SP}{single-phase}{Distinguishes one of the four
   \SI{10}{\kton} \glspl{detmodule} of the DUNE far detector by the
   fact that it operates using argon in just its liquid phase.}
@@ -60,6 +62,12 @@
 \newduneabbrev{dp}{DP}{dual-phase}{Distinguishes one of the four
   \SI{10}{\kton} \glspl{detmodule} of the DUNE far detector by the
   fact that it operates using argon in both gas and liquid phases.}
+
+% fixme: pds needs better words added.
+\newduneabbrev{apa}{APA}{anode plane assembly}{One unit the SP
+  detector containing the elements sensitive to activity in the LAr. 
+  It contains two faces each of three planes of wires, cold
+  electronics and photo detection system.} 
 
 
 % front-end
@@ -233,3 +241,19 @@
   may provide sufficient write throughput to receive, collectively and
   distributed, the sustained full rate of data from a \gls{detmodule}
   for many seconds}
+
+% fixme: this needs improvement
+\newduneabbrev{hlt}{HLT}{high-level trigger}{A source of triggering at the module level.}
+
+\newduneword{readout window}{readout window}{A fixed, atomic and
+  continuous period of time over which data from a \gls{detmodule}, in
+  whole or in part, is recorded. 
+  This period may differ based on the trigger than initiated the
+  readout}
+
+\newduneabbrev{zs}{ZS}{zero-suppression}{To delete some portion of a data stream which does not significantly deviate from zero or intrinsic noise levels.  It may be applied at different granularity from per-channel to per \dword{detunit}}
+
+% fixme: maybe another sentence
+\newduneabbrev{rc}{RC}{run control}{The system for configuring, starting and terminating the DAQ}
+
+\newduneabbrev{snb}{SBN}{supernova neutrino burst}{A prompt and brief increase in the flux of low energy neutrinos.  Can also refer to a trigger command type which may be due to an SNB or detector conditions which can mimic its interaction signature}
