@@ -86,6 +86,11 @@ The final commissioning phase will be done during and after cryostat filling.
 \subsection{Gas Analyzers}
 \label{sec:fdsp-slow-cryo-install-ga}
  
+The Gas Analyzers need to be installed prior to the Piston Purge and Gas recirculation phases of the Cryostat commissioning. They should be installed near the location of the tubing switchyard to minimize tubing runs and for convenience when switching the sampling points and gas analyzers. Since each is a stand alone module, a single rack with shelves, should be adequate to house the modules.
+
+Concerning the integration, the gas analyzers typically have an analog output (4-20 \si{mA} or 0-10\si{V}) which maps to the input range of the analyzers. They also usually have a number of relays that indicate the scale they are currently running. These outputs can be connected to the slow controls for readout. However it is preferred to use a digital readout since this directly gives the analyzer reading at any scale. Currently there are a number of digital output connections, ranging from RS-232, RS-485, USB, and ethernet. At the time of purchase, one can choose the preferred option, since the protocol is likely to evolve. The readout usually responds to a simple set of text commands. Due to the natural time scales of the gas analyzers, and lags in the gas delivery times (depending on the length of the tubing runs), sampling at the minute level most likely is adequate.
+
+For commissioning, before the beginning of the gas phase of the Cryostat commissioning, the analyzers need to be brought online and calibrated. Calibration varies for the different modules, but often requires using Argon gas with both zero contaminants (usually removed with a local inline filter)for the zero of the analyzer, and Argon with a known level of the contaminant to check the scale. Since the start of the Gas phase of the Cryostat begins with normal air, the more sensitive analyzers will be valved off at the switchyard to prevent overloading their inputs (and potentially saturating their detectors). As the Argon Purge and gas recirculation progress, the various analyzers will be valved back in when the contaminant levels reach the upper limits of the analyzer ranges. 
 
 \subsection{Liquid Level Monitoring}
 \label{sec:fdsp-slow-cryo-install-llm}

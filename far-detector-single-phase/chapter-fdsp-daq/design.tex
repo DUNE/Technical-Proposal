@@ -393,7 +393,7 @@ object as this would produce a single \SI{15}{\TB} file.
 %This section describes the strategy for using the trigger/dataflow infrastructure, with example algorithms.
 
 	Data Selection will follow a hierarchical design, beginning with local,
-APA Level \dword{trigcandidate}, Module (10 ktonne) Level triggers, and External
+APA Level \dwords{trigcandidate}, Module (10 ktonne) Level triggers, and External
 Triggers,w hich include ``global,'' detector-wide, triggers. A high-level
 trigger (HLT) may also be active within the Module Level trigger.  The
 hierarchical approach is both natural from a design standpoint, as well as
@@ -442,7 +442,7 @@ available, such as fast analyses of calibration data.
 
        At the Module Level, a decision can also be made on whether a series of
 interactions are consistent with a supernova burst.  If the number of APA Level
-low-energy \dword{trigcandidate} exceeds a threshold for the number of such events
+low-energy \dwords{trigcandidate} exceeds a threshold for the number of such events
 in a given time, a trigger command is sent from the Module Level back to the
 RCEs, which store up to 10 seconds of unsuppressed, full waveform data.  That
 full waveform is then written out as a separate trigger stream for fast
@@ -456,7 +456,7 @@ Level are passed downward to RCEs in the same way as any Module Level supernova
 burst trigger would be; at the Module Level, an External Trigger looks like
 just one more ``external'' trigger input.
 
-	APA Level \dword{trigcandidate} will be generated within each server of the \dwords{fec}.  The trigger decision will be based on the number of adjacent wires hit
+	APA Level \dwords{trigcandidate} will be generated within each server of the \dwords{fec}.  The trigger decision will be based on the number of adjacent wires hit
 in a given APA within a narrow time window (roughly 100$\mu$s), the total
 charge on these adjacent wires (or any wire with a non-null trigger primitive),
 and possibly the time-over-threshold for collection wires with hits. Our
@@ -475,7 +475,7 @@ few collection wires, but the charge deposit can be large, and therefore the
 charge threshold will have to be well above the $\alpha$ deposits plus any
 pileup from $^{39}$Ar and noise.
 
-	At the APA Level, two kinds of local \dword{trigcandidate} can be
+	At the APA Level, two kinds of local \dwords{trigcandidate} can be
 generated. One is a ``high-energy'' trigger, that indicates that within a given
 APA a candidate event with energy more than 10 MeV has been found. The
 thresholds in hit wires, total charge, and time-over-threshold, will be
@@ -487,7 +487,7 @@ candidates will not by themselves generate valid  Module Level triggers, but
 rather be used at the Module Level to determine whether a burst of events
 across many APAs is consistent with a supernova.
 
-	The Module Level takes as input both APA Level \dword{trigcandidate} (both
+	The Module Level takes as input both APA Level \dwords{trigcandidate} (both
 low-energy and high-energy), as well as external trigger candidate sources,
 such as the External Trigger which includes global, detector-wide triggers,
 external trigger sources such as SNEWS, and information about the time of a
@@ -518,9 +518,9 @@ unexpectedly higher rates from instrumental or low-energy backgrounds, that
 require some level of reconstruction or pattern recognition.  An HLT might also
 allow for efficency triggering on lower-energy single interactions, or allow
 for better sensitivity for supernovae beyond the Milky Way, by employing a
-weighting scheme to individual APA Level \dword{trigcandidate}---higher-energy
-\dword{trigcandidate} receiving higher weights. Thus, for example, two APA Level
-\dword{trigcandidate} consistent with 10 MeV interactions in 10 seconds might be
+weighting scheme to individual APA Level \dwords{trigcandidate}---higher-energy
+\dwords{trigcandidate} receiving higher weights. Thus, for example, two APA Level
+\dwords{trigcandidate} consistent with 10 MeV interactions in 10 seconds might be
 enough to create a supernova burst candidate trigger, while 100 5 MeV APA Level
 trigger candiates in 10 seconds might not. Lastly, the HLT can allow for
 dynamic thresholding; for example, if a trigger appears to be a cosmic-ray
@@ -530,16 +530,16 @@ addition, the HLT could allow for a dynamic threshold after a supernova burst,
 to extend sensitivity beyond the 10 s readout buffer, while not increasing the
 data volume associated with supernova burst candidates linearly. 
 
-All low-energy \dword{trigcandidate} are also passed upwards to the External
+All low-energy \dwords{trigcandidate} are also passed upwards to the External
 Trigger level, which can integrate the APA level trigger across all 10 ktonne
-modules and determine if enough APAs have \dword{trigcandidate} that a supernova
+modules and determine if enough APAs have \dwords{trigcandidate} that a supernova
 burst may be occuring. This approach increases the sensitivity to trigger on
 bursts by a factor of four (for 40 ktonnes), thus extending the burst
 sensitivity to a distance twice as far as for a single 10 ktonne module. 
 
 	The Module Level is also responsible for creating a trigger header that
 includes a global timestamp for the trigger, and information on what type of
-trigger was created. A log of all APA Level \dword{trigcandidate} will also be
+trigger was created. A log of all APA Level \dwords{trigcandidate} will also be
 kept, whether or not they are part of a Module Trigger. As described above, for
 any high-energy APA Level trigger candidate, a Module Level trigger command is
 sent  to \dwords{fec} instructing it to save a 5.4~ms readout window will
