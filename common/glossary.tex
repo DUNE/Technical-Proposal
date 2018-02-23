@@ -117,7 +117,7 @@
   and other global sources of trigger input and emits
   \gls{trigcommand} information back to the \glspl{mtl}}
 
-\newduneword{trigpnote}{trigger notification}{Information provided by
+\newduneword{trignote}{trigger notification}{Information provided by
   \gls{mtl} to \gls{gtl} about \gls{trigdecision} its processing}
 
 % trigger primitive
@@ -131,7 +131,10 @@
   \gls{detmodule} so that it may be considered in forming
   \glspl{trigcommand}}
 
-% Module Trigger Logic
+\newduneabbrev{oob}{OOB dispatcher}{out of band trigger command
+  dispatcher}{This component is responsible for dispatching a SNB
+  trigger command to all 600 RCEs in the SP detector module.}
+
 \newduneabbrev{mtl}{MTL}{Module Trigger Logic}{Trigger processing
   which consumes \gls{detunit} level \gls{trigcommand} information
   and emits \glspl{trigcommand}. 
@@ -179,3 +182,51 @@
 \newduneabbrev{eb}{EB}{event builder}{A software agent servicing one
   \gls{detmodule} by executing \glspl{trigcommand} by reading out
   the requested data}
+
+\newduneabbrev{rce}{RCE}{Reconfigurable Computing Element}{One of four
+  nodes in a \gls{cog} which consists of ARM CPU and FPGA resources. \fixme{Needs improvement}}
+
+
+\newduneabbrev{cob}{COB}{Cluster On Board}{Four \glspl{rce} together
+  with networking an other hardware.\fixme{Needs improvement}}
+
+\newduneabbrev{acta}{ACTA}{ACTA}{A computer platform.\fixme{Needs
+    improvement}} 
+
+\newduneabbrev{rf}{RF}{radio frequency}{Electromagnetic emissions
+  which are within the frequency band of sensitivity of the detector
+  electronics.}
+
+\newduneabbrev{fpga}{FPGA}{Field Programmable Gate Array}{An
+  integrated circuit technology which the hardware to be reconfigured
+  to execute different algorithms after manufacture. \fixme{Needs improvement}}
+
+\newduneabbrev{felix}{FELIX}{Front-End Link eXchange}{A
+  high-throughput interface between front-end and trigger electronics
+  and the standard PCIe computer bus}
+
+\newduneabbrev{fec}{FEC}{front-end computer}{Each \gsl{detunit} of a
+  certain granularity, such as two SP APAs, has one front-end computer
+  which receives data from the readout hardware, hosts the primary DAQ
+  memory buffer for that data, emits trigger candidates derived from
+  that data and satisfies requests for producing subsets of that data
+  for egress}
+
+\newduneabbrev{femb}{FEMB}{Front-End Mother Board}{Refers a unit of
+  the \gls{sp} cold electronics which contains the front-end amplifier
+  and ADC ASICs covering 128 channels}
+
+\newduneword{protodune}{ProtoDUNE}{Two prototype detectors operated in
+  a CERN beam test. 
+  One prototyping \gls{sp} and the other \gls{dp} technology}
+
+% oh boy, here's that dirty word: "event"
+\newduneword{rawevent}{DAQ event block}{The unit of data output by the
+  DAQ. 
+  It contains trigger and detector data spanning a unique, contiguous
+  time period and a subset of the detector channels}
+
+\newduneabbrev{ssd}{SSD}{solid-state disk}{Any storage device which
+  may provide sufficient write throughput to receive, collectively and
+  distributed, the sustained full rate of data from a \gls{detmodule}
+  for many seconds}

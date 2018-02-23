@@ -34,18 +34,18 @@ digraph top {
                                 subgraph cluster_rces2 {
                                         label="ACTA COB 2";
                                         node[shape=record];
-                                        rce21[label="{{RCE1|FPGA|SSD}}"];
-                                        rce22[label="{{RCE2|FPGA|SSD}}"];
-                                        rce23[label="{{RCE3|FPGA|SSD}}"];
-                                        rce24[label="{{RCE4|FPGA|SSD}}"];
+                                        rce21[label="{{RCE1|FPGA|RAM|SSD}}"];
+                                        rce22[label="{{RCE2|FPGA|RAM|SSD}}"];
+                                        rce23[label="{{RCE3|FPGA|RAM|SSD}}"];
+                                        rce24[label="{{RCE4|FPGA|RAM|SSD}}"];
                                 }
                                 subgraph cluster_rces1 {
                                         label="ACTA COB 1";
                                         node[shape=record];
-                                        rce11[label="{{RCE1|FPGA|SSD}}"];
-                                        rce12[label="{{RCE2|FPGA|SSD}}"];
-                                        rce13[label="{{RCE3|FPGA|SSD}}"];
-                                        rce14[label="{{RCE4|FPGA|SSD}}"];
+                                        rce11[label="{{RCE1|FPGA|RAM|SSD}}"];
+                                        rce12[label="{{RCE2|FPGA|RAM|SSD}}"];
+                                        rce13[label="{{RCE3|FPGA|RAM|SSD}}"];
+                                        rce14[label="{{RCE4|FPGA|RAM|SSD}}"];
                                 }
                         }
                         subgraph cluster_fecomp{
@@ -64,6 +64,7 @@ digraph top {
                         labelloc=top;
                         
                         eb[label="Event Builder"];
+                        oob[label="Out-of-band\ndispatcher",color=red];
                         mtl[label="Module\nTrigger Logic"];
                         disk[label="Offline Disk Buffer"];
                         snbeb[label="SNB dump Event Builder"];
@@ -127,7 +128,7 @@ digraph top {
         rce13:e->felix;
         rce14:e->felix;
 
-        rce21:e->felix;
+        rce21:e->felix[label="Data and Trigger Primitives"];
         rce22:e->felix;
         rce23:e->felix;
         rce24:e->felix;
@@ -137,27 +138,30 @@ digraph top {
 
         edge[penwidth=2,dir=forward];
         ring->selector;
-        selector->eb:e;
+        selector->eb:n[constraint=false];
         eb->disk;
 
-        rce11->snbeb:w[constraint=false,ltail=cluster_rces1];
+        edge[penwidth=2,dir=forward,color=red];
+        rce14->snbeb:w[constraint=false,ltail=cluster_rces1];
         rce24->snbeb:w[constraint=false,ltail=cluster_rces2];
         snbeb->disk;
         
         
-        edge[penwidth=1,style=dashed];
-        eb->selector;
+        edge[penwidth=1,style=dashed,color=black];
+        selector->eb[dir=back];
         selector->ring;
         
 
         edge[penwidth=1,style=dotted];
-        felix->mtl[label="L0 trigger\n primitives"];
+        felix->mtl[label="trigger\ncandidates"];
         
-        mtl->eb[label="Nominal trigger commands"];
+        mtl->eb[label="trigger commands"];
 
 
         // Send trigger back to each rce
-        edge[penwidth=1,style=dashed];
-        mtl->rce11[lhead=cluster_rces1,label="SNB-dump trigger commands"];
-        mtl->rce24[lhead=cluster_rces2];
+        edge[penwidth=1,style=dashed,color=red];
+        oob->mtl[dir=back,label="OOB dump command"];
+        rce14->oob[dir=back,ltail=cluster_rces1];
+        rce24->oob[dir=back,ltail=cluster_rces2];
+        
 }
