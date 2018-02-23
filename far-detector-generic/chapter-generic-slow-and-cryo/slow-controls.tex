@@ -1,18 +1,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Slow Controls}
-\label{sec:fddp-slow-cryo-ctrl}
+\label{sec:fdgen-slow-cryo-ctrl}
 
 % same for SP and DP
 
 The slow controls system will collect, archive, and display data from
 a broad variety of sources, and will provide real time alarms and
 warnings for detector operators. Data is acquired via network
-interfaces.  Figure \ref{fig:dp-slow-controls-diagram} shows the
+interfaces.  Figure \ref{fig:gen-slow-controls-diagram} shows the
 connections between major parts of the slow controls system and other
 systems.  The following subsections describe the required hardware and
 software for the slow controls.
 
-\begin{dunefigure}[Slow Controls connections and data]{fig:dp-slow-controls-diagram}
+\begin{dunefigure}[Slow Controls connections and data]{fig:gen-slow-controls-diagram}
 {Typical Slow Controls system connections and data flow}
 \includegraphics[width=0.7\textwidth]{slow-controls-diagram}
 \end{dunefigure}
@@ -20,18 +20,19 @@ software for the slow controls.
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Slow Controls Hardware}
-\label{sec:fddp-slow-cryo-hdwr}
+\label{sec:fdgen-slow-cryo-hdwr}
 
 % % % % Alec
 \subsubsection{Slow Controls Network Hardware}
-\label{sec:fddp-slow-cryo-slow-network}
+\label{sec:fdgen-slow-cryo-slow-network}
 The Slow Controls data originates from the sensors discussed in
-Sec.~\ref{sec:fddp-cryo-instr} and
-Sec.~\ref{sec:fddp-slow-cryo-slow-dsp}, then heads towards the central
+Sec.~\ref{sec:fdgen-cryo-instr} and
+Sec.~\ref{sec:fdgen-slow-cryo-slow-dsp}, then heads towards the central
 CISC database housed in the CUC DAQ room
-(Sec.~\ref{sec:fddp-slow-cryo-slow-compute}).  It gets there over
+(Sec.~\ref{sec:fdgen-slow-cryo-slow-compute}).  It gets there over
 conventional network hardware from any sensors located in the cryogenic
 plant.  However, the readouts which are located in the racks on top the
 cryostats have to be careful about grounding and noise.  Therefore, each
@@ -46,13 +47,13 @@ links both out of the mine and back to Fermilab can accommodate it.
 
 % % % % Alec
 \subsubsection{Slow Controls Computing Hardware}
-\label{sec:fddp-slow-cryo-slow-compute}
+\label{sec:fdgen-slow-cryo-slow-compute}
 
 Up to two racks of space and appropriate power and cooling are available
 in the CUC's DAQ server room for CISC usage.  Somewhat less space than
 that is currently envisioned: Two servers (a primary server and a
 replicated backup) suitable for the needed relational database discussed
-in Sec.~\ref{sec:fddp-slow-cryo-sw} will be there, with an additional
+in Sec.~\ref{sec:fdgen-slow-cryo-sw} will be there, with an additional
 two servers to perform front-end monitoring interface services: for
 example, assembling dynamic CISC monitoring web pages from the adjacent
 databases.  Any special purpose software, such as iFix or EPICS, would
@@ -67,20 +68,21 @@ would fit tightly into one rack or very comfortably into two.
 
 % % % % Alec and Sowjanya
 \subsubsection{Slow Controls Signal Processing Hardware}
-\label{sec:fddp-slow-cryo-slow-dsp}
+\label{sec:fdgen-slow-cryo-slow-dsp}
 \fixme{Is this the place for the laundry list of Things to Be Monitored?
  ({\it but which are not cryo related}) --- I think not! According to Sowjanya's scope text, CISC will not be providing signal processing hardware. (Check this.)}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Alec
 \subsection{Slow Controls Infrastructure}
-\label{sec:fddp-slow-cryo-slow-infra}
+\label{sec:fdgen-slow-cryo-slow-infra}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sowjanya
 \subsection{Slow Controls Software}
-\label{sec:fddp-slow-cryo-sw}
+\label{sec:fdgen-slow-cryo-sw}
 
 % same for SP and DP
 
@@ -108,7 +110,7 @@ system for the experiment operators, and to provide integrated
 archiving for sampled data in the archived database. In this case, one
 can imagine an Input Output Controller (IOC) running on a central DAQ
 server provides ``soft'' channels for these data.
-Fig.\ \ref{fig:dp-slow-controls-diagram} shows a typical workflow of a
+Fig.\ \ref{fig:gen-slow-controls-diagram} shows a typical workflow of a
 slow controls system.
 
 In terms of key features of the software, a highly evolved software is
@@ -125,25 +127,82 @@ acknowledging alarms. As part of the software, a standard naming
 convention for channels will be followed to aid dealing with large
 number of channels and sub-systems.
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ed T
 \subsection{Slow Controls Quantities}
-\label{sec:fddp-slow-cryo-quant}
+\label{sec:fdgen-slow-cryo-quant}
+
+% starter text from Glenn
+
+The final set of quantities to monitor will ultimately be determined
+by the needs of the subsystems being monitored, as documented in
+appropriate ICDs, and continually revised based on operational
+experience.  The total number of quantities to monitor has been very
+roughly estimated by taking the total number of quantities monitored
+in MicroBooNE and scaling by the detector length and the number of
+planes, giving a number in the range of 50k to 100k.  The subsystems
+to be monitored include the detector cryogenic instrumentation
+described in this chapter, the other detector systems, and relevant
+infrastructure and external devices. Table \ref{tab:gen-slow-quant}
+lists the kind of quantities expected from each system.
+
+\begin{dunetable}
+[Slow Controls Quantities]
+{p{0.3\textwidth}p{0.6\textwidth}}
+{tab:gen-slow-quant}
+{Slow controls quantities}
+System & Quantities \\ \toprowrule
+\multicolumn{2}{l}{\bf Detector Cryogenic Instrumentation } \\ \colhline
+Purity Monitors & anode and cathode charge, bias voltage and current, flash lamp status \\ \colhline
+Thermometers & temperature, position of dynamic thermometers \\ \colhline
+Liquid level & liquid level \\ \colhline
+Gas analyzers & purity level readings \\ \colhline
+Cameras & camera voltage and current draw, temperature, heater current and voltage, lighting current and voltage \\ \colhline
+Cryogenic internal piping & feedthrough gas purge flow and temperature \\ \colhline
+\multicolumn{2}{l}{\bf Other Detector Systems } \\ \colhline
+High Voltage Systems & Drift HV voltage, current; end-of-field cage current, bias; ground plane currents \\ \colhline
+TPC Electronics & voltage and current to electronics \\ \colhline
+Photon Detection & bias, current, electronics \\ \colhline
+Data Acquisition & warm electronics currents and voltages; run status; DAQ buffer sizes, trigger rates, data rates, GPS status, etc.; computer and disk health status; other health metrics as defined by DAQ group \\ \colhline
+Charge Readout Plane / Anode Plane Array & bias voltages and currents \\ \colhline
+\multicolumn{2}{l}{\bf Infrastructure and External Systems } \\ \colhline
+Cryogenics (external) & status of pumps, flow rates, inlet and return temperature and pressure (via OPC or similar SCADA interface) \\ \colhline
+Beam status & protons on target, rate, target steering, beam pulse timing (via IFBeamDB) \\ \colhline
+Near detector & near detector run status (through common slow controls database) \\ \colhline
+Racks power and status & PDU current and voltage, air temperature, fan status if applicable, interlock status (fire, moisture, etc) \\
+\end{dunetable}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sowjanya and Anselmo
 \subsection{Local Integration}
-\label{sec:fddp-slow-cryo-slow-loc-integ}
+\label{sec:fdgen-slow-cryo-slow-loc-integ}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\subsection{Quality Assurance}
-\label{sec:fddp-slow-cryo-slow-qa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commenting out this subsection because QA is addressed in device subsections
+% in the Cryo Instruments section =gahs
+%
+%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%  \subsection{Quality Assurance}
+%  \label{sec:fdgen-slow-cryo-slow-qa}
+%  
+%  \fixme{need this one? not assigned}
+%  
 
-\fixme{need this one? not assigned}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Production and Assembly}
-\label{sec:fddp-slow-cryo-prod-assy}
-
-\fixme{This section not needed? Not assigned; may be addressed in earlier sections.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commenting out this section because Production and Assembly is addressed
+% in earlier device sections. =gahs
+%
+%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  \section{Production and Assembly}
+%  \label{sec:fdgen-slow-cryo-prod-assy}
+%  
+%  \fixme{This section not needed? Not assigned; may be addressed in earlier sections.}
 

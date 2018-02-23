@@ -154,7 +154,24 @@ The choices of wire tension and wire placement accuracy are made to ensure prope
 
 \fixme{Include an image of the subsystem (frame), indicating its parts. Show how the system fits into the overall system (APA).}
 
-The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_frame}) is 6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.  It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$ 0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints, as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}.  It is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique, described in Section~\ref{sec:apa:electrondiverter}, is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
+APA frames are a bolted assembly of rectangular hollow section (RHS) pieces,
+which are 6.06 m tall, and 2.30 m wide.  The exact dimensions of the RHS to be used in the DUNE far detector are currently being revisited from that used in ProtoDUNE due to the additional requirements on the frame.  The baseline design of 3'' $\times$ 4'' RHS with 0.120'' wall-thickness tubing, as used for the outer tubes in ProtoDUNE, will create significant challenges for cable carrying in the double-height APA assembly required in DUNE.  The current options under consideration are increasing the profile of the tube to 3''$\times$ 5'', which does not impact the fiducuial volume of the detector, or to 4'' $\times$ 4'', which will decrease the fiducial volume by 0.5$\%$.  The four central cross-pieces are made from 2'' $\times$ 3'' RHS, and are likely to be unaffected by the scaleup.  The robustness of the amended frame in both options is currently undergoing FEA analysis.  
+
+The head and foot tubes are attached to the side and center tubes via welded abuttment flanges, which are shimmed to create a flat, rectangular frame of the specified dimensions.  The central cross-pieces are attached to the side pieces in a similar manner.  In production, the pieces are individually machined, and cleaned prior to assembly, which gives flexibility both in the production processes and in terms of achieving the flatness necessary.  
+
+The APA frames are used both as the support structure for the wire plane
+readout and photon detector system, as well as the cabling for both of these
+systems. The foot tubes of two APA frames will be mechanically connected to
+form a 12 m tall structure, as depicted in Figure~\ref{fig:tpc_apa_dual}, and these assemblies are mounted edge to edge to form a continuous plane.  
+
+%The stainless steel frame of the APA (Figure~\ref{fig:tpc_apa_frame}) is
+%6.06~m long, not counting electronics and mounting hardware, and 2.30~m wide.
+%It is 76.2~mm thick, made from imperial size 3-in $\times$ 4-in $\times$
+%0.120-in wall rectangular tubing.  The cross pieces have a cross-sectional
+%area of 2\,in $\times$ 3\,in, and are connected to edge pieces using joints,
+%as in Figure~\ref{fig:tpc_apa_boltedjointdrawing}. 
+
+An APA is mounted in the cryostat with its long axis vertical; multiple APAs are mounted edge-to-edge to form a continuous plane. An electron deflection technique, described in Section~\ref{sec:apa:electrondiverter}, is used to ensure that electrons drawn towards a joint between two APAs will be deflected to one or the other, and not lost.
 
 \begin{dunefigure}[APA dimensions]{fig:tpc_apa_frame}{An APA showing overall dimensions and main components. }
 %\includegraphics[width=0.9\textwidth]{figures/tpc_apa_frame} 
@@ -282,17 +299,53 @@ CTE of 304 stainless steel, integrated to 87 K (m/m) & 2.7e-3 \\
 \subsection{Quality Assurance}
 \label{sec:fdsp-apa-qa}
 
-\fixme{Ideas from the QA plan - topics to address}
+Quality assurance begins with the adequate training of members of the production teams. The required skills and tasks will be discussed further in Section~\ref{sec:fdsp-apa-assy}.
 
-Work processes: ensure proper training materials for and training of designers, fabricators, etc. 
+Three primary quality-assurance procedures are followed during production. These are
+\begin{enumerate}
+\item APA-frame geometry measurements,
+\item Wire-tension measurements,
+\item Electrical tests on each wire layer.
+\end{enumerate}
 
-Design validation: APA has had design reviews, and is prototyped in ProtoDUNE-SP...
+\subsubsection{APA-frame geometry}
 
-Acceptance Testing of procured items? 
+Upon receipt of the rolled hollow section steel for the frames, a selection procedure is followed to choose the sections of the steel most suited to achieving the geometrical tolerances. This procedure is documented in document PSL-TN-2013-04.
 
-Lessons learned 
+Once an APA frame is complete, a laser survey of the back face of the frame is taken to ensure the APA satisfies the flatness criteria. The APA-frame geometry requirements are listed in table~\ref{tab:APAFrameFlatness}, and are further documented in DUNE-DocDB-1300.
 
-Documents and records for all these things.
+\begin{dunetable}[APA-frame flatness requirements]{lc}{tab:APAFrameFlatness}{APA-frame flatness requirements. For more details see PSL-TN-2016-3.}
+Criterion & Tolerance \\ \toprowrule
+Overall flatness & \SI{11}{mm} \\
+Overall bow & \SI{11}{mm} \\
+Overall twist & \SI{2}{mm / m}\\ \colhline
+Twist zone 1 & \SI{2}{mm / m}\\
+Twist zone 2 & \SI{2}{mm / m}\\
+Twist zone 3 & \SI{2}{mm / m}\\
+Twist zone 4 & \SI{2}{mm / m}\\
+Twist zone 5 & \SI{2}{mm / m}\\ \colhline
+\multicolumn{2}{c}{\bf Fold --- back datum side} \\
+Food tube & \SI{1.2}{mm} \\
+Rib 1 & \SI{1.2}{mm} \\
+Rib 2 & \SI{1.2}{mm} \\
+Rib 3 & \SI{1.2}{mm} \\
+Rib 4 & \SI{1.2}{mm} \\ \colhline
+\multicolumn{2}{c}{\bf Fold --- front side} \\
+Rib 1 & \SI{1.2}{mm} \\
+Rib 2 & \SI{1.2}{mm} \\
+Rib 3 & \SI{1.2}{mm} \\
+Rib 4 & \SI{1.2}{mm} \\
+\end{dunetable}
+
+Once the photon-detector rails have been installed, a go-no-go device is inserted to ensure there is adequate clearance for the photon detectors. (This device is simply an oblong piece of perspex with dimensions just slightly larger than those of the photon detectors.)
+
+\subsubsection{Wire-tension measurements}
+
+Once each wire layer has been wound, the tension of each wire is measured, using a laser-based system. (It is hoped that an electrical system will become available in the near future.) Wire tensions are required to be in the range $3.5\textrm{--}\SI{7.5}{N}$ for wires longer than \SI{750}{mm} and in the range $2.0\textrm{--}\SI{7.5}{N}$ for wires shorter than \SI{750}{mm}.
+
+\subsubsection{Electrical tests}
+
+Electrical tests (leakage and isolation) are performed on each wire, once each wire layer has been wound. There must be no leakage current greater than \SI{0.5}{nA} at a \SI{1}{kV} bias. The measured current between adjacent wires, when biased at \SI{1}{kV}, must not exceed \SI{100}{nA} (corresponding to a resistance of \SI{10}{G\ohm}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
