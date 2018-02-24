@@ -5,18 +5,52 @@
 
 The goals for the level monitoring system are basic level sensing when filling, and precise level sensing during static operations. 
 
-For filling the detector the differential pressure between the top of the
-detector and known points below it can be converted to depth with the known
-density of liquid argon.
+For filling the detector the differential pressure between the top of
+the detector and known points below it can be converted to depth with
+the known density of liquid argon.  The temperatures of RTDs at known
+heights may also be used to determine when the cold liquid has reached
+each RTD.
 
-During operation, the purpose of liquid level monitoring is twofold: it is required by the cryogenics system to tune the LAr flow and by the detector
-to guaranty that the top ground planes are always submerged (otherwise there will be high risk of dielectric breakdown).  
-Two differential pressure level meters will be installed as part of the cryogenics system, one in each side of the detector.
-Those will have a precision of 0.1\%, which corresponds to 14 mm at the nominal LAr surface.
-This precision is sufficient for the detector, since the plan is to kept the LAr surface at
-least 20 cm above the ground planes (this is the value used for the HV interlock in
-ProtoDUNE-SP). Thus, no additional level meters are required. However, the need of a redundant system, probably based on a different tecnology
-(array of temperature sensors or/and capacitive sensors), is under discussion. That system could be used for the HV intelock. 
+During operation, the purpose of liquid level monitoring is twofold:
+it is required by the cryogenics system to tune the LAr flow and by
+the detector to guaranty that the top ground planes are always
+submerged (otherwise there will be high risk of dielectric breakdown).
+Two differential pressure level meters will be installed as part of
+the cryogenics system, one in each side of the detector.  Those will
+have a precision of 0.1\%, which corresponds to \SI{14}{mm} at the
+nominal LAr surface.  This precision is sufficient for the single
+phase detector, since the plan is to kept the LAr surface at least 20
+cm above the ground planes (this is the value used for the HV
+interlock in ProtoDUNE-SP); thus, no additional level meters are
+required for the single phase. However, in the dual phase liquid argon
+system the surface level should be controlled at the millimeter level,
+which can be accomplished with capacitive monitors. Using the same
+capacitive monitor system in each detector reduces design differences
+and provides a redundant system for the single phase.  Either system
+could be used for the HV interlock.
+
+Table \ref{tab:fdgen-liq-lev-req} summarizes the
+requirements for the liquid level monitor system.
+
+\begin{dunetable}
+[Liquid level monitor requirements]
+{p{0.45\linewidth}p{0.50\linewidth}}
+{tab:fdgen-liq-lev-req}
+{Liquid level monitor requirements}   
+Requirement & Physics Requirement Driver \\ \toprowrule
+ Measurement accuracy (filling) \(\sim \SI{14}{mm}\) & Understand status of detector during filling \\ \colhline
+ Measurement accuracy (operation, DP) \(\sim \SI{1}{mm}\) & Maintain correct depth of gas phase. (Exceeds SP requirements) \\ \colhline
+ Provide interlock with HV & Prevent damage to detector from HV discharge in gas \\
+\end{dunetable}
 
 
- 
+%\subsubsection{Production and Assembly}
+Cryogenic pressure sensors will be purchased from commercial sources.
+Installation methods and positions will be determined as part of the
+cryogenic internal piping plan.  Sufficient redundancy will be designed in
+to ensure that no single point of failure compromises the level measurement.
+
+Multiple capacitive level sensors will be deployed along the top of
+the fluid to be used during stable operation and checked against each
+other.
+
