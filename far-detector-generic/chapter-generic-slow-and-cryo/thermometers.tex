@@ -15,7 +15,8 @@ at the top and bottom of the detector, which are the most delicate regions (the 
 
 Since temperature variations inside the cryostat are expected to be very small ($0.02 K$), to properly measure the 3D temperature map 
 sensors must be cross-calibrated to better than $0.005 K$. Most sensors will be calibrated in the laboratory, prior to installation,
-as described in the next section. This is in fact the only viable method for sensors behind the APAs and top/bottom of the detector since the available space is restricted.  
+as described in the next section. This is in fact the only viable method for sensors in areas where the available space is restricted: on the long sides of the detector
+(behind the APAs for SP, and behind the lateral FC end walls for DP) and top/bottom of the detector.
 Given the precision required and the unknown longevity of the sensors (which could require a new calibration after some time), and complementary method
 will be used for T-gradient monitors behind the front end-walls. In those areas there is sufficient space for a movable system, which can be used to cross-calibrate insitu
 the temperature sensors. This calibration method is described in the section about dynamic T-gradient monitors. 
@@ -36,37 +37,43 @@ giving excellent results. As shown in Fig.~\ref{fig:sensor_cable}, the PT102 sen
 \end{dunefigure}
 
 For the readout cables a custom cable made by Axon is the baseline. It consists in four teflon-jacketed 
-cupper wires (AWG28), forming two twisted pairs, with an metalic external shield
+cupper wires (AWG28), forming two twisted pairs, with an metallic external shield
 and an outer teflon jacket. Further details are given in Fig.~\ref{fig:sensor_cable}-Right. 
 The readout system will be described below in a separate subsection. 
 
-Another set of lower precision sensors will be also used to monitor the filling of the cryostat in its initial stage. Those sensors will be epoxied into the cryostat bottom membrane with
+Another set of lower precision sensors will be used to monitor the filling of the cryostat in its initial stage. Those sensors will be epoxied into the cryostat bottom membrane with
 a density to be determined, which will not exceed 1 sensor every 5 m. 
 Finally, the inner walls and roof of the cryostat will be instrumented with the same type of sensors in order to monitor their temperature during cooldown and filling.
-The baseline distribution would be three vertical arrays of sensors: one in each side of the cryostat behind the end walls and another one in the middle behind the APAs. 
+The baseline distribution would be three vertical arrays of sensors: one in each far side of the cryostat and a third one in at the middle in one of the lateral walls. 
 
-except for the membrane sensors that may come from Minco.
+%except for the membrane sensors that may come from Minco.
 
 % % % %
 \subsubsection{Static T-Gradient monitors}
 
-Several vertical arrays of high precision temperature sensors cross-calibrated in the laboratory will be installed behind the APAs.
-Since the electric potential in this area is zero no electric field shielding is required, simplifying enormously the mechanical design.
+Several vertical arrays of high precision temperature sensors cross-calibrated in the laboratory will be installed near the lateral walls
+(behind the APAs for SP and behind the lateral FC end-walls for DP). 
+For the SP detector, since the electric potential is zero behind the APAs, no electric field shielding is required, simplifying enormously the mechanical design.
+This does not apply for the DP detector, for which the proper shielding must be provided. 
+
 
 Sensors are cross-calibrated in the lab using a well controlled environment and a high precission readout system, described below in a separate subsection.
-Although the calibration procedure will certainly improve, the one currently use for ProtoDUNE-SP is descrived here.
-Four sensors are placed as close as possible (such that identical temperature can be assumed for all of them) inside a small cylyndrical aluminum capsule,
-which helps in minimizing convection. One of the sensors acts as reference while the other three are the ones being calibrated. Five independent calibrations
+Although the calibration procedure will certainly improve, the one currently used for ProtoDUNE-SP is descrived here.
+Four sensors are placed as close as possible (such that identical temperature can be assumed for all of them) inside a small cylindrical aluminum capsule,
+which protects the sensors from thermal shocks and helps in minimizing convection.
+One of the sensors acts as reference while the other three are the ones being calibrated. Five independent calibrations
 are performed for each set of three sensors, such that the reproducibility of each sensor can be computed. For each calibration 
 the capsule is introduced in a PLA box of size 9.5x9.5x19 $cm^3$, with two concentrical independent volumes of LAr
-and sourounded by a polystire box with 15 cm thick walls. A small quantity of LAr is used to cooldown the capsule to $~90 K$. Then the capsule is covered by LAr such that it penetrates
+and sourounded by a polystyrene box with 15 cm thick walls. A small quantity of LAr is used to slowly cooldown the capsule to $~90 K$, avoiding thermal shocks that could dammage the sensors.
+Then the capsule is covered by LAr such that it penetrates
 inside fully covering the sensors. Once the temperature stabilizes to the 1-2 mk level (after 5-15 minutes) measurements are taken. Then the capsule is taken out from LAr
 and kept at room temperature until it reaches 200 K. As mentioned above, this procedure is repeated five times, before going to the next set of three sensors.  
 As shown in Figure ~\ref{fig:Trepro} a reproducibility of $\sim2 mk$ has being achieved in ProtoDUNE-SP. 
 
-The baseline design for the mechanics of the system is shown in Fig.~\ref{}. It consists in two stainless strings anchored at top and bottom corners of the cryostat
-using M10 bolts. One of the strings is used to route the cables while the other serves as support for temperature sensors. The need of intermediate anchoring points is under discussion. 
-
+%The baseline design for the mechanics of the system is shown in Fig.~\ref{}. It consists in two stainless strings anchored at top and bottom corners of the cryostat
+The baseline design for the mechanics of the SP system consists in two stainless strings anchored at top and bottom corners of the cryostat
+using the available M10 bolts. One of the strings is used to route the cables while the other, separated 34 cm, serves as support for temperature sensors.
+The need of intermediate anchoring points is under discussion. For the DP detector no baseline design exists yet. 
 
 The four wires of each cable will be soldered to the inner pins of male SUBD-25 connectors on the flanges. 
 
@@ -148,7 +155,6 @@ CERN for one of the LHC experiments. The system consists of three parts:
 
 
 The current mode of operation averages over 2000 samples taken in 1 second. 
-As shown in Fig.~\ref{} the system has a resolution better than 1 mk.  
+As inferred from Fig.~\ref{fig:Trepro} the system has a resolution better than 1 mk (the RMS of one of offsets in the stable region).     
 
-
-\fixme{add figure showing the resolution of the system}
+%\fixme{add figure showing the resolution of the system}
