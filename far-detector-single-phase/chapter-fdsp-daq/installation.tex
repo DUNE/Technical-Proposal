@@ -10,7 +10,7 @@
 \label{sec:fdsp-daq-install-transport}
 
 The DAQ will be installed in the server room part of the control room
-area of the CUC as diagrammed in Fig~\ref{fig:daq-install-controlroom},
+area of the CUC as diagrammed in Fig.~\ref{fig:daq-install-controlroom},
 starting as soon as the consortium has beneficial occupancy of this
 space.  Fiber will be run from both the detectors' WIBs and the surface,
 installed by the CF group.  This starting point is currently projected
@@ -45,6 +45,13 @@ This room will be similar to any server room at a university or national
 lab in terms of need for cleanliness, ventilation, fire protection, drop
 flooring, and access.  Networking infrastructure and fiber breakout will
 take up some of the rack space, but not very much of the power budget.
+ Power to individual machines will need to be controlled remotely via
+power distribution units, as a goal is to minimize DAQ workers
+underground if there is work which can be done from the surface or
+remotely instead.  Some UPS capacity will be needed to allow for an
+orderly shutdown of computers, but only networking equipment will need
+longer duration backup power, to enable remote recovery from short-term
+power failures.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Integration with TPC/PD Electronics}
