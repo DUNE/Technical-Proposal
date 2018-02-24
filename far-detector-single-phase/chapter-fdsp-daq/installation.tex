@@ -9,6 +9,38 @@
 \subsection{Installation}
 \label{sec:fdsp-daq-install-transport}
 
+The DAQ will be installed in the server room part of the control room
+area of the CUC as diagrammed in Fig~\ref{fig:daq-install-controlroom},
+starting as soon as the consortium has beneficial occupancy of this
+space.  Fiber will be run from both the detectors' WIBs and the surface,
+installed by the CF group.  This starting point is currently projected
+to be eighteen months before APAs can be installed in cryostats,
+allowing time for the DAQ to be ready to be used for APA testing and
+commissioning.
+
+\SI{500}{kVA} of power and cooling will be available to run the
+computers in this room.  12 racks of DAQ space per module were initially
+allocated, with two more for facilities and two more for CISC.  This
+room has floor space for more: optimization of spaces vs. power are being
+worked out.  The racks will be water cooled. To allow expanded headroom
+for initial testing, development, and commissioning throughput, the
+full complement of DAQ hardware will be installed right away, even
+though only the first two modules will need to use it.
+
+\begin{dunefigure}[Baseline Readout and Buffering]{fig:daq-install-controlroom}
+  {Floor plan for the DAQ and control room space in the CUC.  The ``Data
+    Room'' has space for at least 50 racks of servers.  Fiber from the
+    WIBs in the detector caverns will enter in the upper right of this
+    room and be distributed to the RCEs in these racks, then to FELIX
+    servers (also in this room) as outlined in
+    Fig.~\ref{fig:daq-readout-buffering-baseline}.  Fibers to the surface
+    will enter this room from the lower left.}
+\includegraphics[width=0.8\textwidth]{ControlRoom-v2.png}
+\end{dunefigure}
+
+This room will be similar to any server room at a university or national
+lab in terms of need for cleanliness, fire protection, drop flooring,
+and access.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Integration with TPC/PD Electronics}
@@ -19,6 +51,7 @@
 \subsection{Commissioning}
 \label{sec:fdsp-daq-commissioning}
 
+\fixme{Commissioning of the DAQ or using the DAQ to commission the APAs?}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsection{Calibration?}
