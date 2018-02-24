@@ -19,28 +19,32 @@ allowing time for the DAQ to be ready to be used for APA testing and
 commissioning.
 
 \SI{500}{kVA} of power and cooling will be available to run the
-computers in this room.  12 racks of DAQ space per module were initially
-allocated, with two more for facilities and two more for CISC.  This
-room has floor space for more: optimization of spaces vs. power are being
-worked out.  The racks will be water cooled. To allow expanded headroom
-for initial testing, development, and commissioning throughput, the
-full complement of DAQ hardware will be installed right away, even
-though only the first two modules will need to use it.
+computers in this room.  12 standard \SI{19}{in} server racks of DAQ
+space per module were initially allocated, with two more each for
+facilities and CISC.  This room design has more floor space than
+initially proposed, potentially creating more space for racks or a
+workbench: optimization of space vs. power consumption are being worked
+out.  The racks will be water cooled. To allow expanded headroom for
+initial testing, development, and commissioning throughput, the full
+complement of DAQ hardware will be installed right away: even though
+only the first two modules will need to use it.
 
-\begin{dunefigure}[Baseline Readout and Buffering]{fig:daq-install-controlroom}
+\begin{dunefigure}[CUC Control Room Layout]{fig:daq-install-controlroom}
   {Floor plan for the DAQ and control room space in the CUC.  The ``Data
-    Room'' has space for at least 50 racks of servers.  Fiber from the
-    WIBs in the detector caverns will enter in the upper right of this
-    room and be distributed to the RCEs in these racks, then to FELIX
-    servers (also in this room) as outlined in
-    Fig.~\ref{fig:daq-readout-buffering-baseline}.  Fibers to the surface
-    will enter this room from the lower left.}
+    Room'' has space for at least 52 racks of servers and routers.
+    Fiber from the WIBs in the detector caverns will enter in the upper
+    right of this room, terminate in a breakout panel, and be
+    distributed to the RCEs in these racks, then to FELIX servers (also
+    in this room) as outlined in
+    Fig.~\ref{fig:daq-readout-buffering-baseline}.  Fibers to the
+    surface will enter this room from the lower left.}
 \includegraphics[width=0.8\textwidth]{ControlRoom-v2.png}
 \end{dunefigure}
 
 This room will be similar to any server room at a university or national
-lab in terms of need for cleanliness, fire protection, drop flooring,
-and access.
+lab in terms of need for cleanliness, ventilation, fire protection, drop
+flooring, and access.  Networking infrastructure and fiber breakout will
+take up some of the rack space, but not very much of the power budget.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Integration with TPC/PD Electronics}
