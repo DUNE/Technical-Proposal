@@ -1,21 +1,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Data Acquisition System (DAQ) Overview (Georgia Karagiorgi \& David Newbold)}
+\section{Data Acquisition System (DAQ) Overview (Georgia Karagiorgi and Dave Newbold)}
 \label{sec:fdsp-daq-ov}
 
-\metainfo{2 Pages - largely generic but some highlighting of SP-specifics.}
+%\metainfo{2 Pages - largely generic but some highlighting of SP-specifics.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Introduction}
 \label{sec:fdsp-daq-intro}
 
-The overall DUNE Far Detector Data Acquisition System (DAQ) is
-illustrated in Fig.~\ref{fig:daq-overview}.
-\fixme{Describe figure here.}
-
-Figure.~\ref{fig:daq-overview} illustrates the data flow and the
-exchange of trigger and monitoring messages.
-
-
+The DUNE Far Detector (FD) Single-Phase Data Acquisition (DAQ) System
+design must enable the readout, processing and distribution to
+permanent storage of physics and calibration data from each 10~kton SP
+module, including data from the PD, TPC, accelerator and timing,
+calibration, and other auxiliary systems.
+An overview of the overall DUNE FD DAQ System is illustrated in
+Fig.~\ref{fig:daq-overview}. 
+Figure~\ref{fig:daq-overview} illustrates the main DAQ subsystem
+components as well as the data flow and the exchange of trigger and
+monitoring messages between them.
+As shown, it is applicable to both TPC and PD system readout, except
+that in the case of the PD system the DAQ scope begins to the right of
+the Front-End Readout. 
+%\fixme{Describe figure here.}
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}
   {A generalized overview of high-level far detector \dword{daq}
@@ -49,42 +55,99 @@ exchange of trigger and monitoring messages.
 \label{sec:fdsp-daq-des-consid}
 
 
-\metainfo{Include: Raw data rate from WIBs, Josh's table of data volumes for each event type and the 30 PB/year offline limit. Space and thermal power limits.  Note, this table may be better put into Section~\ref{sec:fdsp-daq-design} to make this section more generic.}
+%\metainfo{Include: Raw data rate from WIBs, Josh's table of data volumes for each event type and the 30 PB/year offline limit. Space and thermal power limits.  Note, this table may be better put into Section~\ref{sec:fdsp-daq-design} to make this section more generic.}
 
+%\fixme{Anne suggests: Within this section add ref to requirements document when it's ready, and maybe list the most important half dozen in a table here). E.g.,}  
+The high level requirements for the DUNE FD DAQ are provided in
+\cite{daq:reqs}.
+The most critical requirements in consideration for the overall design
+are summarized in Tab.~\ref{tab:daqrequirements}.
 
-The Data Acquisition System design must enable... 
-...
+The data rates and thus the processing needs of the DAQ are expected
+to be dominated by the TPC system.
+In particular, the DAQ must be designed to handle (receive, process,
+compress, select, and hand off to back-end computing) raw TPC data
+rates of up to \SI{6.14}{\TB/\s}. 
+This rate assumes:
+\begin{itemize}
+\item Four (4) \SI{10}{\kton} Single Phase (SP) TPC detector modules
+\item 150 Anode Plane Assemblies (APAs) per module
+\item 2560 wire channels per APA (800 Induction 1, 800 Induction 2, and 960 Collection wires)
+\item 2 MHz digitization rate
+\item 2 Bytes per sample (note that this is an overestimate, as data will be digitized with a 12-bit ADC)
+\end{itemize}
+\fixme{We need to standardize plane labeling throughout.  With the above, there are now \textbf{four} standards (also u/v/w, u/v/x and u/v/y).}
 
-\fixme{Anne suggests: Within this section add ref to requirements document when it's ready, and maybe list the most important half dozen in a table here). E.g.,}  
+A back-end requirement is that the total volume of physics data that
+can be shipped to off-site data centers for offline analysis is
+limited to \SI{100}{\Gbps}.
+An additional requirement is that a year’s worth of data amounts to no
+more than \SI{30}{\PB} of data to permanent disk per year for the
+entire DUNE FD, including all four (4) \SI{10}{\kton}
+\dwords{detmodule} (each including TPC, PD system, calibration
+systems, etc.).
+
+The anticipated event rates due to true physics signals per
+\SI{10}{\kton} \dword{detmodule} are summarized in
+Tab.~\ref{tab:daqdatarates}, under the assumption that noise levels
+(which can otherwise generate an overwhelming rate of fake triggers)
+are as expected from intrinsic electronics noise.
 
 \begin{dunetable}
-[Important requirements on the DAQ system design]
+[Anticipated event and data rates in the DUNE FD \SI{10}{\kton} module]
 {p{0.8\textwidth}}
-{pdphysicsparams}
-{Important requirements on the DAQ system design}   
-Requirement  \\ \toprowrule
+{tab:daqdatarates}
+{Anticipated event and data rates in the DUNE FD 10~kton module}   
+Event Type  \\ \toprowrule
   \\ \colhline
    \\ \colhline
  ...\\ 
 \end{dunetable}
 
-\fixme{By the end of the volume, for every requirement listed in this section, there should exist an explanation of how it will be satisfied.}
+\begin{dunetable}
+[Important requirements on the DAQ system design]
+{ccc}
+{tab:daqrequirements}
+{Important requirements on the DAQ system design}   
+Requirement  & Description \\ \toprowrule
+Scalability & The DUNE FD DAQ shall be capable of receiving and
+buffering the full raw data from all four FD modules \\ \colhline 
+Zero deadtime & The DUNE FD DAQ shall operate without deadtime under
+"normal" operating conditions \\ \colhline
+Triggering & The DUNE FD DAQ shall provide full-detector triggering
+functionality as well as self-triggering
+functionality; the data selection shall maintain high efficiency to
+physics events while operating within a total bandwidth of 30 PB/year
+for all operating FD modules \\ \colhline
+Synchronization & The DUNE FD DAQ will provide synchronization of
+different FD modules to within 1~$\mu$s, and of different subsystems
+within a module to within 10~ns\\ \colhline
+\end{dunetable}
+
+%\fixme{By the end of the volume, for every requirement listed in this section, there should exist an explanation of how it will be satisfied.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scope}
 \label{sec:fdsp-daq-scope}
 
-\metainfo{This section may also wish to refer to Fig.~\ref{fig:daq-overview}.}
+%\metainfo{This section may also wish to refer to Fig.~\ref{fig:daq-overview}.}
 
-The scope of the Data Acquisition System includes the continued procurement of materials for, and the fabrication, testing, delivery and installation of the following systems: 
-
-\fixme{Whatever the items are...}
+The scope of the \dword{daq} system includes the continued procurement
+of materials for, and the fabrication, testing, delivery and
+installation of the following systems:
 
 \begin{itemize}
-\item Readout electronics 
-\item 
+\item Readout electronics (only for TPC)
+\item Front-end computing servers, including disk 
+\item Back-end computing servers, including disk
+\item External trigger hardware 
+\item Data selection algorithms
+\item Timing distribution system
+\item DAQ firmware for readout electronics
+\item DAQ data handling software including receiving and building of
+  events
+\item Run control software, configuration database, and user interface
 \end{itemize}
 
 
-\newpage 
