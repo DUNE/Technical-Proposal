@@ -1,0 +1,44 @@
+The core components of the TPC electronics subsystem are the FEMB ASICs that perform shaping, digitization, and multiplexing of channel data in the cold.  Two basic requirements for the ASIC designs are:
+\begin{itemize}
+\item{negligible risk of failure due to the hot carrier effect (less than 0.7\% channel failure per APA plane in 30 years of operation); and}
+\item{a total power consumption of less than 50~mW/channel.}
+\end{itemize}
+If multiple ASIC designs meet these two requirements, the down-select decision will be based on performance, power consumption, estimated reliability, and estimated cost.  Of these factors, performance will be given the largest weight.
+
+For the FE ASICs, more specific requirements include:
+\begin{itemize}
+\item{less than 1000e$^-$ equivalent noise charge (ENC) in LAr for the induction channels;}
+\item{baseline recovery for large pulses;}
+\item{crosstalk between neighboring channels below the 2\% level;}
+\item{crosstalk between non-neighboring channels well below the 1\% level;}
+\item{a nonlinearity below the 0.5\% level or precisely characterized; and}
+\item{channel-to-channel gain uniformity that is either negligible or precisely characterized.}
+\end{itemize}
+A secondary performance measurement is dynamic range.  If noise or linearity depends on the gain setting, then most weight (90\%) will be given to the setting with best performance for which an impulse of 85~fC at the input does not saturate the output.
+
+Additional ADC ASIC requirements are:
+\begin{itemize}
+\item{an associated noise level that is less than 0.5 least significant bits (LSB);}
+\item{a usable dynamic range of at least 3000:1;}
+\item{differential nolinearity (DNL) that is less than 1 LSB; and}
+\item{integrated nonlinearity (INL) that is either less than 1 LSB or consistent from channel-to-channel and chip-to-chip.}
+\end{itemize}
+
+Finally, specific requirements of the COLDATA ASIC design include:
+\begin{itemize}
+\item{fully functional at both room temperature and liquid argon temperature; and}
+\item{both control and data links must operate with negligible error rate over cables up to 21~m in length.}
+\end{itemize}
+
+In addition to these requirements on the ASICs, the TPC electronics subsystem must also:
+\begin{itemize}
+\item{provide the means to read out the TPC wires and transmit their data in a useful format to the DAQ;}
+\item{operate for the life of the facility without significant loss of function;}
+\item{record the channel waveforms continuously without dead time;}
+\item{be constructed only from materials that are compatible with high-purity LAr;}
+\item{provide sufficient precision and range in the digitization to discriminate electrons from photon conversions, optimize the reconstruction of high-energy and low-energy tracks from accelerator-neutrino interactions, distinguish a minimum-ionizing particle (MIP) from noise with a signal-to-noise ratio of 9:1 or greater, and measure ionization up to 15 times that of a MIP so that stopping kaons from proton decay can be identified;}
+\item{ensure that all poewr supplies have local monitoring and control, remote monitoring and control through the DAQ, and over-current and over-voltage protection circuits; and}
+\item{ensure that the CE feedthroughs are able to withstand twice their nominal operating voltages with a maximum specified leakage current in 1-atm argon gas.}
+\end{itemize}
+
+The quality assurance (QA) process, described in Section~\ref{sec:fdsp-tpc-elec-qa}, will make use of both initial validation procedures using electronics test stands as well as integrated test facilities in order to ensure that final component designs satisfy the above requirements.  Once component designs have been decided upon, the quality control (QC) process will employ similar requirements to make sure that every component to be installed in the DUNE single-phase far detector is up to standard.  This is described in more detail in Section~\ref{sec:fdsp-tpc-elec-qc}.
