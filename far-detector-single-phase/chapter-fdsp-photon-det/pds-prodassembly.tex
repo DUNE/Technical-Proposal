@@ -4,70 +4,204 @@
 %\metainfo{(Length: TDR=40 pages, TP=8 pages)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Photon Collectors Production and Assembly}
+\subsection{Photon Collectors Production}
 \label{sec:fdsp-pd-prod-pc}
 %\metainfo{\color{blue} Content: Cavanna/Whittington/Machado}
-	
-\subsubsection{\color{red}\bf Dip-Coated Light Guides}
+
+In this section we will first describe the production process specific to each of the three Photon Collector technologies followed by the final assembly procedures common to all types. 
+
+\subsubsection{Dip-Coated Light Guides}
 \label{ssec:fdsp-pd-pc-prod-bar1}
-\metainfo{\color{red} Content needed: (2 pages) Toups}
+%\metainfo{\color{red} Content needed: (2 pages) Toups}
+% Toups 2/22/18
+
+Although the production methods initially developed at MIT for 20'' dip-coated light guide bars were scaled up at FNAL to accommodate the size of the dip-coated light guides for protoDUNE-SP, the four steps employed to produce the dip-coated light guides have remained essentially the same:
+
+\begin{itemize}
+\item Cut and polished UVT acrylic bars are annealed at $180^{\circ}$F in a temperature-controlled oven to prevent subsequent crazing,
+\item The TPB-based coating mixture is prepared in a fume hood and poured into an upright vessel located inside a larger enclosed volume,
+\item A mechanized system dips the annealed bars into the coating solution where they soak and are then hung to dry in a low humidity environment established through a dry nitrogen purge of the enclosed volume, and
+\item The coated acrylic bars are placed in a dark box and their attenuation length in air is measured with a UV LED that is scanned along the length of the bar.
+\end{itemize}
+
+The coating solution consists of four components in the following ratios:
+
+\begin{itemize}
+\item 100 mL 99.9\% pure toluene,
+\item 25 mL 200 proof ethanol
+\item 0.2 g UVT acrylic pellets
+\item 0.2 g scintillation grade TPB
+\end{itemize}
+
+The TPB and UVT acrylic pellets are first dissolved in a flask filled with toluene and mixed overnight with a teflon-coated magnetic stir bar.  Then the ethanol is mixed into the coating solution before it is poured into the dipping vessel.  This will produce an optically transparent, TPB-embedded coating, which adheres well to the surface of the bar and has a smooth surface.
+
+A picture of the oven used for annealing, the fume hood used for mixing the coating, the vessel used for dipping, and the dark box used for measuring attenuation lengths for the production of dip-coated light guides for protoDUNE-SP is shown in Figure~\ref{fig:dipprod}.  These same production methods will also be used for the DUNE single-phase far detector, although they will need to be scaled up so that multiple bars can be dipped and scanned at the same time.  Additionally, multiple production sites will be built to produce dip-coated light guide bars for the DUNE single-phase far detector.
+
+\begin{dunefigure}[ProtoDUNE-SP dip-coated light guide bars production.]{fig:dipprod}
+%{protoDUNE-SP dip-coated light guide bars production: annealing oven (top left); mixing setup (top right);  Dipping vessel(bottom left); dark box (bottom right)}
+{protoDUNE-SP dip-coated light guide bars production: annealing oven (left); dark box (right)}
+  \includegraphics[height=6cm]{pds-dipannealpic.png}
+ % \includegraphics[width=0.4\columnwidth]{pds-dipmixpic.jpg}.  \\
+ % \includegraphics[width=0.4\columnwidth]{pds-dipvesselpic.jpg}
+  \includegraphics[height=6cm]{pds-dipdarkboxpic.png}
+\end{dunefigure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsubsection{Double-Shift Light Guides}
 \label{ssec:fdsp-pd-pc-prod-bar2}
 
-The production and assembly of the double-shift light guide modules is divided 
-into separate threads for the wavelength-shifting plates and the EJ-280 light guides. 
-Many of the production, quality assurance, and assembly procedures developed for the
- double-shift light guide design deployed at protoDUNE-SP will remain the same for 
-the DUNE single-phase far detector.
-
+The production and assembly of the double-shift light guide modules has two main components for the wavelength-shifting plates and the EJ-280 light guides. Many of the production, quality assurance, and assembly procedures developed for the double-shift light guide design deployed at protoDUNE-SP will remain the same for the DUNE single-phase far detector.
+																								
 \paragraph*{Manufacture of the WLS Plates}
 
-Spray-coating of TPB on acrylic plates (see Figure~\ref{fig:DoubleShiftLG-SprayedPlates}).
+%^%^%^%^%
+Sheets of 1/16''-thick UVT acrylic purchased from McMaster-Carr\footnote{https://www.mcmaster.com} are laser-cut into 77 $\times$ 9 cm$^2$ templates with two 34.2 $\times$ 8.6 cm$^2$ plates per template (Figure~\ref{fig:pds-doubledhiftlg-plate} {\it top}). Each template also includes small 3.81 $\times$ 2.54 cm$^2$ pop-out tabs on either side of and between the two plates. After these acrylic templates are coated with TPB the plates and tabs are popped out. The tabs are tested in a VUV monochromator to determine the quality of the coating on the two associated plates.
 
-\begin{dunefigure}[TPB-coated acrylic plates after spraying at Indiana University during fabrication of parts for protoDUNE-SP.]{fig:DoubleShiftLG-SprayedPlates}
- {TPB-coated acrylic plates after spraying at Indiana University during fabrication of parts for protoDUNE-SP.}
-  \includegraphics[width=0.7\columnwidth]{pds-DoubleShiftLG-SprayedPlates.jpg}
+\begin{dunefigure}[Dip-coated acrylic plates.]
+{fig:pds-doubledhiftlg-plate}
+{A laser-cut acrylic template holding two plates and three test tabs ({\it top}). TPB-coated acrylic plates after spraying during fabrication of parts for protoDUNE-SP ({\it bottom}).}
+    \includegraphics[width=0.6\columnwidth]{pds-doubledhiftlg-acrylictemplate.jpg}\\
+    \includegraphics[width=0.6\columnwidth]{pds-doubledhiftlg-sprayedplates.jpg}
 \end{dunefigure}
 
-\paragraph*{QA of the WLS Plates}
+Scintillation grade ($\ge 99$\%) TPB is dissolved in dichloromethane (DCM) at a ratio of 5~g TPB per 1,000~g DCM. The solution is applied to the templates using a high-volume low-pressure (HVLP) sprayer system under a fume hood. The relatively small number of plates manufactured for protoDUNE were sprayed by a technician to approximate an established standard coating thickness measured to have an acceptably high VUV photon conversion efficiency. Figure~\ref{ffig:pds-doubledhiftlg-plate} {\it bottom} shows the HVLP spray-coating mount with a coated acrylic template. Two plates and three test tabs can be seen in the HVLP mounting frame. A second sprayed template has been broken at one of the midpoint cuts and positioned in the photo. The spray-coating process will be automated or commercialized to accommodate the large-scale production necessary for the DUNE single-phase far detector.
 
-VUV conversion performance measured for neighboring samples from the 
-acrylic plate template using a vacuum-ultraviolet monochromator.
+After spraying, the acrylic templates are baked in a vacuum oven at 80$^{\circ}$~C overnight, just below the glass transition point of acrylic. The softened acrylic can absorb the TPB into the surface, better affixing the wavelength-shifting coating.
 
-\paragraph*{Receipt and QA of the Light Guides}
 
-EJ-280 light guides fabricated by Eljen Technologies. Received and scanned in a 
-long dark-box using a blue LED~(Figure~\ref{fig:DoubleShiftLG-EJ280}).
- Measure conversion and transmission to the light guide ends to test attenuation. 
-Direct transmission through the light guide to confirm uniformity. 
-Attenuation length in liquid argon shorter than in air, but long attenuation in 
-air has been shown to correspond to long attenuation in liquid argon.
+\subsubsection{QA of the WLS Plates}
 
-\begin{dunefigure}[EJ-280 light guide within darkbox for attenuation scan QA at Indiana University (prepared for protoDUNE-SP).]{fig:DoubleShiftLG-EJ280}
-{EJ-280 light guide within darkbox for attenuation scan QA at Indiana University (prepared for protoDUNE-SP).}
-  \includegraphics[width=0.6\columnwidth]{pds-DoubleShiftLG-EJ280.jpg}
+Uneven heating during the baking process described above can deform the coated plates, but this is minimized by ensuring even heating. After baking, the dimensions of the samples are measured and only plates within the production tolerance are accepted for further testing.
+
+To ensure adequate and uniform performance of the coated plates, the conversion efficiency is tested using a VUV monochromator. During ProtoDUNE production, plates were fabricated and tested at Indiana University using a McPherson\footnote{http://mcphersoninc.com} VUV monochromator with deuterium lamp source to study performance at 128~nm. The full plates were too large for the sample chamber of the Indiana University VUV monochromator system, so the two testing tabs on either side of each plate were used to constrain the plate's performance. VUV photons at 128~nm are selected by the monochromator and directed toward the test tabs. The photocurrent from a SiPM behind the sample is measured. Before and after sample testing, the intensity of the lamp output at 128~nm is measured with a VUV-sensitive photodiode and no sample. The ratio of the dark-subtracted SiPM photocurrent to the dark-subtracted VUV photodiode photocurrent is proportional to the absolute conversion efficiency of the sample. The average of this ratio between the two neighboring test tabs is taken as an estimate of the conversion performance of a plate.
+
+Only plates that exhibit a relative efficiency above an acceptance threshold are shipped to the assembly facility for deployment along a light guide. For ProtoDUNE, a threshold was chosen to accept plates that were comparable or superior to those studied at the Blanche test stand~\cite{bib:DoubleShiftLG-NIM-171113} described previously.
+
+\subsubsection{Receipt and QA of the Light Guides}
+
+The EJ-280 light guides are fabricated and cut to length by Eljen Technologies. Upon receipt, each light guide is unpacked, visually inspected for defects, checked for dimensional tolerance, and scanned to determine its attenuation length.
+
+Each light guide is placed on a temperature-controlled metrology table where width, length, and thickness measurements are taken. Light guides within tolerance in these dimensions are then scanned in a long darkbox using a 430~nm LED~(Fig.~\ref{fig:pds-doubleshiftlg-ej280}). Optical photodetectors are placed at each end of the light guide and a third is located on the opposite side of the light guide to the LED. The LED is moved to different positions along the light guide using a stepper motor. The attenuation characteristics of the light guide are determined by comparing the relative signal measured at the end of the light guide as the LED is moved to different positions. Two attenuation curves are measured for each light guide, corresponding to readout at each end. The third photodetector travels with the LED to confirm the uniformity of the wavelength shifting response across the light guide.
+
+\begin{dunefigure}[EJ-280 light guide in darkbox for attenuation scan QA.]{fig:pds-doubleshiftlg-ej280}
+{EJ-280 light guide in a dark box for attenuation scan QA at Indiana University (prepared for protoDUNE-SP).}
+  \includegraphics[width=0.6\columnwidth]{pds-doubleshiftlg-ej280.jpg}
 \end{dunefigure}
 
-\paragraph*{Assembly of the Double-shift Light Guide Module}
+Attenuation scans of EJ-280 light guides in the darkbox and in liquid argon (using a movable Am-241 $\alpha$ source) performed at Indiana University have demonstrated the correlation between attenuation lengths measured in air and in LAr. The index of refraction for $\sim$500~nm light in LAr is larger than in air and the critical angle for trapping by total internal reflection is correspondingly lower. Attenuation lengths longer than $\sim$5~meters measured in the darkbox correspond to attenuation lengths in LAr longer than $\sim$2~meters. An acceptance threshold of 5~meters measured at both ends of an EJ-280 light guide in the darkbox ensures adequate attenuation performance for the modules deployed in the DUNE detectors.
 
-Parts are shipped to the assembly point where the EJ-280 light guide is mounted 
-into the module frame and the WLS plates are attached.
+Visual inspection of light guides received for ProtoDUNE found multiple instances of fogging or mottling on the surface and within the bulk of some light guides. However, these features did not appear to impact the attenuation properties or uniformity under darkbox scans. Acceptance of light guides for shipment to the assembly facility was based on the metrology and attenuation results.
 
-\begin{dunefigure}[Mounting of the WLS plates to the EJ-280 bar.]{fig:DoubleShiftLG-PlateMounting}
+\subsubsection{Assembly of the Double-Shift Light Guide Module}
+
+Parts are shipped to the assembly point where the EJ-280 light guide is mounted into the module frame and the WLS plates are attached as illustrated in Figure~\ref{fig:pds-doubleshiftlg-platemounting}
+
+\begin{dunefigure}[Mounting of the WLS plates to the EJ-280 bar.]{fig:pds-doubleshiftlg-platemounting}
 {Mounting of the WLS plates to the EJ-280 bar.}
-  \includegraphics[width=0.5\columnwidth]{pds-DoubleShiftLG-PlateMounting.jpg}
+  \includegraphics[width=0.4\columnwidth]{pds-doubleshiftlg-platemounting.jpg}
 \end{dunefigure}
 
 
-\subsubsection{\color{red}\bf ARAPUCA}
+% DW 2/23/18
+%^%^%^%^%
+
+\subsubsection{\color{red}\bf ARAPUCA - Machado}
 \label{ssec:fdsp-pd-pc-prod-arapuca}
-\metainfo{\color{red} Content needed: (2 pages) Machado}
+\metainfo{\color{red} "More definitive version" coming: (2 pages) Machado}
+
+Each ARAPUCA module is composed of the following elements: 
+\begin{itemize}
+\item Dichroic filters coated with pTP 
+\item backplane board where the SiPM are soldered and ganged together passively or actively
+\item reflective film to line the internal surface coated with TPB 
+\item mechanical frames  
+\end{itemize}
+
+The filters will be acquired by companies specialized in high quality optical components. Few vendors are currently being considered: ASHAI (Japan), Omega (US), Andover (US), Edmunds Optics (US). The coating of the filters will be performed in Brazil at the LAr facility of UNICAMP.  
+
+The reflective film is a commercial one, 3M VIKUITI ESR (http://multimedia.3m.com/mws/media/193294O/vikuiti-tm-esr-application-guidelines.pdf) and will be coated by vacuum evaporation with TPB at the LAr facility of UNICAMP.  
+
+The quality of the evaporations on both the filters and the reflective foils will be tested in a dedicated facility where they will be irradiated with a pulsed VUV light and the response detected by photomultiplliers. The facility will be located at UNICAMP.  
+
+The backplane board will be fabricated in Brazil (company to be defined) and the SiPM will be soldered on it at the CTI (Centro de Tecnologia da Informacao Renato Archer) in Campinas.  
+
+The backplanes with the SiPMs will be sent to the testing facilities, where their functionality in LAr will be tested.   The mechanical frames that hold the filters, the backplanes and the reflective films will be produced in Brazil (company to be determined).   
+
+The design of the ARAPUCA modules for the first 10~kt single phase module is expected to be similiar the one developed for the ARAPUCA modules of protoDUNE (CSU design).   All the components will be sent to the assembly point where the modules will be fully assembled and then sent to the integration facility.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dave 2/21/18 - Common assembly
+\subsection{Photon Detector Modules Assembly}
+
+Final assembly planning for photon detector modules is guided by the assembly of 60 protoDUNE PD modules (representing multiple units of all three varieties) at the Colorado State University assembly facility.  Assembly will occur at one or more assembly facilities, (number and location to be determined prior to the TDR).  Several features of this are common to all three types of module , and these aspects will be covered in this section.
+
+\subsection{Incoming Materials Control}
+
+All materials for PD module assembly will be delivered with a previously generated QC traveller (in the case of materials custom fabricated for DUNE) or will have an incoming materials traveller generated immediately upon receipt of the component (for commercial components).  These travelers will be scanned upon receipt at the assembly facility, and the data stored in the DUNE QC database.  Materials will either arrive with a pre-existing DUNE inventory control batch/lot number, or will have one assigned prior to entering the assembly area.  Bar code labels attached to storage containers for all components in the assembly area will facilitate traceability throughout the assembly process.
+
+Immediately upon receipt all materials will undergo an incoming materials inspection, including confirmation of key dimensional tolerances as specified on the incoming materials documentation for that component.  The results of these inspections will be included on the traveller for that batch/lot and entered into the database.
+
+In the case of discrepancy, the deviation from nominal will be recorded in an exception section of the traveller, as well as the resolution of the discrepancy.
+
+\subsection{Assembly Area Requirements}
+
+Cleanliness/ will occur in a class 100,000 or better clean assembly area.  Photosensitive components (TPB coated surfaces) are sensitive to near-UV light exposure, and will be protected by filtered light in the assembly area (>~400~nm or better filters), which have been determined to sufficiently protect coated surfaces for short (<8 hour) exposure.
+
+Exposure of photosensitive components will be strictly controlled.  Work flow will be restricted to ensure no component exceed a total exposure of 8 hours to filtered assembly area lighting (including testing time).
+
+\subsection{Component Cleaning}
+
+All components will be cleaned  as appropriate, following manufacturer's specifications and DUNE materials test stand recommendations.  Cleaning procedures will be written for all incoming materials, and completion of these procedures noted in the appropriate travelers.
+
+\subsection{Assembly Procedures}
+
+Following the example of the protoDUNE experience, detailed, step-by-step written procedure documents will be followed for each module, and a QV traveller for each module is completed and recorded in the database.  ProtoDUNE experience suggests that a two-person assembly team is necessary and sufficient for all three currently-considered versions of the light collector modules.  Our current assembly plan envisions two 2-person teams operating at the same time, with a fifth person acting as shift leader.  The shift leader is not directly involved in assembly, but rather acts as a QC officer responsible primarily for ensuring distributing materials to the assembly teams (documenting the batch/lot numbers for each detector on the relevant module travelers) and ensuring that documented assembly procedures are followed.
+
+Assembly fixtures mounted to 2.4~m flat optical tables will be used to support and align PD components during assembly.  All workers handling PD components will wear gloves and hair nets at all times.
+
+%\fixme{(Insert 3 pictures here, of all 3 module types being assembled at CSU)}
+
+%\begin{dunefigure}[Photo of Dip-Coated Bar Prototype Assembly.]{fig:photoDip}
+%{Photo of Dip-Coated Bar Prototype Assembly.}
+%  \includegraphics[width=0.5\columnwidth]{pds-DoubleShiftLG-PlateMounting.jpg}
+%\end{dunefigure}
+
+%\begin{dunefigure}[Photo of Double-Shift Bar Prototype Assembly.]{fig:photoDouble}
+%{Photo of Double-Shift Bar Prototype Assembly.}
+%  \includegraphics[width=0.5\columnwidth]{pds-DoubleShiftLG-PlateMounting.jpg}
+%end{dunefigure}
+
+%\begin{dunefigure}[Photo of ARAPUCA Bar Prototype Assembly.]{fig:photoARAPUCA}
+%{Photo of ARAPUCA Bar Prototype Assembly.}
+%  \includegraphics[width=0.5\columnwidth]{pds-DoubleShiftLG-PlateMounting.jpg}
+%\end{dunefigure}
+
+
+\subsection{Post-Assembly Quality Control}
+
+Post assembly QC planning is currently based on protoDUNE experience, modified as appropriate for larger-scale production.  Each module will go through a series of go-no gauges designed to control tolerances of critical interface documents.  Following this, each module will be inserted into a test APA support model, representing the tightest slot allowed by APA tolerances.  Following that, each module will be scanned at a fixed set of positions (to be determined prior to the TRD) with 275 nm UV LEDs.  The detector response at each position will be read out using PD readout electronics, and the data compared to pre-established criteria.  Figure~\ref{fig:pds-pd-scanner} is a photograph of the scanner used for protoDUNE modules. These performance data will serve as a baseline for the module, and will be compared against those taken in an identical scanner shortly before installation into the APA, as in the protoDUNE experience. 
+
+\begin{dunefigure}[PD module scanner.]{fig:pds-pd-scanner}
+{PD module scanner.}
+  \includegraphics[width=0.5\columnwidth]{pds-pd-scanner.jpg}
+\end{dunefigure}
+
+Post-assembly immersion of each or a representative sample of the PD modules into a LN2 cryostat for a final QC check (as in protoDUNE) is being considered.
+
+All data collected will be recorded to the module traveler and to the DUNE QC database.
+
+
+
+% End Dave 2/21/18
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{PD Mounting in APA Frames}
 \subsection{APA Frame Mounting Structure and Module Fixing}	
 \label{sec:fdsp-pd-assy-frames}
 %\todo{\color{blue} Content:  Warner}
@@ -75,25 +209,35 @@ into the module frame and the WLS plates are attached.
 Photon detector (PD) modules are inserted into the APA frames through ten slots 
 (five on each side of the APA frame) and are supported in place inside the frame in 
 stainless steel guide channels.  The slot dimensions for the protoDUNE APA frames 
-were 108.0~mm X 19.2~mm wide (see Figure~\ref{}).  The guide channels are pre-positioned into 
+were 108.0~mm X 19.2~mm wide (see Figure~\ref{fig:pds-pd-mounting}(top)).  The guide channels are pre-positioned into 
 the APA frame prior to applying the wire shielding mesh to the APA frames, and are
-not accessible following wire wrapping.
+not accessible following wire wrapping. Following insertion, the PD modules are fixed in place in the APA frame using
+ two stainless steel captive screws, as shown in Figure~\ref{fig:pds-pd-mounting}(bottom)).
 
-\fixme{Insert Dave's PD Mounting rails in APA frame mpicture}
 
-Following insertion, the PD modules are fixed in place in the APA frame using
- two stainless steel captive screws, as shown in Figure~\ref{}).
+\begin{dunefigure}[PD mounting rails in APA frame.]{fig:pds-pd-mounting}
+{PD mounting in APA frame: Rails (top) and securing to the frame with captive screws  (bottom).}
+	\includegraphics[height=6cm]{pds-pd-mounting-rails.pdf}
+	\includegraphics[height=4cm]{pds-pd-mounting-screws.pdf}
+\end{dunefigure}
 
-\fixme{Insert Dave's PD Mounting screws mpicture}
+
+%\fixme{Insert Dave's PD Mounting screws mpicture}
+%\begin{dunefigure}[Photon Detector mounting screws in APA frame.]{fig:pds-pd-mounting-screws}
+%{Photon Detector mounting rails in APA frame.\fixme{alignment}}
+%	\includegraphics[height=5cm]{pds-pd-mounting-screws.pdf} 
+%\end{dunefigure}
+
 
 \subsubsection{Cryogenic thermal contraction}
 
 Bar-style PD modules are structurally composed of primarily polycarbonate and 
 acrylic, which have significantly different shrinkage factors compared to the 
-stainless steel APA and PD support frames (see Table 1).
+stainless steel APA and PD support frames (see Table~\ref{tbl:fdsfpdshrink}).
 
-\begin{dunetable}[Shrinkage of Photon Detector Materials.]
-{|c|c|}
+\begin{dunetable}[Shrinkage of PD materials.]
+%{|c|c|}
+{cc}
 {tbl:fdsfpdshrink}
 {Shrinkage of Photon Detector Materials}
 Material Shrinkage Factor (m/m) & $206^{\circ}$C Drop\\ \toprowrule
@@ -103,12 +247,13 @@ Polystyrene (Average) & $1.5\times10^{-2}$\\ \colhline
 Acrylic and Polycarbonate (Average) & $1.4\times10^{-2}$\\ \colhline
 \end{dunetable}
 
-These differences in thermal expansion (or contraction in this case) were 
-important to keep in mind during design of the PD module supports.  
-Mitigation for these varying contractions are detailed in Table 2:
+These differences in thermal expansion (or contraction, in this case) are an
+important factor during design of the PD module supports.  
+Mitigation of these contractions is detailed in Table~\ref{tbl:fdsfpdshrinkeffects}.
 
-\begin{dunetable}[Relative Shrinkage of PD components and APA frame, and mitigations]
-{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.5\textwidth}l}
+\begin{dunetable}[Relative shrinkage of PD components and APA frame with mitigations]
+%{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.5\textwidth}l}
+{p{0.2\textwidth}p{0.2\textwidth}p{0.5\textwidth}}
 {tbl:fdsfpdshrinkeffects}
 {Relative Shrinkage of PD components and APA frame, and mitigations}
 \textbf{Interface} & \textbf{Relative shrinkage} & \textbf{Mitigation} \\ \toprowrule
@@ -118,49 +263,48 @@ Width of SiPM mount board ({\it Hover board}) to stainless steel frame & Stainle
 Width of SiPM mount board relative to polycarbonate mount block & Polycarbonate block shrinks \SI{1}{mm} more than PCB & Allowed for in clearance holes in SiPM mount board \\ \colhline
 \end{dunetable}
 
-\subsubsection{PD Mount Frame Deformation under static PD load}
+\subsubsection{PD Mount frame deformation under static PD load}
 
 FEA modeling of the PD support structure was conducted to study static deflection 
 prior to building prototypes.  Modeling was conducted in both the vertical
- orientation (APA upright, as installed in cryostat) and also flat.  
+ orientation (APA upright, as installed in cryostat) and also horizontal orientation.  
 Basic assumptions used were fully-supported fixed end conditions for the rails, 
-uniform loading of 3X PD mass (5 kg) along rails.  
+with uniform loading of 3X PD mass (5 kg) along rails.  
 Prototype testing confirmed these calculations.
 
-\fixme{Insert Dave's 4 deflection pictures here}
-%\fixme{Same for bars and ARAPUCAs}
+\begin{dunefigure}[PD mechanical support analysis.]{fig:pds-rail}
+{PD mechanical support analysis.\fixme{alignment}}
+	\includegraphics[height=3cm]{pds-rail-deflec-apa-flat.pdf} 
+	\includegraphics[height=3cm]{pds-rail-deflec-apa-vert.pdf}\\
+	\includegraphics[height=3cm]{pds-rail-stress-apa-flat.pdf} 
+	\includegraphics[height=3cm]{pds-rail-stress-apa-vert.pdf}
+\end{dunefigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Photosensor Modules}
 \label{sec:fdsp-pd-assy-psm}
 %\todo{\color{blue} Content: Zutshi}
 
-The Silicon Photomultiplier analog signal will be ganged on the detector inside the
-LAr volume. Passive and active ganging schemes are under consideration. Some passive
+The SiPM analog signal will be ganged in close proximity to the the sensors inside the
+LAr volume. {\it Passive} and {\it active} ganging schemes are under consideration. Some passive
 ganging (sensors put in parallel) schemes have been examined and are being installed inside
-protoDUNE (see \fixme{Fig. yyy)}. The key point for parallel passive ganging in terms of 
-maintaining signal-to-noise as devices are ganged together is the terminal capacitance of the 
-sensors. This characteristics can therefore play an important in device selection or on
-the flip side in determining the maximum ganging possible. In this scheme the 
-ganged analog signals are then brought out via long cables (~25 m) for digitization outside
-the cryostat. This is currently being done in protoDUNE using teflon ethernet CAT6 cables.
+protoDUNE 
+%(see \fixme{Fig. yyy)}. 
+The key point for parallel passive ganging in terms of  maintaining signal-to-noise as devices are ganged together is the terminal capacitance of the sensors. This characteristic can therefore play an important role in device selection may ultimately determine  the maximum number of individual sensors that can be ganged. The ganged analog signals are then brought out via long cables (about 25~m) for digitization outside the cryostat as is the case for protoDUNE using Teflon ethernet CAT6 cables.
 
-An interesting alternative option that may provide more flexibility in terms of the level of
-photosensor ganging possible and also obviate the need for carrying analog signals of long cables
-is the so-called active ganging option where the amplifiers and ADCs sit on the board carrying 
-the photosensors inside the LAr volume. This option however brings, in all the reliability and long-term
-stability issues related to cold electronics into play. While active ganging prototypes are under study 
-the design cannot be considered to be at a mature stage at this point and schedule and technical
-considerations may influence how far this promising option can be pursued.
+Active ganging locates amplifiers and ADCs on the board carrying  the photosensors inside the LAr volume. The solution
+ may provide more flexibility in the level of photosensor ganging and also obviate the need for carrying analog signals of long cables.
+However, this options introduces the challenges and concerns with reliability and long-term
+stability issues related to cold electronics.  Active ganging prototypes are under study 
+but the design is not yet at a mature stage. Schedule, cost and other technical
+considerations will influence how far this promising option can be pursued.
 
-In any case, the SiPMs will need to be surface-mounted on a PCB that can mate efficiently with the photon
-collector options. protoDUNE will provide a wealth of operational experience and information on
-such a design with at least a passive ganging board. It is already clear, however, that some R$\&$D is needed 
-in optimizing the connectors to be used to couple the cable to the board and understanding the 
+In all scenarios considered, the SiPMs will be surface-mounted on a PCB that can mate efficiently with the photon
+collector options. ProtoDUNE will provide essential operational experience on a passive ganging board. Already it is apparent that  some R$\&$D is needed to optimize the connectors used to couple the cable to the board and understanding the 
 mechanical stresses involved in the SiPM-PCB-Connector system (with a varying CTEs) as it
-is cooled (or cycled) to cryogenic temperatures.
+is cooled (or cycled) to cryogenic temperatures is a priority.
 
-\fixme{Just cold boards?}
+%\fixme{Just cold boards?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{(Common Tooling} -- Probably not worth bothering about, except for QA/QC scanners, etc.
@@ -196,15 +340,16 @@ is cooled (or cycled) to cryogenic temperatures.
 The nature of research work and wide variety of developments necessitates a flexible manufacturing process, without compromising on the basic elements of workmanship. The circuit design is done in accordance with mutually agreed-upon specification documents. Printed circuit board (PCB) layout is performed in accordance with IPC specifications. Bare PCB manufacturing requirements are embedded within the Gerber file fabrication documents (e.g. layers, spacing, impedance, finish, testing, etc.). Components are assembled onto circuit using either trained Photon Detector Consortium  technical staff or by external assembly vendors, based upon volume, in accordance with per-design assembly specification documents. Testing occurs at labs and universities within Photon Detector Consortium in accordance with a per-design test procedure that typically includes a mix of manual, semi-automatic and automated testing in an engineering test bench followed by overall characterization in a system- or subsystem-test stand.
 
 \begin{itemize}
-\item Components: Schematic capture is done using appropriate tools (such as OrCAD 16.6. or similar toolset) available within design facility. Design is hierarchical with common front-end page referenced multiple times to ensure all input channels are identical. Schematic contains complete bill-of-materials (BOM) including all mechanical parts. Subversion repository is typically used for version control and backup. Multiple internal design reviews held before schematic is released to layout. The bill of materials is stored directly within schematic, extracted to Excel when ordering parts. Every part is specified by both manufacturer and distributor information. Distributor information may be overridden by technician at order time due to price and/or availability. Standard search engines such as Octopart, ECIA and PartMiner are used to check price/availability across all standard distributors. A parts availability check review is performed prior to handoff from schematic to layout; as required obsolete or long lead time parts were removed from design and replaced. BOM information will include dielectric, tolerance, temp. coefficient, voltage rating and size (footprint) to ensure all parts are fully described.
-\item Boards: With respect to printed-circuit-board (PCB) there are standard tools (such as Allegro toolset) available for the layout job. Conventional PCBs are realized as multi-layer, controlled impedance board with many sets of delay-matched nets. In usual practice the complete impedance and delay characteristics calculated within layout tool and crosschecked by PCB vendor prior to manufacture. In usual procedure, a competitive bid between multiple previously qualified vendors is used, with a full electrical and impedance testing required. Multiple internal design reviews are held prior to release of design.
-\item Cable plant: Cabling will be designed under considerations of the APA space and in close work with the TPC electronics to avoid cross-talk effects.  Manufacturing or purchase of cable will be evaluated based on cost and prospects of the Electronics Working Group.   
-\item Manufacturer list: In addition to the general laboratory procedures for quality assurance, the Electronics Working Group will follow the general practice of using only those printed circuit board manufacturers and external assembly vendors whose workmanship and facilities have been personally inspected by members of the Electronics Working Group. All external assemblers are required to quote in accordance with an Assembly Specification document describing the IPC class and specific solder chemistry requirements of the design. The Bill of Materials document will need to show selected and alternate suppliers for every component of the front-end boards.
+\item Components: Schematic capture is done using appropriate tools (such as OrCAD 16.6. or similar toolset) available within design facility. Design is hierarchical with common front-end page referenced multiple times to ensure all input channels are identical. The schematic contains complete bill-of-materials (BOM) including all mechanical parts. Subversion repository is typically used for version control and backup. Multiple internal design reviews held before schematic is released to layout. The bill of materials is stored directly within schematic, extracted to Excel when ordering parts. Every part is specified by both manufacturer and distributor information. Distributor information may be overridden by a technician at order time due to price and/or availability. Standard search engines such as Octopart, ECIA and PartMiner are used to check price/availability across all standard distributors. A parts availability check review is performed prior to handoff from schematic to layout; as required obsolete or long lead time parts were removed from design and replaced. BOM information will include dielectric, tolerance, temperature coefficient, voltage rating and size (footprint) to ensure all parts are fully described.
+\item Boards:   There are standard tools (such as Allegro toolset) available for the printed-circuit-board (PCB) layout. Conventional PCBs are realized as multi-layer, controlled impedance board with many sets of delay-matched nets. In usual practice the complete impedance and delay characteristics calculated within layout tool and crosschecked by PCB vendor prior to manufacture. In usual procedure, a competitive bid between multiple previously qualified vendors is used, with a full electrical and impedance testing required. Multiple internal design reviews are held prior to release of design.
+\item Cable plant: Cabling will be designed taking into  consideration the APA space and in close collaboration with with the TPC electronics group to avoid cross-talk effects.  Manufacturing or purchase of cable will be evaluated based on cost and \todo{not sure what is meant}prospects of the Electronics Working Group.   
+\item Manufacturer list: In addition to the general laboratory procedures for quality assurance, the general practice will be to use only printed circuit board manufacturers and external assembly vendors whose workmanship and facilities have been personally inspected by experienced production team members. All external assemblers are required to quote in accordance with an Assembly Specification document describing the IPC class and specific solder chemistry requirements of the design. The Bill of Materials document will need to show selected and alternate suppliers for every component of the front-end boards.
 \end{itemize}
 
-It is also mandatory to discuss the firmware specifications. Front-end electronics firmware will be specified iteratively with collaboration. The electronics working group within will be responsible to respond to requests for additional firmware development, including for example, modifications to timing interface, modifications to trigger interface, and implemented sensitivity to in-spill vs. not-in-spill conditions. Documents describing firmware architecture for each major change will be written and distributed to photon detector and DAQ working groups before implementation. Front-End electronics User's Manual containing all details of new firmware will be distributed with production units when manufactured.
+%It is also mandatory to discuss the firmware specifications. 
+Front-end electronics firmware will be specified iteratively in collaboration with other systems. The electronics working group will be responsible to respond to requests for additional firmware development, including for example, modifications to timing interface, modifications to trigger interface, and implemented sensitivity to in-spill vs. not-in-spill conditions. Documents describing firmware architecture for each major change will be written and distributed to photon detector and DAQ working groups before implementation. Front-End electronics User's Manual containing all details of new firmware will be distributed with production units when manufactured.
 
-With the mechanical assembly of electronics readout boards it is a custom to use  AutoCAD with Allegro (as PCB layout tool). All relevant dimensions of PC board including connector and indicator placement extracted from Allegro as base DXF file from which overall exploded mechanical diagram of chassis and other mechanical parts is made. Mechanical items such as shield plates will be provided as well. It is assumed that the front-end chassis will made by external vendors (one for chassis, one for front/back panels) from AutoCAD drawings provided by Electronics Working Group.
+With the mechanical assembly of electronics readout boards it is a custom to use  AutoCAD with Allegro (as PCB layout tool). All relevant dimensions of the PC board including connector and indicator placement extracted from Allegro as base DXF file from which overall exploded mechanical diagram of chassis and other mechanical parts is made. Mechanical items such as shield plates will be provided as well. It is assumed that the front-end chassis will made by external vendors (one for chassis, one for front/back panels) from AutoCAD drawings provided by the consortium.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Combined into single QAQC section

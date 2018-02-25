@@ -4,32 +4,38 @@
 %\metainfo{\color{blue} Content: Kemp}
 %\metainfo{(Length: TDR=10 pages, TP=2 pages)}
 
-\fixme{Include an image of each interface in appropriate section.}
+\fixme{Include an image of each interface in appropriate sections.}
 
-%=================================================
-%======== E. Kemp , Feb/10
-%=================================================
-%=================================================
-%\section{System Interfaces}
+%>> Start: Ernesto Kemp Feb/10/2018 >>>>>>>>>>>>>  
 
-This section describes the interface between the DUNE SP Far Detector Photon-Detection System (SP-PDS) and several other consortia, task forces (TF) and subsystems listed below, namely:
+This section describes the interface between the DUNE SP Far Detector Photon-Detection System (SP-PDS) and several other consortia, task forces (TF) and subsystems listed below:
 
 \begin{enumerate}
 \item Anode Plane Assembly
-\item{Cold Feedthroughs}
-\item Cold Electronics
+\item{Feedthroughs}
+\item TPC Cold Electronics 
+\item{Cathode Plane Assembly / High Voltage System -- if reflector foils option implemented}
 \item Data Acquisition
-\item Calibration/Monitoring
-\item{Cathode Plane Assembly/High Voltage System - if reflector foils option implemented}
+\item Calibration / Monitoring
 \end{enumerate}
 
 The contents of the section are focused on the needs to complete the design, fabrication, installation of the related subsystems, and are organized by the elements of the scope of each subsystem at the interface between them.
-%=================================================
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Anode Plane Assembly}
 \label{sec:fdsp-pd-intfc-apa}
-The PDS is integrated in the Anode Plane Assembly (APA) frame to form a single unit for the detection of both ionization charge and scintillation light.
 
-\textbf{Hardware:}
+%The Technical Proposal may include any suggestions or requests from the Photon Detector Consortium for changes to the APA design. Any such changes need to be proposed as early as possible to ensure consideration within the APA Consortium's schedule. Some examples include:
+%\begin{itemize}
+%\item Additional light collector bays
+%\item Alternate outer APA designs
+%\end{itemize}
+
+
+The PDS is integrated in the APA frame to form a single unit for the detection of both ionization charge and scintillation light.
+
+%\textbf{Hardware:}
 The hardware interface between APA and PDS has two main components:
 \begin{enumerate}
 \item Mechanical: a) supports for the PDS detectors; b) access slots for installation of the detectors, if, as in the present baseline design, the detectors will be installed after the wire winding is completed; c) access slots for the cabling of the PDS detectors; d) routing of the PDS cables inside the side beams of the APA frame.
@@ -37,7 +43,7 @@ The hardware interface between APA and PDS has two main components:
 \end{enumerate}
 
 \textbf{Design:}
-Since the design of the PDS detectors is still under evolution, the APA consortium will evaluate different solutions proposed by the PDS consortium that may require modifications of the structure of the APA frame. The evaluation phase is expected to be concluded by Spring 2018. The PDS consortium will provide detailed engineering drawings of the detectors and specifications on the size and number of cables, and of any connectors required. 
+Since the design of the PDS detectors is still under development, the APA consortium will evaluate different solutions proposed by the PDS consortium that may require modifications of the structure of the APA frame. The evaluation phase is expected to be concluded by spring 2018. The PDS consortium will provide detailed engineering drawings of the detectors and specifications on the size and number of cables, and of any connectors required. 
 If the PDS detectors will be installed after the wire winding is completed, as in the present baseline design, the APA consortium will evaluate possible variations of the baseline geometry, as suggested by the PDS consortium: larger slot dimensions and increased number of slots.
 If photon detectors are installed in the APA frame prior to the winding, the PDS consortium is responsible for designing the supports inside the APA frame and providing a protection for the detectors against UV light. The APA consortium will evaluate the proposed design.
 The APA consortium, together with the CE and PDS consortia, will revisit the requirements on the mesh pitch and wire size, and set specifications for the mesh procurement, compatibly with the availability on the market.
@@ -50,80 +56,79 @@ The PDS consortium fabricates all PDS detectors and electronic boards, and will 
 \textbf{Testing:}
 The interface hardware and the interconnect procedures between APA and PDS, including cabling, are validated at one or more integration/installation trials at an integration test facility. The APA and PDS consortia will be responsible for the procurement of their respective hardware and delivery to the integration test facility. Experts from both groups work with the installation team to perform trial fit and cabling before the final design is completed.  Electrical test will be performed with a APA/PDS/CE vertical slice test if available.
 
-%\textbf{Integration:}
-%If the PDS detectors can be installed after the wire winding is completed, as in the present baseline design, their integration on the APA frame will happen at the Integration facility. Experts from both groups will work with the installation team.  An electrical test with APA/PDS/CE will be performed at the integration facility in a cold box, after the integration of PDS and CE on the APA frame has been completed.
-
-%\textbf{Installation:}
-%The APA consortium will be responsible for the transportation of the integrated APA frames from the integration facility to the LBNF/SURF facility. The UIT team, under supervision of the APA group, will be responsible to move the equipment into the clean room. Work on the 2-APA connection and inspection in the toaster is performed by the APA group.Work on cabling in the toaster is performed by PDS and CE groups under supervision of the APA group. Once the APAs will be moved inside the cryostat, the PDS and CE consortia will be responsible for the routing of the cables in the trays hanging from the top of the cryostat. 
-
 \textbf{Commissioning: }
 The PDS consortium will provide procedures and personnel for the commissioning of the PDS components.
 The APA consortium will be responsible for applying the bias voltages on the wire planes. 
 
-%=================================================
-\subsection{\color{red}\bf Cold Feedthroughs - Kemp}
-\label{sec:fdsp-pd-intfc-feed}
-\fixme{No text.}
 
 
-%=================================================
-\subsection{Cold Electronics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Feedthroughs}
 \label{sec:fdsp-pd-intfc-feed}
 
-\subsubsection{Hardware}
-The hardware interfaces between the Cold Electronics (CE) and PDS occur on the chimneys and in the racks mounted on the top of the cryostat that house low and high voltage power supplies for PDS, low and bias voltage power supplies for CE, as well as equipment for the Slow Control and Cryo Instrumentation (SC in the following), and possibly DAQ consortia. There should be no electrical contact between the PDS and CE components except for sharing a common reference voltage point (ground) at the chimneys. An additional indirect hardware interface takes place inside the cryostat where the CE and PDS components are both installed on the APA (responsibility of the single phase far detector APA consortium, APA in the following), with cables for CE and PDS that may be physically located in the same space in the APA frame, and where the cables and fibers for CE and PDS may share the same trays on the top of the cryostat (these trays are the responsibility of the facility and the installation of cables and fibers will follow procedures to be agreed upon in consultation with the underground installation team, UIT in the following).
+Several PDS SiPM signals are summed together into a single readout channel. A long multi- conductor cable with 4 twisted pairs readout the PDS module. Since there is no CE associated with the PDS, the un-amplified analog signals from the SiPMs are transmitted directly by cables to the appropriate flanges to outside the cryostat. 
+
+All cold cables originating from the inside the cryostat connect to the outside warm electronics through PCB board feedthroughs installed in the signal flanges that are distributed along the cryostat roof.
+
+All technical specifications of the feedthroughs should be provided by the 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{TPC Cold Electronics}
+\label{sec:fdsp-pd-intfc-ce}
+
+%\hspace{0.5cm}\textbf{Hardware: }
+The hardware interfaces between the CE and PDS occur on the chimneys and in the racks mounted on the top of the cryostat which house low and high voltage power supplies for PDS, low and bias voltage power supplies for CE, as well as equipment for the Slow Control and Cryo Instrumentation (SC in the following), and possibly DAQ consortia. There should be no electrical contact between the PDS and CE components except for sharing a common reference voltage point (ground) at the chimneys. An additional indirect hardware interface takes place inside the cryostat where the CE and PDS components are both installed on the APA (responsibility of the single phase far detector APA consortium, APA in the following), with cables for CE and PDS that may be physically located in the same space in the APA frame, and where the cables and fibers for CE and PDS may share the same trays on the top of the cryostat (these trays are the responsibility of the facility and the installation of cables and fibers will follow procedures to be agreed upon in consultation with the underground installation team, UIT in the following).
 
 \textbf{Chimneys: }in the current design CE and PDS use separate flanges for the cold/warm transition and each consortium is responsible for the design, procurement, testing, and installation, of their flange on the chimney, together with the LBN facility that is responsible for the design of the cryostat.
 Racks on top of the cryostat: the installation of the racks on top of the cryostat is a responsibility of the facility, but the exact arrangement of the various crates inside the racks will be reached after common agreement between the CE, PDS, SC, and possibly DAQ consortia. The PDS and CE consortia will retain all responsibilities for the selection, procurement, testing, and installation of their respective racks, unless for space and cost considerations an agreement is reached where common crates are used to house low voltage or high/bias voltage modules for both PDS and CE. Even if both CE and PDS plan to use floating power supplies, the consequences of such a choice on possible cross-talk between the systems needs to be studied. 
-Electrical contacts between PDS and CE components: there should be no electrical contact between the CE and PDS components, neither inside nor outside the cryostat, with the exception of the use of the same reference voltage (grounding) on the chimneys, with each of the CE and PDS has a separate connection to the detector ground (the cryostat).
 
-\subsubsection{Software}
-There are no direct interfaces between the CE and PDS systems but various test stands and integration facilities will be developed. In all cases the CE and PDS consortia will be responsible for the procurement, installation, and initial commissioning of their respective hardware in these common test stands. The main purpose of these test stands is study the possibility that one system may induce noise on the other, and the measures to be taken to minimize this cross-talk. For these purposes, it is desirable to repeat noise measurements whenever new, modified detector components are available for one or the other consortium. This requires that the CE and PDS consortia agree on a common set of tests to be performed and that the CE consortium can operate the PDS detectors within a pre-determined range of operating parameters, and vice versa, without the need of providing personnel from the PDS consortium when the CE consortium is performing tests or vice versa. Procedures should be set in place to decide the time allocation to tests of the components of one or the other consortium.
+\textbf{Electrical contacts between PDS and CE components:} there should be no electrical contact between the CE and PDS components, neither inside nor outside the cryostat, with the exception of the use of the same reference voltage (grounding) on the chimneys, with each of the CE and PDS has a separate connection to the detector ground (the cryostat).
 
-\subsubsection{Installation} 
-The installation of  cables for the CE and PDS requires coordination with the APA consortium and the UIT. This applies both for the routing of the CE and PDS cables through the APA frames while the APAs are hanging in the \fixme{toaster}, and later, after the APA has been moved inside the cryostat, for the routing of the cables in the trays hanging from the top of the cryostat. The CE consortium will retain the responsibility for the CE cables, and similarly for the PDS consortium, but the possibility that the CE and PDS cables may need to be routed together through the APA frames, may require that the two installation teams cooperate for this task.
+\textbf{Software:} there are no direct interfaces between the CE and PDS systems. 
 
-%=================================================
-\subsection{Cathode Plane Assembly  and High Voltage System}
+\textbf{Test stands and integration facilities: }various test stands and integration facilities will be developed. In all cases the CE and PDS consortia will be responsible for the procurement, installation, and initial commissioning of their respective hardware in these common test stands. The main purpose of these test stands is study the possibility that one system may induce noise on the other, and the measures to be taken to minimize this cross-talk. For these purposes, it is desirable to repeat noise measurements whenever new, modified detector components are available for one or the other consortium. This requires that the CE and PDS consortia agree on a common set of tests to be performed and that the CE consortium can operate the PDS detectors within a pre-determined range of operating parameters, and vice versa, without the need of providing personnel from the PDS consortium when the CE consortium is performing tests or vice versa. Procedures should be set in place to decide the time allocation to tests of the components of one or the other consortium.
+
+\textbf{Installation:} the installation of the cables for the CE and PDS requires coordination with the APA consortium and the UIT. This applies both for the routing of the CE and PDS cables through the APA frames while the APAs are hanging in the staging area ({\it toaster}) and later, after the APA has been moved inside the cryostat, for the routing of the cables in the trays hanging from the top of the cryostat. The CE consortium will retain the responsibility for the CE cables, and similarly for the PDS consortium, but the possibility that the CE and PDS cables may need to be routed together through the APA frames, may require that the two installation teams cooperate for this task.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Cathode Plane Assembly and High Voltage System: Reflector foils (light enhancement)}
+\subsection{Cathode Plane Assembly and High Voltage System}
 \label{sec:fdsp-pd-intfc-le}
 
-This section describes the interface between the light collection boosting system of the SP-PDS and the High Voltage System (HVS) in the case that the PDS implements wavelength-shifting reflector foils mounted on the Cathode Plane Assembly (CPA).
+This section describes the interface between a light collection boosting system of the SP-PDS  under investigation and the HVS. These systems interact in the case that the photon detection system includes wavelength-shifting reflector foils mounted on the CPA (see Section~\ref{sec:fdsp-pd-enh}).
 
-\subsubsection{Hardware}
-The purpose of installing the wavelength-shifting (WLS) foils is to allow enhanced detection of light from events near to the cathode plane of the detector. The WLS foils consist of a wavelength shifting material (likely tetraphenyl butadiene - TPB) coated on a reflective backing material. The foils would be mounted on the surface of the cathode plane array (CPA) in order to enhance light collection from events occurring nearer to the CPA, and thus greatly enhancing the spatial uniformity of the light collection system as detected at the APA mounted light sensors. The foils may be laminated on top of the resistive Kapton surface of the CPA frames, with the option of using metal fasteners/tacks that would also serve to define the field lines. Production of the FR4+resistive Kapton CPA frames are the responsibility of the HV consortium. Production and TPB coating of the WLS foils will be the responsibility of the Photon Detection consortium. The fixing procedure for applying the WLS foils onto the CPA frames and any required hardware will be the responsibility of the Photon Detection consortium, with the understanding that all designs and procedures will be pre-approved by the HV consortium. This new detector component is not being tested in protoDUNE, however its integration in the present DUNE far detector HV system could possibly imply performance and stability degradation (due for example to ion accumulation at the CPA surface); the assembly procedure of the CPA/FC module could become more complex due to the presence of delicate WLS foils. Intense R\&D will be required before deciding on its implementation.
+%\subsubsection{Hardware: }
+The purpose of installing the wavelength-shifting (WLS) foils is to allow enhanced detection of light from events near to the cathode plane of the detector. The WLS foils consist of a wavelength shifting material (likely tetraphenyl butadiene - TPB) coated on a reflective backing material. The foils would be mounted on the surface of the cathode plane array (CPA) in order to enhance light collection from events occurring nearer to the CPA, and thus greatly enhancing the spatial uniformity of the light collection system as detected at the APA mounted light sensors. The foils may be laminated on top of the resistive kapton surface of the CPA frames, with the option of using metal fasteners/tacks that would also serve to define the field lines. Production of the FR4+resistive kapton CPA frames are the responsibility of the HV consortium. Production and TPB coating of the WLS foils will be the responsibility of the Photon Detection consortium. The fixing procedure for applying the WLS foils onto the CPA frames and any required hardware will be the responsibility of the Photon Detection consortium, with the understanding that all designs and procedures will be pre-approved by the HV consortium. The assembly procedure of the CPA/FC module could become more complex due to the presence of delicate WLS foils. This new detector component has not been implemented in protoDUNE, so potential performance and stability degradation effects (due, for example, to ion accumulation at the CPA surface) will not be tested.  Intense R\&D will be required before deciding on its implementation.
 
-\subsubsection{R\&D studies}
-It will be the responsibility of the HV consortium to define testing requirements that will need to be carried out in order to verify that the proposed WLS foil installation will not degrade the performance of the CPA. It will be the responsibility of the PD consortium to carry out these tests.
+\textbf{R\&D studies: }It will be the responsibility of the HV consortium to define testing requirements that will need to be carried out in order to verify that the proposed WLS foil installation will not degrade the performance of the CPA. It will be the responsibility of the PD consortium to carry out these tests.
 
-\subsubsection{Integration} 
-An integration test stand will likely be employed to verify the proper operation of the CPA panels with the addition of WLS foils under high voltage conditions. Light performance (wavelength conversion and reflectivity efficiency) will also be verified. The HV consortium will be responsible for HV aspects of the test stand and the PD consortium will be responsible for the light performance aspects.
+\textbf{Integration:} An integration test stand will likely be employed to verify the proper operation of the CPA panels with the addition of WLS foils under high voltage conditions. Light performance (wavelength conversion and reflectivity efficiency) will also be verified. The HV consortium will be responsible for HV aspects of the test stand and the PD consortium will be responsible for the light performance aspects.
 
-\subsubsection{Installation} 
-The wavelength shifting material (TPB) can degrade under certain environmental conditions, so its addition to the surface of the CPAs will increase the handling requirements during installation. The PD consortia will be responsible for defining the environmental and handling procedures that will ensure minimal degradation of the WLS foil performance. The PD consortium will be responsible for the installation of the WLS foils onto the CPA panels. The HV consortium will be responsible for all other aspects of the installation of the CPA panels.
+\textbf{Installation:} The wavelength shifting material (TPB) can degrade under certain environmental conditions, so its addition to the surface of the CPAs will increase the handling requirements during installation. The PD consortia will be responsible for defining the environmental and handling procedures that will ensure minimal degradation of the WLS foil performance. The PD consortium will be responsible for the installation of the WLS foils onto the CPA panels. The HV consortium will be responsible for all other aspects of the installation of the CPA panels.
 
-\subsubsection{Commissioning} 
-\fixme{PD and HV consortia will provide staffing for commissioning the CPAs in the cryostat in the following manner...}
+\textbf{Commissioning:} PD and HV consortia will provide staffing for commissioning the CPAs in the cryostat in the following manner: Specialists from the PDS Consortium will be responsible to fix the foils on the CPA surface. The HV Consortium has the oversight responsibility for this task.
 
-%=================================================
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data Acquisition}
 \label{sec:fdsp-pd-intfc-daq}
 
-\fixme{Some preamble needed.}
+This section describes the Photon Detector interfaces and related requirements with the DAQ system described in Section~\ref{ch:fdsp-daq}.
 
-\hspace{0.5cm}\textbf{Data Physical Links: }Data are passed from the PDS to the Data Acquisition (DAQ) on optical links conforming to an IEEE Ethernet standard. The links run from the PDS readout system on the cryostat to the DAQ system in the Central Utilities Cavern (CUC).
+\textbf{Data Physical Links: }Data are passed from the PDS to the DAQ on optical links conforming to an IEEE Ethernet standard. The links run from the PDS readout system on the cryostat to the DAQ system in the Central Utilities Cavern (CUC).
 
 \textbf{Data Format:} Data are encoded using a data format based on UDP/IP. The data format is derived from the one used by the Dual Phase TPC readout. Details will be finalized by the time of the DAQ TDR.
 
 \textbf{Data Timing:} The data shall contain enough information to identify the time  at which it was taken.
 
-\textbf{Data Volume:} The DAQ will have provision to receive up to 8~GBit/s of data from the PDS per APA.
+\textbf{Data Volume:} The DAQ will have the capacity to receive up to 8~GBit/s of data from the PDS per APA.
 
 \textbf{Data Link Speed: }The PDS data for each APA may be transmitted either on multiple links following the 1000Base-SX standard or a single link following the 10GBase-SR standard. In either case the fibre will be chosen to give sufficient margin for the distance from the cryostat to the CUC. Details will be finalized by the time of the DAQ TDR.
 
 \textbf{Trigger Information:} The PDS may provide summary information useful for data selection. If present, this will be passed to the DAQ on the same physical links as the remaining data.
 
-\textbf{Timing and Synchronization: }Clock and synchronization messages will be propagated from the DAQ to the PDS using a backwards compatible development of the protoDUNE Timing System protocol (see Dune docdb-1651 ). There will be at least one timing fibre available for each data links coming from the PDS. Power-on initialization and Start of Run setup:  The PDS may require initialization and setup on power-on and start of run. Power on initialization should not require communication with the DAQ. Start run/stop run and synchronization signals such as accelerator spill information will be passed by the timing system interface.
+\textbf{Timing and Synchronization: }Clock and synchronization messages will be propagated from the DAQ to the PDS using a backwards compatible development of the protoDUNE Timing System protocol ( See Dune docdb-1651 ). There will be at least one timing fibre available for each data links coming from the PDS. Power-on initialization and Start of Run setup:  The PDS may require initialization and setup on power-on and start of run. Power on initialization should not require communication with the DAQ. Start run/stop run and synchronization signals such as accelerator spill information will be passed by the timing system interface.
 
 \textbf{Local Monitoring:} The PDS may require network connections for local monitoring and debugging. These are the responsibility of the PDS.
 
@@ -131,67 +136,41 @@ The wavelength shifting material (TPB) can degrade under certain environmental c
 
 \textbf{Interaction with other groups: }Related interface documents describe the interface between the CE and LBNF, DAQ and LBNF, DAQ and Photon and both DAQ and CE with Technical Coordination. The cryostat penetrations including through-pipes, flanges, warm interface crates and feedthroughs and associated power and cooling are described in the LBNF/PDS interface document.  The rack, computers, space in the CUC and associated power and cooling are described in the LBNF/DAQ interface document. Any cables associated with photon system data or communications are described in the DAQ/Photon interface document. Any cable trays or conduits to hold the DAQ/CE cables are described in the LBNF/Technical Coordination interface documents and currently assumed to be the responsibility of Technical Coordination.
 
-\textbf{Integration:} Various integration facilities are likely to be employed, including vertical slice tests stands, PDS test stands, DAQ test stands and system integration/assembly sites. The DAQ consortia will provide hardware and software for a ''vertical slice test.'' The PDS consortia will provide PDS emulators and PDS readout hardware for DAQ test stands. (The PDS emulator and PDS readout hardware may be the same physical object with different configuration ). Responsibility for supply and installation of DAQ/PDS cables in these tests will be defined by the time of the DAQ TDR.
+\textbf{Integration:} Various integration facilities are likely to be employed, including vertical slice tests stands, PDS test stands, DAQ test stands and system integration/assembly sites. The DAQ consortia will provide hardware and software for a “vertical slice test”. The PDS consortia will provide PDS emulators and PDS readout hardware for DAQ test stands. (The PDS emulator and PDS readout hardware may be the same physical object with different configuration ). Responsibility for supply and installation of DAQ/PDS cables in these tests will be defined by the time of the DAQ TDR.
 
 \textbf{Installation: }Responsibility for purchase of the DAQ/CE cables is assigned to the PDS. The installation of the  DAQ/CE cables is assigned to the PDS.
 
-%=================================================
 
-\subsection{Calibration/Monitoring}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Calibration and Monitoring}
 \label{sec:fdsp-pd-intfc-calib}
 
-This subsection concentrates on the description of the interface between the SP-PDS and Calibration/Monitoring Task Force (CTF), since there is are components of the system planned to be installed with the HVS Cathode, and through Field Cage strips and File Cage ground plane.
+This subsection concentrates on the description of the interface between the SP-PDS and Calibration/Monitoring Task Force (CTF), since there are components of the system planned to be installed with the HVS Cathode, and through Field Cage strips and File Cage ground plane.
 
-\textbf{Hardware:} The SP-PDS has proposed the photon-detector gain and timing calibration system to be also used for SP-PDS monitoring purposes during commissioning and experimental operation. A pulsed UV-light system is proposed to cross-calibrate and monitor the DUNE-SP photon detectors. The hardware consists of warm and cold components. By placing light sources and diffusers on the cathode planes designed to illuminate the anode planes the photon detectors embedded in the anode planes can be illuminated. Cold component (diffusers and fibers) interface with High-Voltage and will be described in a separate interface document. Warm components include controlled pulsed-UV source and warm optics. These warm components will interface CTF with Slow-Controls/DAQ subsystems and will be described in corresponding documents. Optical feedthrough is the cryostat interface. Hardware components will be designed and fabricated by SP-PDS. Other aspects of hardware interfaces are described in the following. The CTF and PDS groups might share rack spaces which needs to be coordinated between both groups. There won't be dedicated ports for all calibration devices. Therefore, multi-purpose ports are planned to be shared between various groups. CTF and SP-PDS will define ports for deployment. 
+\textbf{Hardware:} The SP-PDS has proposed the photon-detector gain and timing calibration system to be also used for SP-PDS monitoring purposes during commissioning and experimental operation. A pulsed UV-light system is proposed to cross-calibrate and monitor the DUNE-SP photon detectors. The hardware consists of warm and cold components. By placing light sources and diffusers on the cathode planes designed to illuminate the anode planes the photon detectors embedded in the anode planes can be illuminated. Cold component (diffusers and fibers) interface with High-Voltage and will be described in a separate interface document. Warm components include controlled pulsed-UV source and warm optics. These warm components will interface CTF with Slow-Controls/DAQ subsystems and will be described in corresponding documents. Optical feedthrough is the cryostat interface. Hardware components will be designed and fabricated by SP-PDS. 
 
-It is possible that SP-PDS might use Detector Support Structure (DSS) ports or TPC signal ports for routing fibers. The CTF in coordination with other groups will provide a scheme for interlock mechanism of operating various calibration devices (e.g. Laser, radioactive sources) that will not be damaging to the PDS. The PDS has proposed the photon-detector gain and timing calibration system. The system will be used for PDS monitoring purposes during commissioning and for standard experimental operation. A pulsed UV-light system is proposed to cross-calibrate and monitor the DUNE-SP photon detectors. The hardware consists of warm and cold components. By placing light sources with diffusers on the cathode planes, the system is designed to illuminate the photon detectors embedded in the anode planes. The details are described in the DUNE Interface Document: SP-PDS/CTF. Cold components of the calibration system (diffusers and fibers) interface with the HVS. Diffusers are installed at CPA, and therefore reside at the same CPA potential. Quartz fibers are insulators used to transport light from optical feedthroughs (at the cryostat top) through Filed Cage ground plane, and through Filed Cage strips to the CPA top frame. These fibers are then optically connected to diffusers located at CPA panels. Required fiber resistance is defined by HVS requirements to ensure the cathode is protected from shorting out due to fiber conductivity. PDS hardware components will be designed and fabricated by PDS.
+Other aspects of hardware interfaces are described in the following. The CTF and PDS groups might share rack spaces, which needs to be coordinated between both groups. There will not be dedicated ports for all calibration devices. Therefore, multi-purpose ports are planned to be shared between various groups. CTF and SP-PDS will define ports for deployment. It is possible that SP-PDS might use Detector Support Structure (DSS) ports or TPC signal ports for routing fibers. The CTF in coordination with other groups will provide a scheme for interlock mechanism of operating various calibration devices (e.g. Laser, radioactive sources) that will not be damaging to the PDS. 
+
+The PDS has proposed the photon-detector gain and timing calibration system. The system will be used for PDS monitoring purposes during commissioning and for standard experimental operation. A pulsed UV-light system is proposed to cross-calibrate and monitor the DUNE-SP photon detectors. The hardware consists of warm and cold components. By placing light sources with diffusers on the cathode planes, the system is designed to illuminate the photon detectors embedded in the anode planes. The details are described in the DUNE Interface Document: SP-PDS/CTF. Cold components of the calibration system (diffusers and fibers) interface with the HVS. Diffusers are installed at CPA, and therefore reside at the same CPA potential. Quartz fibers are insulators used to transport light from optical feedthroughs (at the cryostat top) through Filed Cage ground plane, and through Filed Cage strips to the CPA top frame. These fibers are then optically connected to diffusers located at CPA panels. Required fiber resistance is defined by HVS requirements to ensure the cathode is protected from shorting out due to fiber conductivity. PDS hardware components will be designed and fabricated by PDS.
 
 \textbf{Firmware:} The firmware will enable UV-light system to interface to DAQ/Slow-Controls to communicate start/stop of calibration run, and issue commands to define types (amplitude, timing, frequency) of calibration pulses. Protocols will be defined with DAQ, but the firmware realization and testing will be responsibility of SP-PDS. 
-Timing and Synchronization: Clock and synchronization messages will be propagated from the DAQ to the SP-PDS calibration unit using a backwards compatible development of the protoDUNE Timing System protocol (See Dune docdb-1651). See also SP-PDS to DAQ interface definition.
+Timing and Synchronization: Clock and synchronization messages will be propagated from the DAQ to the SP-PDS calibration unit using a backwards compatible development of the protoDUNE Timing System protocol.
+% No docDB reference (See Dune docdb-1651). 
+See also SP-PDS to DAQ interface definition.
 
 \textbf{Software:} The software interface between the groups consists of software needed to perform calibrations of the photon detection system and any simulations of the detector needed to develop calibration schemes. The calibration software which will analyze the photon detection input and calculate calibration quantities will be the responsibility of the SP-PDS Consortium, with the guidance of the CTF. The CTF will be responsible for defining the quantities to be measured. The SP-PDS Consortium will be responsible for providing a simulation model to test the calibration schemes. The CTF will provide the design and model of databases (DBs) to store the calibration information and these DBs will be filled out by the SP-PDS Consortium.
 
-\textbf{Testing: }Components of such system are being rested with protoDUNE. Additional tests will be managed between SP-PDS and CTF if necessary, including a test stand with shared responsibility.
-Integration: Various integration facilities are likely to be employed, including vertical slice tests stands, cold electronics test stands, DAQ test stands and system integration/assembly sites. The PDS consortia will provide firmware/software for PDS integration and operation and testing. Components of such system are being rested with protoDUNE. Additional tests will be managed between PDS and HVS if necessary, including a test stand with shared responsibility. HVS will verify HV design and operation without discharges that could cause light emission observed by PDS should this be a concern.
+\textbf{Testing: }Some components of the system are being tested with protoDUNE. Additional tests will be managed between SP-PDS and CTF if necessary, including a test stand with shared responsibility.
 
-\textbf{Integration: } Various integration facilities are likely to be employed, including vertical slice tests stands, cold electronics test stands, DAQ test stands and system integration/assembly sites. The PDS consortia will provide support for PDS integration and operation.
+\textbf{Integration: } Various integration facilities are likely to be employed, including vertical slice tests stands, cold electronics test stands, DAQ test stands and system integration/assembly sites. The PDS consortia will provide support for PDS integration and operation. HVS will verify HV design and operation without discharges that could cause light emission observed by PDS should this be a concern.
 
 \textbf{Installation: }Responsibility for fabrication/installation of PDS Calibration components is assigned to PDS. Responsibility for fabrication/installation of PDS Calibration components is assigned to PDS.
 
 \textbf{Commissioning:} PDS-SP will provide staffing for commissioning of SP-PDS calibration system in the cryostat. Cold PDS-SP components need be installed with Cathode-Plane assemblies and Field Cage arrays, and possible with DSS. Warm SP-PDS calibration components may be installed at the end and tested with DAQ. Calibration scope and goals will be further defined within CTF. PDS will provide staffing for commissioning of PDS calibration system in the cryostat.
 
-%=================================================
+%>> Start: Ernesto Kemp Feb/10/2018 <<<<<<<<<<<<<  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Anode Plane Assembly}
-%\label{sec:fdsp-pd-intfc-apa}
 
-%The Technical Proposal may include any suggestions or requests from the Photon Detector Consortium
-%for changes to the APA design. Any such changes need to be proposed as early as possible to ensure
-%consideration within the APA Consortium's schedule. Some examples include:
-%\begin{itemize}
-%\item Additional light collector bays
-%\item Alternate outer APA designs
-%\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Feedthroughs}
-%\label{sec:fdsp-pd-intfc-feed}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Electronics}
-%\label{sec:fdsp-pd-intfc-feed}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Light Enhancement}
-%\label{sec:fdsp-pd-intfc-le}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{DAQ}
-%\label{sec:fdsp-pd-intfc-daq}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Calibration/monitoring}
-%\label{sec:fdsp-pd-intfc-calib}
 
 
