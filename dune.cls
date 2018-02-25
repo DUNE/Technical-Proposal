@@ -29,7 +29,7 @@
 
 % List of other packages required, add as needed.
 % Some basic packages
-\RequirePackage{color,soul}
+\RequirePackage{soul}
 \RequirePackage{graphicx}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
@@ -57,12 +57,14 @@
 \RequirePackage{placeins}
 
 
+\RequirePackage[table,usenames,pdftex,dvipsnames]{xcolor}
+
 %% fixme: this needs to be controlled by "draft"
 \RequirePackage[color]{showkeys}
 \RequirePackage[pagewise]{lineno}
 
 
-\RequirePackage[table,usenames,dvipsnames]{xcolor}
+
 
 \RequirePackage{framed}
 \RequirePackage{wrapfig}
