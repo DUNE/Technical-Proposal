@@ -886,5 +886,68 @@ will have the following components:
 \subsection{Run Control \& Monitoring (Giovanna Miotto \& Jingbo Wang}
 \label{sec:fdsp-daq-tcm}
 
-Describe how the system is controlled and monitored.
+% Giovanna used "TDAQ", not "DAQ".
+% I need to check if there is a distinction (bv).
+
+The Online software constitutes the backbone of the DUNE \dword{daq}
+system and allows to control, configure and monitor the data taking in
+a uniform way.
+It can be subdivided logically into four subsystems: the run control,
+the configuration, the monitoring, the non-physics data archival.
+Each of those subsystems has a well defined function, but their
+implementation will share underlying technologies and tools.
+
+Contrary to experiments in which data taking sessions, i.e. runs, are
+naturally subdivided into time slots by external conditions (e.g. a
+collider fill, a beam extraction period), the DUNE experiment aims at
+taking data continuously.
+Therefore, a classic run control with a coherent state machine and a
+predefined and concurrently configured number of active detector and
+\dword{daq} elements does not seem adequate. 
+
+The DUNE Online software will thus be structured following the
+architecture principle of loose coupling: each component will have as
+little knowledge as possible of other components.
+While in the back-end DAQ components may have the granularity of
+individual software processes, for the front-end DAQ a minimum
+granularity will have to be defined, balancing fault tolerance and
+recovery capability with the requirement of data consistency: as an
+example, the smallest independent component may be chosen to be the
+collection of devices belonging to one APA.
+
+The concept of ``run'' will represent time slices in which the same
+front-end elements are active and/or the same data selection criteria
+are used (possibly with a maximum lengths for offline processing
+reasons). 
+
+In summary, the run control, more than orchestrating data taking will
+provide the mechanisms allowing \dword{daq} applications to publish
+their availability, subscribe to information and exchange messages. 
+
+In addition, the Online software will provide a configuration service
+for \dword{daq} elements to store their settings and a conditions
+archive, keeping track of varying detector electronics settings and
+status.
+
+Another important aspect of the Online software is the monitoring
+service.
+Monitoring can be subdivided into two main domains: the monitoring of
+the data taking operations (rates, number of fragments flowing, error
+flags, application logs, network bandwidth, monitoring of computing
+and network infrastructure) and the monitoring of the physics data.
+Both are essential to the success of an experiment and should be
+designed and integrated into the \dword{daq} system from the start.
+In particular, for such a large and distributed system it will be
+important to have a well thought through information sharing and
+archival system, and also to put human resources into the development
+of scalable and easily accessible data visualization tools, which will
+evolve during the experiment’s lifetime.
+
+In summary, the Online software provides the glue that holds the
+\dword{daq} applications together and allows to operate the
+experiment’s data taking.
+While it is not involved in physics data flow nor selection, it has a
+large impact on the \dword{daq}: its architecture will guide the
+approach to \dword{daq} application design and also shape the view
+that the operators will have of the experiment.
 
