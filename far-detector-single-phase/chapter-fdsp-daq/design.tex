@@ -56,12 +56,6 @@ level, but maybe also at more local levels.
 This will prevent a supernova burst following a failure in some part
 of a cavern from being missed.
 
-\metainfo{The folowing text will need considerable revision to make
-  sure it corresponds with whatever ends up as figure 1, but the text
-  here gives an idea that the overview will be a very quick visit of
-  everything, and all the detail is in the later sections. 
-  Note, migrated \textbf{boldface} terms to ``DUNE Words'' (bv).}
-
 It is helpful, on first looking at the DUNE DAQ dataflow scheme, to
 consider how the main data is collected first and then to look at how
 the triggering and synchronization functions are included; we take
@@ -99,7 +93,7 @@ Section~\ref{sec:fdsp-daq-ltp}.
 % 7.2.3. 
 Whether this process is more suitable for FPGAs or computers is under
 study, as it depends on the interfaces, both can be accomodated in the
-architecture, and both have been costed. \fixme{neither yet!}
+architecture, and both have been costed. 
 To retain the APA-level modulariy, the trigger primitives are
 collected and processed in the same APA node that buffers the data.
 The trigger primitives are then sent to the cavern level and then the
@@ -128,8 +122,6 @@ thresholds during a SNEWS period than normal.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Local Readout \& Buffering (Giles Barr \& Giovanna Miotto \& Brett Viren)}
 \label{sec:fdsp-daq-ltr}
-
-\metainfo{Describe how the data is received from the detector electronics, and buffered while awaiting a trigger decision, together with any processing that affects stored data.  The starting point is data incoming from the WIBs and the end point is corresponding data sitting in memory ready for event building. }
 
 \begin{dunefigure}[Baseline Readout and Buffering]{fig:daq-readout-buffering-baseline}
   {Illustration of data flow for two out of 150 APAs in the \dword{sp}
@@ -311,9 +303,6 @@ This will require reprocessing the raw waveform data.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dataflow, Trigger and Event Builder (Giles Barr \& Josh Klein \& Giovanna Miotto \& Kurt Biery \& Brett Viren)}
 \label{sec:fdsp-daq-hlt}
-
-\metainfo{Describe the dataflow {\it infrastructure}. This should cover transport of data and trigger information, infrastructure for generating local and global trigger commands (but not their algorithms, that's next), as well as what happens to the data once a trigger is generated (ie. event building).
-Figure~\ref{fig:daq-readout-buffering-baseline} may be referenced}
 
 The data volume that is continuously flowing through the DUNE
 \dword{sp} \dword{detmodule} DAQ from one APA is about \SI{10}{\GB/\s}
