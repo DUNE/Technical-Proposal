@@ -15,7 +15,7 @@
 
 % Provide finer-grained sectioning.
 \setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{4}
 \newcounter{subsubsubsection}[subsubsection]
 \def\subsubsubsectionmark#1{}
 \def\thesubsubsubsection {\thesubsubsection
