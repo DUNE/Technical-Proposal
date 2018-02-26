@@ -13,18 +13,63 @@
 \newcommand\thedocsubtitle{Deep Underground Neutrino Experiment (DUNE) and Long-Baseline Neutrino Facility (LBNF)}
 \def\titleextra{ }
 
-% Provide finer-grained sectioning.
+%%% numbers below count section digits (not the chapter digit)
+% set depth of sectioning to appear in the table of contents
+% "2" will show chapter/section/subsection
+% "3" will additionally include subsubsection
+% note, this also governs the depth of the PDF "Index"
 \setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{3}
+% set depth to which numbering is applied.  
+% "3" will number chapter/section/subsection/subsubsection
+% "4" will additionally number subsubsubsection 
+\setcounter{secnumdepth}{4}
+% note: numbering in the text and ToC are the same.
+% You can have unnumbered (sub*N)sections in the ToC if
+%  secnumdepth < tocdepth
+
+%%%%%%%%%%%%
+%% https://tex.stackexchange.com/a/60212
+% Provide finer-grained sectioning.
+\RequirePackage{titlesec}
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
 \newcounter{subsubsubsection}[subsubsection]
-\def\subsubsubsectionmark#1{}
-\def\thesubsubsubsection {\thesubsubsection
-     .\arabic{subsubsubsection}}
-\def\subsubsubsection{\@startsection
-     {subsubsubsection}{4}{\z@} {-3.25ex plus -1
-     ex minus -.2ex}{1.5ex plus .2ex}{\bf\normalsize\sffamily}}
-\def\l@subsubsubsection{\@dottedtocline{4}{4.8em}
-     {4.2em}}
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% original: messes up the index
+% \newcounter{subsubsubsection}[subsubsection]
+% \def\subsubsubsectionmark#1{}
+% \def\thesubsubsubsection {\thesubsubsection
+%      .\arabic{subsubsubsection}}
+% \def\subsubsubsection{\@startsection
+%      {subsubsubsection}{4}{\z@} {-3.25ex plus -1
+%      ex minus -.2ex}{1.5ex plus .2ex}{\bf\normalsize\sffamily}}
+% \def\l@subsubsubsection{\@dottedtocline{4}{4.8em}
+%      {4.2em}}
 
 
 % List of other packages required, add as needed.
