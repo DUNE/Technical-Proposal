@@ -72,11 +72,11 @@ This rate assumes:
 \begin{itemize}
 \item Four (4) \SI{10}{\kton} Single Phase (SP) TPC detector modules
 \item 150 Anode Plane Assemblies (APAs) per module
-\item 2560 wire channels per APA (800 Induction 1, 800 Induction 2, and 960 Collection wires)
+\item 2560 wire channels per APA 
 \item 2 MHz digitization rate
 \item 2 Bytes per sample (note that this is an overestimate, as data will be digitized with a 12-bit ADC)
 \end{itemize}
-\fixme{We need to standardize plane labeling throughout.  With the above, there are now \textbf{four} standards (also u/v/w, u/v/x and u/v/y).}
+\fixme{We need to standardize plane labeling throughout, there are three standards (also u/v/w, u/v/x and u/v/y).}
 
 A back-end requirement is that the total volume of physics data that
 can be shipped to off-site data centers for offline analysis is
@@ -87,22 +87,32 @@ entire DUNE FD, including all four (4) \SI{10}{\kton}
 \dwords{detmodule} (each including TPC, PD system, calibration
 systems, etc.).
 
-The anticipated event rates due to true physics signals per
-\SI{10}{\kton} \dword{detmodule} are summarized in
-Tab.~\ref{tab:daqdatarates}, under the assumption that noise levels
-(which can otherwise generate an overwhelming rate of fake triggers)
-are as expected from intrinsic electronics noise.
-
-\begin{dunetable}
-[Anticipated event and data rates in the DUNE FD \SI{10}{\kton} module]
-{p{0.8\textwidth}}
-{tab:daqdatarates}
-{Anticipated event and data rates in the DUNE FD 10~kton module}   
-Event Type  \\ \toprowrule
-  \\ \colhline
-   \\ \colhline
- ...\\ 
-\end{dunetable}
+The anticipated interaction rates due to the anticipated source for
+the full FD are summarized in Tab.~\ref{tab:daqdatarates}. 
+These rates assume noise levels are as expected from intrinsic
+electronics noise.
+Excess noise such as due to \dword{rf} emission inside the cryostat
+would lead to an overwhelming trigger rate if left unmitigated.
+An \dword{trigdecision} in the DUNE FD concerns:
+\begin{enumerate}
+\item \Dwords{trigcandidate} derived from the data from the \dword{detmodule} itself.
+\item \Dwords{externtrigger} injected from trigger sources outside the \dword{detmodule} context.
+\item \dword{snb} \dword{trigcommand} derived from \dword{detmodule} \dwords{trigcandidate} or from cross-module or SNEWS \dwords{externtrigger}
+\end{enumerate}
+When executing a \dword{trigcommand} data blocks continguous in time
+and channel over a \dword{detmodule} will be saved. 
+For the \dword{sb} \dword{detmodule} the nominal block is \readout in
+time and covers all TPC channels and associated \dword{pds}. 
+This is chosen to encompass two drift times with a modest additional
+padding.
+The nominal \dword{snb} readout window is \snbtime and its ``dump''
+includes all channels.  
+Acquiring and \dword{snb} dump inflicts no subsequent dead time for
+nominal data taking.
+This is an overly conservative approach, and it is expected that with
+better understanding of detector performance after commissioning and
+initial operations this readout scheme will be improved to reduce data
+volume further.
 
 \begin{dunetable}
 [Important requirements on the DAQ system design]
@@ -123,6 +133,32 @@ Synchronization & The DUNE FD DAQ will provide synchronization of
 different FD modules to within 1~$\mu$s, and of different subsystems
 within a module to within 10~ns\\ \colhline
 \end{dunetable}
+
+\begin{dunetable}
+[Anticipated event and data rates in the DUNE FD]
+{llp{0.8\textwidth}}
+{daq:datarates}
+{Anticipated event and data rates in the DUNE FD assuming all four
+  modules are SP. The
+  rates assume continuous readout (without any data reduction) for
+  5.4~ms for non-extended events, and for 10 seconds for extended events.}   
+Event Type  & Annual Data Volume & Assumptions \\ \toprowrule
+ Beam interactions & 27 TB & 800 beam and 800 dirt muons; 10~MeV
+ threshold in coincidence with beam time; include cosmics\\ \colhline
+ Cosmics and atmospherics & 10 PB &  \\ \colhline
+ Radiologicals & $\le$1~PB & fake rate of $\le$100 per year \cite{daq:simreport}\\ \colhline
+ Front-end calibration & 200~TB & Four calibration runs per year, 100
+ measurements per point \\ \colhline
+ Radioactive source calibration & 100~TB & source rate $\le$10~Hz;
+ single APA readout; lossless readout \\ \colhline
+ Laser calibration & 200~TB & 1$\times$10$^6$ total laser
+ pulses, lossy readout \\ \colhline
+ Random triggers & 60 TB & 45 per day\\ \colhline
+ Trigger primitives & $\le$6~PB &  all three wire planes; 12 bits per
+ primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
+
+
+
 
 %\fixme{By the end of the volume, for every requirement listed in this section, there should exist an explanation of how it will be satisfied.}
 
@@ -148,6 +184,10 @@ installation of the following systems:
 \item DAQ data handling software including receiving and building of
   events
 \item Run control software, configuration database, and user interface
+\item Rack infrastructure in the central utility cavern for readout
+  electronics, front-end computing, timing distribution, and data
+  selection
+\item Rack infrastructure on surface at SURF for back-end computing
 \end{itemize}
 
 
