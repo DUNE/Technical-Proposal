@@ -19,7 +19,7 @@ This discussion leans heavily on the DAQ design described in \ref{sec:fdsp-daq-d
 DUNE physics will consist of 
 
 \begin{enumerate}
-\item long baseline neutrino oscillation studies, which require a near detector operating in a high rate environment and far detectors in which beam-coincident events are rare but in time with the accelerator and of sufficient energy to be readily recognizable.  
+\item Long baseline neutrino oscillation studies, which require a near detector operating in a high rate environment and far detectors in which beam-coincident events are rare but in time with the accelerator and of sufficient energy to be readily recognizable.  
 
 The proposed  full size 17 kT modules for the DUNE/LBNF\ref{FDsections} far detectors will  have an active volume 12m high, 14.5m wide and 58m long.  The first Single Phase(SP) module will have 
 a total of 150 alternating vertical cathode and anode planes/module  spaced 3.5 m apart and operated at 180 kV for a 500 V/cm drift field.  The anode planes are made up of Anode Plane Assemblies  (APA's) which are 6.3 m tall by 2.3 m wide. %The APA's are wrapped with readout wires and read out through one of the shorter ends.  %Figure \ref{bigone} illustrates the layout of anode and cathode planes in the full size detector.
@@ -27,16 +27,43 @@ a total of 150 alternating vertical cathode and anode planes/module  spaced 3.5 
 For modules of this size, drift times in the liquid argon are of order 2.5 msec and raw data sizes before compression are of order 25 GB per 5.4 msec readout window. Table \ref{sw:bigone} summarizes the estimates for 4 Single Phase modules from the 2015 Conceptual Design Report \cite{17Krates}.  With no triggering and no zero suppression or compression, the raw event rates would be of order 145 EB/year. 
 Requiring  coincidence with the LBNF beam will reduce the effective live-time from the full 1.2-1.5 sec beam spill to a 5.4 ms readout window leading to a data rate for beam-coincident events of around 20 GB/sec.
 
-Integrated over a year of 20M beam pulses, that leads to an uncompressed data size of 500 PB with compression giving a factor of 4. Some level of triggering will be needed to reduce this rate to levels that can be transferred and stored.
+\begin{table}[htp]
+\begin{center}
+%\begin{tabular}{|l|r|}
+%\hline
+%\# of samples/readout&10,800\\
+%\# of channels&1,536,000\\
+%readout window&5.4 ms\\
+%SB readout window& 10 s\\
+%bytes/full readout&24.9 GB\\
+%\hline
+%\end{tabular}
+\begin{tabular}{|l|r|r|r|}
+\hline
+Process&rate&Full Size&Zero-suppressed\\
+\hline
+cosmic rate&0.259 Hz&24.9 GB&2.5 MB\\
+beam triggers&$\sim 10,000$/year&24.9 GB&2.5 MB\\
+$^{39}$Ar decays&11.2MHz&24.9 GB&$<$ 1 kB\\
+Supernova candidates &12/year&46.1 TB&16.7 GB\\
+\hline
+%Estimated reconstruction time/event&600-2400 sec&
+\end{tabular}
+\end{center}
+\caption{\normalsize \baselineskip 16 pt Estimated data rate parameters for 4 17kT Single Phase far detectors from the Conceptual Design Report. }
+\label{bigone}
+\end{table}%
 
 
-\item rare physics processes, not in synchronization with the accelerator.  These include supernova physics, atmospheric neutrinos, proton decay, neutron conversion and solar neutrinos.  These processes are generally at lower energy, making triggering more difficult, and asynchronous, thus requiring an internal or external trigger.  In particular, supernovae signals will consist of a large number of low energy interactions spread throughout the far detector volume over a time period of 1-30 seconds, buffering and storing 30 sec of data will require around 6000 readout windows, or around 120 TB/supernova readout.  
+Integrated over a year of 20M beam pulses, that leads to an uncompressed data size of 500 PB with compression giving a factor of four reduction. Some level of triggering will be needed to reduce this rate to levels that can be transferred and stored.
 
-\item near detector physics - the near detector configuration is not defined yet but we do have substantial experience from both MicroBooNE at lower energies and MINERvA at the DUNE beam energies on cosmic and beam interactions under similar conditions.  We can expect that a near detector will experience 30-60 cosmic and beam interactions/beam pulse, spread over an area of a few square meters.  Storing and disentangling this information will be challenging but doable. 
 
-\end{itemize}
+\item Rare physics processes, not in synchronization with the accelerator.  These include supernova physics, atmospheric neutrinos, proton decay, neutron conversion and solar neutrinos.  These processes are generally at lower energy, making triggering more difficult, and asynchronous, thus requiring an internal or external trigger.  In particular, supernovae signals will consist of a large number of low energy interactions spread throughout the far detector volume over a time period of 1-30 seconds. Buffering and storing 30 sec of data will require around 6000 readout windows, or around 120 TB/supernova readout.  
 
-Table \ref{daq:datarates} summarizes the data rates expected from the DAQ systems.
+\item Near detector physics - the near detector configuration is not defined yet but we do have substantial experience from both MicroBooNE at lower energies and MINERvA at the DUNE beam energies on cosmic and beam interactions under similar conditions.  We can expect that a near detector will experience 30-60 cosmic and beam interactions/beam pulse, spread over an area of a few square meters.  Storing and disentangling this information will be challenging but doable. 
+
+\end{enumerate}
+
 
 \subsection{Relation to Trigger and DAQ}
 
@@ -44,15 +71,13 @@ The actual data volumes that will need to be recorded and reconstructed depend c
 
 \subsubsection{Triggering}
 
-If decision can be made to read or not read out the detector based on internal information, data volumes can be substantially reduced.  
-
+If a decision can be made to read  out the detector based on internal information, data volumes can be substantially reduced.  
 Challenges for triggering include electronic noise, differentlal response as a function of drift distance and radiological backgrounds.
-
 Another major challenge will be the limited space and power availability at the far detector where critical electronics will need to be located underground in a tightly constrained environment.
 
 \subsubsection{Lossless-Compression}
 
-Lossless compression will substantially reduce the data rates at the cost of some CPU usage.  The exact degree of compression  depends on the electronic noise present and detector occupancy.  Estimates for single phase are currently a factor of four and for dual phase, a factor of ten.  ProtoDUNE experience will give us much better estimates on these factors.
+Lossless compression will substantially reduce the data rates at the cost of some CPU usage.  The exact degree of compression  depends on the electronic noise present and detector occupancy.  Estimates for single phase are currently a factor of four and for dual phase, a factor of ten reduction.  ProtoDUNE experience will give us much better estimates on these factors.
 
 
 \subsubsection{Zero suppression}
@@ -62,6 +87,9 @@ The data volumes discussed above are for un-suppressed, uncompressed data.  Effi
 \subsubsection{Summary of boundary with Trigger/DAQ}
 
 After discussion with the Trigger/DAQ group, we have agreed upon a feasible data transfer rate of 100 Gb/sec, which is consistent with projected network bandwidth from Sanford Lab to ESNET and 30 PB/year raw data stored to tape, which is substantial but within reasonable parameters for storage in the mid-2020's.  This will require some triggering and compression at the detector to achieve but allows both DAQ and Offline computing to proceed with reasonable design parameters.
+
+Table \ref{daq:datarates} summarizes the data rates expected from the DAQ section of this proposal. 
+
 
 
 
