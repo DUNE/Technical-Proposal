@@ -83,12 +83,12 @@ these manifolds connect to the cryostat through the top plate via dedicated feed
 The piping is illustrated in Figures~\ref{fig:cryo-internal-piping-3D} and~\ref{fig:cryo-internal-piping-2D}.
 \begin{dunefigure}[optional caption for LoF]{fig:cryo-internal-piping-3D}
      {Provide full caption (Credit: xyz?)}
-    \includegraphics[width=0.5\textwidth]{cryo-internal-piping-3D}
+    %\includegraphics[width=0.5\textwidth]{cryo-internal-piping-3D}
 \end{dunefigure}
 
 \begin{dunefigure}[optional caption for LoF]{fig:cryo-internal-piping-2D}
      {Provide full caption (Credit: xyz?)}
-    \includegraphics[width=0.7\textwidth]{cryo-internal-piping-2D}
+    %\includegraphics[width=0.7\textwidth]{cryo-internal-piping-2D}
 \end{dunefigure}
 
 This system supports the following operations:
@@ -117,7 +117,10 @@ The design parameters for the first cryostat are listed in Table~\ref{tab:lbnf-i
   Maximum {$\Delta$}T between any two points of the detector & \SI{50}{K}  \\ \colhline
   Desired cool-down rate of detector and membrane & \num{10}-\SI{15}{K/hr}  \\ \colhline
   Fill flow rate (from current schedule) & \SI{0.8}{kg/s} \\ \colhline
-  \makecell[l]{LAr purification flow rate to achieve purity \\ (four LAr pumps running)} & \SI{36}{kg/s} \\ \colhline
-  \makecell[l]{LAr purification flow rate during normal operations \\ (one pump running in continuous operation)}
+%  \makecell[l]{LAr purification flow rate to achieve purity \\ (four LAr pumps running)} & \SI{36}{kg/s} \\ \colhline
+%  \makecell[l]{LAr purification flow rate during normal operations \\ (one pump running in continuous operation)}
+% Anne writes: makecell works in pdflatex but not overleaf.
+  LAr purification flow rate to achieve purity \\ (four LAr pumps running) & \SI{36}{kg/s} \\ \colhline
+  LAr purification flow rate during normal operations \\ (one pump running in continuous operation)
  & \SI{9}{kg/s}\\
 \end{dunetable}
