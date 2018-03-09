@@ -144,7 +144,72 @@ such as atmospheric-neutrino measurements and nucleon-decay searches.
 \subsubsection{CORSIKA}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{MUSUN/MUSIC}  % from Karl
+\subsubsection{MUSUN/MUSIC}  % from Karl and Vitaly
+
+The MUSUN (MUon Simulations UNderground) event generator is described in Refs~\cite{Kudryavtsev:2008qh}
+and~\cite{Kudryavtsev:2003aua}.
+It uses the results of muon transport through rock using 
+MUSIC (Muon SImulation Code)~\cite{Antonioli:1997qw,Kudryavtsev:1999zu,Kudryavtsev:2008qh}
+convolved with the muon spectrum at sea level for different zenith angles. 
+MUSUN, originally a Fortran program, has been rewritten in C++ and integrated into LArSoft.
+The MUSUN code, as currently adapted for DUNE, samples muons around an 
+underground laboratory located near the Ross shaft, with a latitude of
+44$^\circ$~20$^\prime$~45.21$^{\prime\prime}$~N, and a longitude of
+103$^\circ$~45$^\prime$~161$^{\prime\prime}$~W. The rock composition has been
+taken from Refs.~\cite{Mei:2009py} and~\cite{ref:ZhaoPrivateCommunication1}. 
+In the MUSIC simulation for SURF, the rock is assumed to be uniform
+with average properties derived from many samples taken at the laboratory. 
+The composition of the rock in the simulation correspons to
+$\langle Z\rangle = 12.09$ and $\langle A\rangle = 24.17$~\cite{Mei:2009py,ref:ZhaoPrivateCommunication1}, with
+an average density of 2.70 g/cm$^{3}$~\cite{ref:ZhaoPrivateCommunication1}.
+Other measurements suggest that the density may be larger (2.8-2.9 g/cm$^{3}$~\cite{Gray:2010nc,Heise:2014gta}). The
+density can be changed in the MUSUN muon generator if required. The slant depth 
+distribution for the 4850~ft level at SURF was calculated from the CGIAR digital elevation
+model~\cite{ref:MartinRichardsonThesis}.
+The measurement of the muon flux at SURF (in the Davis campus near the Yates shaft)
+was performed by the active veto system of the Davis experiment~\cite{Cherry:1983dp} giving the value of
+($5.38\pm0.07)\times10^{-9}$ cm$^{-2}$~s$^{-1}$~sr$^{-1}$ for the vertical flux.  
+The measured fraction of multiple
+muons has been added to the single muon flux as given in Ref.~\cite{Cherry:1983dp}, so the systematic
+uncertainty for this value may be of the order of a few percent. MUSIC/MUSUN predicts
+$5.18\times10^{-9}$~cm$^{-2}$~s$^{-1}$~sr$^{-1}$ at the Davis campus, in agreement with
+the measurement. A recent measurement of muons in the Davis campus has been
+carried out with the active veto system of the Majorana demonstrator~\cite{Abgrall:2016cfi} giving the
+value of $5.31\pm0.17\times10^{-9}$~cm$^{-2}$~s$^{-1}$ for the total (not vertical) muon flux, in reasonable
+agreement with a calculation with MUSIC/MUSUN for a close location, also in the Davis
+campus but LUX/LZ location rather than Majorana demonstrator hall:
+$6.16\times10^{-9}$~cm$^{-2}$~s$^{-1}$.   The systematic uncertainty in the muon flux prediction
+is estimated to be 20\%.  An accurate measurement of the muon flux in the DUNE caverns
+is required to normalize simulations.
+
+The total muon flux through a sphere with unit cross-sectional area is calculated as $5.66\times
+10^{-9}$ cm$^{-2}$~s$^{-1}$ and the mean muon energy is 283~GeV.
+The normalisation of the muon flux or rate is done for a specic point underground where
+the slant depth distribution was calculated, assuming that the muon flux is the same 
+everywhere in the cavern and also in the
+rock where the box for muon sampling is extended. For the cavern(s) where the far
+detector will be located the difference in muon intensities in different locations is not
+expected to exceed 10%.
+In the MUSUN generator for DUNE, muons are sampled on a surface of a box that
+encompasses the lab and a few metres of rock around the cavern. The rock is 
+included to make sure that muon-induced cascades initiated above and around the cavern
+have enough space to fully develop and produce secondaries that may enter the active volume
+of the detector even if the primary muon does not.
+The size of the box is $74.43\times29.54\times30.18$ m$^{3}$. The size of
+the cryostat has been assumed to be $61.62\times14.94\times13.58$~m$^{3}$.
+Muons are sampled according to their energy spectrum for a particular zenith and 
+azimuthal angles, sampled in turn from the angular distribution obtained using MUSIC. 
+The size of the box (the probability of a muon to cross a particular
+surface of the box) is taken into account when generating muons. All energy spectra 
+and angular distributions are stored on disk and read during the initialization at
+the beginning of each simulation run. 
+
+The muon rate through the surface of this box is $0.1579\pm 0.0316$~Hz. This rate can be used
+to normalise cosmic-ray simulations in DUNE. The rate of muons passing through
+the active volume of liquid argon with a minimum track length of 1~m 
+is $0.053\pm 0.011$~Hz, or about about 30% of muons generated on the
+surface of the box.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Radiological Generator}
