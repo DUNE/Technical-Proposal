@@ -46,8 +46,14 @@ GENIE (Generates Events for Neutrino Interaction Experiments) \cite{Andreopoulos
 It is a core component of the software stack for every running and planned neutrino beam experiment in the United States.
 In accelerator neutrino experiments, observables are a convolution of the flux, interaction physics, and detector response. 
 Three corresponding pieces combine to form the software stack, as illustrated in Figure \ref{fig:3partstack}.
-Event generators sit at the heart of the stack and provide experimenters with access to the physics of the neutrino interaction.
-GENIE is the primary generator for ArgoNeuT \cite{refargoneut}, DUNE \cite{refdune}, MicroBooNE \cite{refmicroboone}, MIER$\nu$A \cite{refminerva}, NO$\nu$A \cite{refnova}, and SBND \cite{refsbnd}, because of its flexible framework and fully-featured geometry and flux drivers.
+Event generators sit at the heart of the stack and provide experimenters with access to the physics of the neutrino interaction. GENIE is the primary generator for 
+ArgoNeuT \cite{Anderson:2012vc}, 
+DUNE \cite{Acciarri:2015uup}, 
+MicroBooNE \cite{Fleming:2012gvl}, 
+MIER$\nu$A \cite{MINERvA:2006aa}, 
+NO$\nu$A \cite{Ayres:2007tu}, 
+and SBND \cite{Antonello:2015lea,sbnd}, 
+because of its flexible framework and fully-featured geometry and flux drivers.
 
 \begin{figure}
   \centering
@@ -183,7 +189,7 @@ is estimated to be 20\%.  An accurate measurement of the muon flux in the DUNE c
 is required to normalize simulations.
 
 The total muon flux through a sphere with unit cross-sectional area is calculated as $5.66\times
-10^{-9}$ cm$^{-2}$~s$^{-1}$ and the mean muon energy is 283~GeV.
+10^{-9}$~cm$^{-2}$~s$^{-1}$ and the mean muon energy is 283~GeV.
 The normalisation of the muon flux or rate is done for a specic point underground where
 the slant depth distribution was calculated, assuming that the muon flux is the same 
 everywhere in the cavern and also in the
@@ -232,7 +238,7 @@ LArSoft reads in GDML files that describe the geometries of the far detector mod
 files are required -- one with the readout wires described, and one without.  The total mass in the readout
 wires is very small, but their presence would increase the memory and CPU requirements of the simulation
 if they are present in any more than a parameterized manner.  These GDML files are constructed with Perl scripts.
-A more sophisticated tool called {\tt{ggd}}~\cite{ggd} is designed to create GDML files from a higher-level
+A more sophisticated tool called {\tt{ggd}}~\cite{ref:ggd} is designed to create GDML files from a higher-level
 Python description of the detector.
 
 Within LArSoft, two ``parallel-world'' representations of the geometry are created.  One is for particle interactions
@@ -242,14 +248,14 @@ modeled by GEANT4, and the other is intended for GEANT4's simulation of photon p
 \subsection{Fast Monte Carlo}
 
 A Fast Monte Carlo (FMC) program was developed by the LBNE collaboration and was used to
-compute oscillation sensitivities~\cite{cdr-vol-2}.  The FMC simulated neutrino interactions
-on argon using the LBNF flux spectrum and the GENIE~\cite{GENIE} generator.  The detector
+compute oscillation sensitivities~\cite{Acciarri:2015uup}.  The FMC simulated neutrino interactions
+on argon using the LBNF flux spectrum and the GENIE~\cite{Andreopoulos:2009rq} generator.  The detector
 responses to the final-state particles produced by GENIE are approximated with efficiency
 fractions as functions of particle energy, energy resolution smearing fractions, and
 correct and incorrect particle identification rates.  The events were divided into
 $\nu_\mu$CC-like, $\nu_e$-CC-like, and NC-like, for the near and far detectors, and the
 inputs provided to a parameter fit, such as CAFANA, GLoBES, or LOAF.  The details of the
-detector response and analysis requirements can be found in~\cite{cdr-vol-2}.  The CPU time needed
+detector response and analysis requirements can be found in~\cite{Acciarri:2015uup}.  The CPU time needed
 for the FMC project is 1 to 4~M hours per year, with $<1$~TB of storage required, when
 it is fully used.  The emphasis on full simulation and reconstruction results however has
 displaced the FMC in 2016 and 2017. 
@@ -258,15 +264,16 @@ displaced the FMC in 2016 and 2017.
 \subsection{Geant4 and Detector Response Modeling}
 
 Interactions of particles with the detector materials, both active and inactive, is simulated with 
-GEANT4~\cite{GEANT4:NIM}\cite{GEANT4}.  GEANT4 is also used as the underlying physics model for G4LBNF, the
+GEANT4~\cite{geant4,Allison:2006ve}.  GEANT4 is also used as the underlying physics model for G4LBNF, the
 simulation of the baffle, target, horns, and decay pipe.  GEANT4 simulates particle trajectories in steps,
 taking into account electric and magnetic fields, as well as interaction and scattering probabilities in the
 matter at each step.  GEANT4 requires a detailed description of the geometry of the materials through which
 it simulates particle propagation.
 
-LArSoft~\cite{larsoft} provides an interface to GEANT4 that is optimized for liquid argon time projection
+LArSoft~\cite{larsoft.org} provides an interface to GEANT4 that is optimized for liquid argon time projection
 chambers.  Step sizes are limited by voxelizing the active liquid argon volume into cubes 300~$\mu$m on a side.
-Ionization and scintillation are modeled with a modified Box function~\cite{box} or with NEST~\cite{nest}, using
+Ionization and scintillation are modeled with a modified box function~\cite{Thomas:1987zz} or with 
+NEST~\cite{Szydagis:2011tk,Szydagis:2013sih,Mock:2013ila,Lenardo:2014cva}, using
 the energy deposition on each step provided by GEANT4.  Ionization and delta rays are part of a continuous
 spectrum -- GEANT4 tracks delta rays down to an energy of ??~KeV using the default LArSoft paramaterization.
 The GEANT4 step of a LArSoft simulation typically runs as a separate job, and the output of this job is the
@@ -304,7 +311,7 @@ the modeling of published data distributions and tunes the simulation to improve
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{FLUKA}
 
-FLUKA~\cite{FLUKA} is a full-featured physics and detector simulation package.  It is capable of
+FLUKA~\cite{Bohlen:2014buj,Ferrari:2005zk} is a full-featured physics and detector simulation package.  It is capable of
 performing the same role as GEANT4 in the beam simulations, as well as in the detector response modeling.
 FLUKA also has the ability to model neutrino-nucleus interactions, and thus can substitute for GENIE.
 Due to the prohibitive computational load of simulating all of the drifting electrons and propagating
