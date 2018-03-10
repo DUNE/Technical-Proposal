@@ -35,7 +35,7 @@ decay pipe, and shielding geometries and materials.  The geometry is specified i
 can be adjusted algorithmically in order to optimize the beamline components.  This simulation is used to provide
 standard flux predictions for downstream analyses, including near and far detector simulations, as well as
 sensitivity projections.  It is also used to predict systematic uncertainties.  The hadronic interaction uncertainties
-are estimated using the PPFX~\cite{ppfx} package, and focusing uncertainties are estimated by adjusting 
+are estimated using the PPFX~\cite{AliagaSoplin:2016shs} package, and focusing uncertainties are estimated by adjusting 
 beamline component locations, horn current fields, and beam size, position, and angle offsets.  Additional
 uncertainties, such as the thickness of the cooling water layer are included.  These predictions are provided
 in TTree objects for simulated neutrinos and their progenitors for the flux predictions, as well as aggregate
@@ -100,7 +100,7 @@ an important step for optimizing the signal analysis from induction-plane wires.
 pulses to the filtered, deconvoluted waveforms.  A similar set of steps is used in the photon detector data
 preparation.  Hits are grouped into clusters, which may be part of tracks or showers.  Several track-finding
 and shower reconstruction algorithms have been developed.  Ones in common use on DUNE are the Projection-Matching
-Algorithm (PMA)~\cite{PMA}, Pandora~\cite{Pandora}, and WireCell~\cite{wirecell}.  
+Algorithm (PMA)~\cite{ref:PMA}, Pandora~\cite{Marshall:2015rfa,Acciarri:2017hat}, and WireCell~\cite{ref:wirecell}.  
 PMA tests 3D hypotheses by projecting them onto the  2D plane (wire vs. time) of the observed data and 
 testing the consistency.  Pandora builds up a 3D interpretation
 of each event based on matching clusters in the 2D views, using a variety of algorithms tuned to specific topologies.
@@ -110,7 +110,7 @@ MicroBooNE's needs, as each MicroBooNE trigger contains several cosmic-ray track
 The ProtoDUNE analyses will require similar steps in order to separate beam particle interactions from those
 made by cosmic rays.  A convolutional neural network (CNN)
 has been trained to identify hits as belonging to tracks or to showers based on neighboring pixels in the 
-deconvoluted 2D data~\cite{CNN}.  Photon detector hits are grouped into flashes which are associated with
+deconvoluted 2D data~\cite{ref:CNN}.  Photon detector hits are grouped into flashes which are associated with
 TPC clusters for further analysis.  The WireCell package is a tool that forms a three-dimensional image of the
 event based on the raw digits.  It contains a two-dimensional deconvolution method that is able to use
 the extra information that neighboring wires provide in order to extract more information about the signal on
@@ -123,7 +123,7 @@ digits, hits, clusters, tracks and particles, and associations between them.  It
 for purposes of reconstruction algorithm development and tuning, though production of large data sets may
 drop the input data in the output files in order to reduce the storage requirements.  A ntuple format has bee
 defined, called AnaTree, which provides convenient access to pertinent reconstructed information without
-having to read the much larger {\it art}-formatted files.  The {\tt gallery} package~\cite{gallery} also provides
+having to read the much larger {\it art}-formatted files.  The {\tt gallery} package~\cite{ref:gallery} also provides
 a simpler interface to reading {\it art}-formatted files from ROOT or Python scripts, or user-compiled standalone
 programs.
 
@@ -139,7 +139,7 @@ does not use LArSoft directly.
 
 \subsection{QScan}
 
-QScan~\cite{QScan}  is a software package developed initially for ICARUS but which is now in use for the
+QScan~\cite{LussiThesis2016}  is a software package developed initially for ICARUS but which is now in use for the
 dual-phase 3x1x1 prototype, ProtoDUNE-DP, and the proposed dual-phase FD module(s).  It provides the similar
 functionality of simulation and reconstruction as LArSoft.  It is designed to be run in the online monitor
 of ProtoDUNE-DP.  Reconstruction of ProtoDUNE-DP data with LArSoft is planned.
@@ -147,7 +147,8 @@ of ProtoDUNE-DP.  Reconstruction of ProtoDUNE-DP data with LArSoft is planned.
 \subsection{External Software}
 
 DUNE encourages the exploration and use of external simulation and reconstruction packages that are
-publicly available.  One notable example is the ALICE full software stack~\cite{ALICEsw} which is used in the Gaseous
+publicly available.  One notable example is the ALICE full software 
+stack~\cite{ref:ALICEoffline,Abelev:2014ffa} which is used in the Gaseous
 Argon TPC near detector simulation effort.  Another is the re-use of HighLAND, an ntuple-analysis tool
 developed for T2K.  Some software, such as GeGeDe and EdepSim, have been developed with DUNE in mind
 but are sufficiently general that they find use beyond the collaboration and are stored in GitHub instead
@@ -156,10 +157,11 @@ of a DUNE-controlled repository.
 \section{Software Repositories}
 
 Official (i.e. supported, maintained, version-controlled and archived) software is stored in git repositories
-hosted at Fermilab.  The Redmine~\cite{redmine} web tool provides an html-based interface to each repository,
+hosted at Fermilab.  The Redmine~\cite{ref:redmine,ref:redmine2} 
+web tool provides an html-based interface to each repository,
 allowing developers to view current and previous versions, branches, commit comments and differences, and
 annotated versions of the code indicating the person who checked in each line.  Redmine also provides wiki
-support for associated documentation.  Automated code documentation systems such as DOxygen~\cite{DOxygen}
+support for associated documentation.  Automated code documentation systems such as DOxygen~\cite{ref:doxygen}
 and LXR are in use.  Software checked in to the repositories should contain DOxygen-friendly headers and
 specify the authors of the code.  The repositories are publicly visible without credentials.  In order to
 modify software in a repository, however, permission must be granted by the DUNE software management team
@@ -171,9 +173,9 @@ and XML files used in production, and dune-raw-data (and lbne-raw-data) which co
 \subsection{Build Environment}
 
 Most DUNE software is written in C++ which must be compiled and installed before it can be run.  We use the
-Multi-Repository Build System {\tt MRB}~\cite{mrb}.  It is capable of managing a local release of many checked-out
+Multi-Repository Build System {\tt MRB}~\cite{ref:mrb}.  It is capable of managing a local release of many checked-out
 git repositories' worth of code.  The smallest unit of code that can be checked out and compiled is the git
-repository with MRB.  Other tools allow building smaller pieces.  MRB produces UPS products~\cite{ups} 
+repository with MRB.  Other tools allow building smaller pieces.  MRB produces UPS products~\cite{ref:ups} 
 and installs them in a separate directory owned by the user.  It also can produce tarfiles containing
 the built code arranged as a UPS product so it can be installed in a public location or transferred to a grid job.
 
@@ -217,7 +219,7 @@ cause a security breach.  While SIP can be disabled in MacOS versions 10.11 thro
 {\it art} development teams are not confident that this will persist indefinitely.  Furthermore, if Linux
 distributions follow suit, then the use of library paths may become obsolete.
 
-A future development in the bulid and setup systems is to use SpackDEV~\cite{SpackDEV}, which builds code in
+A future development in the bulid and setup systems is to use Spack~\cite{ref:spack}, which builds code in
 a way that preserves the locations of the dependent libraries; these locations are stored in the calling
 libraries' .so files at link time so that the operating system can insist that only the library that was used
 at link time is the one used at run time.
@@ -226,7 +228,7 @@ at link time is the one used at run time.
 
 While the source code of DUNE's software stacks is publicly available, pre-built versions are needed
 for running on grid computing resources, and also to speed development.  Pre-built binaries are distributed
-along with the source code using CVMFS~\cite{CVMFS}, a distributed file system designed for efficient
+along with the source code using CVMFS~\cite{ref:cvmfs}, a distributed file system designed for efficient
 distribution of code.  The source files and header files are needed for debugging and development,
 even for other repositories that depend on a particular repository.  Pre-built binaries are distributed
 for the major supported platforms:  Scientific Linux (currently SL6 and SL7), and MacOS (currently 10.11
@@ -264,18 +266,18 @@ so that all experiments using LArSoft can upgrade easily.  Frequently developers
 feature branches of changes that are required by their tool, and these feature branches are merged by the
 DUNE software managers before tagging and building the weekly release.
 
-Official releases are built on the Jenkins~\cite{jenkins} build system at Fermilab, which automates the
-build process on all supported platforms and versions (such as debug or optimized builds).
+Official releases are built on the Jenkins~\cite{ref:jenkins} build system at Fermilab, which automates the
+build process on all supported platforms and versions, such as debug or optimized builds.
 
 \subsection{The {\it art} Framework}
 
 DUNE's near and far detector simulation and reconstruction software, as well as that used for the ProtoDUNE
-detectors, is built on LArSoft which is built on the {\it art} framework~\cite{art}.  The {\it art} framework
+detectors, is built on LArSoft which is built on the {\it art} framework~\cite{Green:2012gv}.  The {\it art} framework
 provides the event loop, I/O features not supported by ROOT such as parameterizable output file naming, configuration
 using the Fermi Hierarchical Configuration Language (FHiCL), provenance storage by saving all configuration
 information in the output file, message handling, and resource consumption (memory, CPU, I/O) accounting.  It
 is supported by the {\it art} development team at Fermilab.  It provides the basis for both analysis programs
-and for {\it artdaq}.  Extensive documentation and tutorials are provided~\cite{artdoc}\cite{arttutorial}.
+and for {\it artdaq}.  Extensive documentation and tutorials are provided~\cite{ref:artdoc}\cite{ref:arttutorial}.
 The {\it art} deveopers hold weekly stakeholders' meetings at which experiment concerns and requests are aired.
 
 \subsection{NTuple Analysis (CAFAna)}
@@ -285,7 +287,9 @@ and far detector data samples, using muon, electron, and possibly neutral-curren
 must include the effects of detector acceptance and resolution, and also include systematic uncertainties on these.
 The oscillation parameters affect predictions as functions of the true values $L/E$, while DUNE can only
 measure an approximate energy on each event, so the full transfer function of true to measured energy must be
-incorporated in the fits.  CAFAna~\cite{CAFAna} is a tool developed for use on NOvA, which takes as input
+incorporated in the fits.  CAFAna~\cite{ref:cafanaredmine,Adamson:2017qqn} 
+is a tool developed for use on NOvA, which takes as input
 Monte Carlo and data NTuples and forms histograms in as many categories as the experiment defines, and performs
 these fits.  It has been ported to DUNE to read similarly constructed NTuples built from fully-simulated
 DUNE events.
+

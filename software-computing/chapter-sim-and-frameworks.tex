@@ -46,8 +46,14 @@ GENIE (Generates Events for Neutrino Interaction Experiments) \cite{Andreopoulos
 It is a core component of the software stack for every running and planned neutrino beam experiment in the United States.
 In accelerator neutrino experiments, observables are a convolution of the flux, interaction physics, and detector response. 
 Three corresponding pieces combine to form the software stack, as illustrated in Figure \ref{fig:3partstack}.
-Event generators sit at the heart of the stack and provide experimenters with access to the physics of the neutrino interaction.
-GENIE is the primary generator for ArgoNeuT \cite{refargoneut}, DUNE \cite{refdune}, MicroBooNE \cite{refmicroboone}, MIER$\nu$A \cite{refminerva}, NO$\nu$A \cite{refnova}, and SBND \cite{refsbnd}, because of its flexible framework and fully-featured geometry and flux drivers.
+Event generators sit at the heart of the stack and provide experimenters with access to the physics of the neutrino interaction. GENIE is the primary generator for 
+ArgoNeuT \cite{Anderson:2012vc}, 
+DUNE \cite{Acciarri:2015uup}, 
+MicroBooNE \cite{Fleming:2012gvl}, 
+MIER$\nu$A \cite{MINERvA:2006aa}, 
+NO$\nu$A \cite{Ayres:2007tu}, 
+and SBND \cite{Antonello:2015lea,sbnd}, 
+because of its flexible framework and fully-featured geometry and flux drivers.
 
 \begin{figure}
   \centering
@@ -144,7 +150,72 @@ such as atmospheric-neutrino measurements and nucleon-decay searches.
 \subsubsection{CORSIKA}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{MUSUN/MUSIC}  % from Karl
+\subsubsection{MUSUN/MUSIC}  % from Karl and Vitaly
+
+The MUSUN (MUon Simulations UNderground) event generator is described in Refs~\cite{Kudryavtsev:2008qh}
+and~\cite{Kudryavtsev:2003aua}.
+It uses the results of muon transport through rock using 
+MUSIC (Muon SImulation Code)~\cite{Antonioli:1997qw,Kudryavtsev:1999zu,Kudryavtsev:2008qh}
+convolved with the muon spectrum at sea level for different zenith angles. 
+MUSUN, originally a Fortran program, has been rewritten in C++ and integrated into LArSoft.
+The MUSUN code, as currently adapted for DUNE, samples muons around an 
+underground laboratory located near the Ross shaft, with a latitude of
+44$^\circ$~20$^\prime$~45.21$^{\prime\prime}$~N, and a longitude of
+103$^\circ$~45$^\prime$~161$^{\prime\prime}$~W. The rock composition has been
+taken from Refs.~\cite{Mei:2009py} and~\cite{ref:ZhaoPrivateCommunication1}. 
+In the MUSIC simulation for SURF, the rock is assumed to be uniform
+with average properties derived from many samples taken at the laboratory. 
+The composition of the rock in the simulation correspons to
+$\langle Z\rangle = 12.09$ and $\langle A\rangle = 24.17$~\cite{Mei:2009py,ref:ZhaoPrivateCommunication1}, with
+an average density of 2.70 g/cm$^{3}$~\cite{ref:ZhaoPrivateCommunication1}.
+Other measurements suggest that the density may be larger (2.8-2.9 g/cm$^{3}$~\cite{Gray:2010nc,Heise:2014gta}). The
+density can be changed in the MUSUN muon generator if required. The slant depth 
+distribution for the 4850~ft level at SURF was calculated from the CGIAR digital elevation
+model~\cite{ref:MartinRichardsonThesis}.
+The measurement of the muon flux at SURF (in the Davis campus near the Yates shaft)
+was performed by the active veto system of the Davis experiment~\cite{Cherry:1983dp} giving the value of
+($5.38\pm0.07)\times10^{-9}$ cm$^{-2}$~s$^{-1}$~sr$^{-1}$ for the vertical flux.  
+The measured fraction of multiple
+muons has been added to the single muon flux as given in Ref.~\cite{Cherry:1983dp}, so the systematic
+uncertainty for this value may be of the order of a few percent. MUSIC/MUSUN predicts
+$5.18\times10^{-9}$~cm$^{-2}$~s$^{-1}$~sr$^{-1}$ at the Davis campus, in agreement with
+the measurement. A recent measurement of muons in the Davis campus has been
+carried out with the active veto system of the Majorana demonstrator~\cite{Abgrall:2016cfi} giving the
+value of $5.31\pm0.17\times10^{-9}$~cm$^{-2}$~s$^{-1}$ for the total (not vertical) muon flux, in reasonable
+agreement with a calculation with MUSIC/MUSUN for a close location, also in the Davis
+campus but LUX/LZ location rather than Majorana demonstrator hall:
+$6.16\times10^{-9}$~cm$^{-2}$~s$^{-1}$.   The systematic uncertainty in the muon flux prediction
+is estimated to be 20\%.  An accurate measurement of the muon flux in the DUNE caverns
+is required to normalize simulations.
+
+The total muon flux through a sphere with unit cross-sectional area is calculated as $5.66\times
+10^{-9}$~cm$^{-2}$~s$^{-1}$ and the mean muon energy is 283~GeV.
+The normalisation of the muon flux or rate is done for a specic point underground where
+the slant depth distribution was calculated, assuming that the muon flux is the same 
+everywhere in the cavern and also in the
+rock where the box for muon sampling is extended. For the cavern(s) where the far
+detector will be located the difference in muon intensities in different locations is not
+expected to exceed 10%.
+In the MUSUN generator for DUNE, muons are sampled on a surface of a box that
+encompasses the lab and a few metres of rock around the cavern. The rock is 
+included to make sure that muon-induced cascades initiated above and around the cavern
+have enough space to fully develop and produce secondaries that may enter the active volume
+of the detector even if the primary muon does not.
+The size of the box is $74.43\times29.54\times30.18$ m$^{3}$. The size of
+the cryostat has been assumed to be $61.62\times14.94\times13.58$~m$^{3}$.
+Muons are sampled according to their energy spectrum for a particular zenith and 
+azimuthal angles, sampled in turn from the angular distribution obtained using MUSIC. 
+The size of the box (the probability of a muon to cross a particular
+surface of the box) is taken into account when generating muons. All energy spectra 
+and angular distributions are stored on disk and read during the initialization at
+the beginning of each simulation run. 
+
+The muon rate through the surface of this box is $0.1579\pm 0.0316$~Hz. This rate can be used
+to normalise cosmic-ray simulations in DUNE. The rate of muons passing through
+the active volume of liquid argon with a minimum track length of 1~m 
+is $0.053\pm 0.011$~Hz, or about about 30% of muons generated on the
+surface of the box.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Radiological Generator}
@@ -167,7 +238,7 @@ LArSoft reads in GDML files that describe the geometries of the far detector mod
 files are required -- one with the readout wires described, and one without.  The total mass in the readout
 wires is very small, but their presence would increase the memory and CPU requirements of the simulation
 if they are present in any more than a parameterized manner.  These GDML files are constructed with Perl scripts.
-A more sophisticated tool called {\tt{ggd}}~\cite{ggd} is designed to create GDML files from a higher-level
+A more sophisticated tool called {\tt{ggd}}~\cite{ref:ggd} is designed to create GDML files from a higher-level
 Python description of the detector.
 
 Within LArSoft, two ``parallel-world'' representations of the geometry are created.  One is for particle interactions
@@ -177,14 +248,14 @@ modeled by GEANT4, and the other is intended for GEANT4's simulation of photon p
 \subsection{Fast Monte Carlo}
 
 A Fast Monte Carlo (FMC) program was developed by the LBNE collaboration and was used to
-compute oscillation sensitivities~\cite{cdr-vol-2}.  The FMC simulated neutrino interactions
-on argon using the LBNF flux spectrum and the GENIE~\cite{GENIE} generator.  The detector
+compute oscillation sensitivities~\cite{Acciarri:2015uup}.  The FMC simulated neutrino interactions
+on argon using the LBNF flux spectrum and the GENIE~\cite{Andreopoulos:2009rq} generator.  The detector
 responses to the final-state particles produced by GENIE are approximated with efficiency
 fractions as functions of particle energy, energy resolution smearing fractions, and
 correct and incorrect particle identification rates.  The events were divided into
 $\nu_\mu$CC-like, $\nu_e$-CC-like, and NC-like, for the near and far detectors, and the
 inputs provided to a parameter fit, such as CAFANA, GLoBES, or LOAF.  The details of the
-detector response and analysis requirements can be found in~\cite{cdr-vol-2}.  The CPU time needed
+detector response and analysis requirements can be found in~\cite{Acciarri:2015uup}.  The CPU time needed
 for the FMC project is 1 to 4~M hours per year, with $<1$~TB of storage required, when
 it is fully used.  The emphasis on full simulation and reconstruction results however has
 displaced the FMC in 2016 and 2017. 
@@ -193,15 +264,16 @@ displaced the FMC in 2016 and 2017.
 \subsection{Geant4 and Detector Response Modeling}
 
 Interactions of particles with the detector materials, both active and inactive, is simulated with 
-GEANT4~\cite{GEANT4:NIM}\cite{GEANT4}.  GEANT4 is also used as the underlying physics model for G4LBNF, the
+GEANT4~\cite{geant4,Allison:2006ve}.  GEANT4 is also used as the underlying physics model for G4LBNF, the
 simulation of the baffle, target, horns, and decay pipe.  GEANT4 simulates particle trajectories in steps,
 taking into account electric and magnetic fields, as well as interaction and scattering probabilities in the
 matter at each step.  GEANT4 requires a detailed description of the geometry of the materials through which
 it simulates particle propagation.
 
-LArSoft~\cite{larsoft} provides an interface to GEANT4 that is optimized for liquid argon time projection
+LArSoft~\cite{larsoft.org} provides an interface to GEANT4 that is optimized for liquid argon time projection
 chambers.  Step sizes are limited by voxelizing the active liquid argon volume into cubes 300~$\mu$m on a side.
-Ionization and scintillation are modeled with a modified Box function~\cite{box} or with NEST~\cite{nest}, using
+Ionization and scintillation are modeled with a modified box function~\cite{Thomas:1987zz} or with 
+NEST~\cite{Szydagis:2011tk,Szydagis:2013sih,Mock:2013ila,Lenardo:2014cva}, using
 the energy deposition on each step provided by GEANT4.  Ionization and delta rays are part of a continuous
 spectrum -- GEANT4 tracks delta rays down to an energy of ??~KeV using the default LArSoft paramaterization.
 The GEANT4 step of a LArSoft simulation typically runs as a separate job, and the output of this job is the
@@ -239,7 +311,7 @@ the modeling of published data distributions and tunes the simulation to improve
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{FLUKA}
 
-FLUKA~\cite{FLUKA} is a full-featured physics and detector simulation package.  It is capable of
+FLUKA~\cite{Bohlen:2014buj,Ferrari:2005zk} is a full-featured physics and detector simulation package.  It is capable of
 performing the same role as GEANT4 in the beam simulations, as well as in the detector response modeling.
 FLUKA also has the ability to model neutrino-nucleus interactions, and thus can substitute for GENIE.
 Due to the prohibitive computational load of simulating all of the drifting electrons and propagating
@@ -297,3 +369,4 @@ as not to write over the SSD memory continuously.  This trigger needs to run on 
 computers dedicated to triggering supernova events, possibly with GPU assistance.  As such, LArSoft is
 unlikely to be the right tool for computing trigger decisions, but LArSoft-simulated MC samples are
 ideal for providing input to smaller, faster trigger algorithms developed separately.
+
