@@ -75,8 +75,14 @@
 
 \renewcommand{\headrule}{\vspace{-4mm}\color[gray]{0.5}{\rule{\headwidth}{0.5pt}}}
 
-% This is needed to properly build when there are not yet any citations.
-\nocite{*}
+% Not all main documents have any citations.
+% When not built in "final" mode, add in one citation just to let the
+% document build.
+% If, after substantial editing a main document still lacks any
+% citations then it should have its whole bibliography removed.
+\ifdefined\isfinal\nocite{}\else\nocite{CD0}\fi
+
+
 
 % see also preamble.tex
 %\input{common/acronyms}
