@@ -9,6 +9,9 @@
 \newcommand{\dshort}[1]{\acrshort{abbrev-#1}}
 \newcommand{\dlong}[1]{\acrlong{abbrev-#1}}
 
+% force the "first time" behavior
+\newcommand{\dfirst}[1]{\glsfirst{abbrev-#1}}
+
 \newcommand{\dword}[1]{\gls{#1}}
 \newcommand{\dwords}[1]{\glspl{#1}}
 \newcommand{\Dword}[1]{\Gls{#1}}
@@ -52,7 +55,12 @@
 
 
 
+\newduneabbrev{nd}{ND}{near detector}{Refers to the detectors or more
+  generally the experimental site at Fermilab}
 
+\newduneabbrev{fd}{FD}{far detector}{Refers to the detector or more
+  generally the experimental site in or above the Homestake mine in
+  Lead, SD}
 
 \newduneabbrev{sp}{SP}{single-phase}{Distinguishes one of the four
   \SI{10}{\kton} \glspl{detmodule} of the DUNE far detector by the
@@ -86,7 +94,7 @@
   the input}
 
 % data aquisition
-\newduneabbrev{daq}{DAQ}{data aquisition}{The Data Acquisition system
+\newduneabbrev{daq}{DAQ}{data aquisition}{The data acquisition system
   accepts data from the detector FE electronics, buffers
   it, performs a \gls{trigdecision}, builds events from the selected
   data and delivers the result to the offline \gls{diskbuffer}}
@@ -287,7 +295,6 @@
 \newduneword{dune}{DUNE}{Deep Underground Neutrino Experiment}
 \newduneword{esh}{ES\&H}{Environment, Safety and Health}
 %\newduneword{eV}{eV}{electron volt, unit of energy (also keV, MeV, GeV, etc.)}
-\newduneword{fd}{FD}{far detector}
 \newduneword{fgt}{FGT}{Fine-Grained Tracker}
 \newduneword{fscf}{FSCF}{far site conventional facilities}
 \newduneword{nscf}{NSCF}{near site conventional facilities}
@@ -301,7 +308,6 @@
 \newduneword{lbnf}{LBNF}{Long-Baseline Neutrino Facility}
 \newduneword{mh}{MH}{mass hierarchy}
 \newduneword{mi}{MI}{Main Injector (at Fermilab)}
-\newduneword{nd}{ND}{near neutrino detector}
 %\newduneword{abc}{NDS}{Near Detector Systems; refers to the collection of detector systems at the near site }
 %\newduneword{abc}{near detector}{except in Volume 4 Chapter 7, \textit{near detector} refers to the \textit{neutrino} detector system in the NDS}
 \newduneword{pot}{POT}{protons on target}

@@ -1,6 +1,5 @@
 \documentclass{article}
-
-
+\usepackage[letterpaper,margin=2cm]{geometry}
 
 \usepackage{siunitx}
 \input{common/units}
@@ -22,29 +21,40 @@ The DUNE glossary gives a concise definition of the special terms and
 in some cases abbreviations that are part of the DUNE collaboration's
 lexicon.
 The terms make up a technical vocabulary which DUNE collaborators
-use when speaking and writing about the detectors and experiment.
+use when speaking and writing about their detectors and experiment.
 
-For authoring official documents, particularly ones that span large
-parts of the DUNE scope is to \textbf{always} refer to DUNE terms
+When authoring official documents, particularly those that span large
+parts of the DUNE scope, it is best to \textbf{always} refer to DUNE terms
 through a fixed reference and \textbf{never} type them literally into
-the body of the document. 
-Of course in practice this ideal can only be approached. 
-To the text it is, the benefits include:
+the body of the document.
+This provides the following benefits:
+
 
 \begin{itemize}
-\item Consistent terms which helps more easily convey meaning to the reader.
-\item Reduction in repetitive and potentially inconsistent explanation
-  of terms.  
-\item Synchronizing of meaning between collaborators.
+\item Enforces consistent use of terms which helps more easily convey
+  meaning to the reader.
+\item Reduces repetitive and potentially inconsistent explanation of
+  terms.  
+\item Synchronizes meaning between collaborators.
 \end{itemize}
 
-Before writing and during editing a diligent author should find
+\noindent Of course, slavish adherence is not possible nor desired but
+before writing and during editing a diligent author should find
 themselves continuously checking the glossary for previously defined
-terms and adding new terms as needed.
+terms and adding new terms as needed. 
+If a term is used in an unexpected manner it means that there is a
+lack of \textbf{conceptual cohesion} between the authors and this
+\textbf{requires discussion} before changing the definition in the
+glossary. 
+Changes may also require reworking surrounding text. 
+The glossary is a shared resource expressing our consensus and so must
+be cared for by all.
 
-The rest of this document describes how to use existing terms from the
-glossary when authoring the document body text and how to extend the
-glossary to introduce new terms.
+The rest of this document describes the mechanics of use. 
+First it shows how to use any existing terms in the document body
+text. 
+If finishes by showing how to extend the glossary by introducing new
+terms.
 
 
 \section{Usage}
@@ -94,6 +104,7 @@ To force an abbreviated or long form one the final two may be used.
 \item \verb|\Dwords{label}| capitalized and plural term
 \item \verb|\dshort{label}| force usage of the abbreviated term
 \item \verb|\dlong{label}| force usage of the full term
+\item \verb|\dfirst{label}| force first usage behavior
 \end{itemize}
 
 
@@ -104,6 +115,8 @@ First time, nominal: \dword{sp}.
 Second time, nominal: \dword{sp}.
 
 Second time, long: \dlong{sp}.
+
+Second time, force first time: \dfirst{sp}.
 
 First time, multiple: \dwords{adc}.
 

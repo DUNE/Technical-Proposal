@@ -48,6 +48,17 @@ def build(bld):
 
     #build_params(bld)
 
+    # The "DUNE Words" doc is just plopped here and does not provide
+    # "volume" semantics so we build it special.
+    bld(features='tex', prompt=prompt_level,
+        source = 'dune-words.tex',
+        target = 'dune-words.pdf')
+
+
+    #
+    # Volumes and their chapters:
+    #
+
     voltexs = ["executive-summary.tex",
                "far-detector-single-phase.tex",
                "far-detector-dual-phase.tex",
