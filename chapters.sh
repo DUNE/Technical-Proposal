@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script is used by the Waf build as directed in the wscript file.
+# Do not modify unless you know what you are doing.
+
 usage () {
     echo "chapters.sh chapter-template.tex chapter-file.tex output-chapter-file.tex"
     exit 1

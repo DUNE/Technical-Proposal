@@ -93,6 +93,7 @@ Shortly after successful commits are pushed, these links should point to updated
 
 If a build fails an error message will be sent to the committer if they have registered an email with GitHub.
 
+The documents in this repository can of course be built by you with your favorite LaTeX tools.  This repository provides some support for a few popular tools as described in [tools.org](tools.org).
 
 
 ## Management

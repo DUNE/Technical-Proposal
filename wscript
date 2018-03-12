@@ -59,7 +59,10 @@ def build(bld):
 
         volname = voltex.replace(".tex","")
         voldir = bld.path.find_dir(volname)
-        bld(features='tex', prompt=prompt_level, source=voltex)
+        bld(features='tex', prompt=prompt_level,
+            source = voltex,
+            target = voltex.replace(".tex",".pdf"))
+
         bld.install_files('${PREFIX}',voltex.replace(".tex",".pdf"))
 
         for chtex in voldir.ant_glob("**/chapter*.tex"):
@@ -72,7 +75,9 @@ def build(bld):
 
             bld(features='tex',
                 prompt = prompt_level,
-                source = chmaintex)
+                source = os.path.basename(str(chmaintex)),
+                # name target as file name so can use --targets w/out full path
+                target = os.path.basename(str(chmaintex.change_ext('pdf','tex'))))
 
             bld.install_files('${PREFIX}',chmaintex.change_ext('.pdf', '.tex'))
         # bld(features='tex',
