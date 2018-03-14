@@ -1,0 +1,71 @@
+\chapter{ProtoDUNE plans and impact }
+\fixme{7 pages}
+
+\section{Overview}
+The ProtoDUNE experiments will run at CERN in the Fall of 2018.  They are currently under construction.  Software and computing is responsible for storage, cataloging and reconstruction of these data after it is written to disk by the data acquisition systems.  In this section we give a short overview of the current status and what we expect to learn from the ProtoDUNE experiments.
+
+
+\subsection{Single Phase prototype}
+
+The single-phase prototype (ProtoDUNE-SP) will utilize six prototype APA's with the full drift length envisioned for the full far detector. In the single phase detector, the readout plane are immersed in the liquid Argon and no amplification occurs before the electronics.    ProtoDUNE-SP is being constructed in the NP04 beamline at CERN and should run with tagged test beam for around 6 weeks in the Fall of 2018.  In addition cosmic ray commissioning beforehand and cosmic running after the end of beam are anticipated.  Table \ref{tab:np04_data_rate}
+shows the anticipated data rates and sizes. 
+
+
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[h]{l|r}
+\hline
+    Trigger rate & 25\,Hz \\
+    Spill duration & 4.5\,s\\
+    SPS Cycle & 22.5\,s \\
+    Readout time window & 5\,ms \\
+    \# of APAs to be read out & 6 \\
+    \hline
+    Single readout size (per trigger) & 230.4\,MB \\
+    Lossless compression factor & 4 \\
+    Instantaneous data rate (in-spill) & 1440\,MB/s \\
+    Average data rate & 576\,MB/s \\
+    \hline
+    3-Day buffer depth & 300\,TB \\
+    \hline
+  \end{tabular}
+  \caption{Parameters for ProtoDUNE-SP run at CERN including both
+  the in-spill and out-of-spill data.}
+  \label{tab:np04_data_rate}
+\end{table}
+\subsection{Dual-Phase prototype}
+
+The dual-phase prototype will run in the NP02 beamline in late Fall 2018.  In this detector, electrons drift the full height of the cryostat, emerge from the liquid and are collected - after gas amplification - on an grid of instrumented pads at the top of the detector.  The WA105 3x1x1 m test of this technology ran successfully in the summer of 2017\cite{Murphy:20170516}.  Table \ref{tab:np02_data_rate} shows the expected data rates from ProtoDUNE-DP. 
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[h]{l|r}
+\hline
+     Compressed, non-zero-suppressed event size & 15.9 MB\\
+    Average beam data flow to offline data storage &   305.3 MB/s  \\
+    Average off-spills cosmic data flow to offline data storage &   12.4 MB/s\\
+    Planned total statistics of beam triggers in 30 beam days with 50\% efficiency&25M\\
+    Planned overall storage size of beam events&   0.4 PB\\
+   Cosmic rays in 30  beam days&  2.1  M\\
+   Planned storage size for cosmic rays during beam period&  0.04 PB\\
+   Requested (in 2016) overall storage envelope for ProtoDUNE-DP&0.7 PB \\
+    \hline
+  \end{tabular}
+ \caption{NP02 data volume}
+  \label{tab:np02_data_rate}
+\end{table}
+
+\section{Data Challenges}
+
+Computing and software is performing a series of data challenges to ensure that systems will be ready when the detectors become fully operational in the summer of 2018.  To date we have performed challenges using simulated single-phase data with a joint dual/single phase test scheduled for April of 2018.
+
+\subsection{Data Challenge 1.0}
+
+
+\subsection{Data Challenge 1.5}
+
+\subsection{Data Challenge 2.0}
+
+
+\section{Impact of the protoDUNE experience on future plans}
