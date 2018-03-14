@@ -1,0 +1,21 @@
+% This is a sed template used by chapters.sh.
+% Do not modify unless you know what you are doing.
+
+\ifdefined\isfinal\documentclass[final]{dune}\else\documentclass{dune}\fi
+\pdfoutput=1            % must be in first 5 lines so arXiv finds it
+\graphicspath{ {figures/}{volume/figures/}{far-detector-generic/figures/}{generated/} }
+
+\input{common/preamble}
+
+\renewcommand\thedoctitle{\volspfd} % defined in common/defs.tex
+%\def\titleextra{\includegraphics[width=0.55\textwidth]{energy_nu_no}} -- change image file
+\begin{document}
+
+\input{common/init}
+
+
+\input{volume/chapter}
+\cleardoublepage
+
+\input{common/final}
+\end{document}

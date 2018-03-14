@@ -25,9 +25,13 @@ The proposed  full size 17 kT modules for the DUNE/LBNF\ref{FDsections} far dete
 a total of 150 alternating vertical cathode and anode planes/module  spaced 3.5 m apart and operated at 180 kV for a 500 V/cm drift field.  The anode planes are made up of Anode Plane Assemblies  (APA's) which are 6.3 m tall by 2.3 m wide. %The APA's are wrapped with readout wires and read out through one of the shorter ends.  %Figure \ref{bigone} illustrates the layout of anode and cathode planes in the full size detector.
 
 For modules of this size, drift times in the liquid argon are of order 2.5 msec and raw data sizes before compression are of order 25 GB per 5.4 msec readout window. Table \ref{sw:bigone} summarizes the estimates for 4 Single Phase modules from the 2015 Conceptual Design Report \cite{cdr-annex-rates}.  With no triggering and no zero suppression or compression, the raw event rates would be of order 145 EB/year. 
+
 Requiring  coincidence with the LBNF beam will reduce the effective live-time from the full 1.2-1.5 sec beam spill to a 5.4 ms readout window leading to an untriggered data rate for beam-coincident events of around 20 GB/sec.
 
 \fixme{Similar discussion of dual phase}
+
+Requiring  coincidence with the LBNF beam will reduce the effective live-time from the full 1.2-1.5 sec beam spill to a 5.4 ms readout window leading to a data rate for beam-coincident events of around 20 GB/sec.
+>>>>>>> 8f28b20950a4982236adee94594ef8f6f8ec20d4
 
 \begin{table}[htp]
 \begin{center}
@@ -57,12 +61,16 @@ Supernova candidates &12/year&46.1 TB&16.7 GB\\
 \end{table}%
 
 
+
 Integrated over a year of 20M beam pulses, that leads to an uncompressed data size of 500 PB with compression giving a factor of 4-10 reduction. Some level of triggering will be needed to reduce this rate to levels that can be practically transferred and stored.
 
 
+
+<<<<<<< HEAD
 \item Rare physics processes, not in synchronization with the accelerator.  These include supernova physics, atmospheric neutrinos, proton decay, neutron conversion and solar neutrinos.  These processes are generally at lower energy, making triggering more difficult, and asynchronous, thus requiring an internal or external trigger.  In particular, supernovae signals will consist of a large number of low energy interactions spread throughout the far detector volume over a time period of 1-30 seconds. Buffering and storing 30 sec of data would require around 6000 readout windows, or around 120 TB/supernova readout.  
 
 \item Near detector physics - the near detector configuration is not defined yet but we do have substantial experience from T2K and MicroBooNE at lower energies and MINERvA at the DUNE beam energies on cosmic and beam interactions under similar conditions.  We can expect that a near detector will experience 30-60 cosmic and beam interactions/beam pulse, spread over an area of a few square meters.  Storing and disentangling this information will be challenging but comparable to the ProtoDUNE data expected in 2018.
+
 \end{enumerate}
 
 
@@ -97,6 +105,7 @@ Table \ref{daq:datarates} summarizes the data rates expected from the DAQ sectio
 
 The DUNE computing model is a work in progress.  We can expect that major advances will take place over the next year on several fronts, with data from ProtoDUNE and the full incorporation of lessons from MicroBooNE into LarSoft. 
 
+<<<<<<< HEAD
 The overall model can be divided into several major parts: Algorithms, Infrastructure and Adaption for the future.  These are in different stages of planning and completion
 
 \begin{description}
@@ -118,6 +127,7 @@ We plan to use shared HEP infrastructure wherever possible.  Notably the ROOT\ci
 The Fermilab intensity frontier program experiments (MINOS\cite{minos}, MINERvA\cite{minerva} and NOvA\cite{nova} have developed substantial computing infrastructure for the storage, reconstruction and analysis of data on size scales of order 1/10 that of full DUNE and comparable to the ProtoDUNE experiments. While the LArTPC technology requires unique algorithms, the underlying compute systems, frameworks and database structures already exist and are being adapted for use on both ProtoDUNE and DUNE.
 
 For algorithms, the MicroBooNE\cite{Acciarri:2016smi} experiment has been running since 2015 with a liquid Argon-TPC which shares many characteristics with the DUNE APA's.   MicroBooNE has, over the past year, published studies of noise sources and signal processing\cite{Acciarri:2017sde,Adams:2018dra}, novel pattern recognition strategies \cite{Acciarri:2016ryt,Acciarri:2017hat} and calibration signatures such as Michel electrons and cosmic rays \cite{Acciarri:2017sjy,Acciarri:2017sde}.  DUNE shares the both the \larsoft software framework and many expert collaborators with MicroBooNE and is taking direct advantage of their experience in developing simulations and reconstruction algorithms.
+
 
 \subsection{ProtoDUNE}\label{sw:PD-planning}
 

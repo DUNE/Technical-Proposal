@@ -181,35 +181,63 @@ executes the readout command by selecting the indicated portion of
 data from the buffer and returning it to the \dword{eb} that issued
 the request.
 
+\begin{dunefigure}[Detail of FE readout and buffering]{fig:rce-snb-buff}
+  {Illustration of FE readout detail showing the conceptual flow of full-stream data, trigger primitives and the special buffering and write out path for data corresponding to an SNB dump command}
+  \includegraphics[width=0.8\textwidth]{rce-snb-buffer.png}
+\end{dunefigure}
+
 In the \dword{sp} DAQ module \dword{snb} triggering, buffering and
-readout is managed separately from the nominal flow described above. 
-The second distributed RAM buffer is to store the full data stream
-long enough for a \dword{snb} \dword{trigcommand} to be formed and
-distributed. 
-The time for the number of \dword{snb} interactions throughout the
-\dword{sp} \dword{detmodule} to rise above background rate is on order
-\SI{1}{\s} and the nominal \dword{snb} \dword{readout window} is
-\SI{10}{\s}. 
-The \dword{snb} \dword{trigcommand} is issued to the \dword{oob} which
-dispatches it to the 600 \dwords{rce}. 
-Once received, each \dword{rce} will dump the portion of the requested
-data which is already in the RAM buffer to local \dword{ssd} storage
-and if the end of readout window is not yet reached it will stream the
-data directly to the \dword{ssd} storage.
-The rate to \dword{ssd} storage is \SI{2.5}{\GB/\s} which is
-achievable with the fastest devices commonly available today. 
-As high rate as this is, for a \SI{10}{\s} \dword{snb} readout window
-this represents only \SI{25}{\GB} per \dword{snb} per \dword{rce}.
-For a reasonable selection of thresholds it is expected that the
-number of \dword{snb} triggers (almost all of which will be
-false-positive) will be low enough to allow this data to reside on the
-\dword{ssd} storage almost indefinitely and to be sent out of the DAQ
-as a low-rate transfer.
-This transfer will be performed using local network connections to a
-special \dword{snb} \dword{eb}.
-While the \dwords{rce} are dumping and transferring \dword{snb} dumps
-they continue to supply the full data to the \dwords{fec} via the link
-to the \dword{felix} boards.
+readout is managed separately from the nominal flow described above
+and is illustrated in Fig.~\ref{fig:rce-snb-buff}. 
+A second, distributed RAM buffer will be used to store the full data
+stream long enough for a \dword{snb} \dword{trigcommand} to be formed
+and distributed. 
+The expected time for the number of \dword{snb} interactions
+throughout the \dword{sp} \dword{detmodule} to rise above the
+background rate is on order \SI{1}{\s}.
+The RAM buffer must be large enough to store the full-stream data well
+in excess of this rise time. 
+Some \dword{snb} models predict the possibility of early neutrino
+interactions at rates which would not satisfy the nominal \dword{snb}
+trigger condition but which nonetheless could carry important Physics
+information.
+It is unknown how early such neutrino interactions may occur and so
+this RAM buffer size is ultimately limited by available technology and
+cost.
+Nominally, a per-RCE \dword{snb} RAM buffer size is chosen such that
+at least \SI{10}{\s} of past data can be retained.
+
+An \dword{snb} readout begins with an \dword{snb} \dword{trigcommand}
+issued to the \dfirst{oob} which forwards it to the 600 \dwords{rce}. 
+Once received, each \dword{rce} will begin streaming the data to local
+non-volatile memory \dword{ssd} storage starting at the time requested
+by the \dword{trigcommand} or with the earliest data available if the
+data for the requested start time has already dropped from the buffer.
+The data will continue to stream until the requested stop time has
+been reached. 
+In principle, this streaming can continue until the \dword{ssd} is
+full. 
+
+Using commodity \dword{ssd} technology available today, the per-RCE
+data rate is \SI{2.5}{\GB/\s} can sunk. 
+For costing purposes, individual storage unit capacity is chosen to be
+\SI{500}{\GB} which will allow capturing and storing \SI{200}{s} of
+full-rate data before filling.
+Employing lossless compression can easily double the buffer depth and
+if excess noise is minimal this factor can be expected to provide a
+compression factor of five or six.
+A scheme to periodically purge these storage devices requires more
+study which takes into account \dword{snb} models, background rates,
+trigger threshold and corresponding false positive rate, bandwidth
+from \dwords{rce} to subsequent processing and storage, available
+offline processing resources, etc.
+Independently, \dword{snb} dump data will be transferred from this
+buffer storage via a local network connection to a special \dword{snb}
+\dword{eb} And, while the \dwords{rce} may be streaming and
+transferring \dword{snb} dumps they continue to supply the full data
+to the \dwords{fec} via the link to the \dword{felix} boards.
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

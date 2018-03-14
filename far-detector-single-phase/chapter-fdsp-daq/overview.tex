@@ -2,25 +2,25 @@
 \section{Data Acquisition System (DAQ) Overview (Georgia Karagiorgi and Dave Newbold)}
 \label{sec:fdsp-daq-ov}
 
-%\metainfo{2 Pages - largely generic but some highlighting of SP-specifics.}
+\metainfo{2 Pages - largely generic but some highlighting of SP-specifics.  Focus on describing to HEP but non-DAQ expert.  Include how design is resilient in the face of potential uncertainties such as excess noise or the need to reduce drift HV (just two examples, maybe there are more).}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Introduction}
 \label{sec:fdsp-daq-intro}
 
-The DUNE Far Detector (FD) Single-Phase Data Acquisition (DAQ) System
+The DUNE \dfirst{fd} \dfirst{sp} \dfirst{daq} system
 design must enable the readout, processing and distribution to
 permanent storage of physics and calibration data from each 10~kton SP
-module, including data from the PD, TPC, accelerator and timing,
+module, including data from the \dfirst{pds}, \dfirst{tpc}, accelerator and timing,
 calibration, and other auxiliary systems.
-An overview of the overall DUNE FD DAQ System is illustrated in
+An overview of the overall DUNE \dword{fd} \dword{daq} system is illustrated in
 Fig.~\ref{fig:daq-overview}. 
-Figure~\ref{fig:daq-overview} illustrates the main DAQ subsystem
+Figure~\ref{fig:daq-overview} illustrates the main \dword{daq} subsystem
 components as well as the data flow and the exchange of trigger and
 monitoring messages between them.
-As shown, it is applicable to both TPC and PD system readout, except
-that in the case of the PD system the DAQ scope begins to the right of
-the Front-End Readout. 
+As shown, it is applicable to both \dword{tpc} and \dword{pds} readout, except
+that in the case of the \dword{pds} the \dword{daq} scope begins to the right of
+the \dfirst{fe} readout. 
 %\fixme{Describe figure here.}
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}

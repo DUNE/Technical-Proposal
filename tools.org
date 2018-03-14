@@ -1,0 +1,100 @@
+* Build Tools
+
+The documents in this repository can be built with your favorite LaTeX
+tools in their usual manner.  In addition, support for some specific
+tools and build methods is provided.
+
+
+** The ~compileit~ script
+
+The ~compileit~ script simply calls the standard low-level TeX tools,
+builds the documents in "draft" or "print" mode (removes line numbers
+and hides fixmes) and provides some clean up of TeX's intermediate
+files.  The three modes of operation are as in this example:
+
+#+BEGIN_EXAMPLE
+  # build a document in "draft" mode.
+  ./compileit executive-summary.tex
+  # build a document in "print" mode
+  ./compileit executive-summary.tex print
+  # Clean out all the generated files except the PDF
+  ./compileit executive-summary.tex clean
+  Not removing:
+  executive-summary.pdf
+#+END_EXAMPLE
+
+Likewise, the ~compileit~ script can be run on the other top-level
+volume TeX files.  Note that intermediate files are created directly
+in the top level source directory.  Take care not to ~git add~ them.
+
+** Waf build
+
+A [[https://waf.io/][Waf]] build system is provided which will build all the volume PDFs as
+well as generate per-chapter main TeX files and build them to PDF.
+The commands to run are as below.
+
+#+BEGIN_EXAMPLE
+  ./waf configure [--prefix=/path/to/install] [--prompt-level=1]  (1)
+  ./waf                                                           (2)
+  ./waf install                                                   (3)
+#+END_EXAMPLE
+
+1) The one-time configuration of the build is required.  Two options
+   may be given.  A "prefix" location specifies an absolute or
+   relative path to where you might want the resulting PDFs to be
+   "installed".  A "prompt level" of 1 means that you will see all of
+   LaTeX's output and be able to respond to any error prompts while 0
+   means a quieter, less informative output.
+
+2) Actually build the documents.  This will run tasks in parallel on
+   as many cores as your computer provides.  Results will land in the
+   ~build/~ directory.  After any changes to the documents (including
+   a ~git pull~ this step should be redone.
+
+3) Optionally, "install" the results to the prefix specified in step (1).
+
+If you are not interested in building the entire volume set you may
+narrow what ~waf~ builds.  For example to build just the SP DAQ
+chapter PDF:
+
+#+BEGIN_EXAMPLE
+  ./waf --targets=far-detector-single-phase-chapter-fdsp-daq.pdf
+#+END_EXAMPLE
+
+While it should not be required to modify them, the ~chapters.tex~ and
+~chapters.sh~ files are used in this build.
+
+** The ~latexmk~ tool
+
+The ~latexmk~ tool is very handy to use while editing as it can watch
+the TeX source, recompile each time a file is saved and refresh a PDF
+viewer.  To use it effectively requires some special configuration
+which is in the ~.latexmkrc~ file in this repository.  Simply running
+it from the source directory should work.
+
+#+BEGIN_EXAMPLE
+  # one shot:
+  latexmk executive-summary
+  ls -l latexmk-out/*.pdf
+  # or, have it watch the TeX files, rebuild and refresh your PDF viewer 
+  latexmk -pvc executive-summary
+#+END_EXAMPLE
+
+Depending on your local environment (eg, which PDF viewer you prefer)
+additional configuration may be required.  The ~.latexmk~ has some
+commented out suggestions.  If these are useful to you, do *not*
+uncomment them in this file but rather copy them to your personal
+=~/.latexmkrc= file.
+
+The per-chapter TeX documents produced by the Waf build above can also
+be leveraged here to create an editing environment with fast builds.
+First build the desired PDF with ~waf~ and then use its ~.tex~ file
+with ~latexmk~.
+
+#+BEGIN_EXAMPLE
+  $ ./waf --targets=far-detector-single-phase-chapter-fdsp-daq.pdf
+  latexmk -pvc build/far-detector-single-phase-chapter-fdsp-daq.tex
+#+END_EXAMPLE
+
+You may now edit the TeX files used by this chapter and each save
+should rerun ~pdflatex~ and refresh your PDF viewer.
