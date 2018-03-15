@@ -103,7 +103,7 @@ The differential analog signals (positive and negative polarity) from the analog
 The LRO FE analog and digital electronics is based on a custom-built AMC. The card contains a CATIROC ASIC, which is used to determine precisely the charge and start times of signals from each individual PMT. In addition, a \SI{14}{bit} \SI{65}{MHz} ADC digitizes the data for continuous streaming of the PMT signals. Each card can read up to \num{16} channels. A potential future upgrade is to increase the channel density per card to \num{32} channels. The LRO cards are housed in five dedicated uTCA crates located close to the PMT instrumentation feedthroughs.
 
 \begin{dunefigure}[Top view of DP detector module]{fig:dpele-sft-chimney-pattern}
-{Corner view of DP detector module showing the pattern of the SFT chimneys and uTCA crates for charge readout above CRPs}
+{Corner view of DP detector module showing the pattern of the SFT chimneys and uTCA crates for charge readout above CRPs.}
 \includegraphics[width=0.6\textwidth]{dpele-sft-chimney-pattern}
 \end{dunefigure}
 
@@ -111,7 +111,7 @@ Every uTCA crates contains a network switch, MicroTCA Carrier Hub (MCH), via whi
 
 The MCH switch streams the data from AMCs via a dedicated optical link. Currently ProtoDUNE-DP uses MCH operating at \SI{10}{Gbit/s}. However, a move to \SI{40}{Gbit/s} links for the DUNE FD implementation is considered because of the technology evolution and possible increase in the channel density of each AMC.
 
-The WR-MCH time synchronization unit is based White Rabbit (WR) system, which provides hardware and protocols for the network-based sub-ns synchronization between a master and different slave nodes. The connection of the WR-MCH to the White Rabbit network is done via \SI{1}{Gbit/s} optical link. WR-MCH distributes the timing information for synchronization of the AMCs via the uTCA backplane. In addition, this unit can be used to transmit triggers to the digitization units within the crate. This is achieved by sending it dedicated data packets containing trigger timestamp information. 
+The WR-MCH time synchronization unit is based on the White Rabbit (WR) system, which provides hardware and protocols for the network-based sub-ns synchronization between a master and different slave nodes. The connection of the WR-MCH to the White Rabbit network is done via \SI{1}{Gbit/s} optical link. WR-MCH distributes the timing information for synchronization of the AMCs via the uTCA backplane. In addition, this unit can be used to transmit triggers to the digitization units within the crate. This is achieved by sending it dedicated data packets containing trigger timestamp information. 
 
 Figure~\ref{fig:dpele-sft-chimney-pattern} shows a corner view of the DP detector module illustrating the pattern of the SFT chimneys and the attached uTCA crates above the CRPs. Each crate/SFT chimney collects signals from \SI{3}{\meter} long strips of two \SI[product-units=power]{1x3}{\meter} CRP segments. Each chimney completely traverses the insulation layers (not shown in the figure). 
 %A cut-out view of the chimney illustrates the location of the FE cards and provides the overall scale of this object. 
@@ -153,7 +153,7 @@ The cryogenic amplifer ASIC is the main component of the FE analog cards. Its de
 %\end{dunefigure}
 
 \begin{dunefigure}[Cryogenic FE ASIC properties]{fig:dpele-fe-asic-prop}
-{Cryogenic FE ASIC propreties: amplifier response (left) and noise (right) at different temperatures measured at the output of differential buffer}
+{Cryogenic FE ASIC propreties: amplifier response (left) and noise (right) at different temperatures measured at the output of differential buffer.}
 \includegraphics[width=0.49\textwidth]{dpele-fe-asic-gain}
 \includegraphics[width=0.49\textwidth]{dpele-fe-asic-noise}
 \end{dunefigure}
@@ -162,14 +162,14 @@ The cryogenic amplifer ASIC is the main component of the FE analog cards. Its de
 The ASIC version with the double-slope gain has been selected for ProtoDUNE-DP and adopted in the DP TPC electronics design. The left plot in Figure~\ref{fig:dpele-fe-asic-prop} illustrates the response of this amplifier for different values of the injected charge, while that on the right shows the measured noise in units of Equivalent Noise Charge (ENC) as a function of the "detector" capacitance at different temperatures. The ASIC contains \num{16} amplifier channels with differential line buffers and has a power consumption which is \SI{<18}{\milli\watt} per channel. 
 
 \begin{dunefigure}[Image of an analog FE card mounted on the extraction blade]{fig:dpele-fe-card-blade-image}
-{Image of an analog cryogenic FE card mounted on the extraction blade}
+{Image of an analog cryogenic FE card mounted on the extraction blade.}
 \includegraphics[width=0.7\textwidth]{dpele-fe-card-blade-image}
 \end{dunefigure}
 
-Each cryogenic FE card, shown in Figure~\ref{fig:dpele-fe-card-blade-image}, hosts four ASIC amplifier chips and a few passive discrete components. The input stage of each amplifier channel has a \SI{1}{\giga\ohm} resistor to ground followed by a \SI{2.2}{\nano\farad} decoupling capacitor; both are rated for HV operation. The function of the resistor is to ground the CRP anode strips. Each input stage is also protected against discharges coming from the detector with a TVS diode (Bourns CDSOD323-T08LC). This component was selected after studying the performance of different devices for the electrostatic discharge protection by subjecting them systematically to discharges of a few kV with an energy similar to that of LEMs in CRP. The FE cards also house the blocking capacitors for filtering the low voltage power lines.
+Each cryogenic FE card, shown in Figure~\ref{fig:dpele-fe-card-blade-image}, hosts four ASIC amplifier chips and a few passive discrete components. The input stage of each amplifier channel has a \SI{1}{\giga\ohm} resistor to ground followed by a \SI{2.2}{\nano\farad} decoupling capacitor; both are rated for HV operation. The function of the resistor is to ground the CRP anode strips. Each input stage is also protected against discharges coming from the detector with a TVS diode (Bourns CDSOD323-T08LC). This component was selected after studying the performance of different devices for the electrostatic discharge protection by subjecting them systematically to discharges of a few kV with an energy similar to that of the Large Electron Multipliers (LEMs) in the CRP. The FE cards also house the blocking capacitors for filtering the low voltage power lines.
 
 \begin{dunefigure}[Noise measurements in LArProto in different conditions]{fig:dpele-311-noise}
-{Noise of measurements in LArProto in different conditions. Left: at warm with the slow control cables connected to the cryostat flanges (red points) and disconnected (black points). Right: at warm (red points) and cold (black points) with the slow control cables disconnected. The channels with negative (positive) channel number correspond to the strips of \SI{3}{\meter} (\SI{1}{\meter})}
+{Noise of measurements in LArProto in different conditions. Left: at warm with the slow control cables connected to the cryostat flanges (red points) and disconnected (black points). Right: at warm (red points) and cold (black points) with the slow control cables disconnected. The channels with negative (positive) channel number correspond to the strips of \SI{3}{\meter} (\SI{1}{\meter}).}
 \includegraphics[width=0.45\textwidth]{dpele-311-noise-warm}
 \includegraphics[width=0.45\textwidth]{dpele-311-noise-warm-cold}
 \end{dunefigure}
@@ -178,7 +178,7 @@ While the FE amplifier ASICs are in the shielded environment provided by the chi
 
 Figure~\ref{fig:dpele-311-noise} (right) also shows a comparison of the noise measurements in LArProto taken with the FE electronics at warm (red points) and cold (black points) at around \SI{150}{\kelvin}. The slow control cables were disconnected in both cases. However, the measurements at cold were performed with the re-circulation pump active and the cathode HV connection present. The RMS noise averaged over all channels decreases by about 25\% from roughly \SI{1.5} ADC to \SI{1.1} ADC when the FE analog cards are at cold. For comparison, the expected signal for a MIP with the CRP gain of 20 should be around \num{200} ADC. 
 
-The overall grounding principle of LArProto was based on having the cryostat as the ground reference. The low voltage power supplies for the FE analog electronics and uTCA crates were powered via insulating transformers ensuring that they could see no other ground. On the other hand, the design of the slow control system did not include any insulation transformers. This equipment was the grounded to the building electrical network thereby creating an interference with the ground of the cryostat. Stricter treatment of the ground connections to the detector module  and a lower SFT chimney operating temperature of around \SI{110}{\kelvin} (from \SI{150}{\kelvin}) should help to reduce further the noise levels from those observed in LArProto.
+The overall grounding principle of LArProto was based on having the cryostat as the ground reference. The low voltage power supplies for the FE analog electronics and uTCA crates were powered via insulating transformers ensuring that they could see no other ground. On the other hand, the design of the slow control system did not include any insulation transformers. This equipment was grounded to the building electrical network thereby creating an interference with the ground of the cryostat. Stricter treatment of the ground connections to the detector module  and a lower SFT chimney operating temperature of around \SI{110}{\kelvin} (from \SI{150}{\kelvin}) should help to reduce further the noise levels from those observed in LArProto.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -188,7 +188,7 @@ The overall grounding principle of LArProto was based on having the cryostat as 
 The SFT chimneys are designed to enable the access to the FE analog electronics for a potential repair or exchange while the detector is in operation (filled with the liquid argon). In addition, their metallic structure acts as a Faraday cage isolating the FE ASICs from environmental interference.  Each SFT hosts \num{10} analog cryogenic FE cards (reading \num{640} channels in total).  Some of the details of the design are illustrated in Figure~\ref{fig:dpele-sft-chimney-design}. 
 
 \begin{dunefigure}[Details of the SFT chimney design]{fig:dpele-sft-chimney-design}
-{Details of the SFT chimney design}
+{Details of the SFT chimney design.}
 \includegraphics[width=0.8\textwidth]{dpele-sft-chimney-design}
 \end{dunefigure}
 
@@ -199,7 +199,7 @@ The SFT chimney volume is filled with nitrogen gas at near atmospheric pressure.
 The expected heat input from a given SFT chimney is about \SI{20}{\watt}. This number includes the heat through the twisted-pair cables connected to the warm feedthrough, the SFT outer metallic tube, as well as the heat dissipation by the FE cards. A total heat input from all \num{240} SFT chimneys is at the level of \SI{5}{\kilo\watt}. 
 
 \begin{dunefigure}[SFT chimney cold flange]{fig:dpele-sft-cold-pcb}
-{SFT chimney cold feedthrough flange with one of the FE cards mounted}
+{SFT chimney cold feedthrough flange with one of the FE cards mounted.}
 \includegraphics[width=0.6\textwidth]{dpele-sft-cold-pcb}
 \end{dunefigure}
 
@@ -237,7 +237,7 @@ Integral Non-Linearity & Typical \num{\pm1.1}  LSB\\
 
 
 \begin{dunefigure}[Block diagram of AMC]{fig:dpele-amc-scheme}
-{Block diagram of AMC}
+{Block diagram of AMC.}
 \includegraphics[width=0.7\textwidth]{dpele-amc-scheme}
 \end{dunefigure}
 
@@ -374,14 +374,14 @@ The sub-ns accuracy on the clock synchronization is not strictly needed for alig
 In the implementation specific to ProtoDUNE-DP, a GPS disciplined clock unit (Meinberg LANTIME M600) feeds 10 MHz and 1 PPS reference signals to a commercial White Rabbit switch (Seven Solutions WRS V3.4). The switch acts as Grand Master of the WR network. It is connected via 1Gbit/s optical links to the dedicated WR timestamping node (WR-TSN) and the WR end-node slave cards present within each uTCA crate (WR-MCH) keeping these synchronized to its reference time. The Grand Master also communicates through a standard Ethernet port with the LANTIME unit for its date and time synchronization via NTP. The WR-TSN module recieves analog TTL-level trigger signals, generates their timestamps, and then transmit these over WR network to the connected WR-MCH units. This timestamp information is then used by AMCs to find the data frame corresponding to the trigger. 
 
 \begin{dunefigure}[Picture of White Rabbit slave WR-MCH card]{fig:dpele-wrmch-image}
-{Picture of the WR slave node card (WR-MCH) present in each uTCA crate for time synchronization.The WR-LEN mezzanine card is visible in the bottom right corner}
+{Picture of the WR slave node card (WR-MCH) present in each uTCA crate for time synchronization.The WR-LEN mezzanine card is visible in the bottom right corner.}
 \includegraphics[width=0.45\textwidth]{dpele-wrmch-image}
 \end{dunefigure}
 
 The WR-MCH card (Figure~\ref{fig:dpele-wrmch-image}) enables clock/timing/trigger distribution to AMCs. It communicates with them via dedicated lines in the backplane of the uTCA crate using a customized data-frame protocol. The module contains a commercial WR slave node card, the White Rabbit Lite Embedded Node (Seven Solutions OEM WR-LEN), as mezzanine card. WR-LEN runs on a customized firmware which also enables it to decode the trigger timestamp data packet received over the WR network.
 
 \begin{dunefigure}[Architecture of White Rabbit network]{fig:dpele-wrnet-layout}
-{Architecture of WR network for time synchronization of digital readout electronics}
+{Architecture of WR network for time synchronization of digital readout electronics.}
 \includegraphics[width=0.7\textwidth]{dpele-wrnet-layout}
 \end{dunefigure}
 
@@ -396,7 +396,11 @@ The architecture of the WR network layout for one DP detector module is illustra
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cryogenic Analog FE Electronics}
 \label{sec:fddp-tpc-elec-prod-fe}
-The production of the cryogenic ASICs and analog FE cards is envisioned to be split between several sites located in France and Japan at the moment. The delivered cards are then split between between five institutions in France (IPNL), Japan (KEK, NITKC, IU), and USA (SMU), where they are tested. 
+The production of the cryogenic ASICs and analog FE cards is envisioned to be split between several sites located in France and Japan at the moment. The delivered cards are then split between between five institutions in France (IPNL), Japan (KEK, NITKC, IU), and USA (SMU), where they are tested for various
+performance parameters such as noise levels, dead channels, hot
+channels, gain and gain uniformity across channels, stuck ADC bits,
+etc., at both room and operating cold temperature. An appropriate
+and common database will be developed and populated with test results. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{SFT Chimneys}
@@ -433,7 +437,7 @@ The production of the Light Read Out AMC cards is currently envisaged to be made
 
 The produced cards will be first delivered to the home institutes for testing before being shipped to the DUNE far site.  Basic quality tests will be made upon delivery to ensure conformity of production; including visual inspection and electrical testing.
 
-A series of tests will be performed on each card to ensure their correct fonctionnement and evaluate their performance. Measurements will include; linearity measurements (DNL and INL) of each ADC channel, and tests of the linearity of response of the ASIC. The level of cross-talk on the ASIC must also be quantified.
+A series of tests will be performed on each card to ensure their correct functionality and to evaluate their performance. Measurements will include; linearity measurements (DNL and INL) of each ADC channel, and tests of the linearity of response of the ASIC. The level of cross-talk on the ASIC must also be quantified.
 
 A dedicated single channel setup, with PMT (Hamamatsu R5912-02-mod), and identical cabling and splitter, can be used to characterise the expected noise level of each channel, and response to single photoelectrons up to saturation. 
 
@@ -454,7 +458,7 @@ After shipping and installation on-site, a small series of tests will be perform
 \section{Interfaces}
 \label{sec:fddp-tpc-elec-intfc}
 
-The DP TPC electronics system has interfaces to several other systems. The system must read the charge and light signals from the detector module and thus needs to interface to CRP and the photo-detection systems.  The digitized data must in turn be transmitted to DAQ via the optical links in each uTCA crate. The SFT chimney need to be integrated in the cryostat structure and connected to the cryogenic/gas  system. The management of the low-voltage power supplies for the FE analog electronics and uTCA crates as well as the monitoring of various sensors in the SFT chimneys have to be part of the slow control. 
+The DP TPC electronics system has interfaces to several other systems. The system must read the charge and light signals from the detector module and thus needs to interface to CRP and the photo-detection systems.  The digitized data must in turn be transmitted to DAQ via the optical links in each uTCA crate. The SFT chimney needs to be integrated into the cryostat structure and connected to the cryogenic/gas  system. The management of the low-voltage power supplies for the FE analog electronics and uTCA crates as well as the monitoring of various sensors in the SFT chimneys have to be part of the slow control. 
 Table~\ref{tab:dpele-interfaces} provides the full list of all the relevant interface documents and only some of the principal points are summarized here.
 
 \begin{dunetable}
@@ -480,7 +484,7 @@ Software and Computing to DP TPC Electronics & 7117 \\ \colhline
 The cold feedthrough flange of the SFT chimneys forms the interface between the CRP and the TPC electronics systems. On the side facing the crystostat the flange PCB hosts \num{20} \num{68} pin connectors (KEL 8930E-068-178MS-F) for plugging the flat cables from the CRP. These are 68 channel twisted pair flat cables each carrying signals from \num{32} anode strips and are part of the CRP system. Each analog FE card reads \num{64} anode strips implying receiving signals from two KEL connectors. The order in which the cables are connected into cold flange determines the mapping of the electronic channels to the physical location of the strips on the CRP and should be coordinated carefully with the CRP consortium. As an illustration, Figure~\ref{fig:dpele-sft-cold-flange} shows some images of the cold feedthrough from the LArProto detector.
 
 \begin{dunefigure}[Images of LArProto SFT cold feedthrough]{fig:dpele-sft-cold-flange}
-{Images of LArProto SFT cold feedthrough with the FE cards inserted (right) and signal cables from CRP connected (left). The LArProto SFT chimneys read only \num{320} channels thus requiring \num{5} FE cards}
+{Images of LArProto SFT cold feedthrough with the FE cards inserted (right) and signal cables from CRP connected (left). The LArProto SFT chimneys read only \num{320} channels thus requiring \num{5} FE cards.}
 \includegraphics[width=0.8\textwidth]{dpele-sft-cold-flange}
 \end{dunefigure}
 
@@ -515,7 +519,7 @@ The software interface between DAQ and the electronics systems includes the tool
 The interface point between the cryostat and the DP electronics system is the cryostat penetrations where the SFT chimneys are to be installed. Each penetration should accommodate the chimney whose external diameter is \SI{254}{\mm}. Each chimney has a CF-273 flange welded to its outer structure (see Figure~\ref{fig:dpele-sft-chimney-crosspipe}). After the chimney is inserted, this flange is in contact with the corresponding flange on the crossing (or penetration) pipe embedded in the cryostat structure to which it is eventually fastened. In order to avoid any leaks at this interface a CF-273 copper gasket is used to ensure the vacuum tightness.  
 
 \begin{dunefigure}[Details of SFT chimney interface to the cryostat structure]{fig:dpele-sft-chimney-crosspipe}
-{Details of SFT chimney interface to the cryostat structure}
+{Details of SFT chimney interface to the cryostat structure.}
 \includegraphics[width=0.7\textwidth]{dpele-sft-chimney-crosspipe}
 \end{dunefigure}
 
