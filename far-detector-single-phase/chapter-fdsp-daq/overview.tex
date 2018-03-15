@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Data Acquisition System (DAQ) Overview (Georgia Karagiorgi and Dave Newbold)}
+\section{Data Acquisition System (DAQ) Overview}
 \label{sec:fdsp-daq-ov}
 
-\metainfo{2 Pages - largely generic but some highlighting of SP-specifics.  Focus on describing to HEP but non-DAQ expert.  Include how design is resilient in the face of potential uncertainties such as excess noise or the need to reduce drift HV (just two examples, maybe there are more).}
+\metainfo{Georgia Karagiorgi and Dave Newbold. 2 Pages - largely generic but some highlighting of SP-specifics.  Focus on describing to HEP but non-DAQ expert.  Include how design is resilient in the face of potential uncertainties such as excess noise or the need to reduce drift HV (just two examples, maybe there are more).}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Introduction}
@@ -22,6 +22,8 @@ As shown, it is applicable to both \dword{tpc} and \dword{pds} readout, except
 that in the case of the \dword{pds} the \dword{daq} scope begins to the right of
 the \dfirst{fe} readout. 
 %\fixme{Describe figure here.}
+
+\fixme{Can we include the other detectors (or at least PDS) in this figure for clarity, with dotted lines to demark the DAQ scope?  The SP TPC is a special case...  Also, the figure includes a bunch of terms that are not defined in the caption.}
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}
   {A generalized overview of high-level far detector \dword{daq}
@@ -54,7 +56,7 @@ the \dfirst{fe} readout.
 \subsection{Design Considerations}
 \label{sec:fdsp-daq-des-consid}
 
-
+\fixme{Start with a statement about the different physics requirements and corresponding challenges for DAQ, and potentially an overview of the solutions.  Eg. beam events can be collected using local trigger \& readout, or at module level (eg. during commissioning), SNB requires global trigger \& readout, etc.}
 %\metainfo{Include: Raw data rate from WIBs, Josh's table of data volumes for each event type and the 30 PB/year offline limit. Space and thermal power limits.  Note, this table may be better put into Section~\ref{sec:fdsp-daq-design} to make this section more generic.}
 
 %\fixme{Anne suggests: Within this section add ref to requirements document when it's ready, and maybe list the most important half dozen in a table here). E.g.,}  
@@ -63,60 +65,8 @@ The high level requirements for the DUNE FD DAQ are provided in
 The most critical requirements in consideration for the overall design
 are summarized in Tab.~\ref{tab:daqrequirements}.
 
-The data rates and thus the processing needs of the DAQ are expected
-to be dominated by the TPC system.
-In particular, the DAQ must be designed to handle (receive, process,
-compress, select, and hand off to back-end computing) raw TPC data
-rates of up to \SI{6.14}{\TB/\s}. 
-This rate assumes:
-\begin{itemize}
-\item Four (4) \SI{10}{\kton} Single Phase (SP) TPC detector modules
-\item 150 Anode Plane Assemblies (APAs) per module
-\item 2560 wire channels per APA 
-\item 2 MHz digitization rate
-\item 2 Bytes per sample (note that this is an overestimate, as data will be digitized with a 12-bit ADC)
-\end{itemize}
-\fixme{We need to standardize plane labeling throughout, there are three standards (also u/v/w, u/v/x and u/v/y).}
-
-A back-end requirement is that the total volume of physics data that
-can be shipped to off-site data centers for offline analysis is
-limited to \SI{100}{\Gbps}.
-An additional requirement is that a year’s worth of data amounts to no
-more than \SI{30}{\PB} of data to permanent disk per year for the
-entire DUNE FD, including all four (4) \SI{10}{\kton}
-\dwords{detmodule} (each including TPC, PD system, calibration
-systems, etc.).
-
-The anticipated interaction rates due to the anticipated source for
-the full FD are summarized in Tab.~\ref{tab:daqdatarates}. 
-These rates assume noise levels are as expected from intrinsic
-electronics noise.
-Excess noise such as due to \dword{rf} emission inside the cryostat
-would lead to an overwhelming trigger rate if left unmitigated.
-An \dword{trigdecision} in the DUNE FD concerns:
-\begin{enumerate}
-\item \Dwords{trigcandidate} derived from the data from the \dword{detmodule} itself.
-\item \Dwords{externtrigger} injected from trigger sources outside the \dword{detmodule} context.
-\item \dword{snb} \dword{trigcommand} derived from \dword{detmodule} \dwords{trigcandidate} or from cross-module or SNEWS \dwords{externtrigger}
-\end{enumerate}
-When executing a \dword{trigcommand} data blocks continguous in time
-and channel over a \dword{detmodule} will be saved. 
-For the \dword{sp} \dword{detmodule} the nominal block is \readout in
-time and covers all TPC channels and associated \dword{pds}. 
-This is chosen to encompass two drift times with a modest additional
-padding.
-The nominal \dword{snb} readout window is \snbtime and its ``dump''
-includes all channels.  
-Acquiring and \dword{snb} dump inflicts no subsequent dead time for
-nominal data taking.
-This is an overly conservative approach, and it is expected that with
-better understanding of detector performance after commissioning and
-initial operations this readout scheme will be improved to reduce data
-volume further.
-
-\begin{dunetable}
-[Important requirements on the DAQ system design]
-{ccc}
+\begin{dunetable}[Important requirements on the DAQ system design]
+{p{0.2\textwidth}p{0.6\textwidth}}
 {tab:daqrequirements}
 {Important requirements on the DAQ system design}   
 Requirement  & Description \\ \toprowrule
@@ -134,9 +84,46 @@ different FD modules to within 1~$\mu$s, and of different subsystems
 within a module to within 10~ns\\ \colhline
 \end{dunetable}
 
+The input bandwidth, and thus the processing needs of the DAQ, are expected
+to be dominated by the TPC system.
+In particular, the DAQ must be designed to handle receive and process raw TPC data rates of up to \SI{6.14}{\TB/\s}. This rate assumes:
+\begin{itemize}
+\item Four (4) \SI{10}{\kton} Single Phase (SP) TPC detector modules
+\item 150 Anode Plane Assemblies (APAs) per module
+\item 2560 wire channels per APA 
+\item 2 MHz digitization rate
+\item 2 Bytes per sample (note that this is an overestimate, as data will be digitized with a 12-bit ADC)
+\end{itemize}
+\fixme{We need to standardize plane labeling throughout, there are three standards (also u/v/w, u/v/x and u/v/y).}
+
+A back-end requirement is that the total volume of physics data that
+can be shipped to off-site data centers for offline analysis is
+limited to \SI{100}{\Gbps}.
+
+\fixme{Suggest : A requirements at the DAQ output is that the bandwidth available to ship data to off-site data centers for offline analysis is limited to \SI{100}{\Gbps}.}
+
+An additional requirement is that a year's worth of data amounts to no
+more than \SI{30}{\PB} of data to permanent disk per year for the
+entire DUNE FD, including all four \SI{10}{\kton}
+\dwords{detmodule}, each including TPC, PD system, calibration
+systems, etc.
+
+The anticipated interaction rates, arranged by source, for
+the full FD are summarized in Tab.~\ref{tab:daqdatarates}. 
+These rates assume noise levels are as expected from intrinsic
+electronics noise.
+Excess noise such as due to \dword{rf} emission inside the cryostat
+would lead to an overwhelming trigger rate if left unmitigated.
+
+\fixme{Can we choose a less alarming phrase?!}
+
+\fixme{Moved Tabs 7.1 and 7.2 closer to referencing text}
+
+\fixme{Tab 7.2 is really unclear.  Need to clarify the physical origin, trigger and readout type for each one. Assumptions also include quite a bit of jargon.}
+
 \begin{dunetable}
-[Anticipated event and data rates in the DUNE FD]
-{llp{0.8\textwidth}}
+[Anticipated event and data rates in the DUNE FD.]
+{p{0.25\textwidth}p{0.15\textwidth}p{0.4\textwidth}}
 {daq:datarates}
 {Anticipated event and data rates in the DUNE FD assuming all four
   modules are SP. The
@@ -157,6 +144,31 @@ Event Type  & Annual Data Volume & Assumptions \\ \toprowrule
  Trigger primitives & $\le$6~PB &  all three wire planes; 12 bits per
  primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
 \end{dunetable}
+
+\fixme{Table 7.2 - 10s for extended events is out of date. What are we saying ?}
+
+A \dword{trigdecision} in the DUNE FD concerns:
+\begin{enumerate}
+\item \Dwords{trigcandidate} derived from the data from the \dword{detmodule} itself.
+\item \Dwords{externtrigger} injected from trigger sources outside the \dword{detmodule} context.
+\item \dword{snb} \dword{trigcommand} derived from \dword{detmodule} \dwords{trigcandidate} or from cross-module or SNEWS \dwords{externtrigger}
+\end{enumerate}
+When executing a \dword{trigcommand}, data blocks continguous in time
+and channel over a \dword{detmodule} will be saved. 
+For the \dword{sp} \dword{detmodule}, the nominal block is \readout in
+time and covers all TPC channels and associated \dword{pds}. 
+This is chosen to encompass two drift times with a modest additional
+padding.
+The nominal \dword{snb} readout window is \snbtime and its ``dump''
+includes all channels.  \fixme{We're saying we readout everything for both}
+Acquiring an \dword{snb} dump inflicts no subsequent dead time for
+nominal data taking.
+This is an overly conservative approach, and it is expected that with
+better understanding of detector performance after commissioning and
+initial operations this readout scheme will be improved to reduce data
+volume further.
+
+\fixme{This paragraph seems to say, in a roundabout way, that we read out all channels for all types of trigger.  Update statement about SNB readout window.  And let's change ``dump'' for something else.}
 
 
 
