@@ -61,8 +61,8 @@ some of the important CISC system design requirements.
 
 
 \begin{dunetable}
-[Important design requirements on the DP CISC system design]
-{p{0.25\textwidth}p{0.18\textwidth}p{0.33\textwidth}p{0.2\textwidth}}
+[Important design requirements on the SP CISC system design]
+{p{0.23\textwidth}p{0.16\textwidth}p{0.32\textwidth}p{0.19\textwidth}}
 {tab:sp-cisc-requirements}
 {Important design requirements on the single phase CISC system design}
 Design Parameter
@@ -81,14 +81,14 @@ Thermometers precision
 \\ \colhline
 Liquid level meters precision (SP)
  & \SI{0.1}{\%} over \SI{14}{m}
-& Standard sensitivity; will use two level meters for redundancy
+& Standard sensitivity; two level meters for redundancy
 & Yes: design calculation
 \\  \colhline
-Liquid level meters precision (DP)
- & \(<\SI{1}{mm}\)
-& Maintain constant gas phase drift
-& Yes: WA105/ProtoDUNE-DP design \SI{0.1}{mm}
-\\  \colhline
+% Liquid level meters precision (DP)
+%  & \(<\SI{1}{mm}\)
+% & Maintain constant gas phase drift
+% & Yes: WA105 / ProtoDUNE-DP design \SI{0.1}{mm}
+% \\  \colhline
 Cryogenic Instrumentation Test Facility cryostat volumes
  & 0.5 to \SI{3}{m^3}
 & Based on filling costs and turn around times
@@ -106,7 +106,7 @@ Total no.\ of variables
 \\  \colhline
 Max.\ archiving rate per channel
  & \SI{1}{Hz} (burst), \SI{1}{\per\minute} (average)
-& Based on expected rapidity of interesting changes; impacts the base software model choice; will depend on data storage capabilities
+& Based on expected rapidity of interesting changes; impacts the base software choice; depends on data storage capabilities
 & Yes: existing control system software; DUNE choice in progress.
 \\ \colhline
 Near Detector  status
