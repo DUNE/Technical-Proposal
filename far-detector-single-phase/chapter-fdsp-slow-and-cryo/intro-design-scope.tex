@@ -62,36 +62,58 @@ some of the important CISC system design requirements.
 
 \begin{dunetable}
 [Important design requirements on the DP CISC system design]
-{p{0.3\textwidth}p{0.18\textwidth}p{0.42\textwidth}}
+{p{0.25\textwidth}p{0.18\textwidth}p{0.33\textwidth}p{0.2\textwidth}}
 {tab:sp-cisc-requirements}
 {Important design requirements on the single phase CISC system design}
 Design Parameter
  & Requirement
- & Comment \\ \toprowrule
+ & Motivation
+ & Requirement met? \\ \toprowrule
 Electron lifetime measurement precision
  & $<\SI{1.4}{\%}$
- & Per DUNE-FD Task Force, needed to keep the bias on the charge readout in the TPC to below \SI{0.5}{\%} at \SI{3}{ms}\\  \colhline
+ & Per DUNE-FD Task Force, needed to keep the bias on the charge readout in the TPC to below \SI{0.5}{\%} at \SI{3}{ms}
+ & Yes: existing purity monitors; extrapolation to TPC under development
+\\  \colhline
 Thermometers precision
  & $<\SI{5}{mK}$
- & Driven by CFD simulation validation; based on ProtoDUNE-SP design \\ \colhline
-Liquid level meters precision
+& Driven by CFD simulation validation; based on ProtoDUNE-SP design
+& Yes: ProtoDUNE thermometers \SI{2}{mK}
+\\ \colhline
+Liquid level meters precision (SP)
  & \SI{0.1}{\%} over \SI{14}{m}
- & Standard sensitivity; will use two level meters for redundancy \\  \colhline
-Cryogenic Instrumentation Test Facility volume
+& Standard sensitivity; will use two level meters for redundancy
+& Yes: design calculation
+\\  \colhline
+Liquid level meters precision (DP)
+ & \(<\SI{1}{mm}\)
+& Maintain constant gas phase drift
+& Yes: WA105/ProtoDUNE-DP design \SI{0.1}{mm}
+\\  \colhline
+Cryogenic Instrumentation Test Facility cryostat volumes
  & 0.5 to \SI{3}{m^3}
- & Based on filling costs and turn around times \\  \colhline
+& Based on filling costs and turn around times
+& Under design
+\\  \colhline
 Alarm rate
  & \(<\SI{150}{\per\day}\)
- & Recommended manageable alarm rate; allows experiment operators to respond to every alarm. \\  \colhline
+& Recommended manageable alarm rate; allows experiment operators to respond to every alarm.
+& To be met by design of connected systems
+\\  \colhline
 Total no.\ of variables
  & 50k to 100k
- & Expected number based on scaling past experiments; requires robust base software model that can handle large no. of variables. \\  \colhline
-Archiving rate
- & 1 Hz to \(\SI{0.3}{\per\minute}\)
- & Based on expected rapidity of interesting changes; impacts the base software model choice; will depend on data storage capabilities \\ \colhline
+& Expected number based on scaling past experiments; requires robust base software model that can handle large no. of variables.
+& Yes: existing control system software; DUNE choice in progress.
+\\  \colhline
+Max.\ archiving rate per channel
+ & \SI{1}{Hz} (burst), \SI{1}{\per\minute} (average)
+& Based on expected rapidity of interesting changes; impacts the base software model choice; will depend on data storage capabilities
+& Yes: existing control system software; DUNE choice in progress.
+\\ \colhline
 Near Detector  status
  & Full Beam and Detector Status
- & Operate DUNE as one experiment. \\
+& Operate DUNE as one experiment.
+& Yes: IFBeamDB, internet
+\\
 % 
 % 
 % 
@@ -101,9 +123,7 @@ Near Detector  status
 %  ...\\ 
 \end{dunetable}
 
-\fixme{Is the Test Facility volume a range because we don't know it that well, or does it actually need to be able to operate with as little as \SI{0.5}{m^3} and as much as \SI{3}{m^3} LAr fill?}
-\fixme{Really need 1 Hz archiving rate, or just 1 Hz sampling rate? Distinguish between max burst and expected average. Clarify if this is per channel or integrated over all channels.}
-\fixme{By the end of the volume, for every requirement listed in this section, there should exist an explanation of how it will be satisfied.}
+% \fixme{By the end of the volume, for every requirement listed in this section, there should exist an explanation of how it will be satisfied.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
