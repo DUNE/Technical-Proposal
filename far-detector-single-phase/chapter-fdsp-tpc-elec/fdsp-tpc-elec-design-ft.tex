@@ -13,7 +13,7 @@ Optical fiber is employed externally from the WIBs on the signal flange to the D
 \includegraphics[width=0.9\linewidth]{tpcelec-signal_FT.pdf}
 \end{dunefigure}
 
-The design of the signal flange includes a T-shaped pipe, separate PCB feedthroughs for the CE and PDS cables, and
+The design of the signal flange includes a four-way cross spool piece, separate PCB feedthroughs for the CE and PDS cables, and
 an attached crate for the TPC warm electronics, as shown in Figure~\ref{fig:tpcelec-signal_FT}.
 The wire-bias voltage cables connect to standard SHV (safe high voltage) connectors machined directly into the CE feedthrough,
 ensuring no electrical connection between the wire-bias voltages and other signals passing through the signal flange.
@@ -22,21 +22,16 @@ Each CE feedthrough serves the bias/power/digital IO needs of one APA.
 Data/control cable bundles are used to send system clock and control signals from the 
 signal flange to the FEMB, stream the $\sim$1~Gbps high-speed data from the FEMB to the signal flange.  Each FEMB 
 connects to a signal flange via one data cable bundle, leading to 20 bundles between one APA and one flange.
-Each data bundle contains 8 low-skew copper twin-axial cables with a drain wire, 
+2 spare bundles will be attached to each feed-through. Each data bundle contains 12 low-skew twin-axial cables with a drain wire, 
 to transmit the following differential signals:
 
 \begin{itemize}
-    \item 4$\times$1.2~Gbps high-speed data
-    \item One 100~MHz clock
-    \item One 2~MHz CONVERT clock
-    \item 2 I$^2$C control and configure
+    \item 4$\times$1.28~Gbps data (2 from each COLDATA)
+    \item 2 64~MHz clocks (1 input to each COLDATA)
+    \item 2 Fast Command lines (1 input to each COLDATA)
+    \item 3 I$^2$C-like control lines (clock, data-in, and data-out)
+    \item 1 multipurpose LArASIC output (temperature, reference voltage, or analog test output)
 \end{itemize}
-
-The selected cables are Samtec 26~AWG twin-axial bundles with connectors to both
-the FEMB mezzanine board and the signal flange. Each twin-axial pair is separately shielded.
-The Samtec 26~AWG cable has been
-tested and demonstrated to have low enough dispersion such that both the LVDS 50~MHz system clock and
-$\sim$1~Gbps high-speed data can be recovered over 30~meters of RT cable.
 
 LV power is passed from the signal flange to the FEMB by bundles of
 20~AWG twisted-pair wires. Half of the wires are power feeds; the other wires
@@ -44,9 +39,6 @@ are attached to the grounds of the input amplifier circuits, as described in Sec
 For a single FEMB, the resistance is measured to be $<30$~m$\Omega$ at RT or $<10$~m$\Omega$ at 
 LAr temperature. Each APA has a copper cross-section of approximately $80~\mathrm{mm}^2$, with a 
 resistance $<1.5$~m$\Omega$ at RT or $<0.5$~m$\Omega$ at LAr temperature.
-
-The wire-bias voltage cables are required to deliver voltages up to a few thousand Volts and currents up to a few
-milliAmps.
 
 The bias voltages are applied to the X-, U-, and G-plane wire layers, three field cage terminations, 
 and an electron diverter, as shown in Figure~\ref{fig:CR-board}. The voltages are supplied 

@@ -16,7 +16,7 @@ Gain and peaking time are adjustable to values similar to those of the baseline 
 \includegraphics[width=0.8\textwidth]{tpcelec-cryo_schematic.png}
 \end{dunefigure}
 
-The ADC is 8 MSPS Successive Approximation Registration (SAR), so that four input channels are multiplexed onto a single ADC. The data serialization and transmission block employs a custom 12b/14b encoder, so that 32 channels of 12 bit, 2 MSPS data can be transmitted with a digital bandwidth of only 896 Mb/s, which is significantly less than the required bandwidth of the baseline, which is 1.27 Gb/s.
+The ADC is 8 MSPS Successive Approximation Registration (SAR), so that four input channels are multiplexed onto a single ADC. The data serialization and transmission block employs a custom 12b/14b encoder, so that 32 channels of 12 bit, 2 MSPS data can be transmitted with a digital bandwidth of only 896~Mbps, which is significantly less than the required bandwidth of the baseline, which is 1.28~Gbps.
 
 One key concern with "mixed signal" ASICs is the possibility of interference from the digital side causing noise on the very sensitive pre-amp. 
 Fortunately, there are well established techniques for "substrate isolation" described in the literature~\cite{yeh}, which have been successfully employed in previous ASICs produced by the SLAC group. Figure \ref{fig:cryo-substrate} shows how substrate isolation is achieved. 
@@ -31,7 +31,7 @@ Fortunately, there are well established techniques for "substrate isolation" des
 The infrastructure requirements for a CYRO ASIC-based system are similar to those of the baseline option. However, in most cases, somewhat fewer resources are needed:
 \begin{itemize}
 \item{A single voltage is needed for the power supply. This is used to generate two supply voltages using internal voltage regulators.}
-\item{The output digital bandwidth on each of the four lines in an FEMB is 896 Mb/s. This is lower than the baseline option due to the custom 12b/14b encoder of the CRYO chip. }
+\item{The output digital bandwidth on each of the four lines in an FEMB is 896~Mbps. This is lower than the baseline option due to the custom 12b/14b encoder of the CRYO chip. }
 \item{The warm interface is different. Only a single clock is needed (56 MHz) and the configuration protocol is SACI rather than I2C. }
 \end{itemize}
 
