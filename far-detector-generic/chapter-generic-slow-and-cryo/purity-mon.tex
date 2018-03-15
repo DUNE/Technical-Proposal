@@ -1,6 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Purity Monitors} 
-\label{sec:fdsp-slow-cryo-purity-mon}
+\label{sec:fdgen-slow-cryo-purity-mon}
+\label{sec:fdsp-slow-cryo-purity-mon} % for references from sp volume
+\label{sec:fddp-slow-cryo-purity-mon} % for references from dp volume
 %Laura, Jianming
 A fundamental requirement of a LAr TPC is to make ionization electrons drift over long distances in LAr. Part of the charge is inevitably lost due to the presence of electronegative impurities in the liquid. To keep such loss to a minimum, purifying the LAr during operation is essential, as is the monitoring of impurities.
 
@@ -23,13 +25,13 @@ where the sum runs over all species of impurities in the liquid; $\tau$ is in s;
 
 %\begin{figure}[h]
 %\centering
-%\includegraphics[height=6cm]{PrMon_ks.pdf}
+%\includegraphics[height=6cm]{PrMon_ks}
 %\caption{Electron attachment rate ($k_s$) as a function of electric field for several contaminants in a LAr TPC.}%Does this figure also need a citation, or is it something that one of us made specifically for this purpose?
 %\label{fig:ks}
 %\end{figure}
 \begin{dunefigure}[Purity Monitor $k_s$]{fig:ks}
   {Electron attachment rate ($k_s$) as a function of electric field for several contaminants in a LAr TPC\cite{docdb-4482}}
-  \includegraphics[width=0.4\textwidth]{PrMon_ks.pdf}%
+  \includegraphics[width=0.4\textwidth]{PrMon_ks}%
 \end{dunefigure}
 
 Assuming all impurities affecting the electron lifetime are $\text{O}_2$, the electron lifetime is converted into the concentration of $\text{O}_2$ in \si{ppb} using the following:
@@ -51,13 +53,13 @@ The DUNE 35-ton prototype detector at Fermilab was instrumented with four purity
 
 %\begin{figure}[t!]
 %\begin{center}
-%\includegraphics[width=10cm]{PrMon_35t-PrM.pdf}
+%\includegraphics[width=10cm]{PrMon_35t-PrM}
 %\caption{The measured electron lifetimes in the four purity monitors as a function of time at Fermilab 35T prototype.} \label{fig-35t-prm}
 %\end{center}
 %\end{figure}
 \begin{dunefigure}[Purity Monitor lf]{fig-35t-prm}
   {The measured electron lifetimes in the four purity monitors as a function of time at Fermilab 35\si{t} prototype.}
-  \includegraphics[width=0.4\textwidth]{PrMon_35t-PrM.pdf}%  
+  \includegraphics[width=0.4\textwidth]{PrMon_35t-PrM}%  
 \end{dunefigure}
 
 
@@ -73,13 +75,13 @@ $$ Q_A/Q_C=e^{-t/\tau}. $$
 
 %\begin{figure}[h]
 %\centering
-%\includegraphics[height=3cm]{PrMon_prm.pdf}
+%\includegraphics[height=3cm]{PrMon_prm}
 %\caption{Schematic diagram of the basic purity monitor design~\cite{Adamowski}. [CITATION: M. Adamowski et al.,The Liquid Argon Purity Demonstrator, JINST 9, P07005 (2014).]}
 %\label{fig:prm}
 %\end{figure}
 \begin{dunefigure}[Purity Monitor diag]{fig:prm}
   {Schematic diagram of the basic purity monitor design~\cite{Adamowski:2014daa}.}
-  \includegraphics[width=0.5\textwidth]{PrMon_prm.pdf}
+  \includegraphics[width=0.5\textwidth]{PrMon_prm}
 \end{dunefigure}
 
 The photocathode that produces the photoelectrons is an aluminum plate coated with \SI{50}{\angstrom} of titanium and \SI{1000}{\angstrom} of gold and attached to the cathode disk. A xenon flash lamp is used as the light source in the baseline design, although this could potentially be replaced by a more reliable and possibly submersible light source in the future, perhaps LED driven. The UV output of the lamp is quite good around $\lambda=$ \SI{225}{\nano\meter}, which is close to the work function of gold (\SIrange{4.9}{5.1}{\eV}). Several UV quartz fibers are used to carry the xenon UV light into the cryostat to illuminate the gold photocathode.   Another quartz fiber is used to deliver the light into a properly biased photodiode outside of the cryostat to provide the trigger signal for when the lamp flashes. 
@@ -92,13 +94,13 @@ The baseline design of the front-end electronics is the one used for the purity 
 
 %\begin{figure}[h]
 %	\centering
-%	\includegraphics[width=0.8\textwidth]{PrMon_BlockDiagram.pdf}
+%	\includegraphics[width=0.8\textwidth]{PrMon_BlockDiagram}
 %	\caption{Block diagram of the purity monitor system.}
 %	\label{fig:diagram}
 %\end{figure}
 \begin{dunefigure}[Purity Monitor Block-diag]{fig:diag}
   {Block diagram of the purity monitor system.}
-  \includegraphics[width=0.5\textwidth]{PrMon_BlockDiagram.pdf}%
+  \includegraphics[width=0.5\textwidth]{PrMon_BlockDiagram}%
 \end{dunefigure}
 
 A custom LabVIEW application running on the DAQ PC is developed and consists of two functions: controlling the digitizers and the power supplies, and monitoring the signals and key parameters. The application configures the digitizers to set the sampling rate, the number of waveforms to be stored in the memory, pre-trigger data, and a trigger mode. A signal from a photodiode triggered by the xenon flash lamp is directly fed into the digitizer as an external trigger to initiate data acquisition. The LabVIEW application automatically turns on the xenon flash lamp by controlling powering a relay at the start of data taking and then turns it off when finished. The waveforms stored in the digitizers are transferred to the DAQ PC and used to obtain averaged waveforms in order to reduce the electronic noise present in waveforms. The baseline is estimated by using the pre-trigger data and subtracted from the waveforms to measure peak voltages of the cathode and anode signals. These processes are performed in real time within the application and are then used to estimate the electron lifetime. The application continuously displays the waveforms and important parameters, such as measured electron lifetime, peak voltages, and drift time of electrons in the purity monitors, as well as show these parameters over time. This allows one to validate the impurity of the LAr and see effects that may not be spotted at an instantaneous moment. Instead of storing the measured parameters, the waveforms and the digitizer configurations are recorded in binary form for offline analysis. ISEG HV modules in a WIENER MPOD mini crate are used to supply negative and positive voltages to the cathode and the anode, respectively. The LabVIEW application will control and monitor the HV systems through an Ethernet interface.  
@@ -115,12 +117,12 @@ Production of the individual purity monitors and the assembly of them into the s
 
 \begin{dunefigure}[Purity Monitor String]{fig:PrMon-SystemString}
   {Design of the purity monitor string that will contain three purity monitors.}
-  \includegraphics[width=\textwidth]{PrMon-SystemString.pdf}
+  \includegraphics[width=\textwidth]{PrMon-SystemString}
 \end{dunefigure}
 
 \begin{dunefigure}[Purity Monitor String Assembly]{fig:PrMon-Assembly}
   {Assembly sequence of the purity monitors.}
-  \includegraphics[width=\textwidth]{PrMon-Assembly.pdf}
+  \includegraphics[width=\textwidth]{PrMon-Assembly}
 \end{dunefigure}
 
 
