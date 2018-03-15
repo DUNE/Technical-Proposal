@@ -179,9 +179,11 @@
     \boldmath
   }l}%
 
-\definecolor{lightblue}{RGB}{212,236,244}
+%\definecolor{lightblue}{RGB}{212,236,244} ---Anne is changing
+\definecolor{dunetablecolor}{RGB}{212,236,244} % 212,236,244 is lightblue
 \newcommand{\rowtitlestyle}{
-  \rowcolor{lightblue}
+%  \rowcolor{lightblue}
+  \rowcolor{dunetablecolor}
   \rowstyle{\bfseries \boldmath} 
 }
 
