@@ -179,8 +179,8 @@
     \boldmath
   }l}%
 
-%\definecolor{lightblue}{RGB}{212,236,244} ---Anne is changing
-\definecolor{dunetablecolor}{RGB}{212,236,244} % 212,236,244 is lightblue
+%\definecolor{lightblue}{RGB}{212,236,244} ---Anne is changing (212,236,244 is lightblue)
+\definecolor{dunetablecolor}{RGB}{125,174,211} % matches lighter blue color from Diana's scheme 
 \newcommand{\rowtitlestyle}{
 %  \rowcolor{lightblue}
   \rowcolor{dunetablecolor}
