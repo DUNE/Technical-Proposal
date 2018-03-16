@@ -76,7 +76,7 @@ The total numbers for components to be procured to instrument one detector modul
 \begin{dunetable}
 [Numbers for DP electronics components to procure]
 {lr} {tab:dpele-num-components}
-{Numbers for DP electronics components to procure for one detector module}
+{Numbers for DP electronics components to procure for one detector module.}
 Name & Number  \\ \toprowrule
 CRO cryogenic ASICs (\num{16} ch) & \num{9600} \\ \colhline
 CRO cryogenic analog FE cards (\num{64} ch) & \num{2400} \\ \colhline
@@ -120,7 +120,7 @@ Figure~\ref{fig:dpele-sft-chimney-pattern} shows a corner view of the DP detecto
 \begin{dunetable}
 [Summary of some of the principal numbers of the TPC electronics system.]
 {lr} {tab:dpele-numparts}
-{Summary of some of the principal numbers of the TPC electronics system for charge and light readout of a detector module}
+{Summary of some of the principal numbers of the TPC electronics system for charge and light readout of a detector module.}
 Name & Number  \\ \toprowrule
    CRO SFT chimneys/uTCA crates              &  \num{240}   \\ \colhline
    CRO channels per SFT chimney/uTCA crate & \num{640} \\ \colhline
@@ -153,7 +153,7 @@ The cryogenic amplifer ASIC is the main component of the FE analog cards. Its de
 %\end{dunefigure}
 
 \begin{dunefigure}[Cryogenic FE ASIC properties]{fig:dpele-fe-asic-prop}
-{Cryogenic FE ASIC propreties: amplifier response (left) and noise (right) at different temperatures measured at the output of differential buffer.}
+{Cryogenic FE ASIC properties: amplifier response (left) and noise (right) at different temperatures measured at the output of differential buffer.}
 \includegraphics[width=0.49\textwidth]{dpele-fe-asic-gain}
 \includegraphics[width=0.49\textwidth]{dpele-fe-asic-noise}
 \end{dunefigure}
@@ -222,7 +222,7 @@ The function of the CRO AMC cards is to read and digitize the data from the FE a
 \begin{dunetable}
 [Main characteristics of ADC AD9257]
 {lr} {tab:dpele-adc9257}
-{Main characteristics of ADC AD9257}
+{Main characteristics of ADC AD9257.}
 Item &   \\ \toprowrule
 Channels & \num{16} \\ \colhline
 Sampling & \SI{40}{MSPS}/\SI{65}{MSPS} \\ \colhline
@@ -275,7 +275,7 @@ The main characteristics of the ADC used for continuous digitization of the PMT 
 \begin{dunetable}
 [Main characteristics of ADC AD9249]
 {lr} {tab:dpele-adc9249}
-{Main characteristics of ADC AD9249}
+{Main characteristics of ADC AD9249.}
 Item &   \\ \toprowrule
 Channels & \num{16} \\ \colhline
 Sampling & \SI{65}{MSPS} \\ \colhline
@@ -305,7 +305,7 @@ Figure~\ref{fig:dpele-lro-catiroc} shows the schematic of the CatiROC ASIC. Its 
 \begin{dunetable}
 [Main characteristics of CatiROC.]
 {lr} {tab:dpele-catiroc}
-{Main characteristics of CatiROC}
+{Main characteristics of CatiROC.}
 Item &   \\ \toprowrule
 Number of channels & \num{16}\\ \colhline
 Signal polarity & negative \\ \colhline
@@ -344,7 +344,7 @@ The digital electronics is based on uTCA standard which offers industrial soluti
 Each AMC for either charge or light readout plugged into the uTCA is connected to the crate MCH board through the backplane serial links. The MCH provides the switch functionality that enables AMCs to communicate with each other or external systems through the MCH uplink interface. In the DP electronics system design, MCH also manages the WR clock distribution. 
 
 \begin{dunetable}
-[Bandwidth requirements per uTCA crate]
+[Bandwidth requirements per uTCA crate.]
 {lr}{tab:dp-utcabandwidth}
 {Bandwidth requirements per uTCA crate for continuous data streaming. A compression factor of 10 for the charger readout data is assumed }   
 Parameter & Value  \\ \toprowrule
@@ -396,11 +396,7 @@ The architecture of the WR network layout for one DP detector module is illustra
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cryogenic Analog FE Electronics}
 \label{sec:fddp-tpc-elec-prod-fe}
-The production of the cryogenic ASICs and analog FE cards is envisioned to be split between several sites located in France and Japan at the moment. The delivered cards are then split between between five institutions in France (IPNL), Japan (KEK, NITKC, IU), and USA (SMU), where they are tested for various
-performance parameters such as noise levels, dead channels, hot
-channels, gain and gain uniformity across channels, stuck ADC bits,
-etc., at both room and operating cold temperature. An appropriate
-and common database will be developed and populated with test results. 
+The production of the cryogenic ASICs and analog FE cards is envisioned to be split between several sites located in France and Japan at the moment. The delivered cards are then split between between five institutions in France (IPNL), Japan (KEK, NITKC, IU), and USA (SMU), where they are tested for various performance parameters such as noise levels, dead channels, hot channels, gain and its uniformity across channels, etc., at both room and operating cold temperature. An appropriate and common database will be developed and populated with test results. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{SFT Chimneys}
@@ -458,12 +454,12 @@ After shipping and installation on-site, a small series of tests will be perform
 \section{Interfaces}
 \label{sec:fddp-tpc-elec-intfc}
 
-The DP TPC electronics system has interfaces to several other systems. The system must read the charge and light signals from the detector module and thus needs to interface to CRP and the photo-detection systems.  The digitized data must in turn be transmitted to DAQ via the optical links in each uTCA crate. The SFT chimney needs to be integrated into the cryostat structure and connected to the cryogenic/gas  system. The management of the low-voltage power supplies for the FE analog electronics and uTCA crates as well as the monitoring of various sensors in the SFT chimneys have to be part of the slow control. 
+The DP TPC electronics system has interfaces to several other systems. The system must read the charge and light signals from the detector module and thus needs to interface to CRP and the photo-detection systems.  The digitized data must in turn be transmitted to DAQ via the optical links in each uTCA crate. The SFT chimneys need to be integrated into the cryostat structure and connected to the cryogenic/gas  system. The management of the low-voltage power supplies for the FE analog electronics and uTCA crates as well as the monitoring of various sensors in the SFT chimneys have to be part of the slow control. 
 Table~\ref{tab:dpele-interfaces} provides the full list of all the relevant interface documents and only some of the principal points are summarized here.
 
 \begin{dunetable}
 [Interface documents relevant to DP electronics system]
-{lr}{tab:dpele-interfaces}{Interface documents relevant to DP electronics system}   
+{lr}{tab:dpele-interfaces}{Interface documents relevant to DP electronics system.}   
  FD interface document    & DUNE docdb \\ \toprowrule
 DP TPC Electronics to DP CRP & 6751 \\ \colhline
 DP TPC Electronics to DP Photon Detector & 6772 \\ \colhline
@@ -667,7 +663,7 @@ The Dual-Phase TPC electronics consortium actually consists of seven participati
 [DP TPC electronics consortium current participants]
 {p{0.35\linewidth}p{0.25\linewidth}p{0.35\linewidth}}
 {tab:dpele-consortium-people}
-{DP TPC electronics consortium current participants}   
+{DP TPC electronics consortium current participants.}   
  Institution    & Investigator & Contact \\ \toprowrule
 France: APC  & Thomas Patzak & thomas.patzak@cern.ch \\ \colhline
 France: IPNL  & Dario Autiero & autiero@cern.ch  \\ \colhline
@@ -696,7 +692,7 @@ The description of the WBS including the assignments of the responsible institut
 \begin{dunetable}[DP TPC electronics consortium schedule]
 {p{0.6\linewidth}lll}
 {tab:dpele-schedule}
-{DP TPC electronics consortium schedule}
+{DP TPC electronics consortium schedule.}
  Techincal activity  &  Days & Start date & End date \\ \toprowrule
 Preparation of costing for Technical Proposal & \num{20} & 02/26/18 & 03/23/18 \\ \colhline
 Initial Development of Installation Schedule & \num{20} & 02/26/18 & 03/23/18 \\ \colhline
