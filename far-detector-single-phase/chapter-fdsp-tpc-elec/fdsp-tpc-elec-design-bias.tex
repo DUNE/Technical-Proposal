@@ -1,17 +1,21 @@
-Each side of an APA includes four wire layers as described in Section APADESIGN. 
-The innermost X-plane layer of wires is nominally biased at +820 Volts, with each wire AC coupled 
+\fixme{\bf This subsection should be checked for duplicated content in the APA chapter.}
+
+\fixme{\bf The figure in this subsection should be updated to reflect the DUNE FD design.}
+
+Each side of an APA includes four wire layers as described in Section~\ref{sec:fdsp-apa-design}. 
+The innermost X-plane layer of wires is nominally biased at +820~V, with each wire AC coupled 
 to one of the 128 charge amplifier circuits on the FEMB. The V-plane wire layer is effectively biased at zero volts, 
 with each wire directly connected to one of the charge amplifier circuits. The U-plane wire layer is nominally 
-biased at $-$370 Volts with each wire AC-coupled 
+biased at $-$370~V with each wire AC-coupled 
 to one of the 128 charge amplifier circuits. The outermost G-plane wire layer,
-which has no connection to the charge amplifier circuits, is biased at $-$665 Volts.
+which has no connection to the charge amplifier circuits, is biased at $-$665~V.
 
 Electrons passing through the wire grid must drift unimpeded until they reach the X-plane 
 collection layer. The nominal bias voltages are predicted to result in this electrically 
 transparent configuration.
 
-As described in Section APAWIRE
- the filtering of wire-bias voltages and AC coupling of wire signals passing
+As described in Section~\ref{sec:fdsp-apa-design}, the filtering of wire-bias voltages
+and AC coupling of wire signals passing
 onto the charge amplifier circuits is done on capacitance-resistance (CR) boards that plug in between the APA wire-board stacks and FEMBs.
 Each CR board includes single R-C filters for the X- and U-plane wire-bias voltages. In addition, each board has 48 
 pairs of bias resistors and AC coupling capacitors for X-plane wires, and 40 pairs for the U-plane wires. The coupling capacitors block DC while passing AC 
@@ -29,17 +33,18 @@ coupling capacitors.
 Groups of four wires are tied together to share single
 bias resistors and filter capacitors. These CR boards do not connect to the charge amplifier circuits on the FEMB.
 
-Clamping diodes limit the input voltage received at the amplifier circuits to between 1.8V~$\pm$~U$\_$D, where U$\_$D
-is the breakdown voltage of the diode $\sim$0.7V.
-The amplifier circuit has a 22-nF coupling capacitor at input to avoid leakage current from the protection clamping diodes. 
+Clamping diodes limit the input voltage received at the amplifier circuits to between 1.8~V~$\pm$~U$\_$D, where U$\_$D
+is the breakdown voltage of the diode $\sim$0.7~V.
+The amplifier circuit has a 22~nF coupling capacitor at input to avoid leakage current from the protection clamping diodes. 
 
-Coupling capacitors for the X-plane and U-plane wires are required to block DC bias voltages.
-However they also impact the efficiency of the detector circuits.
-The sense wires are expected to have $\sim200$~pF of capacitance to the APA frame.
-Induced or collected charges are effectively divided between the wire capacitance and the coupling capacitor.
-To achieve a charge-calibration accuracy of 0.5 percent or better,
-the coupling capacitors must be 4.7\,nF at ten percent tolerance, or 2.2\,nF at five percent tolerance.
-Voltage ratings should be at least 1.5 times the expected operating voltages.
+%%% UNCLEAR, REMOVE FOR NOW
+%Coupling capacitors for the X-plane and U-plane wires are required to block DC bias voltages.
+%However they also impact the efficiency of the detector circuits.
+%The sense wires are expected to have $\sim200$~pF of capacitance to the APA frame.
+%Induced or collected charges are effectively divided between the wire capacitance and the coupling capacitor.
+%To achieve a charge-calibration accuracy of 0.5 percent or better,
+%the coupling capacitors must be 4.7\,nF at ten percent tolerance, or 2.2\,nF at five percent tolerance.
+%Voltage ratings should be at least 1.5 times the expected operating voltages.
 
 Bias resistance values should be at least 20\,M$\Omega$ to maintain negligible noise contributions.
 A target value of 50\,M$\Omega$ is desired.
