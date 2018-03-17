@@ -67,9 +67,8 @@ Integrated over a year of 20M beam pulses, that leads to an uncompressed data si
 
 
 
-\item Rare physics processes, not in synchronization with the accelerator.  These include supernova physics, atmospheric neutrinos, proton decay, neutron conversion and solar neutrinos.  These processes are generally at lower energy, making triggering more difficult, and asynchronous, thus requiring an internal or external trigger.  In particular, supernovae signals will consist of a large number of low energy interactions spread throughout the far detector volume over a time period of 1-30 seconds. Buffering and storing 30 sec of data would require around 6000 readout windows, or around 120 TB/supernova readout.  
+\item Processes not in synchronization with the accelerator.  These include supernova physics, atmospheric neutrinos, proton decay, neutron conversion and solar neutrinos.  These processes are generally at lower energy, making triggering more difficult, and asynchronous, thus requiring an internal or external trigger.  In particular, supernovae signals will consist of a large number of low energy interactions spread throughout the far detector volume over a time period of 1-30 seconds. Buffering and storing 30 sec of data would require around 6000 readout windows, or around 120 TB/supernova readout.  
 
-\item Calibrations.  It is likely that the bulk of far detector data will be calibrations. 
 
 
 \item Near detector physics - the near detector configuration is not defined yet but we do have substantial experience from T2K and MicroBooNE at lower energies and MINERvA at the DUNE beam energies on cosmic and beam interactions under similar conditions.  We can expect that a near detector will experience 30-60 cosmic and beam interactions/beam pulse, spread over an area of a few square meters.  Storing and disentangling this information will be challenging but comparable to the ProtoDUNE data expected in 2018.
@@ -77,6 +76,31 @@ Integrated over a year of 20M beam pulses, that leads to an uncompressed data si
 
 
 \end{enumerate}
+
+\fixme{Make certain this is the same as in the FD book }
+\begin{dunetable}
+[Anticipated event and data rates in the DUNE FD (from the single-phase chapter.]
+{p{0.25\textwidth}p{0.15\textwidth}p{0.4\textwidth}}
+{daq:datarates}
+{Anticipated event and data rates in the DUNE FD assuming all four
+  modules are SP. The
+  rates assume continuous readout (without any data reduction) for
+  5.4~ms for non-extended events, and for 10 seconds for extended events.}   
+Event Type  & Annual Data Volume & Assumptions \\ \toprowrule
+ Beam interactions & 27 TB & 800 beam and 800 dirt muons; 10~MeV
+ threshold in coincidence with beam time; include cosmics\\ \colhline
+ Cosmics and atmospherics & 10 PB &  \\ \colhline
+ Radiologicals & $\le$1~PB & fake rate of $\le$100 per year \cite{daq:simreport}\\ \colhline
+ Front-end calibration & 200~TB & Four calibration runs per year, 100
+ measurements per point \\ \colhline
+ Radioactive source calibration & 100~TB & source rate $\le$10~Hz;
+ single APA readout; lossless readout \\ \colhline
+ Laser calibration & 200~TB & 1$\times$10$^6$ total laser
+ pulses, lossy readout \\ \colhline
+ Random triggers & 60 TB & 45 per day\\ \colhline
+ Trigger primitives & $\le$6~PB &  all three wire planes; 12 bits per
+ primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
+\end{dunetable}
 
 
 \subsection{Relation to Trigger and DAQ}
@@ -100,7 +124,7 @@ The data volumes discussed above are for un-suppressed, uncompressed data.  Effi
 
 \subsubsection{Summary of boundary with Trigger/DAQ}
 
-After discussion with the Trigger/DAQ group, we have agreed upon a feasible data transfer rate of 100 Gb/sec, which is consistent with projected network bandwidth from Sanford Lab to ESNET and 30 PB/year raw data stored to tape, which is substantial but within reasonable parameters for storage in the mid-2020's.  This will require some triggering and compression at the detector to achieve but allows both DAQ and Offline computing to proceed with reasonable design parameters.
+After discussion with the Trigger/DAQ group, we have agreed upon a feasible maximum data transfer rate of 100 Gb/sec, which is consistent with projected network bandwidth from Sanford Lab to ESNET and 30 PB/year raw data stored to tape, which is substantial but within reasonable parameters for storage in the mid-2020's.  This will require some triggering and compression at the detector to achieve but allows both DAQ and Offline computing to proceed with reasonable design parameters.
 
 Table \ref{daq:datarates} summarizes the data rates expected from the DAQ section of this proposal. 
 
@@ -152,7 +176,7 @@ Testing new section reference style. See Section~\ref{sw:ov-intl-org}. This is A
 \subsection{Boundary with Detector Controls and Monitoring}
 \subsection{Boundary with Accelerator and Beam Operations}
 \subsection{Boundaries with CERN and Fermilab computing organizations}
-The DUNE computing effort relies heavily on the human and hardware resources of both CERN and Fermilab, serving as an interface between the collaboration and those organizations.  Computational resources are generally negotiated on a yearly basis, with additional resources available opportunistically. Human assistance is largely on a per-project  basis, with substantial support when needed but very few personnel permanently assigned to the DUNE or protoDUNE efforts. 
+The DUNE computing effort  relies heavily on the human and hardware resources of  multiple organizations,  with the bulk of hardware resources at CERN and Fermilab.  The  DUNE computing organization serves as an interface between the collaboration and those organizations.  Computational resources are generally negotiated on a yearly basis, with additional resources available opportunistically. Human assistance is largely on a per-project  basis, with substantial support when needed but very few personnel permanently assigned to the DUNE or protoDUNE efforts. 
 \subsection{Boundary with Non-DUNE Experiments}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
