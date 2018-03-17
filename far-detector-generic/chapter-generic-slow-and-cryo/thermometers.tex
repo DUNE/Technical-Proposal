@@ -10,11 +10,11 @@ can be used to predict the LAr purity using CFD simulations. Specially important
 the LAr recirculation and uniformity. 
 
 High precision temperature sensors will be distributed near the TPC walls in two ways:
-i) forming high density (>2 sensors/m) vertical arrays (the so-called T-gradient monitors), and ii) in coarser ($\sim$ 1 sensor/5 m) 2D arrays 
+i) forming high density (\(>2\) sensors/\si{m}) vertical arrays (the so-called T-gradient monitors), and ii) in coarser ($\sim$ 1 sensor/\SI{5}{m}) 2D arrays 
 at the top and bottom of the detector, which are the most delicate regions (the so-called individual sensors).   
 
-Since temperature variations inside the cryostat are expected to be very small ($0.02 K$), to properly measure the 3D temperature map 
-sensors must be cross-calibrated to better than $0.005 K$. Most sensors will be calibrated in the laboratory, prior to installation,
+Since temperature variations inside the cryostat are expected to be very small ($\SI{0.02}{K}$), to properly measure the 3D temperature map 
+sensors must be cross-calibrated to better than $\SI{0.005}{K}$. Most sensors will be calibrated in the laboratory, prior to installation,
 as described in the next section. This is in fact the only viable method for sensors in areas where the available space is restricted: on the long sides of the detector
 (behind the APAs for SP, and behind the lateral FC end walls for DP) and top/bottom of the detector.
 Given the precision required and the unknown longevity of the sensors (which could require a new calibration after some time), a complementary method
@@ -43,7 +43,7 @@ The readout system will be described below in a separate subsection.
 \end{dunefigure}
 
 Another set of lower precision sensors will be used to monitor the filling of the cryostat in its initial stage. Those sensors will be epoxied into the cryostat bottom membrane with
-a density to be determined, which will not exceed 1 sensor every 5 m. 
+a density to be determined, which will not exceed 1 sensor every \SI{5}{m}. 
 Finally, the inner walls and roof of the cryostat will be instrumented with the same type of sensors in order to monitor their temperature during cooldown and filling.
 The baseline distribution would be three vertical arrays of sensors: one in each far side of the cryostat and a third one in at the middle in one of the lateral walls. 
 
@@ -64,19 +64,19 @@ Four sensors are placed as close as possible (such that identical temperature ca
 which protects the sensors from thermal shocks and helps in minimizing convection.
 One of the sensors acts as reference while the other three are the ones being calibrated. Five independent calibrations
 are performed for each set of three sensors, such that the reproducibility of each sensor can be computed. For each calibration 
-the capsule is introduced in a PLA box of size 9.5x9.5x19 $cm^3$, with two concentrical independent volumes of LAr
-and sourounded by a polystyrene box with 15 cm thick walls. A small quantity of LAr is used to slowly cooldown the capsule to $~90 K$, avoiding thermal shocks that could dammage the sensors.
+the capsule is introduced in a PLA box of size \(9.5\times9.5\times\SI{19}{cm^3}\), with two concentrical independent volumes of LAr
+and sourounded by a polystyrene box with \SI{15}{cm} thick walls. A small quantity of LAr is used to slowly cooldown the capsule to $\sim\SI{90}{K}$, avoiding thermal shocks that could dammage the sensors.
 Then the capsule is covered by LAr such that it penetrates
-inside fully covering the sensors. Once the temperature stabilizes to the 1-2 mk level (after 5-15 minutes) measurements are taken. Then the capsule is taken out from LAr
-and kept at room temperature until it reaches 200 K. As mentioned above, this procedure is repeated five times, before going to the next set of three sensors.  
-As shown in Figure ~\ref{fig:Trepro} a reproducibility of $\sim2 mk$ has been achieved in the ProtoDUNE-SP design.  
+inside fully covering the sensors. Once the temperature stabilizes to the 1-\SI{2}{mK} level (after 5-15 minutes) measurements are taken. Then the capsule is taken out from LAr
+and kept at room temperature until it reaches \SI{200}{K}. As mentioned above, this procedure is repeated five times, before going to the next set of three sensors.  
+As shown in Figure ~\ref{fig:Trepro} a reproducibility of $\sim \SI{2}{mK}$ has been achieved in the ProtoDUNE-SP design.  
 
 %The baseline design for the mechanics of the system is shown in Fig.~\ref{}. It consists in two stainless strings anchored at top and bottom corners of the cryostat
 The baseline design for the mechanics of the SP system consists in two stainless strings anchored at top and bottom corners of the cryostat
-using the available M10 bolts. One of the strings is used to route the cables while the other, separated 34 cm, serves as support for temperature sensors.
+using the available M10 bolts. One of the strings is used to route the cables while the other, separated \SI{34}{cm}, serves as support for temperature sensors.
 Given the height of the cryostat, the need of intermediate anchoring points is under discussion. For the DP detector no baseline design exists yet,
 since additional complications due to the required electric field shielding must be taken into account. Fig.~\ref{fig:sensor-support} shows baseline design of the
-PCB support for temperature sensors, with an IDC-4 male connector. It has a size of $52x15 mm^2$. Each four-wires cable from the sensor to the flange will have an IDC-4 female connector
+PCB support for temperature sensors, with an IDC-4 male connector. It has a size of $52\times \SI{15}{mm^2}$. Each four-wires cable from the sensor to the flange will have an IDC-4 female connector
 on the sensor side; on the other side, it will be directly soldered into the inner pins of male SUBD-25 connectors on the flanges. The CF63 side ports on DSS/cryogenic ports,
 which will be used to extract the cables. 
 
@@ -145,13 +145,13 @@ PCB sensor's support, cables and connection to the flanges will be the same as f
 \subsubsection{Readout system for thermometers}
 \label{sec:fdgen-slow-cryo-therm-readout}
 
-A high precision and very stable system is required to achieved the design precihsion of $< 5 mk$.
+A high precision and very stable system is required to achieved the design precihsion of $< \SI{5}{mK}$.
 The proposed readout system is the one used in ProtoDUNE-SP, which is based on a variant of an existing mass PT100 temperature readout system developed at
 CERN for one of the LHC experiments. The system consists of three parts:
 \begin{itemize}
 \item An accurate current source for the excitation of the temperature sensors, implemented by a compact electronic circuit using high a precision voltage reference from Texas Instruments. 
 \item A multiplexing circuit based on an ADG707 Analog Device multiplexer electronic device;
-\item A high resolution and accuracy voltage signal readout module based on National Instruments NI9238, which has 24 bits resolution over 1 Volt range.
+\item A high resolution and accuracy voltage signal readout module based on National Instruments NI9238, which has 24 bits resolution over \SI{1}{V} range.
   This module is inserted in a National Instruments compact RIO device, which will distribute the temperature values to the main Slow Control Software
   through the standard protocol, OPC UA. The Ethernet DAQ will include also the multiplexing logic.
 \end{itemize}
