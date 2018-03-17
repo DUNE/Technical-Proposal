@@ -1,19 +1,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Purity Monitors} 
-\label{sec:fdsp-slow-cryo-purity-mon}
+\label{sec:fdgen-slow-cryo-purity-mon}
+\label{sec:fdsp-slow-cryo-purity-mon} % for references from sp volume
+\label{sec:fddp-slow-cryo-purity-mon} % for references from dp volume
 %Laura, Jianming
 A fundamental requirement of a LAr TPC is to make ionization electrons drift over long distances in LAr. Part of the charge is inevitably lost due to the presence of electronegative impurities in the liquid. To keep such loss to a minimum, purifying the LAr during operation is essential, as is the monitoring of impurities.
 
 Residual gas analyzers are an obvious choice when analyzing gas argon and can be exploited for the monitoring of the gas in the ullage of the tank. Unfortunately, commercially available mass spectrometers have a detection limit of \SI{\sim10}{ppb}, whereas DUNE requires a sensitivity down to the \si{ppt} level. This gives us a case to construct small, ``portable'' devices, called ``purity monitors'', to monitor purity in all the phases of operations, guaranteeing successful commissioning and meeting the requirement to measure position-dependent purity necessary to achieve DUNE's physics goal. 
-%Purity monitors also have the potential to be developed as a calibration tool that provides high precision and real-time electron lifetime measurements for wire-by-wire detector calibration. 
+%Purity monitors also have the potential to be developed as a calibration tool that provides high precision and real-time electron lifetime measurements for wire-by-wire detector calibration.
 
-Purity monitors will be placed inside the cryostat, but outside of the detector TPC, as well as outside the cryostat within the recirculation system before and after filtration.
+Purity monitors also serve to mitigate liquid argon contamination risk.  Because the scale of the DUNE far detectors is so large, the risk that sudden changes in the purity of the LAr being injected back into the cryostat might go unnoticed needs to be taken seriously.  If this were to occur for too long it could cause irreversible contamination to the LAr and terminate useful data taking.  An irreversible contamination cannot be tolerated in the DUNE far detectors, and so strategically placed purity monitors must be implemented to mitigate this risk. 
+
+Purity monitors will be placed inside the cryostat, but outside of the detector TPC, as well as outside the cryostat within the recirculation system before and after filtration. The purity monitors continuously monitoring the LAr supply lines to the detector will provide a strong line of defense against contaminated liquid argon. Gas analyzers (described in \ref{sec:fdgen-slow-cryo-gas-anlyz}) provide a first line of defense against contaminated gas.  Purity monitors inside the detector provide a strong defense against all sources of contamination in the liquid argon volume and contamination from recirculated liquid argon.
 
 Purity monitors have been successfully deployed in the ICARUS detector and in the 35-ton prototype detector at Fermilab. The ProtoDUNE-SP and DP detectors will also employ purity monitors based on the same design principles used in the past. The ProtoDune-SP detector will utilize a string of purity monitors similar to that of the 35-ton detector, enabling measurement of the electron drift lifetime as a function of height.  A similar system design will be exploited in the DUNE FD, with modifications made to accommodate the instrumentation port placement relative to the purity monitor system and the requirements and constraints coming from the different geometric relations between the TPC and cryostat. 
 
 \subsubsection{Physics and Simulation}
 % Andrew, Jianming
-A purity monitor is a miniature TPC which directly measures the electron lifetime, $\tau$, in the LAr and does not depend on the LAr TPC high voltage, electronics, and data acquisition. The concentration of electronegative impurities such as $\text{O}_2$ and $\text{H}_2\text{O}$ (which the electron lifetime mostly depends on) is inversely proportional to the electron lifetime according to the following formula~\cite{BakaleSowadaSchmidt}:
+A purity monitor is a miniature TPC which directly measures the electron lifetime, $\tau$, in the LAr and does not depend on the LAr TPC high voltage, electronics, and data acquisition. The concentration of electronegative impurities such as $\text{O}_2$ and $\text{H}_2\text{O}$ (which the electron lifetime mostly depends on) is inversely proportional to the electron lifetime according to the following formula~\cite{doi:10.1021/j100564a006}:
 
 $$\tau = \sum_i \frac{1}{k_i [S_i]}$$
 
@@ -21,13 +25,13 @@ where the sum runs over all species of impurities in the liquid; $\tau$ is in s;
 
 %\begin{figure}[h]
 %\centering
-%\includegraphics[height=6cm]{PrMon_ks.pdf}
+%\includegraphics[height=6cm]{PrMon_ks}
 %\caption{Electron attachment rate ($k_s$) as a function of electric field for several contaminants in a LAr TPC.}%Does this figure also need a citation, or is it something that one of us made specifically for this purpose?
 %\label{fig:ks}
 %\end{figure}
 \begin{dunefigure}[Purity Monitor $k_s$]{fig:ks}
   {Electron attachment rate ($k_s$) as a function of electric field for several contaminants in a LAr TPC\cite{docdb-4482}}
-  \includegraphics[width=0.4\textwidth]{PrMon_ks.pdf}%
+  \includegraphics[width=0.4\textwidth]{PrMon_ks}%
 \end{dunefigure}
 
 Assuming all impurities affecting the electron lifetime are $\text{O}_2$, the electron lifetime is converted into the concentration of $\text{O}_2$ in \si{ppb} using the following:
@@ -45,17 +49,17 @@ where $N(0)$ is the number of electrons generated by ionization, $N(t)$ is the n
 %For the single-phase DUNE far detector module the drift distance is \SI{3.6}{\meter}. For the dual-phase DUNE far detector module the maximum drift distance is \SI{12}{\meter}, and the requirement for the electron lifetime is even higher.   
 For the DUNE single-phase far detector module, the drift distance is \SI{3.6}{\meter} and the electric field is \SI{500}{\volt\per\centi\meter}, giving a maximum drift time of \SI{\sim2.4}{\milli\second}. If the LAr TPC signal attenuation, [N(0)-N(t)]/N(0), is to be kept less than \SI{20}{\percent} over the entire drift distance, the necessary electron lifetime is $2.4/[-\ln(0.8)] \simeq 11 $ ms, and the corresponding LAr purity requirement is about \SI{30}{ppt}. For the DUNE dual-phase far detector module, the maximum drift distance is \SI{12}{\meter} and so the requirement on the electron lifetime is much higher. Furthermore, to best understand the LAr TPC detector response and performance, precise measurements of electron lifetime in LAr are very important and with purity monitors that can measure purity with high precision at specific points, it is possible to determine the gradient of the purity.
 
-The DUNE 35-ton prototype detector at Fermilab was instrumented with four purity monitors. The data taken with them during the first part of the second phase is shown in Fig.~\ref{fig-35t-prm} and clearly shows the ability to measure the electron lifetime between \SI{100}{\micro\second} and \SI{3.5}{\milli\second}.  Because the scale of the DUNE far detectors are so large, the risk that sudden changes in the purity of the LAr being injected back into the cryostat might go unnoticed needs to be taken seriously.  If this were to occur for too long it would cause irreversible contamination to the LAr and terminate useful data taking.  Having purity monitors continuously monitoring the detector, placed in strategic places and then used as an interlock, it could be possible to salvage the overall purity of the detector and maintain the ability to take good data. An irreversible contamination cannot be tolerated in the DUNE far detectors, and so strategically placed purity monitors must be implemented to mitigate this risk. 
+The DUNE 35-ton prototype detector at Fermilab was instrumented with four purity monitors. The data taken with them during the first part of the second phase is shown in Fig.~\ref{fig-35t-prm} and clearly shows the ability to measure the electron lifetime between \SI{100}{\micro\second} and \SI{3.5}{\milli\second}.  
 
 %\begin{figure}[t!]
 %\begin{center}
-%\includegraphics[width=10cm]{PrMon_35t-PrM.pdf}
+%\includegraphics[width=10cm]{PrMon_35t-PrM}
 %\caption{The measured electron lifetimes in the four purity monitors as a function of time at Fermilab 35T prototype.} \label{fig-35t-prm}
 %\end{center}
 %\end{figure}
 \begin{dunefigure}[Purity Monitor lf]{fig-35t-prm}
   {The measured electron lifetimes in the four purity monitors as a function of time at Fermilab 35\si{t} prototype.}
-  \includegraphics[width=0.4\textwidth]{PrMon_35t-PrM.pdf}%  
+  \includegraphics[width=0.4\textwidth]{PrMon_35t-PrM}%  
 \end{dunefigure}
 
 
@@ -71,13 +75,13 @@ $$ Q_A/Q_C=e^{-t/\tau}. $$
 
 %\begin{figure}[h]
 %\centering
-%\includegraphics[height=3cm]{PrMon_prm.pdf}
+%\includegraphics[height=3cm]{PrMon_prm}
 %\caption{Schematic diagram of the basic purity monitor design~\cite{Adamowski}. [CITATION: M. Adamowski et al.,The Liquid Argon Purity Demonstrator, JINST 9, P07005 (2014).]}
 %\label{fig:prm}
 %\end{figure}
 \begin{dunefigure}[Purity Monitor diag]{fig:prm}
   {Schematic diagram of the basic purity monitor design~\cite{Adamowski:2014daa}.}
-  \includegraphics[width=0.5\textwidth]{PrMon_prm.pdf}
+  \includegraphics[width=0.5\textwidth]{PrMon_prm}
 \end{dunefigure}
 
 The photocathode that produces the photoelectrons is an aluminum plate coated with \SI{50}{\angstrom} of titanium and \SI{1000}{\angstrom} of gold and attached to the cathode disk. A xenon flash lamp is used as the light source in the baseline design, although this could potentially be replaced by a more reliable and possibly submersible light source in the future, perhaps LED driven. The UV output of the lamp is quite good around $\lambda=$ \SI{225}{\nano\meter}, which is close to the work function of gold (\SIrange{4.9}{5.1}{\eV}). Several UV quartz fibers are used to carry the xenon UV light into the cryostat to illuminate the gold photocathode.   Another quartz fiber is used to deliver the light into a properly biased photodiode outside of the cryostat to provide the trigger signal for when the lamp flashes. 
@@ -90,13 +94,13 @@ The baseline design of the front-end electronics is the one used for the purity 
 
 %\begin{figure}[h]
 %	\centering
-%	\includegraphics[width=0.8\textwidth]{PrMon_BlockDiagram.pdf}
+%	\includegraphics[width=0.8\textwidth]{PrMon_BlockDiagram}
 %	\caption{Block diagram of the purity monitor system.}
 %	\label{fig:diagram}
 %\end{figure}
 \begin{dunefigure}[Purity Monitor Block-diag]{fig:diag}
   {Block diagram of the purity monitor system.}
-  \includegraphics[width=0.5\textwidth]{PrMon_BlockDiagram.pdf}%
+  \includegraphics[width=0.5\textwidth]{PrMon_BlockDiagram}%
 \end{dunefigure}
 
 A custom LabVIEW application running on the DAQ PC is developed and consists of two functions: controlling the digitizers and the power supplies, and monitoring the signals and key parameters. The application configures the digitizers to set the sampling rate, the number of waveforms to be stored in the memory, pre-trigger data, and a trigger mode. A signal from a photodiode triggered by the xenon flash lamp is directly fed into the digitizer as an external trigger to initiate data acquisition. The LabVIEW application automatically turns on the xenon flash lamp by controlling powering a relay at the start of data taking and then turns it off when finished. The waveforms stored in the digitizers are transferred to the DAQ PC and used to obtain averaged waveforms in order to reduce the electronic noise present in waveforms. The baseline is estimated by using the pre-trigger data and subtracted from the waveforms to measure peak voltages of the cathode and anode signals. These processes are performed in real time within the application and are then used to estimate the electron lifetime. The application continuously displays the waveforms and important parameters, such as measured electron lifetime, peak voltages, and drift time of electrons in the purity monitors, as well as show these parameters over time. This allows one to validate the impurity of the LAr and see effects that may not be spotted at an instantaneous moment. Instead of storing the measured parameters, the waveforms and the digitizer configurations are recorded in binary form for offline analysis. ISEG HV modules in a WIENER MPOD mini crate are used to supply negative and positive voltages to the cathode and the anode, respectively. The LabVIEW application will control and monitor the HV systems through an Ethernet interface.  
@@ -109,16 +113,16 @@ The electronics of purity monitors may induce noise in the TPC electronics, larg
 \subsubsection{Production and Assembly}
 \label{sec:PrMon-Production-Assembly}
 %Andrew
-Production of the individual purity monitors and the assembly of them into the string that will be placed into the DUNE-FD cryostat will follow the same methodology that is being developed for DUNE.  Each of the individual monitors will be fabricated, assembled and then tested in a smaller test stand.  After confirming that each of the individual purity monitors operates at the required performance, they would be assembled together via the support tubes used to mount the system to the inside of the cryostat such that three purity monitors are grouped together to form a "string" of purity monitors, as shown in Fig.~\ref{fig:PrMon-SystemString}.  The assembly of the individual purity monitors into the string would follow the steps laid out in the first 5 panels of Fig.~\ref{fig:PrMon-Assembly}.  Each monitor would be assembled as the string is built from the top down, and in the end there would be three individual purity monitors hanging from a single string.  The assembly of the string would conclude once the purity monitors were each in place, but with the faraday cages removed and the HV cables and optical fibers yet to be run.  This full string assembly would then be shipped to the DUNE-FD site for installation into the cryostat.
+Production of the individual purity monitors and the assembly of them into the string that will be placed into the DUNE-FD cryostat will follow the same methodology that is being developed for DUNE.  Each of the individual monitors will be fabricated, assembled and then tested in a smaller test stand.  After confirming that each of the individual purity monitors operates at the required performance, they would be assembled together via the support tubes used to mount the system to the inside of the cryostat such that three purity monitors are grouped together to form a ``string'' of purity monitors, as shown in Fig.~\ref{fig:PrMon-SystemString}.  The assembly of the individual purity monitors into the string would follow the steps laid out in the first 5 panels of Fig.~\ref{fig:PrMon-Assembly}.  Each monitor would be assembled as the string is built from the top down, and in the end there would be three individual purity monitors hanging from a single string.  The assembly of the string would conclude once the purity monitors were each in place, but with the faraday cages removed and the HV cables and optical fibers yet to be run.  This full string assembly would then be shipped to the DUNE-FD site for installation into the cryostat.
 
 \begin{dunefigure}[Purity Monitor String]{fig:PrMon-SystemString}
   {Design of the purity monitor string that will contain three purity monitors.}
-  \includegraphics[width=\textwidth]{PrMon-SystemString.pdf}
+  \includegraphics[width=\textwidth]{PrMon-SystemString}
 \end{dunefigure}
 
 \begin{dunefigure}[Purity Monitor String Assembly]{fig:PrMon-Assembly}
   {Assembly sequence of the purity monitors.}
-  \includegraphics[width=\textwidth]{PrMon-Assembly.pdf}
+  \includegraphics[width=\textwidth]{PrMon-Assembly}
 \end{dunefigure}
 
 

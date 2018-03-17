@@ -3,7 +3,8 @@
 \label{sec:fdgen-slow-cryo-intfc}
 % anselmo
 
-\fixme{Include an image of each interface in appropriate section.  (?????)}
+% Include an image of each interface in appropriate section.  (?????)
+% Good idea for TDR, but let's not do this for the TechPro, due to space. [gahs]
 
 The CISC consortium interfaces with all other consortia, task forces (calibration), working groups (physics, software/computing) and technical coordination.  
 A detailed description of all interfaces is available elsewhere (doc-db\#6383-v1, doc-db\#7072-v1, doc-db\#6991-v0, doc-db\#7018-v1, doc-db\#7045-v1).
@@ -21,7 +22,11 @@ archiving and GUIs.
 
 %SC signals into main DAQ data stream and viceversa
 
-Particularely important is the interface with HV system since several aspects related with safety must be taken into account. 
+A major interface is the one with the cryogenics system. As mentioned in Sec.~\ref{sec:fdgen-slow-cryo-purity-mon} purity monitors and gas analyzers will be essential
+to mitigate the liquid argon contamination risk. The appropriate interlock mechanism to prevent the cryonenics system from irreversible contamination
+must be designed and implemented. 
+
+Another important interface is the one with the HV system since several aspects related with safety must be taken into account. 
 For all instrumentation devices inside the cryostat, E-field simulations are needed to guaranty proper shielding is in place.
 Although this is a CISC responsibility, input from HV will be crucial.
 %The location of cold cameras and lights for inspection of HV related devices,
@@ -38,7 +43,7 @@ that avoid turning on any other light source accidentally when PDs are on.
 
 The DAQ/CISC interface is described in the DAQ Section~\ref{sec:fdgen-daq-intfc-sc}. 
 
-\fixme{Interfaces with DAQ has to be expanded}
+%\fixme{Interfaces with DAQ has to be expanded}
 
 %\fixme{Does this x-ref work?  The cut-n-paste below (commented out) from
 %  the official interfaces document seems overkill.  Also, there are not
@@ -87,7 +92,6 @@ Interfaces between CISC and technical coordination are detailed in doc-db\#6991-
 
 %Interfaces with the Facility are: Location of instrumentation devices, anchoring points, cryostat ports and flanges,
 %space needed above cryostat, cable routing, rack space above cryostat, Mezzanine and CUC (Central Utility Cavern), etc 
-
 
 
 %\fixme{Describe interface with DAQ system, including Interface with
