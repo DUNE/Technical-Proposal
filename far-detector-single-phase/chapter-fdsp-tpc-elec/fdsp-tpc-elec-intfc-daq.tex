@@ -4,7 +4,7 @@ firmware and buffering related to the trigger decision inside the WIB, or
 instead transmit the data as they are produced from the FEMBs, possibly with
 some serialization taking place in the WIB. For the single phase TPC we have
 chosen to adopt the latter option, which minimizes the requirements on the
-FPGA inside the WIB, and also reduces the power and cooling requirements for the WIC.
+FPGA inside the WIB, and also reduces the power and cooling requirements for the WIEC.
 Based on this decision, the interface between the CE and DAQ consortia is
 defined by the fibre plant
 used to transmit the data from the WIBs to the DAQ components housed in the
@@ -20,12 +20,12 @@ the headers and trailers that include time stamps and geographical addresses
 of the FEMBs. It can also be used to serialize the data from multiple
 COLDATA ASICs into a single stream. In the simplest scheme each electrical
 link from the FEMB is routed to a single optical fibre, transmitting data
-at 1.28 Gbit/s. Depending on the availability and cost of transmitters
+at 1.28~Gbps. Depending on the availability and cost of transmitters
 capable of sending data at higher speeds data from multiple electrical
 links (4, 8 or more) could be serialized onto a single link. Using higher transmission
 speeds reduces the number of links that are needed, possibly reducing the
 cost of the DAQ part of the detector. The use of links with speeds
-of 5 Gbit/s or larger may present the
+of 5~Gbps or larger may present the
 drawback that the data has to be deserialized on the CUC side, depending
 on the availability of resources for the extraction of trigger primitives
 on the DAQ boards. The final choice of the number of fibres, link speed and
@@ -33,27 +33,30 @@ matching between FEBMs and DAQ processing units in the CUC should be
 the result of a cost optimization process that can be delayed until
 the Technical Design Report.
 
-The use of links at speeds of 5 Gbit/s
-or larger may also present another drawback, in addition to the increases
-in the cost of fibres, transmitters and receivers. We desire to keep the
-data of a single FPGA into a single set of DAQ boards, without deserializing
-the data on the CUC side. Given the granularity of the FEMBs there may be
-combinations of the number of DQ boards and the number of links being
-used, that cannot be operated for this reason. The final choice of the
-number of fibres, link speed and matching between FEMBs and DAQ processing
-units in the CUC can be delayed until the Technical Design Report.
+%The use of links at speeds of 5 Gbit/s
+%or larger may also present another drawback, in addition to the increases
+%in the cost of fibres, transmitters and receivers. We desire to keep the
+%data of a single FPGA into a single set of DAQ boards, without deserializing
+%the data on the CUC side. Given the granularity of the FEMBs there may be
+%combinations of the number of DQ boards and the number of links being
+%used, that cannot be operated for this reason. The final choice of the
+%number of fibres, link speed and matching between FEMBs and DAQ processing
+%units in the CUC can be delayed until the Technical Design Report.
 
 Another aspect of the interface between the DAQ and the CE consortia is the
-transmission of clock and commands. In protoDUNE there is a single fibre
-that carries this information to the PTC card, which then re-broadcasts
-the information to the five WIBs, using the WIC backplane. For DUNE we
+transmission of clock and commands. In protoDUNE-SP a single fibre
+carries this information to the PTC card at each CE flange, which then re-broadcasts
+the information to the five WIBs, using the WIEC backplane. For DUNE we
 foresee the possibility of transmitting the information directly to each
-WIB. This would only require the addition of a receiver on each WIB, and
-no changes to the FPGA firmware, given that already in the protoDUNE scheme
-the clock and control information is already decoded inside the FPGA mounted
-in the WIB. The final aspect of the interface between the DAQ and the CE is
+WIB, the functionality for which is already implemented in the protoDUNE-SP WIB, as
+shown in Figure~\ref{fig:tpcelec-wib_timing}.
+%This would only require the addition of a receiver on each WIB, and
+%no changes to the FPGA firmware, given that already in the protoDUNE scheme
+%the clock and control information is already decoded inside the FPGA mounted
+%in the WIB.
+The final aspect of the interface between the DAQ and the CE is
 the definition of the format of the data transmitted by the cold electronics
-to the DAQ. This format has been defined for protoDUNE in~(cite: $proto:data_format$).
+to the DAQ. This format has been defined for protoDUNE-SP in~(cite: $proto:data_format$).
 Some changes are needed for DUNE, to accommodate a larger number of APAs.
 
 %\bibitem{proto:data_format)     DocDB 1701

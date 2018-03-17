@@ -2,7 +2,7 @@ In order to minimize system noise, the electrical cables for each APA enter the 
 
 To avoid structural ground loops, the APA frames described in Chapter~\ref{ch:fdsp-apa} are insulated from each other. Each frame is electrically connected to the cryostat at a single point on the CE feedthrough board in the signal flange where the cables exit the cryostat. Mechanical suspension of the APAs is accomplished using insulated supports. 
 
-The analog portion of the FEMB contains eight front-end ASICs configured as 16-channel digitizing charge amplifiers. Input amplifiers on the ASICs have their ground terminals connected to the APA frame.  All power-return leads and cable shields are connected to both the ground plane of the FEMB and to the signal flange.
+The input amplifiers on the FE ASICs have their ground terminals connected to the APA frame.  All power-return leads and cable shields are connected to both the ground plane of the FEMB and to the signal flange.
 
 Filtering circuits for the APA wire-bias voltages are locally referenced to the ground plane of the FEMBs through low-impedance electrical connections. This approach ensures a ground-return path in close proximity to the bias-voltage and signal paths. The close proximity of the current paths minimizes the size of potential loops to further suppress noise pickup.
 

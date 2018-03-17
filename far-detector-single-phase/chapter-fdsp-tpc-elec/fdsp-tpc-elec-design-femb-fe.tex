@@ -1,6 +1,6 @@
 \fixme{\bf The figure in this subsection will be improved for the next version of the draft.}
 
-The front-end (FE) ASIC, also known as LArASIC, receives signals from the CR board and
+LArASIC receives signals from the CR board and
 provides a means to amplify and shape the signals originally coming from the TPC wires; the
 shaping serves as an anti-aliasing filter for the TPC signals.
 Each LArASIC channel has a charge amplifier circuit with a programmable
@@ -10,7 +10,11 @@ a high-order anti-aliasing filter with programmable time
 constant (semi-Gaussian with peaking time 0.5, 1, 2, and 3 $\mathrm{\mu}$s),
 an option to enable AC coupling,
 and a baseline adjustment for operation with either the collecting (200~mV) or the non-collecting (900~mV) wires.
-Shared among the 16 channels in the FE ASIC are the bias circuits, programming registers,
+
+Figure~\ref{fig:fe-output}(a) shows the simulated pulse response for all gains and peaking times and both baselines.
+Note that the gain is independent of the peaking time, such that the amount of charge integrated by the FE increases with gain for a constant peaking time.
+
+Shared among the 16 channels in the LArASIC are the bias circuits, programming registers,
 a temperature monitor, an analog buffer for signal monitoring, and the digital interface.
 The power dissipation of LArASIC is about 6~mW per channel at 1.8~V supply.
 
@@ -23,9 +27,17 @@ This guarantees a high stability of the operating point over a wide range of
 temperatures, including cryogenic.
 The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
 
-Each FE ASIC channel is equipped with an injection capacitor which can be used
+\begin{dunefigure}
+[(a) Simulated FE response to an instantaneous injected charge for all gains and peaking times and both baselines (b) Measured calibration pulse response overlays for 2,560 electronics channels (baseline subtracted) attached to a protoDUNE-SP APA. ]
+{fig:fe-output}
+{(a) Simulated FE response to an instantaneous injected charge for all gains and peaking times and both baselines (b) Measured calibration pulse response overlays for 2,560 electronics channels (baseline subtracted) attached to a protoDUNE-SP APA. }
+\includegraphics[width=0.45\linewidth]{tpcelec-shaper_out.pdf}
+\includegraphics[width=0.45\linewidth]{tpcelec-pdune-wf.pdf}
+\end{dunefigure}
+
+Each FE LArASIC channel is equipped with an injection capacitor which can be used
 for test and calibration and can be enabled or disabled through a
-dedicated register. The injection capacitance has been measured using 
+dedicated register. The injection capacitance has been measured to 0.5$\%$ using 
 a calibrated external capacitor. The measurements show
 that the calibration capacitance is extremely stable, changing from
 184~fF at RT to 183~fF at 77~K. This result and the measured
@@ -33,18 +45,19 @@ stability of the peaking time demonstrate the high stability of the
 passive components as a function of temperature. Channel-to-channel and chip-to-chip
 variation in the calibration capacitor are typically less than 1\%. 
 
-\begin{dunefigure}
-[Measured pulse response with details on gain, peaking time and baseline adjustments.]
-{fig:fe-output}
-{Measured pulse response with details on gain, peaking time and baseline adjustments.}
-\includegraphics[width=0.85\linewidth]{tpcelec-shaper_out.pdf}
-\end{dunefigure}
-
-Prototype ASICs have been evaluated and characterized at RT (300~K) and LN2 (77~K) temperature.
+Prototype LArASIC have been evaluated and characterized at RT (300~K) and LN2 (77~K) temperature.
 During testing the circuits have been cycled multiple times
 between the two temperatures and operated without any change in performance.
-Figure~\ref{fig:fe-output} shows the measured pulse response, both as a function
-of temperature and the programmable settings of the chip.
-These results are in close agreement with simulations and indicate
-that both the analog and the digital circuits and interface operate as
-expected in a cryogenic environment.
+Figure~\ref{fig:fe-output}(b) shows the measured injection pulse response overlayed with the baseline subtracted for one full APA 
+(2,560) electronics channels from protoDUNE-SP FEMB attached to a protoDUNE-SP APA in a 
+shielded environment at approximately 180 degrees Kelvin. This contains 1,600 induction (high-baseline)
+and 960 collection (low-baseline) channels, the latter of which saturate the negative pulse at the low 
+end of the FE output. The spread in saturization values between -500 and -750 ADC bins is due to the
+variation in relative position of the FE baseline to the low end of the FE output 
+in the protoDUNE-SP version of the LArASIC.
+%These results are in close agreement with simulations and indicate
+%that both the analog and the digital circuits and interface operate as
+%expected in a cryogenic environment.
+
+
+
