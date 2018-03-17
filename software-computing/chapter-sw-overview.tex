@@ -31,7 +31,7 @@ Requiring  coincidence with the LBNF beam will reduce the effective live-time fr
 \fixme{Similar discussion of dual phase}
 
 Requiring  coincidence with the LBNF beam will reduce the effective live-time from the full 1.2-1.5 sec beam spill to a 5.4 ms readout window leading to a data rate for beam-coincident events of around 20 GB/sec.
->>>>>>> 8f28b20950a4982236adee94594ef8f6f8ec20d4
+
 
 \begin{table}[htp]
 \begin{center}
@@ -135,21 +135,39 @@ Table \ref{daq:datarates} summarizes the data rates expected from the DAQ sectio
 The DUNE computing model is a work in progress.  We can expect that major advances will take place over the next year on several fronts, with data from ProtoDUNE and the full incorporation of lessons from MicroBooNE into LarSoft. 
 
 
-The overall model can be divided into several major parts: Algorithms, Infrastructure and Adaption for the future.  These are in different stages of planning and completion
+The overall model can be divided into several major parts:  Infrastructure, Algorithms and Adaption for the future.  These are in different stages of planning and completion.  An overarching theme is evaluating and using community codes and resources wherever possible. 
 
-\begin{description}
-\item{Algorithms}
+
+
+\subsection{Infrastructure}
+This category includes the wealth of databases, catalogs, storage systems, compute farms and the software that drives them.  HEP fortunately has already developed much of this technology and our plan is to adopt preexisting systems where possible.  As DUNE is a fully global experiment, integrating the resources of multiple institutions is both an opportunity and a logistical challenge.
+
+We are currently planning to have the primary data store at Fermilab.  For ProtoDUNE, data will also be stored at CERN.  Data processing is being designed to run on HEP grid resources with significant ongoing effort to containerize it so that we can make use of heterogenous resources worldwide. 
+
+
+\subsubsection{Core HEP code infrastructure}
+We plan to use shared HEP infrastructure wherever possible.  Notably the ROOT\cite{root} and GEANT4~\cite{geant4,Allison:2006ve} frameworks.   For event simulation, we plan to use the broad range of available generators (GENIE, NEUT, NuWro...) shared with the worldwide neutrino community.
+
+In addition, we plan to use the infrastructure developed for the Intensity Frontier experiments at Fermilab notably the Art framework and sam data catalog. 
+
+
+\subsection{Algorithms}
 This category includes the simulations, signal processing and reconstruction algorithms needed to reconstruct and understand our data. Algorithms are currently under development but informed by existing general codes (for example GENIE and GEANT4) and the experience of other liquid argon experiments as encoded in the shared larsoft project.
-\item{Infrastructure}
-This category includes the wealth of databases, catalogs, storage systems, compute farms and the software that drives them.  HEP fortunately has already developed much of this technology and our plan is to adopt preexisting systems where possible.  As DUNE is a fully global experiment, integrating the resources of multiple institutions is both an opportunity and a logistical challenge
-\item{Adaptability}
+
+
+
+\subsection{Adaptability}
 As the experiment will be expected to run at least 2 decades past the present we must be prepared for the inevitable and major shifts in the underlying technologies that will occur. The ability to keep operating over decades almost requires that we emphasize open source over proprietary technologies for most applications.  We should also plan to be able to utilize and support a large range of compute architectures in order to fully utilize the resources available to the collaboration.
- \end{description}
 
-In planning we have multiple valuable inputs.
 
-\subsection{Core HEP infrastructure}
-We plan to use shared HEP infrastructure wherever possible.  Notably the ROOT\cite{root} and GEANT4~\cite{geant4,Allison:2006ve} frameworks. 
+
+
+
+
+
+
+\section{Planning inputs}
+
 
 \subsection{Running experiments}\label{sw:IF-input}
 
