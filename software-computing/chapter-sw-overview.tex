@@ -11,7 +11,7 @@
 Offline computing for DUNE faces new and considerable challenges due to the large scale and diverse physics goals of the experiment.  In particular, the advent of Liquid Argon TPC's with exquisite resolution and sensitivity, combined with enormous physical volumes, creates challenges in acquiring and storing large data volumes and in analyzing and reducing them.  The computing landscape is changing rapidly, with the traditional HEP architecture of individual cores running linux being superseded by multi-core machines and CPU's. At the same time, algorithms for LAr reconstruction are still in their infancy and developing rapidly.  As a result we have reason to be optimistic about the future but are not able to predict it accurately.  The ProtoDUNE single and dual phase tests at CERN in the fall of 2018 will provide a wealth of data that will inform the future evolution of DUNE computing models.
 
 The DUNE offline computing challenges can be classified in several ways.  We will start with the different detector/physics configurations that drive the large scale data storage and reconstruction. 
-This discussion leans heavily on the DAQ design described in \ref{sec:fdsp-daq-des-consid}
+This discussion leans heavily on the \dword{daq} design described in \ref{sec:fdsp-daq-des-consid}
 
 
 \subsection{Physics challenges}
@@ -103,7 +103,7 @@ Event Type  & Annual Data Volume & Assumptions \\ \toprowrule
 \end{dunetable}
 
 
-\subsection{Relation to Trigger and DAQ}
+\subsection{Relation to Trigger and \dword{daq}}
 
 The actual data volumes that will need to be recorded and reconstructed depend critically on the tradeoffs between complexity and cost in the detector and data acquisition systems and the cost of storing and reconstructing uninteresting data.
 
@@ -122,17 +122,17 @@ Lossless compression will substantially reduce the data rates at the cost of som
 
 The data volumes discussed above are for un-suppressed, uncompressed data.  Efficient zero suppression mechanisms can substantially reduce the final data volume but previous experience in HEP indicates that this processes must be done carefully and often happens well into data-taking when the data are well understood.  Experience from MicroBooNE and the ProtoDUNE experiments will aid us in developing these algorithms but it is likely that they will be applied later in the processing chain.  
 
-\subsubsection{Summary of boundary with Trigger/DAQ}
+\subsubsection{Summary of boundary with Trigger/\dword{daq}}
 
-After discussion with the Trigger/DAQ group, we have agreed upon a feasible maximum data transfer rate of 100 Gb/sec, which is consistent with projected network bandwidth from Sanford Lab to ESNET and 30 PB/year raw data stored to tape, which is substantial but within reasonable parameters for storage in the mid-2020's.  This will require some triggering and compression at the detector to achieve but allows both DAQ and Offline computing to proceed with reasonable design parameters.
+After discussion with the Trigger/DAQ group, we have agreed upon a feasible maximum data transfer rate of 100 Gb/sec, which is consistent with projected network bandwidth from Sanford Lab to ESNET and 30 PB/year raw data stored to tape, which is substantial but within reasonable parameters for storage in the mid-2020's.  This will require some triggering and compression at the detector to achieve but allows both \dword{daq} and Offline computing to proceed with reasonable design parameters.
 
-Table \ref{daq:datarates} summarizes the data rates expected from the DAQ section of this proposal. 
+Table \ref{daq:datarates} summarizes the data rates expected from the \dword{daq} section of this proposal. 
 
 
 
 \section{Building the computing model}\label{sw:bld-cmp-mdl}
 
-The DUNE computing model is a work in progress.  We can expect that major advances will take place over the next year on several fronts, with data from ProtoDUNE and the full incorporation of lessons from MicroBooNE into LarSoft. 
+The DUNE computing model is a work in progress.  We can expect that major advances will take place over the next year on several fronts, with data from ProtoDUNE and the full incorporation of lessons from MicroBooNE into \dword{larsoft} . 
 
 
 The overall model can be divided into several major parts:  Infrastructure, Algorithms and Adaption for the future.  These are in different stages of planning and completion.  An overarching theme is evaluating and using community codes and resources wherever possible. 
@@ -152,7 +152,7 @@ In addition, we plan to use the infrastructure developed for the Intensity Front
 
 
 \subsection{Algorithms}
-This category includes the simulations, signal processing and reconstruction algorithms needed to reconstruct and understand our data. Algorithms are currently under development but informed by existing general codes (for example GENIE and GEANT4) and the experience of other liquid argon experiments as encoded in the shared larsoft project.
+This category includes the simulations, signal processing and reconstruction algorithms needed to reconstruct and understand our data. Algorithms are currently under development but informed by existing general codes (for example GENIE and GEANT4) and the experience of other liquid argon experiments as encoded in the shared \dword{larsoft}  project.
 
 
 
