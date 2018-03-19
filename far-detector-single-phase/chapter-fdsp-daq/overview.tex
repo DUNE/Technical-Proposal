@@ -11,8 +11,45 @@
 The DUNE \dfirst{fd} \dfirst{sp} \dfirst{daq} system
 design must enable the readout, processing and distribution to
 permanent storage of physics and calibration data from each 10~kton SP
-module, including data from the \dfirst{pds}, \dfirst{tpc}, accelerator and timing,
-calibration, and other auxiliary systems.
+module, including data from the \dfirst{pds}, \dfirst{tpc},
+accelerator and timing, and
+calibration systems (including laser, cold electronics,
+photodetectors, and potentially others).
+
+The DUNE physics program requires that the detector is highly
+sensitive to both beam and off-beam events. The latter include most
+dominantly cosmic rays and atmospheric neutrino interactions, as well
+as hypothesized, rare interactions such as nucleon decay, other baryon
+number violating signatures (such as neutron-antineutron oscillation),
+and supernova neutrino interactions from nearby supernova
+burst(s). Beam interactions and off-beam high-energy interactions pose
+relatively little challenge to the \dword{daq} system, due to the
+ease of triggering due to beam timing information and\/ or the
+presence of large, localized activity in the detector, seen by both
+the \dword{tpc} and \dword{pds}. On the other hand, the low activity
+and extended nature (both spatially and in time) of neutrino events
+from a supernova burst, compounded, on one hand, with the overall large data rates 
+of the DUNE far detector and, on the other hand, naturally occuring radiological backgrounds which
+have similar activity as low-energy supernova neutrino interactions,
+pose a huge challenge to the \dword{daq}. As such, the \dword{daq} and
+in particular the far detector trigger scheme is being designed with
+that challenge in mind. 
+
+Figure~\ref{fig:cartoon} provides a cartoon picture for the DUNE far
+detector readout scheme. One particular concern is the optimal method
+of reducing the data volume, in particular from the
+\dword{tpc}.  In particular, electronics noise and
+radiological rate uncertainties pose a risk in grossly underestimating
+the rate of data associated with low-energy physics.
+Rather than relying on smart zero-suppression or other waveform-level
+lossy schemes, which are far more sensitive to noise and radiological
+rate fluctuations, the approach followed by the \dword{daq}
+design has been to facilitate as efficient and effective 
+triggering as possible, coupled with lossless readout down to the individual
+sub-module (e.g. APA) level. The figure illustrates the
+readout scheme for localized high-energy as well as extended
+low-energy events.
+
 An overview of the overall DUNE \dword{fd} \dword{daq} system is illustrated in
 Fig.~\ref{fig:daq-overview}. 
 Figure~\ref{fig:daq-overview} illustrates the main \dword{daq} subsystem
@@ -59,7 +96,9 @@ the \dfirst{fe} readout.
 \fixme{Start with a statement about the different physics requirements and corresponding challenges for DAQ, and potentially an overview of the solutions.  Eg. beam events can be collected using local trigger \& readout, or at module level (eg. during commissioning), SNB requires global trigger \& readout, etc.}
 %\metainfo{Include: Raw data rate from WIBs, Josh's table of data volumes for each event type and the 30 PB/year offline limit. Space and thermal power limits.  Note, this table may be better put into Section~\ref{sec:fdsp-daq-design} to make this section more generic.}
 
-%\fixme{Anne suggests: Within this section add ref to requirements document when it's ready, and maybe list the most important half dozen in a table here). E.g.,}  
+%\fixme{Anne suggests: Within this section add ref to requirements
+%document when it's ready, and maybe list the most important half
+%dozen in a table here). E.g.,}  
 The high level requirements for the DUNE FD DAQ are provided in
 \cite{daq:reqs}.
 The most critical requirements in consideration for the overall design
