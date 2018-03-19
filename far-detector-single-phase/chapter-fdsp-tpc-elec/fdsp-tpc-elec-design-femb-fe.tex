@@ -5,9 +5,9 @@ provides a means to amplify and shape the signals originally coming from the TPC
 shaping serves as an anti-aliasing filter for the TPC signals.
 Each LArASIC channel has a charge amplifier circuit with a programmable
 gain selectable from one of 4.7, 7.8, 14 and 25~mV/fC
-(full scale charge of 55, 100, 180 and 300~fC),
+(full scale charge of 300, 180, 100 and 55~fC),
 a high-order anti-aliasing filter with programmable time
-constant (semi-Gaussian with peaking time 0.5, 1, 2, and 3 $\mathrm{\mu}$s),
+constant (semi-Gaussian with peaking time 0.5, 1, 2, and 3~\si{\micro\second}),
 an option to enable AC coupling,
 and a baseline adjustment for operation with either the collecting (200~mV) or the non-collecting (900~mV) wires.
 
@@ -31,8 +31,8 @@ The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
 [(a) Simulated FE response to an instantaneous injected charge for all gains and peaking times and both baselines (b) Measured calibration pulse response overlays for 2,560 electronics channels (baseline subtracted) attached to a protoDUNE-SP APA. ]
 {fig:fe-output}
 {(a) Simulated FE response to an instantaneous injected charge for all gains and peaking times and both baselines (b) Measured calibration pulse response overlays for 2,560 electronics channels (baseline subtracted) attached to a protoDUNE-SP APA. }
-\includegraphics[width=0.45\linewidth]{tpcelec-shaper_out.pdf}
-\includegraphics[width=0.45\linewidth]{tpcelec-pdune-wf.pdf}
+\includegraphics[width=0.42\linewidth]{tpcelec-shaper_out.pdf}
+\includegraphics[width=0.57\linewidth]{tpcelec-pdune-wf.pdf}
 \end{dunefigure}
 
 Each FE LArASIC channel is equipped with an injection capacitor which can be used
@@ -40,12 +40,13 @@ for test and calibration and can be enabled or disabled through a
 dedicated register. The injection capacitance has been measured to 0.5$\%$ using 
 a calibrated external capacitor. The measurements show
 that the calibration capacitance is extremely stable, changing from
-184~fF at RT to 183~fF at 77~K. This result and the measured
+184~fF at room temperature to 183~fF at 77~K. This result and the measured
 stability of the peaking time demonstrate the high stability of the
 passive components as a function of temperature. Channel-to-channel and chip-to-chip
 variation in the calibration capacitor are typically less than 1\%. 
 
-Prototype LArASIC have been evaluated and characterized at RT (300~K) and LN2 (77~K) temperature.
+Prototype LArASIC have been evaluated and characterized at room temperature (300~K) and LN$_2$
+(77~K) temperature.
 During testing the circuits have been cycled multiple times
 between the two temperatures and operated without any change in performance.
 Figure~\ref{fig:fe-output}(b) shows the measured injection pulse response overlayed with the baseline subtracted for one full APA 

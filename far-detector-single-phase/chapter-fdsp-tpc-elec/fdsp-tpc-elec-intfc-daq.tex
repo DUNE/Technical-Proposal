@@ -33,16 +33,6 @@ matching between FEBMs and DAQ processing units in the CUC should be
 the result of a cost optimization process that can be delayed until
 the Technical Design Report.
 
-%The use of links at speeds of 5 Gbit/s
-%or larger may also present another drawback, in addition to the increases
-%in the cost of fibres, transmitters and receivers. We desire to keep the
-%data of a single FPGA into a single set of DAQ boards, without deserializing
-%the data on the CUC side. Given the granularity of the FEMBs there may be
-%combinations of the number of DQ boards and the number of links being
-%used, that cannot be operated for this reason. The final choice of the
-%number of fibres, link speed and matching between FEMBs and DAQ processing
-%units in the CUC can be delayed until the Technical Design Report.
-
 Another aspect of the interface between the DAQ and the CE consortia is the
 transmission of clock and commands. In protoDUNE-SP a single fibre
 carries this information to the PTC card at each CE flange, which then re-broadcasts
@@ -50,13 +40,11 @@ the information to the five WIBs, using the WIEC backplane. For DUNE we
 foresee the possibility of transmitting the information directly to each
 WIB, the functionality for which is already implemented in the protoDUNE-SP WIB, as
 shown in Figure~\ref{fig:tpcelec-wib_timing}.
-%This would only require the addition of a receiver on each WIB, and
-%no changes to the FPGA firmware, given that already in the protoDUNE scheme
-%the clock and control information is already decoded inside the FPGA mounted
-%in the WIB.
+
 The final aspect of the interface between the DAQ and the CE is
 the definition of the format of the data transmitted by the cold electronics
-to the DAQ. This format has been defined for protoDUNE-SP in~(cite: $proto:data_format$).
-Some changes are needed for DUNE, to accommodate a larger number of APAs.
+to the DAQ.  This format has been defined previously for protoDUNE-SP.
+Some changes are needed for DUNE to accommodate a larger number of APAs.
 
+%%% PROTODUNE DATA FORMAT:
 %\bibitem{proto:data_format)     DocDB 1701
