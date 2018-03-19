@@ -7,8 +7,10 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Overview (Giles Barr)}
+\subsection{Overview}
 \label{sec:fdsp-daq-ltr}
+
+\metainfo{Giles Barr}
 
 %Here we describe the overall readout and data acquistion
 %strategy. This will include the high-level data flow diagram,
@@ -42,27 +44,27 @@ noise levels in a part of the detector are higher than specified and
 higher than tolerable by the baseline trigger decision mechanism; it
 will allow additional data processing to be added (at additional cost).
 
+\fixme{Mention scalability here ?}
+
 The data will be collected from the TPC and photon-detector readout
 systems of the single-phase and dual-phase \dwords{detmodule}. 
 These partitions are viewed as essentially four types of
 \dwords{submodule} within the DAQ and will follow the same overall
 data collection scheme as shown in figure 1. 
 The readout is arranged in a hierarchical manner to allow localized
-\dword{trigdecision} to be made at the \dword{detunit} level, at the
-cavern level before being combined over the full four caverns. 
-The control of the detector elements will allow a fault in one part to
-not halt data taking in another part, certainly at the per-cavern
-level, but maybe also at more local levels. 
-This will prevent a supernova burst following a failure in some part
-of a cavern from being missed.
+\dwords{trigdecision} to be made at the \dword{detunit} level, at the
+\dword{detmodule} level, as well as combined over the full four \dwords{detmodule}. 
+The control of the detector elements will prevent a fault in one part from halting data taking in another part, certainly at the per-cavern
+level, and potentially also at more local levels. 
+This will allow a supernova burst to be recorded in all operational parts of the detector.
 
 It is helpful, on first looking at the DUNE DAQ dataflow scheme, to
 consider how the main data is collected first and then to look at how
 the triggering and synchronization functions are included; we take
 this approach in this overview. 
 The main data are initially merged within one \dword{detunit} (eg, one
-APA) and placed in a \dword{ringbuffer} to allow \dwords{trigdecision}
-to be made. 
+APA) and placed in a \dword{ringbuffer} while \dwords{trigdecision}
+are made. 
 When a \dword{trigdecision} is performed it results in all data in a
 determined time window and in a designated region of interest (ROI) as
 specified by the \dword{trigcommand} to be extracted from the
@@ -82,6 +84,8 @@ arrive and appear over the background). Further details of the
 buffering scheme is described in section~\ref{sec:fdsp-daq-ltr}
 % 7.2.2.
 
+\fixme{Clarify what is meant by ``main data''.  ``trigger decision'' is confusing - sometimes it refers to a decision, sometimes the positive outcome of a decision.  No need to mention ``trigger command'' at this stage - we can just say what happens to the data without mentioning implementation.  Unclear what the secondary DAQ buffer is for.  Event building undefined.}
+
 % want a \subsubsection here?
 (Triggering Overview) In parallel with the data buffering scheme
 described above, summaries of per-channel time-above-threshold
@@ -96,7 +100,7 @@ study, as it depends on the interfaces, both can be accomodated in the
 architecture, and both have been costed. 
 To retain the APA-level modulariy, the trigger primitives are
 collected and processed in the same APA node that buffers the data.
-The trigger primitives are then sent to the cavern level and then the
+The trigger primitives are then sent to the \dword{detmodule} level and 
 detector-level triggers to allow both multi-APA triggers to be formed
 and also allow the supernova burst detection decisions to be made to
 initate data transfer to \dword{dumpbuffer}. 
@@ -120,13 +124,15 @@ thresholds during a SNEWS period than normal.
 (Synchronisation Overview) Unknown until the interface with elecronics is known
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Local Readout \& Buffering (Giles Barr \& Giovanna Miotto \& Brett Viren)}
+\subsection{Local Readout \& Buffering}
 \label{sec:fdsp-daq-ltr}
+
+\metainfo{Giles Barr \& Giovanna Miotto \& Brett Viren}
 
 \begin{dunefigure}[Baseline Readout and Buffering]{fig:daq-readout-buffering-baseline}
   {Illustration of data flow for two out of 150 APAs in the \dword{sp}
     \dword{detmodule}. 
-    The data is transmitted from teh Cold Electronics WIBs to the
+    The data is transmitted from the Cold Electronics WIBs to the
     \dwords{rce} which are part of the \dword{sp} DAQ \dword{fe}
     readout hardware. 
     The connections are such that each \dword{rce} receives data from
@@ -175,75 +181,48 @@ throughput.
 As that data is flowing through the buffer, the \dword{trigdecision}
 process described below is ongoing.
 A \dword{trigcommand} is interpreted by the \dword{eb} which issues
-readout commands to appropriate \dwords{data selector}. 
+readout commands to an appropriate \dwords{data selector}. 
 A \dword{data selector} is an agent running on the \dword{fec} which
 executes the readout command by selecting the indicated portion of
 data from the buffer and returning it to the \dword{eb} that issued
 the request.
 
-\begin{dunefigure}[Detail of FE readout and buffering]{fig:rce-snb-buff}
-  {Illustration of FE readout detail showing the conceptual flow of full-stream data, trigger primitives and the special buffering and write out path for data corresponding to an SNB dump command}
-  \includegraphics[width=0.8\textwidth]{rce-snb-buffer.png}
-\end{dunefigure}
-
 In the \dword{sp} DAQ module \dword{snb} triggering, buffering and
-readout is managed separately from the nominal flow described above
-and is illustrated in Fig.~\ref{fig:rce-snb-buff}. 
-A second, distributed RAM buffer will be used to store the full data
-stream long enough for a \dword{snb} \dword{trigcommand} to be formed
-and distributed. 
-The expected time for the number of \dword{snb} interactions
-throughout the \dword{sp} \dword{detmodule} to rise above the
-background rate is on order \SI{1}{\s}.
-The RAM buffer must be large enough to store the full-stream data well
-in excess of this rise time. 
-Some \dword{snb} models predict the possibility of early neutrino
-interactions at rates which would not satisfy the nominal \dword{snb}
-trigger condition but which nonetheless could carry important Physics
-information.
-It is unknown how early such neutrino interactions may occur and so
-this RAM buffer size is ultimately limited by available technology and
-cost.
-Nominally, a per-RCE \dword{snb} RAM buffer size is chosen such that
-at least \SI{10}{\s} of past data can be retained.
-
-An \dword{snb} readout begins with an \dword{snb} \dword{trigcommand}
-issued to the \dfirst{oob} which forwards it to the 600 \dwords{rce}. 
-Once received, each \dword{rce} will begin streaming the data to local
-non-volatile memory \dword{ssd} storage starting at the time requested
-by the \dword{trigcommand} or with the earliest data available if the
-data for the requested start time has already dropped from the buffer.
-The data will continue to stream until the requested stop time has
-been reached. 
-In principle, this streaming can continue until the \dword{ssd} is
-full. 
-
-Using commodity \dword{ssd} technology available today, the per-RCE
-data rate is \SI{2.5}{\GB/\s} can sunk. 
-For costing purposes, individual storage unit capacity is chosen to be
-\SI{500}{\GB} which will allow capturing and storing \SI{200}{s} of
-full-rate data before filling.
-Employing lossless compression can easily double the buffer depth and
-if excess noise is minimal this factor can be expected to provide a
-compression factor of five or six.
-A scheme to periodically purge these storage devices requires more
-study which takes into account \dword{snb} models, background rates,
-trigger threshold and corresponding false positive rate, bandwidth
-from \dwords{rce} to subsequent processing and storage, available
-offline processing resources, etc.
-Independently, \dword{snb} dump data will be transferred from this
-buffer storage via a local network connection to a special \dword{snb}
-\dword{eb} And, while the \dwords{rce} may be streaming and
-transferring \dword{snb} dumps they continue to supply the full data
-to the \dwords{fec} via the link to the \dword{felix} boards.
-
-
+readout is managed separately from the nominal flow described above. 
+The second distributed RAM buffer is to store the full data stream
+long enough for a \dword{snb} \dword{trigcommand} to be formed and
+distributed. 
+The time for the number of \dword{snb} interactions throughout the
+\dword{sp} \dword{detmodule} to rise above background rate is on order
+\SI{1}{\s} and the nominal \dword{snb} \dword{readout window} is
+\SI{10}{\s}. 
+The \dword{snb} \dword{trigcommand} is issued to the \dword{oob} which
+dispatches it to the 600 \dwords{rce}. 
+Once received, each \dword{rce} will dump the portion of the requested
+data which is already in the RAM buffer to local \dword{ssd} storage
+and if the end of readout window is not yet reached it will stream the
+data directly to the \dword{ssd} storage.
+The rate to \dword{ssd} storage is \SI{2.5}{\GB/\s} which is
+achievable with the fastest devices commonly available today. 
+As high rate as this is, for a \SI{10}{\s} \dword{snb} readout window
+this represents only \SI{25}{\GB} per \dword{snb} per \dword{rce}.
+For a reasonable selection of thresholds it is expected that the
+number of \dword{snb} triggers (almost all of which will be
+false-positive) will be low enough to allow this data to reside on the
+\dword{ssd} storage almost indefinitely and to be sent out of the DAQ
+as a low-rate transfer.
+This transfer will be performed using local network connections to a
+special \dword{snb} \dword{eb}.
+While the \dwords{rce} are dumping and transferring \dword{snb} dumps
+they continue to supply the full data to the \dwords{fec} via the link
+to the \dword{felix} boards.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Local Trigger Primitive Generation (Josh Klein \& J.J. Russel \& Brett Viren \& DP Expert?)}
+\subsection{Local Trigger Primitive Generation}
 \label{sec:fdsp-daq-ltp}
 
+\metainfo{Josh Klein \& J.J. Russel \& Brett Viren \& DP Expert?}
 
 \Dwords{trigprimitive} are generated inside the \dword{fe} readout
 hardware local to each APA from TPC data on a per-channel basis.
@@ -329,8 +308,10 @@ This will require reprocessing the raw waveform data.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Dataflow, Trigger and Event Builder (Giles Barr \& Josh Klein \& Giovanna Miotto \& Kurt Biery \& Brett Viren)}
+\subsection{Dataflow, Trigger and Event Builder}
 \label{sec:fdsp-daq-hlt}
+
+\metainfo{Giles Barr \& Josh Klein \& Giovanna Miotto \& Kurt Biery \& Brett Viren}
 
 The data volume that is continuously flowing through the DUNE
 \dword{sp} \dword{detmodule} DAQ from one APA is about \SI{10}{\GB/\s}
@@ -460,8 +441,10 @@ object as this would produce a single \SI{15}{\TB} file.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Data Selection Algorithms (Josh Klein \& Brett Viren)}
+\subsection{Data Selection Algorithms}
 \label{sec:fdsp-daq-sel}
+
+\metainfo{Josh Klein \& Brett Viren}
 
 %This section describes the strategy for using the trigger/dataflow infrastructure, with example algorithms.
 
@@ -705,8 +688,10 @@ supernova burst is detected at the \dword{mtl}.
 % Data selection after event building.
 %
 
-\subsection{Timing \& Synchronization (David Cussans \& Kostas Manolopoulos)}
+\subsection{Timing \& Synchronization}
 \label{sec:fdsp-daq-timing}
+
+\metainfo{David Cussans \& Kostas Manolopoulos}
 
 %Describe the generation of timing/synchronisation signals and and distribution to the detectors.
 
@@ -859,8 +844,10 @@ precision is less accurate due to missing or late packets.  From the
 MINOS monitoting analysis, this will be very rare.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Computing \& Network Infrastructure (Kurt Biery \& Babak Abi)}
+\subsection{Computing \& Network Infrastructure}
 \label{sec:fdsp-daq-infra}
+
+\metainfo{Kurt Biery \& Babak Abi}
 
 The computing and network infrastructure that will be used in each
 of the four \dwords{detmodule} will be similar, if not identical.
@@ -900,8 +887,10 @@ will have the following components:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Run Control \& Monitoring (Giovanna Miotto \& Jingbo Wang}
+\subsection{Run Control \& Monitoring}
 \label{sec:fdsp-daq-tcm}
+
+\metainfo{Giovanna Miotto \& Jingbo Wang}
 
 % Giovanna used "TDAQ", not "DAQ".
 % I need to check if there is a distinction (bv).
