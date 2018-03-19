@@ -62,13 +62,14 @@ some of the important CISC system design requirements.
 
 \begin{dunetable}
 [Important design requirements on the SP CISC system design]
-{p{0.23\textwidth}p{0.16\textwidth}p{0.32\textwidth}p{0.19\textwidth}}
+{p{0.22\textwidth}p{0.17\textwidth}p{0.32\textwidth}p{0.19\textwidth}}
 {tab:sp-cisc-requirements}
 {Important design requirements on the single phase CISC system design}
 Design Parameter
  & Requirement
  & Motivation
- & Requirement met? \\ \toprowrule
+ & Requirement met?
+\\ \toprowrule
 Electron lifetime measurement precision
  & $<\SI{1.4}{\%}$
  & Per DUNE-FD Task Force, needed to keep the bias on the charge readout in the TPC to below \SI{0.5}{\%} at \SI{3}{ms}
@@ -78,6 +79,11 @@ Thermometers precision
  & $<\SI{5}{mK}$
 & Driven by CFD simulation validation; based on ProtoDUNE-SP design
 & Yes: ProtoDUNE thermometers \SI{2}{mK}
+\\ \colhline
+Thermometers density
+ & \(>2/\si{m}\) (vert.), \(\sim\)~0.2/\si{m} (horiz.)
+ & Driven by CFD simulation
+ & Yes: design
 \\ \colhline
 Liquid level meters precision (SP)
  & \SI{0.1}{\%} over \SI{14}{m}
@@ -89,11 +95,23 @@ Liquid level meters precision (SP)
 % & Maintain constant gas phase drift
 % & Yes: WA105 / ProtoDUNE-DP design \SI{0.1}{mm}
 % \\  \colhline
+ Cameras
+ & \multicolumn{3}{p{0.64\textwidth}}{see Table \ref{tab:fdgen-cameras-req}}
+ \\ \colhline
 Cryogenic Instrumentation Test Facility cryostat volumes
  & 0.5 to \SI{3}{m^3}
 & Based on filling costs and turn around times
 & Under design
 \\  \colhline
+ Max.\ E-field near instrumentation devices
+ & \(<\SI{30}{kV/cm}\)
+ & Maximum field that LAr can maintain without undergoing dielectric breakdown
+ & Yes: electrostatic simulation
+\\ \colhline
+ Minimize noise from instrumentation devices
+ & ALARA
+ & Keep readout electronics free from external noise, which confuses event reconstruction (As Low As Reasonably Achievable)
+\\ \colhline
 Alarm rate
  & \(<\SI{150}{\per\day}\)
 & Recommended manageable alarm rate; allows experiment operators to respond to every alarm.
@@ -105,7 +123,7 @@ Total no.\ of variables
 & Yes: existing control system software; DUNE choice in progress.
 \\  \colhline
 Max.\ archiving rate per channel
- & \SI{1}{Hz} (burst), \SI{1}{\per\minute} (average)
+ & \SI{1}{Hz} (burst), \SI{1}{\per\minute} (avg.)
 & Based on expected rapidity of interesting changes; impacts the base software choice; depends on data storage capabilities
 & Yes: existing control system software; DUNE choice in progress.
 \\ \colhline
