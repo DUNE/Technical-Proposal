@@ -76,13 +76,19 @@ def build(bld):
 
         bld.install_files('${PREFIX}',voltex.replace(".tex",".pdf"))
 
+        #voltit = volname.replace("-"," ").capitalize()
+        voltit = voltex
+
         for chtex in voldir.ant_glob("**/chapter*.tex"):
             chname = os.path.basename(str(chtex))
             chmaintex = bld.path.find_or_declare("%s-%s" % (volname, chname))
 
+            #chtit = chname.replace(".tex","").replace("-"," ").capitalize()
+            chtit = chname
+
             bld(source=[chaptex, chtex],
-                target=[chmaintex],
-                rule="${CHAPTERS} ${SRC} ${TGT}")
+                target=os.path.basename(str(chmaintex)),
+                rule="${CHAPTERS} ${SRC} ${TGT} '%s' '%s'" % (voltit, chtit))
 
             bld(features='tex',
                 prompt = prompt_level,
