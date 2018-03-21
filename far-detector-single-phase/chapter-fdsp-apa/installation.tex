@@ -1,133 +1,164 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Integration and Installation (7 pages)}
+\section{Integration and Installation} % (7 pages)}
 \label{sec:fdsp-apa-install}
 
-In this section, the full installation sequence will be detailed, from the arrival of the APAs at the Integration Facility (IF) all the way to the final positioning and integration inside the cryostat. 
+Completed APAs will be shipped from the APA production sites to an Integration Facility (IF) for integration with the TPC front-end electronics and photon detectors.  The IF location is not decided, but facilities near the Sanford site are being considered.   
+%The full installation sequence consists of the steps from the arrival of the APAs at the Integration Facility (IF) all the way to the final positioning and integration inside the cryostat. The APAs will be shipped to the IF for integration with the remaining systems (electronics and potentially the photon detectors). 
+Activities at the IF will include extensive quality control testing to ensure the functioning of the fully integrated APAs.  Once checked, the APAs are re-packaged for final transport to SURF. Each APA, still in its transport crate, will be hung from the Ross Shaft cage by a sling and transported underground where it will be stored in a waiting area.  Pairs of APAs must be linked in their vertical configuration and cables ran from both the lower and upper APAs in an area just outside the cryostat.  Once completed, the pair enters through the Temporary Cryostat Opening (TCO) onto the Detector Support Structure (DSS) and is moved into its final position.  Final checkout tests will be performed once the APAs are in place.
 
-After APAs have left the production site, they will be shipped to the IF for integration with the remaining systems (electronics for sure, maybe photon detectors if not integrated already at the production site). Different tests will be performed there to ensure the functioning of the fully integrated APAs. Once all the tests are satisfactory (we need a description of what happens when test failed), the APA is re-packaged to be sent to Homestake and underground. The APA crates are loaded in the cage by the sling and are lowered down to the underground location where they will be picked up and stored in the waiting area. They then will be removed from the crate, lowered in the TOC, where cables will be installed (if not already all installed at the IF) and final tests will be performed once the APAs are in place (exact tests need to be finalized. Do we do tests near the TCO in case of problems, or we install a full "wall ACACA" before testing the wall at once).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Integration with Photon Detectors and TPC Electronics}
+%\label{sec:fdsp-apa-install-pds-elec}
+
+The integration with the photon detectors is expected to be done at the Integration Facility. However, there is an alternative plan where they would be installed at the APA production sites (the specifics of the plan needs to be developed with the PDS Consortium and depend on the final PDS design). The TPC front-end electronics will be installed  at the IF and the exact installation sequence will be developed with the Electronics Consortium.
+
+A conceptual layout of the space required at the Integration Facility is being developed. %shown in figure \ref{fig:testlayout}. 
+An overhead crane is needed to lift APAs out of their shipping crate and maneuver them through the facility.  Most of the handling areas will need to be embedded in a clean tent. Finally, a cold box will be available for quality control testing of the electronics once installed on the APA (see Section \ref{sec:fdsp-apa-install-qc_if}).  %Each APA, with electronics and photon detectors installed, is then re-inserted in the crate for transport to SURF.
+
+%\begin{dunefigure}[Schematics of the layout of the IF testing area]{fig:testlayout}{A schematic of the layout for the testing area at the IF. Most of this area has to be embedded in a clean environment (i.e. tent).}
+%\includegraphics[width=0.4\textwidth]{test_layout.png} 
+%\end{dunefigure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Transport and Handling}
 \label{sec:fdsp-apa-install-transport}
 
-This section will describe the crates used for transport of the APA (both for international shipping and for shipping between IF and underground, which may be different). The APA frame feature for handling should have been described in section \ref{sec:fdsp-apa-boards}, where it says anchoring). The APA will have been inserted in the crate at the production site and shipped to the IF.
+%APAs will be stored in custom designed crates for transport as shown in figure \ref{fig:crate}. 
+Custom designed crates will be used for transport between the production sites and the IF and between the IF and SURF. The design of the crates is still being finalized, but there are currently two possible approaches. The first is to use less expensive, disposable crates for transport to the IF and fewer, more expensive crates for transport underground, which are reused between the IF and underground. The second option is a single crate that is used for all transport stages. The transport underground requires a design that will allow a 180$^{\circ}$ rotation of the crate. 
+% (see figure \ref{fig:cagetransport}).
 
-A description of the handling at IF is required. We need cranes to get the APAs out of the crate and moved them to a temporary holder for integration and testing. Once this is completed, the APA will be moved back to the crate (or to different crates) for the transport underground. These crates will be loaded on a truck, driven to the mine, transported to the cage, secured on the sling under the cage, lowered down, picked up (probably rotation of 180$^{\circ}$) and moved to the underground storage area. There, they will be lifted out of the crate and moved down the TCO. Once final tests have been performed, the APAs will be moved to their final location.
+%\begin{dunefigure}[Draft of the APA transport crates]{fig:crate}{A schematic design of the APA transport crate (note that the material will not be wood).}
+%\includegraphics[width=0.5\textwidth]{tp3-5-1-fig1.jpg} 
+%\end{dunefigure}
 
-List of figures will be:
-\begin{itemize}
+The handling of the APAs at the IF and underground is done with overhead cranes. Once the APAs are repackaged in the crates, they  will be loaded on a truck, driven to the mine, transported to the cage, secured on the sling under the cage (see figure \ref{fig:cagetransport}), lowered down and moved to the underground storage area.
 
-\item{Drawing of the crates for shipping (two different if required)}
-\item{Drawing of the IF holder for the APA integration and testing}
-\item{Drawing of the way APA crates will be attached under the cage}
-\item{Drawing of the storage area and the cranes and holder for APAs}
-\item{Drawing of the system to move the APAs down the TCO and inside the cryostat}
-
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Integration with Photon Detectors and TPC Electronics}
-\label{sec:fdsp-apa-install-pds-elec}
-
-For the photon detector system (PDS): The current idea is to integrate them at the production sites. This is clearly the easiest since the frames are available with no wires. However, it is possible that this will need to be done at the IF. Detailed plans of the PDS integration are required.  
-
-List of figures for the PDS will be:
-\begin{itemize}
-\item{Drawing of the PDS system installed on the APA}
-\item{Potential drawings of the sequence of PDS installation and connections}
-\end{itemize}
-
-For the electronics: The electronics will be connected to the APAs at the IF. A detailed description of the sequence of installation should be here.
-
-List of figures for the electronics will be:
-\begin{itemize}
-\item{Drawing of the electronics installed on the APA}
-\item{Potential drawings of the sequence of electronics installation and connections}
-\end{itemize}
+\begin{dunefigure}[APA suspended beneath the mine shaft cage]{fig:cagetransport}{The APA crate (in blue) will be brought underground with a sling under the cage (green). Since the insertion (from the back of the cage above ground) and the extraction (from the front of the cage underground) will be done from different sides, the APA crate must be rotated by 180$^{\circ}$.}
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{0.5pt}
+\fbox{\includegraphics[width=0.4\textwidth, trim=0mm 20mm 0mm 20mm,clip]{APA_cage.jpeg}} 
+\end{dunefigure}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Installation in the cryostat}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{APA-to-APA Assembly and Installation in the Cryostat}
 \label{sec:fdsp-apa-install-cryostat}
 
-A detailed description of the installation sequence once the APAs are underground is required. After the APA is out of the crate and supported, test describe in ref{sec:fdsp-apa-install-calib} will be performed. Then the APA is lowered down in the TCO. Some cables will likely need to be installed here, and the APA will be secured inside the cryostat, while the second APA will be lowered in the TCO. The two APAs will need final cabling and connection between the two. May be some quick testing before the two linked APAs are moved to final location.
+Once underground, there will be a small storage area for stockpiling APAs (see Fig.~\ref{fig:handling}). When ready for installation, each APA is extracted from its crate, inspected and rotated to be lowered into the area just outside of the temporary construction opening (TCO) in the cryostat. Two APAs, one a lower and one an upper design, are lowered in front of the TCO where they are linked and cabled. The details of the cabling are still being finalized, but the main option is currently to pass all the cables inside the APA frame tubes (see Section~\ref{sec:fdsp-apa-intfc}).
 
-List of figures for the installation in the cryostat will be:
-\begin{itemize}
-\item{Drawing of the sequence from the underground storage to TCO}
-\item{Drawing of the cable installation required}
-\item{Drawing of the link/connection between the two APAs}
-\end{itemize}
+\begin{dunefigure}[Underground handling of the APAs]{fig:handling}{(Top Left) Storage area, where the APAs are extracted from the crates. (Top Center) The APAs are rotated for visual inspection. (Top Right) The APAs are placed into position to be lowered in front of the TCO. (Bottom Left) A pair of APAs in front of the TCO being linked and cables ran to the top. (Bottom Right) Pair of APAs on the DSS being moved into their final position.}
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{0.5pt}
+\centering
+\fbox{\includegraphics[height=0.195\textheight,trim=8mm 8mm 20mm 4mm,clip]{APA_opening.png}} 
+\fbox{\includegraphics[height=0.195\textheight,trim=8mm 4mm 20mm 4mm,clip]{APA_rotation.png}} 
+\fbox{\includegraphics[height=0.195\textheight,trim=4mm 4mm 4mm 4mm,clip]{APA_hanging.png}} 
+\\ \vspace*{1.5mm}
+\hspace*{-.25mm}
+\fbox{\includegraphics[height=0.37\textheight,trim=4mm 4mm 4mm 4mm,clip]{APA_link.png}}
+\hspace*{1.mm}
+\fbox{\includegraphics[height=0.37\textheight,trim=4mm 4mm 4mm 4mm,clip]{APA_cryostat.png}}
+\end{dunefigure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Quality Control in Integration and Installation}
+%\begin{dunefigure}[APA cabling]{fig:APAcables}{Proposed cabling solution for the APAs. }
+%\begin{tabular}{cc}
+%\includegraphics[width=0.5\textwidth]{APA_cables_2.png} 
+%\includegraphics[width=0.4\textwidth]{APA_cables.jpeg} 
+%\end{tabular}
+%\end{dunefigure}
+
+%Once both the top and bottom APAs have been lowered in the TCO (see figure \ref{fig:APA_TCO}), they are linked together. The current linking scheme is shown on the right of figure \ref{fig:APA_TCO}, however, this needs to be finalized.
+
+%\begin{dunefigure}[APAs in the TCO]{fig:APA_TCO}{Left: Top and bottom APAs placed in the TCO for cabling and linking. Center: Linking bracket current design. Right: Current APA linking solution.}
+%\begin{tabular}{cc}
+%\includegraphics[width=0.3\textwidth]{APA_link.png} 
+%\includegraphics[width=0.4\textwidth]{APA_link_2.png} 
+%\end{tabular}
+%\end{dunefigure}
+
+Finally, when the two APAs are fully cabled, they are placed onto the detector support structure (DSS) and moved to their location in the cryostat where final integration tests will be performed.
+
+%\begin{dunefigure}[APAs in the cryostat]{fig:APA_cryostat}{Top/bottom APA pairs are moved inside the cryostat to their final location.}
+%\includegraphics[width=0.5\textwidth]{APA_cryostat.png} 
+%\end{dunefigure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Quality Assurance and Quality Control in Integration and Installation}
 \label{sec:fdsp-apa-install-calib}
 
-This section will describe all the tests that will be performed to ensure that each APA is fully functional and to the specifications required. There will be two main testing step. One at the Integration Facility and one once the APA are installed into their location in the cryostat.
+The quality control related to integration and installation have two main testing campaigns, one at the Integration Facility and one once the APAs are installed into their location in the cryostat.
 
-A quality control dedicated database is required to keep track of all the different channels in all the different APAs at the different stages of the installation and integration. A simple and practical method of tagging critical parts in the APA will also be essential for efficient integration.
+A dedicated database for quality control is required to keep track of all the components for all the APAs at the different stages of the integration and installation. A simple and practical method of tagging critical parts in the APA is also under development for efficient integration.
 
+The quality assurance related to integration and installation is heavily based on the ProtoDUNE experience and at this point no dedicated QA protocol is developed.
 
-\subsubsection{Quality Control at Integration Facility}
+%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quality Control at the Integration Facility}
+\label{sec:fdsp-apa-install-qc_if}
 
-All the active detector components will be shipped to the Integration Facility for integration between the different parts and for testing. It is at that location that we will have most time to perform tests and this step will be critical for ensuring high performance of the integrated APAs. The exact time scale of the APAs still needs to be finlaised based on information from the production sites and on installation schedule.
+All the active detector components will be shipped to the Integration Facility for integration and for testing. It is at that location that we will have the most time to perform tests and this step will be critical for ensuring high performance of the integrated APAs. The exact time scale of APA testing needs to be finalized based on information from the production sites and on the installation schedule. Table \ref{tab:qclist} shows a summary of the quality control tests that will be performed at the IF. The details of each is given below. %Figure \ref{fig:testlayout} shows an example of the layout of the testing area at the IF.
 
-Table \ref{tab:qclist} shows a summary of all the quality control tests that will be performed at the IF. The details of each is given below. Figure \ref{fig:testlayout} shows an example of the layout of the testing area at the IF.
-
-\begin{dunetable}[QC List]{l|c|c}{tab:qclist}{qclist}   
+\begin{dunetable}[QC List]{l|c|c}{tab:qclist}{List of tests performed for Quality Control upon reception at the integration facility}   
 Test to perform   &  Number of wires/channels & Acceptable values\\ 
-Visual Inspection & All & All intact\\
-Wire tension      & XX$\%$ sample & 5 $\pm$ 1N\\
+Visual Inspection & All & All intact (> 99$\%$)\\
+Wire tension      & 10$\%$ sample & 5 $\pm$ 1N\\
 Wire continuity   & All & $-$\\
-Electronics connections & All & Perfect\\
-Noise             & All &  $\pm$ XX\\
-Cold test         & All & All intact\\
+Current leakage   & All & < X $\mu$A \\
+Electronics connections & All & Perfect (> 99$\%$)\\
+Noise             & All &  $\pm$ XX (> 99$\%$)\\
+Cold test         & All & All intact (> 99$\%$)\\
+\textbf{Overall}  & \textbf{All} & \textbf{At least 99$\%$ fully operational}\\
 \end{dunetable}
 
-\begin{dunefigure}[Schematics of the layout of the IF testing area]{fig:testlayout}{A schematic of the layout for the testing area at the IF. Most of this area has to be embedded in a clean environment (i.e. tent).}
-\includegraphics[width=0.5\textwidth]{test_layout.png} 
-\end{dunefigure}
+After unpacking an APA at the IF, a thorough visual inspection will be performed. Tension measurements will be made for a sample of around 350 wires (representing $\sim$10\% of the wires). The default technique is the laser method that has been used for ProtoDUNE.  The method works well, but is time consuming, so alternative methods that use voltage measurements are also being pursued to reduce the measuring time. Such improved methods could allow a larger number of wires (even the full APA) to be measured. 
 
-After unpacking an APA, a thorough visual inspection will be performed. A sample of around xxx wires (representing about xx$\%$ of the wires) will be  measured for tension. Tension measurements will be performed following the laser method (same as protoDUNE). However, alternative methods, using voltage measurements are also being pursued to reduce the measuring time, which is currently a significant time driver. The values will be recorded in the database and compared with the full-scale original tension measurement. Definite guidance for the acceptable tension values will be available to inform decision on the quality of the APA. A clear pass/fail criteria will be provided as well as a clear procedures to deal with individual wires laying outside the acceptable values. A continuity test will be performed on all the wires and the data will be recorded. Note that the requirement for a successfully quality controlled APA is where \textbf{less than $1\%$ of the channels are broken or dead}. Exact relation between lower or higher tension and the acceptance of a channel still needs to be worked out.
+Tension values will be recorded in the database and compared with the original tension measurements performed at the production sites. Definite guidance for the acceptable tension values will be available to inform decisions on the quality of the APA. A clear pass/fail criteria will be provided as well as clear procedures to deal with individual wires laying outside the acceptable values. %Exact relation between lower or higher tension and the acceptance of a channel still needs to be worked out. 
+This guidance will be based on the ProtoDUNE experience, where the tension of some wires have changed during the production to installation process. In addition, a continuity test and a leakage current test will be performed on all the wires and the data will also be recorded in the database. 
 
-Once the electronics is installed by the Electronics consortium, serious testing of the APA readout should be performed. The integrated APA should be inserted in the cold box and the electronics performance (signal, noise,...) can be tested adequately. A strict guidance will be available to assess the pass/fail criteria for each APA during these tests.
+Once the electronics are installed by the Electronics consortium, dedicated testing of the APA readout will be performed. The integrated APA should be inserted in the cold box and the electronics performance can be tested adequately. A strict guidance will be available to assess the pass/fail criteria for each APA during these tests. Here too, guidance from ProtoDUNE and development tests will guide the exact criteria. Close collaboration with the Electronics Consortium will be necessary.
 
-When all the tests have been successfully performed, the APA will be tagged as good and will be prepared for shipping to SURF.
+When all the tests have been successfully performed and less than $1\%$ of the channels are confirmed broken or dead, the APA will be tagged as good and prepared for shipping to SURF.
 
-\subsubsection{Quality Control underground}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Quality Control Underground}
+\label{sec:fdsp-apa-install-qc_underground}
 
-There are three opportunities to test the APAs underground. In the storage area, once secured in the TCO or once positioned at their final location. The latter is probably the most important and it might be good to save time to perform the final tests once the full "ACACA wall". This brings the risk that if serious problems are found, they are harder (more time consuming) to move out. Both in the TCO and final location is the only way we can test the fully connected APA, therefore tests here are absolutely required. 
+There are three opportunities to test the APAs underground: in the storage area, once secured in front of the TCO, or once positioned at their final location in the cryostat. The latter is the most important and it might be good to save time to perform the final tests once the full "A-C-A-C-A wall" is installed. This brings the risk that if serious problems are found, APAs are harder (more time consuming) to move out.
 
-\subsubsection{Tests underground in the storage/unpacking area}
-
+%\paragraph{Tests underground in the storage/unpacking area}
 The APAs will be unpacked in the storage area underground (see Figure~\ref{fig:storage}). Space in this area is very limited and only visual inspection will be performed during unpacking. If clear defects are visible, the APA will be return to the IF for further investigation.
 
-\begin{dunefigure}[Schematics of the underground layout in the storage area]{fig:storage}{A schematic of the layout for the storage and unpacking area underground.}
-\includegraphics[width=0.5\textwidth]{storage.png} 
+\begin{dunefigure}[Schematics of the underground storage area; full A-C-A-C-A wall in the cryostat]{fig:storage}{(Left) A schematic of the layout for the storage and unpacking area underground. (Right) A schematic of the layout of a full APA-CPA-APA-CPA-APA wall installed in the cryostat.}
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{0.5pt}
+\fbox{\includegraphics[height=0.26\textheight]{storage.png}} 
+\fbox{\includegraphics[height=0.26\textheight,trim=0mm 2mm 2mm 0mm,clip]{wall.png}}
 \end{dunefigure}
 
-\subsubsection{Tests underground in the TCO area}
+%\paragraph{Tests underground in the TCO area}
+Pairs of APAs (top and bottom) will be lowered in front of the TCO to be linked and cabled. Once the cabling is finished a connection test will need to be performed to ensure adequate cabling. Due to the very restrictive space near the TCO (see Figure~\ref{fig:handling}, no additional tests other than visual inspection will be performed at that time and the cabled and linked APAs will be positioned in their final location in the cryostat.
 
-Pairs of APA (top and bottom) will be lowered in the TCO to be linked and cabled. Once the cabling is finished a connection test will need to be performed to ensure adequate cabling. Due to the very restrictive space in the TCO (see Figure~\ref{fig:tco}, no additional tests then visual inspection will be performed at that time and the cabled and linked APAs will be positioned in their final location in the cryostat.
+%\begin{dunefigure}[Schematics of the TCO  area]{fig:tco}{A schematic of the layout for the TCO area underground.}
+%\begin{tabular}{cc}
+%\includegraphics[width=0.23\textwidth]{tco1.png} &
+%\includegraphics[width=0.3\textwidth]{tco2.png}
+%\end{tabular}
+%\end{dunefigure}
 
-\begin{dunefigure}[Schematics of the TCO  area]{fig:tco}{A schematic of the layout for the TCO area underground.}
-\begin{tabular}{cc}
-\includegraphics[width=0.23\textwidth]{tco1.png} &
-\includegraphics[width=0.3\textwidth]{tco2.png}
-\end{tabular}
-\end{dunefigure}
+%\paragraph{Tests underground in the cryostat}
+The current goal is to install a full APA-CPA-APA-CPA-APA wall every week (see Figure~\ref{fig:storage}, right). After each wall is installed, the night crew will have time for final testing of the installed APA. There are currently two testing models, one where the night crew will test APA pairs as they are installed (every two days), and the other model where the night crew will test the full wall at once. The decision between the two models will be made when accurate estimates of the time needed for the testing will be available.
 
-\subsubsection{Tests underground in the cryostat}
+%\begin{dunefigure}[Schematics of the wall in the cryostat]{fig:wall}{A schematic of the layout of a full APA-CPA-APA-CPA-APA wall installed in the cryostat.}
+%\includegraphics[width=0.4\textwidth]{wall.png}
+%\end{dunefigure}
 
-The current goal is to install a full APA-CPA-APA-CPA-APA wall every week (see Figure~\ref{fig:wall}. After each wall is installed, the night crew will have time for final testing of the installed APA. There are currently two testing models, one where the night crew will test APA pairs as they are installed (every two days), and the other model where the night crew will test the full wall at once. The decision between the two models will be made when accurate estimates of the time needed for the testing will be available.
+The tests performed will be the same described above at the IF. Tension on a smaller set of wires will be measured ($\sim$5\%, potentially more if a quicker tension method is developed) to ensure that the installation operations did not alter the APAs. Since the complete integration is now done, a full readout test can be performed. Short runs will be taken with the DAQ system to ensure that the readout is fully operational. The details of these tests still need to be developed to provide efficient assessment of the integrated APAs. If an APA appears to have more than 1$\%$ of the channels not functioning, the APA would need to be sent back to the IF.
 
-\begin{dunefigure}[Schematics of the wall in the cryostat]{fig:wall}{A schematic of the layout of a full APA-CPA-APA-CPA-APA wall installed in the cryostat.}
-\includegraphics[width=0.5\textwidth]{wall.png}
-\end{dunefigure}
+\subsubsection{Quality Assurance}
 
-The tests performed will be the same described above at the IF. Tension on a smaller set of wires will be measured to ensure that the installation operations did not alter the APAs. Since the full integration is now done, a full readout test can be performed. Short runs will be taken with the DAQ system to ensure that the full readout is fully operational. The details of these tests still need to be developed to allow efficient assessment of the integrated APAs.
+We will rely on the protoDUNE experience to assess most of the Quality Assurance protocols. The dedicated QA plan during production should ensure that the APAs meet the requirements and the installation steps should not modify them. The control of the quality of each wire along the installation steps will ensure fully functioning APAs.
 
-\subsubsection{Summary of the QC protocols}
-
-In order to ensure fully operational APAs in the far detector, a series of tests has been developed along the APA installation steps. Major testing will be performed at the Integration Facility, visual inspection will be done at every steps of APA handling (in the underground storage area after unpacking and in the TCO after lowering). Some minimal testing will be performed in the TCO after APA pairs are linked and cabled and finally an final extensive testing campaign will be performed in the fully integrated APAs once positioned at their final location in the cryostat. At each of these testing steps, the requirement of less than $1\%$ of dead or unresponsive channels will be respected.
 

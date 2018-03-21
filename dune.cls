@@ -82,6 +82,7 @@
 \RequirePackage{parskip}
 \setlength{\parskip}{\baselineskip}
 
+\RequirePackage{capt-of}
 
 % Smart end-of-macro spacing
 \RequirePackage{xspace}
