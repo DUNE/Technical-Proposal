@@ -11,12 +11,14 @@ def options(opt):
     opt.add_option('--prompt-level', default=0,
                    help="pdfLaTeX prompt level.  Set to 1 for debugging.")
 
-
 def configure(cfg):
 #    cfg.find_program('dune-params', var='DUNEPARAMS')
     cfg.load('tex')
     cfg.find_program('chapters.sh', var='CHAPTERS',
                      path_list=[os.path.realpath(".")])
+
+    cfg.env.PDFLATEXFLAGS += ["-file-line-error"]
+
     pass
 
 
