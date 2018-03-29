@@ -160,7 +160,7 @@
 
 \newduneabbrev{oob}{OOB dispatcher}{out of band trigger command
   dispatcher}{This component is responsible for dispatching a SNB
-  trigger command to all 600 RCEs in the SP detector module.}
+  trigger command to all \glspl{fer} in the \gls{detmodule}}
 
 \newduneabbrev{mtl}{MTL}{Module Trigger Logic}{Trigger processing
   which consumes \gls{detunit} level \gls{trigcommand} information
@@ -235,12 +235,51 @@
   high-throughput interface between front-end and trigger electronics
   and the standard PCIe computer bus}
 
-\newduneabbrev{fec}{FEC}{front-end computer}{Each \gls{detunit} of a
+\newduneabbrev{daqpart}{partition}{DAQ partition}{A cohesive and
+  coherent collection of DAQ hardware and software working together to
+  trigger and readout some portion of one detector module consisting
+  of some integral number of \glspl{daqfragment}. 
+  Multiple DAQ partitions may operate simultaneously but each instance
+  operates independently}
+
+\newduneabbrev{fec}{FEC}{front-end computer}{The portion of one
+  \gls{daqpart} which hosts the \gls{daqdr}, \gls{daqbuf} and
+  \gls{daqds}.  It is connected to the \gls{daqfer} via fiber optic}
+
+Each \gls{detunit} of a
   certain granularity, such as two SP APAs, has one front-end computer
   which receives data from the readout hardware, hosts the primary DAQ
   memory buffer for that data, emits trigger candidates derived from
   that data and satisfies requests for producing subsets of that data
   for egress}
+
+\newduneabbrev{daqfrag}{fragment}{DAQ front-end fragment}{The portion of one
+  \gls{daqpart} relating to a single \gls{fec} and corresponding to an
+  integral number of \glspl{detunit}.  See also \gls{datafrag}}
+
+\newduneabbrev{datafrag}{fragment}{data fragment}{A block of data read
+  out from a single \gls{daqfrag} which covers a contiguous period of time
+  as requested by a \gls{trigcommand}}
+
+\newduneabbrev{daqfer}{FER}{DAQ front-end readout}{The portion of a
+  \gls{daqfrag} which accepts data from the detector electronics and
+  provides it to the \gls{fec}. 
+  In the nominal design it is also responsible for generating channel
+  level \glspl{trigprimitive}}
+
+\newduneabbrev{daqdr}{DDR}{DAQ data receiver}{The portion of the
+  \gls{daqfrag} which accepts data from the \gls{daqfer}, emits
+  trigger candidates produced from the input trigger primitives and
+  forwards the full data stream to the \gls{daqbuf}}
+
+\newduneabbrev{daqbuf}{primary buffer}{DAQ primary buffer}{The portion
+  of the \gls{daqfrag} which accepts full data stream from the
+  corresponding \gls{detunit} and retains it sufficiently long for it
+  to be available to produce a \gls{datafrag}}
+
+\newduneabbrev{daqds}{data selector}{The portion of the
+  \gls{daqfrag} which accepts \glspl{trigcommand} and returns the
+  corresponding \gls{datafrag}}
 
 \newduneabbrev{femb}{FEMB}{Front-End Mother Board}{Refers a unit of
   the \gls{sp} cold electronics which contains the front-end amplifier
@@ -288,8 +327,6 @@
 \newduneabbrev{sipm}{SiPM}{silicon photomultiplier}{A solid-state avalanche photo-diode sensitive to single photo-electron signals}
 
 \newduneabbrev{cisc}{CISC}{cryogenics and slow controls}{A DUNE consortium responsible for the named components}
-
-\newduneword{data selector}{data selector}{A DAQ software agent responsible for supplying a subset of the FEC data stream based on readout commands}
 
 % entered by Anne, March 2018
 %%%%%%%%%%%%%%%%%%%%%%%%% COMMON list for acronyms below %%%%%%%%%%%%%%%

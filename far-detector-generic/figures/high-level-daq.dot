@@ -1,0 +1,68 @@
+digraph hl {
+        node[shape=record];
+
+        subgraph cluster_dmunit {
+                label="Detector unit of one module\nfeeding one DAQ fragment";
+                color=gray;
+                ce[label="Readout electronics\nTPC+PDS",color=gray];
+        }
+        subgraph cluster_fe {
+                label="DAQ front-end fragment, (hardware and software, N≈100 per module)";
+                fer[label="{{Front-end readout}|{trigger primitive\npipeline}|{SNB buffer}}"];
+                
+                dr[label="{{Data receiver}|{trigger candidate\npipeline}}"];
+                buf[label="Primary\nbuffer",shape=circle];
+                ds[label="{{Data selector}|{<tx>send|<rx>recv}}"];
+                {rank=same; fer, dr, buf, ds}
+        }
+        subgraph cluster_bec {
+                label="DAQ back-end for one detector module (eg, SP / DP, N=4)";
+                mtl[label="Module-Level\nTrigger Logic"];
+                oob[label="Out-of-band trigger\nCommand Dispatcher",color=red,fontcolor=red];
+                eb[label="Event\nBuilder"];
+                {rank=same; oob, mtl, eb}
+        }
+        subgraph cluster_offline {
+                label="DAQ/Offline boundary";
+                dsk[label="Output\ndisk buffer"];
+        }
+        subgraph cluster_outside {
+                label="Fermilab";
+                labelloc=bottom;
+                color=gray;
+                fnal[label="tape/disk/computing",color=gray];
+        }
+
+        gtl[label="External trigger logic (N=1)\n(beam, other modules, SNEWS)"];
+        
+        edge[penwidth=6];
+        ce->fer[label=" (fiber)"];
+        fer->dr[label="full data stream +\ntrigger primitives\n(fiber)"];
+        dr->buf[label="full data stream\n(RAM DMA)"];
+
+        
+
+        // selected data
+        edge[penwidth=1];
+        buf->ds;
+        ds:tx->eb[label="data\nfragment\n(network)"];
+
+        // "event" data
+        edge[penwidth=4];
+        eb->dsk[label="module-level\n DAQ event block\n(network)"];
+        
+        dsk->fnal[label=" raw DAQ files\n(Internet)"];
+        
+        // trigger 
+        edge[penwidth=1, style=dashed];
+        ds->buf[constraint=false];
+        mtl->eb[label="normal trigger commands"];
+        dr->mtl[label="trigger candidates\n(network)"];
+        eb->ds:rx[label="trigger\ncommand\n(network)"];
+        mtl->gtl[dir=both,label=" bidirectional exchange of\ntriger candidates\n(network)"];
+
+        edge[penwidth=1, style=dashed, color=red];
+        oob->mtl[dir=back, label="SNB dump command", fontcolor=red];
+        oob->fer[label=" dump command\n(network)",fontcolor=red];
+
+}
