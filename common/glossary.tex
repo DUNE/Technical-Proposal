@@ -16,6 +16,7 @@
 \newcommand{\dwords}[1]{\glspl{#1}}
 \newcommand{\Dword}[1]{\Gls{#1}}
 \newcommand{\Dwords}[1]{\Glspl{#1}}
+%\newcommand{\dwordies}[1]{\glspl{#4}} %Anne -- need to do more research on this!!
 
 
 % \newduneword{label}{term}{description}
@@ -47,13 +48,31 @@
   }
 }
 
+%  (Anne trying)    1      2     3       4       5
+% \newduneabbrev2{label}{abbrev}{term}{termpl}{description}
+\newcommand{\newduneabries}[5]{
+  % this makes acronym entries even if they neither term or abbrev is
+  % referenced in the text.
+  % \newacronym[see={[Glossary:]{#1}}]{abbrev-#1}{#2}{#3}
+  \newacronym{abbrev-#1}{#2}{#3}{#4}
+  \newglossaryentry{#1}{
+    text={#2},
+    long={#3},
+    name={\glsentrylong{#1}{} (\glsentrytext{#1}{})},
+    first={\glsentryname{#1}},
+    firstplural={\glsentrylong{#1}\glspluralsuffix{} (\glsentrytext{#1}\glspluralsuffix{#4})},
+    description={#5}
+  }
+}
+
+
 %%%%%%     START ADDING WORDS, IN ALPHABETICAL ORDER IF POSSIBLE!    %%%%%%%%
 
 % Model to copy
 
 %\newduneword{abc}{ABC's real name}{Sentence or two describing ABC. It can use other dunewords defined here, e.g., \gls{fe}.}
 
-
+%\newduneabries{abc}{ABC}{annes beecy}{annes beecies}{a made-up thing}
 
 \newduneabbrev{nd}{ND}{near detector}{Refers to the detectors or more
   generally the experimental site at Fermilab}
@@ -160,10 +179,10 @@
 
 \newduneabbrev{oob}{OOB dispatcher}{out of band trigger command
   dispatcher}{This component is responsible for dispatching a SNB
-  trigger command to all \glspl{fer} in the \gls{detmodule}}
+ \glspl{fer} in the \gls{detmodule}.}
 
 \newduneabbrev{mtl}{MTL}{Module Trigger Logic}{Trigger processing
-  which consumes \gls{detunit} level \gls{trigcommand} information
+  which consumes \gls{detunit}-level \gls{trigcommand} information
   and emits \glspl{trigcommand}. 
   It provides the \gls{gtl} with \glspl{trignote} and receives back any
   \glspl{externtrigger}}
@@ -236,22 +255,17 @@
   and the standard PCIe computer bus}
 
 \newduneabbrev{daqpart}{partition}{DAQ partition}{A cohesive and
-  coherent collection of DAQ hardware and software working together to
-  trigger and readout some portion of one detector module consisting
-  of some integral number of \glspl{daqfragment}. 
-  Multiple DAQ partitions may operate simultaneously but each instance
-  operates independently}
-
+ coherent collection of DAQ hardware and software working together to trigger and readout some portion of one detector module consisting of some integral number of\glspl{daqfragment}. 
+ Multiple DAQ partitions may operate simultaneously but each instance operates independently.}
+ 
 \newduneabbrev{fec}{FEC}{front-end computer}{The portion of one
   \gls{daqpart} which hosts the \gls{daqdr}, \gls{daqbuf} and
-  \gls{daqds}.  It is connected to the \gls{daqfer} via fiber optic}
-
-Each \gls{detunit} of a
-  certain granularity, such as two SP APAs, has one front-end computer
+  \gls{daqds}.  It is connected to the \gls{daqfer} via fiber optic. 
+Each \gls{detunit} of a  certain granularity, such as two SP APAs, has one front-end computer
   which receives data from the readout hardware, hosts the primary DAQ
   memory buffer for that data, emits trigger candidates derived from
   that data and satisfies requests for producing subsets of that data
-  for egress}
+  for egress.}
 
 \newduneabbrev{daqfrag}{fragment}{DAQ front-end fragment}{The portion of one
   \gls{daqpart} relating to a single \gls{fec} and corresponding to an
@@ -277,10 +291,9 @@ Each \gls{detunit} of a
   corresponding \gls{detunit} and retains it sufficiently long for it
   to be available to produce a \gls{datafrag}}
 
-\newduneabbrev{daqds}{data selector}{The portion of the
-  \gls{daqfrag} which accepts \glspl{trigcommand} and returns the
-  corresponding \gls{datafrag}}
-
+\newduneword{daqds}{data selector}{The portion of the
+  \gls{daqfrag} which accepts \glspl{trigcommand} and returns the  corresponding \gls{datafrag}.}
+  
 \newduneabbrev{femb}{FEMB}{Front-End Mother Board}{Refers a unit of
   the \gls{sp} cold electronics which contains the front-end amplifier
   and ADC ASICs covering 128 channels}
@@ -327,6 +340,7 @@ Each \gls{detunit} of a
 \newduneabbrev{sipm}{SiPM}{silicon photomultiplier}{A solid-state avalanche photo-diode sensitive to single photo-electron signals}
 
 \newduneabbrev{cisc}{CISC}{cryogenics and slow controls}{A DUNE consortium responsible for the named components}
+
 
 % entered by Anne, March 2018
 %%%%%%%%%%%%%%%%%%%%%%%%% COMMON list for acronyms below %%%%%%%%%%%%%%%

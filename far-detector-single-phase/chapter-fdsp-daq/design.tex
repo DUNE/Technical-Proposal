@@ -181,8 +181,8 @@ throughput.
 As that data is flowing through the buffer, the \dword{trigdecision}
 process described below is ongoing.
 A \dword{trigcommand} is interpreted by the \dword{eb} which issues
-readout commands to an appropriate \dwords{data selector}. 
-A \dword{data selector} is an agent running on the \dword{fec} which
+readout commands to an appropriate \dwords{daqds}. 
+A \dword{daqds} is an agent running on the \dword{fec} which
 executes the readout command by selecting the indicated portion of
 data from the buffer and returning it to the \dword{eb} that issued
 the request.

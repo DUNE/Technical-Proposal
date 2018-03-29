@@ -335,3 +335,9 @@
 \usepackage{amsmath}
 \usepackage{cleveref} %To use vref suggested by A Habig Feb 2018
 \usepackage{makecell} % To allow linebreaking within table cells (AH Feb 2018)
+
+\usepackage{cprotect}
+\usepackage{eurosym}
+\usepackage{tfrupee}
+\usepackage{textcomp}
+
