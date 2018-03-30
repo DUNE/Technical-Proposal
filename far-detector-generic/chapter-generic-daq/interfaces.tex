@@ -1,7 +1,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interfaces (David Cussans \& Matt Graham)}
-\label{sec:fdsp-daq-intfc}
+\label{sec:fd-daq-intfc}
 
 \metainfo{5 Pages}
 
@@ -9,7 +9,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{TPC Electronics}
-\label{sec:fdsp-daq-intfc-elec}
+\label{sec:fd-daq-intfc-elec}
 
 The interface between the \dword{sp} TPC detectors and the DAQ is described in Dune-DocDB-6742.
 \fixme{Add reference.}
@@ -24,13 +24,13 @@ links with a total of 80 fibres per APA. In the second option, the
 $\approx$\SI{10}{\Gbps} before transmission to the DAQ with a total of
 ten fibres per APA. In both cases the data are received on rear
 transition modules connected to the \dword{cob} \dword{atca} boards
-(see Section~{sec:fdsp-daq-ltr}).
+(see Section~{sec:fd-daq-ltr}).
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{PD Electronics}
-\label{sec:fdsp-daq-intfc-photon}
+\label{sec:fd-daq-intfc-photon}
 
 The interface between the \dword{sp} \dword{pds}
 and the DAQ is described in DUNE-doc-6727. The signal to noise ratio
@@ -50,7 +50,7 @@ them to the data selection system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Offline Computing (Kurt Biery)}
-\label{sec:fdsp-daq-intfc-fnal-cmptg}
+\label{sec:fd-daq-intfc-fnal-cmptg}
 
 The interface between the \dword{daq} and Offline Computing is described in
 DUNE-doc-7123. The \dword{daq} team will be responsible for reducing the
@@ -86,8 +86,8 @@ algorithms that run inside this framework.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Slow Control}
-\label{sec:fdsp-daq-intfc-sc}
-\label{sec:fdgen-daq-intfc-sc}
+\label{sec:fd-daq-intfc-sc}
+\label{sec:fd-daq-intfc-sc}
 
 The \dword{cisc} systems monitor detector
 hardware and conditions not directly involved in taking the data
@@ -113,7 +113,7 @@ interface's scope.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{External Systems (Giles \& Alec)}
-\label{sec:fdsp-daq-intfc-ext}
+\label{sec:fd-daq-intfc-ext}
 
 \fixme{Need to receive information on beam spills (Giles) , SNEWS (Alec).}
 
@@ -122,14 +122,14 @@ for times around when the pulse of neutrinos from LBNF arrives at the
 Far Detector; or if notice of an interesting astrophysical event is
 given by SNEWS\cite{snews} or LIGO.  This could involve going back in
 time to save data that has already been buffered (see
-Sec.~\ref{sec:fdsp-daq-ltr}), or changing the trigger or zero
+Sec.~\ref{sec:fd-daq-ltr}), or changing the trigger or zero
 suppression criteria for data in the interesting time period.
 
 \fixme{Do we want subsubsections below instead of explicit paragraphs?}
 
 \paragraph{Beam Trigger:} The method for predicting and receiving the
 time of the beam spill is described in
-Sec.~\ref{sec:fdsp-daq-design-beamtiming}.  Once that time is known to
+Sec.~\ref{sec:fd-daq-design-beamtiming}.  Once that time is known to
 the DAQ, a high level trigger can be issued to ensure that the necessary
 full data can be saved from the buffer and saved as an event.
 
@@ -138,7 +138,7 @@ full data can be saved from the buffer and saved as an event.
 individually sensitive to the burst of neutrinos which would be observed
 from a core-collapse supernova somewhere in our galaxy.  While DUNE
 should be sensitive to such a burst on its own able to contribute to the
-coincidence network (Sec.~\ref{sec:fdsp-daq-sel}) via a TCP/IP socket,
+coincidence network (Sec.~\ref{sec:fd-daq-sel}) via a TCP/IP socket,
 being able to save data based on other observations adds an additional
 chance to not miss saving this rare and valuable data.  A SNEWS alert is
 formed when two or more neutrino experiments report a potential

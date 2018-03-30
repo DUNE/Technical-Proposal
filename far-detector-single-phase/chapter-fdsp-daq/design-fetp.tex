@@ -1,0 +1,88 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Front-end Trigger Primitive Generation}
+\label{sec:fd-daq-ltp}
+
+\metainfo{Josh Klein \& J.J. Russel \& Brett Viren \& DP Expert?}
+
+\Dwords{trigprimitive} are generated inside the \dword{fe} readout
+hardware local to each APA from TPC data on a per-channel basis.
+They are sent along with the waveform data to the \dword{fe} DAQ
+computing where they may be further processed before being sent out to
+the \dword{mtl} as \dwords{trigcandidate}.  
+Section~\ref{sec:fd-daq-sel} describes the selections involved in
+this triggering.
+
+Only the 480 collection channels associated with each APA face are
+used for forming \dwords{trigprimitive}. 
+Reasons for this limitation include the fact that collection
+channels:
+
+\begin{itemize}
+\item have higher signal to noise ratio compared to induction channels.
+\item are fully and independently sensitive to activity on their APA face.
+\item have unipolar signals that directly give an approximate measure
+  of ionization charge without costly computation required to
+  deconvolve the field response functions as required to make use of
+  the induction channels..
+\item can be easily divided into smaller, independent groups in order
+  to better exploit parallel processing.
+  % fixme: do we need a statement about efficiency here?
+\end{itemize}
+
+
+Figure~\ref{fig:daq-readout-buffering-baseline} illustrates the connectivity between the
+four connectors on each of the five WIBs and the \dword{fe} readout hardware.
+The data is received via 80 1 Gbps fiber optical links by four \dwords{rce}
+in the \dword{atca} \dword{cob} system. 
+
+The pattern of connectivity between WIBs and RCEs results in the data
+from the collection channels covering one contiguous half of one APA
+face being received by each \dword{rce}.
+Each \dword{rce} has two primary functions. 
+The first is transmission of all data as described in
+Section~\ref{sec:fd-daq-hlt}. 
+The second is to produce \dwords{trigprimitive} from its portion of the
+collection channel data.
+The algorithms to produce the \dwords{trigprimitive} still require
+development but can be broadly described.   
+
+\begin{enumerate}
+\item On a per channel basis calculate a rolling baseline and spread
+  level which characterizes recent noise behavior such that the result
+  is effectively free of influence from actual ionization signals.
+\item Locate contiguous runs of ADC samples that are above a threshold
+  defined in terms of the baseline and noise spread.
+\item Emit their time bounds and total charge as a \dword{trigprimitive}.
+\end{enumerate}
+
+These \dwords{trigprimitive} represent possible activity occurring in
+the LAr in a contained by a rectangular volume spanning the height of
+the TPC, within half a wire pitch across and which extends in the
+drift direction by the time bounds. 
+Depending on the threshold set, these \dwords{trigprimitive} may be
+numerous due to \Ar39 decays and noise fluctuations.
+If their rate can not be sustained, the threshold may be raised or
+further processing may be done still at the APA level and which
+considers more global information.
+This may be performed either in the \dwords{rce} or later in the
+\dword{fe} computing hosts. 
+In either case, the results are in the form of \dwords{trigcandidate}
+which are sent to the \dword{mtl}.
+
+Sources of \dword{rf} emission inside the cryostat are minimized by
+design. 
+Any residual \dword{rf} is expected to be picked up coherently across
+some group of channels. 
+Depending on its intensity, additional processing of the collection
+waveforms must be employed to mitigate this coherent noise and this
+must occur before the data is sent for \dword{trigprimitive}
+production. 
+If the required mitigation algorithms outgrow the nominally specified
+\dword{rce} \dword{fpga} it is possible to double the number of
+\dwords{cob} per APA which will require a redistribution of fibers. 
+Alternatively, or in addition, the higher number of
+\dwords{trigprimitive} produced as a result of excess noise can be
+passed along for further processing in the \dword{fe} computing. 
+This will require reprocessing the raw waveform data.
+

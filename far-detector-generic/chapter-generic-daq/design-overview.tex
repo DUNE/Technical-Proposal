@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Overview}
+\label{sec:fd-daq-ltr}
+
+\metainfo{Giles Barr, BV. 
+  This is a shared DP/SP section. 
+  We try to describe the high level design from
+  Figure~\ref{fig:daq-overview} in more detail than in the main
+  overview section but defer to the coming sections for ``inside the
+  boxes'' detail as well as to break make distinct SP and DP
+  implementation in their respective tex files.}
+
+
+The design for the \dword{daq} has been driven by finding a cost
+effective solution that satisfies the requirements. Several design
+choices have nevertheless been made. 
+From a hardware perspecive, the DAQ design follows a standard HEP
+experiment design, with customised hardware at the upstream, feeding
+and funnelling (merging) and moving the data into computers. 
+Once the data and triggering information are in computers, a
+considerable degree of flexibility is available and the processing
+proceeds with a pipelined sequence of software operations, involving
+both parallel processing on multi-core computers and switched
+networks. The flexibility allows the procurement of computers and
+networking to be done late in the delivery cycle of the DUNE
+detectors, to benefit from increased capability of commercial devices
+and falling prices.
+
+Since DUNE will operate over a number of decades, the DAQ has been
+designed with upgradability in mind.  With the fall in cost of serial
+links, a guiding principle is to include enough output bandwidth to
+allow all the data to be passed downstream of the custom hardware.
+This allows the possibility for a future very-fast farm of computing
+elements to accommodate new ideas in how to collect the DUNE data.  The
+high output bandwidth also gives a risk mitigation path in case the
+noise levels in a part of the detector are higher than specified and
+higher than tolerable by the baseline trigger decision mechanism; it
+will allow additional data processing to be added (at additional cost).
+
+\fixme{Mention scalability here ?}
+
+The data will be collected from the TPC and photon-detector readout
+systems of the single-phase and dual-phase \dwords{detmodule}. 
+These fragments are viewed as essentially four types of
+\dwords{submodule} within the DAQ and will follow the same overall
+data collection scheme as shown in Figure~\ref{fig:daq-overview}. 
+The readout is arranged in a hierarchical manner to allow localized
+\dwords{trigdecision} to be made at the \dword{detunit} level, at the
+\dword{detmodule} level, as well as combined over the full four
+\dwords{detmodule}. 
+The control of the detector elements will prevent a fault in one part
+from halting data taking in another part, certainly at the per-cavern
+level, and potentially also at more local levels. 
+This will allow a supernova burst to be recorded in all operational
+parts of the detector.
+
+It is helpful, on first looking at the DUNE DAQ dataflow scheme, to
+consider how the main data is collected first and then to look at how
+the triggering and synchronization functions are included; we take
+this approach in this overview. 
+
+At the granularity of a \dword{daqfrag} there is an integral number of
+\dwords{detunit} associated with one \dword{fec} (eg, two \dwords{apa}
+for the \dword{sp} \dword{detmodule}).
+The \dword{tpc} and \dword{pds} data from these \dwords{detunit} are
+streamed to the fragment's \dword{daqfer}. 
+This component is responsible for accepting that data and producing
+channel level \dwords{trigprimitive} and forwarding both to the
+\dword{daqdr} in the \dword{fec}. 
+It may also be responsible for supplying transient (RAM) and
+non-volatile (\dword{ssd}) buffer sufficient for \dword{snb}
+triggering and readout.
+The \dword{daqdr} accepts the full data stream and transfers it to the
+\dword{daqbuf} of its \dword{daqfrag}. 
+There it is held awaiting a query from the \dword{eb}. 
+When the \dword{eb} receives a \dword{trigcommand} it uses the
+included information to query all appropriate \dwords{daqds} and from
+their returned \dwords{datafrag} an \dword{rawevent} is built and
+written to file on the \dword{diskbuffer}. 
+From there the data becomes responsibility of the Offline group to
+transfer to Fermilab for permanent storage and further processing.
+
+Meanwhile to the above the \dwords{trigprimitive} produced by a
+\dword{daqfer} at the channel level are sent to the corresponding
+\dword{daqdr} where they are used to form \dwords{trigcandidate} The
+\dwords{trigcandidate} from all \dwords{daqpart} are sent the
+\dword{mtl}. 
+There they are time ordered and otherwise processed in order to form
+\dwords{trigcommand}. 
+Each such command is consumed by an \dword{eb} in order to query back
+to the \dword{daqpart} level as described above.
+In addition, the \dwords{mtl} of each module are exchanging messages
+in the form of \dwords{trigcandidate}. 
+For example, one module may raise a local \dword{snb}
+\dword{trigcandidate} and forward it to all other modules.
+Each module is also emitting candidates to sinks and accepting them
+from sources of external trigger information.
+
+The implementation of some of these high level functions depends on
+particular \dword{detmodule} and different options exist for some
+functions.  These are issues are described in the following sections.
+

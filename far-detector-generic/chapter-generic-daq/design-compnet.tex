@@ -1,0 +1,43 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Computing \& Network Infrastructure}
+\label{sec:fd-daq-infra}
+
+\metainfo{Kurt Biery \& Babak Abi}
+
+The computing and network infrastructure that will be used in each
+of the four \dwords{detmodule} will be similar, if not identical.
+It will support the buffering, data selection, event
+building, and data flow functionality described
+above, and it will include computing elements which consist of servers that:
+
+\begin{itemize}
+\item buffer the data until a \dword{trigdecision}
+  is received
+\item host the software processes that
+  build the data fragments from the relevant
+  parts of the detector into complete events
+\item host the processes that make the
+  \dword{trigdecision}
+\item host the data logging processes and
+  the disk buffer where the data is written
+\item host the real-time \dlong{dqm} processing
+\item host the control and monitoring processes
+\end{itemize}
+
+The network infrastructure that will connect these computers
+will have the following components:
+
+\begin{itemize}
+\item subnet(s) for transferring triggered data from the buffer
+  nodes to the event builder nodes.  These will need to
+  connect underground and above-ground computers.
+\item a control and monitoring subnet that will connect all
+  computers in the \dword{daq} system and all front-end
+  electronics that support Ethernet communication.  This
+  sub-network will need to connect underground and
+  above-ground computers.
+\item a subnet for transferring complete events from the
+  event builder servers to the storage servers.  This subnet
+  will be completely above-ground.
+\end{itemize}

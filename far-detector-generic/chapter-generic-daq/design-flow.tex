@@ -1,0 +1,133 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dataflow, Trigger and Event Builder}
+\label{sec:fd-daq-hlt}
+
+\metainfo{Giles Barr \& Josh Klein \& Giovanna Miotto \& Kurt Biery \& Brett Viren}
+
+The data volume that is continuously flowing through the DUNE
+\dword{sp} \dword{detmodule} DAQ from one APA is about \SI{10}{\GB/\s}
+and from the entire far detector as much as \SI{10}{\TB/\s}.
+However, by design a distributed system that follows the natural
+granularity of the detector this high rate data is made manageable.
+In particular the \dword{ringbuffer} is defined at the APA level for
+the \dword{sp} \dword{detmodule}.
+The majority of the data corresponds to the untriggered parts and
+never leaves the computers hosting the \dwords{ringbuffer}.
+The parts that exit do so in one of three circumstances: (a) as data
+selected by nominal \dwords{trigcommand}, (b) as \dwords{trignote} or
+(c) as previously triggered \dword{snb} candidate data which is
+sent out after being dumped to the SSD storage local to
+\dwords{rce} and as available bandwidth permits. 
+All three of these transfers live entirely in the software domain of a
+commodity computer farm and so a variety of techniques can be
+considered for each; in this description, we consider each of them as
+a data-pull protocol, similar to that in use at ProtoDUNE.
+\fixme{Is it true? 
+  There has been the statement that SNB dumps will egress via special
+  paths direct to a special EB and not via FELIX. 
+  If this isn't the case then figure 7.2 needs fixing.}
+
+
+artDAQ is a modern, general-purpose framework that has been used in
+DUNE prototype tests and elsewhere [refs]. 
+It is optimised further than other frameworks to expliot the
+paralelism that is possible with modern multi-core machines. 
+It is the principle architecture that will be used in DUNE.
+\fixme{Context here is too vague. 
+  ``...used in DUNE DAQ back-end computing''?}
+The authors of artDAQ have accomodated DUNE-specific feature-addition
+requests and a number of libraries have been developed based on
+existing parts of artDAQ used to handle incoming data from data
+sources. 
+It is likely that future DUNE extensions will be by one of these two
+routes.
+
+(Section on FELIX data ingress, error handling, synchronisation,
+ring-buffer expiry). 
+As noted above, one of the complex data flow control tasks is managing
+the data as it enters the \dwords{ringbuffer} on the per-APA \dword{fe}
+computing hosts. 
+Data throughput on these nodes is governed by the use of the PCIe and
+memory busses, and so the software will be written to mimumize
+data-copies on the input side of the \dword{ringbuffer}.
+%% removed: this is RCE-land, not primary buffer.
+%During normal operation, there must be sufficient 'headroom' to allow
+%an additional write of data to SSDs during the supernova burst. 
+The current model for dataflow control is that each APA will operate
+semi-autonomously, data being written directly from hardware into physical
+memory and not moved. 
+The software will keep track of the free and in-use memory (one way is
+with a ring for each data source) and will maintain an index of the
+data. 
+One strategy that decentralises the error handling is for the writing
+to the \dword{ringbuffer} to not cause error handling events, but
+for it to flag areas of the data for which problems exist only if/when
+it is to be read again. 
+Similarly, to avoid memory alloction error handling, the incoming data
+can overwrite the older data and read requests for data that has been
+overwritten will report the error. 
+It is planned to prototype the data transfers for the TDR.
+
+(Section on (a) event building) Requests for event building
+(i.e. reading data for succesful triggers from the \dwords{ringbuffer}
+will be done using mostly standard features that are now in artDAQ. 
+An \dword{eb} node is allocated for each trigger to be read and it
+then requests portions of data from the \dwords{ringbuffer} for the
+data from that event (this read must be initiated by the request, a
+difference with the current ProtoDUNE).
+If the data is missing (either due to errors when it was first
+received, or because the request arrived so late that the data were
+overwritten), the request still proceeds but with flags set in the event
+header and which are displayed on the operators console.
+
+(Section on (b) trigger farming) As described above, a \dword{fec}
+will receive \dwords{trigprimitive} from its associated \dwords{rce}
+which identify channels and periods of time where potentially useful
+signal exists. 
+In most circumstances, this will local information will be sufficient
+to form a \dword{trigcandidate} which on its own will lead to a
+\dword{trigcommand}.
+In other cases, such as SNB activity, \dwords{trigcandidate} from many
+\dwords{fec} must be combined to form a \dword{trigcommand}.
+This trigger information will be gathered into a block of data
+spanning some time period. 
+Our default scheme for the dataflow is to use a similar method as
+employed in \dword{protodune}, however several others are under study. 
+For the former, a trigger farm node is assigned to each time block,
+requests the associated trigger data block and based on its contents
+retrieves the indicated detector data from the appropriate
+\dwords{fec}.   
+The received detector data is then aggregated along with the
+associated trigger information into a \dword{rawevent} (using artDAQ
+functions).
+Scaling methods are being considered to mitigate bottlenecks as may be
+required.  
+These are based adding an intermediate layer which groups a number of
+\dwords{fec} to avoid the possibility of too many small blocks of
+data.
+\fixme{This next sentence doesn't make sense: ``Another solution is
+  to use data-push, since, it is likely that a single node with a lot
+  of cores can deal with all the trigger processing.''}
+
+\fixme{We need something about running in a partitioned mode. 
+  Eg, 148 APAs working nominally and 2 in their own partition for the
+  purpose of calibration or debugging or something.}
+
+(Section on (c) SNB trickling) The average rate of dump
+\dwords{trigcommand} such as may be issued by a SNB candidate will be
+relatively low. 
+The nominal period of the dump is \SI{10}{\s} which will thus produce
+about \SI{15}{\TB} across the entire \dword{sp} \dword{detmodule}. 
+Spread over the 600 \dword{ssd} units this leads to about \SI{25}{\GB}
+per \dword{rce} per dump. 
+Today, typical \dwords{ssd} offer storage on the order of \SI{1}{\TB}. 
+For any reasonable SNB false-positive trigger rate, there will be
+sufficient \dword{ssd} capacity to store dumps for years and to not
+directly drive any throughput requirements on the DAQ.
+It is thus expected that this dump data will be sent out as a
+background process. 
+The SNB event building will likely differ somewhat from nominal in
+that the entire dump will not be held in a single \dword{rawevent}
+object as this would produce a single \SI{15}{\TB} file.
+
