@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Radioactive Source Deployment System}
+\label{sec:rs}
+
+%%%%%%%%%%%%%%%%
+\subsubsection{Motivation and Possible Measurements}
+
+Radioactive source deployment provides an in-situ source of the electrons and de-excitation products (gamma rays) which are directly relevant of physics signals from supernova neutrino and/or $^{8}B$ solar neutrinos. Secondary measurements from the source deployment include electro-magnetic (EM) shower characterization for long-baseline $\nu_e$ CC events, electron lifetime as a function of %cryostat 
+\dword{detmodule} vertical position, and help determine radiative components of the decay electron energy spectrum.
+%SG: too much emphasis on lifetime measurement, not needed; remove as it distracts from the main goal.
+%The measured average size of the charge signals as a function of measured average drift times then constitutes the measured electron-lifetime, averaged over the variations encountered during the drifting of the charges. Assuming design electric field strength is achieved, this calibration measurement of the electron lifetime will be sensitive to changes in electron lifetime of about $2$\%.
+
+%%%%%%%%%%%%%%%%
+\subsubsection{Design Considerations} 
+
+In order to %be able to 
+observe $\gamma$-signals inside the active volume of the \dword{lartpc} from a radioactive source deployed outside of the \dword{fc}, the $\gamma$-energy has be about \SI{10}{\MeV}. For safety, the source would be deployed about \SI{30}{\cm} from the field cage, so the  $\gamma$-energy would need to travel two attenuation lengths. Such high $\gamma$-energies are typically only achieved by thermal neutron capture, which invokes a neutron source surrounded by a large amount of moderator, thus making such an externally deployed (n, $\gamma$) source \SI{20}{\cm}  to \SI{50}{\cm} % large 
+in diameter. In \cite{bib:Triumf:Nickelsource}, a $^{58}$Ni (n,$\gamma$) source, triggered by an AmBe neutron source, was successfully built, yielding high $\gamma$-energies of \SI{9}{\MeV}. DUNE %We 
+proposes to use a $^{252}$Cf or AmLi neutron source with lower neutron energies, that requires less than half of the surrounding moderator, and making the $^{58}$Ni (n, $\gamma$) source only \SI{20}{\cm} or less in diameter. The multipurpose instrumentation feedthroughs currently planned are sufficient for this, and have an inner diameter of \SI{25}{\cm}.
+
+The activity of the radioactive source is chosen such that no more than one \SI{9}{\MeV} capture $\gamma$-event occurs during a single \SI{2.2}{\milli\s} drift period. This allows one to use the arrival time of the measured light as {\it t0} and then measure the average drift time of the corresponding charge signal(s). The resulting drift velocity in turn yields the electric field strength, averaged over the variations encountered during the drifting of the charge(s). This can be repeated for each single \SI{9}{\MeV} capture $\gamma$-event that occurs during a \SI{2.2}{\milli\s} drift period and where visible $\gamma$-energy is deposited inside the active volume of the TPC. This restricts the maximally permissible rate of \SI{9}{\MeV} capture $\gamma$-events occurring inside the radioactive source to be less
+than \SI{1}{\kilo\hertz}, given a spill-in efficiency into the active \dword{lar} of
+less than \num{10}\%.
+
+A successfully employed multipurpose fish-line calibration system~\cite{} \fixme{need to add reference: Double Chooz: NEAR DETECTOR TECHNICAL DESIGN REPORT
+EDMS ID:I-028812 ; DocDB ID: 3403-V5
+Pages 198 - 223 (Anne can't find proper ref for this)} for the Double Chooz reactor neutrino experiment will become available for DUNE after the decommissioning of Double Chooz in 2018. The system can be easily refitted for use in DUNE. The system would be deployed using the multipurpose calibration feedthroughs located near mid-drift (in each TPC module) on the east and west ends of the cryostat.
+%\fixme{fix prev sentence} SG- tried to fix it. See if Anne likes it.
+The sources would be deployed outside the \dword{fc} within the cryostat to avoid regions with a high electric field. Also, if the source is in close proximity of an \dword{apa} wire frame, lower energetic radiological backgrounds become problematic as the source light and charge yield is reduced exponentially with distance. The sources are removable and stored outside the cryostat.
+
+The commissioning plan for the source deployment system will include a dummy 
+source deployment (within two months of the commissioning) followed by first real source deployment (within three to four months of the commissioning) and a second real source deployment (within six months of the commissioning). In terms of the run plan, assuming stable detector conditions, a radioactive source will be deployed every half year. Ideally, a deployment before a run period and after the run period is desired so that at least two data points are available for calibration. This also provides a check if the state of the system has changed before and after the physics data run. If stability fluctuates for any reason (e.g., electronic response changes over time) at a particular location, one would want to deploy the source at that location once a month, or more often, depending on how bad the stability is. It is expected that it will take a few hours (e.g., eight hours) to deploy the system at one feedthrough location and a full radioactive source calibration campaign might take at least a week.
+
+%%%%%%%%%%%%%%%%
+\subsubsection{Remaining Studies}
+Some ongoing and remaining studies for the radioactive source calibration include:
+\begin{itemize}
+\item Continued development of new geometry tools for source deployment system in simulation along with improving the implementation of the details of the DUNE geometry
+\item Continued development of simulation tools to understand impact from various radiological contaminants on detector response;
+\item Studies to suppress radiological backgrounds for the calibration source;
+\item Simulation studies to understand data and trigger rates;
+\item %Plans to 
+A test of the Double Chooz fish-line deployment system with a \dword{lar} mock-up column in the high bay lab at South Dakota School of Mines and Technology.
+\item ProtoDUNE data will provide the first cross check as to how the simulated light and charge yields compare with real data. 
+\item A radioactive source deployment in a potential phase 2 of ProtoDUNE could be envisaged to demonstrate proof of principle of the radioactive source deployment. However, studies need to be performed to first understand how cosmic rays can be vetoed enough such that they would not impact the test deployment of a radioactive source in a surface LArTPC. 
+\end{itemize}

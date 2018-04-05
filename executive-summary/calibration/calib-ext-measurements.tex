@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{External Measurements Relevant to Calibration }\label{sec:extcalib}
+%- David C.? Stephen P? Kendall outline}
+%Role of external measurements, previous LAr TPCs or test stands. External data provides dedicated physics parameter measurements (e.g. recombination) as well as overall validation that the TPC response model is complete. 
+%Previous experiments: ICARUS, ProtoDUNE, ArgoNeuT, SBND, uB, LAriAT. 
+%Also test stands like the Field Response Calibration Device (Chao's work) 
+%The near detector will provide similar information as previous experiments. At time of writing, the near detector configuration is not determined. 
+This section presents a summary of available measurements performed with \dword{lartpc} detectors that are relevant for the \dword{fd} calibration strategy. Upcoming measurements from currently operational and future detectors in the Fermilab Short Baseline Neutrino program, and from the \dword{protodune} detectors %prototypes 
+at CERN are also discussed. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Measurements of detector response model}
+%Measurements of recombination, lifetime, diffusion, alignment. Photon system.%Field response
+Energy loss by charged particles traversing liquid argon leads to ionization and scintillation signatures which are eventually recorded as signals in the detector. Several detector effects impact the propagation of these signals and their energy response in the detector. These effects needs to be carefully understood and calibrated. A wide range of calibration measurements for such effects has been performed either with R\&D test-stands or neutrino detectors. These measurements, with brief discussions pertaining to their relevance, are presented in this section.
+
+%The physics processes which lead to the formation of these signals and the detector effects which impact their propagation must be carefully understood in order to perform adequate calibrations which ultimately impact the detector's energy response. A wide range of measurements for such effects has been performed either with R\&D test-stands or neutrino detectors. These measurements, with brief discussions pertaining to their relevance, are presented in this section.
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Scintillation Light}
+Light detection plays an important role in the analysis of neutrino interactions with \dword{lartpc} detectors. Scintillation light provides essential timing information which complements the slow-drifting ionization signal, and can be used to further improve measurements of calorimetric energy loss and particle-identification. Extensive studies of the properties of scintillation light in \dword{lar} have been performed with numerous experiments, with significant contributions to knowledge in this subject coming from dark matter as well as dedicated test-stand experiments such as those performed at Fermilab's Proton Assembly Building (PAB). 
+
+External measurements of light quenching due to impurities such as nitrogen~\cite{Acciarri:2008kv} and methane~\cite{Jones:2013mfa} are useful in determining absolute light yields and the ratio of prompt to late scintillation light ratios. Measurements of the properties of tetraphenyl butadienne (TPB), used to shift argon scintillation light to the visible spectrum, as well as Rayleigh scattering and ionization-dependent light yields are all important for proper simulation of the light response in \dword{lartpc} detectors. In addition to studies that impact the calibration of detector effects, a large amount of work has been and is being performed addressing how light yield, performance, and light collection uniformity impact different photon detection %PDS 
+technologies. Examples of such measurements, many of which are performed at Fermilab's PAB facility, can be found in references~\cite{Cancelo:2018dnf},~\cite{Moss:2016yhb}, and~\cite{Moss:2014ota}.
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Ionization Signal}
+Many detector effects impact the ionization signals ($dQ/dx$) ultimately recorded by the TPC wires as shown in this equation~\cite{ARGONEUTrecomb}:
+
+\begin{equation}
+dQ/dx = dE/dx \times \frac{1}{W} \times R \times L \times D \times C
+\end{equation}
+
+where $dE/dx$ is the energy lost by the particle initially through ionization over a distance $dx$, $W$ is the energy required to free an electron, $R$ is the recombination factor of electrons with Ar${^+}$ ions, $L$ is the drift lifetime of electrons, $D$ is electron diffusion constant, and $C$ is the calibration of electronics response. The significant impact of these effects is in large part due to the slow drift of ionization electrons in the TPC, of order $\mathcal{O}(1)$ mm/$\mu$s. Detector effects impact ionization electron signals both by quenching the total ionization charge, as well as by producing local variations in detector response. These in turn lead to relative and absolute energy scale variations which impact energy resolution and bias respectively. Careful calibration of these effects can significantly improve the energy resolution and particle identification performance which are essential in order to achieve DUNE's physics goals.
+
+The major effects which impact detector response to ionization energy loss are listed below, together with relevant measurements of these effects.
+\begin{enumerate}
+\item \textbf{Ion Recombination} Ionization electrons in the vicinity of positive argon ions can recombine, quenching the TPC signal. This detector effect is dependent on the concentration of $e^-$-Ar ion pairs produced and the time such pairs spend in close proximity. The first is determined by the local $dE/dx$ energy loss, and the second by the strength of the electric field. Recombination quenches ionization signals by $\sim$50\%, causing one of the most significant biases in collected signals. Measurements of ion recombination with stopping muons and protons of energy ranges relevant to \si{\GeV} $\nu$-Ar interactions have been performed by the ICARUS~\cite{Amoruso:2004dy} and ArgoNeuT~\cite{Acciarri:2013met} experiments. These measurements are performed in a range of $dE/dx$ which spans from \num{2} to \SI{25}{\MeV\per\cm}, at field strengths in the \num{0.2} to \SI{0.5}{\kV\per\cm} rage. The models used for these two measurements differ in parametrization, but lead to very similar results with larger differences or order 5\% above \SI{10}{\MeV\per\cm} of ionization energy loss.
+\item \textbf{Quenching by Impurities} Impurities such as $H_2O$ and $O_2$ can absorb drifting electrons quenching ionization signals as they drift towards the readout wire-planes. The impact of quenching by impurities is parametrized as an exponential quenching probability in function of the drift time, referred to as the electron lifetime. The ICARUS~\cite{Antonello:2014eha} and MicrobooNE~\cite{bib:uBlifetime} detectors have measured electron lifetime values which span from one to tens of ms. Few-\si{\ms} lifetimes lead to \num{10} to \num{40}\% $e^-$ quenching over meter-scale drift distances, causing significant drift-distance dependent variations in the detector's energy response, and must therefore be carefully calibrated.
+\item \textbf{Electron diffusion} Electron clouds diffuse as they drift towards the anode. This diffusion effect is typically separated into a longitudinal component, in the E field direction, and an orthogonal transverse component. For fields of $\mathcal{O}$(\SI{100}{\V\per\cm}) and meter-long drift-distances, \num{1} to \SI{2}{\milli\m} diffusion is expected. Measurements have been performed by a dedicated experiment at Brookhaven in a wide range of configurations~\cite{Li:2015rqa} and the % \SI{3}{\t} 
+\num{3} ton ICARUS prototype~\cite{bib:ICARUSdiffusion}. Knowledge of diffusion effects helps understand the intrinsic position and timing resolution of ionization signals, which in turn informs detector optimization parameters such as wire spacing and signal shaping. Diffusion effects can also lead to percent-level calibration variations in the drift-coordinate. Finally, preliminary simulations utlizing the DUNE \dword{35t} geometry demonstrate that detailed analysis of the collection plane signal shape of  \dword{mip} muon tracks can provide information about the event time, commonly called $t_0$~\cite{Warburton:2017ixr}. 
+\item \textbf{Space Charge Effect} Positive ions, which drift at speeds \num{1e-3} %$10^{-3}$ 
+times smaller then electrons, can build up in a TPC leading to localized variations of the electric field. These in turn impact the drift velocity both in magnitude and direction, distorting the image of ionization electrons recorded by the wires. Additionally, the variation in electric field strength impacts ion recombination, and thus the calorimetry of ionization signals. Turbulence in the argon flow can further complicate the impact of space-charge, requiring in-situ measurements for proper calibration. The magnitude of space-charge effects strongly depends on the overall rate of energy deposition in the TPC. Surface detectors, with a high cosmic ray rate, can expect local variations in calorimetric response of order \num{2} to \num{3}\%. The \dword{microboone} detector is performing the first measurement of SCE using cosmic-ray muons and a laser calibration signals to produce maps of electric field distortions. Preliminary results and simulations from \dword{microboone}~\cite{bib:uBspacecharge} suggest field distortions of order \num{10}\%, with significant position dependence, and qualitative data-simulation agreement.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Calibration Sources}
+
+Current and previous LArTPCs have employed some of the calibration sources and systems under consideration for DUNE; later sections describe the capabilities at the DUNE FD, but we summarize here the use of these sources and systems to date.
+%The availability of a wide-range of calibration sources for energy and resolution measurements is vital to a successful calibration strategy. 
+The majority of \dword{lartpc} detectors have relied significantly on samples of \num{100} to \SI{10}{\GeV} particle tracks produced either in neutrino interactions~\cite{Anderson:2012mra} or from cosmic-ray activity to calibrate the detector's response to energy loss. 
+%Due to DUNE's long baseline and distance from the surface, both sources are less abundant. This has motivated the search for alternative calibration sources. Additionally, calibration of the detector's response to low-energy activity is particularly relevant due to DUNE's triggering and \dword{snb} physics requirements. To address both these points, 
+%Calibrations relying on radioactive sources, both intrinsic (Ar${}^{39}$) and external are being devised.
+For cosmic-ray muons entering the TPC additional $t_0$ tagging methods are available, such as tagging of anode-or-cathode piercing tracks~\cite{bib:uB_ACPT} or the use of external cosmic-ray taggers, as installed for \dword{microboone} and being constructed for SBND and ICARUS~\cite{Auger:2016tjc}. Relying on a diffusion measurement to perform $t_0$ tagging, as explored by the \dword{35t} detector, can provide an additional source for calibrations.
+%\par 
+
+Additional calibration systems are being devised actively on ongoing \dword{lartpc} experiments. \dword{microboone} is developing the use of intrinsic (Ar${}^{39}$) radioactive sources. 
+Laser systems that can produce ionization trails are a valuable option specifically designed to help measure variations in the TPC's electric field. Such a system has been successfully developed~\cite{Ereditato:2014tya} and is being currently employed in the \dword{microboone} detector for E field measurements.
+
+
+Of particular importance to calibrations that impact position-dependent variations in the detector are sources of known drift-time ($t_0$). PMT-to-TPC matching can be employed to identify the $t_0$ associated with TPC interactions. 
+Calibration of the detector's \dword{pds} using an LED system has been developed and documented for the \dword{microboone} detector in reference~\cite{Conrad:2015xta}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Measurements of relevant high-level physics quantities}
+%Achieved spatial, energy, particle ID.
+In addition to measurements of specific detector response model parameters, studies that test the models or provide higher level evaluation of detector performance are important for understanding energy resolution and particle identification. A number of such measurements is presented in this section.
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Particle Identification}
+Low detection thresholds and accurate particle identification (\dword{pid}) are one of the appealing qualities of \dword{lartpc} detectors. Studies of PID using calorimetric information have been published by the \argoneut experiment~\cite{Acciarri:2013met}. Novel techniques using deep neural networks have been developed in simulation of \dword{microboone} data~\cite{Acciarri:2016ryt}. Test-beam experiments, such as the \lariat experiment~\cite{Cavanna:2014iqa}, are ideal for data-driven studies of particle identification. The \lariat data in particular can perform measurements of secondary re-interactions of pions and protons which impact \dword{pid} and neutrino interaction classification.
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Energy Resolution Measurements}
+The spatial and calorimetric resolution of LArTPCs allow for precise measurements of particle energies and accurate particle identification. For $\mathcal{O}$(\SI{1}{\GeV}) energy muons which escape the TPC volume, Multiple Coulomb Scattering has been shown~\cite{Ankowski:2006ts,Antonello:2016niy,Abratenko:2017nki} to be a viable method to reconstruct the muon momentum with resolutions of order \num{10} to \num{20}\%. 
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Calibration of Detector Response to Electromagnetic Activity}
+Strong motivation for careful calibrations of EM activity comes from the essential role that electron energy reconstruction plays in DUNE's oscillation and \dword{snb} physics programs. Calibration of a \dword{lartpc}'s detector response to electromagnetic (EM) activity introduces several challenges due to the nature of EM energy loss. This is especially true for EM showers in the tens to hundreds of \si{\MeV} energy range, which directly impact a broad range of DUNE physics measurements. The stochastic nature of bremsstrahlung photon production and \SI{14}{\cm} radiation length in \dword{lar} lead, at these energies, to sparse and segmented showers. Energy reconstruction of EM showers relies on the calorimetric measurement of energy deposited in the TPC, and this measurement can be biased by effects such as thresholding (due to small energy deposits) and clustering (due to far-reaching, isolated energy deposits). Having access to sources of EM energy deposition for in-situ calibrations of such biases is essential. Two such sources have been studied by past measurements:
+\begin{itemize}
+\item \textbf{ Michel electrons} The well known spectrum of electrons from muon decay at rest makes Michel electrons a powerful source with which to study energy reconstruction for electrons in the tens of \si{\MeV}. The overlap of this spectrum with the critical energy in \dword{lar} makes this sample particularly interesting due to the complex topology which these events exhibit. ICARUS has measured Michel electrons in \dword{lar}, studying energy loss by the primary electron~\cite{Amoruso:2003sw} with good calorimetric energy resolution. MicroBooNE subsequently has measured Michel electrons studying energy loss both by primary ionization and radiation~\cite{bib:uBmichel}, showing that measuring radiative losses allows to improve the electron energy resolution, while at the same time presenting the reconstruction challenges involved.
+\item \textbf{ Neutral Pions} $\pi^0$s provide a valuable calibration source for EM activity. Their primary decay to a pair of photons allows for a data-driven calibration of the photon energy by relying on the $\pi^0$ mass value. Studies of EM energy reconstruction utilizing such a sample have been performed by the ICARUS collaboration~\cite{Ankowski:2008aa} and are currently underway in \dword{microboone}. Studies of $\pi^0$ energy reconstruction are also available in a measurement of $\nu_{\mu}$ CC $\pi^0$ interactions in ArgoNeuT~\cite{Acciarri:2015ncl}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Future Measurements}
+A number of currently operational and near-term \dword{lartpc} detectors will be producing additional measurements of relevance for detector calibration. The \dword{pdsp}~\cite{Abi:2017aow} and \dword{pddp} %double-phase protoDUNE detectors 
+will test the technology's scalability and make measurements valuable to particle identification in a \SI{1}{\kt}, \SI{3.6}{\m} drift environment. 
+%In addition, Cosmic-ray muons will be employed for such measurements, and Ar${}^{39}$ decay events will be studied as a feasible detector-calibration source. 
+As \dword{microboone} continues to take data, and is joined by the SBND and ICARUS detectors as part of the Short Baseline Neutrino program~\cite{Antonello:2015lea}, additional measurements of the above categories will be performed by similar-scale surface detectors. Measurements from the neutrino oscillation and cross-section driven SBN program will specifically focus on calibrations with significant impact on physics analyses and systematics which will deepen the understanding of DUNE calibration sources (Ar${}^{39}$) and systems (laser).
+\dword{microboone}'s data will be  valuable to explore time-dependant failures or effects due to the long operation running time. In the short term initial studies on EM interactions in \dword{lar}~\cite{Caratelli:2018nob}, of particular importance to DUNE's oscillation physics program, will be expanded.

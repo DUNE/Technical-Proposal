@@ -1,0 +1,88 @@
+\subsection{Cosmic Ray Tagger}\label{sec:crt}
+
+%\subsubsection{Motivation and Possible Measurements} Motivation: a simple and direct trigger independent of the TPC(s). You don’t need to combine photon detectors, you don’t need to figure out which wires will have signals. you have to decide which detectors have a signal etc. Independent reconstructed
+
+%% Josh original text, re-use for intro %%
+%	Many of the calibration sources discussed for DUNE---laser tracker, cosmic ray that cross the CPAs and APAs, PDS light system---are intended to measure either parameters of our detector model (like the electric field) or corrections to our observables (like electron lifetime which is used to correct $dE/dx$).   But once these parameters are installed into the detector model---essentially, LArSoft or its successor---we still need a way of {\it testing} the model: comparing how well we reconstruct simulated events to detector events, for example.  
+
+%Such a test is the most direct way of estimating systematic errors on the model, which in turn can be propagated into final neutrino oscillation analyses, or of discovering biases or out-and-out unexpected errors.  And with a near detector that is likely to look substantially different from the far detector (at the very least, pixels compared to wires), we cannot expect any effective ``cancellation'' of such detector-related systematics.  To do a test like this, we need a way of constraint a track's position, direction, and time, independent from information from the detector itself. 
+
+%	Providing tests of all physics-like events in the DUNE far detector is not feasible; we have no nearby neutrino generator, nor even a test beam for various particle species.  No matter what tests we do, we will be extrapolating their results to real physics events, and we will have to demonstrate---with, for example, ProtoDUNE data---that such extrapolations are valid, as a way of making an argument to our colleagues in the community that we understand how the detector behaves.  Nevertheless, without any test at all, we will be left arguing that the Monte Carlo simulation cannot be ``that wrong,'' which is not an argument commonly found in the kind of precision measurement publications that our CP and other oscillation measurements will be.
+
+%There is, however, one source of events that look very much like beam data: muons produced in the rock surrounding the detector by beam neutrinos. These muons have the same energy (up to losses in the rock) and direction (up to multiple scattering outside the cryostat) as the muons created in quasielastic CC events in the detector.  These rock muons provide us with an opportunity to constrain the initial position, time, and direction of a subset of beam like events completely independently from the detector itself, by placing a simple (and inexpensive) cosmic-ray tagger outside the cryostat.  Our estimates show that the number of such ``rock muons'' entering the front face of the cryostat is similar to the number of CC $\nu_{\mu}$ events in detector itself.  
+
+%% Kendall text %%
+\subsubsection{Motivation and Possible Measurements}
+
+One of the standard tests for calibration involves %testing 
+using detector models to determine how well we reconstruct simulated events compared to detector events. %, for example. 
+%Such a test 
+This is the most direct way of estimating systematic errors on the model. %To do a test like this, we need 
+This sort of test requires a way to constraint a track's position, direction, and time, independent of information from the detector itself. A \textit{Cosmic Ray Tagger} (CRT), a dedicated fast tracking system, will provide such independent information from the TPC about neutrino-induced and cosmic-ray muon events. CRT-tagged tracks can also help test the E-field map in regions not illuminated well by the laser system. Additionally, a CRT can help diagnose problems such as displacement of cosmic-ray tracks due to drift field distortions and help with location tagging in the case of \dword{fc} resistor failures since %one knows where exactly the cosmics went with the CRT. 
+the CRT indicates exactly where the cosmics went.
+
+Rock muons from beam interactions in the rock surrounding the cryostat
+%\fixme{define} 
+%look very much like beam data, as they have the same energy (up to losses in the rock) 
+%\fixme{what does that mean?} 
+have similar energy (up to losses in the rock) and angular
+(up to multiple scattering outside the cryostat) spectrum as CC \numu %$\nu_\mu$ 
+events. The number of rock muons entering the front face of the cryostat is similar to the number of CC \numu event rate contained in the detector.  A nominal design of the CRT would cover the front face of the detector (approximately $14\textrm{m} \times 12\textrm{m}$) to provide an estimate of the initial position, and the time for a subset of these events, independent of the TPC and \dword{pds}. %photon system itself. 
+A second, similarly sized panel, \SI{1}{\m} away from the cryostat would provide direction information. This is a critical test for reconstruction in the forward \SI{1}{\m} region of the detector, which can be compared with information from cosmic rays and other calibration sources. Additional measurements are possible elsewhere in the detector if the system is portable; it could be %moved to be used 
+positioned on top of the cryostat to capture (nearly downward-going) cosmic rays during commissioning, or positioned along the side %of the cryostat 
+for rock muon-induced tracks along the drift direction. 
+%Assess the option of building or re-using a moveable CRT, which would primarily be used for the more copious cosmic rays themselves and likely be placed such that downward-going (or nearly downward-going) cosmics could be tracked, will also be investigated.
+
+Preliminary studies have shown that with about \num{100} rock muons (of the approximately \num{800} that will arrive in \num{1}~year) it is possible to %determine if there is 
+detect a \num{1}\% bias in rock-muon track reconstruction, which can be modeled as an error in the drift velocity $v_d$, at about the \num{2}$\sigma$ level.  %Knowing that there is 
+Confirmation of such a bias would directly impacts our estimates of the fiducial volume---the number of argon targets available for neutrino interactions in the detector. It also affects our estimates of backgrounds: %we need to know physically where a 
+the location of a $\pi^0$ decay must be known in order to %know 
+determine the probability that one of
+its $\gamma$s converted in an inactive region of the detector (or exited). %left entirely).
+
+\subsubsection{Design Considerations}
+
+The CRT %will have a 
+pixelization will be small enough that rock-muon statistics will allow %us to 
+determination of the center of each pixel to %as good as 
+the same resolution as that expected for the detector %resolution is expected to be 
+(roughly \SI{1}{\cm}). So, for example, even with \SI{50} one-\si{\cm}-sized pixels, %\todo{check} SG/KM: Anne says "check" unsure what needs to be checked. Ask her and revisit.
+with about \num{1000} rock muons per year passing through the CRT, the achievable precision %with which one would 
+on average %know 
+for the incident position (before subsequent multiple scattering) is about \SI{5}{\milli\m}.  This assumes that the test integrates over all $x$ and $y$, as doing the test in segments of
+$x$ and $y$ reduces the usable statistics. % we can use. %a 1 cm precision for {\each} rock muon, we'd need 1~cm pixels which likely would mean an expensive tracker. 
+In addition to the pixelization that will constrain $x$, $y$, $z$, and
+$t$ for each track, placing a second, identical counter about \SI{1}{\m} upstream will allow
+a measurement of the rock muon direction as well.
+
+%% KM: Omitting for now-- it's not clear we have the space or the cost would still be modest. 
+%	The biggest drawback is that the rock muons travel only a meter or so for most of the beam events, although the tail of the beam energy will penetrate further, albeit with low statistics.  Therefore we are doing such tests in just one part of the detector, which opens up the possibility that there are biases or errors in other areas.  The problem can be mitigated by adding CRT panels along the bottom and sides of the cryostat, where rock muons also enter (because the beam is broader than the detector itself).  These would be somewhat different in direction than the beam events, but nevertheless would illuminate the majority of the detector volume. Placing a CRT at the back of the cryostat would allow us to constrain the exit point of a muon, which would also be valuable as a test, and depending on the intervening material between one cryostat and the next, we could have a long lever arm to determine direction.
+
+A concern is how such a system will be surveyed. Unlike APA and CPA crossers, these events will depend only on the relative position of the CRT and the APA that observes the muon.  Not knowing these relative positions will compromise the precision of the measurement, and the error in such a survey could be misinterpreted as a reconstruction bias.
+%\fixme{I rewrote this paragraph; orig exists in comment} SG/KM: the rewritten paragraph alters the meaning so we restored to the original one. We can revisit clarifying the original paragraph if you like
+%Anne's rewritten one: Unlike muons that cross an APA and a CPA, these events will depend only on the relative position of the CRT and the APA that observes the muon. A high-precision survey of the system is therefore important for making precision measurements. Any error in the survey could be misinterpreted as a reconstruction bias.
+
+%	To save cost, the CRT would likely be made from existing scintillator panels, either from the MINOS detector, or perhaps the same set of counters being used for ProtoDUNE.
+
+%{\it KM: Does nominal design include telescope? Right now omitting side panels, unless we want to make statements about how movable this system is. }
+
+\subsubsection{Remaining Studies}
+
+The remaining studies %for the TDR 
+for the CRT system prior to the TDR are:
+\begin{itemize}
+\item Continuation of %our 
+simulation studies of the precision with which %we 
+the CRT (including panels on the sides and bottom) can determine biases or other problems with the detector model., 
+% with a CRT, including 
+%\fixme{ problems with?} panels on the sides and bottom. %We will continue to 
+\item Continuation of %optimize the 
+size and pixelization optimization. 
+\item Assessment of %sufficient 
+space surrounding the cryostat for the CRT, including space above (for cosmic rays), along the side, or for a second panel \SI{1}{\m} away from the front face of the cryostat.
+\item Assessment of cost saving options, including reuse of existing scintillators (from MINOS), or reuse of a counter system (e.g., from \dword{protodune}).
+%We have begun already talking to colleagues from MINOS to determine the availability of their scintillator, as well as speaking to DUNE FD integration and engineering about the space available.  Discussion with the DAQ Consoritum has also begun but will depend somewhat on the technology chosen.
+\item As discussed above, a plan for surveying the CRT relative to the APAs
+also needs to be developed, to be coordinated with the APA consortium. 
+\item Continuation of discussions with the DAQ consortium on CRT needs, although this will depend somewhat on the technology chosen.
+\end{itemize}
