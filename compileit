@@ -16,10 +16,14 @@ if [ "$2" = "clean" ] ; then
     exit 0
 fi
 
-pdflatex="pdflatex $name"
-if [ "$2" == "print" ] ; then
-    pdflatex="pdflatex \def\isfinal{1} \input{$name}"
+if [ "$2" = "print" -o "$2" = "final" ] ; then
+    echo '\def\isfinal{1}' > control.tex
+else
+    echo '' > control.tex
 fi
+
+
+pdflatex="pdflatex $name"
 
 
 $pdflatex || exit 1
