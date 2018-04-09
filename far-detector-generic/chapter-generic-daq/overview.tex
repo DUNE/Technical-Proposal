@@ -13,65 +13,108 @@
 \subsection{Introduction}
 \label{sec:fd-daq-intro}
 
-The DUNE \dword{fd} \dword{daq} system design must enable the
-readout, triggering, processing and distribution to permanent storage
-of data from all \dwords{detmodule} which includes both their
-electrical \dword{tpc} and optical \dword{pds} signals. 
-The \dwords{detmodule} have variation in terms of their readout
-technology and schemes, timing system, channel counts and data
-throughput and format. 
-The DAQ must adapt to these differences at its front end such that a
-high degree of design commonality can be reused between
-\dwords{detmodule} and to present a unified interface to the consumer
-of its data at its back end.
+The DUNE \dword{fd} \dword{daq} system must enable the readout,
+triggering, processing and distribution to permanent storage of data
+from all \dwords{detmodule} which includes both their electrical
+\dword{tpc} and optical \dword{pds} signals.  
+The final output data must retain, with very high efficiency and low
+bias, a record of all activity in the detector which pertains to the
+recognized Physics goal of the DUNE experiment. 
+The practical constraints of managing this output requires that the
+DAQ achieve these goals while reducing the input data by almost four
+orders of magnitude.
+
+The current generation of LArTPC DAQ, such as used in
+\dword{protodune} and \microboone, record data over a fixed window of
+time which is chosen based on the acceptance of an external trigger. 
+The DUNE DAQ faces several major challenges beyond those of the
+current generation. 
+Foremost, it must accept data from an order of magnitude more channels
+and from that data it must form its own triggers.
+This self-triggering functionality requires immediate processing of
+the full-stream data from a large portion of all TPC channels with a
+throughput of approximately one terabyte per second per
+\dword{detmodule}. 
+The nature of various technical, financial and physical constraints
+leads to much of the computing hardware to host this processing to
+reside underground and near to the detector modules.
+
+Past LArTPC and long-baseline neutrino detectors have successfully
+demonstrated external triggering using information related to their
+associated particle beam. 
+And indeed the DUNE FD DAQ will accept external information on recent
+times of Main Injector beam spills from Fermilab. 
+This will assure triggering with high efficiency to capture activity
+pertaining to interactions from the produced neutrinos. 
+
+However, even if the DUNE experiment had no physics goals other than
+those related to neutrinos from these beam spills, an external beam
+trigger alone is not sufficient. 
+Absent any other information, such a trigger must inevitably call for
+the readout of all possible data from the FD over a period of time of
+at least as one LArTPC drift time. 
+This would lead to an annual data volume approaching an exabyte
+($10^{18}$ bytes) the vast majority of which consists of just noise. 
+This entire data volume would have to be saved to permanent storage
+and then processed offline in order to get to the signals.
+
+Of course, DUNE does have a broad set of physics goals which expands
+to include also the observation of interactions and decays that are
+unrelated to the beam of neutrinos from Fermilab. 
+This activity includes cosmic ray muons, which provide an important
+source of detector calibration, and atmospheric neutrino interactions,
+that give a secondary source from which to measure neutrino
+properties. 
+Taken together, and detailed below, recording their activity will
+dominate the data rate.
+The DAQ must also record data with sensitivity to rare interactions
+(both known and hypothetical) such as nucleon decay, other baryon
+number violating processes (such as neutron-antineutron oscillation),
+and interactions from the products of \dwords{snb}. 
+
+Some of these events, while rare in themselves, produce patterns of
+activity that can be mimicked by other higher rate backgrounds.
+In the case of supernova neutrino bursts this is particularly so. 
+While the exact processes involved in SNBs are not fully understood,
+it is expected that a prolonged period of activity of many tens of
+seconds will occur over which their neutrino interactions may be
+observed. 
+Individually, these interactions will be of low energy (relative to
+that of beam neutrino interactions, for example) and will be spread
+over time and the bulk of the \dwords{detmodule}. 
+Because of their signature and their importance, special attention is
+required to first ascertain that a SNB may be occurring and to save as
+much data as possible over their duration.
+
+Thus the DAQ must greatly reduce the full-stream of its input data
+while using the data itself to do so. 
+It must do this efficiently both in terms of recording essentially all
+activity important to the physics goals of DUNE and in terms of
+output data at a rate which is manageable.  
+
+
+\subsection{Design Considerations}
+\label{sec:fd-daq-des-consid}
+
+The different \dwords{detmodule} have variation in terms of their
+readout technology and schemes, timing system, channel counts and data
+throughput and format.
+All of this determines the nature of the digital data which is input
+to the DAQ. 
+The design of the DAQ strives to contain the unique layers which adapt
+to the variation in \dwords{detmodule} toward its ``front end'' in
+order to allow as many of its ``back end'' components identical across
+the \dwords{detmodule} as possible. 
+In particular, the DAQ presents a unified interface to the ultimate
+consumer of its data, the DUNE offline computing.
 It must also accept and process the data from a variety of other
 sources including the accelerator, various calibration systems
 (including laser, cold electronics, photodetectors, and potentially
-others) as well as trigger sources external to DUNE.  
-
-The DUNE physics program requires that the detector is highly
-sensitive to both beam and off-beam events.
-The latter include most dominantly cosmic rays and atmospheric
-neutrino interactions, as well as hypothesized, rare interactions such
-as nucleon decay, other baryon number violating signatures (such as
-neutron-antineutron oscillation), and interactions from nearby
-\dwords{snb}. 
-Beam interactions and off-beam high-energy interactions pose
-relatively little challenge to the DAQ system.
-In the former case triggering can be done with the benefit of
-information on the beam timing from the accelerator and in the latter
-case the presence of large, localized activity in the detector, seen
-by both the \dword{tpc} and \dword{pds}. 
-On the other hand, the low activity and extended nature (both
-spatially and in time) of neutrino events from a supernova burst,
-compounded, on one hand, with the overall large data rates of the DUNE
-far detector and, on the other hand, naturally occuring radiological
-backgrounds which have similar activity as low-energy supernova
-neutrino interactions, pose a huge challenge to the \dword{daq}.
-As such, the \dword{daq} and in particular the far detector trigger
-scheme is being designed with that challenge in mind. 
-
-\begin{dunefigure}[DAQ Overview]{fig:daq-cartoon}{DUNE FD DAQ readout scheme.}
-  \begin{center}
-    t.b.d
-  \end{center}
-\end{dunefigure}
-
-Figure~\ref{fig:daq-cartoon} provides a cartoon picture for the DUNE
-far detector readout scheme.
-One particular concern is the optimal method of reducing the data
-volume from the \dwords{tpc}.
-Their excess electronics noise and uncertainties in the rates of
-radiological decay pose a risk in grossly underestimating the rate of
-data associated with low-energy physics.
-Rather than relying on smart zero-suppression or other waveform-level
-lossy schemes, which are far more sensitive to noise and radiological
-rate fluctuations, the approach followed by the \dword{daq} design has
-been to facilitate as efficient and effective triggering as possible,
-coupled with lossless readout.
-The figure illustrates the readout scheme for localized high-energy as
-well as extended low-energy events.
-
+others) as well as trigger sources external to DUNE. 
+The daq must be optimized for the above while also retaining
+flexibility to scale to handle certain risks such as excess noise,
+changes in high voltage, cut network connectivity and other credible
+potentialities.
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}
   {The high-level design for the DUNE FD DAQ showing data (solid, with
@@ -89,26 +132,13 @@ well as extended low-energy events.
 
 Figure~\ref{fig:daq-overview} gives an illustration of the high-level
 DUNE FD DAQ design in terms of data and trigger flow.
-At this level, the design is generic to all \dwords{detmodule}.  
-The implementation some of the upstream components necessarily differ
-in order to match differences in the design of the detector module
-itself. 
-The design section below gives more description of this high-level
-design and details on specialized implementations.
+At this level of detail the diagram is generic to all
+\dwords{detmodule} but some of the depicted roles will necessarily
+have implementation specific to their \dword{detmodule}.
+The subsections of Section~\ref{sec:fd-daq-design} give more
+description of this high-level design as well as details on
+specialized implementations.
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Design Considerations}
-\label{sec:fd-daq-des-consid}
-
-\fixme{Start with a statement about the different physics requirements and corresponding challenges for DAQ, and potentially an overview of the solutions.  Eg. beam events can be collected using local trigger \& readout, or at module level (eg. during commissioning), SNB requires global trigger \& readout, etc.}
-%\metainfo{Include: Raw data rate from WIBs, Josh's table of data volumes for each event type and the 30 PB/year offline limit. Space and thermal power limits.  Note, this table may be better put into Section~\ref{sec:fd-daq-design} to make this section more generic.}
-
-%\fixme{Anne suggests: Within this section add ref to requirements
-%document when it's ready, and maybe list the most important half
-%dozen in a table here). E.g.,}  
 The high level requirements for the DUNE FD DAQ are provided in
 \cite{daq:reqs}.
 The most critical requirements in consideration for the overall design
@@ -161,8 +191,8 @@ disk and processing capacity of Fermilab.
 An ample guideline has been established which places this limit at
 about \offsitepbpy or \offsitegbps.
 Extrapolating to four FD detector modules this requires the DAQ to
-perform a data reduction factor of more than \num{4000}. 
-How this is achieved is described next.
+perform a data reduction factor of almost four orders of magnitude. 
+This will be achieved through a simple self-triggered readout strategy.
 
 An overestimate of the annual, triggered data volume assuming the FD
 is comprised of four \dword{sp} \dwords{detmodule} is summarized in
@@ -230,7 +260,7 @@ from the results of \dword{protodune}.
 
 %\metainfo{This section may also wish to refer to Fig.~\ref{fig:daq-overview}.}
 
-The scope of the \dword{daq} system is illustrated in
+The nominal scope of the \dword{daq} system is illustrated in
 Fig.~\ref{fig:daq-overview} by the boxes which are not grayed out and
 includes the continued procurement of materials for, and the
 fabrication, testing, delivery and installation of the following

@@ -37,17 +37,20 @@ noise levels in a part of the detector are higher than specified and
 higher than tolerable by the baseline trigger decision mechanism; it
 will allow additional data processing to be added (at additional cost).
 
-\fixme{Mention scalability here ?}
-
-The data will be collected from the TPC and photon-detector readout
-systems of the single-phase and dual-phase \dwords{detmodule}. 
-These fragments are viewed as essentially four types of
-\dwords{submodule} within the DAQ and will follow the same overall
-data collection scheme as shown in Figure~\ref{fig:daq-overview}. 
-The readout is arranged in a hierarchical manner to allow localized
-\dwords{trigdecision} to be made at the \dword{detunit} level, at the
-\dword{detmodule} level, as well as combined over the full four
+Digital data will be collected from the TPC and photon-detector
+readout electronics of the single-phase and dual-phase
 \dwords{detmodule}. 
+These categories of data sources are viewed as essentially four types
+of \dwords{submodule} within the DAQ and will follow the same overall
+data collection scheme as shown in Figure~\ref{fig:daq-overview}. 
+The readout is arranged to allow for a \dword{trigdecision} to be made
+in a hierarchical manner. 
+Initial inputs are formed at the channel level, then combined at the
+\dword{detunit} level and likewise these are combined at the
+\dword{detmodule} level.
+In addition, the \dword{trigdecision} process combines this level of
+information that may come from the other \dwords{detmodule} as well as
+information sources external to the DAQ. 
 The control of the detector elements will prevent a fault in one part
 from halting data taking in another part, certainly at the per-cavern
 level, and potentially also at more local levels. 
@@ -59,20 +62,28 @@ consider how the main data is collected first and then to look at how
 the triggering and synchronization functions are included; we take
 this approach in this overview. 
 
-At the granularity of a \dword{daqfrag} there is an integral number of
-\dwords{detunit} associated with one \dword{fec} (eg, two \dwords{apa}
-for the \dword{sp} \dword{detmodule}).
-The \dword{tpc} and \dword{pds} data from these \dwords{detunit} are
-streamed to the fragment's \dword{daqfer}. 
-This component is responsible for accepting that data and producing
-channel level \dwords{trigprimitive} and forwarding both to the
-\dword{daqdr} in the \dword{fec}. 
-It may also be responsible for supplying transient (RAM) and
-non-volatile (\dword{ssd}) buffer sufficient for \dword{snb}
-triggering and readout.
+A single \dword{daqfrag} associates an integral number of
+\dwords{detunit} with one \dfirst{fec}. 
+Limited largely by PCIe bandwidth a \dword{fec} may accept
+10-20~\si{\GB/\s}. 
+This allows one \dword{sp} fragment to correspond to two APAs and one
+\dword{dp} fragment to correspond to about ten \dfirst{cro} crates or
+possibly all five \dfirst{lro} crates.
+The data of one fragment first enters the DAQ via the fragment's
+\dfirst{daqfer} component.
+In the \dword{sp} the \dword{daqfer} consists of eight \dwords{rce} and
+in the \dword{dp} it consists of a number of computers.  
+The \dword{daqfer} is responsible for accepting that data and from it
+producing channel level \dwords{trigprimitive}.
+It is also responsible for forwarding compressed data and the
+primitives to the \dfirst{daqdr} in the corresponding \dword{fec}.
+
+In the nominal design the \dword{daqfer} is also responsible for
+supplying transient (RAM) and non-volatile buffer in the form of
+\dword{ssd} sufficient for \dword{snb} triggering and readout.
 The \dword{daqdr} accepts the full data stream and transfers it to the
-\dword{daqbuf} of its \dword{daqfrag}. 
-There it is held awaiting a query from the \dword{eb}. 
+\dlong{daqbuf} of its \dword{daqfrag}. 
+There it is held awaiting a query from the \dfirst{eb}. 
 When the \dword{eb} receives a \dword{trigcommand} it uses the
 included information to query all appropriate \dwords{daqds} and from
 their returned \dwords{datafrag} an \dword{rawevent} is built and
@@ -80,17 +91,17 @@ written to file on the \dword{diskbuffer}.
 From there the data becomes responsibility of the Offline group to
 transfer to Fermilab for permanent storage and further processing.
 
-Meanwhile to the above the \dwords{trigprimitive} produced by a
-\dword{daqfer} at the channel level are sent to the corresponding
-\dword{daqdr} where they are used to form \dwords{trigcandidate} The
-\dwords{trigcandidate} from all \dwords{daqpart} are sent the
-\dword{mtl}. 
-There they are time ordered and otherwise processed in order to form
+Meanwhile to the above the \dwords{trigprimitive} that were produced
+by a \dword{daqfer} and sent to the \dword{daqdr} are used to form
+\dwords{trigcandidate}. 
+The \dwords{trigcandidate} emitted by all \dwords{daqfrag} are
+collected in the \dfirst{mtl} associated with the \dword{daqpart}. 
+There, they are time ordered and otherwise processed to form
 \dwords{trigcommand}. 
 Each such command is consumed by an \dword{eb} in order to query back
 to the \dword{daqpart} level as described above.
-In addition, the \dwords{mtl} of each module are exchanging messages
-in the form of \dwords{trigcandidate}. 
+In addition, the \dword{mtl} of one module is exchanging messages
+in the form of \dwords{trigcandidate} with the others. 
 For example, one module may raise a local \dword{snb}
 \dword{trigcandidate} and forward it to all other modules.
 Each module is also emitting candidates to sinks and accepting them
