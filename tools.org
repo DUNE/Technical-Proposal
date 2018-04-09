@@ -35,7 +35,7 @@ The commands to run are as below.
 
 #+BEGIN_EXAMPLE
   ./waf configure [--prefix=/path/to/install] [--prompt-level=1]  (1)
-  ./waf                                                           (2)
+  ./waf -p                                                          (2)
   ./waf install                                                   (3)
 #+END_EXAMPLE
 
@@ -63,6 +63,24 @@ chapter PDF:
 
 While it should not be required to modify them, the ~chapters.tex~ and
 ~chapters.sh~ files are used in this build.
+
+*** Debugging problems with Waf
+
+By default waf runs in a parallel mode which causes a lot of LaTeX
+output to flash by on your terminal.  When there is an error, Waf will
+terminate with a Python stack trace.  You must then scroll the
+terminal to try to find the detail errors from LaTeX itself.  This can
+be rather tedious.
+
+More easily, when Waf "crashes" you can rerun it while instructing it
+to run LaTeX in a serial fashion and also to turn on the usual LaTeX
+interactivity.  This can be accomplished with:
+
+#+BEGIN_EXAMPLE
+  $ ./waf -j1 --prompt-level=1
+#+END_EXAMPLE
+
+This can help see 
 
 ** The ~latexmk~ tool
 
