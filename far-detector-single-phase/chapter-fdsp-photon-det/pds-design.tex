@@ -9,8 +9,7 @@
 
 %\fixme{Include an image of the subsystem, indicating its parts. Show how the system fits into the overall system).}
 
-The core modular element of the PD system are the large area {\it photon collectors} that convert incident \SI{127}{nm} scintillation photons into photons in the visible range (>\SI{400}{nm}), which in turn are converted to an electrical signal by compact silicon photomultipliers (SiPM) {\it photon sensors}. At the time of the Technical Proposal there are three photon collector options under consideration; Figure~\ref{fig:3dtpc-pd} shows how they are incorporated into the TPC anode plane assembly by an identical mounting scheme. In the following we summarize the design and development status for each photon collector option. 
-[For the Technical Design Report there will be a baseline design and at most one alternative.]
+The core modular element of the PD system are the large area {\it photon collectors} that convert incident \SI{128}{nm} scintillation photons into photons in the visible range (>~\SI{400}{nm}), which in turn are converted to an electrical signal by compact silicon photomultipliers (SiPM) {\it photon sensors}. At the time of the Technical Proposal there are three photon collector options under consideration; Figure~\ref{fig:3dtpc-pd} shows how they are incorporated into the TPC anode plane assembly by an identical modular mounting scheme. In the following we summarize the design and development status for each photon collector option\footnote{For the Technical Design Report there will be a baseline design and at most one alternative.}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Photon Collector}
@@ -62,7 +61,7 @@ The core modular element of the PD system are the large area {\it photon collect
 
 The ARAPUCA is a device based on a new approach to liquid argon scintillation photon detection where the effective photon detection area is increased by trapping photons inside a box with highly reflective internal surfaces until reflections guide them to a much smaller SiPM~\cite{arapuca_jinst}. 
 
-Photon trapping is achieved by using a smart wavelength-shifting technique and the technology of the dichroic shortpass optical filters, which are multilayer thin films with the property of being highly transparent to photons with a wavelength below a tunable cut-off while being almost perfectly reflective to photons with wavelength above the cut-off.  Such a filter deposited with one or two different wavelength-shifters is the entrance window to a squat box with internal surfaces covered by highly reflective acrylic foils 
+Photon trapping is achieved by using a smart wavelength-shifting technique and the technology of the dichroic shortpass optical filters. These commercially available filters are created by using multilayer thin films that in combinaiton have the property of being highly transparent to photons with a wavelength below a tunable cut-off while being almost perfectly reflective to photons with wavelength above the cut-off.  Such a filter deposited with either one or two different wavelength-shifters, depending on the detailed implementation,  forms the entrance window to a squat box with internal surfaces covered by highly reflective acrylic foils
 %(3M-Vikuiti ESR \footnote{3M Vikuiti\textregistered~foils. https://en.wikipedia.org/wiki/Vikuiti.}, for example), 
 except for a small fraction of the surface that is occupied by active photosensors (SiPMs).
 To act as a photon trap, the wavelength-shifter deposited on the outer face of the dichroic filter must have its emission wavelength {\it less} than the cut-off wavelength of the filter, below which transmission is typically greater than 95\%. These photons pass through the filter where they encounter a second wavelength-shifter, either on the inner surface of the filter or coated on the reflecting inner surfaces of the box,
@@ -74,10 +73,10 @@ The net effect of the ARAPUCA is to amplify the active area of the SiPM used to 
 %\begin{equation}
 %A=\frac{1}{2(1-R)}
 %\end{equation}
-where R is the average value of the reflectivity of the internal surfaces. For an average reflectivity of 0.95 the amplification factor is equal to ten.
+where R is the average value of the reflectivity of the internal surfaces; for an average reflectivity of 0.95 the amplification factor is equal to ten.
 
 \begin{dunefigure}[ARAPUCA and the schematic representation of the operating principle.]{fig:arapuca}
-{ARAPUCA and the schematic representation of the operating principle.}
+{ARAPUCA and the schematic representation of the operating principle.\fixme{New schematic figure plus mechanical drawing of an ARAPUCA cell/box?}}
   \includegraphics[height=5cm]{pds-arpkscheme}   
 \end{dunefigure}
 
@@ -89,12 +88,12 @@ In the next sections we describe a variety of tests of the ARAPUCA technology at
 Tests of the ARAPUCA in a liquid argon (LAr) environment were performed at the facilities of the Toroidal Grating Monochromator (TGM) beamline of the Brazilian Synchrotron Light Laboratory (LNLS) (Figure \ref{LNLS_test}). 
 
 A small ARAPUCA made of PTFE with internal dimensions of 3.5~x~2.5~x~0.6~cm$^3$ was tested with a window formed from a dichroic filter with dimensions of 3.5~x~2.5~cm$^2$ and cut-off at \SI{400}{nm}.
-The filter was evaporated with p-TerPhenyl (pTP), which absorbs  \SI{127}{nm} photons and reemits them around  \SI{350}{nm},  on the external side and TetraPhenyl-Butadiene (TPB) on the internal side, which absorbs the shifted \SI{350}{nm} photons and reemits around \SI{430}{nm}. Trapped light is detected by a single 0.6~x~0.6~cm$^2$  SensL SiPMs mod C60035.
-The device was installed inside a vacuum tight stainless-steel cylinder closed by two CF100 flanges. The cylinder was deployed inside a LAr open bath, vacuum pumped down to a pressure around  10$^{-6}$~\si{mbar} and then filled with one liter of ultra pure liquid argon. 
+The filter was evaporated with p-TerPhenyl (pTP), which absorbs  \SI{128}{nm} photons and reemits them around  \SI{350}{nm},  on the external side and TetraPhenyl-Butadiene (TPB) on the internal side, which absorbs the shifted \SI{350}{nm} photons and reemits around \SI{430}{nm}. Trapped light is detected by a single 0.6~x~0.6~cm$^2$  SensL SiPMs mod C60035.
+The device was installed inside a vacuum tight stainless-steel cylinder closed by two CF100 flanges. The cylinder was deployed inside a LAr open bath, vacuum pumped down to a pressure around  10$^{-6}$~\si{mbar} and then filled with one liter of ultra pure liquid argon. \fixme{what is the purity?}
 
-LAr scintillation light emission was produced by an alpha source installed in front of the ARAPUCA, immersed in liquid argon. Signals were read-out through an Aquiris\footnote{Aquiris High-Speed Digitizer products http://www.acqiris.com/} PCI board and stored on a computer.
+Scintillation light emission was produced by an alpha source \fixme{which alpha source} installed in front of the ARAPUCA immersed in liquid argon. Signals were read-out through an Aquiris\footnote{Aquiris High-Speed Digitizer products; http://www.acqiris.com/.} PCI board and stored on a computer.
 
-\begin{dunefigure}[ARAPUCA test at the Brazilian Synchrotron Light Laboratory (LNLS)]{LNLS_test}
+\begin{dunefigure}[ARAPUCA test at the Brazilian Synchrotron Light Laboratory.]{LNLS_test}
 {ARAPUCA test at the Brazilian Synchrotron Light Laboratory (LNLS)} 
 	\includegraphics[height=5cm]{pds-tgm_1} \quad
 	\includegraphics[height=5cm]{pds-tgm_30}\quad
@@ -106,28 +105,28 @@ It was possible to estimate the detection efficiency of the ARAPUCA by
 determining the number of photoelectrons detected corresponding to the end point of the $\alpha$ spectrum 
 and comparing it with the expected number of photons impinging on the acceptance window for that 
 particular energy value ($\sim$ 4.3 MeV), which depends only on known properties of LAr and on the solid 
-angle subtended by the the ARAPUCA window. A detection efficiency at the level of 1.8 \% 
+angle subtended by the the ARAPUCA window. A detection efficiency at the level of 1.8\% 
 was found,  consistent with Monte Carlo expectations.
 
 \subsubsection{Measurements performed at FERMILAB}
 \label{subsec:test_fnal}
 
-Three cryogenic tests have been performed at Fermilab:
+Three cryogenic tests of ARAPUCA prototypes have been performed at Fermilab:
 \begin{enumerate}
-\item The first  was performed in mid-2016 at the Proton Assembly Building (PAB) at the ScENE cryogenic test facility. The ARAPUCA prototype had dimensions of  $5.0 \times 5.0 \times 1.0$ cm$^3$ with a dichroic window of $5.0 \times 5.0$ cm$^2$ deposited with pTP and TPB, respectively on the internal and external faces. The cut-off of the filter was at 400 nm. Two SensL SiPMs mod C60035 ($0.6 \times 0.6$ cm$^2$ active area each) were installed inside the box to detect trapped photons. 
+\item The first  was performed in mid-2016 at the Proton Assembly Building (PAB) at the ScENE cryogenic test facility. The ARAPUCA prototype had dimensions of  $5.0 \times 5.0 \times 1.0$ cm$^3$ with a dichroic window of $5.0 \times 5.0$ cm$^2$ deposited with pTP and TPB, respectively on the external and internal faces. The cut-off of the filter was at 400 nm. Two SensL SiPMs mod C60035 ($0.6 \times 0.6$ cm$^2$ active area each) were installed inside the box to detect trapped photons. 
 
-The ARAPUCA was deployed inside a vacuum tight cryostat filled with ultrapure LAr. An $^{241}$Am alpha source was positioned in front of the window of the device at a distance of 5 cm from its center. The efficiency of the ARAPUCA was estimated taking into account that the alpha particles have a  monochromatic energy of about 5.4 MeV. 
-The estimated efficiency in this case was of the order of 1\%, a factor two below what expected likely due to the sub-optimal quality and uniformity of the pTP and TPB films and to the lack of reflectivity of the inner PTFE surfaces.
+The ARAPUCA was deployed inside a vacuum-tight cryostat filled with ultrapure LAr. An $^{241}$Am alpha source was positioned in front of the window of the device at a distance of  \SI{5}{cm} from its center. The efficiency of the ARAPUCA was estimated taking into account that the alpha particles have a  monochromatic energy of about \SI{5.4}{MeV}. 
+The estimated efficiency in this case was approximately 1\%, a factor two below the expected value; this is attributed to the sub-optimal quality and uniformity of the pTP and TPB films and to the lack of reflectivity of the inner PTFE surfaces in this early prototype.\fixme{was the "sub-optimal quality" based on a visual inspection or other determination?}
 
 \item The second  was performed at the beginning of 2017 at the PAB, but using a different facility, 
 TallBo, which was large enough to allowed testing of several devices at a time. Eight different ARAPUCAs with 
-filters from different manufacturers, different reflectors, and different dimensions were tested. The ARAPUCAs 
-were exposed to the 127 nm scintillation light produced by alpha particles emitted by an $^{241}$Am 
-source, mounted on a holder that could be moved with an external manipulator in order to place it in 
-front of each prototype. The efficiencies of these ARAPUCAs ranged from 0.4\% to 1.0\%.
+filters from different manufacturers, different reflectors, and different dimensions were tested.  
+Scintillation light was produced by alpha particles emitted by an $^{241}$Am 
+source mounted on a holder that could be moved with an external manipulator in order to place it in 
+front of each prototype. The efficiencies of these ARAPUCAs ranged from 0.4\% to 1.0\%.\fixme{Are these the correct values to use?}
 
 \item A third test was performed at the end of 2017 with an array of eight ARAPUCAs together with two 
-reference bars (double-shift design) in the TallBo set-up. Data analysis is ongoing. 
+reference bars (double-shift light guide design) in the TallBo set-up. Data analysis is ongoing. \fixme{Any updates that we can include?}
 
 \end{enumerate}
 
@@ -135,7 +134,7 @@ reference bars (double-shift design) in the TallBo set-up. Data analysis is ongo
 
 Two arrays of ARAPUCA modules will be installed inside ProtoDUNE-SP to test the devices in a real experimental environment and to directly compare their performance with those of the light-guide bars. The first array has been already installed in the APA \#3, while the second one will be installed in the APA \#6.
  
-Each ARAPUCA array is composed of sixteen cells. Each cell is an ARAPUCA box with dimensions of 8 cm $\times$ 10 cm and has 12 SiPMs (or 6 SIPMs in some cases) installed on the bottom side of the cell (6 mm $\times$ 6 mm each), as illustrated in Figure \ref{fig:arpk}.
+Each ARAPUCA array is composed of sixteen cells where each cell is an ARAPUCA box with dimensions of 8 cm $\times$ 10 cm \fixme{what is the window size (slightly smaller than the filter size?)?}; half of the cells have \num{12} SiPMs installed on the bottom side of the cell and  half have \num{6} SiPMS. The SiPMs have dimensions \SI{6}{mm}~$\times$~\SI{6}{mm}.
 The SiPMs  are passively ganged together, so that only one read-out channel is needed for each ARAPUCA grouping of 12 SiPMs (the boxes with 6 SiPMs are ganged together to form 12-SiPM units) so a total of 12 channels is required per array; studies are underway to investigate {\it active} ganging that would permit combining signals from multiples boxes as required to reduce the number of electronics channels and cables, as needed. 
 The ARAPUCA array has a footprint of approximately 8 cm $\times$ 200 cm, the same as the bar wavelength-shifting bars approaches. 
 The first ARAPUCA array installed in ProtoDUNE-SP is shown in Figure~\ref{fig:arapuca_array}.
@@ -160,7 +159,8 @@ The first ARAPUCA array installed in ProtoDUNE-SP is shown in Figure~\ref{fig:ar
 %viability as the photon detection system for the single phase DUNE far detector, both 
 %in terms of demonstrating an absolute detection efficiency of several percent and with respect to long term reliability.
 
-\subsubsection{X-ARAPUCA}  
+\subsubsection{X-ARAPUCA} 
+\label{sssec:x-arapuca}
 X-ARAPUCA represents  an alternate line of development of the ARAPUCA  with the aim of further improving the collection efficiency, while retaining the same working principle, mechanical design and active  photo-sensitive coverage. X-ARAPUCA is effectively a hybrid solution between the ARAPUCA and the wavelength-shifting lightguide bar  concepts, where photons trapped in the ARAPUCA box are shifted and transported to the readout via total internal reflection in a light guide placed inside the box.
 This solution minimizes the number of reflections on the internal surfaces of the box and thus the probability of photon loss. Simulations suggest that this modification will lead to a rather significant increase of the collection efficiency.
 
@@ -335,25 +335,26 @@ Coated reflector foils are manufactured through low-temperature evaporation of T
 
 %<< Start: Andrzej Szelc 14/02/2018 <<<<<<<<<<<<<.
 
-\subsubsection{Anode Plane Light Concentrators}
-\label{sec:fdsp-pd-assy-lc}
+%% Remove Anode Plane Light Concentrators due to lack of development 4/9/18
+%\subsubsection{Anode Plane Light Concentrators}
+%\label{sec:fdsp-pd-assy-lc}
 %\todo{\color{blue} Content: Cavanna}
 	
-In the current baseline layout, the photosensitive area of the PD system is limited to about 12.5\% of the total area of the anode plane so a large fraction of the scintillation light produced in an event passes through the plane region undetected. 
-%delimiting one side of the LArTPC volume. 
-%Only a small fraction of the VUV direct light emitted in ionization events is thus intercepted by the photosensitive area, and this fraction also quickly reduces at increasing distance of the event from the anode plane.  
-Increase in light collection, both for the VUV and the reflected visible component (if the TPB-coated foils at the cathode plane is adopted), can be achieved by implementing large area reflective surfaces at the anode plane in the large open areas between PD bars inside the APA frames. These would act as light concentrators toward the smaller photosensitive surfaces.  
+%In the current baseline layout, the photosensitive area of the PD system is limited to about 12.5\% of the total area of the anode plane so a large fraction of the scintillation light produced in an event passes through the plane region undetected. 
+%Increase in light collection, both for the VUV and the reflected visible component (if the TPB-coated foils at the cathode plane is adopted), can be achieved by implementing large area reflective surfaces at the anode plane in the large open areas between PD bars inside the APA frames. These would act as light concentrators toward the smaller photosensitive surfaces.  
 
-A conceptual solution, illustrated in Figure~\ref{fig:aplc}, is suggested by the widely used implementation of Winston Cones for enhancing light collection in large volume liquid detectors. 
-The PD bar geometry of the photosensitive area inside the thin APA frames and the related mechanical constraints impose rather severe limitations on the design - cone depth and entrance$/$exit apertures ratio - of the light concentrating surfaces. It is also the case that installation of the reflective surfaces inside the APA frame would necessarily be made before wire winding. 
-Ongoing studies are expected to demonstrate the feasibility of the solution and move the conceptual scheme into a technical design. MC simulations will determine the efficiency of the light concentrator. 
+%A conceptual solution, illustrated in Figure~\ref{fig:aplc}, is suggested by the widely used implementation of Winston Cones for enhancing light collection in large volume liquid detectors. 
+%The PD bar geometry of the photosensitive area inside the thin APA frames and the related mechanical constraints impose rather severe limitations on the design - cone depth and entrance$/$exit apertures ratio - of the light concentrating surfaces. It is also the case that installation of the reflective surfaces inside the APA frame would necessarily be made before wire winding. 
+%Ongoing studies are expected to demonstrate the feasibility of the solution and move the conceptual scheme into a technical design. MC simulations will determine the efficiency of the light concentrator. 
 %\fixme{it is difficult to picture what is intended without a figure}
 
-\begin{dunefigure}[Anode Plane Light Concentrators schematic.]{fig:aplc}
+%%\begin{dunefigure}[Anode Plane Light Concentrators schematic.]{fig:aplc}
 {Anode Plane Light Concentrators schematic. Note: just a placeholder for now.}
-\vspace{7cm}
+%\vspace{7cm}
 %\includegraphics[width=0.5\columnwidth]{pds-ly_with_foils.pdf}
-\end{dunefigure}
+%\end{dunefigure}
+
+%% Remove Anode Plane Light Concentrators due to lack of development 4/9/18
 
 
 \subsubsection{Wavelength-Shifter Coated SiPM} 
@@ -588,17 +589,17 @@ the ProtoDUNE-SP timing system and the CTB trigger inputs are distributed to the
 To that end the SSP implements the timing receiver/transmitter endpoint hardware to receive trigger inputs and clock signals from the timing system.
 
 \subsubsection{Photosensor Ganging}
-\fixme{9 apr18 New text from Gustavo - add some preamble text and clean up}}
-R&D on cold electronics and sensor arrays
-Under LDRD L2017.028 (P.I. Gustavo Cancelo) the PD R&D collaboration has developed and characterized several configurations of cold electronics and SiPMs as follow:
-\item{begin}
-?	A 48 SiPM summing board for SENSL 4x4 arrays. This is an active ganging board of 48 3mm x 3mm SiPMs from SenSL C series. This detector has been fully characterized and tested at TallBo with an alpha source (Am241) in March 2017. For the TallBo test the SiPM arrays were coated with 100ug/cm2 of TPB and showed an efficiency of 13%.
-?	A 12 SENSL (6x6 mm C series) summing board that was used by the IU group in their light bars during the TallBo run of Oct-Nov 2017.
-?	We have tested Hamamatsu MPPCs (S13360-6050PE) at 25C, -70C and 77K. A passive ganging of 2, 4, 8 and 12 MPPCs were characterized and showed single PE separation.
-?	A passive gang of 4 SENSL (6x6 mm C series) for ARAPUCAs during the TallBo run of Oct-Nov 2017.
-?	A passive gang of 6 and 12 MPPCs for ARAPUCA ProtoDUNE design
-?	A 72 combination of passive and active ganging using 6mm x 6mm MPPCs with a lower noise OP Amp. This design combines 12 active branches into the low noise OpAmp. Each branch has 6 MPPCs in parallel passive configuration.
-\item{end}
+\fixme{9 apr18 New text from Gustavo - add some preamble text and clean up}
+R\&D on cold electronics and sensor arrays
+Under LDRD L2017.028 (P.I. Gustavo Cancelo) the PD R\&D collaboration has developed and characterized several configurations of cold electronics and SiPMs as follow:
+\begin{itemize}
+\item A 48 SiPM summing board for SENSL 4x4 arrays. This is an active ganging board of 48 3mm x 3mm SiPMs from SenSL C series. This detector has been fully characterized and tested at TallBo with an alpha source (Am241) in March 2017. For the TallBo test the SiPM arrays were coated with \SI{100}{$\mu$g/cm$^2$} of TPB and showed an efficiency of 13\%.
+\item A 12 SENSL (6x6 mm C series) summing board that was used by the IU group in their light bars during the TallBo run of Oct-Nov 2017.
+\item We have tested Hamamatsu MPPCs (S13360-6050PE) at 25C, -70C and 77K. A passive ganging of 2, 4, 8 and 12 MPPCs were characterized and showed single PE separation.
+\item A passive gang of 4 SENSL (6x6 mm C series) for ARAPUCAs during the TallBo run of Oct-Nov 2017.
+\item A passive gang of 6 and 12 MPPCs for ARAPUCA ProtoDUNE design
+\item A 72 combination of passive and active ganging using 6mm x 6mm MPPCs with a lower noise OP Amp. This design combines 12 active branches into the low noise OpAmp. Each branch has 6 MPPCs in parallel passive configuration.
+\end{itemize}
 
 \fixme{9 apr18 decide which figures to use }
 
@@ -619,7 +620,9 @@ some digital process such as a sample interpolation can be proposed, enhancing p
 The light sensitivity and the dynamic range must also be based on physics goals. This decision will enable the number of bits and the sample 
 rate required by either waveform or charge collection methods. In both cases the signal to noise ratio and the power consumption must be estimated. 
 Two considered options could be then compared to model the final readout system where the choice is  correlated with the nature of ganging process. 
+
 \fixme{9 apr18 add Gustavo's text on ganging plans}
+
 Charge processing requires a charge preamplifier ideally located within the cold environment, taking into consideration the failure risks and the power 
 dissipated into the environment.
 
