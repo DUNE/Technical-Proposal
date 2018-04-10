@@ -12,28 +12,53 @@ In this section we will first describe the production process specific to each o
 
 \subsubsection{ARAPUCA}
 \label{ssec:fdsp-pd-pc-prod-arapuca}
-\fixme{This section remains to be updated.}
+%\fixme{This section remains to be updated.}
+% New from Ana added 8 apr 18
+Although the individual cell dimension may differ, the basic design of the ARAPUCA-based photon detector modules for the first module of the Single-Phase DUNE far detector will be similar to that of the two prototypes produced for installed in ProtoDUNE. Here we describe the production and assembly currently envisaged based on that experience.
 
+Each protoDUNE ARAPUCA module is shaped as a bar with external dimensions of 
+\SI{200}{cm} X \SI{9.6}{cm} X \SI{1.6}{cm}, which allows for it to be inserted between the wire planes through 10 slots the APA. The module currently hosts sixteen basic ARAPUCA cells, each one with an optical window with an area of \SI{8}{cm} X \SI{10}{cm} and internal dimensions of \SI{8}{cm} X \SI{10}{cm} X \SI{0.6}{cm}. The SiPMs are mounted on the backplane of the cell, which in ProtoDUNE, allows for  two different configurations of either 12 or 6 passively-ganged SiPMs.
+
+%(Picture 1)
+\begin{dunefigure}[ProtoDUNE-SP dip-coated light guide bars production.]{fig:arap-prod01}
+{ProtoDUNE ARAPUCA modules during assembly prior to installation of the dichroic filters; SiPMs and TPB coated reflector are visible.}
+  \includegraphics[height=6cm]{pds-arapuca-protodune02-apr18}
+\end{dunefigure}
+
+
+The internal surface of the box is lined with a dielectric mirror foil \footnote{3M VIKUITI ESR - http://multimedia.3m.com/mws/media/193294O/vikuiti-tm-esr-application-guidelines.pdf} that has been laser cut with openings at the locations of the SiPMs; these are visible in Figure~\ref{fig:arap-prod01}, which shows an ARAPUCA during assembly prior to installation of the optical windows. The backplane SiPM boards for the protoDUNE modules were designed at CSU and produced by a local company; the SiPMs were soldered on the boards using a reflow oven. Before mounting into the ARAPUCA module they were tested at room and LN2 temperatures. The production of the boards for DUNE far detector  move to Brazil and the design will be optimized by Latin American institutions in collaboration with CSU.
+
+The optical window of each box is a dichroic filter with cut-off at \SI{400}{nm}. While the filters used for the protoDUNE prototypes have been acquired from Omega Optical Inc.\footnote{http://www.omegafilters.com/}, other vendors are being considered for the DUNE production\footnote{ASHAI -Japan, Andover-USA, Edmunds Optics-USA}.
+Prior to coating, the filters are cleaned according to the procedures given by the manufacturer using isopropyl alcohol. Since the most likely vector for scratching/damaging the coating is dragging contaminated wipes across the surface, new clean lint free wipes are used for each  cleaning pass on the surface. Clean filters are then baked at 100$^\circ$C for \SI{12}{hours}. The Vikuiti\textregistered foils do not need to be cleaned and baked since they have a protective film which is removed just before the evaporation.
+   
+The filters are coated on the external side facing the LAr active volume with para-Therphenyl, while the internal dielectric mirror side is coated with TetraPhenyl-Butadiene. The coatings for the protoDUNE modules have been realized at the Thin Film facility at Fermilab using a vacuum evaporator. Each coated filter was dipped in LN2 to check the stability of the evaporated coating at cryogenic temperature. For DUNE far detector production the evaporation process will be performed at UNICAMP, where a big vacuum evaporator with an internal diameter of one meter is now available. There the conversion efficiency of the film deposited on the filters or on the Vikuiti\textregistered foils will be measured with a dedicated set-up which will use the \SI{128}{nm} light produced by a VUV monochromator.
+
+
+%(Picture 2)
+
+
+%%===Old pre-08apr ARAPUCA Prod text below ======================== 
 Each ARAPUCA module is composed of the following elements: 
-\begin{itemize}
-\item Dichroic filters coated with pTP 
-\item backplane board where the SiPMs are soldered and ganged together passively or actively
-\item reflective film to line the internal surface coated with TPB 
-\item mechanical frames  
-\end{itemize}
+%\begin{itemize}
+%\item Dichroic filters coated with pTP 
+%\item backplane board where the SiPMs are soldered and ganged together passively or actively
+%\item reflective film to line the internal surface coated with TPB 
+%\item mechanical frames  
+%\end{itemize}
 
-The filters will be acquired from vendors who specialize in high-quality optical components. A number of vendors are currently being considered: ASHAI (Japan), Omega (US), Andover (US), Edmunds Optics (US). The coating of the filters will be performed in Brazil at the LAr facility at UNICAMP.  
+%The filters will be acquired from vendors who specialize in high-quality optical components. A number of vendors are currently being considered: ASHAI (Japan), Omega (US), Andover (US), Edmunds Optics (US). The coating of the filters will be performed in Brazil at the LAr facility at UNICAMP.  
 
-The reflective film is 3M Vikuiti ESR (http://multimedia.3m.com/mws/media/193294O/Vikuiti-tm-esr-application-guidelines.pdf), which will be coated with a thin layer of TPB by vacuum evaporation at the LAr facility of UNICAMP.  
+%The reflective film is 3M Vikuiti ESR (http://multimedia.3m.com/mws/media/193294O/Vikuiti-tm-esr-application-guidelines.pdf), which will be coated with a thin layer of TPB by vacuum evaporation at the LAr facility of UNICAMP.  
 
-The quality of the evaporations on both the filters and the reflective foils will be tested in a dedicated facility (developed by and located at UNICAMP) where they will be irradiated with a pulsed VUV light and the response detected by photomultipliers.   
+%The quality of the evaporations on both the filters and the reflective foils will be tested in a dedicated facility (developed by and located at UNICAMP) where they will be irradiated with a pulsed VUV light and the response detected by photomultipliers.   
 
-The backplane board will be fabricated in Brazil by a commercial vendor yet to be selected, and the SiPMs will be soldered to it at the CTI (Centro de Tecnologia da Informacao Renato Archer) in Campinas.  
+%The backplane board will be fabricated in Brazil by a commercial vendor yet to be selected, and the SiPMs will be soldered to it at the CTI (Centro de Tecnologia da Informacao Renato Archer) in Campinas.  
 
-The backplanes with the SiPMs will be certified at the CTI testing facilities, where their functionality in LAr will be tested.   The mechanical frames that hold the filters, the backplanes and the reflective films will be produced in Brazil (company to be determined).   
+%The backplanes with the SiPMs will be certified at the CTI testing facilities, where their functionality in LAr will be tested.   The mechanical frames that hold the filters, the backplanes and the reflective films will be produced in Brazil (company to be determined).   
 
-The design of the ARAPUCA modules for the first 10~kt single phase module is expected to be similiar the one developed for the ARAPUCA modules of ProtoDUNE-SP (CSU design).   All the components will be sent to the assembly point where the modules will be fully assembled and then sent to the integration facility.
+%The design of the ARAPUCA modules for the first 10~kt single phase module is expected to be similiar the one developed for the ARAPUCA modules of ProtoDUNE-SP (CSU design).   All the components will be sent to the assembly point where the modules will be fully assembled and then sent to the integration facility.
 
+%%===Old pre-08apr  ARAPUCA Prod text above ======================== 
 
 
 \subsubsection{Dip-Coated Light Guides}
