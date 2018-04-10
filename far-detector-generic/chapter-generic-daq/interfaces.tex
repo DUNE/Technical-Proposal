@@ -3,7 +3,7 @@
 \section{Interfaces (David Cussans \& Matt Graham)}
 \label{sec:fd-daq-intfc}
 
-\metainfo{5 Pages}
+\metainfo{5 Pages.  This is a shared SP/DP section.  If there are assymetries simply describe both detector modules.}
 
 \fixme{Include an image of each interface in appropriate section.  Can maybe refer to Fig.~\ref{fig:daq-overview} but it currently lacks some of the interfaces.}
 
@@ -11,92 +11,119 @@
 \subsection{TPC Electronics}
 \label{sec:fd-daq-intfc-elec}
 
-The interface between the \dword{sp} TPC detectors and the DAQ is described in Dune-DocDB-6742.
-\fixme{Add reference.}
+Details about the interfaces between the DAQ and the TPC electronics
+are documented for the \dword{sp}~\cite{docdb6742} and the
+\dword{dp}~\cite{docdb6778} \dwords{detmodule}.
+\fixme{Add references to bib.}
 
-Data from the cold electronics \dwords{femb} are 8b10 encoded and sent
-to the \dwords{wib} on copper cables at a bit rate of
-\SI{1.28}{\Gbps}. There are two options being considered for the
-\dwords{wib}. In one, the data are simply converted to optical signals
-and transmitted to the DAQ in the CUC on \SI{1.28}{\Gbps} optical
-links with a total of 80 fibres per APA. In the second option, the
-\dwords{wib} aggregate the data onto links running at
-$\approx$\SI{10}{\Gbps} before transmission to the DAQ with a total of
-ten fibres per APA. In both cases the data are received on rear
-transition modules connected to the \dword{cob} \dword{atca} boards
-(see Section~{sec:fd-daq-ltr}).
+In the case of the \dword{sp} \dword{detmodule}, data from the cold
+electronics \dwords{femb} are 8b10 encoded and sent to the
+\dwords{wib} on copper cables at a bit rate of \SI{1.28}{\Gbps}. There
+are two options being considered for the \dwords{wib}. In one, the
+data are simply converted to optical signals and transmitted to the
+DAQ in the CUC on \SI{1.28}{\Gbps} optical links with a total of 80
+fibres per APA. In the second option, the \dwords{wib} aggregate the
+data onto links running at $\approx$\SI{10}{\Gbps} before transmission
+to the DAQ with a total of ten fibres per APA. In both cases the data
+are received on rear transition modules connected to the \dword{cob}
+\dword{atca} boards (see Section~{sec:fd-daq-ltr}).
 
+In the case of the \dword{dp} \dword{detmodule}, signals from the
+\dlong{cro} electrodes are amplified and then digitzed by \dword{amc}
+boards residing in 240 \dword{utca} crates. 
+Each crate produces \SI{2.5}{\MHz} samples from 640 channels on a
+\SI{10}{\Gbps} optical fiber. 
+Data is losslessly compressed and sent via \dword{udp} producing a
+stream with an expected average throughput of \SI{2}{\Gbps}.
+The DAQ consortium will be responsible for acquiring the fibers while
+the DP-Electronic consortium will be responsible for their
+installation on the cryostat roof down to their connection to the
+\dword{utca} crates.
 
+\fixme{Need some statement about the white rabbit fiber?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{PD Electronics}
 \label{sec:fd-daq-intfc-photon}
 
-The interface between the \dword{sp} \dword{pds}
-and the DAQ is described in DUNE-doc-6727. The signal to noise ratio
-of the \dword{sipm} signals is high enough to allow \dword{zs} to be safely applied to the data. This reduces the data flow so that a bandwidth of
-\SI{8}{\Gbps} per \dword{apa} is sufficent to transfer the zero supressed data to
-the DAQ, with an order of magnitude safety factor. The link from the
-single phase cryostats to the CUC will be implemented as either eight
-1000Base-SX links  or a single 10GBase-LR link per APA.
+Details about the interfaces between the DAQ and \dword{sp}
+\dlong{pds}~\cite{docdb6727} and the \dword{dp}
+\dlong{lro}~\cite{docdb6802} are documented. 
 
-The data on the links will be encoded using UDP/IP to allow easy
-reception by the DUNE DAQ server PCs.
+\fixme{Add references to bib.}
 
-There is a single physical pathway between the \dword{pds} and the DAQ for
-both data and information used for data selection. The first stage of
-the DAQ selects trigger primitives from this data stream and forwards
-them to the data selection system.
+For the \dword{sp} \dword{pds} the signal to noise ratio of the
+\dword{sipm} signals is high enough to allow \dlong{zs} to be safely
+applied to the data. This reduces the data flow so that a bandwidth of
+\SI{8}{\Gbps} per \dword{apa} is sufficent to transfer it to the DAQ,
+with an order of magnitude safety factor. The link from the \dword{sp}
+cryostat to the CUC will be implemented as either eight 1000Base-SX
+links or a single 10GBase-LR link per APA.
+The data on the links will be encoded using UDP/IP.
+
+For the \dword{dp} \dword{lro}, the signals are digitized in 14 bits
+at \SI{65}{\MHz} and then downsampled to \SI{2.5}{\MHz}. 
+The data is then handled largely symmetrically with the \dword{cro}
+data except that only five \dword{utca} crates are required and their
+average, uncompressed output is expected to fill \SI{5}{\Gbps} on
+\SI{10}{\Gbps} fiber optical connections. 
+The installation of these fibers are as described above for the
+\dwords{cro} fibers.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Offline Computing (Kurt Biery)}
 \label{sec:fd-daq-intfc-fnal-cmptg}
 
-The interface between the \dword{daq} and Offline Computing is described in
-DUNE-doc-7123. The \dword{daq} team will be responsible for reducing the
-data volume to the level that is agreed upon by all interested parties,
-and the raw data files will be transfered from SURF to Fermilab using
-a dedicated network connection. A disk buffer will be provided by the
-\dword{daq} on or near the SURF site to hold the data from several days
-of data taking so that the operation of the experiment will not be affected
-if there happens to be a network disruption between SURF and Fermilab.
+The interface between the \dword{daq} and Offline Computing is
+described in DUNE-doc-7123~\cite{docdb7123}.
+The \dword{daq} team will be responsible for reducing the data volume
+to the level that is agreed upon by all interested parties, and the
+raw data files will be transfered from SURF to Fermilab using a
+dedicated network connection.
+A disk buffer will be provided by the \dword{daq} on or near the SURF
+site to hold the data from several days of data taking so that the
+operation of the experiment will not be affected if there happens to
+be a network disruption between SURF and Fermilab.
 \fixme{Add ref for docdb-7123.}
 
 During stable running, the data volume that will be produced by the
 \dword{daq} systems of all four \dwords{detmodule} will be no larger
-than \SI{30}{\PB/\year}. This rate is expected to be independent of the number
-of \dwords{detmodule} that are operational. During the construction
-of the second, third, and fourth \dwords{detmodule}, the extra rate
-per \dword{detmodule} will be used to gather data to aid in the
-refinement of the data selection algorithms.
-During commissioning, the data rate is expected to  be higher,
-and it is anticipated that a data volume
-of \SI{30}{\PB} will be necessary to commission a \dword{detmodule}.
+than \SI{30}{\PB/\year}.
+This rate is expected to be independent of the number of
+\dwords{detmodule} that are operational.
+During the construction of the second, third, and fourth
+\dwords{detmodule}, the extra rate per \dword{detmodule} will be used
+to gather data to aid in the refinement of the data selection
+algorithms.
+During commissioning, the data rate is expected to be higher, and it
+is anticipated that a data volume of \SI{30}{\PB} will be necessary to
+commission a \dword{detmodule}.
 
-The disk buffer at SURF is planned to be \SI{300}{\TB} in size.  The data
-link from SURF to Fermilab will support \SI{20}{\Gbps}.  The Offline Computing
-team will be responsible for developing the software to manage the
-transfer of files from SURF to Fermilab. The \dword{daq} team will be
-responsible for producing a
-reference implementation of the software that is used to access and
-decode the raw electronics data. They will also be responsible for
-providing the framework for real-time \dword{dqm}, and
-both groups will have responsibility for developing the \dword{dqm}
-algorithms that run inside this framework.
+The disk buffer at SURF is planned to be \SI{300}{\TB} in size.
+The data link from SURF to Fermilab will support \SI{20}{\Gbps}
+(\SI{30}{\PB/\year} corresponds to \SI{7.6}{\Gbps}).
+The Offline Computing team will be responsible for developing the
+software to manage the transfer of files from SURF to Fermilab.
+The \dword{daq} team will be responsible for producing a reference
+implementation of the software that is used to access and decode the
+raw electronics data.
+They will also be responsible for providing the framework for
+real-time \dword{dqm}, and both groups will have responsibility for
+developing the \dword{dqm} algorithms that run inside this framework.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Slow Control}
 \label{sec:fd-daq-intfc-sc}
 \label{sec:fd-daq-intfc-sc}
 
-The \dword{cisc} systems monitor detector
-hardware and conditions not directly involved in taking the data
-described above.  That data will be stored both locally (in CISC
-database servers in the CUC) and offline (the databases will be
-replicated back to Fermilab) in a relational database indexed by
-timestamp.  This will allow bi-directional communications between DAQ
-and CISC by reading or inserting data into the database as needed for
-non time-critical information.  
+The \dword{cisc} systems monitor detector hardware and conditions not
+directly involved in taking the data described above.
+That data will be stored both locally (in CISC database servers in the
+CUC) and offline (the databases will be replicated back to Fermilab)
+in a relational database indexed by timestamp.
+This will allow bi-directional communications between DAQ and CISC by
+reading or inserting data into the database as needed for non
+time-critical information.  
 
 For prompt, time sensitive status information such as ``Run is in
 progress'' or ``Camera is on'', a low-latency software status register
@@ -117,47 +144,52 @@ interface's scope.
 
 \fixme{Need to receive information on beam spills (Giles) , SNEWS (Alec).}
 
-The DAQ will need to save data based on external triggers, for example:
-for times around when the pulse of neutrinos from LBNF arrives at the
-Far Detector; or if notice of an interesting astrophysical event is
-given by SNEWS\cite{snews} or LIGO.  This could involve going back in
-time to save data that has already been buffered (see
-Sec.~\ref{sec:fd-daq-ltr}), or changing the trigger or zero
-suppression criteria for data in the interesting time period.
+The DAQ will need to save data based on external triggers, for
+example: for times around when the pulse of neutrinos from LBNF
+arrives at the Far Detector; or if notice of an interesting
+astrophysical event is given by SNEWS\cite{snews} or LIGO.
+This could involve going back in time to save data that has already
+been buffered (see Sec.~\ref{sec:fd-daq-ltr}), or changing the trigger
+or zero suppression criteria for data in the interesting time period.
 
 \fixme{Do we want subsubsections below instead of explicit paragraphs?}
 
 \paragraph{Beam Trigger:} The method for predicting and receiving the
 time of the beam spill is described in
-Sec.~\ref{sec:fd-daq-design-beamtiming}.  Once that time is known to
-the DAQ, a high level trigger can be issued to ensure that the necessary
-full data can be saved from the buffer and saved as an event.
+Sec.~\ref{sec:fd-daq-design-beamtiming}.
+Once that time is known to the DAQ, a high level trigger can be issued
+to ensure that the necessary full data can be saved from the buffer
+and saved as an event.
 
 \paragraph{Astrophysical Triggers:} The Supernova Early Warning System
 (SNEWS) is a coincidence network of neutrino experiments which are
-individually sensitive to the burst of neutrinos which would be observed
-from a core-collapse supernova somewhere in our galaxy.  While DUNE
-should be sensitive to such a burst on its own able to contribute to the
-coincidence network (Sec.~\ref{sec:fd-daq-sel}) via a TCP/IP socket,
-being able to save data based on other observations adds an additional
-chance to not miss saving this rare and valuable data.  A SNEWS alert is
-formed when two or more neutrino experiments report a potential
-supernova signal within \SI{10}{\s}.  The earliest time in the
-coincidence is then sent via running a script on the SNEWS server at BNL
-provided by the experiment wishing to receive the alert.  The latency
-from neutrino burst is set by the response time of the second fastest
-detector to report to SNEWS: this could be as short as seconds, but
-might be tens of seconds.  At latencies larger than \SI{10}{\s}, full
-data might not be available, but selected data is expected to be manageable.
+individually sensitive to the burst of neutrinos which would be
+observed from a core-collapse supernova somewhere in our galaxy.
+While DUNE should be sensitive to such a burst on its own able to
+contribute to the coincidence network (Sec.~\ref{sec:fd-daq-sel}) via
+a TCP/IP socket, being able to save data based on other observations
+adds an additional chance to not miss saving this rare and valuable
+data.
+A SNEWS alert is formed when two or more neutrino experiments report a
+potential supernova signal within \SI{10}{\s}.
+The earliest time in the coincidence is then sent via running a script
+on the SNEWS server at BNL provided by the experiment wishing to
+receive the alert.
+The latency from neutrino burst is set by the response time of the
+second fastest detector to report to SNEWS: this could be as short as
+seconds, but might be tens of seconds.
+At latencies larger than \SI{10}{\s}, full data might not be
+available, but selected data is expected to be manageable.
 
 There are other astrophysical triggers available for occurrences which
-DUNE might not sensitive to individually, but could be either rarely or
-if taken as an ensemble.  Gravitational wave triggers will be available
-(details being worked out during the current LIGO shutdown), as will
-high energy photon transients, most notably gamma ray bursts.  In fact,
-cooperation between LIGO/VIRGO, the Gamma Ray Coordinates Network
-(GCN)\footnote{Described in detail at
+DUNE might not sensitive to individually, but could be either rarely
+or if taken as an ensemble.
+Gravitational wave triggers will be available (details being worked
+out during the current LIGO shutdown), as will high energy photon
+transients, most notably gamma ray bursts.
+In fact, cooperation between LIGO/VIRGO, the Gamma Ray Coordinates
+Network (GCN)\footnote{Described in detail at
   \url{https://gcn.gsfc.nasa.gov/gcn_describe.html}}, and a number of
 automated telescopes via network sockets on the time scale of seconds
-enabled the discovery that ``short/hard'' gamma ray bursts are caused by
-colliding neutron stars\cite{kilonova}.
+enabled the discovery that ``short/hard'' gamma ray bursts are caused
+by colliding neutron stars\cite{kilonova}.
