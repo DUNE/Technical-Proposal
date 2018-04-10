@@ -221,11 +221,11 @@ Since the bar is coated on all sides it can be employed both in the wall APAs as
 The dipping process and coating formula have undergone a series of development iterations~\cite{Moss:2014ota},
 %% this is illegal syntax
 %\cite{Z. Moss et al 2015 JINST 10 P08017, Z. Moss et al 2016, arXiv:1604.03103v1}, 
-with the bars  undergoing extensive testing at both room and cryogenic temperatures. As a part of the production process, the attenuation of each dip-coated light guide bar is measured at room temperature in a dark box with a UV LED.  In addition, some of these bars were also tested using $^{210}$Po alpha sources in the TallBo cryogenic test stand at FNAL~\cite{Moss:2014ota??}\fixme{citation see email from Anne}. These test demonstrated consistent production of light guide bars with measured effective attenuation lengths greater than 2~m. 
+with the bars  undergoing extensive testing at both room and cryogenic temperatures. As a part of the production process, the attenuation of each dip-coated light guide bar is measured at room temperature in a dark box with a UV LED.  In addition, some of these bars were also tested using $^{210}$Po alpha sources in the TallBo cryogenic test stand at FNAL~\cite{Moss:2016yhb}\fixme{citation updated; check if correct one}. These test demonstrated consistent production of light guide bars with measured effective attenuation lengths greater than 2~m. 
 %% this is illegal syntax
 %\cite{Z. Moss et al 2015 JINST 10 P08017, Z. Moss et al 2016}.  
 
-These tests also validated a model for predicting dip-coated light guide bar attenuation lengths in liquid argon based on measurements of attenuation lengths at room temperature, which are much easier to perform.  In addition, comparative tests of the dip-coated light guide bars and other early candidate photon detector technologies were performed in the TallBo cryostat with alpha sources and tracked cosmic ray muons, confirming the  attenuation results, and showing equivalent or better performance than designs that were subsequently abandoned~\cite{Whittington-2016}.\fixme{citation see email from Anne}
+These tests also validated a model for predicting dip-coated light guide bar attenuation lengths in liquid argon based on measurements of attenuation lengths at room temperature, which are much easier to perform.  In addition, comparative tests of the dip-coated light guide bars and other early candidate photon detector technologies were performed in the TallBo cryostat with alpha sources and tracked cosmic ray muons, confirming the  attenuation results, and showing equivalent or better performance than designs that were subsequently abandoned~\cite{Whittington:2015rkr}.\fixme{citation update; check if the correct one}
 It is hoped to repeat these tests in the near future to extract the overall efficiency by comparing the number of photoelectrons detected at the end of the bar to the number of photons from the alpha source incident on the surface of the bar.
 
 %\subsubsection{Performance}
@@ -326,7 +326,7 @@ can then be wavelength-shifted into visible wavelengths and reflected from the u
 The primary result, shown in Fig. \ref{fig:ly_with_foils}, is the enhancement of the total light collection close to the cathode (black points), which will increase the detection efficiency in that region. 
 Another benefit is the increase in uniformity - this can enable calorimetric reconstruction with scintillation light, which would enhance the charge-based energy reconstruction as well as increase the efficiency of triggering on low energy signals. Introducing the foils on the cathode can enable drift position resolution  using only scintillation light. This requires the photon detectors to be able to differentiate direct VUV light from re-emitted visible light (e.g. two different PD detector types) and good enough timing of arrival of first light.
 
-Coated reflector foils are manufactured through low-temperature evaporation of TPB on dielectric reflectors e.g. 3M DM2000 or Vikuiti. Foils prepared in this manner have been successfully used in dark matter detectors \cite{warp}\fixme{citation see email from Anne}. Recently they have been shown to work in LArTPCs at neutrino energies, namely  in the LArIAT test-beam detector \cite{LArIAT-gamez}\fixme{citation see email from Anne}. In LArIAT they have been installed on the field-cage walls and, during the last run, on the cathode. This experience has led to the decision to install such foils on the CPA of the SBND detector (a part of the Fermilab  Short-Baseline Neutrino program). In DUNE, the foils would ideally be laminated on the CPA as well. However, because of the resistive CPA design, this requires additional R\&D to determine the fraction of the CPA area that could be covered with the dielectric foils. This topic is an interface between the PDS and HV consortia. 
+Coated reflector foils are manufactured through low-temperature evaporation of TPB on dielectric reflectors e.g. 3M DM2000 or Vikuiti. Foils prepared in this manner have been successfully used in dark matter detectors such as WArP\cite{Acciarri:2008kv}\fixme{citation updated; check if correct}. Recently they have been shown to work in LArTPCs at neutrino energies, namely  in the LArIAT test-beam detector \cite{Garcia-Gamez:2017cmu}\fixme{citation updated; check if correct one}. In LArIAT they have been installed on the field-cage walls and, during the last run, on the cathode. This experience has led to the decision to install such foils on the CPA of the SBND detector (a part of the Fermilab  Short-Baseline Neutrino program). In DUNE, the foils would ideally be laminated on the CPA as well. However, because of the resistive CPA design, this requires additional R\&D to determine the fraction of the CPA area that could be covered with the dielectric foils. This topic is an interface between the PDS and HV consortia. 
 
 \begin{dunefigure}[Predicted light yield in a DUNE configuration after adding WLS-coated reflector foils.]{fig:ly_with_foils}
 {Predicted light yield in a DUNE configuration after adding WLS-coated reflector foils. Blue points represent direct light impinging on the PDs, red stars - light wavelength-shifted and reflected on the CPA. Black points show total light yield.}
@@ -552,7 +552,7 @@ Pulse shapes can be fully analyzed to improve detection of a new physics but it 
 
 %DWW 16mar18 end %%%%%%
 
-\subsubsection{ProtoDUNE-SP Experience}
+\subsubsection{ProtoDUNE-SP Electronics}
 
 As described above, the PD development has matured to the point where three different photon collector designs are 
 prepared for the ProtoDUNE-SP experiment at CERN, to be operational in the second half of \num{2018}. 
@@ -587,6 +587,20 @@ Input signals are provided to CTB from the beam instrumentation, the SSPs, and t
 the ProtoDUNE-SP timing system and the CTB trigger inputs are distributed to the experiment via the timing system.
 To that end the SSP implements the timing receiver/transmitter endpoint hardware to receive trigger inputs and clock signals from the timing system.
 
+\subsubsection{Photosensor Ganging}
+\fixme{9 apr18 New text from Gustavo - add some preamble text and clean up}}
+R&D on cold electronics and sensor arrays
+Under LDRD L2017.028 (P.I. Gustavo Cancelo) the PD R&D collaboration has developed and characterized several configurations of cold electronics and SiPMs as follow:
+\item{begin}
+?	A 48 SiPM summing board for SENSL 4x4 arrays. This is an active ganging board of 48 3mm x 3mm SiPMs from SenSL C series. This detector has been fully characterized and tested at TallBo with an alpha source (Am241) in March 2017. For the TallBo test the SiPM arrays were coated with 100ug/cm2 of TPB and showed an efficiency of 13%.
+?	A 12 SENSL (6x6 mm C series) summing board that was used by the IU group in their light bars during the TallBo run of Oct-Nov 2017.
+?	We have tested Hamamatsu MPPCs (S13360-6050PE) at 25C, -70C and 77K. A passive ganging of 2, 4, 8 and 12 MPPCs were characterized and showed single PE separation.
+?	A passive gang of 4 SENSL (6x6 mm C series) for ARAPUCAs during the TallBo run of Oct-Nov 2017.
+?	A passive gang of 6 and 12 MPPCs for ARAPUCA ProtoDUNE design
+?	A 72 combination of passive and active ganging using 6mm x 6mm MPPCs with a lower noise OP Amp. This design combines 12 active branches into the low noise OpAmp. Each branch has 6 MPPCs in parallel passive configuration.
+\item{end}
+
+\fixme{9 apr18 decide which figures to use }
 
 \subsubsection{Next Steps}
 
@@ -605,6 +619,7 @@ some digital process such as a sample interpolation can be proposed, enhancing p
 The light sensitivity and the dynamic range must also be based on physics goals. This decision will enable the number of bits and the sample 
 rate required by either waveform or charge collection methods. In both cases the signal to noise ratio and the power consumption must be estimated. 
 Two considered options could be then compared to model the final readout system where the choice is  correlated with the nature of ganging process. 
+\fixme{9 apr18 add Gustavo's text on ganging plans}
 Charge processing requires a charge preamplifier ideally located within the cold environment, taking into consideration the failure risks and the power 
 dissipated into the environment.
 
