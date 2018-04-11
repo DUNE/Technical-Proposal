@@ -134,9 +134,9 @@ reference bars (double-shift light guide design) in the TallBo set-up. Data anal
 
 Two arrays of ARAPUCA modules will be installed inside ProtoDUNE-SP to test the devices in a real experimental environment and to directly compare their performance with those of the light-guide bars. The first array has been already installed in the APA \#3, while the second one will be installed in the APA \#6.
  
-Each ARAPUCA array is composed of sixteen cells where each cell is an ARAPUCA box with dimensions of 8 cm $\times$ 10 cm \fixme{what is the window size (slightly smaller than the filter size?)?}; half of the cells have \num{12} SiPMs installed on the bottom side of the cell and  half have \num{6} SiPMS. The SiPMs have dimensions \SI{6}{mm}~$\times$~\SI{6}{mm}.
-The SiPMs  are passively ganged together, so that only one read-out channel is needed for each ARAPUCA grouping of 12 SiPMs (the boxes with 6 SiPMs are ganged together to form 12-SiPM units) so a total of 12 channels is required per array; studies are underway to investigate {\it active} ganging that would permit combining signals from multiples boxes as required to reduce the number of electronics channels and cables, as needed. 
-The ARAPUCA array has a footprint of approximately 8 cm $\times$ 200 cm, the same as the bar wavelength-shifting bars approaches. 
+Each ARAPUCA array is composed of sixteen cells where each cell is an ARAPUCA box with dimensions of \SI{8}{cm} $\times$ \SI{10}{cm} \fixme{what is the window size (slightly smaller than the filter size?)?}; half of the cells have \num{12} SiPMs installed on the bottom side of the cell and  half have \num{6} SiPMs. The SiPMs have dimensions \SI{6}{mm}~$\times$~\SI{6}{mm} and account for 5.4\% (\num{12} SiPMs) or 2.7\% (\num{6} SiPMs) of the area of the window.\fixme{re-calculate once the window size is known}
+The SiPMs  are passively ganged together, so that only one read-out channel is needed for each ARAPUCA grouping of \num{12} SiPMs (the boxes with \num{6} SiPMs are ganged together to form 12-SiPM units) so a total of \num{12} channels is required per array. Studies are underway to investigate {\it active} ganging that would permit combining signals from multiples boxes as required to reduce the number of electronics channels and cables (currently in DUNE 10~kt, we anticipate being restricted to four readout channels per PD module). 
+The ARAPUCA array has a footprint of approximately \SI{8}{cm} $\times$ \SI{200}{cm}, the same as the light guide approaches. 
 The first ARAPUCA array installed in ProtoDUNE-SP is shown in Figure~\ref{fig:arapuca_array}.
 
 %\begin{dunefigure}[Drawing of two ARAPUCAs of the design used for ProtoDUNE-SP.]{fig:arpk}
@@ -145,7 +145,7 @@ The first ARAPUCA array installed in ProtoDUNE-SP is shown in Figure~\ref{fig:ar
 %\end{dunefigure}
 
 \begin{dunefigure}[Full-scale ARAPUCA for ProtoDUNE-SP during assembly.]{fig:arpk}
-{Full-scale ARAPUCA for ProtoDUNE-SP during assembly.SiPMs are visible in the sixteen cells before the installation of reflecting foils, coated filter windows and readout cabling. } 
+{Full-scale ARAPUCA for ProtoDUNE-SP during assembly. SiPMs are visible in the sixteen cells before the installation of reflecting foils, coated filter windows, and readout cabling. } 
 \includegraphics[height=7cm]{pds-arapuca-assembly.jpg}
 \end{dunefigure}
 
@@ -161,11 +161,11 @@ The first ARAPUCA array installed in ProtoDUNE-SP is shown in Figure~\ref{fig:ar
 
 \subsubsection{X-ARAPUCA} 
 \label{sssec:x-arapuca}
-X-ARAPUCA represents  an alternate line of development of the ARAPUCA  with the aim of further improving the collection efficiency, while retaining the same working principle, mechanical design and active  photo-sensitive coverage. X-ARAPUCA is effectively a hybrid solution between the ARAPUCA and the wavelength-shifting lightguide bar  concepts, where photons trapped in the ARAPUCA box are shifted and transported to the readout via total internal reflection in a light guide placed inside the box.
+X-ARAPUCA represents  an alternative line of development with the aim of further improving the collection efficiency, while retaining the same working principle, mechanical design and active  photo-sensitive coverage. X-ARAPUCA is effectively a hybrid solution between the ARAPUCA and the wavelength-shifting light guide concepts, where photons trapped in the ARAPUCA box are shifted and transported to the readout via total internal reflection in a short light guide placed inside the box.
 This solution minimizes the number of reflections on the internal surfaces of the box and thus the probability of photon loss. Simulations suggest that this modification will lead to a rather significant increase of the collection efficiency.
 
  \begin{dunefigure}[X-ARAPUCA design: assembled cell (left),  exploded view (right).]{fig:pds-x-arapuca-cell}
-{X-ARAPUCA design: assembled cell (left),  exploded view (right).}
+{X-ARAPUCA design: assembled cell (left),  exploded view (right). The size and aspect ratio of the cells can be adjusted to match the spatial granularity required for a PD module.}
  % \vspace{-2.5cm}
   \includegraphics[height=.20\textheight]{pds-x-arapuca-cell.jpg}
   \includegraphics[height=.30\textheight]{pds-x-arapuca-exploded-view.jpg}
@@ -176,7 +176,8 @@ This solution minimizes the number of reflections on the internal surfaces of th
 In the X-ARAPUCA design, Figure \ref{fig:pds-x-arapuca-cell}, the inner shifter coating/lining over the reflective walls of the box is replaced by a thin wavelength-shifting light guide slab inside the box, of the same dimensions of the acceptance filter window and parallel to it. The SiPM arrays are installed vertically on the sides of the box, in optical contact to the light guide thin ends. 
  In this way a fraction of the photons will be converted inside the slab and guided to the read-out, other photons,  e.g. those at small angle of incidence below the critical angle of the light guide slab, after conversion at the slab surface will be remain trapped in the box and eventually collected as for the standard ARAPUCA.
  
- A full sized X-ARAPUCA prototype is under construction. The light guide is made by a 2~mm thick TPB-doped acrylic slab. Two read-out boards, each with six passively ganged SiPMs in a strip configuration, are mounted along the thin edges of the box and their two signals are combined into a single channel readout. 
+ A full-sized X-ARAPUCA prototype is under construction. The light guide is made by a \SI{2}{mm} thick TPB-doped acrylic plate. Two read-out boards, each with six passively ganged SiPMs in a strip configuration, are mounted along the thin edges of the box and their two signals are combined into a single channel readout. 
+ The aspect ratio of the cells can be adjusted to match the required spatial granularity for the PD module.
  
  %  V2 - text below aded to v1 - FC 22feb18 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  %% Drop this until is it further developed rjw 16mar18
@@ -197,6 +198,10 @@ In the X-ARAPUCA design, Figure \ref{fig:pds-x-arapuca-cell}, the inner shifter 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
+\subsubsection{ARAPUCA Configuration in DUNE 10~kt} 
+\label{sssec:arapuca-dune}
+The modular configuration of the DUNE Single-Phase far detector TPC calls for a configuration across the width of the module starting at one cryostat wall of APA-CPA-APA-CPA-APA. This means that the central APA (containing the PD modules) will collect charge and see scintillation light from LAr volumes on both sides, whereas those by the wall collect from only one side. The optimal configuration of ARAPUCA modules has not yet been determined, but the design allows for both single-sided and double-sided cells with no impact on the APA design. 
+
 
 %==========================================================================================
 
@@ -206,10 +211,10 @@ In the X-ARAPUCA design, Figure \ref{fig:pds-x-arapuca-cell}, the inner shifter 
 
 \subsubsection{Description}
 
-Figure~\ref{fig:pds-dippedbarpic} illustrates the process by which LAr scintillation photons are converted and detected by the dip-coated light guide bars.  VUV scintillation photons arriving at the bar are absorbed and wavelength-shifted to blue ($\sim430$~nm) by the TPB-based coating on the surface of the bar.  A portion of this light is captured in the bar and guided to one end through total internal reflection where it is detected by an array of SiPMs, whose PDE is well-matched to the blue light.
+The dip-coated light guide design is mechanically the simplest of the three options. Figure~\ref{fig:pds-dippedbarpic} illustrates the process by which LAr scintillation photons are converted and detected by the dip-coated light guide bars.  VUV scintillation photons arriving at the bar are absorbed and wavelength-shifted to blue ($\sim430$~nm) by the TPB-based coating on the surface of the bar.  A portion of this light is captured in the bar and guided to one end through total internal reflection where it is detected by an array of SiPMs, whose PDE is well-matched to the blue light.  Dimensions of the bars in ProtoDUNE are: \SI{209.3}{cm} $\times$ \SI{8.47}{cm} $\times$ \SI{0.60}{cm}.
 
-\begin{dunefigure}[Schematic of light detection with dipped bars.]{fig:pds-dippedbarpic}
-{Schematic of light detection with dipped bars.}
+\begin{dunefigure}[Schematic of scintillation light detection with dip-coated light guide bars.]{fig:pds-dippedbarpic}
+{Schematic of scintillation light detection with dip-coated light guide bars.}
   \includegraphics[width=0.8\columnwidth]{pds-dippedbarpic.png}
 \end{dunefigure}
 
@@ -218,15 +223,17 @@ Since the bar is coated on all sides it can be employed both in the wall APAs as
 
 \subsubsection{Testing and Performance}
 
-The dipping process and coating formula have undergone a series of development iterations~\cite{Moss:2014ota},
+The dipping process and coating formula have undergone a series of development iterations~\cite{Moss:2014ota},\fixme{check that this is the correct reference}
 %% this is illegal syntax
 %\cite{Z. Moss et al 2015 JINST 10 P08017, Z. Moss et al 2016, arXiv:1604.03103v1}, 
-with the bars  undergoing extensive testing at both room and cryogenic temperatures. As a part of the production process, the attenuation of each dip-coated light guide bar is measured at room temperature in a dark box with a UV LED.  In addition, some of these bars were also tested using $^{210}$Po alpha sources in the TallBo cryogenic test stand at FNAL~\cite{Moss:2016yhb}\fixme{citation updated; check if correct one}. These test demonstrated consistent production of light guide bars with measured effective attenuation lengths greater than 2~m. 
+with the bars undergoing extensive testing at both room and cryogenic temperatures. \fixme{what is(are) the size(s) of the bars tested?} 
+As a part of the production process, the attenuation of each dip-coated light guide bar is measured at room temperature in a dark box with a UV LED.  In addition, some of these bars were also tested using $^{210}$Po alpha sources in the TallBo cryogenic test stand at FNAL~\cite{Moss:2016yhb}\fixme{citation updated; check if correct one}. These tests demonstrated consistent production of light guide bars with measured effective attenuation lengths greater than \SI{2}{m}. \fixme{what were the results, central value and range?}
+\fixme{what was the measured efficiency?}
 %% this is illegal syntax
 %\cite{Z. Moss et al 2015 JINST 10 P08017, Z. Moss et al 2016}.  
 
-These tests also validated a model for predicting dip-coated light guide bar attenuation lengths in liquid argon based on measurements of attenuation lengths at room temperature, which are much easier to perform.  In addition, comparative tests of the dip-coated light guide bars and other early candidate photon detector technologies were performed in the TallBo cryostat with alpha sources and tracked cosmic ray muons, confirming the  attenuation results, and showing equivalent or better performance than designs that were subsequently abandoned~\cite{Whittington:2015rkr}.\fixme{citation update; check if the correct one}
-It is hoped to repeat these tests in the near future to extract the overall efficiency by comparing the number of photoelectrons detected at the end of the bar to the number of photons from the alpha source incident on the surface of the bar.
+These tests also validated a model for predicting dip-coated light guide bar attenuation lengths in liquid argon based on measurements of attenuation lengths at room temperature, which are much easier to perform.  In addition, comparative tests of the dip-coated light guide bars and other early candidate photon detector technologies were performed in the TallBo cryostat with alpha sources and tracked cosmic ray muons, confirming the  attenuation results, and showing equivalent or better performance than designs that were subsequently no longer pursued~\cite{Whittington:2015rkr}.\fixme{citation update; check if the correct one}
+%It is hoped to repeat these tests in the near future to extract the overall efficiency by comparing the number of photoelectrons detected at the end of the bar to the number of photons from the alpha source incident on the surface of the bar.
 
 %\subsubsection{Performance}
 
@@ -246,14 +253,16 @@ There are two areas of potential improvements to the dip-coated light guide bars
 %\todo{\color{blue} Content: Whittington}
 %Update DW 2/23/18
 
-The double-shift light guide photon collector design aims to maximize the active VUV-sensitive area of the photon detection system module while minimizing the necessary photocathode (SiPM) coverage. Commercially-fabricated plastic can be manufactured to transport light via total internal reflection with low attenuation losses. However, direct application of coatings to such manufactured optical surfaces can have an adverse impact on the effective attenuation length by introducing or exaggerating imperfections in the surface quality. To maintain the long intrinsic attenuation length of a manufactured light guide, the double-shift light guide design decouples the conversion of VUV photons to optical by arraying acrylic plates coated with TPB in front of a commercially-fabricated polystyrene light guide doped with a second wavelength-shifting compound.
+A drawback of the dip-coated light guide design is the moderate dependence of the photon detection efficiency along the length of the bar due to the impact on total internal reflection process 
+caused by the coating.  To mitigate this effect, the double-shift light guide photon collector decouples the conversion of VUV photons to optical
+wavelengths from the transportation along the long dimension of the bars. This is achieved by positioning an array of acrylic plates coated with TPB in front of a high-quality commercial polystyrene light guide doped with a second wavelength-shifting compound.
 
 \subsubsection{Description}
 
-Figure~\ref{fig:pds-doubleshiftlg-cartoon} illustrates the process by which LAr scintillation photons are converted and detected by a double-shift light guide module. VUV scintillation photons incident on the acrylic plates are converted to blue wavelengths. A portion of these blue photons penetrate the light guide and are converted to green. The isotropic re-emission of these green photons leads to a significant fraction becoming trapped by total internal reflection within the light guide. Trapped photons are transported to the end of the light guide where they are detected by an array of SiPMs.
+Figure~\ref{fig:pds-doubleshiftlg-cartoon} illustrates the process by which LAr scintillation photons are converted and detected by a double-shift light guide module. VUV scintillation photons incident on the acrylic plates are converted to blue wavelengths ($\sim$\SI{430}{nm}). A fraction of these blue photons penetrate the light guide and are converted to green ($\sim$\SI{490}{nm}). The isotropic re-emission of these green photons leads to a significant fraction becoming trapped by total internal reflection within the light guide. Trapped photons are transported to the end of the light guide where they are detected by an array of SiPMs.
 
 \begin{dunefigure}[Schematic of the operation of a double-shift light guide.]{fig:pds-doubleshiftlg-cartoon}
-{Schematic of the operation of a double-shift light guide.}
+{Schematic of the operation of a double-shift light guide.\fixme{need a figure with the protoDUNE bar dimensions}}
   \includegraphics[width=0.8\columnwidth]{pds-doubleshiftlg-cartoon.pdf}
 \end{dunefigure}
 
@@ -266,8 +275,8 @@ Figure~\ref{fig:pds-doubleshiftlg-cartoon} illustrates the process by which LAr 
 %\subsubsection{Wavelength-Shifting Plates}
 
 %The wavelength shifting compound tetraphenyl-butadiene\footnote{1,1,4,4-tetraphenyl-1,3-butadiene} (TPB) is commonly used to convert %scintillation light from liquid noble elements to visible wavelengths. TPB emits visible photons typically between 420~nm and 450~nm. 
-Six wavelength-shifting plates, formed by coating TPB on the outer surface of acrylic plates, are suspended in front of a wavelength-shifting lightguide to form a full-sized 210 $\times$ 8.6 cm$^2$ double-shift light collector module. The lightguide is commercially-fabricated by Eljen Technologies\footnote{http://www.eljentechnology.com} and consists of a polystyrene bar doped with the EJ-280 wavelength shifter. EJ--280
- features an absorption spectrum that is well matched to the TPB emission spectrum so wavelength-shifted photons emitted from the plates are absorbed with good efficiency and some fraction of the re-emitted green light (480-510~nm), are transported down the lightguide with good efficiency by total internal reflection. 
+Six wavelength-shifting plates, formed by coating TPB on the outer surface of acrylic plates, are suspended in front of a wavelength-shifting light guide to form a full-sized \SI{210}{cm} $\times$ \SI{8.6}{cm} double-shift light collector module. The light guide is fabricated by Eljen Technologies\footnote{http://www.eljentechnology.com} and consists of a polystyrene bar doped with the EJ-280 wavelength shifter. 
+EJ--280 features an absorption spectrum that is well matched to the TPB emission spectrum so wavelength-shifted photons emitted from the plates are absorbed with good efficiency and some fraction of the re-emitted green light (480-510~nm), are transported down the light guide by total internal reflection. 
 
 %\subsubsection{Wavelength-Shifting Light Guide}
 
@@ -280,18 +289,19 @@ At the end of the bar, the green light is detected by an array of SiPMs. In most
 
 \subsubsection{Testing and Performance}
 
-The double-shift light guide design has undergone a series of development iterations to improve its performance, carried out at Indiana University (IU) and at Fermilab's cryogenic and vacuum test facility in the Proton Assembly Building (PAB). Comparative testing of light guide designs at PAB in mid-2015 demonstrated the double-shift light guide concept~\cite{bib:JINST-11-C05019}. 
+The double-shift light guide design has undergone a series of development iterations to improve its performance, carried out at Indiana University (IU) and at Fermilab's cryogenic and vacuum test facility in the PAB. Comparative testing of light guide designs at PAB in mid-2015 demonstrated the viability of the double-shift light guide concept~\cite{bib:JINST-11-C05019}. 
 An improved design similar to that deployed at ProtoDUNE-SP was studied at the Blanche test stand at Fermilab in September of 2016 with a complementary component-wise analysis program at IU afterward, detailed in Ref.~\cite{bib:DoubleShiftLG-NIM-171113}. The attenuation characteristics of this light guide were measured at IU while the global quantum efficiency for detecting incident LAr scintillation photons was measured with a vacuum-ultraviolet (VUV) monochromator at IU and using scintillation light from cosmic rays at the Blanche test stand.
 
 %\subsubsection{Performance}
 
-Analysis of the double-shift light guide's attenuation properties determined an attenuation profile in LAr characterized by a double-exponential function of the form $f(z) = A \exp(-z/\lambda_{A}) + B \exp(-z/\lambda_B)$ with $z$ the distance from the instrumented end and parameters $A = $0.29, $\lambda_A = $4.3cm, $B = $0.71, and $\lambda_B = $225 cm~\cite{bib:DoubleShiftLG-NIM-171113}. The effective attenuation length is comparable to the width of an APA when the double-shift light guide is deployed in liquid argon.
+Analysis of the double-shift light guide's attenuation properties determined an attenuation profile in LAr characterized by a double-exponential function of the form $f(z) = A \exp(-z/\lambda_{A}) + B \exp(-z/\lambda_B)$ with $z$ the distance from the instrumented end and parameters $A = $0.29, $\lambda_A = $4.3~cm, $B = $0.71, and $\lambda_B = $225~cm~\cite{bib:DoubleShiftLG-NIM-171113}. The effective attenuation length of $\sim$\SI{2}{m} \fixme{what is the measured central value and spread if known on more than one bar?} is comparable to the width of an APA when the double-shift light guide is deployed in liquid argon.
 
-Using both approaches, the global quantum efficiency of this detector was determined to be 0.48\% at the readout end. The total effective area for detecting VUV scintillation photons can be determined by integrating the product of this global quantum efficiency and the attenuation function over the area of the detector:
+Using both approaches, the photon detection efficiency of this detector was determined to be 0.48\% close to the SiPM readout end. The total effective area for detecting VUV scintillation photons can be determined by integrating the product of this efficiency and the attenuation function over the area of the detector:
 \begin{equation*}
   A_{eff} = (0.0048) (8.5\text{cm}) \int_{0\text{cm}}^{210\text{cm}} \hspace{-2em}dz \left( 0.29 \exp(-z/4.3\text{cm}) + 0.71 \exp(-z/225\text{cm}) \right)
 \end{equation*}
-This corresponds to an effective area for detecting VUV scintillation photons of 4.1 cm$^{2}$ per module per drift volume. Six wavelength-shifting plates are deployed on each side of the light guide, meaning the double-shift light guide modules in the center APA array are sensitive to scintillation light from two drift volumes and modules in the outer arrays are able to detect scintillation light originating outside of the TPC volume.
+This corresponds to an effective area for detecting VUV scintillation photons of 4.1 cm$^{2}$ per module per drift volume, which corresponds to 0.23\% photon detection efficiency. 
+Six wavelength-shifting plates are deployed on each side of the light guide, meaning the double-shift light guide modules in the center APA array are sensitive to scintillation light from two drift volumes and modules in the outer arrays are able to detect scintillation light originating outside of the TPC volume, if this is desirable.
 
 %DWW 16mar18 start %%%%%%
 
@@ -300,7 +310,7 @@ This corresponds to an effective area for detecting VUV scintillation photons of
 %\subsubsection{Potential Improvements for final design}
 
 There are several ways that the current design could be improved. The double-shift light guide deployed in the ProtoDUNE-SP APAs is constrained to read out at a single end. Proposed changes to the APA size and cabling routing scheme for the DUNE single-phase far detector would allow for a second array of SiPMs at the opposite end of the light guide, which would almost double the performance of the photon detection system.
-A SiPM with a wavelength-dependent PDE that is better matched to the EJ-280 emission spectrum would improve the overall efficiency. Simulations of the transport of light within the light guide suggest that applying a highly reflective coating to the long, narrow inactive sides of the light guide would further boost the attenuation function and increase the effective area of the light guide module. These effects combined lead to a potential increase of the effective area up to four times the current prototypes.
+A SiPM with a wavelength-dependent PDE that is better matched to the EJ-280 emission spectrum would also improve the efficiency. Simulations of the transport of light within the light guide suggest that applying a highly reflective coating to the long, narrow inactive sides of the light guide would improve the attenuation function and increase the effective area of the light guide module. These effects combined lead to a potential increase of the effective area up to four times the current prototypes, approaching 1\% detection efficiency.
 %to 16 cm$^{2}$ per module per drift volume.
 
 %As is illustrated in Figure~\ref{fig:pds-sn-eff-simulation}, the simulated supernova neutrino detection capability of a photon detection system based on this %module depends strongly on small changes in the estimated efficiency. These potential improvements raise the physics performance in this channel into a %regime where small fluctuations in the module efficiency have a smaller impact on the efficiency to tag these supernova neutrino interactions. These %improvements are an important component to risk mitigation in the photon detection system performance.
@@ -427,8 +437,6 @@ signals inside the LAr volume. Investigation of this issue is being pursued in c
 \end{itemize}
 
 \begin{dunetable}[Candidate photosensors characteristics.]
-%{lllll}
-%{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}lp{0.2\textwidth}|p{0.2\textwidth}l}
 {p{0.19\textwidth}p{0.19\textwidth}p{0.19\textwidth}p{0.19\textwidth}p{0.19\textwidth}}
 {tab:photosensors}
 {Candidate Photosensors Characteristics.}
@@ -593,7 +601,6 @@ To that end the SSP implements the timing receiver/transmitter endpoint hardware
 R\&D on cold electronics and sensor arrays
 Under LDRD L2017.028 (P.I. Gustavo Cancelo) the PD R\&D collaboration has developed and characterized several configurations of cold electronics and SiPMs as follow:
 \begin{itemize}
-<<<<<<< HEAD
 \item A 48 SiPM summing board for SENSL 4x4 arrays. This is an active ganging board of 48 3mm x 3mm SiPMs from SenSL C series. This detector has been fully characterized and tested at TallBo with an alpha source (Am241) in March 2017. For the TallBo test the SiPM arrays were coated with \SI{100}{$\mu$g/cm$^2$} of TPB and showed an efficiency of 13\%.
 \item A 12 SENSL (6x6 mm C series) summing board that was used by the IU group in their light bars during the TallBo run of Oct-Nov 2017.
 \item We have tested Hamamatsu MPPCs (S13360-6050PE) at 25C, -70C and 77K. A passive ganging of 2, 4, 8 and 12 MPPCs were characterized and showed single PE separation.
@@ -601,16 +608,6 @@ Under LDRD L2017.028 (P.I. Gustavo Cancelo) the PD R\&D collaboration has develo
 \item A passive gang of 6 and 12 MPPCs for ARAPUCA ProtoDUNE design
 \item A 72 combination of passive and active ganging using 6mm x 6mm MPPCs with a lower noise OP Amp. This design combines 12 active branches into the low noise OpAmp. Each branch has 6 MPPCs in parallel passive configuration.
 \end{itemize}
-=======
-\item	A 48 SiPM summing board for SENSL 4x4 arrays. This is an active ganging board of 48 3mm x 3mm SiPMs from SenSL C series. This detector has been fully characterized and tested at TallBo with an alpha source (Am241) in March 2017. For the TallBo test the SiPM arrays were coated with 100ug/cm2 of TPB and showed an efficiency of 13%.
-\item 	A 12 SENSL (6x6 mm C series) summing board that was used by the IU group in their light bars during the TallBo run of Oct-Nov 2017.
-\item 	We have tested Hamamatsu MPPCs (S13360-6050PE) at 25C, -70C and 77K. A passive ganging of 2, 4, 8 and 12 MPPCs were characterized and showed single PE separation.
-\item 	A passive gang of 4 SENSL (6x6 mm C series) for ARAPUCAs during the TallBo run of Oct-Nov 2017.
-\item 	A passive gang of 6 and 12 MPPCs for ARAPUCA ProtoDUNE design
-\item 	A 72 combination of passive and active ganging using 6mm x 6mm MPPCs with a lower noise OP Amp. This design combines 12 active branches into the low noise OpAmp. Each branch has 6 MPPCs in parallel passive configuration.
-\end{itemize}
-
->>>>>>> 1fcc18038856f7f05b29874d1eb313b942100d29
 
 \fixme{9 apr18 decide which figures to use }
 
