@@ -40,7 +40,7 @@ The design of the \dshort{cro} electronics system was developed to fit the follo
 \item{The ADC resolution should be such that that the noise is at the level of an ADC, while dynamic range wide enough to match the response of the FE amplifier. This can be achieved with a 12 bit ADC.}
 \item{The digital electronics to be placed outside of the cryostat in the warm environment can adopt standard industrial components and solutions.}
 \end{itemize}
-Additionally, the magnitude of noise plays a role in the quality of the lossless compression on the raw data performed by the digital electronics. A compression factor of \num{10} can be achieved with the noise levels below \SI{1}{ADC} RMS.  %be careful of RMS<1...
+Additionally, the magnitude of noise plays a role on the quality of the lossless compression on the raw data performed by the digital electronics. A compression factor of \num{10} can be achieved with the noise levels below \SI{1}{ADC} RMS.
 
 %Given the amplification of the ionization charge in CRP, the electronics needs to be sensitive to the signals over a large dynamic range (up-to \num{40} times the MIP-level signals for a nominal CRP gain of %\num{20} or \SI{1200}{\femto\coulomb}) to avoid saturation of the analog inputs by large localized energy disposition produced, for example, in shower events. The minimal requirelemt on the intrinsic noise %of the FE analog electronics is \SI{<2500}{e^{-}}.  The condition is derived from the requirement on the minimal \dword{s/n} of \num{5:1} as in the SP design. Given the maximal drift \SI{12}{\meter} the %largest attenuation factor due to electro-negative impurities assuming the nominal \SI{3}{\milli\second} electron lifetime is \num{0.08}. The smallest MIP signal with the CRP effective gain is therefore %\SI{2.5}{\femto\coulomb} (\SI{15600}{e^{-}}).
 
@@ -62,12 +62,12 @@ Parameter & Value  \\ \toprowrule
   CRO continuous sampling rate & \SI{2.5}{\MHz}\\ \colhline
   CRO ADC resolution & \num{12} bit           \\ \colhline
   CRO data compression factor   & \num{10}    \\ \colhline 
-  CRO data flow  & \num{430} Gbit/s          \\ \colhline 
+  CRO data flow  & \num{430} Gibit/s          \\ \colhline 
   LRO channels       & \num{720}               \\ \colhline
   LRO continuous sampling rate & \SI{2.5}{\MHz} \\ \colhline
   LRO ADC resolution & \num{14} bit            \\ \colhline
   LRO data compression factor  & \num{1}       \\ \colhline
-  LRO data flow   & \num{24} Gbit/s          \\ \colhline
+  LRO data flow   & \num{24} Gibit/s          \\ \colhline
 \end{dunetable}
 
 Some of the key parameters in the electronics system design are summarized in Table~\ref{tab:dpele-physicsparams}. %The requirements for the DP electronics system are documented in DUNE-docdb-6428.
@@ -264,7 +264,7 @@ In ProtoDUNE-DP, AMCs are operated in the triggered mode reading \SI{4}{\milli\s
 \label{sec:fddp-tpc-elec-design-lro}
 
 %
-The LRO card is a \num{16} channel AMC containing one \num{16} channel \num{14} bit \SI{65}{\MHz} ADC (AD9249) and one \dword{catiroc} ASIC \cite{catiroc}. A block diagram of the prototype board used for ProtoDUNE-DP is shown in Figure~\ref{fig:dpele-lro-scheme}. In this prototype, Figure~\ref{fig:dpele-lro-proto}, a mezzanine board containing the ASIC and ADC sits on a commercial (COTS) mother board (Bittware S4 AMC) with a high specification FPGA (ALTERA Stratix IV). In the final implementation for the DUNE, the mezzanine is integrated with the layout of the AMC board developed for the charge readout.  
+The LRO card is a \num{16} channel AMC containing one \num{16} channel \num{14} bit \SI{65}{\MHz} ADC (AD9249) and one \dword{catiroc} ASIC \cite{Blin:2017}. A block diagram of the prototype board used for ProtoDUNE-DP is shown in Figure~\ref{fig:dpele-lro-scheme}. In this prototype, Figure~\ref{fig:dpele-lro-proto}, a mezzanine board containing the ASIC and ADC sits on a commercial (COTS) mother board (Bittware S4 AMC) with a high specification FPGA (ALTERA Stratix IV). In the final implementation for the DUNE, the mezzanine is integrated with the layout of the AMC board developed for the charge readout.  
 A proposed upgrade is a \num{32} channel card, diminishing the number of cards required and increasing the channel density to \num{352} channels per uTCA crate.
 
 \begin{dunefigure}[Block diagram of LRO]{fig:dpele-lro-scheme}
