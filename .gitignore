@@ -42,3 +42,4 @@ latexmk-out
 *.alg
 *.glg
 *.gls
+*.synctex(busy)
