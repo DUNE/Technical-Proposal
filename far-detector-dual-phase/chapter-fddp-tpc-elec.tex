@@ -31,7 +31,7 @@ The design of the electronics for the charge readout covers the analog front-end
 The design of the \dshort{cro} electronics system was developed to fit the following requirements:
 \begin{itemize}
 \item{The charge readout electronics must be able to measure signals of up-to \SI{1200}{\femto\coulomb} without saturation; this has been optimized following Monte-Carlo studies on the maximal occupancy per channel in shower events \cite{WA105_TDR}. For a nominal CRP gain of \num{20} a MIP signal is expected to be around \SI{30}{fC} --- the lowest limit that assumes a particle travelling horizontally with an azimuthal angle of \num{0} degrees --- giving the maximal operation range of up-to \num{40} MIPs.}
-\item{The electronic noise in the \dshort{cro} analog electronics is required to be \SI{<2500}{e^{-}}. The condition can be derived from the requirement on the minimal \dword{s/n}, which should be greater than \num{5}:\num{1} once charge attenuation is taken into account. Given the maximum drift distance of \SI{12}{\meter}, the largest attenuation factor due to electro-negative impurities assuming the nominal \SI{3}{\milli\second} electron lifetime and the drift field of \SI{0.5}{\kilo\volt/\cm} is \num{0.08}. The smallest MIP signal with the CRP effective gain is therefore \SI{2.5}{\femto\coulomb} (\SI{15600}{e^{-}}).}
+\item{The electronic noise in the \dshort{cro} analog electronics is required to be \SI{<2500}{e^{-}}. The condition can be derived from the requirement on the minimal \dword{s/n}, which should be greater than \num{5}:\num{1} once the charge attenuation is taken into account. Given the maximum drift distance of \SI{12}{\meter}, the largest attenuation factor due to electro-negative impurities assuming the nominal \SI{3}{\milli\second} electron lifetime and the drift field of \SI{0.5}{\kilo\volt/\cm} is \num{0.08}. The smallest MIP signal with the CRP effective gain is therefore \SI{2.5}{\femto\coulomb} (\SI{15600}{e^{-}}).}
 \item{The peaking time of the FE analog amplifiers should be \SI{1}{\micro\second}. This requirement is driven by the the need for optimal vertex resolution, determined in turn by the single track resolution and the power to separate two or more tracks which are close to one another.}
 \item{The sampling frequency should be \SI{2.5}{\MHz} to match the peaking time of the FE electronics.}
 
@@ -250,7 +250,7 @@ Integral Non-Linearity & Typical \num{\pm1.1}  LSB\\
 
 \begin{dunefigure}[Block diagram of AMC]{fig:dpele-amc-scheme}
 {Block diagram of AMC.}
-\includegraphics[width=0.7\textwidth]{dpele-amc-scheme}
+\includegraphics[width=0.9\textwidth]{dpele-amc-scheme}
 \end{dunefigure}
 
 Figure~\ref{fig:dpele-amc-scheme} shows block diagram of the AMC functionality. The data are continuously sampled at \SI{2.5}{\MHz} (down-sampled from the ADC native sampling rate) with \num{14} bit resolution. However only \num{12} most significant bits of each sample are eventually sent to the DAQ. Within AMCs lossless data compression based on an optimized version of the Huffman algorithm is performed and the data are organized in frames for transmission. The frames contain the absolute timing information of the first data sample.  In the current design, each AMC has 64 channels and reads one analog FE card.
