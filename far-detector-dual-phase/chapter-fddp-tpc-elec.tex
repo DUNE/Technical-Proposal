@@ -277,7 +277,7 @@ A proposed upgrade is a \num{32} channel card, diminishing the number of cards r
 \includegraphics[width=0.7\textwidth]{dpele-lro-proto}
 \end{dunefigure}
 
-The analog signals from each PMT channel follow two separate branches (see Figure~\ref{fig:dpele-lro-scheme}) . One path (Waveform branch), through an anti-aliasing low-pass filter and the \num{14} bit \SI{65}{\MHz} ADC (AD9249), produces continuous digitization of the PMT waveform data, which are down-sampled to \SI{2.5}{MHz} prior to the transmission to DAQ. The other (\dword{catiroc} branch) is routed directly to the \dword{catiroc} ASIC for precise measurements of pulse charge and timing. Both paths produce data continuously and independently.
+The analog signals from each PMT channel are split equally into two separate branches (see Figure~\ref{fig:dpele-lro-scheme}) . One path (Waveform branch), through an anti-aliasing low-pass filter and the \num{14} bit \SI{65}{\MHz} ADC (AD9249), produces continuous digitization of the PMT waveform data, which are down-sampled to \SI{2.5}{MHz} prior to the transmission to DAQ. The other (\dword{catiroc} branch) is routed directly to the \dword{catiroc} ASIC for precise measurements of pulse charge and timing. Both paths produce data continuously and independently.
 
 
 \subsubsection{Waveform branch} %ADC
@@ -341,11 +341,6 @@ Features & Common trigger threshold \\
 
 The fast channel is used to auto-trigger the ASIC and make the fine-timing measurement. It comprises a high gain preamplifier, fast shaper (shaping time \SI{5}{ns}) and discriminator with a \num{10} bit programmable threshold that is common to all \num{16} channels. The output of the discriminator is used for the two Time to Digital Convertors to get the fine-timing. A coarse timestamp could also be obtained from a \num{26} bit counter running at \SI{40}{MHz}.  Only the data from the triggered channels are digitized; their information is transferred to the internal memory, which is read by the external FPGA. 
 
-%Measurements performed in \cite{Blin2017} ..% SNR of 13 trigger efficiency etc...
-%total number of bits per channel, 50-bits from \dword{catiroc}?
-%COPY CAYETANO TABLE
-%SELMA'S SPE FROM JUNO?? or my spe??
- 
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Network-based uTCA Architecture}
@@ -360,10 +355,10 @@ Each AMC for either charge or light readout plugged into the uTCA is connected t
 {lr}{tab:dp-utcabandwidth}
 {Bandwidth requirements per uTCA crate for continuous data streaming. A compression factor of 10 for the charger readout data is assumed }   
 Parameter & Value  \\ \toprowrule
-  CRO data rate  &  \SI{1.8}{Gbit/s}         \\ \colhline
-  LRO data rate  &  \SI{4.7}{Gbit/s}            \\ \colhline
-  Current MCH bandwidth & \SI{10}{Gbit/s}              \\ \colhline
-  Upgradable MCH bandwidth & \SI{40}{Gbit/s}           \\ \colhline
+  CRO data rate  &  \SI{1.8}{Gibit/s}         \\ \colhline
+  LRO data rate  &  \SI{4.7}{Gibit/s}            \\ \colhline
+  Current MCH bandwidth & \SI{10}{Gibit/s}              \\ \colhline
+  Upgradable MCH bandwidth & \SI{40}{Gibit/s}           \\ \colhline
 \end{dunetable}
 
 In the current design, as used for ProtoDUNE-DP, the MCH operates with a \SI{10}{Gbit/s} uplink. Given that a uTCA crate hosts \num{10} AMCs for charge readout, the required bandwidth to stream the data to DAQ is about \SI{1.8}{Gbit/s}. This assumes that the data exiting the AMCs are losslessly compressed with the compression factor of \num{10}. The bandwidth required per crate link for streaming the light readout data is \SI{4.7}{Gbit/s}. The \SI{10}{Gbit/s} MCH is therefore sufficient to support these data rates. However, the technology is moving towards supporting the \SI{40}{Gbit/s} rates. In addition, the channel density per AMC could also be increased for cost optimization. For these reasons an upgrade to a \SI{40}{Gbit/s} MCH could be foreseen in the future. This would also imply that the optical links connecting the DAQ system to uTCA MCH should be operable at \SI{40}{Gbit/s}. A summary of the required and supported bandwidths per uTCA crate for continous data streaming is provided in Table~\ref{tab:dp-utcabandwidth}.
