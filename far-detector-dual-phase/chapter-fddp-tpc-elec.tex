@@ -229,22 +229,21 @@ The procedure to access the FE cards at cold was successfully tested during the 
 \subsection{Digital AMC Electronics for Charge Readout}
 \label{sec:fddp-tpc-elec-design-amc}
 %THIS IS CHARGE READ OUT
-The function of the CRO AMC cards is to read and digitize the data from the FE amplifiers and then transmit them to the DAQ system. The cards also include a last stage of analog shaping before the ADC input. The analog FEs produce differential unipolar signals defined with respect to a baseline offset. This offset is removed and the signals are subtracted in the analog input stage of the digital electronics prior to digitization. Each card has eight ADC chips (AD9257, Table~\ref{tab:dpele-adc9257}), two dual-port memories (IDT70T3339), and an FPGA (ALTERA Cyclone V) on board. The FPGA provides a virtual processor (NIOS) that handles the readout and the data transmission.
+The function of the CRO AMC cards is to read and digitize the data from the FE amplifiers and then transmit them to the DAQ system. The cards also include a last stage of analog shaping before the ADC input. The analog FEs produce differential unipolar signals defined with respect to a baseline offset. This offset is removed and the signals are subtracted in the analog input stage of the digital electronics prior to the digitization. Each card has eight ADC chips (AD9257, Table~\ref{tab:dpele-adc9257}), two dual-port memories (IDT70T3339), and an FPGA (ALTERA Cyclone V) on board. The FPGA provides a virtual processor (NIOS) that handles the readout and the data transmission. The choices for all of the components have been optimized with respect to the design requirements and technical criteria such as costs, chip footprint (small enough to fit on the AMC), power consumption, and ease of use (available functionality). 
 
 \begin{dunetable}
 [Main characteristics of ADC AD9257]
 {lr} {tab:dpele-adc9257}
 {Main characteristics of ADC AD9257.}
 Item &   \\ \toprowrule
-Channels & \num{16} \\ \colhline
-Sampling & \SI{40}{MSPS}/\SI{65}{MSPS} \\ \colhline
+Channels & \num{8} \\ \colhline
+Sampling & up to \SI{40}{MSPS} \\ \colhline %/\SI{65}{MSPS}
 Resolution & \SI{0.122}{\milli\volt} \\ \colhline
-Dynamic range & \num{14} bit/ \SI{2}{\volt} \\ \colhline
+Dynamic range & \num{14} bit/ \SI{2.0}{\volt} \\ \colhline
 Differential Non-Linearity & Typical \num{\pm0.6} LSB\\ 
 & with Min. \num{-1.0} and Max. \num{+1.7} LSB  \\ \colhline
 Integral Non-Linearity & Typical \num{\pm1.1}  LSB\\
 & with Min. \num{-3.1} and Max. \num{+3.1} LSB  \\ \colhline
-%MEMORY??
 \end{dunetable}
 
 
@@ -252,8 +251,7 @@ Integral Non-Linearity & Typical \num{\pm1.1}  LSB\\
 {Block diagram of AMC.}
 \includegraphics[width=0.9\textwidth]{dpele-amc-scheme}
 \end{dunefigure}
-
-Figure~\ref{fig:dpele-amc-scheme} shows block diagram of the AMC functionality. The data are continuously sampled at \SI{2.5}{\MHz} (down-sampled from the ADC native sampling rate) with \num{14} bit resolution. However only \num{12} most significant bits of each sample are eventually sent to the DAQ. Within AMCs lossless data compression based on an optimized version of the Huffman algorithm is performed and the data are organized in frames for transmission. The frames contain the absolute timing information of the first data sample.  In the current design, each AMC has 64 channels and reads one analog FE card.
+Figure~\ref{fig:dpele-amc-scheme} shows block diagram of the AMC functionality. Each AMC generates a continuous compressed stream of \SI{2.5}{MSPS} 12 bit data per readout channel. The on-board ADCs operate at a rate of \SI{25}{MSPS} per channel. The data are down-sampled in the FPGA to \SI{2.5}{MSPS} by performing ten-sample averaging, which results in an additional digital filtering of the noise. The data, consisting of only \num{12} most significant bits from each digitized 14 bit sample, are then compressed using an optimized version of the Huffman algorithm and organized in frames for transmission.  The frames contain the absolute timing information of the first data sample for reliability purposes. In the current design, each AMC has 64 channels and reads one analog FE card.
 
 The AMCs are housed in uTCA crates and send their data via the MCH switch. The timing synchronization of AMCs is achieved via a WR-MCH module (also housed in the crate) that is connected to the White Rabbit network. In addition, WR-MCH could also be used for triggered readout of AMCs by sending it dedicated packets containing trigger timestamp information over the White Rabbit network.
 
