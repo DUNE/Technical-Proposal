@@ -1,7 +1,7 @@
 \fixme{\bf The figure in this subsection will be improved for the next version of the draft.}
 
 LArASIC receives signals from the CR board and
-provides a means to amplify and shape the signals originally coming from the TPC wires; the
+provides a means to amplify and shape the current signals originally coming from the TPC wires; the
 shaping serves as an anti-aliasing filter for the TPC signals.
 Each LArASIC channel has a charge amplifier circuit with a programmable
 gain selectable from one of 4.7, 7.8, 14 and 25~mV/fC
@@ -12,13 +12,13 @@ an option to enable AC coupling,
 and a baseline adjustment for operation with either the collecting (200~mV) or the non-collecting (900~mV) wires.
 
 Figure~\ref{fig:fe-output}(a) shows the simulated pulse response for all gains and peaking times and both baselines.
-Note that the gain is independent of the peaking time, such that the amount of charge integrated by the FE increases with gain for a constant peaking time.
+Note that the gain is independent of the peaking time, such that the same amount of charge produces the same peak voltage signal regardless of the peaking time.  
 
 Shared among the 16 channels in the LArASIC are the bias circuits, programming registers,
 a temperature monitor, an analog buffer for signal monitoring, and the digital interface.
 The power dissipation of LArASIC is about 6~mW per channel at 1.8~V supply.
 
-LArASIC is implemented using the TSMC 180 nm CMOS process.  The charge sensitive amplifier uses a very large PFET (width = 20 mm, length = 270 nm) followed by a dual cascode stage, a pulse shaping network, and a baseline restoration circuit.  
+LArASIC is implemented using the TSMC 180 nm CMOS process.  The charge sensitive amplifier uses a very large P-channel Field Effect Transistor (PFET) with width = 20 mm and length = 270 nm followed by a dual cascode stage, a pulse shaping network, and a baseline restoration circuit.  
 
 Each channel also implements a high-performance output driver,
 which can be used to drive a long cable, but is disabled when interfaced to an ADC ASIC to reduce the power consumption.

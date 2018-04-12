@@ -1,14 +1,20 @@
 As implemented for protoDUNE-SP, a fully loaded WIB (one WIB plus four FEMBs) requires
-12~V and draws up to approximately 4~A. The full electronics for one APA (one PTC, five WIBs, and 20 FEMBs) 
-requires 12~V and draws approximately 20A, for a total power of approximately 240W, as 
-described in Section~\ref{sec:fdsp-tpc-elec-design-warm}.
+12V and draws up to approximately 4A. The full electronics for one APA (one PTC, five WIBs, and 20 FEMBs) 
+requires 12V and draws approximately 20A, for a total power of approximately 240W, as 
+described in Section~\ref{sec:fdsp-tpc-elec-design-warm}. The DUNE implementation should require much 
+less power as the FPGA will be replaced by the COLDATA chips.
 
-As the LV power is delivered at 48~V to the PTC, each LV power mainframe is chosen to have roughly 30-60V/13.5A/650W maximum capacity. Using 10~AWG cable, an 0.8V drop is expected along the cable with a
-required power of 306~W out of 650W available.  This leaves significant margin that allows for larger distances between the power supplies and the warm interface crates.
+As the LV power is delivered at 48V to the PTC, each LV power mainframe is chosen to have 
+roughly 30-60V/13.5A/650W maximum capacity per APA. Using 10AWG cable, an 0.8V drop is 
+expected along the cable with a required power of 306W out of 650W available.  
+This leaves significant margin that allows for larger distances between the power supplies and 
+the warm interface crates than the $\sim$20~meters in protoDUNE-SP.
 
-Four wires are used for each module, two 10~AWG,
-shielded, twisted pair for the power and return, two 20~AWG, shielded, twisted pair for the sense.
-The primary protection is the over-current protection circuit in the low voltage supply modules, which is set above the $\sim$20~A current draw of the WEIC.  Secondary sense line fusing is provided on the PTC.  The LV power cable uses FCi micro TCA connectors, shown in
+Four wires are used for each module, two 10AWG,
+shielded, twisted pair for the power and return, two 20AWG, shielded, twisted pair for the sense.
+The primary protection is the over-current protection circuit in the low voltage supply modules, 
+which is set above the $\sim$20A current draw of the WEIC.  Secondary sense line fusing is 
+provided on the PTC.  The LV power cable uses FCi micro TCA connectors, shown in
 Figure~\ref{fig:tpcelec-power_conn}.
 
 \begin{dunefigure}
