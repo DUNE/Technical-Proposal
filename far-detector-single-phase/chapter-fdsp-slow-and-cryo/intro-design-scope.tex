@@ -14,18 +14,17 @@ The Cryogenic Instrumentation and Slow Controls (CISC) system provides
 a comprehensive monitoring for all detector components as well as for the liquid argon quality and behavior, both being crucial
 to guaranty a good quality of the data. CISC also provides a control system for some of the detector components. 
 The structure of the CISC consortium is quite complex. A subsystem chart
-for the CISC system is shown in Fig. \ref{fig:sp-slow-cryo-subsys}. 
+for the CISC system is shown in Fig. \ref{fig:cisc_subsys}. 
 
 \begin{dunefigure}[Cryogenic Instrumentation and Slow Controls (CISC) subsystems]{fig:sp-slow-cryo-subsys}
 {Cryogenic Instrumentation and Slow Controls (CISC) subsystem chart}
-\includegraphics[width=0.7\textwidth]{fd-slow-cryo-subsys}
+\includegraphics[width=0.7\textwidth]{cisc_subsys}
 \end{dunefigure}
 
 Two main branches can be distinguished: i) Cryogenics Instrumentation and ii) Slow Controls. The former includes a set of devices 
 to monitor the quality/behavior of the liquid argon volume in the cryostat interior, ensuring the correct functioning of
 the cryogenics system and the suitability of the LAr for good quality physics data. Those devices are:
-purity monitors, temperature
-monitors, gas analyzers, liquid argon level monitors, cameras and their associated
+purity monitors, temperature monitors, gas analyzers, liquid argon level monitors, cameras and their associated
 light emitting system. Two other systems have been included as part of the Cryogenics Instrumentation,  
 a test facility for the instrumentation devices and the cryogenic piping inside the cryostat.
 
@@ -137,9 +136,10 @@ Cryogenic Instrumentation Test Facility cryostat volumes
 & Based on filling costs and turn around times
 & Under design
 \\  \colhline
- Max.\ E-field near instrumentation devices
+ Max.\ E-field on instrumentation devices
  & \(<\SI{30}{kV/cm}\)
- & Maximum field that LAr can maintain without undergoing dielectric breakdown
+ & The mechanical design of the system should be such that E-field is below this value, 
+ to minimize the risk of dielectric breakdown in LAr
  & Yes: electrostatic simulation
 \\ \colhline
  Minimize noise from instrumentation devices
