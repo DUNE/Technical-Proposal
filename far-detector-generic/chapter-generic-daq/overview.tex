@@ -105,8 +105,8 @@ The design of the DAQ strives to contain the unique layers which adapt
 to the variation in \dwords{detmodule} toward its ``front end'' in
 order to allow as many of its ``back end'' components identical across
 the \dwords{detmodule} as possible. 
-In particular, the DAQ presents a unified interface to the ultimate
-consumer of its data, the DUNE offline computing.
+In particular, the DAQ must present a unified interface to the
+ultimate consumer of its data, DUNE offline computing.
 It must also accept and process the data from a variety of other
 sources including the accelerator, various calibration systems
 (including laser, cold electronics, photodetectors, and potentially
@@ -117,7 +117,7 @@ changes in high voltage, cut network connectivity and other credible
 potentialities.
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}
-  {The high-level design for the DUNE FD DAQ showing data (solid, with
+  {The high-level, nominal design for the DUNE FD DAQ showing data (solid, with
     line width indicating throughput) and trigger (dashed) flows. 
     A detector module has specialized implementation of some of these
     high level components, particularly toward the upstream front-end
@@ -129,15 +129,42 @@ potentialities.
 \includegraphics[width=0.8\textwidth]{high-level-daq.pdf}%
 \end{dunefigure}
 
+\begin{dunefigure}[DAQ Overview]{fig:daq-overview-alt}
+  {The high-level, alternative design for the DUNE FD DAQ showing data (solid, with
+    line width indicating throughput) and trigger (dashed) flows. 
+    A detector module has specialized implementation of some of these
+    high level components, particularly toward the upstream front-end
+    as described in the text. 
+    The grayed boxes are not in the DAQ scope.
+    See text for details.
+}
+% This PDF is made from the .dot of the same name.
+\includegraphics[width=0.8\textwidth]{high-level-daq-alt.pdf}%
+\end{dunefigure}
 
-Figure~\ref{fig:daq-overview} gives an illustration of the high-level
-DUNE FD DAQ design in terms of data and trigger flow.
-At this level of detail the diagram is generic to all
+Currently, two major variations for the DUNE DAQ are considered. 
+They differ at their front-ends and in terms of the order in which
+they buffer the data after it is received from the detector
+electronics and in which they use that data to form
+\dwords{trigprimitive}.
+The first design, designated as nominal, forms \dwords{trigprimitive}
+before the data reaches the DAQ \dword{ringbuffer}. 
+In a high-level way, it is illustrated in Fig~\ref{fig:daq-overview}
+in terms of data and trigger flows.
+The second, designated as alternative, reverses this order and is
+illustrated in Fig~\ref{fig:daq-overview-alt}. 
+These high level diagrams and their design are described in
+detail in Section~\ref{sec:fd-daq-overview}.
+
+At their level of detail the two diagrams are generic to all
 \dwords{detmodule} but some of the depicted roles will necessarily
 have implementation specific to their \dword{detmodule}.
 The subsections of Section~\ref{sec:fd-daq-design} give more
 description of this high-level design as well as details on
-specialized implementations.
+specialized implementations in particular see
+Sections~\ref{sec:fd-daq-fero} and~\ref{sec:fd-daq-fetp} which
+describe specializations of the front end required to adapt to the SP
+and DP \dwords{detmodule}.
 
 The high level requirements for the DUNE FD DAQ are provided in
 \cite{daq:reqs}.
@@ -168,8 +195,14 @@ dominated by the rate of data produced by the TPC system of each
 \dword{detmodule}.
 These rates vary between the modules and their estimations are summarized in
 Table.~\ref{tab:daq-input-bandwidth}.
-\begin{dunetable} [Pre-trigger data rates from the DUNE FD TPCs and into DAQ front end.]
-  {lll} {tab:daq-input-bandwidth} {The parameters governing the pre-trigger data rate from units of each \dword{detmodule} TPC \dwords{ce} and the aggregate throughput into the \dwords{fec} of the DAQ \dwords{daqfrag}.  Compression is an estimate and will be reduced if excess noise is introduced.  
+\begin{dunetable} [Pre-trigger data rates from the DUNE FD TPCs and
+  into DAQ front end.]
+  {lll} {tab:daq-input-bandwidth} {The parameters governing the
+    pre-trigger data rate from units of each \dword{detmodule} TPC
+    \dwords{ce} and the aggregate throughput into the \dwords{fec} of
+    the DAQ \dwords{daqfrag}. 
+    Compression is an estimate and will be reduced if excess noise is
+    introduced.  
   }
   parameter & \dlong{sp} & \dlong{dp} \\
   \colhline
@@ -180,8 +213,7 @@ Table.~\ref{tab:daq-input-bandwidth}.
   ADC resolution & 12 bit & 12 bit \\
   \colhline
   aggregate from \dword{ce} & \SI{1440}{\GB/\s} & \SI{576}{\GB/\s} \\
-  compression factor & 5$\times$ (in \dshort{daqfer}) & 10$\times$ (in \dshort{cro} crate) \\
-  aggregate to FEC & \SI{230}{\GB/\s} & \SI{58}{\GB/\s} \\
+  with compression & \SI{230}{\GB/\s} (5$\times$) & \SI{58}{\GB/\s} (10$\times$)  \\
   \colhline
 \end{dunetable}
 
@@ -267,7 +299,9 @@ fabrication, testing, delivery and installation of the following
 systems:
 
 \begin{itemize}
-\item Front-end readout hardware and firmware/software development for \dword{trigprimitive} generation.
+\item Front-end readout (nominal designl) or trigger farm (alternative
+  design) hardware and firmware/software development for
+  \dword{trigprimitive} generation.
 \item Front-end computing for hosting of \dword{daqdr}, \dword{ringbuffer} and \dword{daqds}.
 \item Back-end computing for hosting \dword{mtl}, \dword{eb} and the \dword{daqoob} processes.
 \item External trigger logic and its host computing.

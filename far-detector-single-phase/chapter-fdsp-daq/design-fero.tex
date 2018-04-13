@@ -2,13 +2,13 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Front-end Readout \& Buffering}
-\label{sec:fd-daq-ltr}
+\label{sec:fd-daq-fero}
 
 \metainfo{Giles Barr \& Giovanna Miotto \& Brett Viren, this is SP-specific.}
 
-\begin{dunefigure}[SP DAQ fragment]{fig:daq-readout-buffering-baseline}
+\begin{dunefigure}[Nominal SP front-end DAQ fragment]{fig:daq-readout-buffering-baseline}
   {Illustration of data (solid arrows) and trigger (dashed) flow for
-    one SP DAQ fragment. 
+    one SP DAQ fragment in the nominal design. 
     Black arrows indicate nominal flow and red indicate special flow
     for handling of potential SNB.  See text for detail description.}
   \includegraphics[width=0.8\textwidth]{daq-readout-buffering-baseline.pdf}%
@@ -16,19 +16,19 @@
 
 
 Figure~\ref{fig:daq-readout-buffering-baseline} illustrates the
-\dword{sp}-specific \dword{daqfrag} specializing from the generic
-Fig.~\ref{fig:daq-overview}.  
+\dword{sp}-specific \dword{daqfrag} specializing from the generic,
+nominal design illustrated in Fig.~\ref{fig:daq-overview}.  
 Starting from the left, it shows the fiber optic connectivity pattern
 between the four connectors of five \dword{sp} \dwords{wib} associated
 with each APA and the elements of one \dword{sp} \dfirst{daqfer}. 
-In total, the \dword{daqfer} is associated with two APAs each of which is
-serviced by one \dfirst{atca} \dfirst{cob} hosting four compute units
-called \dfirst{rce}. 
+In total, the \dword{daqfer} is associated with two APAs each of which
+is serviced by one \dfirst{atca} \dfirst{cob} hosting four compute
+units called \dfirst{rce}. 
 Each \dword{rce} provides FPGA, RAM and \dword{ssd} resources.
 It's primary functions include:
 \begin{itemize}
 \item Receive data from WIBs,
-\item Produce trigger primitives from collection channels (see Section~\ref{sec:fd-daq-ltp}),
+\item Produce trigger primitives from collection channels (see Section~\ref{sec:fd-daq-fetp}),
 \item Compress the data.
 \item Forward data and trigger primitives to the \dword{fec}
 \item Buffer data in RAM 
@@ -65,7 +65,7 @@ Based on its information the \dword{eb} makes a request to the
 \dword{datafrag} build from the data available in the \dword{ringbuffer}.
 
 An \dword{snb} \dword{trigcommand} is formed via the usual trigger
-hierarchy as described in more detail in Section~\ref{sec:fd-daq-ltr}
+hierarchy as described in more detail in Section~\ref{sec:fd-daq-fetp}
 and it is consumed by the \dlong{daqoob} component. 
 This component simply dispatches the command back down to the 600
 \dwords{rce} in order to relieve the duty from the \dword{mtl} and
@@ -125,3 +125,8 @@ With the assumed average of one dump per month, if all were saved
 uncompressed this requires an average bandwidth aggregated over the
 entire \dword{sp} of just over \SI{100}{\Mbps}.
 
+In the alternative \dword{sp} DAQ design (not diagrammed) which
+corresponds to the generic Fig.~\ref{fig:daq-overview-alt} the ten
+\dwords{wib} shown in Fig~\ref{fig:daq-readout-buffering-baseline}
+are directly connected to one FELIX board via \SI{10}{\Gbps} fiber
+optic.  The readout and buffering then follow the generic design.

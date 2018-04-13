@@ -1,17 +1,26 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Front-end Trigger Primitive Generation}
-\label{sec:fd-daq-ltp}
+\label{sec:fd-daq-fetp}
 
 \metainfo{Josh Klein \& J.J. Russel \& Brett Viren.  This section is SP-specific.}
 
 \Dwords{trigprimitive} are generated inside the \dword{fe} readout
-hardware local to each APA from TPC data on a per-channel basis.
+hardware associated with each APA from TPC data on a per-channel basis.
 They are sent along with the waveform data to the \dword{fe} DAQ
-computing where they may be further processed before being sent out to
-the \dword{mtl} as \dwords{trigcandidate}.  
-Section~\ref{sec:fd-daq-sel} describes the selections involved in
-this triggering.
+computing.
+In the alternative design, the data is directly sent from the APAs to
+the \dwords{fec} and the data are sent to the trigger processing
+computers.  
+In both designs, the primitives from one \dword{daqfrag} are further
+processed to produce \dwords{trigcandidate}. 
+As such they represent a localization of activity to the corresponding
+APAs and for some period of time. 
+These candidates are emitted to the the \dword{mtl} which may consider
+candidates from other detector modules or external sources before
+generating trigger commands.
+Section~\ref{sec:fd-daq-sel} describes the selections involved in this
+triggering.
 
 Only the 480 collection channels associated with each APA face are
 used for forming \dwords{trigprimitive}. 

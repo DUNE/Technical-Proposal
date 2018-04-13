@@ -1,0 +1,250 @@
+digraph top {
+        graph[compound=true,ordering=out,outputorder=edgesfirst,splines=false,layout=dot,rankdir=LR,fontsize=20];
+        node[shape=box,style="rounded,filled",fillcolor=white,fontsize=16];
+        label="Dual-Phase Module -- N CRO crates";
+        
+        subgraph cluster_cros {
+                label="CRO uTCA Crates\n8 out of 240 ";
+                subgraph cluster_cro1 {
+                        label="CRO crate 1";
+                        cronic1[label="NIC"];
+                }
+                subgraph cluster_cro2 {
+                        label="CRO crate 2";
+                        cronic2[label="NIC"];
+                }
+                subgraph cluster_cro3 {
+                        label="CRO crate 3";
+                        cronic3[label="NIC"];
+                }
+                subgraph cluster_cro4 {
+                        label="CRO crate 4";
+                        cronic4[label="NIC"];
+                }
+                subgraph cluster_cro5 {
+                        label="CRO crate 5";
+                        cronic5[label="NIC"];
+                }
+                subgraph cluster_cro6 {
+                        label="CRO crate 6";
+                        cronic6[label="NIC"];
+                }
+                subgraph cluster_cro7 {
+                        label="CRO crate 7";
+                        cronic7[label="NIC"];
+                }
+                subgraph cluster_cro8 {
+                        label="CRO crate 8";
+                        cronic8[label="NIC"];
+                }
+        }
+        subgraph cluster_lros {
+                label="LRO uTCA Crates\nAll 5";
+
+                subgraph cluster_lro1 {
+                        label="LRO crate 1";
+                        lronic1[label="NIC"];
+                }
+                subgraph cluster_lro2 {
+                        label="LRO crate 2";
+                        lronic2[label="NIC"];
+                }
+                subgraph cluster_lro3 {
+                        label="LRO crate 3";
+                        lronic3[label="NIC"];
+                }
+                subgraph cluster_lro4 {
+                        label="LRO crate 4";
+                        lronic4[label="NIC"];
+                }
+                subgraph cluster_lro5 {
+                        label="LRO crate 5";
+                        lronic5[label="NIC"];
+                }
+        }
+        subgraph cluster_dp{
+                label="Dual-Phase Module DAQ";
+                
+                subgraph cluster_daqdp{
+                        label="Dual-Phase Module DAQ Components for N crates"
+
+                        subgraph cluster_ferohwlro {
+                                label="Front-End Readout for all 5 LRO crates";
+                                subgraph cluster_bow0 {
+                                        label="DP BOW for LRO";
+                                        bow0nic0[label="out NIC"];
+                                        bow0nic1[label="in NIC"];
+                                        bow0nic2[label="in NIC"];
+                                        bow0nic3[label="in NIC"];
+                                        bow0nic4[label="in NIC"];
+                                        bow0nic5[label="in NIC"];
+                                        cpu0[label="CPU"];
+                                        ssd0[label="SSD"];
+                                        bow0nic1->cpu0;
+                                        bow0nic2->cpu0;
+                                        bow0nic3->cpu0;
+                                        bow0nic4->cpu0;
+                                        bow0nic5->cpu0;
+                                        cpu0->ssd0;
+                                        cpu0->bow0nic0;                                        
+                                }
+                        }
+
+                        subgraph cluster_ferohwcro{
+                                label="Front-End Readout for 8 CRO crates";
+                                
+                                subgraph cluster_bow4 {
+                                        label="DP BOW 4";
+                                        bow4nic1[label="in NIC"];
+                                        bow4nic2[label="in NIC"];
+                                        bow4nic0[label="out NIC"];
+                                        cpu4[label="CPU"];
+                                        ssd4[label="SSD"];
+                                        bow4nic1->cpu4;
+                                        bow4nic2->cpu4;
+                                        cpu4->bow4nic0;
+                                        cpu4->ssd4;
+                                }
+
+                                subgraph cluster_bow3 {
+                                        label="DP BOW 3";
+                                        bow3nic1[label="in NIC"];
+                                        bow3nic2[label="in NIC"];
+                                        bow3nic0[label="out NIC"];
+                                        cpu3[label="CPU"];
+                                        ssd3[label="SSD"];
+                                        bow3nic1->cpu3;
+                                        bow3nic2->cpu3;
+                                        cpu3->bow3nic0;
+                                        cpu3->ssd3;
+                                }
+
+                                subgraph cluster_bow2 {
+                                        label="DP BOW 2";
+                                        bow2nic1[label="in NIC"];
+                                        bow2nic2[label="in NIC"];
+                                        bow2nic0[label="out NIC"];
+                                        cpu2[label="CPU"];
+                                        ssd2[label="SSD"];
+                                        bow2nic1->cpu2;
+                                        bow2nic2->cpu2;
+                                        cpu2->bow2nic0;
+                                        cpu2->ssd2;
+                                }
+
+                                subgraph cluster_bow1 {
+                                        label="DP BOW 1";
+                                        bow1nic1[label="in NIC"];
+                                        bow1nic2[label="in NIC"];
+                                        bow1nic0[label="out NIC"];
+                                        cpu1[label="CPU"];
+                                        ssd1[label="SSD"];
+                                        bow1nic1->cpu1;
+                                        bow1nic2->cpu1;
+                                        cpu1->bow1nic0;
+                                        cpu1->ssd1;
+                                }
+                        }
+                        subgraph cluster_fecomp{
+                                label="Front-End Computing needed for\n8 CRO uTCA crates and all 5 LRO crates";
+                                style=filled;
+                                fillcolor=white;
+                                
+                                subgraph cluster_felixpc0 {
+                                        label="FELIX Host Computer";
+                                        felix0[label="FELIX\nPCIe board"];
+                                        ring0[shape=circle,label="RAM\nBuffer"];
+                                        selector0[label="Data Selector"];
+                                        
+                                }
+                                subgraph cluster_felixpc1 {
+                                        label="FELIX Host Computer";
+                                        felix1[label="FELIX\nPCIe board"];
+                                        ring1[shape=circle,label="RAM\nBuffer"];
+                                        selector1[label="Data Selector"];
+                                        
+                                }
+                        }
+                }
+                subgraph cluster_daqblob {
+                        label="Single-Phase Module Back-end Computing";
+                        labelloc=top;
+                        
+                        eb[label="Event Builder"];
+                        oob[label="Out-of-band\ndispatcher",color=red];
+                        mtl[label="Module\nTrigger Logic"];
+                        disk[label="Offline Disk Buffer"];
+                        snbeb[label="SNB dump Event Builder"];
+                }
+        }
+        
+        edge[penwidth=4];
+        cronic1->bow1nic1;
+        cronic2->bow1nic2;
+        cronic3->bow2nic1;
+        cronic4->bow2nic2;
+        cronic5->bow3nic1;
+        cronic6->bow3nic2;
+        cronic7->bow4nic1;
+        cronic8->bow4nic2;
+        
+        lronic1->bow0nic1;
+        lronic2->bow0nic2;
+        lronic3->bow0nic3;
+        lronic4->bow0nic4;
+        lronic5->bow0nic5;
+
+        edge[penwidth=8];
+        bow4nic0->felix1;
+        bow3nic0->felix1;
+        bow2nic0->felix1;
+        bow1nic0->felix1;
+        
+        bow0nic0->felix0;
+        
+        edge[penwidth=16,dir=none];
+        felix1->ring1;
+        felix0->ring0;
+
+        edge[penwidth=2,dir=forward];
+        ring1->selector1;
+        ring0->selector0;
+        selector1->eb;
+        selector0->eb;
+        eb->disk;
+
+        edge[penwidth=2,dir=forward,color=red];
+        bow0nic0->snbeb;
+        bow1nic0->snbeb;
+        bow2nic0->snbeb;
+        bow3nic0->snbeb;
+        bow4nic0->snbeb;
+
+        edge[constraint=true];
+        snbeb->disk;
+        
+        
+        edge[penwidth=1,style=dashed,color=black];
+        selector1->eb[dir=back];
+        selector0->eb[dir=back];
+        selector1->ring1;
+        selector0->ring0;
+        
+
+        edge[penwidth=1,style=dotted];
+        felix0->mtl[label="trigger\ncandidates"];
+        felix1->mtl[label="trigger\ncandidates"];
+        
+        mtl->eb[label="trigger commands"];
+
+
+        // Send trigger back to each rce
+        edge[penwidth=1,style=dashed,color=red,constraint=false];
+        mtl->oob[label="OOB dump command"];
+        bow0nic0->oob[dir=back];
+        bow1nic0->oob[dir=back];
+        bow2nic0->oob[dir=back];
+        bow3nic0->oob[dir=back];
+        bow4nic0->oob[dir=back];
+        
+}

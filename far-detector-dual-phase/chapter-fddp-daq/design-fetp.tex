@@ -1,6 +1,40 @@
 \subsection{Front-end Trigger Primitive Generation}
-\label{sec:fd-daq-ltp}
+\label{sec:fd-daq-fetp}
 
 \metainfo{Josh Klein \& J.J. Russel \& Brett Viren.  This section is DP-specific.
 This file is \texttt{far-detector-dual-phase/chapter-fddp-daq/design-fero.tex}}
+
+In the nominal design, the bump-on-wire (BOW) computers decompress the
+CRO data stream and execute algorithms to search for per-channel
+localized activity above some threshold based on a recent measure of
+the noise. 
+These trigger primitives are then sent out along with the original,
+compressed CRO data to the \dword{fec} associated with the BOW.
+
+Initial studies have shown some promise that this type of trigger
+primitive pipeline can be implemented on commodity CPUs and keep up
+with the data. 
+The studies made use of \dword{sp} signal and noise simulation but
+given the relatively higher signal-to-noise ratio expected in the DP
+detector data, coupled with fewer total channels, these studies should
+be applicable and even better performance may be expected. 
+With that said, more realistic studies using \dword{dp}-specific
+simuilations and with ProtoDUNE-DP data are needed.
+
+Most of the same technical triggering issues apply in the nominal and
+the alternative design (generically diagrammed in
+Fig~\ref{fig:daq-overview-alt}) as both call for deploying trigger
+primitive pipelines on commodity CPUs. 
+Additional study is required to understand the multiplicity of trigger
+processing computers and how that might scale as one considers
+different multiplicities of CRO \dword{utca} crates w.r.t. each
+\dword{fec}.
+
+In both designs, the LRO data is nominally not involved in triggering
+because the CRO triggering is expected to be more efficient.
+Future studies may indicate additional benefit to including LRO
+information in triggering and both the nominal and alternative design
+can elastically accommodate this increase scope although possibly at
+the cost of either more BOW or trigger processor computers.
+
 
