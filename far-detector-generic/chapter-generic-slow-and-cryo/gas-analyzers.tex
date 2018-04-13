@@ -6,7 +6,7 @@
  Gas analyzers are commercially-produced modules that measure trace quantities of specific gases contained within a stream of carrier gas. The carrier gas for DUNE is argon, and the trace gases of interest are oxygen ($\text{O}_2$), water ($\text{H}_2\text{O}$), and nitrogen ($\text{N}_2$). $\text{O}_2$ and $\text{H}_2\text{O}$ impact the electron lifetime in LAr, while $\text{N}_2$ impacts the efficiency of scintillation light production. In the LAr environment, these trace gases represent contaminants that need to be kept at levels below 0.1 ppb.
 The Ar is sampled from either the Ar vapor in the ullage or from the LAr by the use of small diameter tubing run from the sampling point to the gas analyzer. Typically the tubing runs from the sampling points are connected to a switchyard valve that is used to route the sample points to the desired gas analyzers. Fig.~\ref{fig:GA-switchyard} is a photo of such a switchyard.
 
-\begin{dunefigure}[GasAnalyzer switchyard]{fig:GA-switchyard}
+\begin{dunefigure}[Gas Analyzer switchyard]{fig:GA-switchyard}
   {A Gas Analyzer switchyard that routes sample points to the different gas analyzers.}
   \includegraphics[width=0.35\textwidth]{GasAnalyzerSwitchyard.png}%
 \end{dunefigure}
@@ -22,14 +22,14 @@ Three examples of usage:
 
 \end{enumerate}
 
-\begin{dunefigure}[GasAnalyzer purge]{fig:GA-purge}
+\begin{dunefigure}[Gas Analyzer purge]{fig:GA-purge}
   {Plot of the $\text{O}_2$, $\text{H}_2\text{O}$, and $\text{N}_2$ levels during the Piston Purge and Gas Recirculation stages of the \num{35}\si{t} Cryostat Phase 1 run}
   \includegraphics[width=0.5\textwidth]{Phase1_purge_gas_recirculation.pdf}%           
 \end{dunefigure}
 
 As any one gas analyzer covers only one contaminant species and $\sim$3-4 orders of magnitude of range, multiple units are needed both for the three contaminant gases and to cover the ranges ($\sim$1 to < 0.1 ppb for $\text{O}_2$) that are seen between the cryostat closure to the beginning of TPC operations. Since the total cost of these analyzers is $\>$ $\textdollar$100k, it is useful to be able sample more than a single location or cryostat with the same gas analyzers. At the same time the tubing run lengths from the sample point should be as short as possible in order to keep the response of the gas analyzer timely. This puts some constraints on the sharing of devices since, for example, the argon deliveries are at the surface, perhaps necessitating a separate surface gas analyzer.
 
-\begin{dunefigure}[GasAnalyzer purge]{fig:GA-O2}
+\begin{dunefigure}[Gas Analyzer $O_2$ level after LAr filling]{fig:GA-O2}
   {$\text{O}_2$ as measured by a precision $\text{O}_2$ analyzer just after the 35 ton cryostat was filled with LAr, continuing with the LAr pump start and beginning of LAr recirculation through the filtration system. As the gas analyzer loses sensitivity, the purity monitor is able to pick up the impurity measurement. Note that the purity monitor is sensitive to both $\text{O}_2$ and $\text{H}_2\text{O}$ impurities giving rise to its higher level of impurity.}
   \includegraphics[width=0.5\textwidth]{O2AnalyzerPrM2_HVRun1.png}% 
 \end{dunefigure}
