@@ -6,65 +6,77 @@
 
 \metainfo{Josh Klein \& Brett Viren.  This is a shared DP/SP section.  It's file is \texttt{far-detector-generic/chapter-generic-daq/design-sel.tex}}
 
-%This section describes the strategy for using the trigger/dataflow infrastructure, with example algorithms.
-
-\fixme{Need to add Josh's table of data volumes.}
-
 Data Selection will follow a hierarchical design. 
-It begins with forming local, APA-level \dwords{trigcandidate} which
-are used to form \dword{detmodule} \dwords{trigcommand} in the
-\dword{mtl} which lead to readout of a small subset of the total data. 
+It begins with forming \dword{detunit}-level \dwords{trigcandidate} in
+side the \dword{daqfrag} front-end computing using channel-level
+\dwords{trigprimitive}. 
+These will then be used to form \dword{detmodule} \dwords{trigcommand}
+in the \dword{mtl}.
+When executed, they lead to readout of a small subset of the total
+data. 
 In addition, \dwords{trigcandidate} will be provided to the
 \dword{mtl} from external sources such as the \dword{gtl} in order to
 indicate external events such as beam spills, or SNB candidates
 detected by the other \dwords{detmodule} or by SNEWS.
 A \dword{hlt} may also be active within the \dword{mtl}. 
 The hierarchical approach is both natural from a design standpoint, as
-well as allowing for vertical slice testing and partitioning during
-commissioning of the system.
+well as allowing for vertical slice testing and running multiple
+\dwords{daqpart} simultaneously during commissioning of the system or
+when  debugging of individual \dwords{detunit} is required.
 
-As discussed above, \dwords{trigprimitive} will be generated in the
-\dwords{rce} from the data stream for each collection channel. 
+As discussed in Sections~\ref{sec:fd-daq-fero}
+and~\ref{sec:fd-daq-fetp}, \dwords{trigprimitive} will be generated in
+either in \dwords{daqfer} (in the nominal design) or in trigger
+processing computers (in the alternative design). 
+In both designs, and for both \dword{sp} and \dword{dp}
+\dwords{detmodule}, only data from TPC collection channels will feed
+the self-triggering as their waveforms directly supply a measure of
+ionization activity without computationally costly signal processing.
 The \dwords{trigprimitive} will contain summary information for each
-collection wire, such as the time of any threshold-crossing pulse, its
+channel, such as the time of any threshold-crossing pulse, its
 integral charge, and time over threshold. 
-A collection wire with an associated \dword{trigprimitive} is said to
-be ``hit'' for the time spanned by the primitive. 
-These trigger primitives are then passed, along with the full data
-stream, to the \dword{fec}, each of which handles channels from a pair
-of \dwords{apa}. 
-An APA-level \dword{trigcandidate} is passed upward to the
-\dword{mtl}, which arbitrates between various trigger types,
-determines trigger priority and ultimately the time range and detector
-coverage for a \dword{trigcommand} which it emits back to the
-\dwords{fec}.
-The \dword{mtl} assures that no overlapping \dwords{trigcommand} are
-issued.
+A channel with an associated \dword{trigprimitive} is said to be
+``hit'' for the time spanned by the primitive. 
+Trigger primitives from one \dword{detunit} are then further processed
+to produce a \dword{trigcandidate}. 
+The candidate represents a cluster of ``hits'' across time and
+channel, localized to the \dword{detunit}.
+The candidates from all \dwords{daqfrag} are passed to the
+\dword{mtl}.
+The \dword{mtl} arbitrates between various trigger types, determines
+trigger priority and ultimately the time range and detector coverage
+for a \dword{trigcommand} which it emits back to the \dwords{fec}.
+The \dword{mtl} assures that no \dwords{trigcommand} are issued which
+overlap in time nor detector channel space.
 It also may emply a \dword{hlt} to allow for a reduction or an
 aggregation of triggers to reduce or optimize the subsequent readout
 of high rate activity such as due to various backgrounds, including
 instrumental effects, as needed.
 
-A valid \dword{detmodule}-level, single-interaction trigger sends
-\dwords{trigcommand} back to the \dwords{fec} telling it which slice
-of time should be saved under the particular trigger header. 
+When activity leads to the formation of a \dword{trigcommand} this
+command is sent down to the \dwords{fec} instructing which slice of
+time of its buffered data should be saved. 
+The \dword{trigcommand} information is saved along with this data. 
 At the start of DUNE data taking, it is anticipated that for any given
 single-interaction trigger (a cosmic ray track, for example) waveforms
-for all wires will be recorded for a full \readout \dword{readout
-  window}. 
-Such an approach is clearly very conservative, but it ensures that
-associated low-energy physics (such as captures of neutrons from
-produced by neutrino interactions or cosmic rays) will be recorded
-without any need to fine-tune APA-level triggering, and will not
-depend on the noise environment across the APAs. 
-In addition, the \readout readout window ensures that regardless of when
-a given even causes a trigger, the entire track is recorded. 
-It is estimated that this generous \dword{readout window} will not
-produce an unmanageable data volume. 
+from all channels in the \dword{detmodule} will be recorded over a one
+\dword{readout window} (nominally, \spreadout for \dword{sp} and
+\dpreadout for \dword{dp}, chosen to be two drift times with plus
+extra 20\%). 
+Such an approach is clearly very generous in terms of the amount of
+data saved, but it ensures that associated low-energy physics (such as
+captures of neutrons produced by neutrino interactions or cosmic rays)
+will be recorded without any need to fine-tune \dword{detunit}-level
+triggering, and will not depend on the noise environment across
+\dwords{detunit}. 
+In addition, the wide \dword{readout window} ensures that the data of
+all associated activity is recorded.
+As generous as it is, it is estimated that this \dword{readout window}
+will not produce an unmanageable volume of data. 
 We anticipate, however, that as we gain experience running DUNE the
 overall data volume will reduced by writing out data from only a
-subset of APAs for any given track, and possibly reducing the size of
-the readout window.
+subset of \dwords{fec} for any given \dword{trigcommand}, and possibly
+by reducing the size of the readout window.
 
 Other trigger streams---calibrations, random triggers, and prescales
 of various trigger thresholds, will also be generated at the
@@ -79,32 +91,34 @@ analyses of calibration data.
 
 At the \dword{detmodule} level, a decision can also be made on whether
 a series of interactions are consistent with a \dword{snb}. 
-If the number of \dword{apa} level, low-energy \dwords{trigcandidate}
-exceeds a threshold for the number of such events in a given time, a
-trigger command is sent from the \dword{mtl} back to the \dwords{rce},
-which store up to \SI{10}{\s} of unsuppressed, full waveform data. 
-That full waveform is then written out as a separate trigger stream
-for fast analysis by the supernova working group, perhaps as an
+If the number of \dword{detunit} level, low-energy
+\dwords{trigcandidate} exceeds a threshold for the number of such
+events in a given time, a trigger command is sent from the \dword{mtl}
+back to the \dwords{daqfer}, which store up to \SI{10}{\s} of full
+waveform data. 
+That data is then streamed to non-volatile storage to allow for
+subsequent analysis by the supernova working group, perhaps as an
 automated process. 
-In addition, the \dword{mtl} passes information about APA level
-\dwords{trigcandidate} up to a detector-wide \dword{gtl}, which among
-other functions can decide whether, integrated across all modules,
-enough APAs have detected interactions to qualify for a \dword{snb}
-even if within a particular module the threshold is not exceeded. 
+If not rejected it is then sent out of the DAQ to permanent offline
+storage.
+In addition, the \dword{mtl} passes \dwords{trigcandidate} up to a
+detector-wide \dfirst{gtl}, which among other functions can decide
+whether, integrated across all modules, enough \dwords{detunit} have
+detected interactions to qualify for a \dword{snb}, even if within a
+particular module the threshold is not exceeded. 
 \Dwords{trigcandidate} from the \dword{gtl} are passed to the
-\dword{mtl} for dispatch to the \dwords{fec} (or \dwords{rce} in the
-case of SNB dump commands). 
+\dword{mtl} for dispatch to the \dwords{fec} (or \dwords{daqfer} in the
+case of SNB dump commands in the nominal design). 
 That is, to the \dword{mtl}, an \dword{externtrigger} looks like just
 one more ``external'' trigger input.
 
-APA level \dwords{trigcandidate} will be generated within each server
-of the \dwords{fec}. 
-The trigger decision will be based on the number of adjacent
-collection wires hit in a given APA within a time window (roughly
-\SI{100}{\us}), the total charge on these adjacent wires (or possibly
-on any hit wire in the collection plane), and possibly the union of
-time-over-threshold for the \dwords{trigprimitive} in the collection
-plane.
+\Dword{detunit} level \dwords{trigcandidate} will be generated within
+the context of one \dword{daqfrag}, specifically in each \dword{fec}. 
+The trigger decision will be based on the number of nearby channels
+hit in a given fragment within a time window (roughly \SI{100}{\us}),
+the total charge collected in these adjacent channels and possibly the
+union of time-over-threshold for the \dwords{trigprimitive} in the
+collection plane.
 Our studies show that even for low-energy events (roughly
 \SIrange{10}{20}{\MeV}) the reduction in radiological backgrounds is
 extremely high with such criteria.
@@ -119,35 +133,36 @@ rate of XXXX and decays via a highly-quenched $\alpha$ of 5.5 MeV.
 The radon decays to $^{218}$Po which a few minutes later leads to a
 quenched $\alpha$ of 6 MeV, and ultimately a $^{214}$Bi daughter (many
 minutes later) which has a $\beta$ decay with endpoint near 3.5 MeV. 
-The $\alpha$ ranges are short and will hit at most a few collection
-wires, but the charge deposit can be large, and therefore the charge
+The $\alpha$ ranges are short and will hit at most a few electrodes,
+but the charge deposit can be large, and therefore the charge
 threshold will have to be well above the $\alpha$ deposits plus any
 pileup from $^{39}$Ar and noise.
 
-At the APA level, two kinds of local \dwords{trigcandidate} can be
-generated.
-One is a ``high-energy'' trigger, that indicates that within a given
-APA a candidate event with energy more than \SI{10}{\MeV} has been
-found.
-The thresholds in hit wires, total charge, and time-over-threshold,
-will be optimized for at least 50\% efficiency at this threshold, with
-efficiency increasing to 100\% via a turn-on curve that ensures at
-least 90\% efficiency at \SI{20}{\MeV}. 
-A second APA level trigger candiate will be generated for low-energy
-events, between \SI{5}{\MeV} and \SI{10}{\MeV}. 
-These low-energy APA trigger candidates will not by themselves
-generate valid \dword{detmodule} level triggers, but rather be used at
-the \dword{detmodule} level to determine whether a burst of events
-across many APAs is consistent with a supernova.
+At the level of one \dword{detunit}, two kinds of local
+\dwords{trigcandidate} can be generated.
+One is a ``high-energy'' trigger, that indicates local ionization
+activity corresponding to more than than \SI{10}{\MeV} has been found.
+The per channel thresholds on total charge and time-over-threshold
+will be optimized to achieve at least 50\% efficiency at this energy
+threshold, with efficiency increasing to 100\% via a turn-on curve
+that ensures at least 90\% efficiency at \SI{20}{\MeV}. 
+The second type of trigger candidate that will be generated is for
+low-energy events between \SI{5}{\MeV} and \SI{10}{\MeV}. 
+In isolation, these candidates will not lead to formation of a
+\dword{trigcommand}. 
+Rather, at the \dword{detmodule} level they will be combined, time
+ordered and their aggregate rate compared against a threshold based on
+fluctuations due to noise and backgrounds in order to form a
+\dword{snb} \dword{trigcommand}.
 
-The \dword{detmodule} level takes as input both APA level
-\dwords{trigcandidate} (both low-energy and high-energy), as well as
+The \dword{mtl} takes as input \dwords{trigcandidate} (both low-energy
+and high-energy) from the participating \dwords{daqfrag}, as well as
 \dword{externtrigger} sources, such as the \dword{gtl} which includes
 global, detector-wide triggers, external trigger sources such as
 SNEWS, and information about the time of a Fermilab beam spill. 
-The \dword{mtl} will also generate internal triggers, such as random
-triggers and calibration triggers (for example, telling a laser system
-to fire at a prescribed time). 
+The \dword{mtl} will also generate \dwords{trigcommand} for internal
+consumption, such as random triggers and calibration triggers (for
+example, telling a laser system to fire at a prescribed time). 
 In addition, at the \dword{mtl} prescales of all trigger types that
 normally would not generate a \dword{trigcommand} will be made. 
 For example, a single low-energy \dword{trigcandidate} does not cause
@@ -155,19 +170,20 @@ a \dword{trigcommand} on its own, but at some large prescale fraction
 it could.
 
 
-The \dword{mtl} is responsible also for checking candidate triggers
+The \dword{mtl} is also responsible for checking candidate triggers
 against the current \dword{rc} trigger mask: in some runs, for
 example, we may decide that only random triggers are accepted, or that
-certain APA trigger candidates should not be accepted because those
-APAs are noisy or misbehaving in some way. 
+certain \dwords{trigcandidate} streams should not be considered
+because their \dwords{daqfrag} have been producing unreasonably large
+rates in the recent past (such as may be due to noise spikes, flaky
+hardware or buggy software).
 In addition, the \dword{mtl} will count low-energy trigger candidates
-from the APAs and, based upon the number and distribution of those
-triggers in a long time interval (e.g., \SI{10}{\s}), decide to
-generate a \dword{snb} trigger command.
- The trigger logic will be
-optimized to record the data due to at least 90\% of all Milky Way
-supernovae, and our studies of simple low-energy trigger criteria show
-that we can likely do much better than that.  
+and based upon their number and distribution over a long time interval
+(e.g., \SI{10}{\s}), decide to generate a \dword{snb} trigger command.
+The trigger logic will be optimized to record the data due to at least
+90\% of all Milky Way supernovae, and studies of simple low-energy
+trigger criteria show that a much higher efficiency can likely be
+achieved.
 
 	
 The \dword{hlt} can also be applied at this level, particularly if
@@ -177,12 +193,12 @@ recognition.
 An \dword{hlt} might also allow for efficiently triggering on
 lower-energy single interactions, or allow for better sensitivity for
 supernovae beyond the Milky Way, by employing a weighting scheme to
-individual APA level \dwords{trigcandidate}---higher-energy
+individual \dwords{trigcandidate}---higher-energy
 \dwords{trigcandidate} receiving higher weights. 
-Thus, for example, two APA level \dwords{trigcandidate} consistent
-with \SI{10}{\MeV} interactions in \SI{10}{\s} might be enough to
-create a \dword{snb} candidate trigger, while 100 \SI{5}{\MeV} APA
-level trigger candiates in \SI{10}{\s} might not.
+Thus, for example, two \dwords{trigcandidate} consistent with
+\SI{10}{\MeV} interactions in \SI{10}{\s} might be enough to create a
+\dword{snb} candidate trigger, while 100 \SI{5}{\MeV} trigger
+candiates in \SI{10}{\s} might not.
 Lastly, the \dword{hlt} can allow for dynamic thresholding; for
 example, if a trigger appears to be due to a cosmic-ray muon, the
 threshold for single interactions can be lowered (and possibly
@@ -194,56 +210,30 @@ a \dword{snb}, to extend sensitivity beyond the \SI{10}{\s}
 volume associated with \dword{snb} candidates linearly. 
 
 All low-energy \dwords{trigcandidate} are also passed upwards to the
-\dword{gtl}, which can integrate the APA level trigger across all
-\SI{10}{\kton} \dwords{detmodule} and determine if enough APAs have
-\dwords{trigcandidate} that a \dword{snb} may be occuring. 
-This approach increases the sensitivity to trigger on bursts by a
-factor of four (for \SI{40}{\kton}), thus extending the burst
+\dword{gtl} so that they may be integrated across all \SI{10}{\kton}
+\dwords{detmodule} in order to determine that a \dword{snb} may be
+occurring. 
+This approach increases the sensitivity to trigger on \dwords{snb} by
+a factor of four (for \SI{40}{\kton}), thus extending the burst
 sensitivity to a distance twice as far as for a single \SI{10}{\kton}
 \dword{detmodule}. 
 
 	
-The \dword{mtl} is also responsible for creating a trigger header that
-includes a global timestamp for the trigger from its input
+The \dword{mtl} is also responsible to include in the
+\dword{trigcommand} a global timestamp built from its input
 \dwords{trigcandidate}, and information on what type of trigger was
 created. 
-A log of all APA level \dwords{trigcandidate} will also be kept,
-whether or not they contribute to the formation of a
-\dword{trigcommand}. 
+A log of all \dwords{trigcandidate} will also be kept, whether or not
+they contribute to the formation of a \dword{trigcommand}. 
 As described above, the \dword{readout window} for nominal
-\dwords{trigcommand} (those other than for \dword{snb} candidates) is
-\readout.
-Thus, a nominal DUNE ``event'' is \readout of data from all wires
-in the \dword{sp} \dword{detmodule} in response to a \dword{mtl}
-\dword{trigcommand}. 
+\dwords{trigcommand} (those other than for \dword{snb} candidates)
+somewhat more than two times the maximum drift time. 
+Further, a nominal readout spans all channels in a \dword{detmodule}. 
 The \dword{mtl} is also responsible for sending the trigger commands
-that tell the RCEs to dump their \SI{10}{\s} ``supernova'' buffer. 
-If a supernova burst trigger is created at the \dword{gtl} level, an
-\dword{externtrigger} is passed back down to the \dword{mtl}, which
-then dispatches a dump \dword{trigcommand} to the RCEs for readout of
-the long (\SI{10}{\s}) unsuppressed buffer, the same way it would if a
-supernova burst is detected at the \dword{mtl}.
-
-\fixme{There are still a lot of repetition of concepts and statements in the above section.}
-
-	
-
-
-%\metainfo{Describe Module Trigger Logic and Global Trigger Logic.
-%  Describe creation of Trigger Command Messages (TCM) from TPMs.
-%  Included external sources of TPMs such as SNEWS, Fermilab Beam,
-%  testing triggers, periodic triggers, calibration triggers.}
-%
-%\metainfo{Here should go the assumptions that went into the thinking
-%  for Josh's event category data volumes.  It can include discussion
-%  of tighter selection criteria for ``cosmics'' such as Phil's
-%  distribution of number of APAs hit by cosmics and arguments for
-%  something less than 2+ drift time readouts.}
-
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{High-Level Trigger}
-% \label{sec:fd-daq-eb}
-%
-% Data selection after event building.
-%
+that tell the \dwords{daqfer} to stream all data from the past
+\snbpretime and for a total of \snbtime in hopes to catch
+\dwords{snb}.
+This command may be produced based on \dwords{trigcandidate} from
+inside the \dword{mtl} itself or it may be produced based on an external
+\dword{snb} \dword{trigcandidate} passed to the \dword{mtl} by the
+\dword{gtl}.
