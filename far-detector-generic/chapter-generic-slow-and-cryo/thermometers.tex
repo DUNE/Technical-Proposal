@@ -13,18 +13,19 @@ High precision temperature sensors will be distributed near the TPC walls in two
 i) forming high density (\(>2\) sensors/\si{m}) vertical arrays (the so-called T-gradient monitors), and ii) in coarser ($\sim$ 1 sensor/\SI{5}{m}) 2D arrays 
 at the top and bottom of the detector, which are the most delicate regions (the so-called individual sensors).   
 
-Since temperature variations inside the cryostat are expected to be very small ($\SI{0.02}{K}$), to properly measure the 3D temperature map 
+Since temperature variations inside the cryostat are expected to be very small ($\SI{0.02}{K}$, see Fig.~\ref{fig:cfd-example}), to properly measure the 3D temperature map 
 sensors must be cross-calibrated to better than $\SI{0.005}{K}$. Most sensors will be calibrated in the laboratory, prior to installation,
 as described in the next section. This is in fact the only viable method for sensors in areas where the available space is restricted: on the long sides of the detector
-(behind the APAs for SP, and behind the lateral FC end walls for DP) and top/bottom of the detector.
+(behind the APAs for SP, and behind the lateral FC end-walls for DP) and top/bottom of the detector.
 Given the precision required and the unknown longevity of the sensors (which could require a new calibration after some time), a complementary method
-will be used for T-gradient monitors behind the front end-walls. In those areas there is sufficient space for a movable system, which can be used to cross-calibrate insitu
+will be used for T-gradient monitors behind the front end-walls, at least for the SP detector.
+In those areas there is sufficient space for a movable system, which can be used to cross-calibrate insitu
 the temperature sensors. This calibration method is described in the section about dynamic T-gradient monitors. 
 
 In the baseline design for all three systems mentioned above three elements are common: sensors, cables and readout system.
 Platinum sensors with \SI{100}{\ohm} resistance (PT100 series), produced by Lakeshore,  
-are adequate for the temperature range of interest, 83-92\si{K}, since in this range those sensors have high reproducibility
-of just \SI{5}{mK} and absolute temperature accuracy of \SI{100}{mK}.
+are adequate for the temperature range of interest, 83-92\si{K}, since in this range those sensors have high reproducibility 
+$\sim\SI{5}{mK}$ and absolute temperature accuracy of \SI{100}{mK}.
 In addition, the plan is to use the 4-wire readout greatly reducing the issues related to the lead resistance, any parasitic resistances,
 connections through the flange and general electromagnetic noise pick-up. The Lakeshore PT102 sensors (see Fig.~\ref{fig:sensor_cable}-Left)
 have being previously used in the 35t prototype and ProtoDUNE SP detector,
@@ -35,7 +36,7 @@ The readout system will be described below in a separate subsection.
 
 %As shown in Fig.~\ref{fig:sensor_cable}, the PT102 sensor has a length of \SI{21}{mm}, which can easily be accommodated in the DUNE T-gradient monitors. 
 
-\begin{dunefigure}[diag PT102]{fig:sensor_cable}
+\begin{dunefigure}[DUNE baseline choices for sensor and cable]{fig:sensor_cable}
   {DUNE baseline choices for sensor and cable. Left: Schematic diagram of the PT102 sensor from the Lakeshore company. Right: Schematic diagram and properties of the four wires cable from the
   Axon company}
   \includegraphics[width=0.4\textwidth]{cisc_pt102.png}
@@ -45,7 +46,8 @@ The readout system will be described below in a separate subsection.
 Another set of lower precision sensors will be used to monitor the filling of the cryostat in its initial stage. Those sensors will be epoxied into the cryostat bottom membrane with
 a density to be determined, which will not exceed 1 sensor every \SI{5}{m}. 
 Finally, the inner walls and roof of the cryostat will be instrumented with the same type of sensors in order to monitor their temperature during cooldown and filling.
-The baseline distribution would be three vertical arrays of sensors: one in each far side of the cryostat and a third one in at the middle in one of the lateral walls. 
+The baseline distribution would be three vertical arrays of sensors epoxied to the membrane: one behind each of the two FC front end-walls and the third one in the middle of the cryostat
+(behind the APAs for SP and behind the lateral FC end-walls for DP). 
 
 %except for the membrane sensors that may come from Minco.
 
@@ -58,7 +60,7 @@ For the SP detector, since the electric potential is zero behind the APAs, no el
 This does not apply for the DP detector, for which the proper shielding must be provided. 
 
 
-Sensors are cross-calibrated in the lab using a well controlled environment and a high precission readout system, described below in a separate subsection.
+Sensors are cross-calibrated in the lab using a well controlled environment and a high precision readout system, described below in a separate subsection.
 Although the calibration procedure will certainly improve, the one currently used for ProtoDUNE-SP is descrived here.
 Four sensors are placed as close as possible (such that identical temperature can be assumed for all of them) inside a small cylindrical aluminum capsule,
 which protects the sensors from thermal shocks and helps in minimizing convection.
@@ -69,7 +71,7 @@ and sourounded by a polystyrene box with \SI{15}{cm} thick walls. A small quanti
 Then the capsule is covered by LAr such that it penetrates
 inside fully covering the sensors. Once the temperature stabilizes to the 1-\SI{2}{mK} level (after 5-15 minutes) measurements are taken. Then the capsule is taken out from LAr
 and kept at room temperature until it reaches \SI{200}{K}. As mentioned above, this procedure is repeated five times, before going to the next set of three sensors.  
-As shown in Figure ~\ref{fig:Trepro} a reproducibility of $\sim \SI{2}{mK}$ has been achieved in the ProtoDUNE-SP design.  
+As shown in Figure ~\ref{fig:Trepro} a reproducibility (RMS of the mean offset in the flat region) of $\sim \SI{2}{mK}$ has been achieved in the ProtoDUNE-SP design.  
 
 %The baseline design for the mechanics of the system is shown in Fig.~\ref{}. It consists in two stainless strings anchored at top and bottom corners of the cryostat
 The baseline design for the mechanics of the SP system consists in two stainless strings anchored at top and bottom corners of the cryostat
@@ -80,15 +82,16 @@ PCB support for temperature sensors, with an IDC-4 male connector. It has a size
 on the sensor side; on the other side, it will be directly soldered into the inner pins of male SUBD-25 connectors on the flanges. The CF63 side ports on DSS/cryogenic ports,
 which will be used to extract the cables. 
 
-\begin{dunefigure}[sensor support]{fig:sensor-support}
+\begin{dunefigure}[Temperature sensor support]{fig:sensor-support}
   {Lakeshore PT102 sensor mounted on a PCB with an IDC-4 connector}
   \includegraphics[width=0.3\textwidth]{cisc_TsensorSupport.jpg}%
 \end{dunefigure}
 
 
-\begin{dunefigure}[sensor precision]{fig:Trepro}
-  {Temperature offset between two sensors as a function of time for five independent inmersions in LAr. The reproducibility is $\sim \SI{2}{mK}$,
-    defined as the RMS of the mean offset in the flat region}
+\begin{dunefigure}[Temperature sensor resolution and reproducibility]{fig:Trepro}
+  {Temperature offset between two sensors as a function of time for five independent inmersions in LAr. The reproducibility of those sensors,
+    defined as the RMS of the mean offset in the flat region, is $\sim \SI{2}{mK}$,
+    The resolution for individual measurements, defined as the RMS of one of the offsets in the flat region, is better than \SI{1}{mK}.}
   \includegraphics[width=0.5\textwidth]{cisc_Treproducibility.png}%
 \end{dunefigure}
 
@@ -110,11 +113,11 @@ simulations of the cryogenic recirculation predict very slow change in temperatu
 \subsubsection{Dynamic t-gradient monitor design}
 Dynamic T-gradient monitor consists of three distinct parts: carrier rod on which sensors are mounted, enclosure above the cryostat housing the space that allows vertical motion of the carrier rod 1.5\,m above its lowest location, and motion mechanism. The motion mechanism consists of a stepper motor connected to a gear and pinion motion mechanism through ferrofluidic dynamic seal. The sensors have two pins that are soldered to a printed circuit board (PCB). Two wires are soldered to the common soldering pad for each pin, individually.   There is a cutout in the PCB around the sensor that allows free flow of argon for more accurate temperature reading.  Stepper motors typically have very fine steps allowing high precision positioning of the sensors.  Figure~\ref{fig:fd-slow-cryo-dt-monitor-overview} shows the overall design of the dynamic T-gradient monitor with the sensor carrier rod, enclosure above the cryostat and stepper motor mounted on the side of the enclosure. The enclosure consists of two parts connected by 6-cross flange. One side of the 6-cross flange will be used to for the signal wires, another side will be used as a viewing window, while the two other ports will be spares. Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Left shows the mounting of the PCB board on the carrier rod and mounting on the sensor on the PCB along with the four point connection to the signal readout wires. Finally, Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Right shows the stepper motor mounted on the side of the rod enclosure. The motor is kept outside, at room temperature and its power and control cables are also kept outside.
 
-\begin{dunefigure}[dyn-T-grad]{fig:fd-slow-cryo-dt-monitor-overview}
+\begin{dunefigure}[Dynamic T-gradient monitor overview]{fig:fd-slow-cryo-dt-monitor-overview}
   {An overview of the dynamic T-gradient monitor.}
  \includegraphics[width=0.11\textwidth,angle=90]{cisc_DTOverview.png}
 \end{dunefigure}
-\begin{dunefigure}[]{fig:fd-slow-cryo-sensor-mount}
+\begin{dunefigure}[Sensor-cable assembly for dynamic T-gradient monitor]{fig:fd-slow-cryo-sensor-mount}
   {Left: Sensor mounted on a PCB board and PCB board mounted on the rod. Right:
     The driving mechanism of the dynamic T-gradient monitor. It consists of a stepper motor driving the pinion and gear linear motion mechanism. }
   \includegraphics[width=0.40\textwidth]{cisc_DTSensorMount.png}
@@ -133,7 +136,7 @@ Following ProtoDUNE-SP design, bottom sensors will use the cryogenic pipes as su
 Teflon pieces (see Fig.~\ref{fig:cable-support}) will be used to route cables from the sensors to the CF63 side ports on DSS/cryogenic ports, which will be used to extract the cables.
 PCB sensor's support, cables and connection to the flanges will be the same as for the static T-gradient monitors. 
 
-\begin{dunefigure}[sensorcable support]{fig:cable-support}
+\begin{dunefigure}[Cable supports for individual temperature sensors]{fig:cable-support}
   {Left: support for two cables on ground planes. Right: Supports for three cables  mounted on cryogenics pipes using split clamps}
 % This PDF is made from the .dot of the same name.
   \includegraphics[width=0.3\textwidth]{cisc_TcableSupportGP.png}
