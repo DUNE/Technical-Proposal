@@ -1,9 +1,9 @@
-\fixme{\bf The third figure in this subsection (on LV power distribution) should be updated to reflect the DUNE FD design.}
+\fixme{\bf The third figure in this subsection (on LV power distribution) should be updated to reflect the DUNE FD design. Labeled the figure as clearly the protoDUNE system in the caption and described the possible DUNE changes - MW}
 
 The warm interface electronics must provide an interface between the Cold Electronics and DAQ, timing and slow control systems, including local power control at the flange and a real-time diagnostic readout. They are housed in the WIECs attached directly to the CE flange.  The WIEC shown in Figure~\ref{fig:tpcelec-flange} 
 contains one
 Power and Timing Card (PTC), five Warm Interface Boards (WIBs) and a passive
-Power and Timing Backplane (PTB), which fans out signals and LV power from the PTC to the WIBs. The WIEC must provide a Faraday-shielded housing, robust ground connections from the warm electronics boards to the detector ground, and only optical fiber links to the DAQ and slow control, to mitigate noise introduced at the CE feed-through.
+Power and Timing Backplane (PTB), which fans out signals and LV power from the PTC to the WIBs. The WIEC must provide a Faraday-shielded housing, robust ground connections from the warm electronics boards to the detector ground described in Section~\ref{DETECTOR GROUND}, and only optical fiber links to the DAQ and slow control, to mitigate noise introduced at the CE feed-through.
 
 \begin{dunefigure}
 [Exploded view of the signal flange for protoDUNE-SP.]
@@ -44,21 +44,19 @@ the clock is integrated in the WIB FPGA (the Altera Arria V was used for protoDU
 The single-phase far detector timing system, described in~\ref{sec:fdsp-daq-timing}, is a development of the protoDUNE-SP system, and expected to require the nearly identical functionality at the WIB endpoint.
 
 \begin{dunefigure}
-[LV power distribution to the WIB and FEMBs implemented for protoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs.]
+[LV power distribution to the WIB and FEMBs implemented for protoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs. In particular the voltages to the FEMB0-3 will change as the protoDUNE-SP FPGA is replaced by COLDATA. ]
 {fig:tpcelec-wib_power}
-{LV power distribution to the WIB and FEMBs implemented for protoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs.}
+{LV power distribution to the WIB and FEMBs implemented for protoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs. In particular the voltages to the FEMB0-3 will change as the protoDUNE-SP FPGA is replaced by COLDATA. }
 \includegraphics[width=0.7\linewidth]{tpcelec-wib_power.pdf}
 \end{dunefigure}
 
-The PTC also receives LV power for all cold
-electronics connected through the signal flange, approximately 250W at 48V for a
-fully-loaded flange (one~PTC, five~WIB, and 20~FEMB). The LV power is then stepped down
+The PTC also receives 48V LV power for all cold
+electronics connected through the TPC signal flange: one~PTC, five~WIB, and 20~FEMB. The LV power is then stepped down
 to 12V via a DC/DC converter onboard the PTC. The output of the PTC converters is filtered with a common-mode choke and fanned out
 on the PTB to each WIB, which provides the necessary 12V DC/DC conversions and fans
 the LV power out to each of the cold FEMBs supplied by that WIB, 
 as shown in Figure~\ref{fig:tpcelec-wib_power}. The output of the WIB converters are further filtered by a common-mode choke. The 
-majority of the 250W drawn by a full flange is dissipated in the LAr
-by the cold FEMB.
+majority of the power drawn by a full flange is dissipated in the LAr by the cold FEMB.
 
 %Each WIB contains a 
 %unique IP address for its UDP slow control interface. The IP address for the WIB is 

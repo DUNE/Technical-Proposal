@@ -1,11 +1,23 @@
-In order to minimize system noise, the electrical cables for each APA enter the cryostat through a single signal flange, creating an integrated unit.
+In order to minimize system noise, the cold electronics cables for each APA enter 
+the cryostat through a single TPC flange, as shown in Figure~\ref{fig:connections}, creating an integrated 
+unit between each APA frame, FEMB ground for all 20 CE Modules, TPC flange and warm interface
+electonics. To accomplish this,
+the input amplifiers on the FE ASICs have their ground terminals connected to the APA frame. 
+All power-return leads and cable shields are connected to both the ground plane of the FEMB and 
+to the TPC signal flange.
 
-To avoid structural ground loops, the APA frames described in Chapter~\ref{ch:fdsp-apa} are insulated from each other. Each frame is electrically connected to the cryostat at a single point on the CE feedthrough board in the signal flange where the cables exit the cryostat. Mechanical suspension of the APAs is accomplished using insulated supports. 
-
-The input amplifiers on the FE ASICs have their ground terminals connected to the APA frame.  All power-return leads and cable shields are connected to both the ground plane of the FEMB and to the signal flange.
+The only point this integrated unit makes electrical contact with the 
+cryostat or ``detector'' ground, described in Section~\ref{DETECTOR GROUND SECTION BABY}, 
+is at a single point on the CE feedthrough board in the TPC signal flange where the 
+cables exit the cryostat. Mechanical suspension of the APAs is accomplished using insulated supports. 
+To avoid structural ground loops, the APA frames described in Chapter~\ref{ch:fdsp-apa} are 
+insulated from each other.
 
 Filtering circuits for the APA wire-bias voltages are locally referenced to the ground plane of the FEMBs through low-impedance electrical connections. This approach ensures a ground-return path in close proximity to the bias-voltage and signal paths. The close proximity of the current paths minimizes the size of potential loops to further suppress noise pickup.
 
-Photon detector signals, described Section PD, are carried directly on shielded, twisted-pair cables to the signal flange. The cable shields are connected to the cryostat at a second feedthrough, the PDS feedthrough, and to the PCB shield layer on the photon detectors. There is no electrical connection between the cable shields and the APA frame except at the signal flange.
+Photon Detector signals, described Section~\ref{PD}, are carried directly on shielded, 
+twisted-pair cables to the signal feedthrough. The cable shields are connected to the cryostat 
+at the PD flange shown in Figure~\ref{fig:connections}, and to the PCB shield layer on the photon 
+detectors. There is no electrical connection between the cable shields and the APA frame.
 
 %The frequency domain of the TPC wire and photon detector signals are separate. The wire readout digitizes at 2~MHz with $<$~500~kHz bandwidth at 1 $\mathrm{\mu}$sec peaking time, while the photon readout operates at 150~MHz with $>$~10~MHz bandwidth. They are separated from the clock frequency (50~MHz) and common noise frequencies through the FE ASIC and cabling designs. All clock signals are transmitted differentially with individual shield to avoid the interference to power lines.
