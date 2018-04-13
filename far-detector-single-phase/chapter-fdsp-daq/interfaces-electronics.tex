@@ -1,0 +1,40 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{TPC Electronics}
+\label{sec:fd-daq-intfc-elec}
+
+Details about the interfaces between the DAQ and the TPC electronics
+are documented for the \dword{sp} \dwords{detmodule}
+in~\cite{docdb6742}.
+\fixme{Add references to bib.}
+
+In the case of the \dword{sp} \dword{detmodule}, data from the cold
+electronics \dwords{femb} are 8b10 encoded and sent to the
+\dwords{wib} on copper cables at a bit rate of \SI{1.28}{\Gbps}. There
+are two options being considered for the \dwords{wib}. In one, the
+data are simply converted to optical signals and transmitted to the
+DAQ in the CUC on \SI{1.28}{\Gbps} optical links with a total of 80
+fibres per APA. In the second option, the \dwords{wib} aggregate the
+data onto links running at $\approx$\SI{10}{\Gbps} before transmission
+to the DAQ with a total of ten fibres per APA. In both cases the data
+are received on rear transition modules connected to the \dword{cob}
+\dword{atca} boards (see Section~{sec:fd-daq-fero}).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PD Electronics}
+\label{sec:fd-daq-intfc-photon}
+
+Details about the interfaces between the DAQ and \dword{sp}
+\dlong{pds} are documented. in~\cite{docdb6727}.
+
+\fixme{Add references to bib.}
+
+For the \dword{sp} \dword{pds} the signal to noise ratio of the
+\dword{sipm} signals is high enough to allow \dlong{zs} to be safely
+applied to the data. This reduces the data flow so that a bandwidth of
+\SI{8}{\Gbps} per \dword{apa} is sufficent to transfer it to the DAQ,
+with an order of magnitude safety factor. The link from the \dword{sp}
+cryostat to the CUC will be implemented as either eight 1000Base-SX
+links or a single 10GBase-LR link per APA.
+The data on the links will be encoded using UDP/IP.

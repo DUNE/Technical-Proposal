@@ -1,0 +1,123 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Offline Computing (Kurt Biery)}
+\label{sec:fd-daq-intfc-fnal-cmptg}
+
+The interface between the \dword{daq} and Offline Computing is
+described in DUNE-doc-7123~\cite{docdb7123}.
+The \dword{daq} team will be responsible for reducing the data volume
+to the level that is agreed upon by all interested parties, and the
+raw data files will be transfered from SURF to Fermilab using a
+dedicated network connection.
+A disk buffer will be provided by the \dword{daq} on or near the SURF
+site to hold the data from several days of data taking so that the
+operation of the experiment will not be affected if there happens to
+be a network disruption between SURF and Fermilab.
+\fixme{Add ref for docdb-7123.}
+
+During stable running, the data volume that will be produced by the
+\dword{daq} systems of all four \dwords{detmodule} will be no larger
+than \SI{30}{\PB/\year}.
+This rate is expected to be independent of the number of
+\dwords{detmodule} that are operational.
+During the construction of the second, third, and fourth
+\dwords{detmodule}, the extra rate per \dword{detmodule} will be used
+to gather data to aid in the refinement of the data selection
+algorithms.
+During commissioning, the data rate is expected to be higher, and it
+is anticipated that a data volume of \SI{30}{\PB} will be necessary to
+commission a \dword{detmodule}.
+
+The disk buffer at SURF is planned to be \SI{300}{\TB} in size.
+The data link from SURF to Fermilab will support \SI{20}{\Gbps}
+(\SI{30}{\PB/\year} corresponds to \SI{7.6}{\Gbps}).
+The Offline Computing team will be responsible for developing the
+software to manage the transfer of files from SURF to Fermilab.
+The \dword{daq} team will be responsible for producing a reference
+implementation of the software that is used to access and decode the
+raw electronics data.
+They will also be responsible for providing the framework for
+real-time \dword{dqm}, and both groups will have responsibility for
+developing the \dword{dqm} algorithms that run inside this framework.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Slow Control}
+\label{sec:fd-daq-intfc-sc}
+\label{sec:fd-daq-intfc-sc}
+
+The \dword{cisc} systems monitor detector hardware and conditions not
+directly involved in taking the data described above.
+That data will be stored both locally (in CISC database servers in the
+CUC) and offline (the databases will be replicated back to Fermilab)
+in a relational database indexed by timestamp.
+This will allow bi-directional communications between DAQ and CISC by
+reading or inserting data into the database as needed for non
+time-critical information.  
+
+For prompt, time sensitive status information such as ``Run is in
+progress'' or ``Camera is on'', a low-latency software status register
+will be available on the local network to both systems.
+
+There is not a hardware interface, aside from the fact that several
+racks of CISC servers will be in the DAQ room in the CUC, and that rack
+monitors in DAQ racks will be read out into the CISC data stream.
+
+Note that life and hardware safety critical items will be hardware
+interlocked in the standard Fermilab fashion, and fall outside of this
+interface's scope.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{External Systems (Giles \& Alec)}
+\label{sec:fd-daq-intfc-ext}
+
+\fixme{Need to receive information on beam spills (Giles) , SNEWS (Alec).}
+
+The DAQ will need to save data based on external triggers, for
+example: for times around when the pulse of neutrinos from LBNF
+arrives at the Far Detector; or if notice of an interesting
+astrophysical event is given by SNEWS\cite{snews} or LIGO.
+This could involve going back in time to save data that has already
+been buffered (see Sec.~\ref{sec:fd-daq-fero}), or changing the trigger
+or zero suppression criteria for data in the interesting time period.
+
+\fixme{Do we want subsubsections below instead of explicit paragraphs?}
+
+\paragraph{Beam Trigger:} The method for predicting and receiving the
+time of the beam spill is described in
+Sec.~\ref{sec:fd-daq-design-beamtiming}.
+Once that time is known to the DAQ, a high level trigger can be issued
+to ensure that the necessary full data can be saved from the buffer
+and saved as an event.
+
+\paragraph{Astrophysical Triggers:} The Supernova Early Warning System
+(SNEWS) is a coincidence network of neutrino experiments which are
+individually sensitive to the burst of neutrinos which would be
+observed from a core-collapse supernova somewhere in our galaxy.
+While DUNE should be sensitive to such a burst on its own able to
+contribute to the coincidence network (Sec.~\ref{sec:fd-daq-sel}) via
+a TCP/IP socket, being able to save data based on other observations
+adds an additional chance to not miss saving this rare and valuable
+data.
+A SNEWS alert is formed when two or more neutrino experiments report a
+potential supernova signal within \SI{10}{\s}.
+The earliest time in the coincidence is then sent via running a script
+on the SNEWS server at BNL provided by the experiment wishing to
+receive the alert.
+The latency from neutrino burst is set by the response time of the
+second fastest detector to report to SNEWS: this could be as short as
+seconds, but might be tens of seconds.
+At latencies larger than \SI{10}{\s}, full data might not be
+available, but selected data is expected to be manageable.
+
+There are other astrophysical triggers available for occurrences which
+DUNE might not sensitive to individually, but could be either rarely
+or if taken as an ensemble.
+Gravitational wave triggers will be available (details being worked
+out during the current LIGO shutdown), as will high energy photon
+transients, most notably gamma ray bursts.
+In fact, cooperation between LIGO/VIRGO, the Gamma Ray Coordinates
+Network (GCN)\footnote{Described in detail at
+  \url{https://gcn.gsfc.nasa.gov/gcn_describe.html}}, and a number of
+automated telescopes via network sockets on the time scale of seconds
+enabled the discovery that ``short/hard'' gamma ray bursts are caused
+by colliding neutron stars\cite{kilonova}.
