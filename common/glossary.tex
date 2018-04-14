@@ -31,7 +31,7 @@
     }
 }
 
-%                 1      2     3       4
+%                 1      2     3       4 
 % \newduneabbrev{label}{abbrev}{term}{description}
 \newcommand{\newduneabbrev}[4]{
   % this makes acronym entries even if they neither term or abbrev is
@@ -48,19 +48,21 @@
   }
 }
 
-%  (Anne trying)    1      2     3       4       5
-% \newduneabbrev2{label}{abbrev}{term}{termpl}{description}
-\newcommand{\newduneabries}[5]{
+%% If plural needs special spelling besides adding an "s"
+%                 1      2     3       4        5
+% \newduneabbrev{label}{abbrev}{term}{terms}{description}
+\newcommand{\newduneabbrevs}[5]{
   % this makes acronym entries even if they neither term or abbrev is
   % referenced in the text.
   % \newacronym[see={[Glossary:]{#1}}]{abbrev-#1}{#2}{#3}
-  \newacronym{abbrev-#1}{#2}{#3}{#4}
+  \newacronym{abbrev-#1}{#2}{#3}
   \newglossaryentry{#1}{
     text={#2},
     long={#3},
+    plural={#4},
     name={\glsentrylong{#1}{} (\glsentrytext{#1}{})},
     first={\glsentryname{#1}},
-    firstplural={\glsentrylong{#1}\glspluralsuffix{} (\glsentrytext{#1}\glspluralsuffix{#4})},
+    firstplural={\glsentryplural{#1} (\glsentrytext{#1}\glspluralsuffix{})},
     description={#5}
   }
 }
@@ -71,8 +73,6 @@
 % Model to copy
 
 %\newduneword{abc}{ABC's real name}{Sentence or two describing ABC. It can use other dunewords defined here, e.g., \gls{fe}.}
-
-%\newduneabries{abc}{ABC}{annes beecy}{annes beecies}{a made-up thing}
 
 \newduneabbrev{nd}{ND}{near detector}{Refers to the detectors or more
   generally the experimental site at Fermilab}
@@ -101,7 +101,7 @@
   induced on anode as the distribution of ionization charge passes by
   or is collected on the electrode}
 
-\newduneabbrev{apa}{APA}{anode plane assembly}{One unit the SP
+\newduneabbrevs{apa}{APA}{anode plane assembly}{anode plane assemblies}{One unit the SP
   detector containing the elements sensitive to activity in the LAr. 
   It contains two faces each of three planes of wires, cold
   electronics and photo detection system.} 
