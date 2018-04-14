@@ -103,15 +103,16 @@ The neutrino beam is produced at the Fermilab accelerator complex in
 spills of \SI{10}{\us} duration. 
 A \dword{sls} at the far detector site will locate the time periods in
 the data when beam could be present, based on network packets received
-from Fermilab containing predictions of the GPS-time of the spills. 
+from Fermilab containing predictions of the GPS-time of spills soon to
+occur or absolute time stamps of spills recently occurring. 
 Experience from MINOS and NOvA shows that this can provide beam
-triggering with high reliability, although the system outlined here
-contains an extra layer of redundancy in this process. 
-Several stages of narrowing down the window in which the beam arrives
-will be done, aiming for an accuracy of better than 10\% of a readout
-time (which is nominally somewhat more than two times the max drift
-time or \spreadout for the \dword{sp} and \dpreadout for the
-\dword{dp} \dword{detmodule}) at the time the data are selected from
+triggering with high reliability with some small fraction of late or
+dropped packets.
+To improve further the system outlined here contains an extra layer
+of redundancy in the prediction process. 
+Several stages prediction based on recent spill behavior will be applied aiming
+for an accuracy of better than 10\% of a readout
+time (sub-\si{\ms}) in time for the data to be selected from
 the DAQ buffers. 
 Ultimately, an offline database will match the actual time of the
 spill with the data, thus removing any reliance on real-time network

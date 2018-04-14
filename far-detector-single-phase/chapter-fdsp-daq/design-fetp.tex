@@ -65,10 +65,11 @@ development but can be broadly described.
 \item Emit their time bounds and total charge as a \dword{trigprimitive}.
 \end{enumerate}
 
-These \dwords{trigprimitive} represent possible activity occurring in
-the LAr in a contained by a rectangular volume spanning the height of
-the TPC, within half a wire pitch across and which extends in the
-drift direction by the time bounds. 
+Each \dword{trigprimitive} represent ionization activity localized
+(relatively) along the drift direction by the times at which the
+signal crosses threshold and by two planes parallel to the collection
+wire and located midway between the wire and each of its neighboring
+wires.
 Depending on the threshold set, these \dwords{trigprimitive} may be
 numerous due to \Ar39 decays and noise fluctuations.
 If their rate can not be sustained, the threshold may be raised or

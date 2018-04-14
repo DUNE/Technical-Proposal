@@ -55,10 +55,12 @@ trigger priority and ultimately the time range and detector coverage
 for a \dword{trigcommand} which it emits back to the \dwords{fec}.
 The \dword{mtl} assures that no \dwords{trigcommand} are issued which
 overlap in time nor detector channel space.
-It also may emply a \dword{hlt} to allow for a reduction or an
-aggregation of triggers to reduce or optimize the subsequent readout
-of high rate activity such as due to various backgrounds, including
-instrumental effects, as needed.
+It also may employ a \dword{hlt} to reduce or aggregate triggers into
+fewer \dwords{trigcommand} so as to optimize the subsequent readout. 
+For example, aggregating many small readouts into fewer but larger
+ones may allow for more efficient processing.   This can be particularly
+important during periods of high rate activity such as due to various
+backgrounds or instrumental effects.
 
 When activity leads to the formation of a \dword{trigcommand} this
 command is sent down to the \dwords{fec} instructing which slice of
@@ -133,10 +135,11 @@ The highest-rate background, $^{39}$Ar, which has a decay rate of
 10~MBq within a \SI{10}{\kton} volume of argon, has an endpoint of 500
 keV and requires significant pileup in both space and time to get near
 a \SI{10}{\MeV} threshold.
-Other important background sources are $^{42}$Ar, which has a 3.5 MeV
-endpoint and a decay rate of 1 kBq, and $^{222}$Rn which has a decay
-rate of XXXX and decays via a highly-quenched $\alpha$ of 5.5 MeV.
-\fixme{Need Rn-222 decay rate.}
+One important background source is $^{42}$Ar, which has a 3.5 MeV
+endpoint and a decay rate of 1 kBq. 
+$^{222}$Rn decays via a highly-quenched $\alpha$ of 5.5 MeV and is
+also an important source of background.
+\fixme{Need Rn-222 decay rate.  Punted and removed mention of ``decay rate XXXX''.  Someone please fix.}
 The radon decays to $^{218}$Po which a few minutes later leads to a
 quenched $\alpha$ of 6 MeV, and ultimately a $^{214}$Bi daughter (many
 minutes later) which has a $\beta$ decay with endpoint near 3.5 MeV. 
@@ -166,15 +169,18 @@ The \dword{mtl} takes as input \dwords{trigcandidate} (both low-energy
 and high-energy) from the participating \dwords{daqfrag}, as well as
 \dword{externtrigger} sources, such as the \dword{gtl} which includes
 global, detector-wide triggers, external trigger sources such as
-\dword{snews}, and information about the time of a Fermilab beam spill. 
+\dword{snews}, and information about the time of a Fermilab beam
+spill. 
 The \dword{mtl} will also generate \dwords{trigcommand} for internal
 consumption, such as random triggers and calibration triggers (for
 example, telling a laser system to fire at a prescribed time). 
-In addition, at the \dword{mtl} prescales of all trigger types that
-normally would not generate a \dword{trigcommand} will be made. 
-For example, a single low-energy \dword{trigcandidate} does not cause
-a \dword{trigcommand} on its own, but at some large prescale fraction
-it could.
+The \dword{mtl} can also generate \dwords{trigcommand} from a
+prescaled fraction of trigger types that otherwise do not generate
+such commands on their own. 
+For example, a prescaled fraction of single, low-energy trigger
+commands could be allowed to generate a trigger command, even though
+those candidates normally only result in a trigger command when
+aggregated (ie, as they would be for a \dword{snb}).
 
 
 The \dword{mtl} is also responsible for checking candidate triggers

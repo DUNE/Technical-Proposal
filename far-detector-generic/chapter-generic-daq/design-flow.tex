@@ -8,8 +8,8 @@
 The data volume that is continuously flowing through the DUNE
 \dword{sp} \dword{detmodule} DAQ from one APA is about \SI{10}{\GB/\s}
 and from the entire far detector as much as \SI{10}{\TB/\s}.
-However, by design a distributed system that follows the natural
-granularity of the detector this high rate data is made manageable.
+However, by designing a distributed system that follows the natural
+granularity of the detector, this high rate data is made manageable.
 In particular the \dword{ringbuffer} is defined at the APA level for
 the \dword{sp} \dword{detmodule}.
 The majority of the data corresponds to the untriggered parts and
@@ -32,8 +32,8 @@ a data-pull protocol, similar to that in use at ProtoDUNE.
 artDAQ is a modern, general-purpose framework that has been used in
 DUNE prototype tests and elsewhere [refs]. 
 It is optimised further than other frameworks to expliot the
-paralelism that is possible with modern multi-core machines. 
-It is the principle architecture that will be used in DUNE.
+parallelism that is possible with modern multi-core machines. 
+It is the principal architecture that will be used in DUNE.
 \fixme{Context here is too vague. 
   ``...used in DUNE DAQ back-end computing''?}
 The authors of artDAQ have accomodated DUNE-specific feature-addition
@@ -43,8 +43,8 @@ sources.
 It is likely that future DUNE extensions will be by one of these two
 routes.
 
-(Section on FELIX data ingress, error handling, synchronisation,
-ring-buffer expiry). 
+%(Section on FELIX data ingress, error handling, synchronisation,
+%ring-buffer expiry). 
 As noted above, one of the complex data flow control tasks is managing
 the data as it enters the \dwords{ringbuffer} on the per-APA \dword{fe}
 computing hosts. 
@@ -69,7 +69,8 @@ can overwrite the older data and read requests for data that has been
 overwritten will report the error. 
 It is planned to prototype the data transfers for the TDR.
 
-(Section on (a) event building) Requests for event building
+% (Section on (a) event building)
+Requests for event building
 (i.e. reading data for succesful triggers from the \dwords{ringbuffer}
 will be done using mostly standard features that are now in artDAQ. 
 An \dword{eb} node is allocated for each trigger to be read and it
@@ -81,53 +82,70 @@ received, or because the request arrived so late that the data were
 overwritten), the request still proceeds but with flags set in the event
 header and which are displayed on the operators console.
 
-(Section on (b) trigger farming) As described above, a \dword{fec}
-will receive \dwords{trigprimitive} from its associated \dwords{rce}
-which identify channels and periods of time where potentially useful
-signal exists. 
-In most circumstances, this will local information will be sufficient
-to form a \dword{trigcandidate} which on its own will lead to a
+% (Section on (b) trigger farming)
+As described above, a \dword{fec} will receive \dwords{trigprimitive}
+from its associated \dword{daqfer} which identify channels and periods
+of time where potentially useful signal exists. 
+In some circumstances, this local information will be sufficient to
+form a \dword{trigcandidate} which on its own will lead to a
 \dword{trigcommand}.
-In other cases, such as SNB activity, \dwords{trigcandidate} from many
-\dwords{fec} must be combined to form a \dword{trigcommand}.
-This trigger information will be gathered into a block of data
-spanning some time period. 
-Our default scheme for the dataflow is to use a similar method as
-employed in \dword{protodune}, however several others are under study. 
-For the former, a trigger farm node is assigned to each time block,
-requests the associated trigger data block and based on its contents
-retrieves the indicated detector data from the appropriate
-\dwords{fec}.   
-The received detector data is then aggregated along with the
-associated trigger information into a \dword{rawevent} (using artDAQ
-functions).
+For example, when an interaction of sufficient energy occurs a
+primitive will be generated for each nearby channel, the sum of the
+primitive energies will pass some threshold and the union of their
+times will be used construct a trigger command which covers a
+bracketing time window. 
+In the nominal design, trigger commands resulting in this way are
+considered ``normal'' triggers. 
+These commands are executed by one \dlong{eb} allocated from a pool. 
+It queries the appropriate \dwords{daqds} for the period of requested
+data, aggregates the returned data block across all \dwords{daqfrag},
+includes the \dword{trigcommand} information itself and writes the
+resulting \dword{rawevent} to the \dword{diskbuffer}.
 Scaling methods are being considered to mitigate bottlenecks as may be
 required.  
-These are based adding an intermediate layer which groups a number of
+These are based on adding an intermediate layer which groups a number of
 \dwords{fec} to avoid the possibility of too many small blocks of
 data.
-\fixme{This next sentence doesn't make sense: ``Another solution is
-  to use data-push, since, it is likely that a single node with a lot
-  of cores can deal with all the trigger processing.''}
 
-\fixme{We need something about running in a partitioned mode. 
-  Eg, 148 APAs working nominally and 2 in their own partition for the
-  purpose of calibration or debugging or something.}
+Another type of \dword{trigdecision} is performed which is more global
+and happens when SNB neutrinos are interacting.
+\Dwords{trigcandidate} from many \dwords{fec} must be combined across
+the entire \dword{daqpart} to form an \dword{snb}
+\dword{trigcommand}.
+When an \dword{snb} command is raised in the \dword{mtl} it given to
+the \dfirst{daqoob} for dispatching to the many \dwords{daqfer}.
+This intermediary is used to allow the \dword{mtl} free to return to
+processing any subsequent candidates and thus reduce trigger latency.
 
-(Section on (c) SNB trickling) The average rate of dump
-\dwords{trigcommand} such as may be issued by a SNB candidate will be
-relatively low. 
-The nominal period of the dump is \SI{10}{\s} which will thus produce
-about \SI{15}{\TB} across the entire \dword{sp} \dword{detmodule}. 
-Spread over the 600 \dword{ssd} units this leads to about \SI{25}{\GB}
-per \dword{rce} per dump. 
-Today, typical \dwords{ssd} offer storage on the order of \SI{1}{\TB}. 
-For any reasonable SNB false-positive trigger rate, there will be
-sufficient \dword{ssd} capacity to store dumps for years and to not
-directly drive any throughput requirements on the DAQ.
-It is thus expected that this dump data will be sent out as a
-background process. 
-The SNB event building will likely differ somewhat from nominal in
-that the entire dump will not be held in a single \dword{rawevent}
-object as this would produce a single \SI{15}{\TB} file.
+% (Section on (c) SNB trickling)
+The average period between actual \dword{snb} to which DUNE is
+sensitive is measured in decades. 
+However, to maintain high efficiency to capture such important
+physics, the thresholds will be placed as low as feasible, limited
+only by the ability to acquire, validate and if passing, write out the
+data to permanent storage. 
+Even as such, the (largely false positive) \dword{snb} trigger rate is
+expected to be low relative to normal triggers.
+Understanding the exact rate requires more study, including using
+early data, but for planning purposes it is taken to be once dump per
+month on average.
+Using the \dword{sp} \dword{detmodule} as an exemple, and choosing the
+nominal time span for the dump to be \snbtime about \spsnbsize of
+uncompressed data would result.
+In the nominal \dword{sp} DAQ design, this dump would be spread over
+600 \dword{ssd} units leading to \SI{75}{\GB} per SSD per dump.
+% this number assumes defs.tex hasn't had its numbers changed.
+% check once in a while
+Thus, typical \dwords{ssd} offer storage to allow any given dump to be
+held for at least one half year before it must be purged to assure
+storage is available for subsequent dumps.
+If every dump were to be sent to permanent storage, it would represent
+a sustained \SI{0.14}{\Gbps} which is a small perturbation on the
+bandwidth supplied throughout the DAQ network. 
+Saved to permanent storage this would add \SI{0.5}{\PB/\year} which
+would be substantial but a fraction of the total data budget.
+The size of each dump is still larger than is convenient to place into
+a single file and so the SNB event building will likely differ from
+that for normal triggers in that the entire dump will not be held in a
+single \dword{rawevent}.
 

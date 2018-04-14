@@ -16,20 +16,20 @@ be a network disruption between SURF and Fermilab.
 
 During stable running, the data volume that will be produced by the
 \dword{daq} systems of all four \dwords{detmodule} will be no larger
-than \SI{30}{\PB/\year}.
-This rate is expected to be independent of the number of
+than \offsitepbpy.
+This maximum data rate is expected to be independent of the number of
 \dwords{detmodule} that are operational.
 During the construction of the second, third, and fourth
 \dwords{detmodule}, the extra rate per \dword{detmodule} will be used
 to gather data to aid in the refinement of the data selection
 algorithms.
-During commissioning, the data rate is expected to be higher, and it
-is anticipated that a data volume of \SI{30}{\PB} will be necessary to
-commission a \dword{detmodule}.
+During commissioning, the data rate is expected to be higher than
+nominal running and is anticipated that something on order of one year
+data volume will be necessary to commission a \dword{detmodule}.
 
 The disk buffer at SURF is planned to be \SI{300}{\TB} in size.
-The data link from SURF to Fermilab will support \SI{20}{\Gbps}
-(\SI{30}{\PB/\year} corresponds to \SI{7.6}{\Gbps}).
+The data link from SURF to Fermilab will support \surffnalbw
+(\offsitepbpy corresponds to about \offsitegbps).
 The Offline Computing team will be responsible for developing the
 software to manage the transfer of files from SURF to Fermilab.
 The \dword{daq} team will be responsible for producing a reference

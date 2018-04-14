@@ -12,7 +12,7 @@ The online software constitutes the backbone of the DUNE \dword{daq}
 system and allows to control, configure and monitor the data taking in
 a uniform way.
 It can be subdivided logically into four subsystems: the run control,
-the configuration, the monitoring, the non-physics data archival.
+the management of DAQ and detector electronics configuration, the monitoring, the non-physics data archival.
 Each of those subsystems has a well defined function, but their
 implementation will share underlying technologies and tools.
 
@@ -37,7 +37,7 @@ is made up of the \dwords{detunit} associated with a single
 In the nominal design, this corresponds to two \dword{sp} \dwords{apa}
 or about ten \dword{dp} \dword{cro} crates.
 
-The concept of ``run'' will represent time slices in which the same
+The concept of ``run'' will represent periods of time in which the same
 front-end elements are active and/or the same data selection criteria
 are used (possibly with a maximum lengths for offline processing
 reasons). 
