@@ -75,7 +75,7 @@ interface's scope.
 The DAQ will need to save data based on external triggers, for
 example: for times around when the pulse of neutrinos from LBNF
 arrives at the Far Detector; or if notice of an interesting
-astrophysical event is given by SNEWS\cite{snews} or LIGO.
+astrophysical event is given by \dword{snews}\cite{snews} or LIGO.
 This could involve going back in time to save data that has already
 been buffered (see Sec.~\ref{sec:fd-daq-fero}), or changing the trigger
 or zero suppression criteria for data in the interesting time period.
@@ -89,23 +89,23 @@ Once that time is known to the DAQ, a high level trigger can be issued
 to ensure that the necessary full data can be saved from the buffer
 and saved as an event.
 
-\paragraph{Astrophysical Triggers:} The Supernova Early Warning System
-(SNEWS) is a coincidence network of neutrino experiments which are
-individually sensitive to the burst of neutrinos which would be
-observed from a core-collapse supernova somewhere in our galaxy.
+\paragraph{Astrophysical Triggers:} \dfirst{snews} is a coincidence
+network of neutrino experiments which are individually sensitive to
+the burst of neutrinos which would be observed from a core-collapse
+supernova somewhere in our galaxy.
 While DUNE should be sensitive to such a burst on its own able to
 contribute to the coincidence network (Sec.~\ref{sec:fd-daq-sel}) via
 a TCP/IP socket, being able to save data based on other observations
 adds an additional chance to not miss saving this rare and valuable
 data.
-A SNEWS alert is formed when two or more neutrino experiments report a
-potential supernova signal within \SI{10}{\s}.
+A \dword{snews} alert is formed when two or more neutrino experiments
+report a potential supernova signal within \SI{10}{\s}.
 The earliest time in the coincidence is then sent via running a script
-on the SNEWS server at BNL provided by the experiment wishing to
-receive the alert.
+on the \dword{snews} server at BNL provided by the experiment wishing
+to receive the alert.
 The latency from neutrino burst is set by the response time of the
-second fastest detector to report to SNEWS: this could be as short as
-seconds, but might be tens of seconds.
+second fastest detector to report to \dword{snews}: this could be as
+short as seconds, but might be tens of seconds.
 At latencies larger than \SI{10}{\s}, full data might not be
 available, but selected data is expected to be manageable.
 

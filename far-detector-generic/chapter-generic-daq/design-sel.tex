@@ -7,8 +7,8 @@
 \metainfo{Josh Klein \& Brett Viren.  This is a shared DP/SP section.  It's file is \texttt{far-detector-generic/chapter-generic-daq/design-sel.tex}}
 
 Data Selection will follow a hierarchical design. 
-It begins with forming \dword{detunit}-level \dwords{trigcandidate} in
-side the \dword{daqfrag} front-end computing using channel-level
+It begins with forming \dword{detunit}-level \dwords{trigcandidate}
+inside the \dword{daqfrag} front-end computing using channel-level
 \dwords{trigprimitive}. 
 These will then be used to form \dword{detmodule} \dwords{trigcommand}
 in the \dword{mtl}.
@@ -17,12 +17,19 @@ data.
 In addition, \dwords{trigcandidate} will be provided to the
 \dword{mtl} from external sources such as the \dword{gtl} in order to
 indicate external events such as beam spills, or SNB candidates
-detected by the other \dwords{detmodule} or by SNEWS.
+detected by the other \dwords{detmodule}. 
+In addition to supplying triggers to \dword{snews}, triggers from
+\dword{snews} or other cosmological detector sources such as LIGO and
+VIRGO can be accepted in order to possibly record low energy or
+dispersed activity that would not pass the self-triggering. 
+The latency of arrival for these sources must be less than the nominal
+\snbpretime buffers used to capture low-level early \dword{snb}
+activity.
 A \dword{hlt} may also be active within the \dword{mtl}. 
 The hierarchical approach is both natural from a design standpoint, as
 well as allowing for vertical slice testing and running multiple
 \dwords{daqpart} simultaneously during commissioning of the system or
-when  debugging of individual \dwords{detunit} is required.
+when debugging of individual \dwords{detunit} is required.
 
 As discussed in Sections~\ref{sec:fd-daq-fero}
 and~\ref{sec:fd-daq-fetp}, \dwords{trigprimitive} will be generated in
@@ -159,7 +166,7 @@ The \dword{mtl} takes as input \dwords{trigcandidate} (both low-energy
 and high-energy) from the participating \dwords{daqfrag}, as well as
 \dword{externtrigger} sources, such as the \dword{gtl} which includes
 global, detector-wide triggers, external trigger sources such as
-SNEWS, and information about the time of a Fermilab beam spill. 
+\dword{snews}, and information about the time of a Fermilab beam spill. 
 The \dword{mtl} will also generate \dwords{trigcommand} for internal
 consumption, such as random triggers and calibration triggers (for
 example, telling a laser system to fire at a prescribed time). 

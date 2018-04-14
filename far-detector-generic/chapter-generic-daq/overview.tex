@@ -29,15 +29,61 @@ The current generation of LArTPC DAQ, such as used in
 time which is chosen based on the acceptance of an external trigger. 
 The DUNE DAQ faces several major challenges beyond those of the
 current generation. 
-Foremost, it must accept data from an order of magnitude more channels
-and from that data it must form its own triggers.
+Foremost, it must accept data from about two orders of magnitude more
+channels and from that data it must form its own triggers.
 This self-triggering functionality requires immediate processing of
 the full-stream data from a large portion of all TPC channels with a
 throughput of approximately one terabyte per second per
 \dword{detmodule}. 
+From this data stream, triggers must be raised based on two very
+different patterns of activity. 
+The first is activity which is localized in a small region of one
+\dword{detmodule} such as due to beam neutrino interactions or the
+passage of relatively rare cosmic ray muons. 
+This activity tends to correspond to relatively large deposition of
+energy of around \SI{100}{\MeV} or more. 
+The second pattern that must lead to a trigger lower energy activity
+dispersed in time and spatial extent of the detector such as due to
+\dword{snb}.
+
+The DUNE \dword{fd} DAQ must also contend with a higher order of
+complexity compared to current the generation. 
+The \dword{fd} detector is not monolithic but ultimately will consist
+of four \dwords{detmodule} each of \SI{10}{\kton} fiducial mass. 
+Each module will follow somewhat unique technologies and the
+inevitable asymmetries in the details of how data is read out from
+each must be absorbed by the unified DAQ at its front-end. 
+Further, each \dword{detmodule} is not monolithic but has at least one
+layer of divisions, here generically named \dwords{detunit}. 
+For example, the \dword{sp} \dword{detmodule} has \dwords{apa} each
+providing data from a number of \dwords{wib} and the \dword{dp} has
+\dword{cro} and \dword{lro} units associated with specific electronics
+crates.
+In each \dword{detmodule}, there are on order of 100 \dwords{detunit}
+(150 for \dword{sp} and 245 for \dword{dp}) and each unit has a
+channel count which of the same order as that of an entire LArTPC
+detector of the current generation.
+The DAQ, or really individual instances of the DAQ called
+\dwords{daqpart}, must run on a subset of all possible
+\dwords{detunit} for each given \dword{detmodule}. 
+Each instance runs effectively independently from all others however
+some instances will indirectly communicate through the exchange of
+high level trigger information. 
+This allows, for example, each \dword{detmodule} to take data in
+isolation, for all to \dword{detmodule} to contribute to forming and
+accepting global \dword{snb} triggers and simultaneously to have small
+portions consisting of a few \dwords{detunit} running separately in
+order to debug problems, run calibrations or otherwise not disturb
+nominal data taking while maintaining high uptime.
+
+Substantial computing hardware is required to provide the processing
+capability needed to identify such activity while keeping up with the
+rate of data.
 The nature of various technical, financial and physical constraints
-leads to much of the computing hardware to host this processing to
-reside underground and near to the detector modules.
+leads to much of the computing hardware needed to host this processing
+to reside underground and near to the detector modules. 
+In such an environment, power, cooling, space and access is far more
+costly than typical data centers residing on the surface of the Earth.
 
 Past LArTPC and long-baseline neutrino detectors have successfully
 demonstrated external triggering using information related to their
@@ -70,7 +116,9 @@ dominate the data rate.
 The DAQ must also record data with sensitivity to rare interactions
 (both known and hypothetical) such as nucleon decay, other baryon
 number violating processes (such as neutron-antineutron oscillation),
-and interactions from the products of \dwords{snb}. 
+and interactions from the products of \dwords{snb} as well as possibly
+being able to observe isolated low energy interactions from solar
+neutrinos and diffuse supernova neutrinos. 
 
 Some of these events, while rare in themselves, produce patterns of
 activity that can be mimicked by other higher rate backgrounds.

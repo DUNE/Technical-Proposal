@@ -173,7 +173,7 @@ digraph top {
                         eb[label="Event Builder"];
                         oob[label="Out-of-band\ndispatcher",color=red];
                         mtl[label="Module\nTrigger Logic"];
-                        disk[label="Offline Disk Buffer"];
+                        disk[label="Output Disk Buffer"];
                         snbeb[label="SNB dump Event Builder"];
                 }
         }
