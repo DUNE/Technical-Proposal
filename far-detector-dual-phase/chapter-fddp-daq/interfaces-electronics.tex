@@ -1,0 +1,41 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{TPC Electronics}
+\label{sec:fd-daq-intfc-elec}
+
+Details about the interfaces between the DAQ and the \dword{dp}
+\dlong{cro} TPC electronics are documented in~\cite{docdb6778}.
+\fixme{Add references to bib.}
+
+In the case of the \dword{dp} \dword{detmodule}, signals from the
+\dlong{cro} electrodes are amplified and then digitzed by \dword{amc}
+boards residing in 240 \dword{utca} crates. 
+Each crate produces \SI{2.5}{\MHz} samples from 640 channels on a
+\SI{10}{\Gbps} optical fiber. 
+Data is losslessly compressed and sent via \dword{udp} producing a
+stream with an expected average throughput of \SI{2}{\Gbps}.
+The DAQ consortium will be responsible for acquiring the fibers while
+the DP-Electronic consortium will be responsible for their
+installation on the cryostat roof down to their connection to the
+\dword{utca} crates.
+
+\fixme{Need some statement about the white rabbit fiber?}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PD Electronics}
+\label{sec:fd-daq-intfc-photon}
+
+Details about the interfaces between the DAQ the \dword{dp}
+\dlong{lro}~\cite{docdb6802} are documented. 
+
+\fixme{Add references to bib.}
+
+For the \dword{dp} \dword{lro}, the signals are digitized in 14 bits
+at \SI{65}{\MHz} and then downsampled to \SI{2.5}{\MHz}. 
+The data is then handled largely symmetrically with the \dword{cro}
+data except that only five \dword{utca} crates are required and their
+average, uncompressed output is expected to fill \SI{5}{\Gbps} on
+\SI{10}{\Gbps} fiber optical connections. 
+The installation of these fibers are as described above for the
+\dwords{cro} fibers.
+

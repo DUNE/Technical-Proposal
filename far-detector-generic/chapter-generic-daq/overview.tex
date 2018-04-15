@@ -29,15 +29,61 @@ The current generation of LArTPC DAQ, such as used in
 time which is chosen based on the acceptance of an external trigger. 
 The DUNE DAQ faces several major challenges beyond those of the
 current generation. 
-Foremost, it must accept data from an order of magnitude more channels
-and from that data it must form its own triggers.
+Foremost, it must accept data from about two orders of magnitude more
+channels and from that data it must form its own triggers.
 This self-triggering functionality requires immediate processing of
 the full-stream data from a large portion of all TPC channels with a
 throughput of approximately one terabyte per second per
 \dword{detmodule}. 
+From this data stream, triggers must be raised based on two very
+different patterns of activity. 
+The first is activity which is localized in a small region of one
+\dword{detmodule} such as due to beam neutrino interactions or the
+passage of relatively rare cosmic ray muons. 
+This activity tends to correspond to relatively large deposition of
+energy of around \SI{100}{\MeV} or more. 
+The second pattern that must lead to a trigger lower energy activity
+dispersed in time and spatial extent of the detector such as due to
+\dword{snb}.
+
+The DUNE \dword{fd} DAQ must also contend with a higher order of
+complexity compared to current the generation. 
+The \dword{fd} detector is not monolithic but ultimately will consist
+of four \dwords{detmodule} each of \SI{10}{\kton} fiducial mass. 
+Each module will follow somewhat unique technologies and the
+inevitable asymmetries in the details of how data is read out from
+each must be absorbed by the unified DAQ at its front-end. 
+Further, each \dword{detmodule} is not monolithic but has at least one
+layer of divisions, here generically named \dwords{detunit}. 
+For example, the \dword{sp} \dword{detmodule} has \dwords{apa} each
+providing data from a number of \dwords{wib} and the \dword{dp} has
+\dword{cro} and \dword{lro} units associated with specific electronics
+crates.
+In each \dword{detmodule}, there are on order of 100 \dwords{detunit}
+(150 for \dword{sp} and 245 for \dword{dp}) and each unit has a
+channel count which of the same order as that of an entire LArTPC
+detector of the current generation.
+The DAQ, or really individual instances of the DAQ called
+\dwords{daqpart}, must run on a subset of all possible
+\dwords{detunit} for each given \dword{detmodule}. 
+Each instance runs effectively independently from all others however
+some instances will indirectly communicate through the exchange of
+high level trigger information. 
+This allows, for example, each \dword{detmodule} to take data in
+isolation, for all to \dword{detmodule} to contribute to forming and
+accepting global \dword{snb} triggers and simultaneously to have small
+portions consisting of a few \dwords{detunit} running separately in
+order to debug problems, run calibrations or otherwise not disturb
+nominal data taking while maintaining high uptime.
+
+Substantial computing hardware is required to provide the processing
+capability needed to identify such activity while keeping up with the
+rate of data.
 The nature of various technical, financial and physical constraints
-leads to much of the computing hardware to host this processing to
-reside underground and near to the detector modules.
+leads to much of the computing hardware needed to host this processing
+to reside underground and near to the detector modules. 
+In such an environment, power, cooling, space and access is far more
+costly than typical data centers residing on the surface of the Earth.
 
 Past LArTPC and long-baseline neutrino detectors have successfully
 demonstrated external triggering using information related to their
@@ -70,7 +116,9 @@ dominate the data rate.
 The DAQ must also record data with sensitivity to rare interactions
 (both known and hypothetical) such as nucleon decay, other baryon
 number violating processes (such as neutron-antineutron oscillation),
-and interactions from the products of \dwords{snb}. 
+and interactions from the products of \dwords{snb} as well as possibly
+being able to observe isolated low energy interactions from solar
+neutrinos and diffuse supernova neutrinos. 
 
 Some of these events, while rare in themselves, produce patterns of
 activity that can be mimicked by other higher rate backgrounds.
@@ -105,8 +153,8 @@ The design of the DAQ strives to contain the unique layers which adapt
 to the variation in \dwords{detmodule} toward its ``front end'' in
 order to allow as many of its ``back end'' components identical across
 the \dwords{detmodule} as possible. 
-In particular, the DAQ presents a unified interface to the ultimate
-consumer of its data, the DUNE offline computing.
+In particular, the DAQ must present a unified interface to the
+ultimate consumer of its data, DUNE offline computing.
 It must also accept and process the data from a variety of other
 sources including the accelerator, various calibration systems
 (including laser, cold electronics, photodetectors, and potentially
@@ -117,7 +165,7 @@ changes in high voltage, cut network connectivity and other credible
 potentialities.
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}
-  {The high-level design for the DUNE FD DAQ showing data (solid, with
+  {The high-level, nominal design for the DUNE FD DAQ showing data (solid, with
     line width indicating throughput) and trigger (dashed) flows. 
     A detector module has specialized implementation of some of these
     high level components, particularly toward the upstream front-end
@@ -129,15 +177,42 @@ potentialities.
 \includegraphics[width=0.8\textwidth]{high-level-daq.pdf}%
 \end{dunefigure}
 
+\begin{dunefigure}[DAQ Overview]{fig:daq-overview-alt}
+  {The high-level, alternative design for the DUNE FD DAQ showing data (solid, with
+    line width indicating throughput) and trigger (dashed) flows. 
+    A detector module has specialized implementation of some of these
+    high level components, particularly toward the upstream front-end
+    as described in the text. 
+    The grayed boxes are not in the DAQ scope.
+    See text for details.
+}
+% This PDF is made from the .dot of the same name.
+\includegraphics[width=0.8\textwidth]{high-level-daq-alt.pdf}%
+\end{dunefigure}
 
-Figure~\ref{fig:daq-overview} gives an illustration of the high-level
-DUNE FD DAQ design in terms of data and trigger flow.
-At this level of detail the diagram is generic to all
+Currently, two major variations for the DUNE DAQ are considered. 
+They differ at their front-ends and in terms of the order in which
+they buffer the data after it is received from the detector
+electronics and in which they use that data to form
+\dwords{trigprimitive}.
+The first design, designated as nominal, forms \dwords{trigprimitive}
+before the data reaches the DAQ \dword{ringbuffer}. 
+In a high-level way, it is illustrated in Fig~\ref{fig:daq-overview}
+in terms of data and trigger flows.
+The second, designated as alternative, reverses this order and is
+illustrated in Fig~\ref{fig:daq-overview-alt}. 
+These high level diagrams and their design are described in
+detail in Section~\ref{sec:fd-daq-overview}.
+
+At their level of detail the two diagrams are generic to all
 \dwords{detmodule} but some of the depicted roles will necessarily
 have implementation specific to their \dword{detmodule}.
 The subsections of Section~\ref{sec:fd-daq-design} give more
 description of this high-level design as well as details on
-specialized implementations.
+specialized implementations in particular see
+Sections~\ref{sec:fd-daq-fero} and~\ref{sec:fd-daq-fetp} which
+describe specializations of the front end required to adapt to the SP
+and DP \dwords{detmodule}.
 
 The high level requirements for the DUNE FD DAQ are provided in
 \cite{daq:reqs}.
@@ -156,7 +231,7 @@ Zero deadtime & The DUNE FD DAQ shall operate without deadtime under
 Triggering & The DUNE FD DAQ shall provide full-detector triggering
 functionality as well as self-triggering
 functionality; the data selection shall maintain high efficiency to
-physics events while operating within a total bandwidth of 30 PB/year
+physics events while operating within a total bandwidth of \offsitepbpy
 for all operating FD modules \\ \colhline
 Synchronization & The DUNE FD DAQ will provide synchronization of
 different FD modules to within 1~$\mu$s, and of different subsystems
@@ -168,8 +243,14 @@ dominated by the rate of data produced by the TPC system of each
 \dword{detmodule}.
 These rates vary between the modules and their estimations are summarized in
 Table.~\ref{tab:daq-input-bandwidth}.
-\begin{dunetable} [Pre-trigger data rates from the DUNE FD TPCs and into DAQ front end.]
-  {lll} {tab:daq-input-bandwidth} {The parameters governing the pre-trigger data rate from units of each \dword{detmodule} TPC \dwords{ce} and the aggregate throughput into the \dwords{fec} of the DAQ \dwords{daqfrag}.  Compression is an estimate and will be reduced if excess noise is introduced.  
+\begin{dunetable} [Pre-trigger data rates from the DUNE FD TPCs and
+  into DAQ front end.]
+  {lll} {tab:daq-input-bandwidth} {The parameters governing the
+    pre-trigger data rate from units of each \dword{detmodule} TPC
+    \dwords{ce} and the aggregate throughput into the \dwords{fec} of
+    the DAQ \dwords{daqfrag}. 
+    Compression is an estimate and will be reduced if excess noise is
+    introduced.  
   }
   parameter & \dlong{sp} & \dlong{dp} \\
   \colhline
@@ -180,8 +261,7 @@ Table.~\ref{tab:daq-input-bandwidth}.
   ADC resolution & 12 bit & 12 bit \\
   \colhline
   aggregate from \dword{ce} & \SI{1440}{\GB/\s} & \SI{576}{\GB/\s} \\
-  compression factor & 5$\times$ (in \dshort{daqfer}) & 10$\times$ (in \dshort{cro} crate) \\
-  aggregate to FEC & \SI{230}{\GB/\s} & \SI{58}{\GB/\s} \\
+  with compression & \SI{230}{\GB/\s} (5$\times$) & \SI{58}{\GB/\s} (10$\times$)  \\
   \colhline
 \end{dunetable}
 
@@ -267,7 +347,9 @@ fabrication, testing, delivery and installation of the following
 systems:
 
 \begin{itemize}
-\item Front-end readout hardware and firmware/software development for \dword{trigprimitive} generation.
+\item Front-end readout (nominal designl) or trigger farm (alternative
+  design) hardware and firmware/software development for
+  \dword{trigprimitive} generation.
 \item Front-end computing for hosting of \dword{daqdr}, \dword{ringbuffer} and \dword{daqds}.
 \item Back-end computing for hosting \dword{mtl}, \dword{eb} and the \dword{daqoob} processes.
 \item External trigger logic and its host computing.

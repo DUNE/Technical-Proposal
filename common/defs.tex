@@ -103,15 +103,21 @@ Volume 2: \textit{The Single-Phase Far Detector\xspace}
 % What other parameters to include?  Wire spacings? Drift lengths? Decay pipe length?
 
 % Nominal readout window time
-\def\readout{\SI{5.4}{\ms}\xspace}
+%% SP has 2.25ms drift time.  The readout is 2*dt + 20%*dt extra.
+\def\spreadout{\SI{5.4}{\ms}\xspace}
+%% DP has 7.5 ms drift time.  The same (over generous) rule gives 16.5ms
+\def\dpreadout{\SI{16.4}{\ms}\xspace}
 % Supernova Neutrino Burst buffer and readout window time
 \def\snbtime{\SI{30}{\s}\xspace}
 % interesting amount of time we might have SNB neutrinos but not yet
 % enough to trigger.
 \def\snbpretime{\SI{10}{\s}\xspace}
+% SP SNB dump size
+\def\spsnbsize{\SI{45}{\PB}\xspace}
 
 \def\offsitepbpy{\SI{30}{\PB/\year}\xspace}
 \def\offsitegbps{\SI{8}{\Gbps}\xspace}
+\def\surffnalbw{\SI{100}{\Gbps}\xspace}
 
 % New from Anne March/April 2018
 %physics terms

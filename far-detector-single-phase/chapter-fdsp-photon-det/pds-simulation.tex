@@ -28,7 +28,25 @@ This will need to be updated in the future when we simulate the full-sized far d
   \includegraphics[width=0.4\columnwidth]{pds-energy.pdf}
 \end{dunefigure}
 
-Figure~\ref{fig:pds-snefficiency}~(top) shows the efficiency for determining t$_0$ for events in a typical supernova spectrum using the tools above. The changes in effective areas that would correspond to alternative photon collection designs are achieved by simply scaling up the total efficiency of the simulated double-shift light guide design shown here. The differences in attenuation behaviors within the bars are a second-order effect relative to the total amount of light collected. The efficiency for finding t$_0$ for these events increases linearly up through about \SI{15}{cm^2} of effective area, at which point the gains begin to slow down. Figures~\ref{fig:pds-snefficiency}~(bottom-left) and \ref{fig:pds-snefficiency}~(bottom-right) show how the efficiency varies as a function of neutrino energy and distance from the anode plane for three chosen points.
+Figure~\ref{fig:pds-snefficiency}~(top) shows the efficiency for determining t$_0$ for events in a typical supernova spectrum using the tools above. The changes in effective areas that would correspond to alternative photon collection designs are achieved by simply scaling up the total efficiency of the simulated double-shift light guide design shown here. The differences in attenuation behaviors within the bars are a second-order effect relative to the total amount of light collected. The efficiency for finding t$_0$ for these events increases, but less than linearly as the performance of the light collectors is improved. Figures~\ref{fig:pds-snefficiency}~(bottom-left) and \ref{fig:pds-snefficiency}~(bottom-right) show how the efficiency varies as a function of neutrino energy and distance from the anode plane for three chosen points. Note that these algorithms are still in development so there is potential for improvement in the performance as development continues.
+
+\begin{dunefigure}[Resolution on $t_0$ for supernova events. These are based on simulation with effective light collector area of \SI{4}{cm^2}.]{fig:pds-snt0}
+{Resolution on $t_0$ for supernova events. These are based on simulation with effective light collector area of \SI{4}{cm^2}.}
+  \includegraphics[width=0.4\columnwidth]{pds-t0res2.pdf}\\
+  \includegraphics[width=0.4\columnwidth]{pds-t0reszoomed2.pdf}
+\end{dunefigure}
+
+If the correct flash is identified for a supernova event, the
+resolution on $t_0$ is excellent, as shown in
+Figure~\ref{fig:pds-snt0}.
+Most (95\%) of the time, the time is identified from the prompt light
+and the timing resolution is better than \SI{100}{ns}, well within a
+single TPC time tick.
+In the remaining 5\% of cases where a correct flash is matched, the
+$t_0$ is biased late by a few \si{\micro\second}, driven by the late
+light time constant.
+Of course, if the wrong flash is identified the $t_0$ found is
+essentially randomly distributed in the drift time.
 
 
 %%%%%%%%%%%%%%%%% The following provided by Denver - superseded by the plots from Alex or incorporate into this section? %%%%%%%%%%%%%%%%%

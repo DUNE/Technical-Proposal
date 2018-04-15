@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Overview}
-\label{sec:fd-daq-ltr}
+\label{sec:fd-daq-overview}
 
 \metainfo{Giles Barr, BV. 
   This is a shared DP/SP section. 
@@ -13,7 +13,8 @@
 
 The design for the \dword{daq} has been driven by finding a cost
 effective solution that satisfies the requirements. Several design
-choices have nevertheless been made. 
+choices have nevertheless been made and two major variations remain to
+be studied. 
 From a hardware perspecive, the DAQ design follows a standard HEP
 experiment design, with customised hardware at the upstream, feeding
 and funnelling (merging) and moving the data into computers. 
@@ -42,7 +43,9 @@ readout electronics of the single-phase and dual-phase
 \dwords{detmodule}. 
 These categories of data sources are viewed as essentially four types
 of \dwords{submodule} within the DAQ and will follow the same overall
-data collection scheme as shown in Figure~\ref{fig:daq-overview}. 
+data collection scheme as shown for the nominal design in
+Figure~\ref{fig:daq-overview} and for the alternative design in
+Figure~\ref{fig:daq-overview-alt}. 
 The readout is arranged to allow for a \dword{trigdecision} to be made
 in a hierarchical manner. 
 Initial inputs are formed at the channel level, then combined at the
@@ -57,30 +60,41 @@ level, and potentially also at more local levels.
 This will allow a supernova burst to be recorded in all operational
 parts of the detector.
 
-It is helpful, on first looking at the DUNE DAQ dataflow scheme, to
-consider how the main data is collected first and then to look at how
-the triggering and synchronization functions are included; we take
-this approach in this overview. 
+Generally speaking, the DAQ consists of data and trigger flow.
+The trigger flow involved in self-triggering originates from
+processing a portion of the data flow. 
+The trigger flow is then consumed back by the DAQ in order to govern
+what portion of the data flow is finally written out to permanent
+storage. 
+The nominal and alternative designs differ in where in the data flow
+the trigger flow originates. 
 
-A single \dword{daqfrag} associates an integral number of
-\dwords{detunit} with one \dfirst{fec}. 
-Limited largely by PCIe bandwidth a \dword{fec} may accept
-10-20~\si{\GB/\s}. 
-This allows one \dword{sp} fragment to correspond to two APAs and one
-\dword{dp} fragment to correspond to about ten \dfirst{cro} crates or
-possibly all five \dfirst{lro} crates.
-The data of one fragment first enters the DAQ via the fragment's
+In both designs, a single \dword{daqfrag} associates an integral
+number of \dwords{detunit} with one \dfirst{fec}.
+This fragment forms one conceptual unit of the front-end DAQ.
+The processing on a \dword{fec} is kept minimal such that each has a
+throughput limited by I/O bandwidth. 
+PCIe v4 doubles the bandwidth from the prior version and thus we
+assume $\approx$\SI{20}{\GB/\s} throughput (out of a theoretical
+\SI{32}{\GB/\s} max) can be achieved based on tests using PCIe v3.
+
+In principle then, this allows one \dword{fec} to accept the data from
+two (if uncompressed) or ten (if $5\times$ compressed) of the 150
+\dword{sp} APAs, the $10\times$ compressed data from ten of the 240
+\dword{dp} \dword{cro} crates or the uncompressed data from all five
+\dword{dp} \dword{lro} crates.
+
+In the nominal design, the data enters the DAQ via the fragment's
 \dfirst{daqfer} component.
-In the \dword{sp} the \dword{daqfer} consists of eight \dwords{rce} and
-in the \dword{dp} it consists of a number of computers.  
+In the \dword{sp} the \dword{daqfer} consists of eight \dwords{rce}
+and in the \dword{dp} it consists of a number of computers.  
 The \dword{daqfer} is responsible for accepting that data and from it
 producing channel level \dwords{trigprimitive}.
 It is also responsible for forwarding compressed data and the
 primitives to the \dfirst{daqdr} in the corresponding \dword{fec}.
-
-In the nominal design the \dword{daqfer} is also responsible for
-supplying transient (RAM) and non-volatile buffer in the form of
-\dword{ssd} sufficient for \dword{snb} triggering and readout.
+The \dword{daqfer} is also responsible for supplying transient (RAM)
+and non-volatile buffer in the form of \dword{ssd} sufficient for
+\dword{snb} triggering and readout.
 The \dword{daqdr} accepts the full data stream and transfers it to the
 \dlong{daqbuf} of its \dword{daqfrag}. 
 There it is held awaiting a query from the \dfirst{eb}. 
@@ -91,13 +105,33 @@ written to file on the \dword{diskbuffer}.
 From there the data becomes responsibility of the Offline group to
 transfer to Fermilab for permanent storage and further processing.
 
-Meanwhile to the above the \dwords{trigprimitive} that were produced
-by a \dword{daqfer} and sent to the \dword{daqdr} are used to form
-\dwords{trigcandidate}. 
-The \dwords{trigcandidate} emitted by all \dwords{daqfrag} are
-collected in the \dfirst{mtl} associated with the \dword{daqpart}. 
+In the alternative design, the data is received directly by the
+\dword{daqdr} in a \dword{fec} from the detector electronics:
+\dword{sp} \dword{wib} or \dword{dp} \dword{utca} crate. 
+The data then flows into the \dword{daqbuf} and the portion required
+for forming trigger primitives is dispatched to the trigger computers
+of the fragment for the production of \dwords{trigprimitive}.
+At current SSD technology may allow SSD to be directly mounted to the
+\dword{fec} to provide for the SNB dump buffer. 
+Another solution which puts less pressure on write throughput is to
+distribute the SSD to the trigger computers. 
+In order to supply enough CPU they will likely have to number at least
+two for every \dword{fec} and while their CPUs may be busy, their I/O
+bandwidth will be relatively empty and thus they provide synergistic,
+cost effective hosting for the SSDs.
+
+Regardless of where the \dwords{trigprimitive} are produced in either
+design they are further processed at the \dword{daqfrag} level to
+produce \dwords{trigcandidate}. 
+At this level, they represent possible activity localized in time and
+channel to a portion of the overall \dword{detmodule}.
+The \dwords{trigcandidate} emitted by all \dwords{daqfrag} are sent to
+the \dfirst{mtl} associated with the \dword{daqpart}. 
 There, they are time ordered and otherwise processed to form
-\dwords{trigcommand}. 
+\dwords{trigcommand}.
+At this level they represent activity localized across the
+\dword{detmodule} and over some period of time.
+
 Each such command is consumed by an \dword{eb} in order to query back
 to the \dword{daqpart} level as described above.
 In addition, the \dword{mtl} of one module is exchanging messages
@@ -107,7 +141,9 @@ For example, one module may raise a local \dword{snb}
 Each module is also emitting candidates to sinks and accepting them
 from sources of external trigger information.
 
-The implementation of some of these high level functions depends on
-particular \dword{detmodule} and different options exist for some
-functions.  These are issues are described in the following sections.
+The exact implementation of some of these high level functions,
+particularly those near the front-end, depends on particular
+\dword{detmodule}. 
+The required specialization and in general, more implementation level
+details are described in the following sections.
 

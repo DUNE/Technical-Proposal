@@ -1,30 +1,46 @@
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Production and Assembly (David Newbold)}
+\section{Production and Assembly}
 \label{sec:fd-daq-prod-assy}
 
-\metainfo{1 Page}
+\subsection{DAQ components}
 
+The DUNE FD DAQ system comprises the classes of components listed below. In each case, we outline the production / procurement and QA / QC strategy.
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Electronics Production}
-% \label{sec:fd-daq-?}
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Assembly}
-% \label{sec:fd-daq-??}
+\subsubsection{Custom electronic modules}
 
+Custom electronic modules, specified and designed by the DAQ consortium, will be used for real-time data processing (in the case of the SP TPC detector) and for interfacing detector electronics to the DAQ computing system. In the baseline system design, these modules are in ATCA blade and PCIe expansion card format respectively. They are likely to be based on the existing COB and FELIX designs used in ProtoDUNE-SP, but will be new versions of these modules optimised for DUNE requirements. It is possible that we will make use of commercially-designed hardware in one or other of these roles. DAQ consortium institutes have significant experience in the design and production of high performance digital electronics for previous experiments. Our strategy is therefore to carry out design in-house, manufacturing and QA steps in industry, and testing and QC procedures at a number of specialised centres. Where technically and economically feasible, modules will be split into subassemblies (e.g. carrier board plus processing daughtercards), allowing production tasks to be spread over more consortium institutes.
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Tooling}
-% \label{sec:fd-daq-tooling}
-%
-% \fixme{Don't think we need this one}
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Assembly Procedures}
-% \label{sec:fd-daq-assy}
-%
-% \fixme{Or this one}
+DUNE electronic hardware will be of relatively high performance by commercial standards, and will contain high value subassemblies such as large FPGAs. Achieving a high yield will require significant effort in design verification, prototyping and pre-production tests, as well as in tendering and vendor selection. The production schedule is largely driven by these stages and the need for thorough testing and integration with firmware and software before installation, rather than by the time for series hardware manufacture. This is somewhat different to the majority of other DUNE FD components.
+
+\subsubsection{Commercial computing}
+
+The majority of procured items will be standard commercial computing equipment, in the form of compute and storage servers. Here, the emphasis will be on correct definition of the detailed specification, and the tracking of technology development, such that best value for money is obtained during the tendering process. Computing hardware will be procured in several tranches, as the need for DAQ throughput increases during the construction period. 
+
+\subsubsection{Networking and data links}
+
+The data movement system will be a combination of custom optical links (for data transmission from the cryostats to the CUC) and commercial networking equipment. The latter items will be procured in the same way as other computing components. The favoured approach to procurement of custom optics will be purchase of pre-manufactured assemblies ready for installation, rather then to expend effort in on-site fibre preparation and termination. Since transmission distances and latencies in the underground area are not critical, the fibre run lengths do not need to be of more than a few variants. It is assumed that fibres will not be easily accessible for servicing or replacement during the lifetime of the experiment, meaning that procurement and installation of spare `dark' fibres (including, if necessary, riser fibres up the shafts) will be necessary.
+
+\subsubsection{Infrastructure}
+
+All DUNE DAQ components will be designed for installation in standard 19-inch rack infrastructure, either in the CUC or above ground. Standard commercial server racks with local air--water heat exchangers are likely to be used. These items will be specified and procured within the consortium, but will be pre-installed (along with the necessary electrical, cooling and safety infrastructure) under the control of TC before DAQ beneficial occupancy.
+
+\subsubsection{Software and firmware}
+
+The majority of DAQ construction effort will be invested in the production of custom software and firmware. Based on previous experiments, these projects are likely to use tens to hundreds of staff-years of effort, and will be significant projects even by commercial standards, mainly due to the specialised skills required for real-time software and firmware. A major project management effort will be required to guide the specification, design, implementation and testing of the necessary components, especially as developers will be distributed around the world. Use of common components and frameworks across all areas of DAQ will be mandatory. Effective DAQ software and firmware development has been a demonstrated weakness of several previous experiments, and substantial work will need to be done in the next two years to put in place the necessary project management regime.
+
+\subsection{QA/QC}
+
+High availability is a basic requirement for the DAQ, and this rests upon three key principles:
+
+\begin{itemize}
+	\item A rigorous QA/QC regime for components (including software and firmware)
+	\item Redundancy in system design, to avoid single points of failure
+	\item Ease of component replacement or upgrade with minimal downtime
+\end{itemize}
+
+The lifetime of most electronic assemblies or commercial computing components will not match the 20-year lifespan of the experiment. It is to be expected that essentially all components will therefore be replaced during this time. Careful system design will allow this to take place without changes to interfaces. However, it is intended that the system should run for at least the first three to four years with excessive replacement, and both QA/QC and spares production will be steered by this goal. Of particular importance will be adequate burn-in of all components before installation underground, and careful record-keeping of both module and subcomponent provenance, in order to identify systematic lifetime issues during running.
+
+\subsection{Integration testing}
+
+Since the DAQ will consist of subcomponents produced by different teams, integration testing is a key tool in ensuring compatibility and conformance to specification. This is particularly important before the production of final hardware. Once final pre-production hardware is in hand, an extended integration task will be necessary in order to perform final debugging and performance tuning of firmware and software. In order to facilitate ongoing optimisation and debugging in parallel with operations, and compatibility testing of new hardware or software, components, we envisage the construction of one or more permanent integration test stands at DAQ institutes. These will be in locations allowing them to be accessed easily by the majority of consortium members, e.g. at major labs in Europe and the US. A temporary DAQ integration and testing facility will also be required as part of the installation procedure.
 
