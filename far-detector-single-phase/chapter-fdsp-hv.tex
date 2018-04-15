@@ -125,35 +125,17 @@ runs along the outside surface of each of the %top and bottom \dword{fc} modules
 Tables~\ref{tab:cpaparts} and~\ref{tab:fcparts} contain summaries of terminology and parts.
 
 \begin{dunetable}
-[\dword{hv} Cathode Plane Components]
-{p{0.37\textwidth}p{0.07\textwidth}p{0.07\textwidth}p{0.07\textwidth}p{0.07\textwidth}
-p{0.1\textwidth}p{0.15\textwidth}}
-{tab:cpaparts}
-{\dword{hv} Cathode Plane Components} 
-Component & Count & Length (z) & Width (x) & Height (y) & Submodules & Grand Total \\ \toprowrule
-\dword{cpa} array & 2 & 57.5 m & - & 12 m & 25 & 2 \\ \colhline
-\dword{cpa} plane (per \dword{cpa}-Array) & 25 & 2.3 m & - & 12 m & 2 & 50 \\ \colhline
-\dword{cpa} panel (per \dword{cpa}-Plane) & 2 & 1.2 m & - & 12 m & 3 & 100 \\ \colhline
-\dword{cpa} unit (per \dword{cpa}-Panel) & 3 & 1.2 m & - & 4 m & 2 & 300 \\ \colhline
-\dword{cpa} RP (per \dword{cpa}-Unit) & 2 & 1.2 m & - & 2 m & - & 600 \\
-\end{dunetable}
-
-\fixme{I don't understand the ``submodules'' column. Anne}
-\fixme{Anne's rewrite of cpa components table:}
-
-\begin{dunetable}
 [\dword{hv} \dword{cpa} Components]
 {p{0.4\textwidth}p{0.12\textwidth}
 p{0.12\textwidth}p{0.32\textwidth}}
 {tab:cpaparts}
 {\dword{hv} Cathode Plane Components} 
 Component and Quantity &  Length (z) & Height (y) & Per \dword{spmod} \\ \toprowrule
-\dlong{cpa} ?  &? \SI{}{\meter}  &? \SI{}{\meter} & ? \\
-\dword{cpa} array (2 per \dword{spmod}  & \SI{57.5}{\meter} & \SI{12}{\meter} & 2  \\ \colhline
-\dword{cpa} plane (25 per array, horizontal)  & \SI{2.3}{\meter}  &\SI{12}{\meter} & 50  \\ \colhline
-\dword{cpa} panel (2 per plane, vertical)  & \SI{1.2}{\meter}   & \SI{12}{\meter} & 100  \\ \colhline
-\dword{cpa} unit (3 per panel, vertical)  & \SI{1.2}{\meter}  & \SI{4}{\meter} & 300 \\ \colhline
-\dword{cpa} RP (2 per unit, vertical)  & \SI{1.2}{\meter}  & \SI{2}{\meter} & 600 \\
+\dword{cpa} array (2 per \dword{spmod}) & \SI{57.5}{\meter} & \SI{12}{\meter} & 2  \\ \colhline
+\dword{cpa} plane (25 per \dword{cpa} array)  & \SI{2.3}{\meter}  &\SI{12}{\meter} & 50  \\ \colhline
+\dword{cpa} panel (2 per \dword{cpa} plane)  & \SI{1.2}{\meter}   & \SI{12}{\meter} & 100  \\ \colhline
+\dword{cpa} unit (3 per \dword{cpa} panel)  & \SI{1.2}{\meter}  & \SI{4}{\meter} & 300 \\ \colhline
+\dword{cpa} RP (2 per \dword{cpa} unit)  & \SI{1.2}{\meter}  & \SI{2}{\meter} & 600 \\
 \end{dunetable}
 
 
@@ -190,6 +172,8 @@ This separated setup more easily accommodates different running conditions and h
 The cryostat design has two feedthrough ports for each \dword{cpa} array, one at each end of the cryostat. The unequipped, downstream port provides redundancy against any failure of the primary \dword{hv} delivery system. 
 %In the event only one power supply is available, the system will be run by using a high voltage splitter outside of the cryostat while another power supply is procured. 
 
+Each CPA connects to two drift volumes in parallel, presenting a net resistance of \SI{1.14}{\giga\ohm} to each supply. At the nominal \SI{180}{kV} cathode voltage, each power supply must provide \SI{0.16}{mA}.
+
 The planned power supply model for the \dword{spmod} will be similar to the power supply\footnote{Heinzinger\texttrademark{} PNChp 200000 power supply.} used on \dword{pdsp}, with a maximum output voltage of \SI{200}{kV} and a maximum current draw of \SI{0.5}{mA}.  An %additional 
 option is an existing \SI{300}{kV} \SI{0.5}{mA} model. The \dword{hv} cables will be commercially available models compatible with the selected power supplies. 
 
@@ -217,12 +201,20 @@ The current plan for the filters is a cylindrical design.  %Here, an \dword{hv} 
 Here each end of an \dword{hv} resistor is electrically connected to a cable receptacle. 
 The resistor %should 
 shall be selected to withstand a large over-power condition.  Radially out from the resistor is an insulator,  %In other designs, this has been 
-for which other designs have used transformer oil or Ultra-high-molecular weight Polyethelene (UHMW-PE).  The outer case of the filter is a grounded stainless-steel shell. \fixme{Anne: what will we use?}
+for which other designs have used transformer oil or Ultra-high-molecular weight Polyethelene (UHMW-PE).  The outer case of the filter is a grounded stainless-steel shell. A proposed filter design is shown in Figure~\ref{fig:filterAndFeedthrough}.\fixme{Anne: what will we use?}
 
 The \dword{hv} feedthrough %will be 
 is based on the successful ICARUS design, which has been adapted for ProtoDUNE.  The voltage is transmitted by a stainless steel center conductor.  On the warm side of the cryostat, this conductor mates with a cable end.  Inside the cryostat, the end of the center conductor has a spring-loaded tip that %will 
-contacts a receptacle cup mounted on the cathode, delivering \dword{hv} to the field cage.  The center conductor of the feedthrough is surrounded by UHMW PE. 
-\fixme{(Anne) Write out first time} The upper bound of operating voltage on a feedthrough is, to first order, set by the maximum electric field on the feedthrough.  This electric field is reduced by increasing the insulator radius.  For the target voltage, the feedthrough will use a UHMW PE cylinder of roughly 15 cm diameter.  In the gas space and into at least \SI{15}{\centi\meter} of the liquid, the insulator will be surrounded by a tight-fitting stainless steel ground tube.  The ground tube will have a \SI{25}{\centi\meter}  Conflat flange \fixme{TM conflat or not?} welded on for attachment to the cryostat.
+contacts a receptacle cup mounted on the cathode, delivering \dword{hv} to the field cage.  The center conductor of the feedthrough is surrounded by UHMW PE. A drawing is shown in Figure~\ref{fig:filterAndFeedthrough}.
+\fixme{(Anne) Write out first time} 
+
+\begin{dunefigure}[Drawings of the \dword{hv} filters and feedthroughs]{fig:filterAndFeedthrough}
+{Left:  Drawing of a \dword{hv} filter (Credit:  A.~Renshaw). Right:  \dword{hv} feedthrough drawing (Credit:  (F.~Sergiampietri).}
+\includegraphics[width=0.3\textwidth]{pdFilters-optim} %Anne reduced size of pdf
+\includegraphics[width=0.6\textwidth]{francosHVFT}
+\end{dunefigure}
+
+The upper bound of operating voltage on a feedthrough is, to first order, set by the maximum electric field on the feedthrough.  This electric field is reduced by increasing the insulator radius.  For the target voltage, the feedthrough will use a UHMW PE cylinder of roughly 15 cm diameter.  In the gas space and into at least \SI{15}{\centi\meter} of the liquid, the insulator will be surrounded by a tight-fitting stainless steel ground tube.  The ground tube will have a \SI{25}{\centi\meter}  Conflat flange \fixme{TM conflat or not?} welded on for attachment to the cryostat.
 
 %Orig pgraph
 %There will be multiple devices used to monitor the \dword{hv}.  Outside of the cryostat, the power supply and cable-mounted toroids will be used.  The Power Supply units typically have sensitivities down to 10's of nA in current read-back capability.  The units are able to sample the current and voltage every \SI{300}{ms}.  The cable-mounted toroids are sensitive to fast changes in current and can be monitored when desired.  The polarity of the signal also points to whether the current-drawing feature is upstream or downstream of the toroid.
@@ -231,10 +223,10 @@ Outside of the cryostat, the power supply and cable-mounted toroids will monitor
 typically have sensitivities down to tens of \si{\nano\ampere} in current read-back capability 
 \fixme{`in read-back `mode'? or `with' read-back capability?} and are able to sample the current and voltage every \SI{300}{\ms}.  The cable-mounted toroids are sensitive to fast changes in current; %and can be monitored. when desired.  
 the polarity of a toroid's signal %also points to whether 
-indicates the location of the current-drawing feature as either upstream or downstream of it.
+indicates the location of the current-drawing feature as either upstream or downstream of it.  Experience from a 35t installation suggested sensitivities to changing currents with a time scale between 0.1-10s us providing information on the time scale of any current changes.
 
 Inside the cryostat, pick-off points near the anode will monitor the current %going down 
-in each resistor chain.  Additionally, the voltage of the \dwords{gp} above and below each drift region can be equipped to diagnose problems via a diode-to-cryostat ground.
+in each resistor chain.  Additionally, the voltage of the \dwords{gp} above and below each drift region can be equipped to diagnose problems via a diode-to-cryostat ground.  In a 35t prototype, such instrumentation provided useful information on high voltage stability and where any stray charge was flowing.
 
 The external commercial \dword{hv} components will be rated at a sufficient voltage to meet the drift voltage requirement (number 1 as listed in Table~\ref{tab:hvphysicsreqs}).  Additionally, the custom filters and feedthrough will be tested to %reach 
 ensure that they satisfy requirement (1).  Further details are in Section~\ref{sec:fdsp-hv-qc}.
@@ -350,7 +342,7 @@ to lock into position. Two additional boards to connect the modules to the \dwor
 \end{dunefigure}
 
 Between any two adjacent nodes of the resistor divider chain are two \SI{5}{\giga\ohm} resistors, and three serially connected MOVs in parallel.  The nominal voltage drop is \SI{3}{kV}.
-An open resistor on the divider chain would approximately double the voltage cross the remaining resistor to \SI{6}{kV}.  This will force the varistors in parallel to that resistor into conduction mode, results in a voltage drop of roughly \SI{5}{kV} (\SI{1.7}{kV} $\times$ \num{3}), while the rest of the divider chain remains linear, with a slightly lower voltage gradient.
+An open resistor on the divider chain would approximately double the voltage across the remaining resistor to \SI{6}{kV}.  This will force the varistors in parallel to that resistor into conduction mode, results in a voltage drop of roughly \SI{5}{kV} (\SI{1.7}{kV} $\times$ \num{3}), while the rest of the divider chain remains linear, with a slightly lower voltage gradient.
 Because the damage to the divider is local to one module, its impact to the \dword{tpc} drift field is limited to region near this module.  This is part of the intention of the modular design.
 An example of a simulated electric field distortion which would be caused by a failed resistor is shown in Figure~\ref{fig:fc-broken-resistor}. 
 
@@ -423,8 +415,8 @@ bias the field shaping strips and the resistive dividers on the top
 and bottom \dwords{fc}.  \dword{cpa}-to-\dword{fc} connections are made using
 flexible wire to accommodate \dword{fc} deployment.  To further
 increase redundancy, two \dword{cpa} panels connect to each top or bottom
-field cage, and two connections are also made to each \dword{ewfc} resistor divider boards attach directly to the interior side of
-the \dword{fc} profiles with screws.  \fixme{"which attach..."?} A redundant pair of flexible wires
+field cage, and two connections are also made to each \dword{ewfc}. Resistor divider boards attach directly to the interior side of
+the \dword{fc} profiles with screws.   A redundant pair of flexible wires
 connects a circuit board on the last profile of each \dword{fc} to a
 bias-and-monitoring board mounted on the corresponding \dword{apa}.
 
@@ -492,7 +484,7 @@ Additional power supplies will be commercially procured, for example through Hei
 
 The power supply will be tested extensively along with the controls and monitoring software.  Features to be included in the software are:
 \begin{itemize}
-\item The ability to ramp, or change the voltage.  The rate and an ability to pause the ramp shall be included.
+\item The ability to ramp, or change the voltage.  The rate and an ability to pause the ramp shall be included.  In previous installations, the ramp rate was typically between 60 to 120 V/s.
 \item An input for a user-defined current limit.  This parameter is the current value at which the supply reduces the voltage output to stay below the current limit.  The current-limiting is done in hardware.
 \item An input for a trip threshold.  At this current reading, the program would reduce the voltage output through software.  In previous experiments, the trip function in software would set the output to \SI{0}{kV}.
 \end{itemize}
@@ -910,7 +902,7 @@ Total SP1&&&\num{6},\num{718}\\
 
 
 \begin{dunetable}
-[\dword{hv} system construction effort by job class]
+[HV system construction effort by job class]
 {p{0.30\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}}
 {tab:HVeffort}
 {HV system construction effort by job class}   
