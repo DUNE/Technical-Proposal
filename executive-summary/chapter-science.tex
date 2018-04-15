@@ -316,50 +316,110 @@ of the mixing angles $\theta_{23}$ and $\theta_{13}$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Nucleon Decay and the GeV Scale Non-accelerator Physics Program}
+\section{Nucleon Decay and the GeV Scale Non-Accelerator Physics Program}
 
-The DUNE far detector will significantly extend lifetime sensitivity
-for specific nucleon decay modes by virtue of its high detection
-efficiency relative to water Cherenkov detectors and its low
-background rates.  As a LArTPC, DUNE has enhanced capability for
-detecting the $p\to K^+\bar{\nu}$ channel, where lifetime
-predictions from supersymmetric models extend beyond, but remain close
-to, the current (preliminary) Super-Kamiokande limit of $\tau/B >
-\SI{5.9e33}{year}$ (90\% C.L.), obtained from a \SI[number-unit-product = -,
-inter-unit-product=\ensuremath{{}\cdot{}}]{260}{\kt\year}
-exposure~\cite{kearns_isoups}\footnote{The lifetime shown here is
-  divided by the branching fraction for this decay mode, $\tau/B$, and
-  as such is a \emph{partial lifetime}.}. The signature for an
-isolated charged kaon in a LArTPC is highly distinctive,
-with multiple distinguishing features.
+\subsection{Nucleon Decay}
 
-The DUNE LArTPC far detector deep underground will reach a limit of
-\SI{3e34}{\year}s after 10--12 years of operation
-(Figure~\ref{fig:execsummarypdk}), depending on the deployment
-scenario, and would see nine events with a background of 0.3 should
-$\tau/B$ be \SI{1e34}{\year}s, just beyond the current limit. A
-\ktadj{40} detector will improve the current limits by an order of
-magnitude after running for two decades. Even a \ktadj{10} detector
-could yield an intriguing signal of a few events after a ten-year
-exposure.
+Unification of three fundamental forces in the Universe, strong, electromagnetic and weak interactions, is largely seen as the next step in the development of particle physics model. Grand Unified Theories (GUTs), aiming at extending the Standard Model of particle physics to include a unified force at very high energies  (above $10^{15}$ GeV), predict a number of observable effects at low energies, such as nucleon decay (NDK) \cite{Pati1973,Georgi1974,Dimopoulos1982,Langacker1981,deBoer1994,Nath2007}. Several experiments have been searching for signatures of NDK with the best limits for most decay modes set by the Super-Kamiokande experiment \cite{Nishino2012} that features the largest sensitive mass to date. 
 
-\begin{dunefigure}[Sensitivity to the decay $p\to K^+ \bar{\nu}$
-  with liquid argon detectors]{execsummarypdk} {Sensitivity to the
-  decay $p\to K^+ \bar{\nu}$ as a function of time for different DUNE 
-  LArTPC module deployment strategies. 
-  For comparison, the current limit from SK is also shown, as well as the 
-  projected limit from the proposed Hyper-K experiment with \SI{5600}\ktyr{} of 
-  exposure and a timeline based on a 1-Mt detector.
-  The limits are at 90\% C.L., calculated for
-  a Poisson process including background, assuming that the detected events
-  equal the expected background.}
-%\includegraphics[width=0.7\textwidth]{figures/lar4x10.png}
-\end{dunefigure}
+DUNE, as the largest LArTPC, will be searching for different NDK modes, having an advantage over Super-Kamiokande for observing nucleon decays into charged kaons that are below the Cherenkov threshold in water Cherenkov detectors. These modes are favored by the SUSY models and the tests of these models are within reach of multi-kiloton LArTPCs such as DUNE. One of the most promising modes of the proton decay search with DUNE $p\to K^+ \bar{\nu}$, expected to have a lifetime of the order of $>10^{33}$ years in SUSY models, can be tagged in LArTPC if a single kaon within a proper energy/momentum range can be reconstructed with its primary vertex to be within the fiducial volume. Background events initiated by cosmic-ray muons can be rejected by requiring no activity close to the edges of the TPCs and a single kaon identification within the energy range of interest. Atmospheric neutrino-induced background with a positive kaon production can either have an associated strange baryon (for reactions with $\Delta S = 0$) whose decay can be reconstructed, or a lepton (for reactions with $\Delta S = 1$) with reconstructed track or shower. 
 
-Many models in which the $p\to K^+\overline{\nu}$ channel mode is
-dominant, e.g., certain supersymmetric GUT models, also favor other nucleon decay 
-modes involving charged or neutral kaons in the final state. The baryon number non-conservation can also be manifested by neutron-antineutron oscillations that will have a distinct signature of a vertex with several emitted hadrons. High efficiency of detecting these types of events enables a rich program
-of searches for baryon number non-conservation in the DUNE LArTPC detector.
+Monte Carlo studies of this mode of proton decay and atmospheric neutrino background carried out within LArSoft framework with full event reconstruction, revealed that the main challenge in identifying proton decay candidates, is in mis-reconstruction of protons as positive kaons. This happens when a CC neutrino interaction produces a muon and a recoiling proton and the primary vertex for neutrino interaction is mis-labelled as a secondary vertex where the kaon decays. These mis-reconstructed events are primarily caused by the fact that final state interactions (FSI) in proton decay shift the spectrum of kaons towards low energies making difficult the energy and $dE/dx$ reconstruction, and kaon/proton separation. The work is ongoing, including neural networks, to improve background rejection for this mode of proton decay and to understand the uncertainty associated with the intra-nuclear cascade model (FSI). 
+
+Currently best limit on this mode of proton decay has been set by Super-Kamiokande \cite{Abe2014}: $\tau/B > 5.9\times10^{33}$ years (90\% C.L.), obtained from a 260 kt$\cdot$year exposure~\cite{kearns_isoups}\footnote{The lifetime shown here is divided by the branching fraction for this decay mode, $\tau/B$, and
+ as such is a \emph{partial lifetime}.}. The DUNE FD with more than 40 kt fiducial mass for these searches is expected to extend the sensitivity to $>10^{34}$ years. 
+
+SUSY GUT models also favor other NDK modes involving positive or neutral kaons in the final state, for instance, $n\to K^+ e^-$. The cosmic-ray muon background for this decay mode is negligible whereas neutrino induced background is limited to CC reactions with $\Delta S = 1$ and mis-reconstructed events. 
+We expect that the ProtoDUNE data with charged particle beams at CERN will provide important sample of events to train and improve on reconstruction algorithms. 
+
+The DUNE FD will be sensitive to other NDK modes, such as $p\to \pi^0 e^+$ but in many cases the sensitivity will not exceed that of Super-Kamiokande.
+
+The baryon number non-conservation can also be manifested by neutron-antineutron oscillations leading to the antineutron annihilation with a neutron or a proton. This annihilation event will have a distinct signature of a vertex with several emitted hadrons. The ability to re-construct these hadrons correctly and measure their energies is key to the identification of the signal event. The main background for these $n\bar n$ annihilation events is caused by atmospheric neutrinos. Most commonly mis-classified events are neutral current deep inelastic scattering events without a lepton in the final state. As above, final state interactions make picture more complicated and are probably the major component of the systematic uncertainty for the sensitivity studies.
+Initial signal vs background discrimination studies have been performed using convolutional neural networks resulting in an equivalent sensitivity  of $n\rightarrow \bar n$ oscillation lifetime of $1.6 \times 10^9$~s at 90\% confidence level, a factor of 5 improvement on the current limit from Super-Kamiokande.
+More information about particle identification and energy measurements will be provided by the ProtoDUNE experiment with charged particle beams. 
+
+High efficiency of detecting NDK and $n\rightarrow \bar n$ enables a rich program of searches for baryon number non-conservation in the DUNE LArTPC detector.
+
+\vspace{1cm}
+
+List of references for this subsection.
+\vspace{0.5cm}
+
+J. C. Pati and A. Salam, Is Baryon Number Conserved?, Phys. Rev.vLett., vol. 31, pp. 661-
+664, 1973.
+
+H. Georgi and S. Glashow, Unity of All Elementary Particle Forces, Phys. Rev. Lett., vol. 32,
+pp. 438-441, 1974.
+
+S. Dimopoulos, S. Raby, and F. Wilczek, Proton Decay in Supersymmetric Models,
+Phys. Lett., vol. B112, p. 133, 1982.
+
+P. Langacker, Grand Unified Theories and Proton Decay, Phys. Rept., vol. 72, p. 185, 1981.
+
+W. de Boer, Grand unified theories and supersymmetry in particle physics and cosmology,
+Prog. Part. Nucl. Phys., vol. 33, pp. 201-302, 1994.
+
+P. Nath and P. Fileviez Perez, Proton stability in grand unified theories, in strings and in
+branes, Phys. Rept., vol. 441, pp. 191-317, 2007.
+
+H. Nishino et al. (Super-Kamiokande Collaboration), Search for Nucleon Decay into Charged Anti-lepton plus Meson in Super-
+Kamiokande I and II, Phys. Rev., vol. D85, p. 112001, 2012.
+
+K. Abe et al. (Super-Kamiokande Collaboration), Search for proton decay via $p\to K^+ \bar{\nu}$ using 260 kiloton$\cdot$year data of Super-Kamiokande, Phys. Rev. D, 90 (2014) no.7, 072005. 
+
+
+\subsection{Atmospheric neutrinos}
+
+Atmospheric neutrinos are a unique tool to study neutrino oscillations: the oscillated flux contains all flavors of neutrinos and antineutrinos, is very sensitive to matter effects and to both $\Delta m^2$ parameters, and covers a wide range of $L/E$. In principle, all oscillation parameters could be measured, with high
+complementarity to measurements performed with a neutrino beam. In addition, atmospheric neutrinos are available all the time, in particular before the beam becomes operational. The DUNE far detector, with its large mass and the overburden to protect it from atmospheric muon background, is an ideal tool for these studies.
+
+The sensitivity to oscillation parameters has been evaluated with a dedicated, but simplified, simulation, reconstruction and analysis chain. The fluxes of each neutrino species at the far detector location were computed taking into account the oscillations. Interactions in the LAr medium were simulated with the GENIE
+event generator. Detection thresholds and energy resolutions based on full simulations were applied to the outgoing particles, to take into account detector effects. Events were classified as Fully Contained (FC) or Partially Contained (PC) by placing the vertex at a random position inside the detector and tracking the lepton until its edges. The number of events expected for each flavor and category is summarized in Table \ref{table:atmnu-rates}.
+
+Table \ref{table:atmnu-rates} summarizes event rates in the DUNE FD from atmospheric neutrinos.
+
+\begin{table}[htp]
+\caption{Atmospheric neutrino event rates per year in 40 kt fiducial mass of the DUNE FD.}
+\begin{center}
+\begin{tabular}{|c|c|}
+
+\hline
+Fully contained atmospheric $e$-like & $1.6\times10^{3}$ \\ \hline
+Fully contained atmospheric $\mu$-like & $2.4\times10^{3}$ \\ \hline
+Partly contained atmospheric $\mu$-like & $7.9\times10^{2}$ \\
+\hline
+
+\end{tabular}
+\end{center}
+\label{table:atmnu-rates}
+\end{table}%
+
+When neutrinos travel through the Earth, the MSW resonance influences electron neutrinos in the few-GeV energy range. More precisely, the resonance occurs for $\nu_e$ in the case of normal mass hierarchy (NH, $\Delta m^2 > 0$), and for $\bar \nu_e$ in the case of inverted mass hierarchy (IH, $\Delta m^2 < 0$). 
+The mass hierarchy (MH) sensitivity can thus be greatly enhanced if neutrino and antineutrino events can be separated. The DUNE detector will not be magnetized; however, its high-resolution imaging offers possibilities for tagging features of events that provide statistical discrimination between neutrinos
+and antineutrinos. Two tags can be used to discriminate $\bar \nu$  and $\nu$ events: a proton tag (a signature of neutrino interaction) and a positive muon decay tag (a signature of antineutrino interaction since only 25\% of negative muons will decay).
+
+Unlike for beam measurements, the sensitivity to MH with atmospheric neutrinos is nearly independent of the CP-violating phase. The sensitivity comes
+from both electron neutrino appearance as well as muon neutrino disappearance, and is strongly dependent on the true value of $\theta_{23}$. Despite the much smaller mass, DUNE would have comparable sensitivity to Hyper-Kamiokande atmospheric neutrino analyses due to better event reconstruction.
+In the two-flavour approximation, neutrino oscillation probabilities depend on $\sin^2(2\theta)$, which is invariant when changing $\theta$ to $\pi/2 - \theta$. In this case, the octant degeneracy remains for $\theta_{23}$ in the leading order terms of the full three-flavor oscillation probability, making it impossible to determine whether $\theta_{23} < \pi/4$ or $\theta_{23} > \pi/4$. Accessing full three-flavor oscillation with atmospheric neutrinos may help to solve the ambiguity.
+
+These analyses will provide a complementary approach to beam neutrinos. Atmospheric neutrinos can help to lift degeneracies that can be present in beam analyses, for instance, through the fact that the MH sensitivity is essentially independent of $\delta_{CP}$. Atmospheric neutrino data will be acquired even in the absence of the beam, and will provide a useful sample for the development of reconstruction software and analysis methodologies. Atmospheric neutrinos provide a window into a range of new physics scenarios, and can place limits on CPT violation \cite{Kostelecky2004}, non-standard interactions, mass-varying neutrinos \cite{Abe2008}, sterile neutrinos \cite{Abe2015}, and Lorentz invariance violation \cite{Kostelecky2012}.
+
+Full Monte Carlo studies of the atmospheric neutrino effects in the detector are in progress.
+
+\vspace{1cm}
+
+List of references for this subsection.
+\vspace{0.5cm}
+
+V. A. Kostelecky and M. Mewes, Lorentz and CPT violation in neutrinos, Phys. Rev.,
+vol. D69, p. 016005, 2004.
+
+K. Abe et al., Search for Matter-Dependent Atmospheric Neutrino Oscillations in Super-Kamiokande, Phys. Rev., vol. D77, p. 052001, 2008.
+
+K. Abe et al., Limits on sterile neutrino mixing using atmospheric neutrinos in Super-Kamiokande, Phys. Rev., vol. D91, p. 052019, 2015.
+
+A. Kostelecky and M. Mewes, Neutrinos with Lorentz-violating operators of arbitrary dimension,
+Phys. Rev., vol. D85, p. 096005, 2012.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -370,36 +430,53 @@ The neutrinos from a core-collapse supernova are emitted in a burst of
 a few tens of seconds duration, with about half the signal emitted in the first
 second. The neutrino energies are mostly in the range 5--50 MeV, and the
 luminosity is divided roughly equally between the three known neutrino
-flavors.  Current experiments are sensitive primarily to
+flavors.  Current water and scintillator detectors are sensitive primarily to
 electron antineutrinos ($\bar{\nu}_e$), with detection through the inverse-beta decay
 process on free protons\footnote{This refers to neutrino interactions with the nucleus of a
 hydrogen atom in H$_2$O in water detectors or in hydrocarbon chains in 
 liquid scintillator detectors.},
- which dominates the interaction rate in water
-and liquid-scintillator detectors.  Liquid argon has a unique sensitivity to
+ which dominates the interaction rate in these detectors.  Liquid argon has a unique sensitivity to
 the electron-neutrino ($\nu_e$) component of the flux, via the absorption
 interaction on $^{40}$Ar,
 \begin{eqnarray*}
 \nu_e +{}^{40}{\rm Ar} & \rightarrow & e^-+{}^{40}{\rm K^*}.
 \end{eqnarray*} 
-This interaction can be tagged via the coincidence of the emitted
+This interaction can in principle be tagged via the coincidence of the emitted
 electron and the accompanying photon cascade from the $^{40}{\rm K^*}$
 de-excitation.  About \num{3000} events would be expected in a \ktadj{40}
 fiducial mass liquid argon detector for a supernova at a distance of
-\SI{10}{\kilo\parsec}.  In the neutrino channel the oscillation
-features are in general more pronounced, since the $\nu_e$ spectrum is
+\SI{10}{\kilo\parsec}.  In the neutrino channel, the oscillation
+features are in general more pronounced, since the $\nu_e$ spectrum is almost
 always significantly different from the $\nu_\mu$ ($\nu_\tau$) spectrum 
 in the initial core-collapse stages, to a larger degree than is the
-case for the corresponding $\bar{\nu}_e$ spectrum.  Detection of a large
-neutrino signal in DUNE would help provide critical information on key
-astrophysical phenomena such as
-\begin{itemize}
-\item the neutronization burst,
-\item formation of a black hole,
-\item shock wave effects,
-\item shock instability oscillations, and
-\item turbulence effects.
-\end{itemize}
+case for the corresponding $\bar{\nu}_e$ spectrum.  
+While $\nu_e$ absorption should represent $\sim$90\% of the signal, there are in addition other channels of interest, including $\bar{\nu}_e$ charged current, elastic scattering on electrons (which provides pointing information) and neutral-current
+interactions which result in final-state deexcitation $\gamma$'s. 
+Each channel has a distinctive signature in the detector, but in all cases events appear as small (tens of cm scale) tracks and blips.   Figure~\ref{fig:snb} shows an example of a simulated event.  Section~\ref{sec:sb} describes reconstruction and calibration challenges for these events.
+
+
+Observation of the core-collapse neutrino burst in DUNE
+will provide critical information on key
+astrophysical phenomena~\cite{Mirizzi:2015eza}.  These include the neutronization burst, for which the initial sharp, bright flash
+of $\nu_e$ from  $p+e^- \rightarrow n + \nu_e$
+heralds the formation of a compact neutron star remnant.
+The collapse of the proto-neutron star into a black hole would be signaled by a sharp cutoff in neutrino flux.
+Shock wave effects, shock instability oscillations, turbulence effects, and transitions to quark stars could all produce observable features in the energy, flavor and time structure of the neutrino burst.
+Furthermore, detection of the supernova burst 
+neutrino signal in DUNE will give information on neutrino properties: see reference~\cite{Mirizzi:2015eza}.  Most notably, several features offer multiple signatures of mass ordering~\cite{Scholberg:2017czd}, likely the most robust being the level of suppression of the  neutronization burst: see Fig.~\ref{fig:snb}.  Because the neutronization burst is $\nu_e$-rich, this mass ordering signature is especially clean in DUNE.
+``Collective effects'', due to self-induced transitions driven by \textit{neutrino-neutrino interactions} in the dense matter of the supernova, result in a rich phenomenology with multiple observables primarily at later times.  
+
+
+\begin{dunefigure}[]{snb}{Left: Event display of a 30-MeV neutrino event simulated using MARLEY. Right: Expected event rates as a function of time for the electron-capture supernova model in~\cite{Huedepohl:2009wh} for 40 kt of argon during early stages of the event--- the neutronization burst and early accretion phases, for which self-induced effects are unlikely to be important.  Shown is the event rate for the unrealistic case of no flavor transitions (blue), the event rate including the effect of matter transitions for the normal (red)  and inverted (green) hierarchies.  Error bars are statistical, in unequal time bins.}
+\includegraphics[width=0.29\textwidth]{snb-event-display.png}
+\includegraphics[width=0.6\textwidth]{early_time_argon.pdf}
+\label{fig:snb}
+\end{dunefigure}
+
+Because no beam trigger is available for a supernova, efficient triggering and data collection is critical for supernova neutrino burst physics.   
+
+We note that DUNE information will be highly complementary with neutrino burst information from other detectors, and furthermore multimessenger astronomy information (from gravitational waves and a broad range of electromagnetic wavelengths) will combine to provide a full picture of a core-collapse event.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -426,7 +503,7 @@ protons-on-target at \SI{120}{GeV}, the expected number of events per
 ton is \num{170000} (\num{59000}) 
 \numu (\anumu) charged-current and \num{60000} (\num{25000}) neutral-current interactions in the $\nu$ ($\overline\nu$) beam\footnote{With PIP-II, the integrated protons-on-target per year is
   expected to be around $1.1\times 10^{21}$ at \SI{120}\GeV. The mass
-  of the Ar target in the DUNE ND is expected to be approximately
+  of the Ar target in the Low-mass Tracker option for the DUNE ND is expected to be approximately
   100~kg.}. 
   These numbers correspond to \num{e5} neutrino interactions
 on argon per year for the range of beam configurations and near detector
@@ -447,15 +524,17 @@ oscillations, and light Dark Matter particles. %, and so on.
 \section{Opportunities in Beyond the Standard Model Physics}
 %\section{Additional opportunities for Beyond Standard Model Physics}
 \label{sec:exec-summ-physics-bsm}
-The high-intensity neutrino beam produced by LBNF, combined with DUNE's highly-capable near detector and large-mass far detector located within a long 1300 km baseline enable a variety of probes for Beyond the Standard Model Physics, either novel or with unprecedented sensitivity. This section describes a selection of such topics, and briefly summarizes how DUNE can make leading contributions to searches for new physics.
-\subsection{Search for Low-mass Dark Matter}
+The unique combination of the high-intensity LBNF neutrino beam with DUNE's near detector and massive LArTPC far detector modules at a 1300 km baseline enables a variety of probes of Beyond the Standard Model Physics, either novel or with unprecedented sensitivity. This section describes a selection of such topics, and briefly summarizes how DUNE can make leading contributions in this arena.
+
+\subsection{New Particle Searches}
+{\bf Search for Low-mass Dark Matter.}
 Various cosmological and astrophysical observations strongly support the existence of Dark Matter (DM) representing $\approx$27$\%$ of the mass-energy of the universe, but its nature and potential non-gravitational interactions with regular matter remain undetermined. 
 The lack of evidence for Weakly Interacting Massive Particles (WIMP) at direct detection and the LHC experiments resulted in a reconsideration of the WIMP paradigm. For instance, if DM has a mass which is much lighter than the electroweak scale (e.g., below the GeV level), it motivates theories for DM candidates that interact with ordinary matter through a new "vector portal" mediator.
 High flux neutrino beam experiments, such as DUNE, have been shown to provide coverage of DM+$mediator$ parameter space which cannot be covered by either direct detection or collider experiments[1-4]. Upon striking the target, the proton beam can produce dark photons either directly through $pp(pn)\rightarrow V$ or indirectly through the production of a $\pi^{0}$  or a $\eta^{0}$ meson, which then promptly decays into SM photons of which one of them couples to a dark photon. If $m_V>2m_{DM}$, the dark photons will quickly decay into a pair of DM particles, which then travel along with the neutrinos to the DUNE near detector, where they can be detected through neutral-current-like interactions either with electrons or nucleons in the detector material.
 %Since the signature of DM events looks just like those of the neutrinos, the neutrino beam provides the major source of background for the DM signal. 
 The neutrino-induced backgrounds can be suppressed using the arrival time difference of the DM in the near detector with respect to neutrinos and the angle of the scattered electrons, taking advantage of the fine angular resolution DUNE can provide.  These enable DUNE's search for LDM be competitive and complementary to other experiments.\\
 
-\subsection{Search for Boosted Dark Matter}
+{\bf Search for Boosted Dark Matter}
 Using its large far detector, DUNE will be able to search for boosted dark matter (BDM), where DM is produced relativistically.
 A representative model is composed of heavy and light DM components and the lighter one can be produced from the annihilation of the heavier one in a region where the heavy DM components are clumpy enough, e.g., Galactic Center, Sun (depending on the model construction), or dwarf spheroidal galaxies.
 Due to the large mass difference between the two DM components, the lighter one is produced relativistically.
@@ -464,30 +543,7 @@ The excellent resolution in identifying particles and their position and propaga
 A first attempt at observing the {\it i}BDM signal with ProtoDUNE prior to running DUNE is proposed in Ref.~\cite{sample} and the same analysis strategy can be used in the corresponding study at DUNE.
 %The conventional DM search via its non-relativistic scattering is not accessible because the typical energy deposit resulting from the ordinary DM scattering is much below than the detector recoil threshold energy. In contrast, typical energy deposits in association with a relativistic scattering of the boosted DM readily surpass such a threshold. Hence, DUNE far detector with large fiducial volume and excellent detector technology will be an ideal detector to search for boosted DM.
 
-\subsection{Non-Standard Neutrino Interactions}
-Non-standard neutrino interactions, affecting neutrino propagation through the Earth, can significantly modify the data to be collected by DUNE as long as the new physics parameters are large enough~\cite{Masud:2015xva}. Leveraging its very long baseline and wide-band beam, DUNE is uniquely sensitive to  these probes. If the DUNE data are consistent with standard oscillations for three massive neutrinos, interaction effects of order 0.1 $G_F$ can be ruled out at DUNE~\cite{deGouvea:2015ndi,Coloma:2015kiu}. We notice that DUNE might improve current constraints on $\epsilon_{\tau e}$ and $\epsilon_{\mu e}$ by a factor 2-5~\cite{Farzan:2017xzy}.
-
-\subsection{Non-Unitarity} 
-A generic characteristic of most models explaining the neutrino mass
-pattern is the presence of heavy neutrino states, additional to the
-three light states of the Standard Model of particle
-physics~\cite{Minkowski:1977sc,Mohapatra:1979ia,Yanagida:1979as,GellMann:1980vs}. This imply a deviation from unitary of the $3\times3$ PMNS matrix, which can be particularly sizable the lower the mass of the extra states~\cite{Mohapatra:1986bd,Akhmedov:1995vm,Akhmedov:1995ip,Malinsky:2005bi}.
-For values of the unitarity deviations of order $10^{-2}$, this would decrease the expected reach of DUNE to the standard parameters, although stronger bounds existing from charged leptons would be able to restore its expected performance~\cite{Blennow:2016jkn,Escrihuela:2016ube}.
-
-\subsection{CPT symmetry}
-CPT symmetry, the combination of Charge Conjugation, Parity and Time reversal, is a cornerstone of our model building strategy and therefore the repercussions of its potential violation will severely threaten the standard model of particle physics. DUNE can improve the present limits on CPT violation by several orders of magnitude~\cite{Streater:1989vi,Barenboim:2002tz,Barenboim:2017ewj}, being a very important experiment to test one of the deepest results of quantum field theory.
-
-\subsection{Active-Sterile Neutrino Mixing}
-Experimental results in tension with the three-neutrino-flavor paradigm~\cite{LSNDSterile,MiniBooNESterile,GalliumSummary,ReactorSummary}, which may be interpreted as mixing between the known active neutrinos and one or more {\it sterile} states, have led to a rich and diverse program of searches for oscillations into sterile neutrinos.
-DUNE is sensitive over a broad range of potential sterile neutrino mass splittings by looking for disappearance of CC and NC interactions over the long baseline separating the Near and Far detectors, as well as over the short baseline of the Near detector. Results from the MINOS and NOvA long-baseline accelerator experiments~\cite{MINOSSterile2016, NOvASterile2017} have demonstrated the validity of this approach. With a longer baseline, a more intense beam, and a high-resolution large-mass Far detector, DUNE provides a unique opportunity to improve significantly on the sensitivities of the existing probes, and greatly enhance the ability to map the extended parameter space if a sterile neutrino is discovered.
-
-\subsection{Large Extra-Dimensions}
-DUNE can search for or constrain the size of large extra-dimensions (LED) by looking for distortions of the oscillation pattern predicted by the three-flavor paradigm. These distortions arise through mixing between the right-handed neutrino Kaluza-Klein modes, which propagate in the compactified extra dimensions, and the active neutrinos, which exist only in the four-dimensional brane~\cite{LEDModel}. Searching for these distortions in, for instance, the $\nu_\mu$~CC disappearance spectrum should provide significantly enhanced sensitivity over existing results from the MINOS/MINOS+ experiment~\cite{MinosplusLED}.
-
-\subsection{Neutrino Trident Production}
-The intriguing possibility that neutrinos may be charged under new gauge symmetries beyond the Standard Model (SM) $SU(3)_c\times SU(2)_L\times U(1)_Y$, and interact with the corresponding new gauge bosons can be tested with unprecedented precision by DUNE through Near detector measurements of neutrino-induced di-lepton production in the Coulomb field of a heavy nucleus, also known as {\it neutrino trident} interactions~\cite{Altmannshofer:2014pba}. Although this process is extremely rare (SM rates are suppressed by a factor of $\sim 10^{-5}-10^{-7}$ with respect to CC interactions), the CHARM-II collaboration \cite{Geiregat:1990gz} and the CCFR collaboration \cite{Mishra:1991bv} both reported detection of several trident events ($\sim 40$ events at CCFR) and quoted cross-sections in good agreement with the SM predictions. With a predicted annual rate of over 100 di-muon neutrino trident interactions at the Near detector, DUNE will be able to measure deviations from the SM rates and test for the presence of new gauge symmetries.
-
-\subsection{Heavy Neutral Leptons}
+{\bf Heavy Neutral Leptons.}
 The high intensity of the LBNF neutrino beam and the production of charm mesons in the beam enable DUNE to search for a wide variety of lightweight long-lived, exotic particles, by looking for topologies of rare event interactions and decays in the fiducial volume of the DUNE Near Detector. These particles include weakly-interacting Heavy Neutral Leptons - right-handed partners of the active neutrinos, vector, scalar, or axion portals to the Hidden Sector, and light super-symmetric particles.  
 %There are other experiments around the world that  such a measurement can complement with its particular geometry of 660 m of earth protecting the ND. 
 %We particularly focus on decay-in-flight of sub-GeV particles that are also candidates for dark matter and a good explanation of leptogenesis in the case of CP violoation indications. The main guiding models we use is the dark photon and heavy neutral lepton decays. 
@@ -497,7 +553,33 @@ The parameter space explored by the DUNE near detector extends into the cosmolog
 
 %{ref-HNL, SHiP sets a new course in intensity-frontier exploration, CERN Courier, http://cerncourier.com/cws/article/cern/63982}
 
-\fixme{2 pages, make case that DUNE is best/unique, high level}
+
+\subsection{Searches for Deviations from the PMNS Neutrino Mixing Paradigm}
+{\bf Non-Standard Neutrino Interactions.}
+Non-standard neutrino interactions, affecting neutrino propagation through the Earth, can significantly modify the data to be collected by DUNE as long as the new physics parameters are large enough~\cite{Masud:2015xva}. Leveraging its very long baseline and wide-band beam, DUNE is uniquely sensitive to  these probes. If the DUNE data are consistent with standard oscillations for three massive neutrinos, interaction effects of order 0.1 $G_F$ can be ruled out at DUNE~\cite{deGouvea:2015ndi,Coloma:2015kiu}. We notice that DUNE might improve current constraints on $\epsilon_{\tau e}$ and $\epsilon_{\mu e}$ by a factor 2-5~\cite{Farzan:2017xzy}.
+
+{\bf Non-Unitarity.} 
+A generic characteristic of most models explaining the neutrino mass
+pattern is the presence of heavy neutrino states, additional to the
+three light states of the Standard Model of particle
+physics~\cite{Minkowski:1977sc,Mohapatra:1979ia,Yanagida:1979as,GellMann:1980vs}. This imply a deviation from unitary of the $3\times3$ PMNS matrix, which can be particularly sizable the lower the mass of the extra states~\cite{Mohapatra:1986bd,Akhmedov:1995vm,Akhmedov:1995ip,Malinsky:2005bi}.
+For values of the unitarity deviations of order $10^{-2}$, this would decrease the expected reach of DUNE to the standard parameters, although stronger bounds existing from charged leptons would be able to restore its expected performance~\cite{Blennow:2016jkn,Escrihuela:2016ube}.
+
+{\bf Violations of Lorentz or CPT Symmetry.}
+CPT symmetry, the combination of Charge Conjugation, Parity and Time reversal, is a cornerstone of our model building strategy and therefore the repercussions of its potential violation will severely threaten the standard model of particle physics. DUNE can improve the present limits on CPT violation by several orders of magnitude~\cite{Streater:1989vi,Barenboim:2002tz,Barenboim:2017ewj}, being a very important experiment to test one of the deepest results of quantum field theory.
+
+{\bf Active-Sterile Neutrino Mixing.}
+Experimental results in tension with the three-neutrino-flavor paradigm~\cite{LSNDSterile,MiniBooNESterile,GalliumSummary,ReactorSummary}, which may be interpreted as mixing between the known active neutrinos and one or more {\it sterile} states, have led to a rich and diverse program of searches for oscillations into sterile neutrinos.
+DUNE is sensitive over a broad range of potential sterile neutrino mass splittings by looking for disappearance of CC and NC interactions over the long baseline separating the Near and Far detectors, as well as over the short baseline of the Near detector. Results from the MINOS and NOvA long-baseline accelerator experiments~\cite{MINOSSterile2016, NOvASterile2017} have demonstrated the validity of this approach. With a longer baseline, a more intense beam, and a high-resolution large-mass Far detector, DUNE provides a unique opportunity to improve significantly on the sensitivities of the existing probes, and greatly enhance the ability to map the extended parameter space if a sterile neutrino is discovered.
+
+{\bf Large Extra-Dimensions.}
+DUNE can search for or constrain the size of large extra-dimensions (LED) by looking for distortions of the oscillation pattern predicted by the three-flavor paradigm. These distortions arise through mixing between the right-handed neutrino Kaluza-Klein modes, which propagate in the compactified extra dimensions, and the active neutrinos, which exist only in the four-dimensional brane~\cite{LEDModel}. Searching for these distortions in, for instance, the $\nu_\mu$~CC disappearance spectrum should provide significantly enhanced sensitivity over existing results from the MINOS/MINOS+ experiment~\cite{MinosplusLED}.
+
+{\bf Neutrino Trident Production.}
+The intriguing possibility that neutrinos may be charged under new gauge symmetries beyond the Standard Model (SM) $SU(3)_c\times SU(2)_L\times U(1)_Y$, and interact with the corresponding new gauge bosons can be tested with unprecedented precision by DUNE through Near detector measurements of neutrino-induced di-lepton production in the Coulomb field of a heavy nucleus, also known as {\it neutrino trident} interactions~\cite{Altmannshofer:2014pba}. Although this process is extremely rare (SM rates are suppressed by a factor of $\sim 10^{-5}-10^{-7}$ with respect to CC interactions), the CHARM-II collaboration \cite{Geiregat:1990gz} and the CCFR collaboration \cite{Mishra:1991bv} both reported detection of several trident events ($\sim 40$ events at CCFR) and quoted cross-sections in good agreement with the SM predictions. With a predicted annual rate of over 100 di-muon neutrino trident interactions at the Near detector, DUNE will be able to measure deviations from the SM rates and test for the presence of new gauge symmetries.
+
+
+%\fixme{2 pages, make case that DUNE is best/unique, high level}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Summary}
