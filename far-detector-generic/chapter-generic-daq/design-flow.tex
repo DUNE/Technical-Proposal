@@ -23,19 +23,14 @@ All three of these transfers live entirely in the software domain of a
 commodity computer farm and so a variety of techniques can be
 considered for each; in this description, we consider each of them as
 a data-pull protocol, similar to that in use at ProtoDUNE.
-\fixme{Is it true? 
-  There has been the statement that SNB dumps will egress via special
-  paths direct to a special EB and not via FELIX. 
-  If this isn't the case then figure 7.2 needs fixing.}
 
-
-artDAQ is a modern, general-purpose framework that has been used in
-DUNE prototype tests and elsewhere [refs]. 
-It is optimised further than other frameworks to expliot the
-parallelism that is possible with modern multi-core machines. 
-It is the principal architecture that will be used in DUNE.
-\fixme{Context here is too vague. 
-  ``...used in DUNE DAQ back-end computing''?}
+artDAQ is a modern, general-purpose software framework for event
+processing. 
+It has been used in the ProtoDUNE and other experiments.
+It is optimized to expliot the parallelism that is possible with
+modern multi-core machines. 
+It is the principal architecture that will be used for the DUNE DAQ
+back-end computing.
 The authors of artDAQ have accomodated DUNE-specific feature-addition
 requests and a number of libraries have been developed based on
 existing parts of artDAQ used to handle incoming data from data

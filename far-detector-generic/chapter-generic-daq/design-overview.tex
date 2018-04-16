@@ -28,15 +28,17 @@ detectors, to benefit from increased capability of commercial devices
 and falling prices.
 
 Since DUNE will operate over a number of decades, the DAQ has been
-designed with upgradability in mind.  With the fall in cost of serial
-links, a guiding principle is to include enough output bandwidth to
-allow all the data to be passed downstream of the custom hardware.
+designed with upgradability in mind. 
+With the fall in cost of serial links, a guiding principle is to
+include enough output bandwidth to allow all the data to be passed
+downstream of the custom hardware.
 This allows the possibility for a future very-fast farm of computing
-elements to accommodate new ideas in how to collect the DUNE data.  The
-high output bandwidth also gives a risk mitigation path in case the
-noise levels in a part of the detector are higher than specified and
-higher than tolerable by the baseline trigger decision mechanism; it
-will allow additional data processing to be added (at additional cost).
+elements to accommodate new ideas in how to collect the DUNE data. 
+The high output bandwidth also gives a risk mitigation path in case
+the noise levels in a part of the detector are higher than specified
+and higher than tolerable by the baseline trigger decision mechanism;
+it will allow additional data processing infrastructure to be added
+(at additional cost).
 
 Digital data will be collected from the TPC and photon-detector
 readout electronics of the single-phase and dual-phase
@@ -94,9 +96,9 @@ The \dword{daqfer} is responsible for accepting that data and from it
 producing channel level \dwords{trigprimitive}.
 It is also responsible for forwarding compressed data and the
 primitives to the \dfirst{daqdr} in the corresponding \dword{fec}.
-The \dword{daqfer} is also responsible for supplying transient (RAM)
-and non-volatile buffer in the form of \dword{ssd} sufficient for
-\dword{snb} triggering and readout.
+The \dword{daqfer} is also responsible for supplying transient memory
+(RAM) and non-volatile buffer in the form of \dword{ssd} sufficient
+for \dword{snb} triggering and readout.
 The \dword{daqdr} accepts the full data stream and transfers it to the
 \dlong{daqbuf} of its \dword{daqfrag}. 
 There it is held awaiting a query from the \dfirst{eb}. 
@@ -113,7 +115,7 @@ In the alternative design, the data is received directly by the
 The data then flows into the \dword{daqbuf} and the portion required
 for forming trigger primitives is dispatched to the trigger computers
 of the fragment for the production of \dwords{trigprimitive}.
-At current SSD technology may allow SSD to be directly mounted to the
+Current SSD technology may allow SSD to be directly mounted to the
 \dword{fec} to provide for the SNB dump buffer. 
 Another solution which puts less pressure on write throughput is to
 distribute the SSD to the trigger computers. 
