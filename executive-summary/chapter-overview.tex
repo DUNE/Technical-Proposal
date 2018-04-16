@@ -1,39 +1,46 @@
 \chapter{Introduction to LBNF and DUNE}
 \label{ch:project-overview}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{International Convergence}
-
-The Long Baseline Neutrino Facility (LBNF) and Deep Underground Neutrino Experiment (DUNE) will combine the world's most intense neutrino beam, 
-a deep underground site, and massive LAr detectors to enable a broad science program addressing some of the most fundamental questions in particle physics. 
+The Deep Underground Neutrino Experiment (DUNE) will be a world-class neutrino observatory and nucleon decay detector designed
+to answer fundamental questions about the nature of elementary particles and their role in the universe. 
 The DUNE far detector, located at the Sanford Underground Research 
-Facility (SURF) in South Dakota, \SI{1300}{\km} from Fermilab, 
-will be a very large modular liquid argon time-projection chamber (LArTPC) located deep underground. This detector will be coupled to Fermilab's LBNF multi-megawatt  %power 
-wide-band neutrino beam.   DUNE will also have a high-resolution and high-precision near detector located on the Fermilab site.
+Facility (SURF) in South Dakota, at a distance of \SI{1300}{\km} from Fermilab, 
+will be a very large modular liquid argon time-projection chamber (LArTPC) with a fiducial volume of 40~kt, located about one mile underground. 
+This liquid-argon technology will make it possible to reconstruct neutrino interactions with image-like precision and unprecedented resolution.
 
-During the last decade, several independent worldwide efforts have attempted to develop paths towards a next-generation long-baseline neutrino experiment, including in the U.S. with LBNE, in Europe with LBNO and in Japan with Hyper-Kamiokande. The community has %Such  studies have 
-generally recognized that putting in place %achieving 
-the conditions necessary to 
-execute this challenging science program in a comprehensive way requires previously independent 
-%worldwide experimental options 
-efforts to converge. 
+The far detector will be exposed to
+the world's most intense neutrino beam originating at Fermilab. 
+The intensity and energy spectrum of this wide-band beam will be characterized by a high-precision Near Detector
+located 575~m from the neutrino source on the Fermilab site.
+The Long Baseline Neutrino Facility (LBNF) provides the infrastructure for this complex system of detectors distributed over different locations.
+Under its umbrella, it combines the responsibility for the neutrino beam, 
+the deep-underground site, and the infrastructure for the DUNE detectors.
+This document presents 
+a Technical Proposal (TP) developed by an international collaboration of scientists and engineers to construct DUNE
+as a groundbreaking science experiment for long-baseline neutrino oscillation studies, for neutrino astrophysics and nucleon decay searches.
 
-In this context, the Deep Underground Neutrino Experiment (DUNE) represents the convergence of a substantial fraction of the worldwide neutrino-physics community around the 
-opportunity provided by the 
-large investment planned by the U.S. Department of Energy (DOE) to support 
-%%by 2023 - MAT removed this date as it is not clear what it refers to and is probably mis-leading 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{International Context}
+
+The DUNE Collaboration is a truly global organization comprising more than 1000 scientists and engineers from 31 countries. It represents
+the culmination of several worldwide efforts that developed independent paths towards a next-generation long-baseline neutrino experiment over the last decade.
+It was formed in April 2015 combining the strengths of the LBNE project in the US and the LBNO project in Europe, adding new international 
+partners in the process. DUNE thus represents the convergence of a substantial fraction of the worldwide neutrino-physics community around the 
+opportunity provided by the large investment planned by the U.S. Department of Energy (DOE) to support 
 a significant expansion of the underground infrastructure at the Sanford Underground Research 
-Facility (SURF) in South Dakota, \SI{1300}{\km} from Fermilab, and to create a megawatt neutrino-beam facility at Fermilab by 2026.  The PIP-II accelerator upgrade~\cite{pip2-2013} at 
-Fermilab will drive the new neutrino beamline at Fermilab with a beam power\footnote{assuming a \SI{120}{\GeV} primary proton beam. For a \SI{80}{\GeV} primary proton beam, the corresponding beam power is \SI{1.07}{\MW}.} of up to \SI{1.2}{\MW}, with a planned upgrade 
-of the accelerator complex to enable it to provide up to \SI{2.4}{\MW} of beam power by 2030.  
+Facility (SURF) in South Dakota and to create a megawatt neutrino-beam facility at Fermilab by 2026. 
+This intense neutrino beam will be achieved by the PIP-II upgrade~\cite{pip2-2013}, 
+which will enable the accelerator to drive the new neutrino beamline with a beam power\footnote{assuming a \SI{120}{\GeV} primary proton beam. 
+For a \SI{80}{\GeV} primary proton beam, the corresponding beam power is \SI{1.07}{\MW}.} of up to \SI{1.2}{\MW}. A further planned upgrade 
+of the accelerator complex will enable it to provide up to \SI{2.4}{\MW} of beam power by 2030.  
 
-This document presents %therefore represents a 
-the Technical Proposal (TP) put forward by an international collaboration to pursue 
-the Deep Underground Neutrino Experiment at the Long-Baseline Neutrino Facility (LBNF/DUNE),
-a groundbreaking science experiment for long-baseline neutrino oscillation studies and for neutrino astrophysics and nucleon decay searches. 
+The physics case for LBNF and DUNE was highlighted as a strategic priority in the 2014 report
+by the Particle Physics Project Prioritization Panel (P5), which defines the long-term strategy and priorities for U.S. investments 
+in particle physics~\cite{p5report2014}. These recommendation are in line with the 
+European Strategy for Particle Physics (ESPP) adopted in 2013~\cite{ESPP-2012} which recommends to develop 
+a programme to pave the way for a substantial European role in future long-baseline experiments.
 
-The physics case for the LBNF neutrino facility was highlighted as a strategic priority in the 2014 P5 report~\cite{p5report2014}.
-P5 identified the following minimum requirements for LBNF to proceed: 
+The P5 report identifies the  minimum requirements for LBNF to proceed: 
 the identified capability to reach an exposure of at least 120~\ktMWyr{}~\footnote{An exposure
 of 1 MW.year corresponds to $1\times 10^{21}$ protons-on-target per year at 120 GeV. This includes the LBNF beamline efficiency which is estimated to be 56\%.}  by the 2035 timeframe;
 the far detector situated underground with cavern space for expansion to at least 40-kt LAr fiducial;
@@ -41,51 +48,40 @@ the far detector situated underground with cavern space for expansion to at leas
 demonstrated capability to search for supernova bursts; and
 a demonstrated capability to search for proton decay, 
 providing a significant improvement in discovery sensitivity over current searches for the proton lifetime.
-Furthermore, P5 identified  the \textit{goal} of a sensitivity to CP violation of better than 3$\sigma$ over more than 75\% 
+Furthermore, P5 identified the goal of a sensitivity to CP violation of better than 3$\sigma$ over more than $75\%$ 
 of the range of possible values of the unknown CP-violating phase \deltacp.
-The strategy presented in this TP meets all of these requirements.
+
+The strategy and design choices presented in this TP meet all of these requirements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The DUNE Technical Proposal Volumes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{A Roadmap of the TP}
+%\subsection{A Roadmap of the TP}
 
-The DUNE TP describes the proposed physics program and 
-conceptual technical designs of the facility and detectors.  At this stage, the design is
-still undergoing development and the CDR therefore presents a \textit{reference design} for each element as well as any 
-\textit{alternative designs} that are under consideration.
+The DUNE Technical Proposal (TP) describes the proposed physics program and 
+conceptual technical designs of the facility and detectors in preparation for the full Technical Design Report (TDR)
+to be published in 2019. Two prototype liquid-argon detectors, ProtoDUNE Single-phase (SP) and Dual-phase (DP) are currently under construction at CERN. This TP represents our best knowledge of the final design of the far detectors at this moment
+in time. However, the experience gained from building and then operating ProtoDUNE using cosmic rays and a charged-particle beam will be crucial for refining and optimizing the design choices to be presented in the TDR. The TP is an intermediate
+milestone on the path to a full TDR, justifying the technical choices that will enable the DUNE experiment
+to make discoveries and answer the flagship physics questions. These technical design choices therefore flow from
+the requirements defined by the high-level physics goals.
 
-The CDR is composed of four volumes and is supplemented
-by several annexes that provide details of the physics program and technical designs. The volumes are as follows:
-
+In addition to this Executive Summary, the TP comprises three volumes describing the two liquid-argon detector 
+technologies, as well as the installation and integration plans for the detector.
 \begin{itemize}
-%  Anne added %% Feb 2018   so it would compile; will fix later
-
-%\item \volintro{} --- provides an executive summary of and strategy for the experimental 
-\item program and of the CDR as a whole.
-%\item \href{http://arxiv.org/abs/1512.06148}{\volphys{}} --- outlines the scientific objectives and describes the physics studies that 
-the DUNE collaboration will undertake to address them.
-%\item \vollbnf{} --- describes the LBNF project, which includes design and construction of the 
-beamline at Fermilab, the conventional facilities at both Fermilab and SURF, and the cryostat
- and cryogenics infrastructure required for the DUNE far detector.
-%\item \href{http://arxiv.org/abs/1601.02984}{\voldune{}} --- describes the DUNE project, which includes the design, construction and 
-commissioning of the near and far detectors. 
+ \item Single-phase DUNE Far Detector (Volume~2)
+ \item Dual-phase DUNE Far Detector (Volume~3)
+ \item Installation and Integration (Volume~4)
 \end{itemize}
+The Executive Summary describes the general aims of this document, In addition, it contains discussions of a possible calibration strategy for the liquid-argon detectors, and of a computing and software model for DUNE. It will then introduce
+the primary and ancillary science programs. Volumes 2 and 3 are devoted to the two complementary technology choices for the
+liquid-argon detectors. The single-phase detectors read out the drifting charge using large wire planes (Anode Plane Assemblies, APAs) immersed in the liquid argon. The complementary dual-phase technology is based on amplifying 
+the charge in a gaseous volume
+on top of the liquid argon employing Large Electron Multipliers (LEMs). 
+The feasibility of both technologies is currently demonstrated by the two ProtoDUNE detectors at CERN.
 
-More detailed information for each of these volumes is provided in a set of annexes listed on the \href{https://web.fnal.gov/project/LBNF/SitePages/Proposals%20and%20Design%20Reports.aspx}{Proposals and Design Reports} 
-page. 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{About this Volume}
-
-This introductory volume of the LBNF/DUNE Conceptual Design Report provides an overview of LBNF and
-DUNE (Chapter~\ref{ch:project-overview}), including the strategy that is being developed to construct, install and commission the technical and conventional facilities in accordance with the requirements set out by the P5 report of 2014~\cite{p5report2014}, which, in turn, is in line with the CERN
-European Strategy for Particle Physics (ESPP) of 2013~\cite{ESPP-2012}. This volume also introduces the DUNE science program (Chapter~\ref{ch:exec-summ-physics}) and the technical designs of the facilities and the detectors 
-(Chapter~\ref{v1ch:tech-designs}). It concludes with a description of the LBNF and DUNE organization and management structures (Chapter~\ref{v1ch:org-mgmt}).
-
-
+Integration and Installation
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Compelling Scientific Program}
@@ -147,15 +143,15 @@ to observe very low-energy phenomena such as solar neutrinos or even the diffuse
 \section{Overall LBNF/DUNE Project Strategy} %Global LBNF/DUNE Strategy}
 
 The LBNF/DUNE project (the ``project'') strategy presented in this CDR has been developed to meet the requirements 
-set out in the P5 report and %taking 
-takes into account the recommendations of the CERN European Strategy for Particle 
-Physics (ESPP) of 2013, which classified the long-baseline neutrino program as 
+set out in the report of the Particle Physics Project Prioritization Panel (P5) report 
+takes into account the recommendations of the European Strategy for Particle 
+Physics (ESPP) adopted by CERN Council in 2013, which classified the long-baseline neutrino program as 
 one of the four scientific objectives with required international infrastructure.
 
-The Report of the Particle Physics Project Prioritization Panel (P5) 
+The P5 report 
 states that for a long-baseline neutrino oscillation experiment, ``The 
 minimum requirements to proceed are the identified capability to reach an exposure 
-of \num{120}~\ktMWyr{} by the 2035 timeframe, the far detector situated underground 
+of \num{120}~\ktMWyr{} by the 2035 time frame, the far detector situated underground 
 with cavern space for expansion to at least 40~kt LAr fiducial volume, and 1.2~MW 
 beam power upgradable to multi-megawatt power. The experiment should have the demonstrated 
 capability to search for supernova bursts and for proton decay, providing a significant 
@@ -166,7 +162,7 @@ the strategy presented here meets these criteria.
 
 With the availability of space for expansion and improved access at SURF, %the Sanford aboratory, 
 the international DUNE collaboration proposes to construct a deep-underground neutrino observatory based on four independent \ktadj{10} LArTPCs at this site. %the Sanford Underground Research Facility.  
-The goal is the deployment of two \ktadj{10} fiducial mass detectors in a relatively short timeframe, followed by future expansion to the full detector size as soon thereafter as possible. 
+The goal is the deployment of two \ktadj{10} fiducial mass detectors in a relatively short time frame, followed by future expansion to the full detector size as soon thereafter as possible. 
 
 Several LArTPC designs are under development by different groups worldwide, involving both single- and dual-phase readout technology.
 The DUNE %international 
@@ -237,9 +233,9 @@ The P5 recommendation of sensitivity to CP violation of 3$\sigma$ for 75\% of $\
 values can be reached with an exposure of \num{850}~\ktMWyr{} with an optimized beam.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The International Organization and Responsibilities}
+\section{International Organization and Responsibilities}
 
-The % removed per SP successful 
+The
 model used by CERN for managing the construction and exploitation of the LHC and its experiments was used as a starting point for the joint management of LBNF and the experimental program.  Fermilab, as the host laboratory, has the responsibility for the facilities and their operations 
 %\fixme{added per SP}
 and oversight of the experiment and its operations.  Mechanisms to ensure input from and coordination among all of the funding agencies supporting the collaboration, modelled on the CERN Resource Review Board, have been adopted. %The same (or -- per SP
