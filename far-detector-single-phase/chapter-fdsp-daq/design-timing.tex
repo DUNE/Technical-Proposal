@@ -26,7 +26,7 @@ vs. uTCA crate. Both systems have been sucessfully prototyped.
 The DUNE \dword{sp} \dword{detmodule} uses a development of the protoDUNE
 timing system. Synchronization messages are transmitted over a serial
 data stream with the clock embedded in the data. The format is
-described in DUNE DocDB-1651. Figure~\ref{fig:daq-readout-timing}
+described in DUNE DocDB-1651~\cite{docdb-1651}. Figure~\ref{fig:daq-readout-timing}
 shows the overall arrangement of components within the Single Phase
 Timing System(SPTS). A stable master clock, disciplined with a \SI{10}{\MHz}
 reference is used in the SPTS. A \dword{pps} is
@@ -34,7 +34,7 @@ also received by the system and is time-stamped onto a counter clocked
 by the SPTS master clock, however the periodic synchronization
 messages distributed to the \dword{sp} \dword{detmodule} are an exact number
 of clock cycles apart even if there is jitter in the \dword{pps}.
-\fixme{Need reference added for DocDB-1651.}
+%\fixme{Need reference added for DocDB-1651.}  done - ATH, 4/16/18
 
 The GPS signal is encoded onto optical fibre and transmitted to the
 CUC, where it is converted back to an RF signal on coaxial cable and
@@ -86,7 +86,7 @@ standard star-point backplane to the fanout AMCs which each drive the
 signal onto up to 13 SFP cages. The SFP cages are either occupied by
 1000Base-BX SFPs, each of which connects to a fibre running to an APA,
 or to a Direct Attach cable which connects to systems elsewhere in the
-CUC, i.e. the \dword{rce} crates and the data selection system. This
+CUC, {\it i.e.} the \dword{rce} crates and the data selection system. This
 arrangement is shown in figure \ref{fig:daq-readout-sp-timing}
 
 

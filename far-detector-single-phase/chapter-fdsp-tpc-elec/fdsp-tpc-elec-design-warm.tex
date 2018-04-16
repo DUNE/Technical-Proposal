@@ -1,14 +1,12 @@
-\fixme{\bf The third figure in this subsection (on LV power distribution) should be updated to reflect the DUNE FD design. Labeled the figure as clearly the protoDUNE system in the caption and described the possible DUNE changes - MW}
-
 The warm interface electronics must provide an interface between the Cold Electronics and DAQ, timing and slow control systems, including local power control at the flange and a real-time diagnostic readout. They are housed in the WIECs attached directly to the CE flange.  The WIEC shown in Figure~\ref{fig:tpcelec-flange} 
 contains one
 Power and Timing Card (PTC), five Warm Interface Boards (WIBs) and a passive
 Power and Timing Backplane (PTB), which fans out signals and LV power from the PTC to the WIBs. The WIEC must provide a Faraday-shielded housing, robust ground connections from the warm electronics boards to the detector ground described in Section~\ref{DETECTOR GROUND}, and only optical fiber links to the DAQ and slow control, to mitigate noise introduced at the CE feed-through.
 
 \begin{dunefigure}
-[Exploded view of the signal flange for protoDUNE-SP.]
+[Exploded view of the CE signal flange for ProtoDUNE-SP.  The design will be very similar for the DUNE far detector CE signal flange (with two CE signal flanges per feed-through).]
 {fig:tpcelec-flange}
-{Exploded view of the signal flange for protoDUNE-SP.}
+{Exploded view of the CE signal flange for ProtoDUNE-SP.  The design will be very similar for the DUNE far detector CE signal flange (with two CE signal flanges per feed-through).}
 \includegraphics[width=0.9\linewidth]{tpcelec-flange.png}
 \end{dunefigure}
 
@@ -27,26 +25,26 @@ the WIB on the warm side. Cable strain relief for the cold cables is
 supported from the back end of the feedthrough.
 
 \begin{dunefigure}
-[Power and Timing Card (PTC) and timing distribution to the WIB and FEMBs used in protoDUNE-SP.]
+[Power and Timing Card (PTC) and timing distribution to the WIB and FEMBs used in ProtoDUNE-SP.]
 {fig:tpcelec-wib_timing}
-{Power and Timing Card (PTC) and timing distribution to the WIB and FEMBs used in protoDUNE-SP.}
+{Power and Timing Card (PTC) and timing distribution to the WIB and FEMBs used in ProtoDUNE-SP.}
 \includegraphics[width=0.8\linewidth]{tpcelec-wib_timing.pdf}
 \end{dunefigure}
 
-The protoDUNE-SP PTC provides a bidirectional fiber interface to the
+The ProtoDUNE-SP PTC provides a bidirectional fiber interface to the
 timing system. The clock and data
 streams are separately fanned-out to the five WIBs as shown in
 Figure~\ref{fig:tpcelec-wib_timing}. The PTC fans the clocks out to the WIB over the
 PTB, which is a passive backplane attached directly to the PTC and
 WIBs.  The received clock on the WIB is separated into clock and
 data using a clock/data separator. Timing endpoint firmware to receive and transmit
-the clock is integrated in the WIB FPGA (the Altera Arria V was used for protoDUNE-SP).
-The single-phase far detector timing system, described in~\ref{sec:fdsp-daq-timing}, is a development of the protoDUNE-SP system, and expected to require the nearly identical functionality at the WIB endpoint.
+the clock is integrated in the WIB FPGA (the Altera Arria V was used for ProtoDUNE-SP).
+The single-phase far detector timing system, described in~\ref{sec:fdsp-daq-timing}, is a development of the ProtoDUNE-SP system, and expected to require the nearly identical functionality at the WIB endpoint.
 
 \begin{dunefigure}
-[LV power distribution to the WIB and FEMBs implemented for protoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs. In particular the voltages to the FEMB0-3 will change as the protoDUNE-SP FPGA is replaced by COLDATA. ]
+[LV power distribution to the WIB and FEMBs implemented for ProtoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs. In particular the voltages to the FEMB0-3 will change as the ProtoDUNE-SP FPGA is replaced by COLDATA. ]
 {fig:tpcelec-wib_power}
-{LV power distribution to the WIB and FEMBs implemented for protoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs. In particular the voltages to the FEMB0-3 will change as the protoDUNE-SP FPGA is replaced by COLDATA. }
+{LV power distribution to the WIB and FEMBs implemented for ProtoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs. In particular the voltages to the FEMB0-3 will change as the ProtoDUNE-SP FPGA is replaced by COLDATA. }
 \includegraphics[width=0.7\linewidth]{tpcelec-wib_power.pdf}
 \end{dunefigure}
 
@@ -80,7 +78,7 @@ the detector's construction, 12b/14b encoding will be used instead of 8b/10b.
 \includegraphics[width=0.9\linewidth]{tpcelec-dune_wib.jpg}
 \end{dunefigure}
 
-The FPGA on the protoDUNE-SP WIB is an Altera Arria V GT variant, which has
+The FPGA on the ProtoDUNE-SP WIB is an Altera Arria V GT variant, which has
 transceivers that can drive the high-speed data to the DAQ system up to
 10.3125~Gbps per link, implying that all data from
 two FEMB (2$\times$5~Gbps) could be transmitted on a single link.
