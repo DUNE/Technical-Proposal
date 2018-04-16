@@ -8,13 +8,28 @@ The DUNE FD DAQ system comprises the classes of components listed below. In each
 
 \subsubsection{Custom electronic modules}
 
-Custom electronic modules, specified and designed by the DAQ consortium, will be used for real-time data processing (in the case of the SP TPC detector) and for interfacing detector electronics to the DAQ computing system. In the baseline system design, these modules are in ATCA blade and PCIe expansion card format respectively. They are likely to be based on the existing COB and FELIX designs used in ProtoDUNE-SP, but will be new versions of these modules optimised for DUNE requirements. It is possible that we will make use of commercially-designed hardware in one or other of these roles. DAQ consortium institutes have significant experience in the design and production of high performance digital electronics for previous experiments. Our strategy is therefore to carry out design in-house, manufacturing and QA steps in industry, and testing and QC procedures at a number of specialised centres. Where technically and economically feasible, modules will be split into subassemblies (e.g. carrier board plus processing daughtercards), allowing production tasks to be spread over more consortium institutes.
+Custom electronic modules, specified and designed by the DAQ consortium,
+will be used for real-time data processing (in the case of the SP TPC
+detector) and for interfacing detector electronics to the DAQ computing
+system. In the baseline system design, these modules are in ATCA blade
+and PCIe expansion card format respectively. They are likely to be based
+on the existing COB and FELIX designs used in ProtoDUNE-SP, but will be
+new versions of these modules optimised for DUNE requirements. It is
+possible that we will make use of commercially-designed hardware in one
+or other of these roles. DAQ consortium institutes have significant
+experience in the design and production of high performance digital
+electronics for previous experiments. Our strategy is therefore to carry
+out design in-house, manufacturing and QA steps in industry, and testing
+and QC procedures at a number of specialised centres. Where technically
+and economically feasible, modules will be split into subassemblies
+({\it e.g.} carrier board plus processing daughtercards), allowing
+production tasks to be spread over more consortium institutes.
 
 DUNE electronic hardware will be of relatively high performance by commercial standards, and will contain high value subassemblies such as large FPGAs. Achieving a high yield will require significant effort in design verification, prototyping and pre-production tests, as well as in tendering and vendor selection. The production schedule is largely driven by these stages and the need for thorough testing and integration with firmware and software before installation, rather than by the time for series hardware manufacture. This is somewhat different to the majority of other DUNE FD components.
 
 \subsubsection{Commercial computing}
 
-The majority of procured items will be standard commercial computing equipment, in the form of compute and storage servers. Here, the emphasis will be on correct definition of the detailed specification, and the tracking of technology development, such that best value for money is obtained during the tendering process. Computing hardware will be procured in several tranches, as the need for DAQ throughput increases during the construction period. 
+The majority of procured items will be standard commercial computing equipment, in the form of compute and storage servers. Here, the emphasis will be on correct definition of the detailed specification, and the tracking of technology development, such that best value for money is obtained during the tendering process. Computing hardware will be procured in several batches, as the need for DAQ throughput increases during the construction period. 
 
 \subsubsection{Networking and data links}
 
@@ -42,5 +57,17 @@ The lifetime of most electronic assemblies or commercial computing components wi
 
 \subsection{Integration testing}
 
-Since the DAQ will use subcomponents produced by many different teams, integration testing is a key tool in ensuring compatibility and conformance to specification. This is particularly important in the prototyping phase before the design of final hardware. Once pre-production hardware is in hand, an extended integration phase will be necessary in order to perform final debugging and performance tuning of firmware and software. In order to facilitate ongoing optimisation in parallel with operations, and compatibility testing of new hardware or software, we envisage the construction of one or more permanent integration test stands at DAQ institutes. These will be in locations allowing them to be accessed easily by the majority of consortium members, e.g. at major labs in Europe and the US. A temporary DAQ integration and testing facility near to SURF will also be required as part of the installation procedure.
-
+Since the DAQ will use subcomponents produced by many different teams,
+integration testing is a key tool in ensuring compatibility and
+conformance to specification. This is particularly important in the
+prototyping phase before the design of final hardware. Once
+pre-production hardware is in hand, an extended integration phase will
+be necessary in order to perform final debugging and performance tuning
+of firmware and software. In order to facilitate ongoing optimisation in
+parallel with operations, and compatibility testing of new hardware or
+software, we envisage the construction of one or more permanent
+integration test stands at DAQ institutes. These will be in locations
+allowing them to be accessed easily by the majority of consortium
+members, {\it e.g.} at major labs in Europe and the US. A temporary DAQ
+integration and testing facility near to SURF will also be required as
+part of the installation procedure.
