@@ -54,11 +54,13 @@ Initial inputs are formed at the channel level, then combined at the
 In addition, the \dword{trigdecision} process combines this level of
 information that may come from the other \dwords{detmodule} as well as
 information sources external to the DAQ. 
-The control of the detector elements will prevent a fault in one part
-from halting data taking in another part, certainly at the per-cavern
-level, and potentially also at more local levels. 
-This will allow a supernova burst to be recorded in all operational
-parts of the detector.
+This hierarchical structure in forming and consuming triggers will
+allow safeguards to be developed so that any problems in one cavern or
+in one \dword{detunit} of one \dword{detmodule} need not overwhelm the
+entire DAQ.
+It will also allow a supernova neutrino burst to be recorded in all
+operational parts of the detector while others may be down for
+calibration or maintenance.
 
 Generally speaking, the DAQ consists of data and trigger flow.
 The trigger flow involved in self-triggering originates from

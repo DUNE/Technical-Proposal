@@ -282,6 +282,16 @@ from the entire \dword{detmodule} is saved for a period longer than
 two drift times around the trigger time.
 This will essentially remove any selection bias at the cost of
 recording a substantial amount of data that will simply contain noise.
+Detailed trigger efficiency studies still remain to be performed. 
+Initial understanding indicates that trigger efficiency should be near
+100\% for localized energy depositions of at least \SI{10}{\MeV}. 
+Sub-\si{\MeV} signals can be ascertained from noise in existing LArTPC
+so the effective trigger threshold may be even lower with high
+efficiency. 
+Of course data rates rise quickly when the threshold drops into the
+range of an \si{\MeV}. 
+Additional simulation and use of early data will be used to better
+optimize this threshold.
 
 \begin{dunetable} [Uncompressed data rates for one SP module.]
   {p{0.30\textwidth}p{0.13\textwidth}p{0.4\textwidth}}
@@ -382,6 +392,7 @@ systems:
 \item Timing distribution system
 \item DAQ data handling software including receiving and building of
   events
+\item Online monitoring of DAQ performance and data content.
 \item Run control software, configuration database, and user interface
 \item Rack infrastructure in the central utility cavern for readout
   electronics, front-end computing, timing distribution, and data
