@@ -34,17 +34,8 @@ Typical electric fields between each stage of the readout are
 illustrated in Figure~\ref{fig:setup}. Table~\ref{tab:crp_dist} shows
 the inter-stage distance and the tolerances required to obtain
 uniformity of gain to within $\sim$5\%.
-\fixme{Need a reference to the first figure and a caption for it. Anne}
-
-\begin{dunefigure}[optional caption for LoF]{fig:figure-label-crp1}
-{required full caption (Credit: xyz)}
-\includegraphics[width=0.8\textwidth]{CRP-fig1.png}
-\end{dunefigure}
-
-The operating principle is illustrated in Figure~\ref{fig:dualphase-principle}.
-
-\begin{dunefigure}[Dual-phase readout]{fig:dualphase-principle}{Illustration of the electric fields in the amplification region of a dual-phase LArTPC. The simulated field lines in dark blue indicate the paths followed by the drifting charges (without diffusion).}
- \includegraphics[width=.8\textwidth]{dualphase-principle}  
+\begin{dunefigure}[Dual-phase readout]{setup}{Illustration of the electric fields in the amplification region of a dual-phase LArTPC. The simulated field lines in dark blue indicate the paths followed by the drifting charges (without diffusion).}
+ %\includegraphics[width=.8\textwidth]{double_phase_principle.pdf}  
 \end{dunefigure}
 \begin{dunetable}[Interstage distances and electric field settings of the dual-phase readout components]{lp{2cm}p{2cm}l}{crp_dist}{Interstage distances and electric field settings of the dual-phase readout components.} 
  Component & Distance [mm] & Tolerance [mm] & Electric field [kV/cm]  \\ \toprowrule
@@ -56,6 +47,17 @@ The operating principle is illustrated in Figure~\ref{fig:dualphase-principle}.
 The extraction grid, LEM and anode are assembled into three-layered ``sandwiches'' with precisely defined inter-stage distances and inter-alignment,  which are then connected together horizontally into
 modular units of area \num{9}~m$^2$. These units are called Charge Readout Planes (CRPs).
 
+The Charge Readout Planes provide ...
+The system includes (whatever it includes), as shown in Figure~\ref{fig:figure-label-crp1}.... 
+
+
+
+\begin{dunefigure}[optional caption for LoF]{fig:figure-label-crp1}
+{required full caption (Credit: xyz)}
+\includegraphics[width=0.8\textwidth]{CRP-fig1.png}
+\end{dunefigure}
+
+The operating principle is illustrated in Figure~\ref{fig:figure-label-crp2}... (add figure)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,6 +84,8 @@ dedicated signal-feedthrough chimneys using 50-cm-long flat cables.
 Each CRP is independently hung from the vessel deck through its three
 suspension feedthroughs. It has its own high voltage system and 
 independent signal and slow-control feedthroughs.
+The Charge Readout Planes design must enable... 
+...
 
 \fixme{Anne suggests: Within this section add ref to requirements document  when it's ready, and maybe list the most important half dozen in a table here). E.g.,}  
 
@@ -156,13 +160,9 @@ The design of the track patterns forming the strips is such that both x and y vi
 \label{sec:fddp-crp-suspension}
 Three suspension feedthroughs are arranged as an equilateral triangle whose barycenter coincides with that of the CRP; they suspend the CRP at the required position and precisely adjust the CRP level with respect to the liquid argon surface
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Quality Assurance}
 \label{sec:fddp-crp-qa}
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Production and Assembly}
@@ -176,7 +176,6 @@ Three suspension feedthroughs are arranged as an equilateral triangle whose bary
 \subsection{LEM and anode production}
 \label{sec:fddp-crp-LASprod}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tooling}
 \label{sec:fddp-crp-tooling}
@@ -187,14 +186,11 @@ Three suspension feedthroughs are arranged as an equilateral triangle whose bary
 \label{sec:fddp-crp-assy}
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interfaces}
 \label{sec:fddp-crp-intfc}
 
 \fixme{Include an image of each interface in appropriate section.}
-
-\fixme{Add in appropriate subsections for the pieces that the Charge Readout Planes interfaces with. These initial ones may not be right.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{TPC Electronics}
@@ -202,8 +198,16 @@ Three suspension feedthroughs are arranged as an equilateral triangle whose bary
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{}
-\label{sec:fddp-crp-intfc-?}
+\subsection{Instrumentation and HV Feed-through flanges}
+\label{sec:fddp-crp-intfc-FT}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cryostat/Detector Support Structure}
+\label{sec:fddp-crp-intfc-support}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{HV/Slow control}
+\label{sec:fddp-crp-intfc-HV-slowcontrol}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -238,8 +242,6 @@ Three suspension feedthroughs are arranged as an equilateral triangle whose bary
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Post-factory Installation (Remote)}
 \label{sec:fddp-crp-qc-remote}
-
-
 
 
 
