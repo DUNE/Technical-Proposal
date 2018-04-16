@@ -25,34 +25,37 @@ software for the slow controls.
 \subsection{Slow Controls Hardware}
 \label{sec:fdgen-slow-cryo-hdwr}
 
+The slow controls requires a small amount of dedicated network and
+computing hardware as described below.  It also relies on common
+infrastructure, as described in
+sec.\ \ref{sec:fdgen-slow-cryo-slow-infra}.
+
 % % % % Alec
 \subsubsection{Slow Controls Network Hardware}
 \label{sec:fdgen-slow-cryo-slow-network}
-The Slow Controls data originates from the sensors discussed in
-Sec.~\ref{sec:fdgen-cryo-instr}, then heads towards the central
-CISC database housed in the CUC /counting room/
-(Sec.~\ref{sec:fdgen-slow-cryo-slow-compute}).  It gets there over
+The Slow Controls data originates from the cryogenic instrumentation discussed in
+sec.~\ref{sec:fdgen-cryo-instr} and from other systems,
+and is collected by software running on servers
+(sec.~\ref{sec:fdgen-slow-cryo-slow-compute})
+housed in the underground data room in the \dlong{cuc} (\dshort{cuc}),
+where data is archived in a central CISC database.
+The instrumentation data is transported over
 conventional network hardware from any sensors located in the cryogenic
 plant.  However, the readouts which are located in the racks on top the
 cryostats have to be careful about grounding and noise.  Therefore, each
 rack on the cryostat will have a small network switch which will send
-any network traffic from that rack to the CUC via a fiber transponder.
-
-Network traffic out of SURF to Fermilab will be primarily database calls
-to that central CISC DB: either from monitoring applications, or from
-database replication to the offline version of the CISC DB.  This
-traffic is of a low enough bandwidth that the proposed general purpose
-links both out of the mine and back to Fermilab can accommodate it.
+any network traffic from that rack to the \dshort{cuc} via a fiber transponder.
+This is the only network hardware specific to slow controls;
+network infrastructure requirements are described in
+sec.\ \ref{sec:fdgen-slow-cryo-slow-infra}.
 
 % % % % Alec
 \subsubsection{Slow Controls Computing Hardware}
 \label{sec:fdgen-slow-cryo-slow-compute}
 
-Up to two racks of space and appropriate power and cooling are available
-in the CUC's DAQ server room for CISC usage.  Somewhat less space than
-that is currently envisioned: Two servers (a primary server and a
-replicated backup) suitable for the needed relational database discussed
-in Sec.~\ref{sec:fdgen-slow-cryo-sw} will be there, with an additional
+Two servers (a primary server and a replicated backup) suitable for the needed relational database discussed
+in Sec.~\ref{sec:fdgen-slow-cryo-sw} will be located in the \dshort{cuc} data
+rom, with an additional
 two servers to perform front-end monitoring interface services: for
 example, assembling dynamic CISC monitoring web pages from the adjacent
 databases.  Any special purpose software, such as iFix or EPICS, would
@@ -65,6 +68,7 @@ commissioning and independent operation, accommodate different module
 design (and the resulting differences in database tables), and ensure
 sufficient capacity.  Including fours sets of networking hardware, this
 would fit tightly into one rack or very comfortably into two.
+
 
 % % % % Alec and Sowjanya
 %% \subsubsection{Slow Controls Signal Processing Hardware}
@@ -81,6 +85,21 @@ would fit tightly into one rack or very comfortably into two.
 % Alec
 \subsection{Slow Controls Infrastructure}
 \label{sec:fdgen-slow-cryo-slow-infra}
+
+The total number of slow controls quantities and update rate are low enough
+that the data rate will be the tens of kilobytes per second range
+(sec.~\ref{sec:fdgen-slow-cryo-quant}), placing minimal requirements
+on the local network infrastructure.
+Network traffic out of SURF to Fermilab will be primarily database calls
+to the central CISC database: either from monitoring applications, or from
+database replication to the offline version of the CISC database.  This
+traffic is of a low enough bandwidth that the proposed general purpose
+links both out of the mine and back to Fermilab can accommodate it.
+
+Up to two racks of space and appropriate power and cooling are
+available in the \dshort{cuc}'s DAQ server room for CISC usage.
+Somewhat less space than that is currently envisioned, as described in
+\ref{sec:fdgen-slow-cryo-slow-compute}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sowjanya
@@ -145,7 +164,9 @@ appropriate ICDs (Interface Control Documents), and continually revised based on
 experience.  The total number of quantities to monitor has been very
 roughly estimated by taking the total number of quantities monitored
 in MicroBooNE and scaling by the detector length and the number of
-planes, giving a number in the range of 50k to 100k.  The subsystems
+planes, giving a number in the range of 50k to 100k.
+Quantities are expected to update on average no faster than once per minute.
+The subsystems
 to be monitored include the detector cryogenic instrumentation
 described in this chapter, the other detector systems, and relevant
 infrastructure and external devices. Table \ref{tab:gen-slow-quant}
