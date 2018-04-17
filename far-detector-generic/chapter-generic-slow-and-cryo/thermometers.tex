@@ -27,21 +27,23 @@ Platinum sensors with \SI{100}{\ohm} resistance (PT100 series), produced by Lake
 are adequate for the temperature range of interest, 83-92\si{K}, since in this range those sensors have high reproducibility 
 $\sim\SI{5}{mK}$ and absolute temperature accuracy of \SI{100}{mK}.
 In addition, the plan is to use the 4-wire readout greatly reducing the issues related to the lead resistance, any parasitic resistances,
-connections through the flange and general electromagnetic noise pick-up. The Lakeshore PT102 sensors (see Fig.~\ref{fig:sensor_cable}-Left)
+connections through the flange and general electromagnetic noise pick-up. The Lakeshore PT102 sensors
+%(see Fig.~\ref{fig:sensor_cable}-Left)
 have being previously used in the 35t prototype and ProtoDUNE SP detector,
 giving excellent results. For the inner readout cables a custom cable made by Axon is the baseline. It consists in four teflon-jacketed 
 cupper wires (AWG28), forming two twisted pairs, with an metallic external shield
-and an outer teflon jacket. Further details are given in Fig.~\ref{fig:sensor_cable}-Right. 
+and an outer teflon jacket.
+%Further details are given in Fig.~\ref{fig:sensor_cable}-Right. 
 The readout system will be described below in a separate subsection. 
 
 %As shown in Fig.~\ref{fig:sensor_cable}, the PT102 sensor has a length of \SI{21}{mm}, which can easily be accommodated in the DUNE T-gradient monitors. 
 
-\begin{dunefigure}[DUNE baseline choices for sensor and cable]{fig:sensor_cable}
-  {DUNE baseline choices for sensor and cable. Left: Schematic diagram of the PT102 sensor from the Lakeshore company. Right: Schematic diagram and properties of the four wires cable from the
-  Axon company}
-  \includegraphics[width=0.4\textwidth]{cisc_pt102.png}
-  \includegraphics[width=0.55\textwidth]{cisc_TAxonCable.png}
-\end{dunefigure}
+%\begin{dunefigure}[DUNE baseline choices for sensor and cable]{fig:sensor_cable}
+%  {DUNE baseline choices for sensor and cable. Left: Schematic diagram of the PT102 sensor from the Lakeshore company. Right: Schematic diagram and properties of the four wires cable from the
+%  Axon company}
+%  \includegraphics[width=0.4\textwidth]{cisc_pt102.png}
+%  \includegraphics[width=0.55\textwidth]{cisc_TAxonCable.png}
+%\end{dunefigure}
 
 Another set of lower precision sensors will be used to monitor the filling of the cryostat in its initial stage. Those sensors will be epoxied into the cryostat bottom membrane with
 a density to be determined, which will not exceed 1 sensor every \SI{5}{m}. 
@@ -67,7 +69,8 @@ which protects the sensors from thermal shocks and helps in minimizing convectio
 One of the sensors acts as reference while the other three are the ones being calibrated. Five independent calibrations
 are performed for each set of three sensors, such that the reproducibility of each sensor can be computed. For each calibration 
 the capsule is introduced in a PLA box of size \(9.5\times9.5\times\SI{19}{cm^3}\), with two concentrical independent volumes of LAr
-and sourounded by a polystyrene box with \SI{15}{cm} thick walls. A small quantity of LAr is used to slowly cooldown the capsule to $\sim\SI{90}{K}$, avoiding thermal shocks that could dammage the sensors.
+and sourounded by a polystyrene box with \SI{15}{cm} thick walls. A small quantity of LAr is used to slowly
+cooldown the capsule to $\sim\SI{90}{K}$, avoiding thermal shocks that could dammage the sensors.
 Then the capsule is covered by LAr such that it penetrates
 inside fully covering the sensors. Once the temperature stabilizes to the 1-\SI{2}{mK} level (after 5-15 minutes) measurements are taken. Then the capsule is taken out from LAr
 and kept at room temperature until it reaches \SI{200}{K}. As mentioned above, this procedure is repeated five times, before going to the next set of three sensors.  
@@ -75,16 +78,19 @@ As shown in Figure ~\ref{fig:Trepro} a reproducibility (RMS of the mean offset i
 
 %The baseline design for the mechanics of the system is shown in Fig.~\ref{}. It consists in two stainless strings anchored at top and bottom corners of the cryostat
 The baseline design for the mechanics of the SP system consists in two stainless strings anchored at top and bottom corners of the cryostat
-using the available M10 bolts. One of the strings is used to route the cables while the other, separated \SI{34}{cm}, serves as support for temperature sensors.
+using the available M10 bolts (see Fig.~\ref{fig:sensor-support}-Left). One of the strings is used to route the cables while the other,
+separated \SI{340}{mm}, serves as support for temperature sensors.
 Given the height of the cryostat, the need of intermediate anchoring points is under discussion. For the DP detector no baseline design exists yet,
-since additional complications due to the required electric field shielding must be taken into account. Fig.~\ref{fig:sensor-support} shows baseline design of the
+since additional complications due to the required electric field shielding must be taken into account. Fig.~\ref{fig:sensor-support}-Right shows baseline design of the
 PCB support for temperature sensors, with an IDC-4 male connector. It has a size of $52\times \SI{15}{mm^2}$. Each four-wires cable from the sensor to the flange will have an IDC-4 female connector
 on the sensor side; on the other side, it will be directly soldered into the inner pins of male SUBD-25 connectors on the flanges. The CF63 side ports on DSS/cryogenic ports,
 which will be used to extract the cables. 
 
-\begin{dunefigure}[Temperature sensor support]{fig:sensor-support}
-  {Lakeshore PT102 sensor mounted on a PCB with an IDC-4 connector}
-  \includegraphics[width=0.3\textwidth]{cisc_TsensorSupport.jpg}%
+\begin{dunefigure}[Cryostat bolts and temperature sensor support]{fig:sensor-support}
+  {Left: bolts at the bottom corner of the cryostat. Right: Lakeshore PT102 sensor mounted on a PCB with an IDC-4 connector.}
+  \includegraphics[height=0.2\textwidth]{cisc_cryostat_bolts.png}%
+    \hspace{1cm}%
+  \includegraphics[height=0.2\textwidth]{cisc_TsensorSupport.jpg}%
 \end{dunefigure}
 
 
