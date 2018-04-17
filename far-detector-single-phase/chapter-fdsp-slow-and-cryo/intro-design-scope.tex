@@ -12,7 +12,7 @@
 % identical for SP and DP 
 The Cryogenic Instrumentation and Slow Controls (CISC) system provides
 a comprehensive monitoring for all detector components as well as for the liquid argon quality and behavior, both being crucial
-to guaranty a good quality of the data. CISC also provides a control system for some of the detector components. 
+to guaranty a good quality of the data. Beyond pasive monitoring, CISC also provides a control system for some of the detector components. 
 The structure of the CISC consortium is quite complex. A subsystem chart
 for the CISC system is shown in Fig. \ref{fig:sp-slow-cryo-subsys}. 
 
@@ -23,9 +23,10 @@ for the CISC system is shown in Fig. \ref{fig:sp-slow-cryo-subsys}.
 
 Two main branches can be distinguished: i) Cryogenics Instrumentation and ii) Slow Controls. The former includes a set of devices 
 to monitor the quality/behavior of the liquid argon volume in the cryostat interior, ensuring the correct functioning of
-the cryogenics system and the suitability of the LAr for good quality physics data. Those devices are:
+the full cryogenics system and the suitability of the LAr for good quality physics data. Those devices are:
 purity monitors, temperature monitors, gas analyzers, liquid argon level monitors, cameras and their associated
-light emitting system. Two other systems have been included as part of the Cryogenics Instrumentation,  
+light emitting system. Two other systems have been included by the DUNE management as part of the CISC consortium, and more specifically
+inside the Cryogenics Instrumentation branch,  
 a test facility for the instrumentation devices and the cryogenic piping inside the cryostat.
 
 Cryogenic Instrumentation also requires significant physics and
@@ -33,7 +34,7 @@ simulation work such as E-field simulations and cryogenics modeling
 studies using Computational Fluid Dynamics (CFD). E-field simulations
 are required to identify desirable locations for instrumentation
 devices in the cryostat such that they are not in regions of high electric potential and
-that the designs do not induce large field distortions. CFD
+that their designs do not induce large field distortions. CFD
 simulations are needed to understand the expected temperature,
 impurity and velocity flow distributions and guide the placement and
 distribution of instrumentation devices inside the cryostat.
@@ -76,10 +77,16 @@ to have such a long lifetime, provisions will be made in the overall
 design to allow replacement of devices after certain number of
 years where possible.
 The instrumentation devices must not introduce noise into the readout electronics in order to avoid confusing event reconstruction; this will be evaluated at ProtoDUNE.
-The electric field on the instrumentation devices is 
+As for any other element inside the cryostat, 
+the electric field on the instrumentation devices is 
 required to be less than \SI{30}{kV\per\cm},
-such that the risk of dielectric breakdown in LAr is minimized, which implies 
-the usage of E-field shielding for devices in regions of high electric potential. 
+such that the risk of dielectric breakdown in LAr is minimized.
+This requirement imposes stringent constraints on the location and mechanical 
+design of some of those devices. Electrostatic simulations (e.g. Comsol) 
+will be performed to compute the expected field on the boundaries of 
+instrumentation devices and to design the appropriate E-field shielding
+in the case the electric field approaches the limit. 
+
 Another common consideration for all instrumentation devices is their support structure
 design which is expected to be substantially different from the one used in ProtoDUNE.
 
@@ -180,13 +187,14 @@ Near Detector  status
 
 % identical for SP and DP
 
-The scope of the CISC system spans a broad range of activities. In the
+As descrived in above, and shown schematically in Fig.~\ref{fig:sp-slow-cryo-subsys},
+the scope of the CISC system spans a broad range of activities.  In the
 case of Cryogenics Systems (gas analyzers, liquid level monitors and
 cryogenic internal piping), LBNF will provide the needed expertise and
 is responsible for the design, installation and commissioning activities
 while the CISC consortium provides the cost and supplement the labor as
 needed. In the case of LAr Instrumentation Devices (purity monitors,
-thermometers, cameras, and light emitting system) and instrumentation
+thermometers, cameras and light emitting system) and instrumentation
 test facility, CISC will be responsible from design to commissioning in
 the far detectors.
 
@@ -204,8 +212,9 @@ The scope of systems that slow controls includes is listed below:
   \end{itemize}
 \item {\bf Slow Controls for External Systems}: export data from systems external to the detector and provide status to operators and archiving
   \begin{itemize}
-  \item Beam Status; Cryogenics status; DAQ status; Facilities systems
-  \item building controls; Detector hall monitoring; ground impedance monitoring
+  \item Beam Status; Cryogenics status; DAQ status; Facilities systems status
+  \item For the systems above import other interesting monitoring data as needed (e.g. pumps info from cryogenics system, heaters info from facility systems, etc)
+  \item Building controls; Detector hall monitoring; Ground impedance monitoring
   \item Interlock status bit monitoring (not the actual interlock mechanism)
   \end{itemize}
 \item {\bf Slow Controls for Detector Hardware Systems}: develop software interfaces for detector hardware devices
