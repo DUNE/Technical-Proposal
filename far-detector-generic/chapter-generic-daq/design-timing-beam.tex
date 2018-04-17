@@ -1,0 +1,63 @@
+
+
+\subsubsection{Beam timing}
+\label{sec:fd-daq-design-beamtiming}
+
+The neutrino beam is produced at the Fermilab accelerator complex in
+spills of \SI{10}{\us} duration. 
+A \dword{sls} at the far detector site will locate the time periods in
+the data when beam could be present, based on network packets received
+from Fermilab containing predictions of the GPS-time of spills soon to
+occur or absolute time stamps of spills recently occurring. 
+Experience from MINOS and NOvA shows that this can provide beam
+triggering with high reliability with some small fraction of late or
+dropped packets.
+To improve further the system outlined here contains an extra layer
+of redundancy in the prediction process. 
+Several stages prediction based on recent spill behavior will be applied aiming
+for an accuracy of better than 10\% of a readout
+time (sub-\si{\ms}) in time for the data to be selected from
+the DAQ buffers. 
+Ultimately, an offline database will match the actual time of the
+spill with the data, thus removing any reliance on real-time network
+transfer for this crucial stage of the oscillation measurements, the
+network transfer of spill-timing information is simply to ensure a
+correctly located and sufficiently wide window of data is considered
+as beam data. This system is not required, and is not designed to
+provide signals accurate enough to measure neutrino time-of-flight.
+
+The precision to which the spill time can be predicted at Fermilab
+improves as the acceleration process of the protons producing the
+spill in question advances.  The spills currently occur at intervals
+of \SI{1.3}{\s}; the system will be designed to work with any interval, and
+to be adaptable in case the sequence described here changes.  For
+redundancy, three packets will be sent to the far detector for each
+spill.  The first is approximately \SI{1.6}{\s} before the spill-time, which
+is at the point where a \SI{15}{\Hz} booster cycle is selected; from this
+point on, there will be a fixed number of booster cycles until the
+neutrinos and the time is subject to a few ms of jitter.  The second
+is about \SI{0.7}{\s} before the spill, at the point where the main injector
+acceleration is no longer coupled to the booster timing; this is
+governed by a crystal oscillator and so has a few \si{\us} of jitter.
+The third will be at the so called `\texttt{\$74}' signal which is just before the beam line kicker magnet fires
+to direct the protons at the LBNF target; this doesn't improve the
+timing at the far detector much, but serves as a cross check for
+missing packets.  This system is enhanced compared to that of
+MINOS/NOvA, which only use the third of the above timing signals.  The
+reason for the larger uncertainty in the time interval from \SI{1.6}{\s} to
+\SI{0.7}{\s} is that the booster cycle time is synchronised to the
+electricity supply company's \SI{60}{\Hz} which has a variation of about
+1\%.
+
+Arrival-time monitoring information from a year of MINOS data-taking
+was analysed, and it was found that 97\% of packets arrived within
+\SI{100}{\ms} of being sent and 99.88\% within \SI{300}{\ms}.
+
+The \dword{sls} will therefore have estimators of the GPS-times of
+future spills, and recent spills with associated data contained in the
+\dwords{ringbuffer}. These estimators will improve in precision as
+more packets arrive.  The DAQ will use data in a wider window than
+usual, if, at the time the trigger decision has to be made, the
+precision is less accurate due to missing or late packets.  From the
+MINOS monitoting analysis, this will be very rare.
+
