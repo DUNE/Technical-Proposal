@@ -74,9 +74,9 @@ such that the devices can survive for a period of at least 20 years
 (current official DUNE run time).  Since it is uncommon for any device
 to have such a long lifetime, provisions will be made in the overall
 design to allow replacement of devices after certain number of
-years whenever is possible. The noise from instrumentation devices need to be kept at the
-ALARA level where ALARA stands for As Low As Reasonably
-Achievable. The electric field on the instrumentation devices is 
+years where possible.
+The instrumentation devices must not introduce noise into the readout electronics in order to avoid confusing event reconstruction; this will be evaluated at ProtoDUNE.
+The electric field on the instrumentation devices is 
 required to be less than \SI{30}{kV\per\cm},
 such that the risk of dielectric breakdown in LAr is minimized, which implies 
 the usage of E-field shielding for devices in regions of high electric potential. 
@@ -142,9 +142,10 @@ Cryogenic Instrumentation Test Facility cryostat volumes
  to minimize the risk of dielectric breakdown in LAr
  & Yes: electrostatic simulation
 \\ \colhline
- Minimize noise from instrumentation devices
- & ALARA
- & Keep readout electronics free from external noise, which confuses event reconstruction (As Low As Reasonably Achievable)
+ Noise introduced into readout electronics
+ & Below significant levels
+ & Keep readout electronics free from external noise, which confuses event reconstruction
+ & To be evaluated at ProtoDUNE
 \\ \colhline
 Total no.\ of variables
  & 50k to 100k
