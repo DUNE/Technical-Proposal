@@ -39,16 +39,15 @@
 \subsection{Cryogenics Internal Piping}
 \label{sec:fdgen-slow-cryo-install-pipes}
 
-Installation of internal cryogenic pipes should occur soon after the cryostat is completed. A concrete installation procedure has not been yet produced, as it depends
-on some design considerations that still need to be clarified. In particular, for pipes inside the cryostat
-(vertical pipes and horizontal pipes on te floor), one of the main concerns is the thermal contraction, for which  
-several solutions are being considered. The installation procedure strongly depends on this.
 
-Regarding integration, the current 3D model for the internal cryogenic pipes is part of the full Cryostat model at CERN, who is currently responsible for the integration of the cryostat,
-detector, proximity cryogenics in the Detector Cavern.
+The installation of internal cryogenic pipes should occur soon after the cryostat is completed or towards the end of the cryostat completion, depending on how the cryostat work proceeds. A concrete installation plan will be developed by the company designing the internal cryogenics. It depends on how they address the thermal contraction of the long horizontal and vertical runs. We are investigating several options, which will have different installation sequences. In general though, prefabricated spool pieces (as long as allowed) will be delivered and welded together inside the cryostat. The vertical lines will be vacuum insulated, whereas the horizontal ones will just be bare pipes.
 
-Pipes will be tested in sections at the vendor's site before delivery, but no integrated test/commissioning is possible after installation. Internal cryogenics piping will
-be commissioned once the cryostat is closed.   
+The cool down assemblies will be installed in dedicated cool down feedthroughs at the top. There are two rows of ten each in the long direction of the cryostat. Each one features a liquid argon line connected to a gaseous argon line via a mixing nozzle and a gaseous argon line with spraying nozzles. The mixing nozzles generate droplets of liquid that are circulated uniformly inside the cryostat by the spraying nozzles. They are prefabricated at the vendor's site and delivered as full pieces, which will then be mounted over the feedthroughs.
+
+The current 3D model of the internal cryogenics is developed and archived at CERN as part of the full Cryostat model. CERN is currently responsible for the integration of the Detector Cavern: cryostat, detector, and proximity cryogenics in the Detector Cavern, including cryogenics on the mezzanine and main LAr circulation pumps.
+
+The prefabricated spool pieces and the cool down nozzles will be tested at the vendor's site before delivery. The installed pieces will be helium leak checked before commissioning, but no other integrated testing/commissioning is possible after the installation, because the pipes are open to the cryostat volume. The internal cryogenics will be commissioned once the cryostat is closed.
+
 
 \subsection{Purity Monitors}
 \label{sec:fdgen-slow-cryo-instal-pm}
@@ -77,10 +76,10 @@ ii) tension and verticality checks, iii) installation of cable supports in one o
 the sensor end towards the corresponding cryostat port, vi) cut all cables at the same point in that port, vii) solder cable wires to the pins of the SUBD-25 connectors on the flange,
 viii) plug sensors onto IDC-4 connectors at a later stage, just before moving corresponding APA into its final position. 
 
-Individual sensors on top ground plane will have to be integrated with the ground planes. For each CPA (with its corresponding 4 GP modules)
-going inside the cryostat, cable and sensor supports will be anchored to the GP threaded rods as soon as possible.
-Once the CPA is moved into its final position and its top GPs are ready to be unfolded, sensors on those GPs will be installed. Once unfolded, cables 
-exceeding the GP limits can be routed to the corresponding cryostat port either using neighboring GPs or DSS I-bins. 
+For the single phase, individual sensors on the top ground plane will have to be integrated with the ground planes. For each \dshort{cpa} (with its corresponding 4 \dshort{gp} modules)
+going inside the cryostat, cable and sensor supports will be anchored to the \dshort{gp} threaded rods as soon as possible.
+Once the \dshort{cpa} is moved into its final position and its top \dshort{gp}s are ready to be unfolded, sensors on those \dshort{gp}s will be installed. Once unfolded, cables 
+exceeding the \dshort{gp} limits can be routed to the corresponding cryostat port either using neighboring \dshort{gp}s or \dshort{dss} I-bins. 
 
 
 Dynamic T-gradient monitors will be installed after the completion of the detector.
@@ -123,6 +122,48 @@ For commissioning, before the beginning of the gas phase of the Cryostat commiss
 
 \subsection{Liquid Level Monitoring}
 \label{sec:fdgen-slow-cryo-install-llm}
+
+% % from John L:
+% The pressure sensitive level monitors will be installed with the general
+% instrumentation along the walls of the cryostat. Multiple sensors at the
+% same depth along with multiple routing is needed to insure reliability.
+% Post installation in situ testing of pressure sensors is still an open question.
+% 
+% The surface level monitoring with thermometers and capacitive level sensors may
+% need to wait until the field cage and APA's are installed. Some redundancy and
+% multiple routing are needed since these must be reliable for the duration of
+% the experiment. Post installation in situ testing of these types of sensors
+% can be accomplished with small dewars of cryogenic liquids, such as perhaps
+% liquid nitrogen.
+% 
+% % from David M:
+% Redundant differential pressure level meter will be installed. They
+% will be connected to the side penetration (at the bottom) and
+% dedicated instrumentation ports at the top. They will have a
+% sensitivity of \SI{0.1}{\percent} over the full range (14.0 m). A
+% capacitance level meter will also be installed. It will be used as
+% hardware interface with the slow control to interlock high voltage,
+% etc. based on the liquid argon level. It will measure then nominal
+% value (currently 13.5 m -0.6 / + 0.4 m).
+
+% Merge
+Multiple differential pressure level monitors will be installed in the
+cryostat.  They will be connected to the side
+penetration of the cryostat at the bottom, and to dedicated
+instrumentation ports at the top.
+% They will have a sensitivity of \SI{0.1}{\percent} over the full range (14.0 m). %<<< This is already in the design section, omit here to avoid having numbers in too many places.
+% Post installation in situ testing of pressure sensors is still an open question. %<<< Move this to QC?
+
+The capacitance level sensors will be installed at the top of the
+cryostat in coordination with \dshort{tpc} installation.  Their
+placement relative to the upper ground plane (single phase) or
+\dshort{crp} (dual phase) is important as these sensors will be used for a
+hardware interlock on the high voltage, and, in the case of the dual
+phase, to measure the LAr level at the millimeter level as required
+for dual phase operation.
+% It will measure then nominal value (currently 13.5 m -0.6 / + 0.4 m). <<< this already stated in the level meter design -- omit here to avoid having numbers in too many places
+Post installation in situ testing of the capacitive level sensors can be
+accomplished with a small dewar of liquid.
 
 
 \subsection{Cameras and light emitting system}
@@ -171,7 +212,7 @@ with other consortia and the DAQ group respectively.
 \subsection{Transport, handling and storage}
 \label{sec:fdgen-slow-cryo-install-transport}
 
-Most instrumentation devices will be shiped to SURF in pieces and mouted onsite. 
+Most instrumentation devices will be shipped to SURF in pieces and mounted on-site. 
 Instrumentation devices are in general small except the support structures for Purity Monitors and T-gradient monitors,
 which will cover the entire height of the cryostat. Being the load on those structures relatively small (\(<\SI{100}{kg}\)) they can be fabricated in parts of less than \SI{3}{m},
 which can be easily transported to SURF. Those parts can also be easily transported down the shaft and through the tunnels.
