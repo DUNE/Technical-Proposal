@@ -12,31 +12,38 @@
 \label{sec:fddp-tpc-elec-intro}
 
 The aim of the \dword{dp} TPC electronics is to collect and digitize the signals from the %Charge Readout Planes 
-(\dwords{crp}) and \dwords{pd} %photon detectors, 
-photomultiplier tubes (\dword{pmt}), in the \dword{dpmod}. 
-\fixme{something about its components: the \dword{cro} and the \dword{lro}}
+\dwords{crp} and \dwords{pds}, which implements %photon detectors, 
+photomultiplier tubes (\dwords{pmt}). %, in the \dword{dpmod}. 
+\fixme{something about its components: e.g., This system comprises a \dword{cro} to read out the \dwords{crp} (see chapter xyz) and a \dword{lro} to read out the \dwords{pmt} (see chapter xyz).
+}
 
-The design of the system incorporates the components already developed for the \Dword{pddp} as a result of an R\&D activity started in 2006. One of the key objectives of this R\&D program has been the design of an electronics system that is easily scalable and cost-effective in order to meet the needs of the large-scale \dword{dpmod}. % neutrino \dword{lar} detector.  
+\fixme{Also, if we have the TPC electronics ``system'' do we want the CRO and LRO ``subsystems''?}
 
-\fixme{you need a figure here - schematic maybe - showing the system and how it fits in with the other systems (anne)}
+The design of the system incorporates the components already developed for \dword{pddp} as a result of an R\&D activity started in 2006. One of the key objectives of this R\&D program has been the design of an electronics system that is easily scalable and cost-effective in order to meet the needs of the large-scale \dword{dpmod}. % neutrino \dword{lar} detector.  
+
+\fixme{you need a figure here - schematic maybe - showing the CRO and LRO system and how it fits in with the other systems (anne)}
 
 While a single \dword{dpmod} has a factor of \num{20} more readout (both charge and light) channels than \dword{pddp}, a simple scaling of the number of the components used in the prototype design is sufficient to meet these needs without necessitating any additional R\&D. A small-scale version of the TPC electronics system was used in a preliminary \dual \lartpc prototype, \dword{wa105},  at CERN with an active volume  of \SI[product-units=power]{3x1x1}{m} (\dword{crp} area of \SI[product-units=power]{3x1}{m}) that took data in the summer-fall of 2017. %The experience gained from the \dword{wa105} operation allowed to validate already some of the design choices and check various performance markers (e.g., noise). 
-Operation of the \dword{wa105} validatated some of the design choices and provided checks on various performance markers (e.g., noise). 
+Operation of the \dword{wa105} validatated some of the design choices and provided checks on various performance markers, e.g., noise. 
 
 The \dword{cro} system is designed to provide continuous, non-zero-suppressed, and losslessly compressed digital signals by reading the charge collected on the \dwords{crp}' \SI{3}{m} long strips that are arranged in two collection views, all with a pitch of \SI{3.125}{mm}.% in the \dword{crp}. 
 The system consists of %a 
-the \dword{fe} analog electronics operating at cryogenic temperatures and digital electronics working in the warm environment outside of the cryostat.  The cryogenic \dshort{fe} analog electronics is based on an application-specific integrated circuit (ASIC) chip with a large dynamic range (up to \SI{1200}{fC}) to cope with the charge amplification in the \dwords{crp}. The analog \dword{fe} cards are housed in dedicated signal feedthrough (\dword{sft}) chimneys and are accessible from the outside even after the \dword{dpmod} is in operation, thus removing any significant risks associated with their long-term survivability. The \dword{sft} chimneys are approximately \SI{2.3}{m} long objects that traverse the entire insulation layer of the cryostat allowing placement of the \dword{fe} electronics close to the \dword{crp} to minimize cable capacitance (noise).  In addition, their metallic structure shields the \dword{fe} cards 
-\fixme{\dword{fe} cards not defined; also need image}
-from any interference from the digital electronics and ambient environment. The analog signals are digitized by \dwords{amc}, which are housed in the commercial \dword{utca} crates on top of the cryostat near the \dword{sft} chimneys. 
+the \dword{fe} analog electronics operating at cryogenic temperatures and digital electronics working in the warm environment outside of the cryostat.  The cryogenic \dshort{fe} analog electronics is based on an application-specific integrated circuit (ASIC) chip with a large dynamic range (up to \SI{1200}{fC}) to cope with the charge amplification in the \dwords{crp}. The analog \dword{fe} cards are housed in dedicated signal feedthrough (\dword{sft}) chimneys and are accessible from the outside even after the \dword{dpmod} is in operation, thus removing any significant risks associated with their long-term survivability. The \dword{sft} chimneys are approximately \SI{2.3}{m} long objects 
+\fixme{metallic cylinders?} that traverse the entire insulation layer of the cryostat allowing placement of the \dword{fe} electronics close to the \dwords{crp} to minimize cable capacitance (noise).  In addition, their metallic structure shields the \dword{fe} cards 
+from any interference from the warm digital electronics and ambient environment. The analog signals are digitized by Advanced Mezzanine Cards \dwords{amc}, which are housed in the commercial \dword{utca} crates on top of the cryostat near the \dword{sft} chimneys. 
 
-The data are sampled at the rate of \SI{2.5}{MHz} with \SI{12}{bit} resolution.  This frequency, traditionally used in \lartpc experiments, is well matched to the \SI{1}{\micro\second} pulse-shaping time of the \dword{fe} electronics and the detector response times determined by the electron drift velocity in the \lar. The corresponding sampling resolution along the drift coordinate is better than \SI{1}{\mm}. 
+The data are sampled at the rate of \SI{2.5}{MHz} with \SI{12}{bit} resolution.  
+\fixme{both cro and lro? sounds like only cro.}
+This frequency, traditionally used in \lartpc experiments, is well matched to the \SI{1}{\micro\second} pulse-shaping time of the \dword{fe} electronics and the detector response times determined by the electron drift velocity in the \lar. The corresponding sampling resolution along the drift coordinate is better than \SI{1}{\mm}. 
 
 The \dword{lro} electronics collects and digitizes the signals from the \dword{pds}, which consists of \dword{tpb}-coated \num{8}\,in \dwords{pmt} (Hamamatsu\footnote{Hamamatsu\texttrademark R5912-02-mod} R5912-02-mod) located beneath the TPC cathode. The \dword{lro} electronics %should 
 facilitates the detection of the primary scintillation signals, which provide the absolute time reference for the interaction events. It %should 
 also enables recording the light signals generated by photons from the so-called \textit{proportional scintillation component}, the light created by the electrons extracted and amplified in the gaseous phase. 
-\fixme{what detection element is up there?} The electronics, consisting of analog and digital stages, is housed in the \dword{utca} crates on top of the cryostat structure. The card design shares a similar architecture with the \dwords{amc} for the charge readout. 
+\fixme{what light detection element is up there?} The \dword{lro}electronics, consisting of analog and digital stages, \fixme{add: similar to the \dword{cro} electronics} is housed in the \dword{utca} crates on top of the cryostat structure. The card design shares a similar architecture with the \dwords{amc} for the charge readout. \fixme{Need to introduce these cards before comparing them to those for the CRO}
 
-Each \dword{utca} crate for either charge or light readout is connected to the \dword{daq} system via an optical fiber link that supports at least \SI{10}{Gbit/s}. Every crate also contains a %module, 
+Each \dword{utca} crate for either charge or light readout is connected to the \dword{daq} system via an optical fiber link that supports at least \SI{10}{Gbit/s}. 
+\fixme{so you dont have both LRO and CRO through same chimneys to same crates; all chimneys and crates are either one or the other?}
+Every crate also contains a %module, 
 \dword{wrmch} for the time synchronization of the digital electronics. This timing slave unit is connected via \SI{1}{Gbit/s} optical fiber to a master node that serves as a synchronization reference for all the connected slave nodes on the network. This system for the time synchronization is based on the commercially available components developed within the framework of the (\dword{wr}) project with ad-hoc hardware and firmware developments. The system performs automatic and continuous self-calibrations to account for any propagation delays and is able to provide sub-\si{\nano\s} accuracy for the timing synchronization.
 
 
@@ -45,19 +52,20 @@ Each \dword{utca} crate for either charge or light readout is connected to the \
 \label{sec:fddp-tpc-elec-des-consid}
 
 %The principal requirements for the DP TPC electronics system can be summarized as:
+\fixme{Could we separate out CRO and LRO? It feels like this goes back and forth. They really are separate, aren't they?  Maybe separate into CRO, LRO and common considerations...?  Also I think this section could be trimmed quite a bit.}
 
 The design of the electronics for the charge readout covers the analog \dword{fe} cards containing pre-amplifier ASICs operating at cryogenic temperatures and digitization cards with the relevant system for their synchronization working in the warm environment outside of the cryostat. The system %should 
-reads and digitizes signals from a total of \num{153600} channels (per one \dword{dpmod}) and be capable of continuously streaming the collected and losslessly compressed data to the \dword{daq} without any zero suppression. 
+reads and digitizes signals from a total of \num{153600} channels (per one \dword{dpmod}) and is capable of continuously streaming the collected and losslessly compressed data to the \dword{daq} without any zero suppression. 
 The design of the \dshort{cro} electronics system was developed to fit the following requirements:
 \begin{itemize}
 \item{The \dword{cro} electronics %must be able to 
 shall measure signals of up to \SI{1200}{\femto\coulomb} without saturation; this has been optimized following \dword{mc} studies on the maximal occupancy per channel in shower events~\cite{WA105_TDR}. For a nominal \dword{crp} gain of \num{20}, a \dword{mip} signal is expected to be around \SI{30}{fC} -- the lowest limit that assumes a particle travelling horizontally with an azimuthal angle of \num{0} degrees -- giving %the 
 a maximal operational range of up to \num{40} \dwords{mip}.}
 
-\item{The electronic noise in the \dshort{cro} analog electronics is required to be \SI{<2500}{e^{-}}. This condition can be derived from the requirement on the minimal \dword{s/n}, which should be greater than \num{5}:\num{1} once the charge attenuation is taken into account. Given the maximum drift distance of \SI{12}{\meter}, the largest attenuation factor due to electro-negative impurities assuming the \SI{3}{\milli\second} (minimally required) electron lifetime and the drift field of \SI{0.5}{\kilo\volt/\cm} is \num{0.08}. The smallest \dword{mip} signal with the \dword{crp} effective gain of \num{20} is therefore \SI{2.5}{\femto\coulomb} (\SI{15600}{e^{-}}).}
+\item{The electronic noise in the \dshort{cro} analog electronics is required to be \SI{< 2500}{e^{-}}. This condition can be derived from the requirement on the minimal \dword{s/n}, which should be greater than \num{5}:\num{1} once the charge attenuation is taken into account. Given the maximum drift distance of \SI{12}{\meter}, the largest attenuation factor due to electro-negative impurities assuming the \SI{3}{\milli\second} (minimally required) electron lifetime and the drift field of \SI{0.5}{\kilo\volt/\cm} is \num{0.08}. The smallest \dword{mip} signal with the \dword{crp} effective gain of \num{20} is therefore \SI{2.5}{\femto\coulomb} (\SI{15600}{e^{-}}).}
 
 \item{The peaking time of the \dword{fe} analog amplifiers %should 
-shall be \SI{1}{\micro\second}. This requirement is driven by the the need for optimal vertex resolution, determined in turn by the single track resolution and the power to separate two or more tracks that are close to one another.}
+shall be \SI{1}{\micro\second}. This requirement is driven by the need for optimal vertex resolution, determined in turn by the single track resolution and the power to separate two or more tracks that are close to one another.}
 
 \item{The sampling frequency %should 
 shall be \SI{2.5}{\MHz} to match the peaking time of the \dword{fe} electronics.}
@@ -69,33 +77,42 @@ shall be below \SI{50}{\milli\watt/channel} in order to minimize the heat input 
 shall be replaceable without the risk of contaminating the main \lar volume in order to guarantee the long-term reliability of the system.}
 
 \item{The \dword{adc} resolution %should 
-shall be such that that the noise is at 
+shall be such that the noise is at 
 \fixme{does not exceed?} the level of an \dword{adc}, %while 
 given a dynamic range wide enough to match the response of the \dword{fe} amplifier. This can be achieved with a \num{12} bit \dword{adc}.}
 
 \item{The digital electronics to be placed outside of the cryostat in the warm environment %can 
 shall be capable of adopting standard industrial components and solutions, to keep the costs lower and to benefit from  %ensuring low costs and benefiting of the 
-technological evolution (e.g., higher network speeds).}
+technological evolution, e.g., higher network speeds.}
 \end{itemize}
-As described in the details in subsequent sections, the performance of the final system is significantly better with respect to many of the listed aspects.  \fixme{above sentence not needed (anne)}
+As described %in the details 
+in subsequent sections, the performance of the final system is significantly better with respect to many of the listed aspects.  \fixme{above sentence not clear: performance exceeds requirements? (anne)}
 
 The magnitude of the noise also %plays a role in 
-has an effect on the quality of the lossless compression of the raw data.% performed by the digital electronics. 
-A compression factor of about \num{10} could be achieved with the RMS noise level below \SI{1}{\dword{adc}}, while with the noise at around \SI{1.5}{\dword{adc}} the compression factor of \num{4} is obtained. 
+has an effect on the quality of the lossless compression of the raw data. % performed by the digital electronics. 
+A compression factor of about \num{10} could be achieved with the \rms noise level below \SI{1}{\dword{adc}}, while with the noise at around \SI{1.5}{\dword{adc}} a compression factor of \num{4} is obtained. 
 \fixme{What are you saying here: ``we're expecting 1.5 ADC so we'll only get factor of 4, but wouldn't it be nice to get factor of 10''? If that's your meaning, what's keeping you from getting the noise low enough?}
-% A compression factor of \num{7} can be achieved with a RMS noise level of $\sim$ \SI{1.5}{\dword{adc}}, increasing to \num{10} for RMS noise levels below \SI{1}{\dword{adc}} RMS.
+% A compression factor of \num{7} can be achieved with a \rms noise level of $\sim$ \SI{1.5}{\dword{adc}}, increasing to \num{10} for \rms noise levels below \SI{1}{\dword{adc}} \rms.
 
 %Given the amplification of the ionization charge in \dword{crp}, the electronics needs to be sensitive to the signals over a large dynamic range (up-to \num{40} times the \dword{mip}-level signals for a nominal \dword{crp} gain of %\num{20} or \SI{1200}{\femto\coulomb}) to avoid saturation of the analog inputs by large localized energy disposition produced, for example, in shower events. The minimal requirelemt on the intrinsic noise %of the \dword{fe} analog electronics is \SI{<2500}{e^{-}}.  The condition is derived from the requirement on the minimal \dword{s/n} of \num{5:1} as in the SP design. Given the maximal drift \SI{12}{\meter} the %largest attenuation factor due to electro-negative impurities assuming the nominal \SI{3}{\milli\second} electron lifetime is \num{0.08}. The smallest \dword{mip} signal with the \dword{crp} effective gain is therefore %\SI{2.5}{\femto\coulomb} (\SI{15600}{e^{-}}).
 
 %The charge amplification provided by the \dword{crp} loosens requirements on the intrinsic noise of the \dword{fe} analog electronics. For the \dword{crp} nominal gain of \num{20}, the signal-to-noise ratio for a \dword{mip} signal %(\SI{30}{fC}) should be around \num{100}, which would not pose any problems for the detection/reconstruction. 
 
 The primary objective of the \dword{lro} system is to detect signals, from a minimum of one \phel on one \dword{pmt}, giving a precise timestamp that can be used in conjunction with the charge signals to determine the time (drift) coordinate of an event. \fixme{why insert (drift)?}  Precise measurements of signal charge allow the continual monitoring of the \dword{pmt} gain at the single \phel level, and the determination of the number of photons in each scintillation event.  In addition, an \dword{adc}  continuously streams data, downsampled to \SI{400}{ns} as for the \dword{cro} signals,  which, amongst other items, allows measurements of the scintillation time profile. In addition, the \dword{lro} system samples a small number of signals from the \dword{pd} calibration system: the calibration trigger and around \num{20} channels from reference sensors.
+\fixme{``...number of signals from the \dword{pd} calibration trigger and about \num{20} channels from calibration reference sensors.'' (?)}
 
 The cryogenic analog electronics for the \dword{cro} is housed in the dedicated \dword{sft} chimneys. %Their 
-Its design must enable access to the \dword{fe} card for possible replacement without any risk of contaminating the pure \lar in the main cryostat volume. The chimneys must possess a cooling system that can control the temperature around the \dword{fe} cards to roughly \SI{110}{\kelvin} %for their optimal noise. 
-to reach their optimal noise level. In addition, the cooling system must compensate for the heat input from the chimneys into the cryostat volume. \fixme{are chimneys part of this system?}
+Its design %must 
+enables access to the \dword{fe} card for possible replacement without %any 
+risk of contaminating the pure \lar in the main cryostat volume. The chimneys %must 
+possess a cooling system that can control the temperature around the \dword{fe} cards to roughly \SI{110}{\kelvin} %for their optimal noise. 
+to reach their optimal noise level and %. In addition, the cooling system must 
+that compensates for the heat input from the chimneys into the cryostat volume. 
 
 The digital electronics for both charge and light readout is located in the warm environment on the top of the cryostat supporting structure and is therefore easily accessible. This fact removes any constraints associated with the accessibility and operation in cryogenic environments allowing for the usage of standard components and industrial solutions in the design. Digital electronics must be continuously and automatically synchronized to better than \SI{400}{\nano\s} to ensure the correct temporal alignment of the \dword{adc} samples from all of the readout channels. This is a minimal requirement dictated by the fact that the sampling rate is \SI{2.5}{\MHz}.  
+
+%Some of the k
+Key parameters for the electronics system design are summarized in Table~\ref{tab:dpele-physicsparams}. %The requirements for the DP electronics system are documented in DUNE-docdb-6428.
 
 \begin{dunetable}
 [Parameters for the TPC electronics system design]
@@ -112,10 +129,9 @@ Parameter & Value  \\ \toprowrule
   \dword{lro} continuous sampling rate & \SI{2.5}{\MHz} \\ \colhline
   \dword{lro} \dword{adc} resolution & \num{14}\,bit            \\ \colhline
   \dword{lro} data compression factor  & \num{1}       \\ \colhline
-  \dword{lro} data flow   & \num{24}\,Gibit/s          \\ \colhline
+  \dword{lro} data flow   & \num{24}\,Gibit/s          \\ 
 \end{dunetable}
-
-Some of the key parameters in the electronics system design are summarized in Table~\ref{tab:dpele-physicsparams}. %The requirements for the DP electronics system are documented in DUNE-docdb-6428.
+\fixme{Gibit instead of Gbit?}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -134,6 +150,8 @@ The scope of the TPC electronics system covers the procurement, production, test
 \item{Flat cables connecting the \dword{fe} cards to the warm flange interface of the \dword{sft} chimneys;}
 \item{VHDCI cables connecting the warm flange interface of the \dword{sft} chimneys to \dwords{amc}.}
 \end{itemize}
+
+\fixme{what about cables/connections to the CRPs and PMTs?}
 
 The total numbers for components to be procured to instrument one \dword{dpmod} are given in Table~\ref{tab:dpele-num-components}
 
@@ -160,7 +178,10 @@ WR switches (\num{18} ports) & \num{16} \\ \colhline
 \section{TPC Electronics System Design}
 \label{sec:fddp-tpc-elec-design}
 
-The \dword{cro} \dword{fe} analog electronics is based on cryogenic ASIC chip with a large dynamic range (up to \SI{1200}{\femto\coulomb}) to accomodate the charge amplification in the dual-phase \dword{crp}. The \dword{fe} cards read \num{64} \dword{crp} channels each. They are mounted in dedicated  \dword{sft} (\dword{sft}) chimneys and are located within a short distance (\SI{<1}{\metre}) from each \dword{crp} to minimize the noise caused by long cables (large cable capacitance). The cards remain accessible throughout the \dword{dpmod} operation. Each \dword{sft} chimney %hosts 
+\fixme{separate CRO and LRO}
+
+The \dword{cro} \dword{fe} analog electronics is based on cryogenic ASIC chip with a large dynamic range (up to \SI{1200}{\femto\coulomb}) to accomodate the charge amplification in the %dual-phase 
+\dword{crp}. The \dword{fe} cards read \num{64} \dword{crp} channels each. They are mounted in dedicated  \dword{sft} chimneys and are located within a short distance (\SI{<1}{\metre}) from each \dword{crp} to minimize the noise caused by long cables (large cable capacitance). The cards remain accessible throughout the \dword{dpmod} operation. Each \dword{sft} chimney %hosts 
 accommodates \num{10} \dword{fe} analog cards, which corresponds to the readout of \num{640} \dword{crp} channels per chimney. There are, therefore, \num{240} \dword{sft} chimneys to be installed for the charge readout in a given \dword{dpmod}.   
 
 The differential analog signals from the analog \dword{fe} cards, carried by the twisted-pair ribbon cables and routed via an interface flange of the \dword{sft} chimneys, are digitized by the \dword{amc} cards located %in the warm conditions 
@@ -176,6 +197,7 @@ upgrade is to increase the channel density per card to \num{32} channels. The \d
 {Corner view of \dword{dpmod} showing the pattern of the \dword{sft} chimneys and \dword{utca} crates for charge readout above \dwords{crp}.}
 \includegraphics[width=0.6\textwidth]{dpele-sft-chimney-pattern}
 \end{dunefigure}
+\fixme{Need a similar picture for the LRO system. anne}
 
 Every \dword{utca} crate contains a network switch, MicroTCA Carrier Hub (\dword{mch}), via which the data are sent to the  \dword{daq} and to %as well as a module 
 a (\dword{wrmch}) for %clock/ 
@@ -229,7 +251,7 @@ The cryogenic amplifier ASIC is the main component of the \dword{fe} analog card
 %Figure~\ref{fig:dpele-fe-asic-noise} 
 The ASIC version with the double-slope gain was selected for \dword{pddp} and has been adopted for the \dual TPC electronics design. The left plot in Figure~\ref{fig:dpele-fe-asic-prop} illustrates the response of this amplifier for different values of the injected charge, while that on the right shows the measured noise in units of Equivalent Noise Charge (ENC) as a function of the ``detector'' capacitance at different temperatures. 
 \fixme{why in quotes?}
-For the \dword{crp} anode (detector) capacitance of \SI{480}{\pico\farad} per \SI{3}{\metre} strip, the expected noise is around \SI{2000}{e^{-}} at \SI{110}{\kelvin}. Each ASIC contains \num{16} amplifier channels with differential line buffers and has a power consumption, which is \SI{11}{\milli\watt/channel} surpassing the \SI{<50}{\milli\watt/channel} requirement. 
+For the \dword{crp} anode (detector) capacitance of \SI{480}{\pico\farad} per \SI{3}{\metre} strip, the expected noise is around \SI{2000}{e^{-}} at \SI{110}{\kelvin}. Each ASIC contains \num{16} amplifier channels with differential line buffers and has a power consumption, which is \SI{11}{\milli\watt/channel} surpassing the \SI{< 50}{\milli\watt/channel} requirement. 
 
 \begin{dunefigure}[Image of an analog \dword{fe} card mounted on the extraction blade]{fig:dpele-fe-card-blade-image}
 {Image of an analog cryogenic \dword{fe} card mounted on the extraction blade.}
@@ -248,26 +270,27 @@ resistor grounds the \dword{crp} anode strips. A TVS diode\footnote{Bourns\textt
 \end{dunefigure}
 
 %While 
-Although the \dword{fe} amplifier ASICs are in a shielded environment provided by the chimneys (Faraday cage), interference from other equipment (via a noisy ground or ground loops) could significantly worsen the noise performance from the design target. Figure~\ref{fig:dpele-311-noise} shows %some 
+Although the \dword{fe} amplifier ASICs are in a shielded environment provided by the chimneys (Faraday cage),
+\fixme{``which act as'' Faraday cages?} interference from other equipment (via a noisy ground or ground loops) could significantly worsen the noise performance from the design target. Figure~\ref{fig:dpele-311-noise} shows %some 
 results of %the 
 noise measurements performed under different conditions in the \dword{wa105} detector. The channels reading \SI{3}{\meter} (\SI{1}{\metre}) long strips correspond to negative (positive) channel numbering in the plots and the \num{1} \dword{adc} count is equivalent to about \num{900} electrons. The left plot of Figure~\ref{fig:dpele-311-noise} shows the noise measurements performed at warm temperature with and without slow control cables (\dword{crp} \dword{hv}, \dword{crp} motors, level meters, temperature probes, etc.) connected. 
 \fixme{stuff in parentheses all pertain to slow controls?}
-The noise is clearly affected by the grounding of the slow controls: the average value of the noise RMS is around \num{1.7} \dword{adc} with slow control cables connected, and decreases to about \num{1.5} \dword{adc} when they are removed. As explained later,
+The noise is clearly affected by the grounding of the slow controls: the average value of the noise \rms is around \num{1.7} \dword{adc} with slow control cables connected, and decreases to about \num{1.5} \dword{adc} when they are removed. As explained later,
 \fixme{ref section} the grounding scheme of \dword{wa105} does not correspond to the one %foreseen for DUNE, 
 planned for the \dword{dpmod}, where all electrical equipment is referred uniquely to the cryostat ground and is completely insulated from the external environment. 
 
 One interesting feature, particularly visible with the cables disconnected, is %that the noise measured in \dword{wa105} is similar for the channels connected to the \SI{1}{\meter} and \SI{3}{\meter} long strips. 
 the similarity of the noise measured for the channels connected to the \SI{1}{\meter} and \SI{3}{\meter} long strips in \dword{wa105}. 
-Given that the longer strips have thrice 
-\fixme{checking: thrice not twice?} the input capacitance of the shorter ones, the expected noise (see Figure~\ref{fig:dpele-fe-asic-prop}) for these should be larger by about a factor of two as indicated by the dashed line in the plot. In addition, the noise on the short strips is lower (\num{1.5} \dword{adc}) than expected for the \SI{160}{pF/m} strip input capacitance (\num{1.7} \dword{adc}). The reason for this behavior %of the noise in the \dword{crp} of 
+Given that the longer strips have %thrice 
+three times the input capacitance of the shorter ones, the expected noise (see Figure~\ref{fig:dpele-fe-asic-prop}) for these should be larger by about a factor of two as indicated by the dashed line in the plot. In addition, the noise on the short strips is lower than expected (\num{1.5} \dword{adc}) for the \SI{160}{pF/m} strip input capacitance (\num{1.7} \dword{adc}). The reason for this behavior %of the noise in the \dword{crp} of 
 in \dword{wa105} is still under investigation. %However, 
 Measurements have already shown that the capacitance of the \dword{crp} anode strips is not purely to ground, but rather it is driven by the inter-strip couplings, which creates a more complicated electrical network. 
 
 Figure~\ref{fig:dpele-311-noise} (right) also shows a comparison of the noise measurements in \dword{wa105} taken with the \dword{fe} electronics at warm (red points) and cold (black points) at around \SI{150}{\kelvin}. The slow control cables were disconnected in both cases. However, the cold measurements were performed with the recirculation pump active and the cathode \dword{hv} connection present. 
 \fixme{present? means hv was connected?}
-The RMS noise averaged over all channels decreases by about 25\% from roughly \SI{1.5}{\dword{adc}} to \SI{1.1}{\dword{adc}} when the \dword{fe} analog cards are cold. For comparison, the expected signal for a \dword{mip} with the \dword{crp} gain of \num{20} should be around \SI{200}{\dword{adc}}. 
+The \rms noise averaged over all channels decreases by about 25\% from roughly \SI{1.5}{\dword{adc}} to \SI{1.1}{\dword{adc}} when the \dword{fe} analog cards are cold. For comparison, the expected signal for a \dword{mip} with the \dword{crp} gain of \num{20} should be around \SI{200}{\dword{adc}}. \fixme{counts?}
 
-The overall grounding principle of \dword{wa105} was based on %having 
+The overall grounding principle of the \dword{wa105} was based on %having 
 using the cryostat as the ground reference. The low-voltage power supplies for the \dword{fe} analog electronics and the \dword{utca} crates were powered %via 
 using insulating transformers to ensure that %they could see 
 no other ground could interfere. %On the other hand, 
@@ -283,7 +306,7 @@ from the levels observed in \dword{wa105}.
 The \dword{sft} chimneys are designed to enable access to the \dword{fe} analog electronics for a potential repair or exchange while the \dword{dpmod} is filled and in operation. % (filled with the liquid argon). 
 In addition, their metallic structure acts as a Faraday cage isolating the \dword{fe} ASICs from environmental interference.  Each \dword{sft} hosts \num{10} analog cryogenic \dword{fe} cards (reading \num{640} channels in total).  %Some of the 
 Details of the design are illustrated in Figure~\ref{fig:dpele-sft-chimney-design}. 
-\fixme{diff between SFT chimney and just SFT?}
+\fixme{diff between ``SFT chimney'' and just SFT?}
 
 \begin{dunefigure}[Details of the \dword{sft} chimney design]{fig:dpele-sft-chimney-design}
 {Details of the \dword{sft} chimney design.}
@@ -368,7 +391,7 @@ by providing \dword{amc} with a timestamp generated by an external trigger. The 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electronics for Light Readout}
 \label{sec:fddp-tpc-elec-design-lro}
-
+\fixme{section title: ``Digital'' Electronics for Light Reaout, in parallel with prev section?}
 %
 The \dword{lro} card is a \num{16} channel \dword{amc} containing one \num{16} channel \num{14} bit \SI{65}{\MHz} \dword{adc} (AD9249) and one \dword{catiroc} ASIC \cite{Blin:2017}. A block diagram of the prototype board used for \dword{pddp} is shown in Figure~\ref{fig:dpele-lro-scheme} and a photo in Figure~\ref{fig:dpele-lro-proto} . In this prototype a mezzanine board containing the ASIC and \dword{adc} sits on a commercial (COTS) mother board (Bittware S4 \dword{amc}) with a high specification FPGA (ALTERA Stratix IV). In the final implementation for the \dword{dpmod}, the mezzanine is integrated with the layout of the \dword{amc} board developed for the charge readout.  
 A proposed upgrade is a \num{32} channel card, %diminishing 
@@ -390,7 +413,7 @@ The analog signals from each \dword{pmt} channel are split equally into two sepa
 \subsubsection{Waveform branch} %\dword{adc}
 %details on \dword{catiroc}
 The main characteristics of the \dword{adc} used for continuous digitization of the \dword{pmt} signals are shown in Table \ref{tab:dpele-adc9249}.
-%RMS and \dword{pmt} gain?
+%\rms and \dword{pmt} gain?
 \begin{dunetable}
 [Main characteristics of \dword{adc} AD9249]
 {lr} {tab:dpele-adc9249}
@@ -642,14 +665,16 @@ Software and Computing to \dword{dp} TPC Electronics & 7117 \\ \colhline
 %\fixme{Add in appropriate subsections for the pieces that TPC Electronics interfaces with. These initial ones may not be right.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Photon Detection Electronics to CRP}
+\subsection{Electronics systems to CRP and Photon Detection System}
 \label{sec:fddp-tpc-elec-intfc-crppmt}
 
-The cold feedthrough flange of the \dword{sft} chimneys forms the interface between the \dword{crp} and the TPC electronics systems. On the side facing the cryostat the flange PCB hosts \num{20} \num{68}\,pin connectors (KEL 8930E-068-178MS-F) for plugging the flat cables from the \dword{crp}. These are \num{68}\,channel twisted pair flat cables each carrying signals from \num{32} anode strips and are part of the \dword{crp} system. Each analog \dword{fe} card reads \num{64} anode strips, i.e., % implying receiving 
+The cold feedthrough flange of the \dword{sft} chimneys forms the interface between the \dword{crp} and the TPC electronics systems. 
+
+On the side facing the cryostat the flange PCB has \num{20} \num{68}\,pin connectors (KEL 8930E-068-178MS-F) for plugging the flat cables from the \dword{crp}. These are \num{68}\,channel twisted-pair flat cables, each carrying signals from \num{32} anode strips and are part of the \dword{crp} system. Each analog \dword{fe} card reads \num{64} anode strips, i.e., % implying receiving 
 signals from two KEL connectors. The order in which the cables are connected %into 
 to the cold flange determines the mapping of the electronic channels to the physical location of the strips on the \dword{crp} and is %should be 
 coordinated carefully with the \dword{crp} consortium. %As an illustration, 
-Figure~\ref{fig:dpele-sft-cold-flange} shows some images of the cold feedthrough from the \dword{wa105} detector.
+Figure~\ref{fig:dpele-sft-cold-flange} shows two images of the cold feedthrough from the \dword{wa105} detector.
 %%%%%%%%%  Anne to here EOB 4/16
 
 \begin{dunefigure}[Images of \dword{wa105} \dword{sft} cold feedthrough]{fig:dpele-sft-cold-flange}
@@ -657,10 +682,9 @@ Figure~\ref{fig:dpele-sft-cold-flange} shows some images of the cold feedthrough
 \includegraphics[width=0.8\textwidth]{dpele-sft-cold-flange}
 \end{dunefigure}
 
-%\fixme{Interfaces to light readout}
 The \dword{lro} electronics is designed for negative polarity \dword{pmt} signals, with the amplitude of single \phel{}s on the input of the card between \num{1} and \SI{10}{\milli\volt}. Typically assuming a \dword{pmt} gain of \num{1E6} (no accounting for attenuation of the signals), the Catiroc ASIC can measure a range of \num{1} to \num{400} \phel{}s (\SI{160}{\femto\coulomb} to \SI{70}{\pico\coulomb}), the \dword{adc} samples from \SI{1}{\milli\volt} to \SI{1}{\volt} corresponding to \num{1} to \num{1000} \phel{}s, including the time response of the scintillator the range can increase to $\sim$\num{6000}. Increasing the gain of the \dword{pmt} to \num{1E7}, lowers the upper values by a factor of 10.
-
-The internal noise level of the \dword{catiroc} is below \SI{0.1}{\milli\volt}. The objective for the noise level of the \dword{adc} is for each channel to have the RMS noise level greater than \SI{0.5}{LSB}, aiming for \SI{1}{LSB} \SI{0.1}{\milli\volt}.
+\fixme{I don't see anything about cables or connections; not needed? }
+The internal noise level of the \dword{catiroc} is below \SI{0.1}{\milli\volt}. The objective for the noise level of the \dword{adc} is for each channel to have the \rms noise level greater than \SI{0.5}{LSB}, aiming for \SI{1}{LSB} \SI{0.1}{\milli\volt}.
 %at 65 MHz...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
