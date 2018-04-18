@@ -4,12 +4,12 @@ sample from each APA channel (wire) up to every 500 ns (2~MHz sampling rate).
 
 Each individual APA has 2,560 channels that are read out by 20 front-end motherboards (FEMBs), with
 each FEMB providing digitized wire readout from 128 channels.  One cable bundle connects each FEMB to
-the outside of the cryostat via a feedthrough (a CE feedthrough) in the signal cable flange at the
-top of the cryostat, where a single flange services each APA, as shown in Figure~\ref{fig:connections}.
+the outside of the cryostat via a CE signal cable flange located at the CE feedthrough at the
+top of the cryostat, where a single flange services each APA, as shown in Figure~\ref{fig:connections}.  Two CE signal flanges are located on each feedthrough, together accounting for all electronics channels associated with a pair of APAs (upper and lower, vertically ganged).
 Each cable bundle contains wires for low-voltage (LV) power, high-speed data readout, and
 clock/digital-control signal distribution.  Eight separate cables carry the TPC wire-bias voltages
 from the signal flange to the APA wire-bias boards, in addition to the bias voltages for the field
-cage termination electrodes and for the electron diverters.
+cage termination electrodes and for the electron diverters.  At the top of each feedthrough is an additional flange to service the photon detection system (PDS) cables associated with the APA pair.
 
 \begin{dunefigure}
 [Connections between the signal flanges and APA. Only the upper APA of the hanging APA pair, described in Section~\ref{sec:fdsp-apa-frames}, and its connection paths are shown. The lower APA will share the photodetector (PD) flange with the upper APA but have a separate TPC readout flange.]
@@ -53,7 +53,7 @@ CE feedthrough & 1 per APA & 2,560 \\ \colhline
 Warm interface board (WIB) & 5 per APA & 512 \\ \colhline
 Warm interface electronics crate (WIEC) & 1 per APA & 2,560 \\ \colhline
 Power and timing card (PTC) & 1 per APA & 2,560 \\ \colhline
-Passive Backplane (PTB) & 1 per APA & 2,560 \\
+Power and timing backplane (PTB) & 1 per APA & 2,560 \\
 %LV power mainframe & ? & ? \\ \colhline
 %LV supply module & ? & ? \\ \colhline
 %Wire-bias mini-crate & ? & ? \\ \colhline
