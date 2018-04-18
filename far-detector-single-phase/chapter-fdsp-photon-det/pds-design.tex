@@ -184,7 +184,7 @@ The optimal configuration of ARAPUCA modules has not yet been determined, but th
 
 %\subsubsection{Description}
 
-The dip-coated light guide design is mechanically the simplest of the three options. Figure~\ref{fig:pds-dippedbarpic} illustrates the process by which LAr scintillation photons are converted and detected in this approach.  VUV scintillation photons incident on the bar are absorbed and wavelength-shifted to blue ($\sim$\SI{430}{nm}) by the TPB-based coating on the surface of the bar.  A portion of this light is captured in the bar and guided to one end through total internal reflection where it is detected by an array of SiPMs, whose PDE is well-matched to the blue light.  Dimensions of the bars in ProtoDUNE-SP are: \SI{209.3}{cm}$\times$\SI{8.47}{cm}$\times$\SI{0.60}{cm}.
+The {\it dip-coated} light guide design is mechanically the simplest of the three options. Figure~\ref{fig:pds-dippedbarpic} illustrates the process by which LAr scintillation photons are converted and detected in this approach.  VUV scintillation photons incident on the bar are absorbed and wavelength-shifted to blue ($\sim$\SI{430}{nm}) by the TPB-based coating on the surface of the bar.  A portion of this light is captured in the bar and guided to one end through total internal reflection where it is detected by an array of SiPMs, whose PDE is well-matched to the blue light.  Dimensions of the bars in ProtoDUNE-SP are: \SI{209.3}{cm}$\times$\SI{8.47}{cm}$\times$\SI{0.60}{cm}.
 Since the bar is coated on all sides, in the DUNE far detector it can be employed both in the wall APAs as well as in the center APA array where scintillation light approaches from two drift volumes.
 
 \begin{dunefigure}[Schematic of scintillation light detection with dip-coated light guide bars.]{fig:pds-dippedbarpic}
@@ -226,9 +226,8 @@ In addition, test bars have been produced with a higher TPB-to-acrylic ratio, wh
 %\todo{\color{blue} Content: Whittington}
 %Update DW 2/23/18
 
-A drawback of the dip-coated light guide design is the moderate dependence of the photon detection efficiency along the length of the bar due to the impact on total internal reflection process 
-caused by the coating.  To mitigate this effect, the double-shift light guide photon collector decouples the conversion of VUV photons to optical
-wavelengths from the transportation along the long dimension of the bars. This is achieved by positioning an array of acrylic plates coated with TPB in front of a high-quality commercial polystyrene light guide doped with a second wavelength-shifting compound.
+In the early implementations of the dip-coated light guide development there was a strong dependence of the light yield along the length of the bar, presumed to be due to the impact of the coating on the total internal reflection efficiency.  In an effort to mitigate this effect, the {\it double-shift} light guide design decouples the process of converting VUV photons to optical
+wavelengths from the transportation of photons along the bars. This is achieved by positioning an array of acrylic plates coated with TPB in front of a high-quality commercial polystyrene light guide doped with a second wavelength-shifting compound.
 
 %\subsubsection{Description}
 
@@ -390,23 +389,14 @@ performance characteristics close to that needed for the PD system (see Table~\r
 Nearly one thousand of several types of these devices are used in the ProtoDUNE-SP PD\footnote{ProtoDUNE-SP PD system uses 516 sensL MicroFC-60035C-SMT, 288 Hamamatsu MPPC 13360-6050CQ-SMD with cryogenic packaging, 180 Hamamatsu MPPC 13360-6050VE.}, which will provide an excellent test bed for evaluating and monitoring SiPM
 performance in a realistic environment over a period of months.
 
-\item A key requirement is to ensure the mechanical and electrical 
-integrity of these devices in a cryogenic environment;  a requirement that 
-catalog devices from most vendors do not satisfy since they typically are only certified for operation 
-down to -40$^\circ$C. It is essential to be in close communication with 
- vendors in the design, fabrication and SiPM packaging certification stages to ensure that the device will be robust and
-reliable for long-term operation in a cryogenic environment. 
-Two sources have expressed interest to engage with the Consortium in this fashion with the goal of having the vendor warranty the product
-for our application: Hamamatsu Photonics K.K., a large well-known commercial vendor in Japan and Fondazione Bruno Kessler (FBK) in Italy, an experienced developer of solid state photosensors that typically licenses its technology and which is partnering with the DarkSide collaboration to develop a devices with very similar requirements as DUNE. 
+\item A key requirement is to ensure the mechanical and electrical integrity of these devices in a cryogenic environment. However, currently, catalogue devices for most vendors are certified for operation only down to -40$^\circ$C. It is essential to be in close communication with  vendors in the design, fabrication and SiPM packaging certification stages to ensure that the device will be robust and reliable for long-term operation in a cryogenic environment. 
+Two sources have expressed interest to engage with the Consortium in this fashion with the goal of having the vendor warranty the product for our application: Hamamatsu Photonics K.K., a large well-known commercial vendor in Japan and Fondazione Bruno Kessler (FBK) in Italy, an experienced developer of solid state photosensors that typically licenses its technology and which is partnering with the DarkSide collaboration to develop a devices with very similar requirements as DUNE. 
 Contact with other vendors and experiments using this technology in a similar environment is being pursued. 
 
 \item Comparative performance evaluation of promising SiPM candidates from
 multiple vendors will need to be carried out in parallel over the next year. This evaluation will need to
-address inherent characteristics (gain, dark rate, x-talk, after-pulsing etc) and ganging 
-performance along with form factor, spectral response and mating with regard to the
-multiple photon collector options. Experience acquired from ProtoDUNE-SP construction
-and operation will inform QA/QC plans for the full detector, which will need to be
-delineated in detail.
+address inherent device characteristics (gain, dark rate, x-talk, after-pulsing etc), which are common to all three photon collector options, along with ganging performance, form factor, spectral response, and mechanical mounting options that may have different optimization for the two light guide design and ARAPUCA.
+Experience acquired from ProtoDUNE-SP construction and operation will inform QA/QC plans for the full detector, which will need to be delineated in detail.
 
 \item The optimal SiPM may depend on the photon collector option selected.  All 
 options currently being considered involve shifting the 128~nm LAr scintillation light to 
@@ -416,7 +406,7 @@ However, we would not expect this fine-tuning to be more than a 15-20\% effect, 
 
 \item For the light guide Photon Collector designs, the SiPM packaging should allow for tileable arrays to be constructed to facilitate high packing efficiency across the end of the bars and efficient space utilization inside the APA frame. 
 
-\item Current candidates SiPMs have an area of less than \SI{1}{cm$^2$}, a much finer granularity than needed. In addition, the cold feedthrough size and space in the APAs for cable runs limits  the number of PD signal and power cables. These constraints, and other considerations, imply that the signal output of SiPMs must be electrically ganged. The degree of ganging depends on the photon collectors technology and currently ranges from \num{6}~SiPMs for the light guides to \num{48} or more for the ARAPUCA modules. Whether simple passive-ganging (wiring the outputs together) will suffice or if active-ganging (with active components) is under investigation as a joint responsibility of the photon sensor and electronics working groups (see Section~\ref{sec:fdsp-pd-elec-intro} for more details).
+\item Current candidate SiPMs have an area of less than \SI{1}{cm$^2$}, a much finer granularity than needed. In addition, the cold feedthrough size and space in the APAs for cable runs limits  the number of PD signal and power cables. These constraints, and other considerations, imply that the signal output of SiPMs must be electrically ganged. The degree of ganging depends on the photon collectors technology and currently ranges from \num{6}~SiPMs for the light guides to \num{48} or more for the ARAPUCA modules. Whether simple passive-ganging (wiring the outputs together) will suffice or if active-ganging (with active components) is under investigation as a joint responsibility of the photon sensor and electronics working groups (see Section~\ref{sec:fdsp-pd-elec-intro} for more details).
 
 \item The terminal capacitance of the sensors strongly affects the signal-to-noise when devices are ganged in parallel and so is a factor in SiPM selection, and may ultimately determine the maximum number of individual sensors that can be ganged this way. 
 
@@ -539,7 +529,7 @@ All Photon Collector options will require some level of electrical ganging of th
 Technical factors that affect performance of the ganging system are the characteristic capacitance of the SiPM 
 and the number of SiPMs connected together, which together dictate the signal to noise ratio and affect the system 
 performance and design considerations. Selection of the ganging option will include passive or active solutions, where the active 
-circuitry may require cold components such as an amplifier in LAr volume. Design options with active cold components will need 
+circuitry may require cold components such as an amplifier in the LAr volume. Design options with active cold components will need 
 to address issues of power dissipation and potential risks of single-point failures of multi-channel devices inside the cryostat.
 In the case of passive ganging, analog signals are transmitted outside of the cryostat for processing and digitalization. 
 Successful demonstrations of passive ganging at LAr temperatures have been made for groups of four and twelve 6x6 mm Micro-FC-60035C-SMT C series, and groups of 2, 4, 8, and 12  Hamamatsu MPPCs (S13360-6050PE) at  \num{25}$^\circ$C, - \num{70}$^\circ$C and \SI{77}{K}. Active ganging has been demonstrated for an array of 12 sensL \num{4}$\times$\num{4} arrays of \SI{3}{mm}$\times$\SI{3}{mm} sensL C-series SiPMs (48 in all) and  72 SiPMs mounted in a hybrid combination of passive and active ganging using \SI{6}{mm}$\times$\SI{6}{mm} MPPCs with a low noise operational amplifier--this design combines 12 active branches into the op-amp, where each branch has 6 MPPCs in a parallel passive-ganging configuration.
@@ -585,20 +575,20 @@ A passive ganging scheme with three SiPMs ganged together was chosen for the lig
 
  \begin{dunefigure}[ProtoDUNE-SP Photon Detector readout.]
  {fig:fig-pds-readout}
- {Block diagram of the ProtoDUNE-SP photon detector readout module (left figure). Photon detector readout system operational at ProtoDUNE-SP (right figure). }
+ {Block diagram of the ProtoDUNE-SP photon detector readout module (left). Photon detector readout system operational at ProtoDUNE-SP (right). }
 \includegraphics[angle=0,width=8.4cm,height=6cm]{pds-fig-e-3.png}\includegraphics[angle=0,width=8.4cm,height=6cm]{pds-protodune_readout_coldbox.jpg}
 \end{dunefigure}
 
 In the standard mode of operation, the module performs waveform capture, using either an external or internal trigger. In the latter case the 
-module self-triggers to capture only waveforms with an amplitude greater than a specified threshold. In the ProtoDUNE-SP the photon readout 
+module self-triggers to capture only waveforms with an amplitude greater than a specified threshold. In ProtoDUNE-SP the photon readout 
 is configured to read waveforms when triggered by a beam event, and/or to provide header information when self-triggered by cosmic muons.
-The header portion summarizes pulse amplitude, integral, and time-stamp information of events. The SSP for ProtoDUNE-SP uses \si{Gb} Ethernet 
+The header portion summarizes pulse amplitude, integrated charge, and time-stamp information of events. The SSP for ProtoDUNE-SP uses \si{Gb} Ethernet 
 communication implemented over an optical interface. The \SI{1}{Gb/s} Ethernet supports full TCP/IP protocol.  
 
 The module includes a separate \num{12}-bit high-voltage DAC for each channel to provide bias to each SiPM\footnote{Currently there are two DAC options: one with a voltage range of \num{0}-\SI{30}{V}, used with the sensL SiPMS (17 of the 24 SSP units); and the other with a range \num{0}-\SI{60}{V} for use with the Hamamatsu MPPCs (7 of the 24 SSP units). }. The SSP provides a trigger output signal from internal discriminators in firmware based on programmable coincidence logic, with a standard ST fiber interface to the central trigger board (CTB).
 Input signals are provided to CTB from the beam instrumentation, the SSPs, and the beam TOF system. The CTB receives timing information from 
 the ProtoDUNE-SP timing system and the CTB trigger inputs are distributed to the experiment via the timing system.
-To that end the SSP implements the timing receiver/transmitter endpoint hardware to receive trigger inputs and clock signals from the timing system.
+To that end, the SSP implements the timing receiver/transmitter endpoint hardware to receive trigger inputs and clock signals from the timing system.
 
 
 \subsubsection{Electronics Next Steps}
@@ -612,7 +602,7 @@ Charge processing requires a charge preamplifier ideally located within the cold
 
 The timing resolution, minimum threshold and dynamic range requirements for the system are dictated by the physics requirements. These are well known for the higher energy physics (>\SI{200}{MeV}) but, as noted elsewhere in this document, are still evolving for lower energy. Currently, 
 a timing resolution of 1$\mu$s is called for and the sampling rate and number of sample bits is estimated based on this. For this task 
-some digital process such as a sample interpolation may be proposed, enhancing precision of the recorded raw sample time precision.
+some digital process such as a sample interpolation may be proposed, enhancing the recorded raw sample time precision.
 The light sensitivity and the dynamic range requirement will determine the number of bits and the sample rate required by either waveform or charge collection methods. In both cases, the signal to noise ratio and the power consumption must be estimated.  
 With this data from ProtoDUNE-SP and the ganging studies, the choice between waveform readout and integrated charge readout will be made taking into account DAQ  readout and trigger requirements. 
 
