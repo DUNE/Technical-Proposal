@@ -14,9 +14,7 @@ a system of internal cameras to help locating sparks in the cryostat and for ove
 As it has been mentioned in the Introduction, cryogenic instrumentation requires simulation work to identify the proper location for these devices inside the cryostat and
 for the coherent analysis of the instrumentation data. 
 
-%\fixme{Include an image of the subsystem, indicating its parts. Show how the system fits into the overall system).}
-
-Fig.~\ref{fig:sp-slow-cryo-ports} shows the current map of cryostat ports for the SP detector, highlighting the ones assined to instrumentation devices,
+Fig.~\ref{fig:sp-slow-cryo-ports} shows the current map of cryostat ports for the SP detector, highlighting the ones assigned to instrumentation devices,
 as well as the preliminary location for some of these devices. Vertical temperature profilers will be located behind the APAs ($T_S$) and behind the east end-wall ($T_D$).
 They will be complemented by a coarser 2D grid of sensors at the top and bottom of the cryostat (not shown in the figure). Purity monitors as well as level meters are planned
 in each detector side, behind the two front end walls. Inspection cameras will use some of the multipurpose instrumentation ports, but their exact locations are yet to be decided. 
@@ -33,14 +31,23 @@ in each detector side, behind the two front end walls. Inspection cameras will u
 \subsection{Fluid Dynamics Simulations}
 \label{sec:fdgen-slow-cryo-cfd}
 % P. Strons
+
 Proper placement of purity monitors, thermometers, and liquid level monitors within the detector module requires knowledge of how \dword{lar} behaves within the cryostat in terms of its fluid dynamics, heat and mass transfer, and distribution of impurity concentrations. 
 Fluid motion within the cryostat is driven primarily by small changes in density from thermal gradients, although pump flow rates and inlet and outlet locations also contribute. 
 Heat sources include exterior heat from the surroundings, interior heat from the electronics, and pump inlet temperature. 
 The fluid flow behavior can be determined through simulation of \dword{lar} flow within the detector using ANSYS CFX, a commercially available \dfirst{cfd} code. Such a model must include proper definition of the fluid characteristics, solid bodies and fluid/solid interfaces, and a means for measuring contamination, while still maintaining reasonable solve times.
 Although simulation of the detector module presents challenges, there exist acceptable simplifications for accurately representing the fluid, the interfacing solid bodies, and variation of contaminant concentrations. Because of the magnitude of thermal variation within the cryostat, modeling of the \dword{lar} is simplified through use of constant thermophysical properties, calculation of buoyant force through use of the Boussinesq Model (using constant a density for the fluid with application of a temperature dependent buoyant force), and a standard shear stress transport turbulence model. Solid bodies that contact the \dword{lar} include the cryostat wall, the cathode planes, the anode planes, the ground plane, and the field cage. As in previous \dshort{cfd} models of the 35 ton cryostat and proto-DUNE by South Dakota State University (SDSU)~\cite{docdb-5915}, the field cage planes, anode planes, and ground plane can be represented by porous bodies. Since impurity concentration and electron lifetime do not impact the fluid flow, these variables can be simulated as a passive scalars, as is commonly done for smoke releases~\cite{cfd-1} in air or dyes released in liquids.
-Significant discrepancies between real data and simulations can have potential impact on detector performance, as simulation results contribute to locating sensors and monitors, as well as defining various calibration quantities. However, methods of mitigating such risk include well-established convergence criteria, sensitivity studies, and comparison to results of previous \dshort{cfd} simulation work by SDSU and FNAL. Additionally, the simulation will be improved with input from temperature measurements and validation tests until the required agreement is achieved. An example of temperature distribution at one of the \dword{lar} inlet and outlets planes is shown in Fig. ~\ref{fig:cfd-example}. 
+Significant discrepancies between real data and simulations can have potential impact on detector performance, as simulation results contribute to locating sensors and monitors, as well as defining various calibration quantities. However, methods of mitigating such risk include well-established convergence criteria, sensitivity studies, and comparison to results of previous \dshort{cfd} simulation work by SDSU and FNAL. Additionally, the simulation will be improved with input from temperature measurements and validation tests until the required agreement is achieved.
 
-
+Fig.\ \ref{fig:cfd-example} shows an example of the temperature
+distribution on a plane intersecting a \dword{lar} inlet and at a
+plane halfway between an inlet and an outlet; the geometry used for
+this simulation is shown in Fig.\ \ref{fig:cfd-example-geometry}.
+Note the plume of higher temperature \dword{lar} between the walls and
+the outer APA on the inlet plane.  The current locations of instrumentation in
+the cryostat as shown in Fig.\ \ref{fig:sp-slow-cryo-ports} were
+determined using the temperature and impurity distributions from these
+previous simulations.
 
 %%%%% Must find better pictures. Just use this for now
 \begin{dunefigure}[cfd example]{fig:cfd-example}
@@ -48,3 +55,19 @@ Significant discrepancies between real data and simulations can have potential i
   \includegraphics[height=0.4\textwidth]{cisc_cfd_outlet_z0.png}
   \includegraphics[height=0.4\textwidth]{cisc_cfd_inlet_z52.png}
 \end{dunefigure}
+
+\begin{dunefigure}[cfd example]{fig:cfd-example-geometry}
+  {Layout of the \dshort{tpc} within the cryostat (top) and positions of
+    \dword{lar} inlets and outlets (bottom) as modeled in the SDSU
+    \dshort{cfd} simulations (from ~\cite{docdb-5915}).}
+  \includegraphics[width=0.8\textwidth]{cisc_cfd_cryostat-layout}
+  \includegraphics[width=0.8\textwidth]{cisc_cfd_inlet-outlet-layout}
+\end{dunefigure}
+
+The initial strategy for the future CFD simulation effort is to understand the performance of ProtoDUNE cryogenics system and model the far detectors to derive requirements for instrumentation devices.
+The following is a prioritized set of studies planned to help drive the requirements for other systems:
+(1) Review the DUNE FD cryogenics system design and verify the current implementation in simulation; this is important to ensure that the model represents what will be built.
+(2) Model the ProtoDUNE liquid and gas regions with the same precision as the FD; presently only liquid model exists; the liquid model will be needed to interpret the thermometer data and the gas model is needed to understand how to place thermometers in the ullage and verify the design of gaseous argon purge system.
+(3) Perform a CFD study to determine the feasibility of a wier for DP; this will help determine if it can be used to clean the liquid argon surface before the extraction grid is submerged in DP.
+(4) Verify the DUNE FD SP CFD model in simulation performed by LBNF; this will define the requirements for instrumentation devices ({\em e.g.}\ thermometry).
+(5) Model the ProtoDUNE DP liquid and gas regions with the same precision as the FD.
