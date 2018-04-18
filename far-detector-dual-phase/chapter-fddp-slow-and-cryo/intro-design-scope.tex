@@ -11,8 +11,8 @@
 
 % identical for SP and DP 
 The Cryogenic Instrumentation and Slow Controls (CISC) system provides
-a comprehensive monitoring for all detector components as well as for the liquid argon quality and behavior, both being crucial
-to guaranty a good quality of the data. CISC also provides a control system for some of the detector components. 
+a comprehensive monitoring for all detector components as well as for the \dword{lar} quality and behavior, both being crucial
+to guaranty a good quality of the data. Beyond passive monitoring, CISC also provides a control system for some of the detector components. 
 The structure of the CISC consortium is quite complex. A subsystem chart
 for the CISC system is shown in Fig. \ref{fig:sp-slow-cryo-subsys}. 
 
@@ -23,17 +23,18 @@ for the CISC system is shown in Fig. \ref{fig:sp-slow-cryo-subsys}.
 
 Two main branches can be distinguished: i) Cryogenics Instrumentation and ii) Slow Controls. The former includes a set of devices 
 to monitor the quality/behavior of the liquid argon volume in the cryostat interior, ensuring the correct functioning of
-the cryogenics system and the suitability of the LAr for good quality physics data. Those devices are:
+the full cryogenics system and the suitability of the \dword{lar} for good quality physics data. Those devices are:
 purity monitors, temperature monitors, gas analyzers, liquid argon level monitors, cameras and their associated
-light emitting system. Two other systems have been included as part of the Cryogenics Instrumentation,  
-a test facility for the instrumentation devices and the cryogenic piping inside the cryostat.
+light emitting system.
 
 Cryogenic Instrumentation also requires significant physics and
 simulation work such as E-field simulations and cryogenics modeling
-studies using Computational Fluid Dynamics (CFD). E-field simulations
+studies using \dfirst{cfd}. E-field simulations
 are required to identify desirable locations for instrumentation
 devices in the cryostat such that they are not in regions of high electric potential and
-that the designs do not induce large field distortions. CFD
+that their designs do not induce large field distortions. \dshort{cfd}
+% AC. What do we mean by distorsions here ?
+% Alternative: ``that their designs do not induce high electric fields and risk of dielectric breakdown. ``
 simulations are needed to understand the expected temperature,
 impurity and velocity flow distributions and guide the placement and
 distribution of instrumentation devices inside the cryostat.
@@ -41,8 +42,8 @@ distribution of instrumentation devices inside the cryostat.
 
 From the organizational point of view
 Cryogenics Instrumentation has been divided in three main parts: i) Cryogenics Systems, which includes all components directly related with the external cryogenic system as
-liquid level monitoring, gas analysers and internal cryogenics piping, all having substancial interfaces with LBNF, ii) Liquid Argon Instrumentation, which includes all
-other subsystems' instrumentation devices, and iii) Physics and Simulation.
+liquid level monitoring, gas analysers and internal cryogenics piping, all having substantial interfaces with LBNF, ii) Liquid Argon Instrumentation, which includes all
+other instrumentation devices, and iii) Physics and Simulation.
 
 
 The second branch of CISC is the Slow Controls system, in charge of monitoring and control most detector elements, as power supplies, electronics, racks, instrumentation devices,
@@ -51,6 +52,10 @@ software and firmware. The slow controls hardware and infrastructure consists of
 networking hardware, signal processing hardware, computing hardware and relevant
 rack infrastructure. The slow controls software and firmware will be needed for
 signal processing, alarms, archiving and control room displays.
+
+Two other systems have been included by the DUNE management as part of the CISC consortium,
+a test facility for the instrumentation devices and the cryogenic piping inside the cryostat.
+Those are included inside the Cryogenics Instrumentation branch.
 
 %The instrumentation work related to gas analyzers, liquid level
 %monitors and internal cryogenic piping has significant
@@ -64,25 +69,34 @@ signal processing, alarms, archiving and control room displays.
 % specific to DP
 
 For all liquid argon instrumentation devices, ProtoDUNE-DP designs are
-considered as baseline designs and requirements for most design
+considered as baseline designs, and requirements for most design
 parameters are extrapolated from ProtoDUNE. Hence a critical step for
 the CISC consortium is to analyze data from ProtoDUNE when available
 to validate the instrumentation designs and understand their
-performance. Some of the common design considerations for
+performance. For example, a crucial design parameter, which should be evaluated in ProtoDUNE,
+is the maximum noise level induced by instrumentation devices on the readout electronics, that can be tolerated 
+in order to avoid confusing event reconstruction. 
+
+Some of the common design considerations for
 instrumentation devices include stability, reliability and longevity
 such that the devices can survive for a period of at least 20 years
 (current official DUNE run time).  Since it is uncommon for any device
 to have such a long lifetime, provisions will be made in the overall
 design to allow replacement of devices after certain number of
 years where possible.
-The instrumentation devices must not introduce noise into the readout electronics in order to avoid confusing event reconstruction; this will be evaluated at ProtoDUNE.
-The electric fields near the instrumentation devices are required
-to be less than \SI{30}{kV\per\cm} or lower. Given the impossibility
-of finding locations of low electric potential in a DP detector,
-electric field shielding will be required for instrumentation
-devices. Another common consideration for all instrumentation devices
-is the support structure design which is expected to be substantially
-different from ProtoDUNE.
+
+As for any other element inside the cryostat, 
+the electric field on the instrumentation devices is 
+required to be less than \SI{30}{kV\per\cm},
+such that the risk of dielectric breakdown in \dword{lar} is minimized.
+This requirement imposes stringent constraints on the location and mechanical 
+design of some of those devices. Electrostatic simulations (e.g. Comsol) 
+will be performed to compute the expected field on the boundaries of 
+instrumentation devices and to design the appropriate E-field shielding
+in the case the electric field approaches the limit. 
+
+Another common consideration for all instrumentation devices is their support structure
+design which is expected to be substantially different from the one used in ProtoDUNE.
 
 For slow controls, the system needs to be designed such that it is
 robust enough to support large number of variables, broad range of
@@ -104,44 +118,45 @@ some of the important CISC system design requirements.
 Design Parameter
  & Requirement
  & Motivation
- & Requirement met? \\ \toprowrule
+ & Comment \\ \toprowrule
 Electron lifetime measurement precision
- & $<\SI{1.4}{\%}$
- & Per DUNE-FD Task Force, needed to keep the bias on the charge readout in the TPC to below \SI{0.5}{\%} at \SI{3}{ms}
- & Yes: existing purity monitors; extrapolation to TPC under development
+ & $<\SI{1.4}{\%}$ at \SI{3}{ms}
+ & Per DUNE-FD Task Force, needed to keep the bias on the charge readout in the \dshort{tpc} to below \SI{0.5}{\%} at \SI{3}{ms}
+ & Purity monitors do not directly sample \dshort{tpc}: see sec.\ \ref{sec:fdgen-slow-cryo-purity-mon}
 \\  \colhline
-Thermometers precision
+Thermometer precision
  & $<\SI{5}{mK}$
-& Driven by CFD simulation validation; based on ProtoDUNE-SP design
-& Yes: ProtoDUNE thermometers \SI{2}{mK}
+& Driven by \dshort{cfd} simulation validation; based on ProtoDUNE-SP design
+& Expected ProtoDUNE performance \SI{2}{mK}
 \\ \colhline
-Thermometers density
+Thermometer density
  & \(>2/\si{m}\) (vert.), \(\sim\)~0.2/\si{m} (horiz.)
- & Driven by CFD simulation
- & Yes: design
+ & Driven by \dshort{cfd} simulation
+ & Achieved by design
 \\ \colhline
 % Liquid level meters precision (SP)
 %  & \SI{0.1}{\%} over \SI{14}{m}
 % & Standard sensitivity; will use two level meters for redundancy
-% & Yes: design calculation
+% & ProtoDUNE design
 % \\  \colhline
 Liquid level meters precision (DP)
  & \(<\SI{1}{mm}\)
 & Maintain constant gas phase drift
-& Yes: WA105 / ProtoDUNE-DP design \SI{0.1}{mm}
+& WA105 / ProtoDUNE-DP design \SI{0.1}{mm}
 \\  \colhline
  Cameras
- & \multicolumn{3}{p{0.64\textwidth}}{see Table \ref{tab:fdgen-cameras-req}}
+ & \multicolumn{3}{p{0.64\textwidth}}{--- multiple requirements imposed by interfaces: see Table \ref{tab:fdgen-cameras-req} ---}
  \\ \colhline
 Cryogenic Instrumentation Test Facility cryostat volumes
  & 0.5 to \SI{3}{m^3}
 & Based on filling costs and turn around times
 & Under design
 \\  \colhline
- Max.\ E-field near instrumentation devices
+ Max.\ E-field on instrumentation devices
  & \(<\SI{30}{kV/cm}\)
- & Maximum field that LAr can maintain without undergoing dielectric breakdown
- & Yes: electrostatic simulation
+ & The mechanical design of the system should be such that E-field is below this value, 
+ to minimize the risk of dielectric breakdown in \dword{lar}
+ & ProtoDUNE designs based on electrostatic simulations
 \\ \colhline
  Noise introduced into readout electronics
  & Below significant levels
@@ -151,17 +166,12 @@ Cryogenic Instrumentation Test Facility cryostat volumes
 Total no.\ of variables
  & 50k to 100k
 & Expected number based on scaling past experiments; requires robust base software model that can handle large no. of variables.
-& Yes: existing control system software; DUNE choice in progress.
+& Achievable in existing control systems; DUNE choice in progress.
 \\  \colhline
 Max.\ archiving rate per channel
  & \SI{1}{Hz} (burst), \SI{1}{\per\minute} (avg.)
 & Based on expected rapidity of interesting changes; impacts the base software choice; depends on data storage capabilities
-& Yes: existing control system software; DUNE choice in progress.
-\\ \colhline
-Near Detector  status
- & Full Beam and Detector Status
-& Operate DUNE as one experiment.
-& Yes: IFBeamDB, internet
+& Achievable in existing control system software; DUNE choice in progress.
 \\
 % 
 % 
@@ -181,13 +191,14 @@ Near Detector  status
 
 % identical for SP and DP
 
-The scope of the CISC system spans a broad range of activities. In the
+As described above, and shown schematically in Fig.~\ref{fig:sp-slow-cryo-subsys},
+the scope of the CISC system spans a broad range of activities.  In the
 case of Cryogenics Systems (gas analyzers, liquid level monitors and
 cryogenic internal piping), LBNF will provide the needed expertise and
 is responsible for the design, installation and commissioning activities
 while the CISC consortium provides the cost and supplement the labor as
-needed. In the case of LAr instrumentation devices (purity monitors,
-thermometers, cameras, and light emitting system) and instrumentation
+needed. In the case of \dword{lar} Instrumentation Devices (purity monitors,
+thermometers, cameras and light emitting system; and their associated feedthroughs) and instrumentation
 test facility, CISC will be responsible from design to commissioning in
 the far detectors.
 
@@ -205,8 +216,9 @@ The scope of systems that slow controls includes is listed below:
   \end{itemize}
 \item {\bf Slow Controls for External Systems}: export data from systems external to the detector and provide status to operators and archiving
   \begin{itemize}
-  \item Beam Status; Cryogenics status; DAQ status; Facilities systems
-  \item building controls; Detector hall monitoring; ground impedance monitoring
+  \item Beam Status; Cryogenics status; DAQ status; Facilities systems status
+  \item For the systems above import other interesting monitoring data as needed (e.g. pumps info from cryogenics system, heaters info from facility systems, etc)
+  \item Building controls; Detector hall monitoring; Ground impedance monitoring
   \item Interlock status bit monitoring (not the actual interlock mechanism)
   \end{itemize}
 \item {\bf Slow Controls for Detector Hardware Systems}: develop software interfaces for detector hardware devices
