@@ -88,6 +88,10 @@ note = "\url{http://projectx-docdb.fnal.gov/cgi-bin/RetrieveFile?=1232&filename=
 
 (Start adding citations here.)
 
+@unpublished{SACI,
+note = "\url{https://confluence.slac.stanford.edu/pages/viewpage.action?pageId=219252577}"
+}
+
 @Article{snews,
      author    = "Antonioli, Pietro and others",
      title     = "{SNEWS: The SuperNova Early Warning System}",
@@ -134,10 +138,22 @@ note = "\url{http://projectx-docdb.fnal.gov/cgi-bin/RetrieveFile?=1232&filename=
       
 }
 
+@techreport{abs_1,
+author={N.Mokhov},
+title={{The Mars Code System User's Guide}},
+year={2009},
+note={Fermilab-FN-628},
+}
 
 
 
 
+@techreport{fields_doc_2901,
+title = "{Beam Optimization Task Force Final Report}",
+author = {{Fields, L. and Weber, A.  for the Beam Optimization Task Force}},
+year = {2017},
+note = {DUNE DocDB 2901}
+}
 
 @article{Carron:2017zzz,
       author         = "Carron, Jérôme and Philippon, Anne and How, Lip Sun and Delbergue, Audrey and 
@@ -632,38 +648,6 @@ author = {C. Thorn},
 institution = {BNL},
 year = {2011},
 note = {LBNE DocDB 4482}
-}
-
-@techreport{docdb-1651,
-title = "{ProtoDUNE-SP Timing System: Interfaces and Protocol}",
-author = {Newbold, D.},
-institution = {Bristol},
-year = {2016},
-note = {LBNE DocDB 1651}
-}
-
-@techreport{docdb-6742,
-title = "{DUNE FD Interface Document: SP TPC Electronics to joint DAQ}",
-author = {Christian, D. and Karagiorgi, G. and Newbold, D. and Verzocchi, M.},
-institution = {Fermilab, Columbia, and Bristol},
-year = {2018},
-note = {LBNE DocDB 6742}
-}
-
-@techreport{docdb-6727,
-title = "{DUNE FD Interface Document: SP Photon Detector to Joint DAQ}",
-author = {Duchesneau, D. and Gil-Botella, I. and  Karagiorgi, G. and Newbold, D.},
-institution = {LAPP, CIEMAT, Columbia, and Bristol},
-year = {2018},
-note = {LBNE DocDB 6727}
-}
-
-@techreport{docdb-7123,
-title = "{DUNE FD Interface Document: Software and Computing to Joint DAQ}",
-author = {Karagiorgi, G. and Newbold, D. and Norman, A. and Schellman, H.},
-institution = {Columbia, Bristol, Fermilab, and Oregon State},
-year = {2018},
-note = {LBNE DocDB 7123}
 }
 
 @techreport{docdb-5915,
@@ -1814,13 +1798,6 @@ year = {2012},
 note = {LBNE-doc-5904},
 }
 
-@techreport{LBNEDOCDB9673,
-author = {V. Kudryavtsev, M. Richardson, J. Klinger and T. K. Warburton},
-title = {Muon simulations for LBNE using MUSIC and MUSUN},
-year = {2014},
-note = {LBNE-doc-9673},
-}
-
 vol 2 beam
 
 @unpublished{docdb-4382,
@@ -1921,12 +1898,6 @@ title={National Instruments},
 note={\url{http://www.ni.com/}},
 }
 
-@techreport{abs_1,
-author={N.Mokhov},
-title={{The Mars Code System User's Guide}},
-year={2009},
-note={Fermilab-FN-628},
-}
 @misc{abs_2,
 title={{ANSYS Engineering Simulation}},
 note={\url{http://www.ansys.com}},
@@ -3470,17 +3441,14 @@ ch6 photon detection
 
 
 
-@article{Doke:1990rza,
-      author         = "Doke, Tadayoshi and Masuda, Kimiaki and Shibamura, Eido",
-     title          = "{Estimation of absolute photon yields in liquid argon and
-                        xenon for relativistic (1 MeV) electrons}",
-      journal        = "Nucl. Instrum. Meth.",
-      volume         = "A291",
-      year           = "1990",
-      pages          = "617-620",
-      doi            = "10.1016/0168-9002(90)90011-T",
-      SLACcitation   = "%%CITATION = NUIMA,A291,617;%%"
+@Article{numPhotons,
+     author    = "Doke, T. and others",
+     journal   = "Nucl.Instr. and Meth. A",
+     volume    = "291",
+     year      = "1990",
+     pages     = "617",
 }
+
 @Article{lightguides,
      author    = "Bugel, L. and others",
      journal   = "Nucl.Instr. and Meth. A",
@@ -7410,22 +7378,18 @@ year = {2013},
 }
 
 @article{Klinger:2015kva,
-      author         = "Klinger, J. and Kudryavtsev, V. A. and Richardson, M. and
-                        Spooner, N. J. C.",
-      title          = "{Muon-induced background to proton decay in the $p \to
-                        K^+ \nu$ decay channel with large underground liquid argon
-                        TPC detectors}",
-      journal        = "Phys. Lett.",
-      volume         = "B746",
-      year           = "2015",
-      pages          = "44-47",
+      author         = "Klinger, J. and Kudryavtsev, V.A. and Richardson, M. and
+                        Spooner, N.J.C.",
+      title          = "{Muon-induced background to proton decay in the $p
+                        \rightarrow K^{+}\nu$ decay channel with large underground
+                        liquid argon TPC detectors}",
       doi            = "10.1016/j.physletb.2015.04.054",
+      year           = "2015",
       eprint         = "1504.06520",
       archivePrefix  = "arXiv",
       primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1504.06520;%%"
+      SLACcitation   = "%%CITATION = ARXIV:1504.06520;%%",
 }
-
 @article{Nishino:2012ipa,
       author         = "Nishino, H. and others",
       title          = "{Search for Nucleon Decay into Charged Anti-lepton plus
@@ -7847,738 +7811,3 @@ note = "Available at \url{https://cdcvs.fnal.gov/redmine/projects/lbne-beamsim/w
       SLACcitation   = "%%CITATION = ARXIV:1803.04850;%%"
 }
 
-@misc{cfd-1,
-author = {{Strons, Ph., and Bailey, J. L.}},
-title =  "{Flow visualization methods for field test verification of CFD analysis of an ope\
-n gloveport}",
-year = {2017},
-note = {\url{https://www.osti.gov/pages/servlets/purl/1402050}},
-}
-
-@phdthesis{LacuestaMiquel:2015ksh,
-      author         = "Lacuesta Miquel, Vicente",
-      title          = "{Alignment of the ATLAS Inner Detector and Single Top
-                        studies}",
-      school         = "Valencia U., IFIC",
-      year           = "2015",
-      url            = "http://inspirehep.net/record/1429422/files/fulltext__tA3vb.pdf",
-      reportNumber   = "CERN-THESIS-2015-278",
-      SLACcitation   = "%%CITATION = CERN-THESIS-2015-278;%%"
-}
-
-@phdthesis{Moles-Valls:2014wza,
-      author         = "Moles-Valls, Regina",
-      title          = "{Inner detector alignment and top-quark mass measurement
-                        with the ATLAS detector}",
-      school         = "Valencia U., IFIC",
-      year           = "2014-02-19",
-      url            = "http://inspirehep.net/record/1339828/files/CERN-THESIS-2014-145.pdf",
-      reportNumber   = "CERN-THESIS-2014-145",
-      SLACcitation   = "%%CITATION = CERN-THESIS-2014-145;%%"
-}
-
-
-@article{Chatrchyan:2009km,
-      author         = "Chatrchyan, S and others",
-      title          = "{Alignment of the CMS Muon System with Cosmic-Ray and
-                        Beam-Halo Muons}",
-      collaboration  = "CMS",
-      journal        = "JINST",
-      volume         = "5",
-      year           = "2010",
-      pages          = "T03020",
-      doi            = "10.1088/1748-0221/5/03/T03020",
-      eprint         = "0911.4022",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "CMS-CFT-09-016",
-      SLACcitation   = "%%CITATION = ARXIV:0911.4022;%%"
-}
-
-@article{Aamodt:2010aa,
-      author         = "Aamodt, K and others",
-      title          = "{Alignment of the ALICE Inner Tracking System with
-                        cosmic-ray tracks}",
-      collaboration  = "ALICE",
-      journal        = "JINST",
-      volume         = "5",
-      year           = "2010",
-      pages          = "P03003",
-      doi            = "10.1088/1748-0221/5/03/P03003",
-      eprint         = "1001.0502",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1001.0502;%%"
-}
-
-
-@inproceedings{Meddage:2017lxo,
-      author         = "Meddage, Varuna",
-      title          = "{Electron Attenuation Measurement using Cosmic Ray Muons
-                        at the MicroBooNE LArTPC}",
-      booktitle      = "{Meeting of the APS Division of Particles and Fields (DPF
-                        2017) Batavia, Illinois, USA, July 31-August 4, 2017}",
-      collaboration  = "MicroBooNE",
-      url            = "http://lss.fnal.gov/archive/2017/conf/fermilab-conf-17-517-e.pdf",
-      year           = "2017",
-      eprint         = "1710.00396",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-CONF-17-517-E",
-      SLACcitation   = "%%CITATION = ARXIV:1710.00396;%%"
-}
-
-@techreport{MICROBOONE-NOTE-1018-PUB,
-author={The MicroBooNE Collaboration},
-title={{Study of Space Charge Effects in MicroBooNE}},
-year={2016},
-note={MICROBOONE-NOTE-1018-PUB},
-url = "{http://microboone.fnal.gov/wp-content/uploads/MICROBOONE-NOTE-1018-PUB.pdf}",
-}
-
-
-@techreport{MICROBOONE-NOTE-1026-PUB,
-author={The MicroBooNE Collaboration},
-title={{A Measurement of the Attenuation of Drifting Electrons in the MicroBooNE LArTPC}},
-year={2017},
-note={MICROBOONE-NOTE-1026-PUB}
-}
-
-@techreport{MICROBOONE-NOTE-1028-PUB,
-author={The MicroBooNE Collaboration},
-title={{Establishing a Pure Sample of Side-Piercing Through-Going
-Cosmic-Ray Muons for LArTPC Calibration in MicroBooNE}},
-year={2017},
-note={MICROBOONE-NOTE-1028-PUB},
-url = "{http://microboone.fnal.gov/wp-content/uploads/MICROBOONE-NOTE-1028-PUB.pdf}",
-}
-
-@article{Ankowski:2008aa,
-      author         = "Ankowski, A. and others",
-      title          = "{Energy reconstruction of electromagnetic showers from
-                        pi0 decays with the ICARUS T600 Liquid Argon TPC}",
-      collaboration  = "ICARUS",
-      journal        = "Acta Phys. Polon.",
-      volume         = "B41",
-      year           = "2010",
-      pages          = "103-125",
-      eprint         = "0812.2373",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ex",
-      SLACcitation   = "%%CITATION = ARXIV:0812.2373;%%"
-}
-
-
-
-@techreport{fields_doc_2901,
-title = "{Beam Optimization Task Force Final Report}",
-author = {{Fields, L. and Weber, A.  for the Beam Optimization Task Force}},
-year = {2017},
-note = {DUNE DocDB 2901}
-}
-
-
-
-@article{Zeller:2013sva,
-      author         = "Zeller, M. and others",
-      title          = "{First measurements with ARGONTUBE, a 5m long drift
-                        Liquid Argon TPC}",
-      booktitle      = "{Proceedings, 12th Pisa Meeting on Advanced Detectors: La
-                        Biodola, Isola d'Elba, Italy, May 20-26, 2012}",
-      journal        = "Nucl. Instrum. Meth.",
-      volume         = "A718",
-      year           = "2013",
-      pages          = "454-458",
-      doi            = "10.1016/j.nima.2012.11.181",
-      SLACcitation   = "%%CITATION = NUIMA,A718,454;%%"
-}
-
-@article{Abgrall:2010hi,
-      author         = "Abgrall, N. and others",
-      title          = "{Time Projection Chambers for the T2K Near Detectors}",
-      collaboration  = "T2K ND280 TPC",
-      journal        = "Nucl. Instrum. Meth.",
-      volume         = "A637",
-      year           = "2011",
-      pages          = "25-46",
-      doi            = "10.1016/j.nima.2011.02.036",
-      eprint         = "1012.0865",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1012.0865;%%"
-}
-
-
-@inproceedings{Bolozdynya:2012xv,
-      author         = "Bolozdynya, A. and others",
-      title          = "{Opportunities for Neutrino Physics at the Spallation
-                        Neutron Source: A White Paper}",
-      url            = "http://inspirehep.net/record/1203677/files/arXiv:1211.5199.pdf",
-      year           = "2012",
-      eprint         = "1211.5199",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ex",
-      reportNumber   = "FERMILAB-CONF-12-852-PPD",
-      SLACcitation   = "%%CITATION = ARXIV:1211.5199;%%"
-}
-
-@article{Acciarri:2008kv,
-      author         = "Acciarri, R. and others",
-      title          = "{Effects of Nitrogen contamination in liquid Argon}",
-      collaboration  = "WArP",
-      journal        = "JINST",
-      volume         = "5",
-      year           = "2010",
-      pages          = "P06003",
-      doi            = "10.1088/1748-0221/5/06/P06003",
-      eprint         = "0804.1217",
-      archivePrefix  = "arXiv",
-      primaryClass   = "nucl-ex",
-      SLACcitation   = "%%CITATION = ARXIV:0804.1217;%%"
-}
-
-@article{Jones:2013mfa,
-      author         = "Jones, B. J. P. and Alexander, T. and Back, H. O. and
-                        Collin, G. and Conrad, J. M. and Greene, A. and Katori, T.
-                        and Pordes, S. and Toups, M.",
-      title          = "{The Effects of Dissolved Methane upon Liquid Argon
-                        Scintillation Light}",
-      journal        = "JINST",
-      volume         = "8",
-      year           = "2013",
-      pages          = "P12015",
-      doi            = "10.1088/1748-0221/8/12/P12015",
-      eprint         = "1308.3658",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-PUB-13-325-E-PPD",
-      SLACcitation   = "%%CITATION = ARXIV:1308.3658;%%"
-}
-
-@article{Cancelo:2018dnf,
-      author         = "Cancelo, G. and Cavanna, F. and Escobar, C. O. and Kemp,
-                        E. and Machado, A. A. and Para, A. and Segreto, E. and
-                        Totani, D. and Warner, D.",
-      title          = "{Increasing the efficiency of photon collection in
-                        LArTPCs: the ARAPUCA light trap}",
-      booktitle      = "{Proceedings, Light Detection in Noble Elements (LIDINE
-                        2017): Menlo Park, CA, USA, September 22-24, 2017}",
-      journal        = "JINST",
-      volume         = "13",
-      year           = "2018",
-      number         = "03",
-      pages          = "C03040",
-      eprint         = "1802.09726",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-CONF-18-065-ND",
-      SLACcitation   = "%%CITATION = ARXIV:1802.09726;%%"
-}
-
-@article{Moss:2016yhb,
-      author         = "Moss, Z. and Moon, J. and Bugel, L. and Conrad, J. M. and
-                        Sachdev, K. and Toups, M. and Wongjirad, T.",
-      title          = "{A Factor of Four Increase in Attenuation Length of
-                        Dipped Lightguides for Liquid Argon TPCs Through Improved
-                        Coating}",
-      year           = "2016",
-      eprint         = "1604.03103",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-PUB-16-717-ND",
-      SLACcitation   = "%%CITATION = ARXIV:1604.03103;%%"
-}
-
-@article{Moss:2014ota,
-      author         = "Moss, Z. and Bugel, L. and Collin, G. and Conrad, J. M.
-                        and Jones, B. J. P. and Moon, J. and Toups, M. and
-                        Wongjirad, T.",
-      title          = "{Improved TPB-coated Light Guides for Liquid Argon TPC
-                        Light Detection Systems}",
-      journal        = "JINST",
-      volume         = "10",
-      year           = "2015",
-      number         = "08",
-      pages          = "P08017",
-      doi            = "10.1088/1748-0221/10/08/P08017",
-      eprint         = "1410.6256",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1410.6256;%%"
-}
-
-@article{Amoruso:2004dy,
-      author         = "Amoruso, S. and others",
-      title          = "{Study of electron recombination in liquid argon with the
-                        ICARUS TPC}",
-      collaboration  = "ICARUS",
-      journal        = "Nucl. Instrum. Meth.",
-      volume         = "A523",
-      year           = "2004",
-      pages          = "275-286",
-      doi            = "10.1016/j.nima.2003.11.423",
-      SLACcitation   = "%%CITATION = NUIMA,A523,275;%%"
-}
-
-
-
-
-
-@article{Li:2015rqa,
-      author         = "Li, Yichen and others",
-      title          = "{Measurement of Longitudinal Electron Diffusion in Liquid
-                        Argon}",
-      journal        = "Nucl. Instrum. Meth.",
-      volume         = "A816",
-      year           = "2016",
-      pages          = "160-170",
-      doi            = "10.1016/j.nima.2016.01.094",
-      eprint         = "1508.07059",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1508.07059;%%"
-}
-
-
-@article{Ereditato:2014tya,
-      author         = "Ereditato, A. and Goeldi, D. and Janos, S. and Kreslo, I.
-                        and Luethi, M. and Rudolf von Rohr, C. and Schenk, M. and
-                        Strauss, T. and Weber, M. S. and Zeller, M.",
-      title          = "{Measurement of the drift field in the ARGONTUBE LAr TPC
-                        with 266 nm pulsed laser beams}",
-      journal        = "JINST",
-      volume         = "9",
-      year           = "2014",
-      number         = "11",
-      pages          = "P11010",
-      doi            = "10.1088/1748-0221/9/11/P11010",
-      eprint         = "1408.6635",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1408.6635;%%"
-}
-
-@article{Auger:2016tjc,
-      author         = "Auger, M. and others",
-      title          = "{A Novel Cosmic Ray Tagger System for Liquid Argon TPC
-                        Neutrino Detectors}",
-      journal        = "Instruments",
-      volume         = "1",
-      year           = "2017",
-      number         = "1",
-      pages          = "2",
-      doi            = "10.3390/instruments1010002",
-      eprint         = "1612.04614",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-PUB-16-663-CD",
-      SLACcitation   = "%%CITATION = ARXIV:1612.04614;%%"
-}
-
-@article{Conrad:2015xta,
-      author         = "Conrad, J. and Jones, B. J. P. and Moss, Z. and Strauss,
-                        T. and Toups, M.",
-      title          = "{The Photomultiplier Tube Calibration System of the
-                        MicroBooNE Experiment}",
-      collaboration  = "MicroBooNE",
-      journal        = "JINST",
-      volume         = "10",
-      year           = "2015",
-      number         = "06",
-      pages          = "T06001",
-      doi            = "10.1088/1748-0221/10/06/T06001",
-      eprint         = "1502.04159",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-PUB-15-036-ND",
-      SLACcitation   = "%%CITATION = ARXIV:1502.04159;%%"
-}
-
-
-
-
-
-@article{Antonello:2016niy,
-      author         = "Antonello, M. and others",
-      title          = "{Muon momentum measurement in ICARUS-T600 LAr-TPC via
-                        multiple scattering in few-GeV range}",
-      collaboration  = "ICARUS",
-      journal        = "JINST",
-      volume         = "12",
-      year           = "2017",
-      number         = "04",
-      pages          = "P04010",
-      doi            = "10.1088/1748-0221/12/04/P04010",
-      eprint         = "1612.07715",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1612.07715;%%"
-}
-
-@article{Abratenko:2017nki,
-      author         = "Abratenko, P. and others",
-      title          = "{Determination of muon momentum in the MicroBooNE LArTPC
-                        using an improved model of multiple Coulomb scattering}",
-      collaboration  = "MicroBooNE",
-      journal        = "JINST",
-      volume         = "12",
-      year           = "2017",
-      number         = "10",
-      pages          = "P10010",
-      doi            = "10.1088/1748-0221/12/10/P10010",
-      eprint         = "1703.06187",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-PUB-17-076-ND",
-      SLACcitation   = "%%CITATION = ARXIV:1703.06187;%%"
-}
-
-
-@article{Acciarri:2015ncl,
-      author         = "Acciarri, R. and others",
-      title          = "{Measurement of $\nu_{\mu}$ and $\bar{\nu}_{\mu}$ neutral
-                        current $\pi^{0} \rightarrow \gamma\gamma$ production in
-                        the ArgoNeuT detector}",
-      collaboration  = "ArgoNeuT",
-      journal        = "Phys. Rev.",
-      volume         = "D96",
-      year           = "2017",
-      number         = "1",
-      pages          = "012006",
-      doi            = "10.1103/PhysRevD.96.012006",
-      eprint         = "1511.00941",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ex",
-      reportNumber   = "FERMILAB-PUB-15-479-ND",
-      SLACcitation   = "%%CITATION = ARXIV:1511.00941;%%"
-}
-
-@article{Abi:2017aow,
-      author         = "Abi, B. and others",
-      title          = "{The Single-Phase ProtoDUNE Technical Design Report}",
-      collaboration  = "DUNE",
-      year           = "2017",
-      eprint         = "1706.07081",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-DESIGN-2017-02",
-      SLACcitation   = "%%CITATION = ARXIV:1706.07081;%%"
-}
-
-
-@phdthesis{Caratelli:2018nob,
-      author         = "Caratelli, David",
-      title          = "{Study of Electromagnetic Interactions in the MicroBooNE
-                        Liquid Argon Time Projection Chamber}",
-      school         = "Columbia U.",
-      year           = "2018",
-      url            = "http://lss.fnal.gov/archive/thesis/2000/fermilab-thesis-2018-02.pdf",
-      doi            = "10.2172/1420402",
-      reportNumber   = "FERMILAB-THESIS-2018-02",
-      SLACcitation   = "%%CITATION = FERMILAB-THESIS-2018-02;%%"
-}
-
-@article{Rogers:1996ks,
-      author         = "Rogers, Joel G. and Andreaco, Mark S. and Moisan,
-                        Christian",
-      title          = "{A 7-MeV - 9-MeV isotopic gamma-ray source for detector
-                        testing}",
-      journal        = "Submitted to: Nucl. Instrum. Meth.",
-      year           = "1996",
-      reportNumber   = "TRI-PP-96-7",
-      SLACcitation   = "%%CITATION = TRI-PP-96-7;%%"
-}
-
-
-@article{Adams:2018lfb,
-      author         = "Adams, D. L. and others",
-      title          = "{Photon detector system performance in the DUNE 35-ton
-                        prototype liquid argon time projection chamber}",
-      year           = "2018",
-      eprint         = "1803.06379",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1803.06379;%%"
-}
-
-@phdthesis{Warburton:2017ixr,
-      author         = "Warburton, Thomas Karl",
-      title          = "{Simulations and Data analysis for the 35 ton Liquid
-                        Argon detector as a prototype for the DUNE experiment}",
-      school         = "Sheffield U.",
-      year           = "2017",
-      url            = "http://lss.fnal.gov/archive/thesis/2000/fermilab-thesis-2017-28.pdf",
-      reportNumber   = "FERMILAB-THESIS-2017-28",
-      SLACcitation   = "%%CITATION = FERMILAB-THESIS-2017-28;%%"
-}
-
-to fix \bibitem{bib:docdb6628}{
-	Estimating the Rock Muon Rate from the Neutrino Beam at the DUNE FD   
-    Dune DocDB\# 6628, v1   
-}
-
-@techreport{bib:docdb6628,
-title = "{Estimating the Rock Muon Rate from the Neutrino Beam at the DUNE FD}",
-author = {{Diurba, R.}},
-year = {2018},
-note = {DUNE DocDB 6628 v1}
-}
-
-@misc{ebias,
-author = {{Worcester, E.}},
-title = "{Energy Systematics Studies}",
-year = "2016",
-url = "https://indico.fnal.gov/event/11718/contribution/4/material/slides/0.pdf"
-}
-
-@misc{ty:protondecaywidths,
-author = {{Yang, T. and Baller, B.}},
-title = "{Event reconstruction improvemements for p -> nubar K+}",
-year = "2017",
-url = "{https://indico.fnal.gov/getFile.py/access?contribId=102&sessionId=14&resId=0&materialId=slides&confId=10641}",
-}
-
-@article{Whittington:2015rkr,
-      author         = "Whittington, Denver",
-      title          = "{Photon Detection System Designs for the Deep Underground
-                        Neutrino Experiment}",
-      booktitle      = "{Proceedings, Light Detection in Noble Elements (LIDINE
-                        2015): Albany, NY, USA, August 28-30, 2015}",
-      journal        = "JINST",
-      volume         = "11",
-      year           = "2016",
-      number         = "05",
-      pages          = "C05019",
-      doi            = "10.1088/1748-0221/11/05/C05019",
-      eprint         = "1511.06345",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      reportNumber   = "FERMILAB-CONF-15-490-ND-PPD",
-      SLACcitation   = "%%CITATION = ARXIV:1511.06345;%%"
-}
-
-@article{Garcia-Gamez:2017cmu,
-      author         = "Garcia-Gamez, Diego",
-      title          = "{Light Detection System simulations for SBND}",
-      booktitle      = "{Proceedings, 27th International Conference on Neutrino
-                        Physics and Astrophysics (Neutrino 2016): London, United
-                        Kingdom, July 4-9, 2016}",
-      collaboration  = "SBND",
-      journal        = "J. Phys. Conf. Ser.",
-      volume         = "888",
-      year           = "2017",
-      number         = "1",
-      pages          = "012094",
-      doi            = "10.1088/1742-6596/888/1/012094",
-      SLACcitation   = "%%CITATION = 00462,888,012094;%%"
-}
-
-@ARTICLE{Blin:2017,
-author = {{Blin}, S. and {Callier}, S. and {Conforti Di Lorenzo}, S. and 
-{Dulucq}, F. and {De La Taille}, C. and {Martin-Chassard}, G. and 
-{Seguin-Moreau}, N.},
-title = "{Performance of CATIROC: ASIC for smart readout of large photomultiplier arrays}",
-journal = {Journal of Instrumentation},
-year = 2017,
-month = mar,
-volume = 12,
-pages = {C03041},
-doi = {10.1088/1748-0221/12/03/C03041},
-adsurl = {http://adsabs.harvard.edu/abs/2017JInst..12C3041B},
-adsnote = {Provided by the SAO/NASA Astrophysics Data System}}
-
-@article{PhysRevB.20.3486,
-  title = {Dynamical behavior of free electrons in the recombination process in liquid argon, krypton, and xenon},
-  author = {Kubota, Shinzou and Hishida, Masahiko and Suzuki, Masayo and Ruan(Gen), Jian-zhi},
-  journal = {Phys. Rev. B},
-  volume = {20},
-  issue = {8},
-  pages = {3486--3496},
-  numpages = {0},
-  year = {1979},
-  month = {Oct},
-  publisher = {American Physical Society},
-  doi = {10.1103/PhysRevB.20.3486},
-  url = {https://link.aps.org/doi/10.1103/PhysRevB.20.3486}
-}
- 
-@article{Asaadi:2018ixs,
-      author         = "Asaadi, J. and Jones, B. J. P. and Tripathi, A. and
-                        Parmaksiz, I. and Sullivan, H. and Williams, Z. G. R.",
-      title          = "{Tetraphenyl Butadiene Emanation and Bulk Fluorescence
-                        from Wavelength Shifting Coatings in Liquid Argon}",
-      year           = "2018",
-      eprint         = "1804.00011",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1804.00011;%%"
-}
-
-@article{Benson:2017vbw,
-      author         = "Benson, Christopher and Orebi Gann, Gabriel and Gehman,
-                        Victor",
-      title          = "{Measurements of the Intrinsic Quantum Efficiency and
-                        Visible Reemission Spectrum of Tetraphenyl Butadiene Thin
-                        Films for Incident Vacuum Ultraviolet Light}",
-      year           = "2017",
-      eprint         = "1709.05002",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-     SLACcitation   = "%%CITATION = ARXIV:1709.05002;%%"
-}
- 
-@inproceedings{Marinho:2018doi,
-      author         = "Marinho, F. and Paulucci, L. and Machado, A. A. and
-                        Segreto, E.",
-      title          = "{Numerical characterization of the ARAPUCA: a new
-                        approach for LAr scintillation light detection}",
-      url            = "https://inspirehep.net/record/1667227/files/1804.03764.pdf",
-      year           = "2018",
-      eprint         = "1804.03764",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1804.03764;%%"
-}
- 
-@article{PhysRevB.27.5279,
-  title = {Effect of ionization density on the time dependence of luminescence from liquid argon and xenon},
-  author = {Hitachi, Akira and Takahashi, Tan and Funayama, Nobutaka and Masuda, Kimiaki and Kikuchi, Jun and Doke, Tadayoshi},
-  journal = {Phys. Rev. B},
-  volume = {27},
-  issue = {9},
-  pages = {5279--5285},
-  numpages = {0},
-  year = {1983},
-  month = {May},
-  publisher = {American Physical Society},
-  doi = {10.1103/PhysRevB.27.5279},
-  url = {https://link.aps.org/doi/10.1103/PhysRevB.27.5279}
-}
-
-
-the following are Interface Control Documents cited in the slow controls chapter.  They are currently accessible to people with "reviewer" or "dune" access, could probably be made public.
-
-@article{bib:docdb6745,
-      title = {{DUNE FD Interface Document: SP TPC Electronics to Joint CISC}},
-      author = "Anselmo Cervera Villanueva and others",
-      year = "2018",
-      note = "DUNE DocDB 6745-v2 "
-}
-
-@article{bib:docdb6991,
-      title = {{DUNE FD Interface Document: Facility Interfaces to Joint CISC}},
-      author = "Farshid Feyzi and others",
-      year = "2018",
-      note = "DUNE DocDB 6991"
-}
-
-@article{bib:docdb6790,
-      title = {{DUNE FD Interface Document: DAQ to CISC}},
-      author = "Anselmo Cervera Villanueva and others",
-      year = "2018",
-      note = "DUNE DocDB 6790-v1 "
-}
-
-@article{bib:docdb6787,
-      title = {{DUNE FD Interface Document: High Voltage to CISC}},
-      author = "Anselmo Cervera Villanueva and others",
-      year = "2018",
-      note = "DUNE DocDB 6787-v1 "
-}
-
-@article{bib:docdb6784,
-      title = {{DUNE FD Interface Document: DP TPC Electronics to Joint CISC}},
-      author = "Dario Autiero and others",
-      year = "2018",
-      note = "DUNE DocDB 6784-v1 "
-}
-
-@article{bib:docdb6781,
-      title = {{DUNE FD Interface Document: DP Photon Detector to Joint CISC}},
-      author = "Anselmo Cervera Villanueva and others",
-      year = "2018",
-      note = "DUNE DocDB 6781-v1 "
-}
-
-@article{bib:docdb6760,
-      title = {{DUNE FD Interface Document: DP CRP to Joint CISC}},
-      author = "Anselmo Cervera Villanueva and others",
-      year = "2018",
-      note = "DUNE DocDB 6760-v1 "
-}
-
-@article{bib:docdb6679,
-      title = {{DUNE FD Interface Document for Single Phase/Joint: SP APA to Joint CISC}},
-      author = "Anselmo Cervera Villanueva and others",
-      year = "2018",
-      note = "DUNE DocDB 6679-v1 "
-}
-
-@article{bib:docdb6730,
-      title = {{DUNE FD Interface Document: SP Photon Detector to Joint CISC}},
-      author = "Anselmo Cervera Villanueva and others",
-      year = "2018",
-      note = "DUNE DocDB 6730-v1 "
-}
-
-@article{bib:docdb7126,
-      title = {{DUNE FD Interface Document: Software and Computing to Joint CISC}},
-      author = "Sowjanya Gollapinni and others",
-      year = "2018",
-      note = "DUNE DocDB 7126-v1 "
-}
-
-@article{bib:docdb7099,
-      title = {{DUNE FD Interface Document: DUNE Physics to Joint CISC}},
-      author = "Sowjanya Gollapinni and others",
-      year = "2018",
-      note = "DUNE DocDB 7099-v1 "
-}
-
-@article{bib:docdb7072,
-      title = {{DUNE FD Interface Document: Calibration to Joint CISC}},
-      author = "Sowjanya Gollapinni and others",
-      year = "2018",
-      note = "DUNE DocDB 7072-v1 "
-}
-
-@article{bib:docdb7045,
-      title = {{DUNE FD Interface Document: Integration Facility to Joint CISC}},
-      author = "Sowjanya Gollapinni and others",
-      year = "2018",
-      note = "DUNE DocDB 7045-v1 "
-}
-
-@article{bib:docdb7018,
-      title = {{DUNE FD Interface Document: Installation Interfaces to Joint CISC}},
-      author = "Sowjanya Gollapinni and others",
-      year = "2018",
-      note = "DUNE DocDB 7018-v1 "
-}
-
-@article{Grace:2015yta,
-      author         = "Grace, Emily and Nikkel, James A.",
-      title          = "{Index of refraction, Rayleigh scattering length, and
-                        Sellmeier coefficients in solid and liquid argon and
-                        xenon}",
-      journal        = "Nucl. Instrum. Meth.",
-      volume         = "A867",
-      year           = "2017",
-      pages          = "204-208",
-      doi            = "10.1016/j.nima.2017.06.031",
-      eprint         = "1502.04213",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.ins-det",
-      SLACcitation   = "%%CITATION = ARXIV:1502.04213;%%"
-}
-
-@article{Walkowiak:2000wf,
-      author         = "Walkowiak, W.",
-      title          = "{Drift velocity of free electrons in liquid argon}",
-      journal        = "Nucl. Instrum. Meth.",
-      volume         = "A449",
-      year           = "2000",
-      pages          = "288-294",
-      doi            = "10.1016/S0168-9002(99)01301-7",
-      SLACcitation   = "%%CITATION = NUIMA,A449,288;%%"
-}
