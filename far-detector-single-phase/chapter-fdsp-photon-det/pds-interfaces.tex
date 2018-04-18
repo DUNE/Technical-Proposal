@@ -9,17 +9,19 @@
 %>> Revision: Ernesto Kemp & Norm Buchanan Mar/15/2018 >>>>>>>>>>>>>
 %>> Start: Ernesto Kemp Feb/10/2018 >>>>>>>>>>>>>  
 
-This section describes the interface between the DUNE SP Far Detector Photon-Detection System (SP-PDS) and several other consortia, task forces (TF) and subsystems listed below:
+This section describes the interface between the SP Far Detector Photon Detection System (SP-PDS) and several other consortia, task forces (TF) and subsystems listed below:
 
-\begin{enumerate}
+%\begin{enumerate}
+\begin{itemize}
 \item Anode Plane Assembly
 \item{Feedthroughs}
 \item TPC Cold Electronics 
-\item{Cathode Plane Assembly / High Voltage System -- if reflector foils option implemented}
+\item{Cathode Plane Assembly / High Voltage System -- if the coated-reflector foils option is implemented}
 \item Data Acquisition
 \item Calibration / Monitoring
-\end{enumerate}
-
+\end{itemize}
+%\end{enumerate}
+%
 The contents of the section are focused on what is needed to complete the design, fabrication, installation of the related subsystems, and are organized by the elements of the scope of each subsystem at the interface between them.
 
 
@@ -65,12 +67,12 @@ The PD is integrated in the APA frame to form a single unit for the detection of
 
 \textbf{Hardware:}
 The hardware interface between APA and PDS is both mechanical and electrical: 
-\begin{enumerate}
+\begin{itemize}
 \item Mechanical: a) supports for the PDS detectors; b) access slots for installation of the detectors;
 % if, as in the present baseline design, the detectors will be installed after the wire winding is completed; 
  c) access slots for the cabling of the PD detectors; d) routing of the PDS cables inside the side beams of the APA frame.
 \item Electrical: grounding scheme and electrical insulation, to be defined together with the CE consortium, given the CE strict requirements on noise.
-\end{enumerate}
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -129,13 +131,15 @@ Racks on top of the cryostat: the installation of the racks on top of the cryost
 
 %\textbf{Commissioning:} PD and HV consortia will provide staffing for commissioning the CPAs in the cryostat in the following manner: Specialists from the PDS Consortium will be responsible to fix the foils on the CPA surface. The HV Consortium has the oversight responsibility for this task.
 
-This section describes the interface between the light collection boosting system of the SP-PDS  and the HVS. These systems interact in the case that the photon detection system includes wavelength-shifting reflector foils mounted on the CPA.
+This section describes the interface between the light collection boosting system of the SP-PDS  and the HVS. These systems interact in the case that the photon detection system includes wavelength-shifting reflector foils mounted on the cathode plane array (CPA). The interface with the monitoring system is addressed in Section~\ref{sec:fdsp-pd-intfc-calib}.
 
-\textbf{Hardware: }The purpose of installing the wavelength-shifting (WLS) foils is to allow enhanced detection of light from events near to the cathode plane of the detector. The WLS foils consist of a wavelength shifting material (such as TPB) coated on a reflective backing material. The foils would be mounted on the surface of the cathode plane array (CPA) in order to enhance light collection from events occurring nearer to the CPA, and thus greatly enhancing the spatial uniformity of the light collection system as detected at the APA mounted light sensors. The foils may be laminated on top of the resistive Kapton surface of the CPA frames, with the option of using metal fasteners/tacks that would also serve to define the field lines. Production of the FR4+resistive Kapton CPA frames are the responsibility of the HV consortium. Production and TPB coating of the WLS foils will be the responsibility of the Photon Detection consortium. The fixing procedure for applying the WLS foils onto the CPA frames and any required hardware will be the responsibility of the Photon Detection consortium, with the understanding that all designs and procedures will be pre-approved by the HV consortium. This new detector component is not being tested in ProtoDUNE-SP, however its integration in the present DUNE far detector HV system could imply performance and stability degradation (due for example to ion accumulation at the CPA surface); the assembly procedure of the CPA/FC module could become more complex due to the presence of delicate WLS foils. Intense R\&D will be required before deciding on its implementation.
+\textbf{Hardware: }The purpose of installing the wavelength-shifting (WLS) foils is to allow enhanced detection of light from events near to the cathode plane of the detector. The WLS foils consist of a wavelength shifting material (such as TPB) coated on a reflective backing material. The foils would be mounted on the surface of the CPA in order to enhance light collection from events occurring nearer to the CPA, and thus greatly enhancing the spatial uniformity of the light collection system as detected at the APA mounted light sensors. The foils may be laminated on top of the resistive Kapton surface of the CPA frames, with the option of using metal fasteners/tacks that would also serve to define the field lines. 
+
+Production of the FR4+resistive Kapton CPA frames are the responsibility of the HV consortium. Production and TPB coating of the WLS foils will be the responsibility of the Photon Detection consortium. The fixing procedure for applying the WLS foils onto the CPA frames and any required hardware will be the responsibility of the Photon Detection consortium, with the understanding that all designs and procedures will be pre-approved by the HV consortium. 
+
+This new detector component is not being tested in ProtoDUNE-SP, however its integration in the present DUNE far detector HV system could imply performance and stability degradation (due for example to ion accumulation at the CPA surface); the assembly procedure of the CPA/FC module could become more complex due to the presence of delicate WLS foils. Intense R\&D will be required before deciding on its implementation.
 
 \textbf{Integration:} An integration test stand will likely be employed to verify the proper operation of the CPA panels with the addition of WLS foils under high voltage conditions. Light performance (wavelength conversion and reflectivity efficiency) will also be verified. The HV consortium will be responsible for HV aspects of the test stand and the PD consortium will be responsible for the light performance aspects.
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
