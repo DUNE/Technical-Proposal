@@ -9,21 +9,21 @@ constant (semi-Gaussian with peaking time 0.5, 1, 2, and 3~\si{\micro\second}),
 an option to enable AC coupling,
 and a baseline adjustment for operation with either the collecting (200~mV) or the non-collecting (900~mV) wires.
 
-Figure~\ref{fig:fe-output}(a) shows the simulated pulse response for all gains and peaking times and both baselines.
+Figure~\ref{fig:fe-output} (left) shows the simulated pulse response for all gains and peaking times and both baselines.
 Note that the gain is independent of the peaking time, such that the same amount of charge produces the same peak voltage signal regardless of the peaking time.  
 
 Shared among the 16 channels in the LArASIC are the bias circuits, programming registers,
 a temperature monitor, an analog buffer for signal monitoring, and the digital interface.
 The power dissipation of LArASIC is about 6~mW per channel at 1.8~V supply.
 
-LArASIC is implemented using the TSMC 180 nm CMOS process.  The charge sensitive amplifier uses a very large P-channel Field Effect Transistor (PFET) with width = 20 mm and length = 270 nm followed by a dual cascode stage, a pulse shaping network, and a baseline restoration circuit.  
+LArASIC is implemented using the TSMC 180 nm CMOS process.  The charge sensitive amplifier uses a very large P-channel Field Effect Transistor (PFET) with a width of 20~mm and a length of 270~nm followed by a dual cascode stage, a pulse shaping network, and a baseline restoration circuit.  
 
 Each channel also implements a high-performance output driver,
 which can be used to drive a long cable, but is disabled when interfaced to an ADC ASIC to reduce the power consumption.
 The ASIC integrates a band-gap reference (BGR) to generate all the internal bias voltages and currents.
 This guarantees a high stability of the operating point over a wide range of
-temperatures, including cryogenic.
-The ASIC is packaged in a commercial, fully encapsulated plastic QFP 80 package.
+temperatures, including cryogenic temperatures.
+The ASIC is packaged in a commercial, fully encapsulated plastic QFP~80 package.
 
 \begin{dunefigure}
 [Simulated FE response to an instantaneous injected charge for all gains and peaking times and both baselines (left); also shown are measured calibration pulse response overlays for 2,560 electronics channels (baseline subtracted) attached to a ProtoDUNE-SP APA (right).  Note that the truncated negative pulses are due to effects of saturation associated with the collection plane threshold being close to the lower ADC boundary.]
@@ -47,7 +47,7 @@ Prototype LArASIC have been evaluated and characterized at room temperature (300
 (77~K) temperature.
 During testing the circuits have been cycled multiple times
 between the two temperatures and operated without any change in performance.
-Figure~\ref{fig:fe-output}(b) shows the measured injection pulse response overlayed with the baseline subtracted for one full APA 
+Figure~\ref{fig:fe-output} (right) shows the measured injection pulse response overlayed with the baseline subtracted for one full APA 
 (2,560) electronics channels from ProtoDUNE-SP FEMB attached to a ProtoDUNE-SP APA in a 
 shielded environment at approximately 180 degrees Kelvin. This contains 1,600 induction (high-baseline)
 and 960 collection (low-baseline) channels, the latter of which saturate the negative pulse at the low 
