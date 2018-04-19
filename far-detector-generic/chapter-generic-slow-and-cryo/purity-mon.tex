@@ -96,7 +96,7 @@ The purity monitor electronics and DAQ system consist of front-end electronics, 
 
 The baseline design of the front-end electronics is the one used for the purity monitors at the 35-ton detector, LAPD, and MicroBOONE. The cathode and anode signals are fed into two charge amplifiers contained within the purity monitor electronics module. This electronics module includes a HV filter circuit and an amplifier circuit that are shielded by copper plates, so the signal and high voltage can be carried on the same cable and decoupled inside the purity monitor electronics module. The amplified outputs of the anode and cathode will be recorded with a waveform digitizer that interfaces with a DAQ PC. The shields of the signal and HV cable connect to the grounding points of the cryostat and are separated from the electronic ground with a resistor and a capacitor connected in parallel, mitigating ground loops between the cryostat and the electronics racks. The amplified outputs are transmitted to an AlazarTech ATS310 waveform digitizer that contains two input channels each with 12-bit resolution. Each channel is capable of sampling a signal at a rate of \SI{20}{\mega\samples\per\second} to \SI{1}{\kilo\samples\per\second} and storing up to \SI{8}{\mega\samples} in memory. One digitizer is used per purity monitor and each interfaces with the DAQ PC across the PCI bus. 
 
-\begin{dunefigure}[Purity Monitor block diagram]{fig:purity-mon-diag}
+\begin{dunefigure}[Purity Monitor block diagram]{fig:cryo-purity-mon-diag}
   {Block diagram of the purity monitor system.}
   \includegraphics[width=0.7\textwidth]{PrMon_BlockDiagram}%
 \end{dunefigure}
