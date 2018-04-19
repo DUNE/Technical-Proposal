@@ -156,7 +156,7 @@ The scope of the TPC electronics system covers the procurement, production, test
 The total numbers for components to be procured to instrument one \dword{dpmod} are given in Table~\ref{tab:dpele-num-components}
 
 \begin{dunetable}
-[Numbers for DP electronics components to procure]
+[Numbers for \dual electronics components to procure]
 {lr} {tab:dpele-num-components}
 {Numbers for DP electronics components to procure for one \dword{dpmod}.}
 Name & Number  \\ \toprowrule
@@ -170,7 +170,7 @@ VHDCI cables (\num{32} ch) & \num{4800} \\ \colhline
 \dword{lro} \dwords{amc} with analog \dword{fe} & \num{45} \\ \colhline
 \dword{utca} crates & \num{245} \\ \colhline
 \dword{wrmch} units & \num{245} \\ \colhline
-WR switches (\num{18} ports) & \num{16} \\ \colhline
+WR switches (\num{18} ports) & \num{16} \\ 
 \end{dunetable}
 
 
@@ -229,7 +229,7 @@ Name & Number  \\ \toprowrule
 %   Light readout \dword{fe} cards (total)           & \num{45} \\ \colhline
    \dword{lro} channels per \dword{utca} crate & \num{144} \\ \colhline
    \dword{lro} \dword{utca} crate                      & \num{5} \\ \colhline
-   \dword{wrmch} per \dword{utca} crate                 & \num{1} \\ \colhline
+   \dword{wrmch} per \dword{utca} crate                 & \num{1} \\ 
 %   \dword{wrmch} (total)                              & \num{245} \\ \colhline
 %   \dword{utca} crates (total)                         & \num{245} \\ \colhline
 \end{dunetable}
@@ -346,7 +346,7 @@ all channels functioned properly.
 %\label{sec:fddp-tpc-elec-design-lvps}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Digital \dword{amc} Electronics for Charge Readout}
+\subsection{Digital Advanced Mezzanine Card Electronics for Charge Readout}
 \label{sec:fddp-tpc-elec-design-amc}
 %THIS IS CHARGE READ OUT
 The %function of the
@@ -369,7 +369,7 @@ Dynamic range & \num{14} bit/ \SI{2.0}{\volt} \\ \colhline
 Differential non-linearity & typical \num{\pm0.6} LSB\\ 
 & with min. \num{-1.0} and max. \num{+1.7} LSB  \\ \colhline
 Integral non-linearity & typical \num{\pm1.1}  LSB\\
-& with min. \num{-3.1} and max. \num{+3.1} LSB  \\ \colhline
+& with min. \num{-3.1} and max. \num{+3.1} LSB  \\ 
 \end{dunetable}
 
 \fixme{what's LSB (in table)?}
@@ -426,7 +426,7 @@ Dynamic range & \num{14} bit/ \SI{2}{\volt} \\ \colhline
 Differential non-linearity & typical \num{\pm0.6} LSB\\
 & with min. \num{-0.9} and max. \num{+1.6} LSB  \\ \colhline
 Integral non-linearity & typical \num{\pm0.9}  LSB\\
-& with min. \num{-3} and max. \num{+3} LSB  \\ \colhline
+& with min. \num{-3} and max. \num{+3} LSB  \\ 
 %MEMORY??
 \end{dunetable}
 %noise llevel??
@@ -476,14 +476,14 @@ Outputs & \num{16} trigger outputs \\
 Main Internal &  Variable preamplifier gain \\
 Programmable  &  Variable shaping and gain \\
 Features & Common trigger threshold \\
-         & Common gain threshold \\ \colhline
+         & Common gain threshold \\ 
 \end{dunetable}
 
 The fast channel is used to auto-trigger the ASIC and make the fine-timing measurement. It comprises a high gain preamplifier, fast shaper (shaping time \SI{5}{ns}) and discriminator with a \num{10} bit programmable threshold that is common to all \num{16} channels. The output of the discriminator is used for the two Time to Digital Convertors to get the fine-timing. A coarse timestamp could also be obtained from a \num{26} bit counter running at \SI{40}{MHz}.  Only the data from the triggered channels are digitized; their information is transferred to the internal memory, which is read by the external FPGA. 
 
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Network-based \dword{utca} Architecture}
+\subsection{Network-based $\mu$TCA Architecture}
 \label{sec:fddp-tpc-elec-design-utca}
 
 The digital electronics is based on \dword{utca} standard which offers industrial solution with a very compact and easily scalable architecture to handle a large number of channels at low cost.  The standard (or related standards such as ATCA or xTCA) is widely used in the telecommunication industry and is being adapted by the HEP community. The backplane of the \dword{utca} crates host high-speed serial links that support a variety of transmission protocols (Ethernet, PCI Express, SRIO, etc.). In addition, dedicated lanes are available for the distribution of the clock signals to all the boards hosted in the crate.  The Ethernet-based solution has been adopted for both the data and clock distribution in this design of the DP electronics system for both Charge and Light Read Out. 
@@ -491,19 +491,19 @@ The digital electronics is based on \dword{utca} standard which offers industria
 Each \dword{amc} for either charge or light readout plugged into the \dword{utca} is connected to the crate \dword{mch} board through the backplane serial links. The \dword{mch} provides the switch functionality that enables \dwords{amc} to communicate with each other or external systems through the \dword{mch} uplink interface. In the DP electronics system design, \dword{mch} also manages the WR clock distribution. 
 
 \begin{dunetable}
-[Bandwidth requirements per \dword{utca} crate.]
+[Bandwidth requirements per $\mu$TCA crate.]
 {lr}{tab:dp-utcabandwidth}
 {Bandwidth requirements per \dword{utca} crate for continuous data streaming. A compression factor of 10 for the charger readout data is assumed }   
 Parameter & Value  \\ \toprowrule
   \dword{cro} data rate  &  \SI{1.8}{Gibit/s}         \\ \colhline
   \dword{lro} data rate  &  \SI{4.7}{Gibit/s}            \\ \colhline
   Current \dword{mch} bandwidth & \SI{10}{Gibit/s}              \\ \colhline
-  Upgradable \dword{mch} bandwidth & \SI{40}{Gibit/s}           \\ \colhline
+  Upgradable \dword{mch} bandwidth & \SI{40}{Gibit/s}           \\ 
 \end{dunetable}
 
 In the current design, as used for \dword{pddp}, the \dword{mch} operates with a \SI{10}{Gbit/s} uplink. Given that a \dword{utca} crate hosts \num{10} \dwords{amc} for charge readout, the required bandwidth to stream the data to \dword{daq} is about \SI{1.8}{Gbit/s}. This assumes that the data exiting the \dwords{amc} are losslessly compressed with the compression factor of \num{10}. The bandwidth required per crate link for streaming the \dword{lro} data is \SI{4.7}{Gbit/s}. The \SI{10}{Gbit/s} \dword{mch} is therefore sufficient to support these data rates. However, the technology is moving towards supporting the \SI{40}{Gbit/s} rates. In addition, the channel density per \dword{amc} could also be increased for cost optimization. For these reasons an upgrade to a \SI{40}{Gbit/s} \dword{mch} could be foreseen in the future. This would also imply that the optical links connecting the \dword{daq} system to \dword{utca} \dword{mch} should be operable at \SI{40}{Gbit/s}. A summary of the required and supported bandwidths per \dword{utca} crate for continous data streaming is provided in Table~\ref{tab:dp-utcabandwidth}.
 
-\begin{dunefigure}[Pictures of an instrumented \dword{utca} crate from \dword{wa105} detector]{fig:dpele-311-utca-image}
+\begin{dunefigure}[Instrumented $\mu$TCA crate from the \dword{wa105}]{fig:dpele-311-utca-image}
 {Pictures of an instrumented \dword{utca} crate from \dword{wa105} detector. The crate contains five \dword{amc} cards, correspondingly to the number of readout channels per the \dword{sft} chimney. The images below show the crate after the  cables are connected to the warm flange of the \dword{sft} chimney.}
 \includegraphics[width=0.6\textwidth]{dpele-311-utca-image}
 \end{dunefigure}
@@ -525,7 +525,7 @@ R\&D on this timing distribution solution started in 2006; the final design for 
 
 In the implementation specific to \dword{pddp}, a GPS-disciplined \fixme{`disciplined' seems a funny word here, but maybe that's what you call it?} clock unit (Meinberg LANTIME M600) feeds \SI{10}{MHz} and \num{1}\,PPS reference signals to a commercial \dword{wr} switch (Seven Solutions WRS V3.4). The switch acts as Grand Master of the \dword{wr} network. It is connected via \SI{1}{Gbit/s} optical links to the dedicated \dword{wr} timestamping node (\dword{wr}-TSN) and the \dword{wr} end-node slave cards present within each \dword{utca} crate (\dword{wrmch}) keeping these synchronized to its reference time. The \dword{wrgm} also communicates through a standard Ethernet port with the LANTIME unit for its date and time synchronization via NTP. The \dword{wr}-TSN module recieves analog TTL-level trigger signals, generates their timestamps, and transmits them over the \dword{wr} network to the connected \dword{wrmch} units. This timestamp information is then used by \dwords{amc} to find the data frame corresponding to the trigger. 
 
-\begin{dunefigure}[Picture of \dword{wr} slave \dword{wrmch} card]{fig:dpele-wrmch-image}
+\begin{dunefigure}[Picture of \dword{wr} slave node card]{fig:dpele-wrmch-image}
 {Picture of the \dword{wr} slave node card (\dword{wrmch}) present in each \dword{utca} crate for time synchronization.The \dword{wr}-LEN mezzanine card is visible in the bottom right corner.}
 \includegraphics[width=0.45\textwidth]{dpele-wrmch-image}
 \end{dunefigure}
@@ -648,25 +648,25 @@ flow to the \dword{daq} via the optical links in each \dword{utca} crate. The \d
 Table~\ref{tab:dpele-interfaces} provides the references to the relevant interface documents for each interface, stored in the DUNE document database (DocDB).
 
 \begin{dunetable}
-[Interface documents relevant to \dword{dp} electronics system]
+[Interface documents relevant to \dual TPC electronics system]
 {lr}{tab:dpele-interfaces}{Interface documents relevant to DP electronics system.}   
 Interface document    & DUNE DocDB No. \\ \toprowrule
-\dword{dp} TPC Electronics to \dword{dp} \dword{crp} & 6751 \\ \colhline
-\dword{dp} TPC Electronics to \dword{dp} Photon Detector & 6772 \\ \colhline
-\dword{dp} TPC Electronics to Joint \dword{daq} & 6778 \\ \colhline
-\dword{dp} TPC Electronics to Joint CISC & 6784 \\ \colhline
-Facility Interfaces to \dword{dp} TPC Electronics & 6982 \\ \colhline
-Installation Interfaces to \dword{dp} TPC Electronics & 7009 \\ \colhline
-Integration Facility to \dword{dp} TPC Electronics & 7036 \\ \colhline
-Calibration to \dword{dp} TPC Electronics & 7063 \\ \colhline
-DUNE Physics to \dword{dp} TPC Electronics & 7090 \\ \colhline
-Software and Computing to \dword{dp} TPC Electronics & 7117 \\ \colhline
+\dword{dp} TPC electronics to \dword{dp} \dword{crp} & 6751 \\ \colhline
+\dword{dp} TPC electronics to \dword{dp} \dword{pd} & 6772 \\ \colhline
+\dword{dp} TPC electronics to Joint \dword{daq} & 6778 \\ \colhline
+\dword{dp} TPC electronics to Joint CISC & 6784 \\ \colhline
+Facility Interfaces to \dword{dp} TPC electronics & 6982 \\ \colhline
+Installation interfaces to \dword{dp} TPC electronics & 7009 \\ \colhline
+Integration facility to \dword{dp} TPC electronics & 7036 \\ \colhline
+Calibration to \dword{dp} TPC electronics & 7063 \\ \colhline
+DUNE physics to \dword{dp} TPC electronics & 7090 \\ \colhline
+Software and computing to \dword{dp} TPC electronics & 7117 \\ 
 \end{dunetable}
 
 %\fixme{Add in appropriate subsections for the pieces that TPC Electronics interfaces with. These initial ones may not be right.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Electronics systems to CRP and Photon Detection System}
+\subsection{Electronics System to CRP and Photon Detection System}
 \label{sec:fddp-tpc-elec-intfc-crppmt}
 \fixme{clarify CRO vs LRO anne}
 
@@ -690,7 +690,7 @@ The internal noise level of the \dword{catiroc} is below \SI{0.1}{\milli\volt}. 
 \fixme{Why is this last bit of info under interfaces? I don't see anything about cables or connections; not needed? }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Electronics system to DAQ System}
+\subsection{Electronics System to DAQ System}
 \label{sec:fddp-tpc-elec-intfc-daq}
 
 The hardware interface between the \dual electronics system and \dword{daq} has two components. \fixme{Same for CRP or PD electronics?}The first interface is the \SI{10}{Gbit/s} optical fibers for data transfer between the \dword{utca} crates and the network interface of the \dword{daq} system. The second one is a \SI{1}{Gbit/s} optical fiber that connects the \dword{daq} \dword{wrgm} switch to the \dual electronics timing system.   
@@ -710,7 +710,7 @@ is applied to the data afterward.}
 \end{itemize} 
 
 The TPC electronics design assumes that the data are streamed continuously via the \SI{10}{Gbit/s} links to the \dword{daq}, where they are buffered until a trigger decision %could be 
-is made. The triggers are to be issued by processing the buffered data in some suitable sliding time window on the trigger farm machines. \fixme{clarify prev sentence}
+is made. The triggers are to be issued by processing the buffered data in some suitable sliding time window on the trigger farm machines. 
 %The depth of the window may go up to \SI{10}{s} as needed for the definition of the Supernova triggered events. 
 The window may be as long as \SI{10}{s} for Supernova-triggered events.
 The triggers determine whether the data contained in the buffers are to be written on disk. 
@@ -719,54 +719,89 @@ The software interface between the \dword{daq} and the electronics systems
 \fixme{sytem or systems?}  includes the tools for handling the data transmission and buffering, i.e.,  data formatting in \dword{udp} packets, compression and decompression, and exchange of the control packets.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% to here noon Wed Anne
-\subsection{Electronics system to Cryostat and Cryogenics}
+\subsection{Electronics System to Cryostat and Cryogenics}
 \label{sec:fddp-tpc-elec-intfc-cryo}
 
-The interface point between the cryostat and the \dual electronics system is the cryostat penetrations where the \dword{sft} chimneys are to be installed. Each penetration should accommodate the chimney whose external diameter is \SI{254}{\mm}. Each chimney has a CF-273 flange welded to its outer structure (see Figure~\ref{fig:dpele-sft-chimney-crosspipe}). After the chimney is inserted, this flange is in contact with the corresponding flange on the crossing (or penetration) pipe embedded in the cryostat structure to which it is eventually fastened. In order to avoid any leaks at this interface a CF-273 copper gasket is used to ensure the vacuum tightness.  
+The interface point between the cryostat and the \dual electronics system is at the cryostat penetrations where the \dword{sft} chimneys are %to be 
+installed. Each penetration %should 
+accommodates the chimney (of external diameter \SI{254}{\mm}). Each chimney has a CF-273 flange welded to its outer structure (see Figure~\ref{fig:dpele-sft-chimney-crosspipe}). After the chimney is inserted, this flange is in contact with the corresponding flange on the crossing (or penetration) pipe embedded in the cryostat structure to which it is eventually fastened. In order to avoid any leaks at this interface a CF-273 copper gasket is used to ensure the vacuum tightness.  
 
 \begin{dunefigure}[Details of \dword{sft} chimney interface to the cryostat structure]{fig:dpele-sft-chimney-crosspipe}
 {Details of \dword{sft} chimney interface to the cryostat structure.}
 \includegraphics[width=0.7\textwidth]{dpele-sft-chimney-crosspipe}
 \end{dunefigure}
 
-Each chimney contains a heat exchanger copper coil cooled with a liquid argon. There are two (inlet/outlet) stainless steel pipe connections with \SI{10}{\mm} (\SI{12}{\mm}) inner (outer) diameter that need to be branched to the respective system for the LAr delivery and re-circulation. In addition, there is a connection for nitrogen gas line with the same pipe dimensions as those for the LAr cooling, which is used for filling the chimney after it is closed following the installation of the \dword{fe} electronics. The nitrogen line is also required for flushing the chimney in the case of an access to the \dword{fe} cards after the \dword{dpmod} is cooled for the operation. 
+Each chimney contains a heat exchanger copper coil cooled with \lar. There are two (inlet and outlet) stainless steel pipe connections with \SI{10}{\mm} (\SI{12}{\mm}) inner (outer) diameter that need to be branched to the respective system for the \lar delivery and recirculation. In addition, %there is 
+a connection for nitrogen gas line with the same pipe dimensions as those for the \lar cooling, %which 
+is used for filling the chimney after it is closed following the installation of the \dword{fe} electronics. The nitrogen line is also required for flushing the chimney in the case of an access to the \dword{fe} cards after the \dword{dpmod} is cooled for the operation. \fixme{does last sentence belong here?}
 
-The \dword{utca} crates for charge readout need to be installed within a short \SI{<0.5}{\meter} distance from the \dword{sft} chimneys on top of the cryostat roof. The five \dword{utca} crates for the light readout are also placed on the roof of the cryostat at optimal locations defined by the routing of the \dword{pmt} signal cables. The required volume to accommodate the crates is roughly \SI[product-units=power]{60x50x40}{\cm}. 
+The \dword{utca} crates for charge readout %need to be 
+are installed within a short \SI{<0.5}{\meter} distance from the \dword{sft} chimneys on top of the cryostat roof. The five \dword{utca} crates for the light readout are also placed on the roof of the cryostat at optimal locations defined by the routing of the \dword{pmt} signal cables. The required volume to accommodate the crates is roughly \SI[product-units=power]{60x50x40}{\cm}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Slow Control System}
+\subsection{Electronics System to Slow Control System}
 \label{sec:fddp-tpc-elec-intfc-sc}
 
-The integration with the slow control of the low voltage power supply system for the \dword{fe} cards and \dword{utca} crates is required to enable the remote management and monitoring (current consumption by ASICs, set voltage, etc.). In addition, the \dword{sft} chimneys contains several sensors that need to be monitored. These include a pressure transducer that measures the pressure inside the chimney and at least two temperature probes (PT1000) that monitor the gas temperature inside near the cold flange at the bottom and close to the warm flange at the top.  
+The integration with the slow control of the low-voltage power supply system for the \dword{fe} cards and \dword{utca} crates is required to enable the remote management and monitoring (current consumption by ASICs, set voltage, etc.). In addition, the \dword{sft} chimneys contain several sensors that need to be monitored. These include a pressure transducer that measures the pressure inside the chimney and at least two temperature probes (PT1000) that monitor the gas temperature inside near the cold flange at the bottom and close to the warm flange at the top.  
+\fixme{specify who is responsible for what}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Transport and Handling}
+\label{sec:fddp-tpc-elec-install-transport}
+%\fixme{provide rough dimensions for boxes, chimney weights?}
+%\fixme{specify that the chimneys are to be delivered for the installation underground and positioned around the cryostat on top.}
+
+The \dword{sft} chimneys are \SI{2350}{\mm} long %objects with the weight of 
+and weigh \SI{180}{\kg}.  The cold and warm flanges are mounted on them at the assembly site, and the chimneys undergo leak-testing prior to shipping in wooden crates (approximate dimensions \SI[product-units=power]{2.5x0.5x0.5}{m}). %, and arrive with the cold and warm flanges already mounted. 
+Once at SURF the crates are moved underground and placed on the roof of the cryostat by the \dword{uit}. The %personnel from the 
+\dual electronics consortium %then proceeds 
+is then responsible for unpacking the crates and installing the \dword{sft} chimneys. %The chimneys are delivered with the cold and warm flanges already mounted and after they have been tested for leaks by one or several participating institutions.  
+\fixme{ I took out mention of ``one or several participating institutions'' Why not put that in section~\ref{sec:fddp-tpc-elec-design-sft}?}
+
+The boxes containing the electronic cards and \dword{utca} crates are also handled by \dual electronics consortium personnel. These are expected to be lightweight and %could be easily carried. 
+easy to carry. \fixme{transport info on the cards?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Installation, Integration and Commissioning}
 \label{sec:fddp-tpc-elec-install}
 
-The installation of the TPC electronics systems proceeds in several stages. In order to cable the \dwords{crp} to the \dword{sft} chimneys, these have to be installed first prior to the start of the \dword{crp} installation inside the cryostat. After the chimneys are installed the \dword{fe} cards could be mounted on the blades and inserted. The installation of the digital electronics and \dword{utca} crates should, however, be postponed until all of the heavy work finishes on top of the cryostat in order to ensure that the fragile components (e.g., optical fibers) are not accidentally damaged due to movement of material and large traffic of personnel. Once the \dword{utca} crates are installed and all the digital cards are inserted, the relevant \dwords{amc} are cabled to the warm flanges of the SFTs for the charge readout and are connected to the \dword{pmt} signal cables for the light readout. Finally to complete the installation and integrate the system with the \dword{daq}, the \SI{10}{Gbit/s} and \SI{1}{Gbit/s} optical links to the \dword{daq} and WR timing network are connected. At this stage the full system is ready for commissioning. 
+The installation of the TPC electronics systems proceeds in several stages. In order to cable the \dwords{crp} to the \dword{sft} chimneys, %these 
+ the chimneys \fixme{check} %have to be 
+are installed first, prior to the start of the \dword{crp} installation inside the cryostat. %After the chimneys are installed 
+Next the \dword{fe} cards %could be 
+are mounted on the blades and inserted. The installation of the digital electronics and \dword{utca} crates %should, however, be 
+is postponed until all of the heavy work finishes on top of the cryostat in order to prevent %ensure that 
+damage to the fragile components (e.g., optical fibers)  %are not accidentally damaged 
+due to movement of material and traffic. %large traffic of personnel. 
+Once the \dword{utca} crates are installed and all the digital cards are inserted, the %relevant 
+\dwords{amc} are cabled to the warm flanges of the \dwords{sft} for the charge readout and are connected to the \dword{pmt} signal cables for the light readout. Finally, to complete the installation and integrate the system with the \dword{daq}, the \SI{10}{Gbit/s} and \SI{1}{Gbit/s} optical links to the \dword{daq} and \dword{wr} timing network are connected. At this stage the full system is ready for commissioning. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Transport and Handling}
-\label{sec:fddp-tpc-elec-install-transport}
-%\fixme{provide rough dimensions for boxes, chimney weights?}
-%\fixme{specify that the chimneys are to be delivered for the installation underground and positioned around the cryostat on top.}
-
-The \dword{sft} chimneys are \SI{2350}{\mm} long objects with the weight of \SI{180}{\kg}. They are shipped in wooden crates with approximate dimensions of \SI[product-units=power]{2.5x0.5x0.5}{m}. Once on site the crates are moved underground and placed on the roof of the cryostat by the UIT. The personnel from the DP electronics consortium then proceeds to unpack the crates and install the \dword{sft} chimneys. The chimneys are delivered with the cold and warm flanges already mounted and after they have been tested for leaks by one or several participating institutions.  
-
-The boxes containing the electronic cards and \dword{utca} crates are handled by DP electronics consortium personnel. These are foreseen to be light and could be easily carried. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\dword{sft} Chimneys}
+\subsection{SFT Chimneys}
 \label{sec:fddp-tpc-elec-install-sft}
 
-The installation of the \dword{sft} chimneys requires a compact gantry crane with the supports movable along the length of the cryostat. The crane itself moves along the transverse direction. The crates containing the \dword{sft} chimneys are placed along the edges of the cryostat roof. An unpacked chimney is hoisted and transported to its respective penetration crossing pipe for installation. Once in place, the chimney is fastened to the flange on the crossing pipe. The length of each chimney is about \SI{2.4}{m}. Enough overhead room should therefore be foreseen to allow to freely move the chimney with the crane along the direction transverse to the beam axis. 
+The installation of the \dword{sft} chimneys requires a compact gantry crane with %the supports 
+movable supports along the length of the cryostat. The crane itself moves along the transverse direction. The crates containing the \dword{sft} chimneys are placed along the edges of the cryostat roof. An unpacked chimney is hoisted and transported to %its respective 
+the appropriate penetration crossing pipe for installation. Once in place, the chimney is fastened to the flange on the crossing pipe. %The length of each chimney is about \SI{2.4}{m}. 
+Enough overhead room to accommodate a chimney's \SI{2.4}{m} length is required
+%should therefore be foreseen 
+to allow to free movement of the chimney with the crane along the direction transverse to the beam axis. \fixme{why is transverse direction relevant here?}
 
-In parallel with the chimney installation, the \dword{fe} cards are unpacked and mounted on the blades. This work is performed on the roof of the cryostat to avoid repackaging the blades after the assembly in order to bring them on top of the cryostat. With \dword{sft} chimneys secured in the cryostat structure, the blades with mounted \dword{fe} cards can be inserted and the chimney can be sealed. At this stage, the connections with the pipes for the liquid argon and gas nitrogen delivery could also be made, if these latter have already been installed. The pressure probes and temperature sensors can be connected to the slow control system.
+In parallel with the chimney installation, the \dword{fe} cards are unpacked on top of the cryostat and mounted on the blades.  
+ \fixme{Is this necessary: ``This work is performed on the roof of the cryostat to avoid repackaging the blades after the assembly in order to bring them on top of the cryostat.''?} 
+With \dword{sft} chimneys secured in the cryostat structure, the blades with mounted \dword{fe} cards %can be inserted and the chimney can be sealed. 
+are inserted prior to sealing the chimney.
+%At this stage, the connections with the pipes for the liquid argon and gas nitrogen delivery could also be made, if these latter have already been installed. The pressure probes and temperature sensors can be connected to the slow control system.
+At this stage, if the \lar and gas nitrogen delivery pipes are already installed \fixme{will the sequence be known?} it is possible to make the connections with them and to connect the pressure probes and temperature sensors to the slow control system.
+ 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Digital \dword{utca} crates}
+\subsection{Digital $\mu$TCA Crates}
 \label{sec:fddp-tpc-elec-install-utca}
-The installation of the \dword{utca} crates with the digital electronics should happen in the final stage of the \dword{dpmod} installation to avoid damaging the fragile equipment. The crates are placed in their designated positions on the cryostat and connected to the power distribution network. The \dword{amc} cards and \dword{wrmch} modules are inserted in their slots. The VHDCI cables are then attached connecting the \dword{cro} \dwords{amc} to the warm flange interface of the \dword{sft} chimneys.  The fibers from the timing system are connected to \dword{wrmch}. 
+
+The installation of the \dword{utca} crates with the digital electronics %should happen 
+takes place in the final stage of the \dword{dpmod} installation to avoid damaging the fragile equipment. The crates are placed in their designated positions on the cryostat and connected to the power distribution network. The \dword{amc} cards and \dword{wrmch} modules are inserted in their slots. The VHDCI cables are then attached connecting the \dword{cro} \dwords{amc} to the warm flange interface of the \dword{sft} chimneys.  The fibers from the timing system are connected to \dword{wrmch}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Infrastructure}
@@ -777,16 +812,19 @@ The installation of the \dword{utca} crates with the digital electronics should 
 %\label{sec:fddp-tpc-elec-install-integ}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Integration within \dword{daq}}
+\subsection{Integration within the DAQ}
 \label{sec:fddp-tpc-elec-install-daq}
-The integration of the DP TPC electronics with the \dword{daq} system requires connecting the \SI{10}{Gbit/s} fiber links to each of \num{245} \dword{utca} crates. The connection of the timing system to the synchronization \dword{wrgm} is done via a single \SI{1}{Gbit/s} fiber link. 
+The integration of the \dual TPC electronics with the \dword{daq} system requires connecting the \SI{10}{Gbit/s} fiber links to each of \num{245} \dword{utca} crates. The connection of the timing system to the synchronization \dword{wrgm} is done via a single \SI{1}{Gbit/s} fiber link. 
 
-The necessary software for the \dword{daq} to read and decode the data packets sent by each \dword{utca} crate would also be provided.   
+The necessary software for the \dword{daq} to read and decode the data packets sent by each \dword{utca} crate would also be provided.   \fixme{by which party?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Integration with Photon Detection System}
+\subsection{Integration with the Photon Detection System}
 \label{sec:fddp-tpc-elec-install-pmt}
-The cables carrying the \dword{pmt} signals from the splitter boxes need to be connected to the \dword{lro} analog electronics in each \dword{utca} crate. The position of the crates should be optimized with respect to the layout of \dword{pmt} cables. In addition, the calibration system of the Photon Detection System has to be connected to specified inputs on the cards.
+The cables carrying the \dword{pmt} signals from the splitter boxes %need to be 
+are connected to the \dword{lro} analog electronics in each \dword{utca} crate. The position of the crates %should be 
+is optimized with respect to the layout of \dword{pmt} cables. In addition, the calibration system of the \dword{pds} %has to be 
+is connected to specified inputs on the cards.
 
 %The light read out cards will recieve the \dword{pmt} signals via their connection to the splitter boxes. Equally the calibration system of the Photon Detection System will have specified inputs to the cards.
 %Anything specific apart from making cable connections? I'm not sure what should go here?
@@ -799,9 +837,15 @@ The cables carrying the \dword{pmt} signals from the splitter boxes need to be c
 \subsection{Comissioning}
 \label{sec:fddp-tpc-elec-comission}
 
-The \dword{sft} chimneys are commissioned as a first step. This consists of evacuating and then filling them with nitrogen gas at slight overpressure with respect to the atmospheric pressure. To ensure that no damage happened to the flange interfaces during installation, the chimney vacuum tightness can be verified again at this stage by checking leak rate when the chimney is under vacuum and monitoring the nitrogen pressure once it is filled.
+The \dword{sft} chimneys are commissioned as a first step. This consists of evacuating and then filling them with nitrogen gas at slight overpressure with respect to %the atmospheric. % pressure. 
+%To ensure that no damage happened to the flange interfaces during installation, the chimney vacuum tightness can be verified again at this stage by checking leak rate when the chimney is under vacuum and monitoring the nitrogen pressure once it is filled.
+It is necessary to check the leak rate when the chimney is under vacuum and to monitor the nitrogen pressure once it is filled in order to verify that no damage occurred to the flange interfaces during installation.
 
-The electronics system can be commissioned after the installation of the \dword{utca} crates with \dwords{amc} and the timing system are completed. The functionality of the full \dword{daq} system is not strictly required at this stage. The data from each crate could be read with a portable computer connected to the crate \dword{mch} \SI{10}{Gbit/s} or \SI{1}{Gbit/s} interface. By pulsing the \dword{crp} strips the non-functioning channels could be identified. The data quality would also be examined to ensure the correct functioning of the digital electronics and the temporal alignment of the data segments.   
+The electronics system %can be 
+is commissioned after completing the installation of the \dword{utca} crates with the \dwords{amc}, and the timing system. %are completed. 
+(The functionality of the full \dword{daq} system is not strictly required at this stage.) The data from each crate %could be 
+is read with a portable computer connected to the crate \dword{mch} \SI{10}{Gbit/s} or \SI{1}{Gbit/s} interface. %By pulsing the \dword{crp} strips, the non-functioning channels could be identified. The data quality would also be examined to ensure the correct functioning of the digital electronics and the temporal alignment of the data segments.  
+The non-functioning channels are identified by pulsing the \dword{crp} strips and the data quality is examined to ensure the correct functioning of the digital electronics and the temporal alignment of the data segments.   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Quality Control}
@@ -821,18 +865,31 @@ The electronics system can be commissioned after the installation of the \dword{
 \section{Risks and Vulnerabilities}
 \label{sec:fddp-tpc-elec-risks}
 
-The design of the DP electronics system takes into account several risks factors:
+The design of the \dual electronics system takes into account several risk factors:
 \begin{itemize}
 \item{\textbf{Obsolescence of electronic components over the period of experiment}: allocation of enough spares (preferably complete cards instead of components) should be sufficient to address this issue. }
-\item{\textbf{Modification to \dword{fe} electronics due to evolution in design of photon detectors}: strict and timely follow-up of the \dword{fe} requirements from the DP photon system is required.}
-\item{\textbf{Damage to electronics due HV discharges or other reasons}: the \dword{fe} cards should include suitable protection components. The TVS diodes used in the current design have been sufficient to protect the electronics in \dword{wa105} detector. In addition, the cards are accessible and could be replaced if damaged. }
-\item{\textbf{Overpressure in the \dword{sft} chimneys}: the \dword{sft} chimneys are equipped with safety valves that vent the excess gas in case of the sudden pressure rise. The overpressure threshold should be set low enough such that no significant damage could happen to the flanges. }
-\item{\textbf{Leak of nitrogen inside the \dword{dpmod} via cold flange}: the chimney volume would be filled with argon gas instead of nitrogen.}
-\item{\textbf{Mechanical problems with \dword{fe} card extraction due to overhead clearance}: in case of insufficient overhead space it would not be possible to extract the blades from the \dword{sft} chimneys. This is addressed by making the requirement for LBNF to ensure there is always enough clearance around the chimneys.}
-\item{\textbf{Data flow increase due to inefficient compression caused by higher noise}: currently there is a factor of \num{5} margin in the available bandwidth with \SI{10}{Gbit/s} \dword{mch}.}
-\item{\textbf{Damage to \dword{utca} crates due to presence of water on the roof of the cryostat}: requirement to LBNF to ensure that the cryostat surface remains dry.}
-\item{\textbf{Problems with the ventilation system of the \dword{utca} crates due to bad air quality}: normal conditions similar to any industrial environment at CERN/FNAL should be sufficient to ensure that crates function properly. Liberation of large quantities of dust due to activities in the mine are to be avoided.}
+
+\item{\textbf{Modification to \dword{fe} electronics due to evolution in design of photon detectors}: Strict and timely follow-up of the \dword{fe} requirements from the \dual \dword{pds} is required.}
+
+\item{\textbf{Damage to electronics due \dword{hv} discharges or other causes}: %reasons}: 
+The \dword{fe} cards should include suitable protection components. The TVS diodes used in the current design  have been sufficient to protect the electronics in \dword{wa105} detector. 
+ In addition, the cards are accessible and could be replaced if damaged. }
+ 
+\item{\textbf{Overpressure in the \dword{sft} chimneys}: The \dword{sft} chimneys are equipped with safety valves that vent the excess gas in case of the sudden pressure rise. The overpressure threshold %should 
+shall be set low enough such that no significant damage could happen to the flanges. }
+
+\item{\textbf{Leak of nitrogen inside the \dword{dpmod} via cold flange}: The chimney volume %would be
+is  filled with argon gas instead of nitrogen.}
+
+\item{\textbf{Mechanical problems with \dword{fe} card extraction due to insufficient overhead clearance}: %In case of insufficient overhead space it would not be possible to extract the blades from the \dword{sft} chimneys. This is addressed by making the requirement for LBNF to ensure there is always enough clearance around the chimneys.}
+This is addressed by imposing a requirement for LBNF to ensure enough overhead clearance to extract the blades from the \dword{sft} chimneys.}
+\item{\textbf{Data flow increase due to inefficient compression caused by higher noise}: Currently there is a factor of \num{5} margin in the available bandwidth with \SI{10}{Gbit/s} \dword{mch}.} 
+\item{\textbf{Damage to \dword{utca} crates due to presence of water on the roof of the cryostat}: This is addressed by imposing a requirement for LBNF to ensure that the top cryostat surface remains dry.}
+\item{\textbf{Problems with the ventilation system of the \dword{utca} crates due to bad air quality}: Normal conditions similar to any industrial environment (e.g., at CERN or Fermilab) %should 
+is expected to be sufficient %to ensure that crates function properly
+for proper crate functioning. It is important to avoid liberation of large quantities of dust in the detector caverns at SURF.} %due to activities in the mine are to be avoided.}
 \end{itemize}
+\fixme{Data flow bullet: currently? Will it remain 5 and is 5 enough?}
 %\begin{dunetable}
 %[Risks associated with DP electronics system]
 %{lr}
@@ -868,12 +925,13 @@ The design of the DP electronics system takes into account several risks factors
 \subsection{Dual-Phase TPC Electronics Consortium Organization}
 \label{sec:fddp-tpc-elec-org-consortium}
 
-The Dual-Phase TPC electronics consortium actually consists of seven participating institutions from France (\num{3}), Japan (\num{3}), and USA (\num{1}). The consortium leader is Dario Autiero (IPNL, France) and the technical leader is Takuya Hasegawa (KEK, Japan). The composition of the consortium along with the information for each institutional representative is provided in Table~\ref{tab:dpele-consortium-people}.
+The \dual TPC electronics consortium %actually 
+consists of seven participating institutions from France (\num{3}), Japan (\num{3}), and the USA (\num{1}). The consortium leader is Dario Autiero (IPNL, France) and the technical leader is Takuya Hasegawa (KEK, Japan). The composition of the consortium along with the information for each institutional representative is provided in Table~\ref{tab:dpele-consortium-people}.
 \begin{dunetable}
-[DP TPC electronics consortium current participants]
+[\dual TPC electronics consortium current participants]
 {p{0.35\linewidth}p{0.25\linewidth}p{0.35\linewidth}}
 {tab:dpele-consortium-people}
-{DP TPC electronics consortium current participants.}   
+{\dual TPC electronics consortium current participants.}   
  Institution    & Investigator & Contact \\ \toprowrule
 France: APC  & Thomas Patzak & thomas.patzak@cern.ch \\ \colhline
 France: IPNL  & Dario Autiero & autiero@cern.ch  \\ \colhline
@@ -881,19 +939,22 @@ France: LAPP & Dominique Duchesneau & duchesneau@lapp.in2p3.fr  \\ \colhline
 Japan: Iwate University & Shinya Narita & narita@iwate-u.ac.jp  \\ \colhline
 Japan: KEK    & Takuya Hasegawa & takuya.hasegawa@kek \\ \colhline
 Japan: NITKC & Seiji Kasai & kasai@kure-nct.ac.jp  \\ \colhline
-USA: Southern Methodist University & Thomas Coan & coan@smu.edu  \\ \colhline
+USA: Southern Methodist University & Thomas Coan & coan@smu.edu  \\ 
 \end{dunetable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Planning Assumptions}
 \label{sec:fddp-tpc-elec-org-assmp}
-The present design of the DP TPC electronics system mostly relies on the elements that have already been developed and tested in the \dword{wa105} detector. Commissioning of the \dword{pddp} towards the end of the year should provide some addition information, but is not expected to affect the design of principal components. Some additional improvements related to the increase in the channel density supported by \dwords{amc}  could be envisioned for the purpose of further reduction in costs. 
+The present 
+\fixme{present?} design of the \dual TPC electronics system %mostly relies 
+largely on the elements that have already been developed and tested in the \dword{wa105} detector. Commissioning of the \dword{pddp} towards the end of 2018 should provide some additional information, but is not expected to affect the design of principal components. Some additional improvements related to the increase in the channel density supported by \dwords{amc}  %could be envisioned 
+is possible for the purpose of further cost reduction. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{WBS and Responsibilities}
 \label{sec:fddp-tpc-elec-org-wbs}
 
-The description of the WBS including the assignments of the responsible institutions is documented in DUNE-doc-5594 and provided in addendum.
+The description of the \dword{wbs} including the assignments of the responsible institutions is documented in DUNE-doc-5594 and provided in addendum. \fixme{addendum?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{High-level Cost and Schedule}
@@ -907,11 +968,11 @@ The description of the WBS including the assignments of the responsible institut
 Preparation of costing for Technical Proposal & \num{20} & 02/26/18 & 03/23/18 \\ \colhline
 Initial Development of Installation Schedule & \num{20} & 02/26/18 & 03/23/18 \\ \colhline
 Further Development of Installation Schedule & \num{145} & 09/03/18 & 03/22/19 \\ \colhline
-Installation and Commissioning of PD-DP & \num{320} & 01/01/18 & 03/22/19 \\ \colhline
+Installation and Commissioning of \dword{pddp} & \num{320} & 01/01/18 & 03/22/19 \\ \colhline
 Finalization of the number of channels for \dword{lro} & \num{20} & 09/03/18 & 09/28/18 \\ \colhline
 Implementation of routing for digital cards of \dword{lro} & \num{40} & 10/01/18 & 11/23/18 \\ \colhline
 Preparation of final costing for TDR & \num{85} & 11/26/18 & 03/22/19 \\ \colhline
-Firmware development for charge readout cards & \num{145} & 09/03/18 & 03/22/19 \\ \colhline
+Firmware development for charge readout cards & \num{145} & 09/03/18 & 03/22/19 \\ 
 \end{dunetable}
 
 The detailed cost model has been developed based on the scaling of the costs for the electronics system of \dword{pddp}. It is provided in addendum. 
