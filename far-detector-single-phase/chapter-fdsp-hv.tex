@@ -13,15 +13,19 @@
 A \dword{lartpc} requires an equipotential cathode plane at high voltage and a precisely regulated interior electric field to drive 
 electrons from particle interactions to sensor planes.  In the case of the DUNE \dlong{sp} technology, 
 this requires vertical cathode planes, called cathode plane assemblies (\dwords{cpa}), held at high voltage; vertical anode planes, called anode plane assemblies  (\dwords{apa}), \fixme{held at 
-ground?} described in Chapter~\ref{sec:fdsp-apa-intro}; and formed sets of conductors at graded voltages surrounding the
+ground? RKP: Graded voltages below addresses this.} described in Chapter~\ref{sec:fdsp-apa-intro}; and formed sets of conductors at graded voltages surrounding the
  the central drift volume, collectively called the \dlong{fc}. The \dword{fc} consists of portions on the top and bottom  
 of the drift volume (called the \dword{topfc} and \dword{botfc}, respectively), and along the sides, called \dwords{ewfc}.
 
-\fixme{CPA by itself is the only form of CPA not defined. What is the cathode plane ``assembly'' as opposed to the CPA plane, panel, array, unit...?}
+\fixme{CPA by itself is the only form of CPA not defined. What is the cathode plane ``assembly'' as opposed to the CPA plane, panel, array, unit...? RKP: Believe this is clear as written.}
 
-The modular \dword{tpc} construction is shown in Figure~\ref{fig:dune_sp_fd}. A DUNE \dword{spmod} is made up of 25 such assemblies, plus two complete  \dword{ewfc} planes, with the  drift fields transporting the ionization electrons 
+The SP \dword{tpc} construction is shown in Figure~\ref{fig:dune_sp_fd}.
+%A DUNE \dword{spmod} is made up of 4 drif, plus two complete  \dword{ewfc} planes, with 
+The  drift fields transport the ionization electrons 
 %in the direction \dword{cpa} $\Rightarrow$ \dword{apa}. 
-towards the \dword{apa}.
+towards the \dword{apa}'s at sides and center.
+
+\fixme{The previous sentence refers to an old figure, with one row of APA-CPA-APA-CPA-APA.  Do we bring it back or refer to something similar (Fig.9.8)? RKP: Repaired text.}
 
 \begin{dunefigure}[One unit of DUNE showing \dwords{cpa}, and \dwords{apa}]{fig:dune_sp_fd}
 {Interior of a \dword{spmod}. The \dwords{cpa} occupy the 2nd and 4th positions, between the three \dwords{apa}.  \Dwords{topfc} and \dwords{botfc} field cages are shown in blue (Credit: CAD model).}
@@ -35,8 +39,39 @@ towards the \dword{apa}.
 On the right, the front top and bottom \dword{fc} modules are shown folded up against the \dword{cpa} panels to which they connect, as they are positioned for shipping and insertion into the cryostat.  The \dwords{cpa}, \dwords{apa} and \dwords{fc} together define the four drift volumes of the \dword{spmod}. These terms are defined in Tables~\ref{tab:cpaparts} and~\ref{tab:fcparts} and illustrated in (a figure that I will propose!).}
 
 It is to be noted that the \dword{hv} consortium provides systems that operate at the full range of voltages, %all voltages, from the highest 
-maximum to ground, inside the \dword{tpc} volume. As a result, its systems actually constitute a large fraction of the total internal structures of the \dword{tpc} itself, the principal exception being the \dwords{apa} and the \dword{pds}. Mechanical and structural concerns will work together with electrical design to meet the requirements. 
-\fixme{`concerns work with designs'? Anne}
+maximum to ground, inside the \dword{tpc} volume. As a result, its systems actually constitute a large fraction of the total internal structures of the \dword{tpc} itself, the principal exception being the \dwords{apa} and the \dword{pds}. Mechanical and structural concerns will be integrated with electrical design to meet the requirements. 
+\fixme{`concerns work with designs'? Anne. RKP: Repaired text.}
+
+%\subsection{Design Considerations}
+
+Of the two anode-cathode plane configurations, cathode planes facing the cryostat wall (C-A-C-A-C), or anode planes facing the   
+cryostat wall (A-C-A-C-A), the latter configuration has less energy stored in the electric field of the \dword{spmod} (~0.8 KJ). The  (A-C-A-C-A) configuration has been chosen because of the reduced energy storage, and to increase the distance between the cathode and the cryostat.
+
+In this configuration, energy is mostly stored in the high electric field region between the field cage and the nearby grounded conductors.  In an unexpected high voltage breakdown, the entire 0.4\,kJ associated with one cathode could be released in a small volume of material, possibly causing physical damage.
+%As an example, if this energy is converted to heat, it is sufficient to melt about 6\,mm$^3$ of stainless steel. 
+Presently, it is difficult to be certain of the distribution of energy along a discharge path. A conservative approach is to treat this energy as a risk to the TPC and the cryostat membrane.  
+%Given the size of the cryostat and the total TPC volume required, it is difficult to reduce this energy much further.  
+Our mitigation for this risk is to slow down the energy release as much as possible to minimize the potential damage.  The mitigation is implemented by subdividing the field cage into electrically isolated modules, and to construct the cathode with highly resistive material.
+
+
+Previous large liquid argon TPCs (ICARUS, MicroBooNE) have used continuous stainless steel tubes as electrodes. 
+%There are disadvantages to scale this design to multi-kiloton  LArTPCs such as the DUNE Far Detector: 
+Electrically, linking such electrodes to span more than 100m in total length increases the stored energy each electrode has, and increases the risk of damaging the field cage components in a HV discharge. 
+%Moreover, mechanically, such field cages cannot be built as completely independent modules and therefore require labor intensive steps to interconnect the electrodes, many at great heights inside the cryostat; 
+
+If the cathode is made of metal, a high voltage discharge can cause the electrical potential of the entire cathode surface to swing from its nominal bias (e.g. -180\,kV) to 0\, in nanoseconds. This would induce a large current into the analog front-end amplifiers connected to the sensing wires on the APAs (mostly to the first induction wire plane channels). Internal study (docdb 1320) has shown that this surge of current would overwhelm the internal ESD protection in the front-end ASICs.  To reduce this induced current, we chose to construct the cathode out of material with high resistivity.  Figure~\ref{fig:cpa-frame-discharge} shows the release of stored energy in time and the voltage distribution of a section of the cathode at one moment in time.  To minimize the induced current to the amplifiers, the surface resistivity should be as large as possible until the ionization current from the TPC starts to cause significant voltage drop along the cathode.  In the DUNE FD the current is dominated by $^39$Ar decay, and we can tolerate surface resistivity well above 1\,G$\Omega/\Box$. 
+
+
+\begin{dunefigure}[Simulated \dword{cpa} discharge event]
+{fig:cpa-frame-discharge}
+{Simulated \dword{cpa} Discharge event on a highly resistive cathode surface (1\,G$\Omega$/$\Box$). Left: Time dependence of removal of stored energy. Right: Voltage distribution on a section of the cathode (2.3\,m $\times$ 12\.m) 0.2\,ms after the discharge.}
+\includegraphics[width=0.4\textwidth]{A2}
+\includegraphics[width=0.4\textwidth]{A3}
+\end{dunefigure}
+\fixme{numbers in figures are too small to read. Anne. Answer: old figure, not fixable on this time frame. Added \textbf{axis} labels in response to collaboration comment. }
+
+The SP HV system may have modifications if problems are identified in the present design in ProtoDune. Issues identified in earlier testing form the basis of an ongoing R\&D program.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,7 +81,7 @@ maximum to ground, inside the \dword{tpc} volume. As a result, its systems actua
 The %\dword{tpc} 
 \dword{hv} system is designed to meet the physics requirements of the DUNE experiment. These are both physical requirements (such as electric fields that allow robust event reconstruction) and operational (a system that avoids over-complication so as to maximize the time that the detector can collect neutrino events). An important collection of the requirements is shown in 
 Table~\ref{tab:hvphysicsreqs}.
-\fixme{the most important requirements? Could there be multiple important collections of them? Also, the way some are worded they are impossible to verify (maximize, adequate...}
+\fixme{the most important requirements? Could there be multiple important collections of them? Also, the way some are worded they are impossible to verify (maximize, adequate...RKP: Language here was chosen carefully.}
 
 
 \begin{dunetable}
@@ -55,11 +90,11 @@ Table~\ref{tab:hvphysicsreqs}.
 {tab:hvphysicsreqs}
 {\dword{hv} System Requirements}   
 No. & Requirement & Physics Requirement Driver & Requirement & Goal \\ \toprowrule
-1 & Exceed minimum electric field in \dword{tpc} drift volume & Maintain adequate particle ID, which is impacted by slower drift speed and increased recombination, diffusion and space charge effects. & >\SI{250}{V/cm} &\SI{500}{V/cm} \\ \colhline
- 2 & Do not exceed maximum electric field in \dword{lar} volume & Avoid damage to detector to enable data collection over long periods. & \SI{30}{kV/cm} & \dword{alara} \\  \colhline
-3 & Minimize power supply ripple & Keep readout electronics free from external noise, which confuses event reconstruction.  \\ \colhline
+1 & Exceed minimum electric field in \dword{tpc} drift volume & Maintain adequate particle ID, which is impacted by increased recombination, diffusion and space charge effects. Studies from MicroBooNE show adequate particle ID with the stated value. & >\SI{250}{V/cm} &\SI{500}{V/cm} \\ \colhline
+ 2 & Do not exceed maximum electric field in \dword{lar} volume; subsystems that have been validated under working conditions in pure liquid argon may exceed cited limit. & Avoid damage to detector to enable data collection over long periods. & \SI{30}{kV/cm} & \dword{alara} \\  \colhline
+3 & Minimize power supply ripple & Keep readout electronics free from external noise, which confuses event reconstruction.  & 0.9~mV & 0.9~mV\\ \colhline
 4 &  Maximize power supply stability & Maintain the ability to reconstruct data taken over long period.  Maintain high operational uptime to maximize experimental statistics. \\ \colhline
-5 & Provide adequate decay constant for discharge of the cathode surface and field cage  & Avoid damage to detector to enable data collection over long periods. Maintain high operational uptime to maximize experimental statistics. & M\si{\ohm}/square & G\si{\ohm}/square \\ \colhline
+5 & Provide adequate resistivity to create acceptable decay constant for discharge of the cathode surface and field cage  & Avoid discharge damage to detector or electronics to enable data collection over long periods. Value is set to allow extraction of stored energy over periods of seconds. Maintain high operational uptime to maximize experimental statistics.  & 1 M\si{\ohm}/square & 1 G\si{\ohm}/square \\ \colhline
 6 & Provide redundancy in all \dword{hv} connections & Avoid single point failures in detector that interrupt datataking.\\ 
 \end{dunetable}
 \fixme{This should match the list of requirements that are eventually put into the DOORS system. Anne}
@@ -72,48 +107,53 @@ No. & Requirement & Physics Requirement Driver & Requirement & Goal \\ \toprowru
 The scope of the \dword{hv} system includes the selection and procurement of materials for, and the fabrication, testing, delivery and installation of systems to generate, distribute, and regulate the voltages that
 create a precision electric field within a DUNE \dword{spmod}. % the DUNE detector volume. 
 
-The \dword{hv} system consists of components both exterior and interior to the cryostat. The \dword{hv} power supplies and filters pass through the \dword{hv} feedthrough and are further distributed by components that form part of the \dword{tpc} structure. 
-\fixme{power supplies pass through a feedthrough? Maybe cables do? Anne}
+The \dword{hv} system consists of components both exterior and interior to the cryostat. The voltage generated at the \dword{hv} power supplies passes through the cables, filters, and the \dword{hv} feedthrough into the cryostat. From the voltage delivery into the cryostat, it is further distributed by components that form part of the \dword{tpc} structure. 
+\fixme{power supplies pass through a feedthrough? Maybe cables do? Anne. RKP: Sarah has fixed text. Thank you.}
 These components are:
 \begin{itemize}
 \item Power supply \fixme{separate from the pwr supp in preceding pgraph? Anne}
-\item Cathode plane \fixme{ cathode plane not yet defined}
+\item Cathode plane assembly (CPA) \fixme{ cathode plane not yet defined. RKP: This is related to previous comment, which is clear as written. Added CPA for clarity.}
 \item \Dword{topfc}, \dword{botfc} and \dword{gp}
 \item \Dword{ewfc}
 \end{itemize}
 
 \fixme{Here I propose a figure that illustrates how these cpa and fc pieces relate to each other, could be based off of figure 11. Anne}
 
-\fixme{``almost orig'' pgraph; see Anne's below}
-The \dword{tpc} has two central \dwords{cpa} arrays, \SI{57.5}{\meter} long and \SI{12}{\meter} tall, with two symmetric drift volumes on both sides
- There are 25 \dwords{cpa}-planes in each \dword{cpa} array, installed contiguously along the length of the \dword{tpc}. A \dword{cpa} plane is assembled from two side-by-side \dword{cpa} panels. Each \dword{cpa} panel is  \SI{1.2}{\m} in width and  \SI{12}{\m} tall, formed from three vertically stacked \dword{cpa} units
+\fixme{Consortium contributed pgraph; see Anne's below}
+The \dword{tpc} has two central \dword{cpa} arrays, \SI{58}{\meter} long and \SI{12}{\meter} tall, with two symmetric drift volumes on both sides
+ There are 25 \dword{cpa}-planes in each \dword{cpa} array, installed contiguously along the length of the \dword{tpc}. A \dword{cpa} plane is assembled from two side-by-side \dword{cpa} panels. Each \dword{cpa} panel is  \SI{1.2}{\m} in width and  \SI{12}{\m} tall, formed from three vertically stacked \dword{cpa} units
 , and supported from above by the \dword{cpa} installation rail, through a single link.
-A \dword{cpa} unit consists of a FR4 frame that encloses and supports its resistive panels.  Each \dword{cpa} unit is approximately 1.2m wide and 4m high and is constructed from two resistive panel modules.
+A \dword{cpa} unit consists of a FR4 frame that encloses and supports its resistive panels.  Each \dword{cpa} unit is approximately \SI{1.2}{\m} wide and \SI{4}{\m} high and is constructed from two \SI{1.2}{\m} by \SI{2}{\m} resistive panels.
 
-\fixme{Anne's below}
-The \dword{tpc} has two \dwords{cpa} \textit{arrays}, that span the length and height of the \dword{spmod}, as shown in Figure~\ref{fig:dune_sp_fd}. Given the modular design, each array is assembled a set of 25 adjacent \dword{cpa} \textit{planes}, which in turn are constructed of smaller pieces.  Each plane is a set of two adjacent \textit{panels} (full height, half length, as measured along the \dword{detmodule} length). Each panel consists of three stacked \textit{units}, approximately \SI{4}{\m} high by \SI{1.2}{\meter} long. The units each consist of two half-height vertically stacked resistive panel modules enclosed within a FR4 frame.
-\fixme{do we need the word `module' here? It's not defined.}
-An  installation rail supports the panels from above through a single link.
-\fixme{link through what? anne}
+\fixme{Anne's below:
+The \dword{tpc} has two \dwords{cpa} \textit{arrays}, that span the length and height of the \dword{spmod}, as shown in Figure~\ref{fig:dune_sp_fd}. Given the modular design, each array is assembled a set of 25 adjacent \dword{cpa} \textit{planes}, which in turn are constructed of smaller pieces.  Each plane is a set of two adjacent \textit{panels} (full height, half length, as measured along the \dword{detmodule} length). Each panel consists of three stacked \textit{units}, approximately \SI{4}{\m} high by \SI{1.2}{\meter} long. The units each consist of two half-height vertically stacked resistive panels enclosed within a FR4 frame.}
+
+\fixme{do we need the word `module' here? It's not defined. RKP: removed.}
+An  installation rail supports the panels from above through a single mechanical link.
+\fixme{link through what? anne. RKP: Added mechanical. It's not through anything. }
 
 
-\fixme{``almost orig'' pgraph; see Anne's below}
-The sides of the drift volumes on both sides of the \dword{cpa} plane are covered by the \dword{fc} and EW field cage modules to define a uniform drift field of 500V/cm, with a increasing potential over 3.6m from the high voltage \dword{cpa} (-180kV) to ground potential at the \dword{apa} sensor planes. The cathode bias is provided by an external high voltage power supply through an \dword{hv} feedthrough connecting to the \dword{cpa} plane inside the cryostat.
+\fixme{Consortium contributed pgraph; see Anne's below}
+The sides of the drift volumes on both sides of the \dword{cpa} plane are covered by the \dword{fc} and EW field cage modules to define a uniform drift field of 500V/cm, with a increasing potential over 3.5m from the high voltage \dword{cpa} (-180kV) to ground potential at the \dword{apa} sensor planes. The cathode bias is provided by an external high voltage power supply through an \dword{hv} feedthrough connecting to the \dword{cpa} plane inside the cryostat.
 The field cage modules have two distinctive types: the top/bottom (\dword{fc}), which run the full length of the \dword{detmodule}, and the \dwords{ewfc}, %end walls (EW's), 
-which complete the detector at either end. The modules of both systems are constructed from an array of extruded aluminum open profiles supported by FRP (fiber-reinforced plastic) structural beams. A resistive divider chain interconnects all the metal profiles to provide a linear voltage gradient between the cathode and anode planes.  The \dword{topfc} and \dword{botfc} modules are nominally  \SI{2.3}{\meter} wide by  \SI{3.6}{\meter} long. 
+which complete the detector at either end. The modules of both systems are constructed from an array of extruded aluminum open profiles supported by FRP (fiber-reinforced plastic) structural beams. A resistive divider chain interconnects all the metal profiles to provide a linear voltage gradient between the cathode and anode planes.  The \dword{topfc} and \dword{botfc} modules are nominally  \SI{2.3}{\meter} wide by  \SI{3.5}{\meter} long. At the ends, the \dword{ewfc} modules are \SI{3.5}{\meter} wide by \SI{1.5}{\meter} in height.
 
-\fixme{Anne's below}
+\fixme{Anne's below:
 A \dlong{fc} surrounds both drift volumes on the top, bottom and ends, defining 
-a uniform drift field of \SI{500}{\volt\per\cm}. The potential increases over the \SI{3.6}{\m} drift length from the high-voltage \dword{cpa} (-\SI{180}{\kV}) to ground potential at the \dword{apa} sensor planes. The cathode bias is provided by an external high voltage power supply through an \dword{hv} feedthrough connecting to the \dword{cpa} plane inside the cryostat. \fixme{one connection per plane?}
-The \dword{fc} is also modular, and comes in two distinctive types of modules: the \dword{topfc} and \dword{botfc} are similar to each other and are arranged to run the full length of the \dword{detmodule}; the \dword{ewfc} modules are distinct from those and fit together to
-complete the detector at either end. Both types of \dword{fc} modules are constructed from an array of extruded aluminum open profiles supported by FRP (fiber-reinforced plastic) structural beams. A resistive divider chain interconnects  the metal profiles to provide the linear voltage gradient between the cathode and anode planes.  
+a uniform drift field of \SI{500}{\volt\per\cm}. The potential increases over the \SI{3.5}{\m} drift length from the high-voltage \dword{cpa} (-\SI{180}{\kV}) to ground potential at the \dword{apa} sensor planes. The cathode bias is provided by an external high voltage power supply through an \dword{hv} feedthrough connecting to the \dword{cpa} plane inside the cryostat. }
 
-Each \dword{topfc} and \dword{botfc} module is nominally \SI{2.3}{\m} wide by  \SI{3.6}{\m} long (along the \dword{detmodule} length). \fixme{True, I hope, for consistency.}
-The \dwords{ewfc} modules, each \SI{1.5}{\m} high by \SI{3.6}{\m} wide (along the drift volume dimension), stack eight units high to cover the \SI{12}{\m} height of the \dword{tpc}.  
+\fixme{one connection per plane? RKP: Addressed in its section.}
+The \dword{fc} is also modular, and comes in two distinctive types of modules: the \dword{topfc} and \dword{botfc} are similar to each other and are arranged to run the full length of the \dword{detmodule}; the \dword{ewfc} modules are distinct from those and fit together to
+complete the detector at either end. Both types of \dword{fc} modules are constructed from an array of extruded aluminum open profiles (with protective anti-oxidizing coating) supported by FRP (fiber-reinforced plastic) structural beams. A resistive divider chain interconnects  the metal profiles to provide the linear voltage gradient between the cathode and anode planes.  
+
+Structurally, The frames of the cathode and field cages are made from materials with similar expansion coefficients, minimizing issues of differential thermal expansion. The field cage frames support aluminum profiles but these are restrained at only one location and are allowed to float within the frame. Cold testing of a CPA, with monitoring of its geometry and electrical resistance is documented in DocDB 2338. In addition, Docdb 1504 documents the testing at cryogenic temperatures of kapton/FR4 laminates and the shrinkage of the detector was examined in Docdb 601.
+%Each \dword{topfc} and \dword{botfc} module is nominally \SI{2.3}{\m} wide by  \SI{3.5}{\m} long (along the \dword{detmodule} length). 
+\fixme{True, I hope, for consistency. RKP: Removed.}
+The \dwords{ewfc} modules, each \SI{1.5}{\m} high by \SI{3.5}{\m} wide (along the drift volume dimension), stack eight units high to cover the \SI{12}{\m} height of the \dword{tpc}.  
 
 The \dwords{cpa} and \dwords{apa} support the \dword{topfc} and \dword{botfc} modules, whereas
 %The \dword{topfc} and \dword{botfc} modules are supported by the \dwords{cpa} and \dwords{apa}. 
-%The \dwords{ewfc} modules are \SI{1.5}{\meter} tall by \SI{3.6}{\meter} long. They are stacked eight units high to cover the \SI{12}{\meter} height of the \dword{tpc}.  
+%The \dwords{ewfc} modules are \SI{1.5}{\meter} tall by \SI{3.5}{\meter} long. They are stacked eight units high to cover the \SI{12}{\meter} height of the \dword{tpc}.  
 installation rails above the the \dwords{apa} and \dwords{cpa} support the \dword{ewfc} modules. 
 %are supported by the installation rails above  the \dwords{apa} and \dwords{cpa}, which are part of the \dword{dss}. 
 A \dlong{gp} consisting of tiled, perforated stainless steel sheets % panels %is mounted on 
@@ -131,7 +171,7 @@ p{0.12\textwidth}p{0.32\textwidth}}
 {tab:cpaparts}
 {\dword{hv} Cathode Plane Components} 
 Component and Quantity &  Length (z) & Height (y) & Per \dword{spmod} \\ \toprowrule
-\dword{cpa} array (2 per \dword{spmod}) & \SI{57.5}{\meter} & \SI{12}{\meter} & 2  \\ \colhline
+\dword{cpa} array (2 per \dword{spmod}) & \SI{58}{\meter} & \SI{12}{\meter} & 2  \\ \colhline
 \dword{cpa} plane (25 per \dword{cpa} array)  & \SI{2.3}{\meter}  &\SI{12}{\meter} & 50  \\ \colhline
 \dword{cpa} panel (2 per \dword{cpa} plane)  & \SI{1.2}{\meter}   & \SI{12}{\meter} & 100  \\ \colhline
 \dword{cpa} unit (3 per \dword{cpa} panel)  & \SI{1.2}{\meter}  & \SI{4}{\meter} & 300 \\ \colhline
@@ -145,12 +185,12 @@ Component and Quantity &  Length (z) & Height (y) & Per \dword{spmod} \\ \toprow
 p{0.1\textwidth}p{0.15\textwidth}}
 {tab:fcparts}{\dword{hv} Field Cage Components}
 Component & Count & Length (z) & Width (x) & Height (y) & Submodules & Grand Total \\ \toprowrule
-\dword{fc} (Top/Bottom Field Cage) & 200 & 2.3 m & 3.6 m & - & 57 & 200 \\ \colhline
+\dword{fc} (Top/Bottom Field Cage) & 200 & 2.3 m & 3.5 m & - & 57 & 200 \\ \colhline
 \dword{fc}-Profiles (per \dword{fc}) & 57 & 2.3 m & - & - & - & 11400 \\ \colhline
 Ground Plane Modules (per \dword{fc}) & 5 & 2.3 m & 0.7 m & - & - & 1000 \\ \colhline
 EW-Plane (Endwall Field Cage) & 2 & - & 14.4 m & 12 m & 4 & 2 \\ \colhline
-EW (per EW-Plane) & 4 & - & 3.6 m & 12 m & 8 & 8 \\ \colhline
-EW-Modules (per EW) & 8 & - & 3.6 m & 1.5 m & 57 & 64 \\ \colhline
+EW (per EW-Plane) & 4 & - & 3.5 m & 12 m & 8 & 8 \\ \colhline
+EW-Modules (per EW) & 8 & - & 3. m & 1.5 m & 57 & 64 \\ \colhline
 EW-Profiles (per EW-Module) & 57 & - & - & 1.5 m & - & 3648 \\
 \end{dunetable}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,7 +207,7 @@ The \dword{hv} delivery system consists of
 \end{itemize}
 
 For \dword{hv} delivery, two power supplies will be used to generate the voltage, one for each \dword{cpa} array. 
-\fixme{pwr supplies will generate, what will deliver? Anne}
+\fixme{pwr supplies will generate, what will deliver? Anne. RKP: Addressed in rest of section.}
 This separated setup more easily accommodates different running conditions and helps isolate any instabilities. %In addition, t
 The cryostat design has two feedthrough ports for each \dword{cpa} array, one at each end of the cryostat. The unequipped, downstream port provides redundancy against any failure of the primary \dword{hv} delivery system. 
 %In the event only one power supply is available, the system will be run by using a high voltage splitter outside of the cryostat while another power supply is procured. 
@@ -175,33 +215,34 @@ The cryostat design has two feedthrough ports for each \dword{cpa} array, one at
 Each CPA connects to two drift volumes in parallel, presenting a net resistance of \SI{1.14}{\giga\ohm} to each supply. At the nominal \SI{180}{kV} cathode voltage, each power supply must provide \SI{0.16}{mA}.
 
 The planned power supply model for the \dword{spmod} will be similar to the power supply\footnote{Heinzinger\texttrademark{} PNChp 200000 power supply.} used on \dword{pdsp}, with a maximum output voltage of \SI{200}{kV} and a maximum current draw of \SI{0.5}{mA}.  An %additional 
-option is an existing \SI{300}{kV} \SI{0.5}{mA} model. The \dword{hv} cables will be commercially available models compatible with the selected power supplies. 
+option is an existing \SI{300}{kV} \SI{0.5}{mA} model. 
+The \dword{hv} cables will be commercially available models compatible with the selected power supplies. 
 
 %The high voltage cables will be either Dielectric Sciences model number 2134 capable of \SI{200}{kV} DC or 2236 capable of \SI{320}{kV} DC. 
 %ielectrThe high voltage cables are preferred to be Dielectric Sciences model number 2134 capable of \SI{200}{kV} DC.  A back up plan is to use model 2236 capable of \SI{320}{kV} DC. 
 
-The filter resistors will be placed in between the power supply and the feedthrough.  Along with the cables, these resistors reduce the discharge impact by partitioning the stored energy in the system.  The resistor-cable assembly also serves as a low-pass filter reducing the $\sim$\SI{30}{kHz} voltage ripple on the output of the power supply.
+The filter resistors will be placed in between the power supply and the feedthrough.  Along with the cables, these resistors reduce the discharge impact by partitioning the stored energy in the system.  The resistor-cable assembly also serves as a low-pass filter reducing the $\sim$\SI{30}{kHz} voltage ripple on the output of the power supply.  With filtering, such supplies have been used successfully in earlier experiments.
 
 Figure~\ref{fig:ps_filter_ft_schematic} provides a sample schematic.
 
 \begin{dunefigure}[A schematic showing the \dword{hv} delivery system to the cryostat.  %The two filters are placed such that one is near the power supply and one is near the feedthrough.
 ]{fig:ps_filter_ft_schematic}
-{Left:  A schematic showing the high voltage delivery system to the cryostat.  %The two filters are places such that one is near the power supply and one is near the feedthrough. 
+{Left:  A schematic showing the high voltage delivery system to the cryostat (Credit:  SEL).%The two filters are places such that one is near the power supply and one is near the feedthrough. 
 One of the two filters sits near the power supply; the other sits near the feedthrough. Right:  %An example 
-A Heinzinger power supply.  (Credit: SEL)}
+A Heinzinger power supply (Credit: H.~Wang).}
 \includegraphics[width=0.6\textwidth]{ps_filter_ft_schematic}
 \includegraphics[width=0.3\textwidth]{heinzy}
 \end{dunefigure}
-\fixme{Schematic is too small in this configuration. Is the photo needed to aid understanding? Anne}
+\fixme{Schematic is too small in this configuration. Is the photo needed to aid understanding? Anne. RKP: Rearranged figure layout.}
 The requirement %of 
-on low electronics noise sets the upper limit of residual voltage ripple on the cathode, likely to be $\sim$\SI{0.5}{mV}.  Typically, commercial supplies %can 
-specify the ripple to be less than or equal to $0.001\%V_{nom} \pm 50$ mV.  Assuming cable lengths of \SI{30}{m} and \SI{3}{m} between the filters, and between the filter and feedthrough, respectively, resistances as low as a few M$\Omega$ can yield the required noise reduction. % the noise reduction can be attained with resistances as low as a few M$\Omega$. 
+on low electronics noise sets the upper limit of residual voltage ripple on the cathode to be $\sim$\SI{0.9}{mV}.  Typically, commercial supplies %can 
+specify the ripple to be less than or equal to $0.001\%V_{nom} \pm 50$ mV.  Assuming cable lengths of \SI{30}{m} and \SI{3}{m} between the filters, and between the filter and feedthrough, respectively, resistances as low as a few M$\Omega$ will yield the required noise reduction according to calculations and experience. % the noise reduction can be attained with resistances as low as a few M$\Omega$. 
 
 The current plan for the filters is a cylindrical design.  %Here, an \dword{hv} resistor will be electrically connected on each end to a cable receptacle.  
 Here each end of an \dword{hv} resistor is electrically connected to a cable receptacle. 
 The resistor %should 
 shall be selected to withstand a large over-power condition.  Radially out from the resistor is an insulator,  %In other designs, this has been 
-for which other designs have used transformer oil or Ultra-high-molecular weight Polyethelene (UHMW-PE).  The outer case of the filter is a grounded stainless-steel shell. A proposed filter design is shown in Figure~\ref{fig:filterAndFeedthrough}.\fixme{Anne: what will we use?}
+for which other designs have used transformer oil or Ultra-high-molecular weight Polyethelene (UHMW-PE).  The outer case of the filter is a grounded stainless-steel shell. The current filter design is shown in Figure~\ref{fig:filterAndFeedthrough}.\fixme{Anne: what will we use? RKP: Modified text.}
 
 The \dword{hv} feedthrough %will be 
 is based on the successful ICARUS design, which has been adapted for ProtoDUNE.  The voltage is transmitted by a stainless steel center conductor.  On the warm side of the cryostat, this conductor mates with a cable end.  Inside the cryostat, the end of the center conductor has a spring-loaded tip that %will 
@@ -210,20 +251,20 @@ contacts a receptacle cup mounted on the cathode, delivering \dword{hv} to the f
 
 \begin{dunefigure}[Drawings of the \dword{hv} filters and feedthroughs]{fig:filterAndFeedthrough}
 {Left:  Drawing of a \dword{hv} filter (Credit:  A.~Renshaw). Right:  \dword{hv} feedthrough drawing (Credit:  (F.~Sergiampietri).}
-\includegraphics[width=0.3\textwidth]{pdFilters-optim} %Anne reduced size of pdf
+\includegraphics[width=0.3\textwidth]{pdFilters}
 \includegraphics[width=0.6\textwidth]{francosHVFT}
 \end{dunefigure}
 
-The upper bound of operating voltage on a feedthrough is, to first order, set by the maximum electric field on the feedthrough.  This electric field is reduced by increasing the insulator radius.  For the target voltage, the feedthrough will use a UHMW PE cylinder of roughly 15 cm diameter.  In the gas space and into at least \SI{15}{\centi\meter} of the liquid, the insulator will be surrounded by a tight-fitting stainless steel ground tube.  The ground tube will have a \SI{25}{\centi\meter}  Conflat flange \fixme{TM conflat or not?} welded on for attachment to the cryostat.
+The upper bound of operating voltage on a feedthrough is, to first order, set by the maximum electric field on the feedthrough.  This electric field is reduced by increasing the insulator radius.  For the target voltage, the feedthrough will use a UHMW PE cylinder of roughly 15 cm diameter.  In the gas space and into at least \SI{15}{\centi\meter} of the liquid, the insulator will be surrounded by a tight-fitting stainless steel ground tube.  The ground tube will have a \SI{25}{\centi\meter}  Conflat flange \fixme{TM conflat or not? RKP: Common usage.} welded on for attachment to the cryostat.
 
 %Orig pgraph
 %There will be multiple devices used to monitor the \dword{hv}.  Outside of the cryostat, the power supply and cable-mounted toroids will be used.  The Power Supply units typically have sensitivities down to 10's of nA in current read-back capability.  The units are able to sample the current and voltage every \SI{300}{ms}.  The cable-mounted toroids are sensitive to fast changes in current and can be monitored when desired.  The polarity of the signal also points to whether the current-drawing feature is upstream or downstream of the toroid.
 
 Outside of the cryostat, the power supply and cable-mounted toroids will monitor the \dword{hv}.    The power supplies %units 
 typically have sensitivities down to tens of \si{\nano\ampere} in current read-back capability 
-\fixme{`in read-back `mode'? or `with' read-back capability?} and are able to sample the current and voltage every \SI{300}{\ms}.  The cable-mounted toroids are sensitive to fast changes in current; %and can be monitored. when desired.  
+\fixme{`in read-back `mode'? or `with' read-back capability? RKP: Believe language clear as written.} and are able to sample the current and voltage every \SI{300}{\ms}.  The cable-mounted toroids are sensitive to fast changes in current; %and can be monitored. when desired.  
 the polarity of a toroid's signal %also points to whether 
-indicates the location of the current-drawing feature as either upstream or downstream of it.  Experience from a 35t installation suggested sensitivities to changing currents with a time scale between 0.1-10s us providing information on the time scale of any current changes.
+indicates the location of the current-drawing feature as either upstream or downstream of it.  Experience from a 35t prototype installation suggested sensitivities to changing currents with a time scale between 0.1-10s us providing information on the time scale of any current changes.
 
 Inside the cryostat, pick-off points near the anode will monitor the current %going down 
 in each resistor chain.  Additionally, the voltage of the \dwords{gp} above and below each drift region can be equipped to diagnose problems via a diode-to-cryostat ground.  In a 35t prototype, such instrumentation provided useful information on high voltage stability and where any stray charge was flowing.
@@ -231,10 +272,10 @@ in each resistor chain.  Additionally, the voltage of the \dwords{gp} above and 
 The external commercial \dword{hv} components will be rated at a sufficient voltage to meet the drift voltage requirement (number 1 as listed in Table~\ref{tab:hvphysicsreqs}).  Additionally, the custom filters and feedthrough will be tested to %reach 
 ensure that they satisfy requirement (1).  Further details are in Section~\ref{sec:fdsp-hv-qc}.
 
-The resistances in the filters, in combination with the capacitances in the \dword{hv} system to the cathode,
-\fixme{``to the cathode'' reads funny; different preposition maybe?} determine the attenuation of the tens of \si{\kilo\hertz} ripple from the power supply.  The filters %will be 
+The resistances in the filters, in combination with the capacitances between the \dword{hv} system and the cathode,
+\fixme{``to the cathode'' reads funny; different preposition maybe? RKP: Changed to between...and.} determine the attenuation of the tens of \si{\kilo\hertz} ripple from the power supply.  The filters %will be 
 are designed such that the ripple is reduced to an acceptable level when installed in the complete system, thus satisfying requirement (3) that the power supply ripple is minimized.
-\fixme{`minimize ripple'' is not a validatable requirement. What is the acceptable level? Or what dictates it? Anne}
+\fixme{`minimize ripple'' is not a validatable requirement. What is the acceptable level? Or what dictates it? Anne. RKP: Addressed in collaboration comments.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cathode Plane Assembly (CPA)}
@@ -245,24 +286,16 @@ The \dword{cpa} provides a constant potential surface at \SI{-180}{\kV} \fixme{f
 \includegraphics[width=0.6\textwidth]{donut_cpa} %{ was Latest3D}
 \end{dunefigure}
 
-The use of lightweight FR4 frames and resistive panels mitigates the risk of damage from a potential current flow arising from an 
-%potentially damaging current flows that could occur in %any 
-unexpected electrical event.  Figure~\ref{fig:cpa-frame-discharge} shows a %snapshot of a 
-simulated discharge event, with the stored energy %going down 
-decreasing as the voltage on the assembly gradually equalizes. \fixme{is `the assembly' the CPA?}
+Ideally, the cathode would be constructed from a large thin resistive sheet.  However, inside the cryostat, there is a moderate convective flow of the liquid argon, which exerts a small net pressure on the cathode surface.  To maintain the position and flatness of the cathode, the cathode surface must be reinforced for stiffness.  This is accomplished by 6\,cm thick FR-4 frames at 1.2\,m intervals. Being an good insulator at cryogenic temperature, and having a different dielectric constant from that of LAr, the presence of the frame will cause a local E field distortion, more pronounced if the frame surface becomes charged from ionization in the TPC.  To minimize this distortion, a resistive field shaping strip is placed on the cathode frame and biased at a different potential.  Figure~\ref{fig:fss_concept} illustrates the drift field uniformity improvement with the field shaping strips.
 
-\begin{dunefigure}[Simulated \dword{cpa} discharge event]
-{fig:cpa-frame-discharge}
-{Simulated \dword{cpa} Discharge event. Left: Time dependence of removal of stored energy. Right: Voltage equalizing after event initiation.}
-\includegraphics[width=0.4\textwidth]{A2}
-\includegraphics[width=0.4\textwidth]{A3}
+\begin{dunefigure}[FSS concept]{fig:fss_concept}{A comparison of 3 cathode cross sections to illustrate the benefit of the field shaping strips (FSS). Both equipotential lines (horizontal) and E field lines (vertical) are shown.  The amplitude of the E field is shown as color contours. Each color contour is a 10\% step of the nominal drift field.  The gray rectangles represent the frame and the resistive sheet in each case. Left: a conductive/resistive frame; Middle: an insulating frame with the insulating surfaces charged to an equilibrium state; Right: an insulating frame covered with a field shaping strip (purple) and biased at the optimum potential. }
+\includegraphics[width=0.9\textwidth]{field-shaping-strip-concept} %{ was Latest3D}
 \end{dunefigure}
-\fixme{numbers in figures are too small to read. Anne}
 
 The \dword{cpa} also provides \dword{hv} to the first profile on the top and bottom field cage (\dword{fc}) elements and to the \dwords{ewfc} as well. %More d
 Details on the electrical connections are found in Section ~\ref{sec:fdsp-hv-design-interconnect}.
 
-The \dwords{cpa}' constant potential surfaces are resistive panels (\dword{cpa} RPs) composed of a thin layer of carbon-impregnated kapton \fixme{TM?} laminated to both sides of a \SI{3}{\milli\meter} thick FR4 sheet of \SI{1.2}{\meter}  $\times$ \SI{2}{\meter} size.  The surface resistivity of the \dword{cpa} RPs is required to be in the range of 1-10 M\si{\ohm}/square in order to provide for slow reduction of accumulated charge in the event of a discharge.  Other \dword{hv} components of the \dword{cpa} include field shaping strips (FSS) mounted to the \dword{cpa} frames, edge aluminum profiles to act as the first elements of the field cage, and cable segments forming the \dword{hv} bus. Careful inspection of these items during the assembly process ensures that no sharp points or edges are present. The surface resistivity of the \dword{cpa} RPs and the FSS's is checked multiple times during assembly -- first when the resistive panels and strips are received and after assembly into \dword{cpa} units on the table.  Parts that do not meet the resistivity requirements will be replaced.  This ensures that requirement (5) on Table~\ref{tab:hvphysicsreqs} is satisfied.  Figure~\ref{fig:cpa_panel-complete} shows a completed \dword{cpa} panel on the production table ready for lifting into vertical position for mounting on its trolley.
+The \dwords{cpa}' constant potential surfaces are resistive panels (\dword{cpa} RPs) composed of a thin layer of carbon-impregnated kapton \fixme{TM? RKP: Common usage.} laminated to both sides of a \SI{3}{\milli\meter} thick FR4 sheet of \SI{1.2}{\meter}  $\times$ \SI{2}{\meter} size.  The surface resistivity of the \dword{cpa} RPs is required to be greater than 1 M\si{\ohm}/square in order to provide for slow reduction of accumulated charge in the event of a discharge.  A goal of 1 G\si{\ohm}/square for DUNE CPA RPs extends the protection from discharges in the condition of anticipated higher stored energy at DUNE, compared to prototypes. Other \dword{hv} components of the \dword{cpa} include field shaping strips (FSS) mounted to the \dword{cpa} frames, edge aluminum profiles to act as the first elements of the field cage, and cable segments forming the \dword{hv} bus. Careful inspection of these items during the assembly process ensures that no sharp points or edges are present. The surface resistivity of the \dword{cpa} RPs and the FSS's is checked multiple times during assembly -- first when the resistive panels and strips are received and after assembly into \dword{cpa} units on the table.  Coated parts that do not meet the minimum surface resistivity requirement will be replaced.  This ensures that requirement (5) on Table~\ref{tab:hvphysicsreqs} is satisfied.  Figure~\ref{fig:cpa_panel-complete} shows a completed \dword{cpa} panel on the production table ready for lifting into vertical position for mounting on its trolley.
 
 \begin{dunefigure}[Completed \dword{pdsp} \dword{cpa} panel on production table]{fig:cpa_panel-complete}{Completed \dword{pdsp} \dword{cpa} panel on production table.}
 \includegraphics[width=0.5\textwidth]{cpa_panel-complete}
@@ -284,7 +317,7 @@ The \dword{spmod} will use extruded aluminum profiles as a cost-effective way to
 The shape of the electrodes is critical as it determines the strength of the electric field between a given profile and its neighboring profiles, as well as
 other surrounding parts, including the \dword{apa}, which is electrically at ground. % level. 
 Electric fields need to be well below \SI{30}{\kilo\volt\per\centi\meter} 
-to satisfy design requirement (2) and enable safe \dword{tpc} operation. %(design requirement 2).
+to satisfy design requirement (2) and enable safe \dword{tpc} operation~\cite{Blatter:2014wua}. % [A. Blatter, et al., JINST 9 (2014) P04006] %(design requirement 2).
 
 The commercially available profiles used for \dword{pdsp}, and forming the \dword{spmod} design, are estimated to lead to electric fields of up to \SI{12}{\kilo\volt\per\centi\meter} under the %assumption of DUNE field cage configuration 
 %and operating voltage. 
@@ -293,40 +326,39 @@ Figure~\ref{fig:profile-e-field} illustrates results from an electric field calc
 %%% After last commit 3/29 1:45 ish Anne
 \begin{dunefigure}
 [Electric field map and equipotential contours of an array of roll formed profiles at \SI{-180}{\kV}]{fig:profile-e-field}
-{Electric field map (color) and equipotential contours of an array of roll formed profiles biased up to \SI{-180}{\kV} and a ground clearance of \SI{20}{\cm}(Credit: CAD model)} \includegraphics[width=0.8\textwidth]{profile-e-field.png}
+{Electric field map (color) and equipotential contours of an array of roll formed profiles biased up to \SI{-180}{\kV} and a ground clearance of \SI{20}{\cm}(Credit: BNL CAD model)} \includegraphics[width=0.8\textwidth]{profile-e-field.png}
 \end{dunefigure}
-\fixme{what institution provided the cad model? Anne}
+\fixme{what institution provided the cad model? Anne. RKP: BNL, fixed.}
 
 The profiles ends are equipped with UHMW polyethylene caps to reduce the risk of arc formation.  These caps are designed to have sufficient wall thickness (\SI{6}{\milli\m}) to withstand the full voltage across their walls.
 
 The aluminum profiles are attached to fiber-reinforced plastic (FRP) pultruded structural elements, including I-beams and box beams.  
-Pultruded FRP material is non-conductive and strong enough to withstand the loads of field cage in the temperature range of \SI{-150}{C} and \SI{23}{C}.
+Pultruded FRP material is non-conductive and strong enough to withstand the loads of field cage in the temperature range of \SI{-150}{$^o$C} and \SI{23}{$^o$C}. Testing of the FRP joints were conducted at liquid nitrogen temperatures (see DocDb 1504).  The strength of the material increased over room temperature tests which provides confidence in the material behavior at liquid argon temperature.
 %FRP has all of the reinforcing fibers running along the main axis of the section being used.  
 The FRP material will meet the International Building Code classification for flame spread and smoke development of a Class A, as characterized by ASTM E84.  \fixme{define}
 
 As discussed in Section~\ref{sec:fdsp-hv-intro}, %the Introduction, 
 the field cage modules are of two types: the top and bottom \dword{fc} and the \dword{ewfc}, both of which are described below. 
-A resistive divider chain interconnects all the aluminum profiles to provide a linear voltage gradient between the cathode and anode planes.  The top and bottom modules are nominally \SI{2.3}{\m} wide by \SI{3.6}{\m} long. A \dword{gp}, in the form of tiled, perforated stainless steel sheet panels, is mounted on the outside surface of the T/B field cage module with a \SI{20}{\cm} clearance. The top and bottom \dword{fc} modules are supported by the \dwords{cpa} and \dwords{apa}. The \dword{ewfc} modules are \SI{1.5}{\m} tall by \SI{3.6}{\m} long. They are stacked eight units high (\SI{12}{\m}), and are supported by the installation rails above the \dwords{apa} and \dwords{cpa}.
+A resistive divider chain interconnects all the aluminum profiles to provide a linear voltage gradient between the cathode and anode planes.  The top and bottom modules are nominally \SI{2.3}{\m} wide by \SI{3.5}{\m} long. A \dword{gp}, in the form of tiled, perforated stainless steel sheet panels, is mounted on the outside surface of the T/B field cage module with a \SI{20}{\cm} clearance. The top and bottom \dword{fc} modules are supported by the \dwords{cpa} and \dwords{apa}. The \dword{ewfc} modules are \SI{1.5}{\m} tall by \SI{3.5}{\m} long. They are stacked eight units high (\SI{12}{\m}), and are supported by the installation rails above the \dwords{apa} and \dwords{cpa}.
 
 The \dwords{fc} are designed to produce a uniform field, with understood characteristics.
-The current (i.e., \dword{pdsp}) \dword{fc} design has a large gap between the \dword{ewfc} module and its neighboring top and bottom modules to allow the latter to swing pass the \dword{ewfc} during the \dword{fc} deployment. This gap causes the largest known distortion in the drift field in the \dword{tpc}. Figure~\ref{fig:fc-distortion} shows shows the extent of the distortion in this limiting scenario.
+The current (i.e., \dword{pdsp}) \dword{fc} design has a large gap between the \dword{ewfc} module and its neighboring top and bottom modules to allow the latter to swing pass the \dword{ewfc} during the \dword{fc} deployment. This gap causes the largest known distortion in the drift field in the \dword{tpc}. Figure~\ref{fig:fc-distortion} shows the extent of the distortion in this limiting scenario. For the FD, we are working on reducing this gap.
 
-\begin{dunefigure}[Electric field at edge of \dword{fc}]{fig:fc-distortion}{Electric field at edge of \dword{fc}, showing effects of gap. Left: the distribution of the distorted E-field on the boundary of the active volume near the gap between the end wall and bottom \dword{fc} modules ($\approx$ \SI{6}{\centi\meter}, see inset).  Right: electron drift lines projected on the %cathode 
-\dword{cpa} plane.}
+\begin{dunefigure}[Electric field at edge of \dword{fc}]{fig:fc-distortion}{Electric field at a corner between the bottom and endwall \dword{fc} modules, showing effects of a 7\,cm gap. Left: the extent of 5\% E field non-uniformity boundary (black surface, contains less than 10\,kg of LAr) and 10\% non-uniformity boundary (white surface, contains $\sim$ 6\,kg of LAr) inside the TPC's active volume. The inset is a view from the CAD model.  Right: electron drift lines originating from the cathode surface.}
 
-\includegraphics[width=0.8\textwidth]{Field_gap.png}
+\includegraphics[width=0.9\textwidth]{distortion_from_fc_gap}
 \end{dunefigure}
 
 The \dwords{fc} %have been 
 are designed to %ensure they 
-meet the system requirements specified in Table~\ref{tab:hvphysicsreqs}. All components other than the aluminum profiles, \dwords{gp}, and electronic divider boards are made of insulating FRP and FR4 materials, and the end of each profile is covered with a HDPE end cap, \fixme{define} to allow the system to reach the design \dword{tpc} electric field (requirement 1). The profiles have been carefully modeled to study the resulting electric field, and small-scale laboratory tests have been conducted to ensure that the maximum electric field does not approach \SI{30}{\kV\per\cm} (requirement 2). These design features are expected to avoid sparking, and thus to draw very small stable currents, which should produce a consistent load on the power supply (requirements 3, 4, and 5). Finally, all voltage divider boards provide redundant paths for establishing the profile-to-profile potential differences, and two redundant boards provide the connection from the \dwords{fc} modules to the \dword{cpa} (requirement 6).
+meet the system requirements specified in Table~\ref{tab:hvphysicsreqs}. All components other than the aluminum profiles, \dwords{gp}, and electronic divider boards are made of insulating FRP and FR4 materials, and the end of each profile is covered with a ultra-high-molecular-weight polyethylene (UHMWPE) end cap, to allow the system to reach the design \dword{tpc} electric field (requirement 1). The profiles have been carefully modeled to study the resulting electric field, and small-scale laboratory tests have been conducted to ensure that the maximum electric field does not approach \SI{30}{\kV\per\cm} (requirement 2). These design features are expected to avoid sparking, and thus to draw very small stable currents, which should produce a consistent load on the power supply (requirements 3, 4, and 5). Finally, all voltage divider boards provide redundant paths for establishing the profile-to-profile potential differences, and two redundant boards provide the connection from the \dwords{fc} modules to the \dword{cpa} (requirement 6).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Top and bottom field cages}
 
-The \dword{topfc} and \dword{botfc} modules are \SI{3.52}{\m} long, which is set by the length of the two \SI{15.2}{\cm} (\SI{6}\,in) FRP I-beams that form the primary support structure of the modules. The I-beams are connected to each other by three  \SI{7.5}{\cm} (\SI{3}\,in) \fixme{3 in is 7.62 cm. Which is the desired length?} FRP cross beams. The connections between the longitudinal and cross I-beams are made with L-shaped FRP braces that are attached to the I-beams with FRP spacer tubes, and secured with FRP threaded rods, FRP hex-head nuts, and custom-machined FR4 washer plates.
+The \dword{topfc} and \dword{botfc} modules are \SI{3.52}{\m} long, which is set by the length of the two \SI{15.2}{\cm} (\SI{6}\,in) FRP I-beams that form the primary support structure of the modules. The I-beams are connected to each other by three  \SI{7.5}{\cm} (\SI{3}\,in) \fixme{3 in is 7.62 cm. Which is the desired length? RKP: Believe this is compliant with units policy. Used one decimal on metric. } FRP cross beams. The connections between the longitudinal and cross I-beams are made with L-shaped FRP braces that are attached to the I-beams with FRP spacer tubes, and secured with FRP threaded rods, FRP hex-head nuts, and custom-machined FR4 washer plates.
 
-The modules are \SI{2.3}{\m}, which corresponds to the length of the aluminum profiles, including the UHMW polyethylene end caps. Profiles are secured to the FRP frame using custom-machined double-holed slip nuts that are slid into the profiles such that they straddle the webbing of the \SI{15}{\cm} I-beams, and are held in place with screws that penetrate the I-beam flanges. The profile offset with respect to the FRP frame is different for modules closest to the \dwords{ewfc}, %endwalls, 
+The modules are \SI{2.3}{\m} wide, which corresponds to the length of the aluminum profiles, including the UHMW polyethylene end caps. Profiles are secured to the FRP frame using custom-machined double-holed stainless steel slip nuts that are slid into and electrically in direct contact with the Al profiles such that they straddle the webbing of the \SI{15}{\cm} I-beams, and are held in place with screws that penetrate the I-beam flanges. The profile offset with respect to the FRP frame is different for modules closest to the \dwords{ewfc}, %endwalls, 
 and modules in the center of the active volume.
 
 Each \dword{topfc} and \dword{botfc} module holds five ground planes, which are connected to the outside (i.e., the non-drift side) of the module. The \dwords{gp} are positioned $\sim$\SI{20.5}{\cm} above the profiles, and are pushed to the \dword{cpa} side of the module, leaving the last 14 profiles (\SI{88}{\cm}) on the \dword{apa} side of the module exposed. Between the \dwords{gp} and the \SI{15}{\cm} I-beams are standoffs made of short sections of \SI{10.2}{\cm} (4\,in)  FRP I-beams, which are connected with FRP threaded rods and slip nuts. The electrical connection between the ground planes is made with copper strips.
@@ -346,10 +378,10 @@ An open resistor on the divider chain would approximately double the voltage acr
 Because the damage to the divider is local to one module, its impact to the \dword{tpc} drift field is limited to region near this module.  This is part of the intention of the modular design.
 An example of a simulated electric field distortion which would be caused by a failed resistor is shown in Figure~\ref{fig:fc-broken-resistor}. 
 
-\begin{dunefigure}[Electric field distortion from broken voltage divider path]{fig:fc-broken-resistor}{Simulated electric field distortion from broken voltage divider path, emphasizing the need for redundancy. Left: E field component perpendicular to a bottom field cage module due to a broken (open circuit) at the mid-drift. Units are \si{\volt\per\m} in the legend. Right: electron drift lines connecting the \dword{cpa} to \dword{apa} in a bottom/end wall field cage corner.  The maximum distortion to the field line is about 5cm for electrons starting at mid drift at the bottom edge of the active volume.}
-\includegraphics[width=0.8\textwidth]{Broken_resistor}
+\begin{dunefigure}[Electric field distortion from broken voltage divider path]{fig:fc-broken-resistor}{Simulated electric field distortion from one broken resistor in the middle of the voltage divider chain on one bottom field cage module, emphasizing the need for redundancy. Left: Extent of E field non-uniformity in the active volume of the TPC. the green planes mark the boundaries of the active volume inside the field cage. The partial contour surfaces represent the volume boundaries where E field exceeds 5\% (dark red, contains less than 100\,kg of LAr) and 10\% (dark blue, contains less than 20\,kg of LAr) of the nominal drift field. Units are \si{\volt\per\m} in the legend. Right: electron drift lines connecting the \dword{cpa} to \dword{apa} in a bottom/end wall field cage corner.  The maximum distortion to the field line is about 5\,cm for electrons starting at mid drift at the bottom edge of the active volume.}
+\includegraphics[width=0.9\textwidth]{E-field-distortion-due-to-a-open-resistor}
 \end{dunefigure}
-The effect of the non-uniformity in resistor values can also be scaled from this study.  A 2\% change in a resistor value (1\% change from the 2R in parallel) would give about 1.5\% of the distortion from a broken resistor.
+The effect of the non-uniformity in resistor values can also be scaled from this study.  A 2\% change in a resistor value (1\% change from the 2R in parallel) would give about 1.5\% of the distortion from a broken resistor, i.e. less than 1\,mm of transverse distortion in track position, with no noticeable drift field amplitude change inside the active volume.
  
 
 \subsubsection{ Endwall field cages (EWFC)}
@@ -359,17 +391,17 @@ The effect of the non-uniformity in resistor values can also be scaled from this
 Each of the four drift volumes has two \dwords{ewfc}, one on each end. Each \dword{ewfc} is in turn composed of eight \dword{ewfc} modules.
 There are two different types of \dword{ewfc} modules, each of which comes in a \textit{regular} and in a \textit{mirrored} configuration to account for 
 mounting constraints and to match the detector geometry. Figure~\ref{fig:fc_endwall_panels} illustrates the layout for the topmost 
-and the baseline panels, respectively.
-\fixme{is baseline at the base, i.e., lowermost? Not sure what's meant by 'baseline' (Anne)}
+and the other panels, respectively.
+\fixme{is baseline at the base, i.e., lowermost? Not sure what's meant by 'baseline' (Anne). RKP: Replaced with other.}
 
-\begin{dunefigure}[Endwall Field Cage Panels]{fig:fc_endwall_panels}{Left: Uppermost panel of the \dword{ewfc}. Right: Baseline \dword{ewfc} panel.}
+\begin{dunefigure}[Endwall Field Cage Panels]{fig:fc_endwall_panels}{Left: Uppermost panel of the \dword{ewfc}. Right: Non-uppermost \dword{ewfc} panel.}
 \includegraphics[width=0.48\textwidth]
-{fc_endwall_top_panel}
+{EWFC_Top_Module}
 \includegraphics[width=0.48\textwidth]
-{fc_endwall_panel}
+{EWFC_Baseline_Module}
 \end{dunefigure}
 
-Each \dword{ewfc} module is constructed of two FRP box beams which are \SI{3.6}{\m} long. The box beam design also incorporates cutouts on the outside face to minimize charge build up. Box beams are connected using \SI{1.27}{\cm} (\num{0.5}\,in) thick FRP plates. The plates are connected to the box beams using a shear pin and bolt arrangement. The inside plates facing the active volume are connected using special stainless steel slip nuts and stainless steel bolts. The field-shaping profiles are connected to the top box beam using stainless steel slip nuts, an FRP angle, and two screws each. The profiles are connected to the bottom box beam with a slip nut that is held in place by friction.
+Each \dword{ewfc} module is constructed of two FRP box beams which are \SI{3.5}{\m} long. The box beam design also incorporates cutouts on the outside face to minimize charge build up. Box beams are connected using \SI{1.27}{\cm} (\num{0.5}\,in) thick FRP plates. The plates are connected to the box beams using a shear pin and bolt arrangement. The inside plates facing the active volume are connected using special stainless steel slip nuts and stainless steel bolts. The field-shaping profiles are connected to the top box beam using stainless steel slip nuts, an FRP angle, and two screws each. The profiles are connected to the bottom box beam with a slip nut that is held in place by friction.
 
 %\begin{center}
 %   \parbox[t]{0.47\textwidth}{
@@ -429,7 +461,8 @@ the top and bottom \dword{hv} buses to complete the loop.  Solid wire is used
 to connect resistive panels within a \dword{cpa} panel.
 
 %% \dword{fc} connections
-Each \dword{fc} \fixme{module?} is as electrically independent as possible in order to
+Each \dword{fc} module
+\fixme{module? RKP: Yes} is as electrically independent as possible in order to
 mitigate discharge.  However, only the bottom module of each endwall
 can make connections to the \dword{hv} bus and \dword{apa}, so each endwall module
 will be connected to its upper neighbor at its first and last profiles
@@ -501,7 +534,7 @@ The component parts of the \dword{cpa} assembly will be produced by commercial v
 \begin{itemize}
 \item Manufactured FR4 RP frames packed into three \dword{cpa} unit kits making up a \dword{cpa} panel
 \item Carbon-impregnated Kapton coated resistive panels (RPs) and Field Shaping Strips (FSS)
-\fixme{kapton needs TM?}
+\fixme{kapton needs TM? RKP: Common usage.}
 \item \dword{hv} cable segments and wire jumpers making up the \dword{cpa} \dword{hv} bus and RP interconnects
 \item Machined brass tabs for connecting RPs, \dword{hv} Bus, and strips %FSSs 
 \item Top, bottom, and exterior edge profiles and associated connection hardware
@@ -529,7 +562,7 @@ The FRP and FR4 components of the  \dwords{topfc} and \dwords{botfc} will be com
 
 The FRP frame assembly primarily consists of fastening together FRP I-beams with FRP threaded rods and hex nuts, which are secured with a limited and specified torque, to avoid damage to the threads. A detailed view of one of these connections is shown in Figure~\ref{fig:tbfc3}.
 
-\begin{dunefigure}[\dwords{topfc} and \dwords{botfc} module frame assembly]{fig:tbfc3}{The components (left) and assembled view (middle and right) for the FRP frame connections in \dwords{topfc} and \dwords{botfc} modules are shown.}
+\begin{dunefigure}[\dwords{topfc} and \dwords{botfc} module frame assembly]{fig:tbfc3}{The above figure shows the procedure for connecting the cross beams to the main I-beams for the \dword{topfc}. Left: The components of each connection, which (from top to bottom) are the threaded rods, the spacer tubes, washer plates, the hexagonal nuts, and an L-shaped FRP brace. An intermediate stage (middle) and final stage (right) of the assembly are also shown."}
 \includegraphics[width=0.85\textwidth]{tbfc3}
 \end{dunefigure}
 
@@ -547,7 +580,7 @@ the fibers of the FRP. Final panels are constructed from cleaned and inspected p
 a dedicated assembly table has been manufactured that allows convenient module rotation. 
 
 Figure~\ref{fig:endwall_assy_rot_table} shows a partially assembled \dword{ewfc} FRP frame on the assembly table.
-\begin{dunefigure}[Endwall assembly table]{fig:endwall_assy_rot_table}{Assembly table with partially assembled \dword{ewfc} module}
+\begin{dunefigure}[Endwall assembly table]{fig:endwall_assy_rot_table}{Assembly table with partially assembled \dword{ewfc} module (Credit: LSU)}
  \includegraphics[width=0.8\textwidth]{endwall_assy_rot_table}
  \end{dunefigure}
 
@@ -557,9 +590,11 @@ as shown in Figure \ref{fig:endwall_assy_detail}. One the other side M10 stainle
 are pulled towards a \SI{2.5}{\cm} thick FRP plate (red in Figure~\ref{fig:endwall_assy_detail}) on the inside of the box beam.
 %
 
-\begin{dunefigure}[Endwall Assembly Side Detail]{fig:endwall_assy_detail}{Left: Side view of upper part of a top \dword{ewfc}  module. The left side shows FRP bushings and rods held by square nuts whereas the right side of the panel shows the M10 stainless steel bolts that engage in slip nuts inserted into the Al profiles. Right: Top module and baseline \dword{ewfc} module frames hanging.}
-\includegraphics[width=0.48\textwidth]{fc_endwall_detail_side}
-\includegraphics[width=0.48\textwidth]{3_fc_endwall_frames_hanging}
+\begin{dunefigure}[Endwall Assembly Detail]{fig:endwall_assy_detail}{%Left: Side view of upper part of a top \dword{ewfc}  module.
+Top and center \dword{ewfc} module frames hanging. (Credit: LSU)}
+%\includegraphics[width=0.48\textwidth]
+%{fc_endwall_detail_side}
+\includegraphics[width=0.5\textwidth]{3_fc_endwall_frames_hanging}
 \end{dunefigure}
 
 
@@ -580,7 +615,7 @@ tabs, etc.
 Circuit boards for %DUNE 
 \dword{hv} interconnections will be produced and tested at the  university shops according to the same design used for \dword{pdsp}.  The \dword{fc} voltage dividers were produced for \dword{pdsp} at Louisiana State University, and the boards for \dword{cpa} frame bias and \dword{cpa}-\dword{fc} connections were produced at Kansas State University.
 %\todo{What about the \dword{fc}-to-\dword{apa} boards?} 
-Both institutions have created custom test apparatus for verifying proper operation of the boards at full voltage and over-voltage conditions.  Production and testing could bescaled up by the required order of magnitude at these institutions, or shared withother institutions, whichever best meets the needs of the project. Each board will be free of solder flux and flux-remover. 
+Both institutions have created custom test apparatus for verifying proper operation of the boards at full voltage and over-voltage conditions.  Production and testing could be scaled up by the required order of magnitude at these institutions, or shared with other institutions, whichever best meets the needs of the project. Each board will be free of solder flux and flux-remover. 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Installation, Integration and Commissioning}
@@ -598,17 +633,11 @@ The power supply, cables, filters, and feedthroughs will be sent to the site in 
 
 Endwall Transport and Handling:
 
-The \dwords{ewfc} sections each consisting of eight modules are each shipped in separate shipping crates and layered sequentially with the bottom piece on the top of the crate.  They are unpacked as follows:
+The \dwords{ewfc} sections each consisting of eight modules are shipped in two separate shipping crates each containing four modules in an upright and vertical orientation.
+As was done for ProtoDUNE each \dwords{ewfc} module will be individually wrapped in plastic 
+and can be extracted from the crate by means of an overhead crane and spreader bar.
+Extracted modules will be rotated into horizontal position using the ledge on a dedicated assembly table. The module side showing steel bolts should be on top for final QC. 
 
-\begin{itemize}
-\item Unpack \dword{ewfc} modules from crate one at a time. 
-\item Attach spreader bar to the top mounting plate of a single panel.
-\item Carefully remove outer plastic bag while frame is hanging freely.
-\item Crane panel onto assembly table and rotate into horizontal position using the ledge on the assembly table to prevent panel from sliding. 
-(Steel bolts should be on top when frame is in horizontal position).
-\item Remove spreader bar; position correctly in assembly area.
-\item Remove inner plastic bag carefully not to damage any parts of a \dword{ewfc} module.
-\end{itemize}
 
 \dword{hv} bus segments, FSS bias boards, and  interconnection wires will be integrated with the \dword{cpa} units before shipment, while \dword{cpa} panel interconnections and FSS connection tabs will be packaged and shipped with the \dword{cpa} panels for integration on site.
 \dword{fc} divider boards will be attached to \dword{fc} modules during \dword{fc} assembly as described in \ref{sec:fdsp-hv-prod-fc}.
@@ -618,8 +647,8 @@ The \dword{cpa}-to-\dword{fc} and \dword{fc}-to-\dword{apa} boards will shipped 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Installation and Integration}
 \label{sec:fdsp-hv-integration}
-Upon arriving at the DUNE
-\fixme{SURF?} site, The \dword{cpa} shipping crate is unpacked with the middle/lower \dword{cpa} unit placed in a vertical stand on the floor of the ``toaster'' region.  Next, the middle-middle \dword{cpa} unit is removed and vertically attached to the middle-lower Unit.  Finally, the upper-middle \dword{cpa} unit is removed and attached.  This assembly makes up a \dword{cpa} panel.  The \dword{cpa} panel is lifted and vertically attached to its trolley with a FR4 hangar.  Two \dword{cpa} panels are paired to form a \dword{cpa}  plane which then forms the unit for attachment of the \dwords{fc}.  Figure~\ref{fig:cpas-in-cryostat} shows on the left a two-Panel \dword{cpa} plane mounted on its trolleys in the clean room at \dword{pdsp}, waiting for installation of the \dword{topfc} and \dword{botfc} units.
+Upon arriving at the SURF
+\fixme{SURF? RKP: YEs.} site, The \dword{cpa} shipping crate is unpacked with the middle/lower \dword{cpa} unit placed in a vertical stand on the floor of the ``toaster'' region.  Next, the middle-middle \dword{cpa} unit is removed and vertically attached to the middle-lower Unit.  Finally, the upper-middle \dword{cpa} unit is removed and attached.  This assembly makes up a \dword{cpa} panel.  The \dword{cpa} panel is lifted and vertically attached to its trolley with a FR4 hangar.  Two \dword{cpa} panels are paired to form a \dword{cpa}  plane which then forms the unit for attachment of the \dwords{fc}.  Figure~\ref{fig:cpas-in-cryostat} shows on the left a two-Panel \dword{cpa} plane mounted on its trolleys in the clean room at \dword{pdsp}, waiting for installation of the \dword{topfc} and \dword{botfc} units.
 
 It should also be noted that the \dword{cpa} panels on each end of each \dword{cpa} array are special -- they have aluminum profiles along the exterior side to form the first element of the field cage.  They also contain parts of the \dword{hv} bus mounted on the \dword{cpa} frames.  The \dword{hv} bus forms a continuous loop from the \dword{hv} Input through the top of the 25 \dword{cpa} planes, down the far external side, back along the bottom and up the  external side back to the \dword{hv} Input.
 
@@ -657,13 +686,14 @@ The interfaces with the \dword{hv} system include the electrical connections wit
 \item Through holes for the \SI{3}{\milli\m} diameter cable in the sides of each frame adjacent to the contact plates to allow interconnection of the \dword{hv} bus between \dwords{cpa};
 \item A means of securing the \dword{hv} bus cable in place;
 \item Through-holes near the centers of the top and bottom frames for connecting the \dword{topfc} and \dword{botfc} elements to the cathode, with corresponding metal contact plate on the cathode surface;
-\item Electrical specifications for these parts and interfaces are given in the \dword{hv} design Section \fixme{fix}
+%\item Electrical specifications for these parts and interfaces are given in the \dword{hv} design Section 
+\fixme{fix. RKP: Deleted}
 \item Between the \dword{cpa} and the \dword{fc} the interface is at the hinge joint and insuring that the \dword{cpa} and \dword{fc} are located relative to each other properly.
 \end{itemize}
 \fixme{last bullet: hinge joint that ensures...?}
 Since these interfaces occur with the design group that is constructing the \dword{tpc} there is close coordination and communication between the \dword{cpa}, \dword{fc} and \dword{hv} groups to ensure that all requirements are met and that the components all fit together.
 
-The interfaces between the \dword{cpa} system and the \dword{hv} system, and the interfaces among the \dword{cpa}-\dword{fc}-\dword{hv} systems are shown in integration drawings and documented in the project documentation system. \fixme{reference properly}
+The interfaces between the \dword{cpa} system and the \dword{hv} system, and the interfaces among the \dword{cpa}-\dword{fc}-\dword{hv} systems are shown in integration drawings and documented in the project documentation system. \fixme{reference properly. RKP: Requires reference policy, under discussion.}
 
 %DUNE-3 is a drawing that is used to define the interface between the \dword{cpa} system and \dword{hv} system and DUNE-6 is an integration drawing that defines the interface between the \dword{cpa}/\dword{fc}/\dword{hv} systems.  These drawings can be found in DocDb 1870. 
 
@@ -716,10 +746,11 @@ Power supplies used in a \dword{spmod} will be tested before installation.  Outp
 The feedthrough and filters should be tested at the same time, preferably with the planned power supply.  The feedthrough must be tested to hold the required voltage in \dword{tpc}-quality \dword{lar} ($\tau\geq$\SI{1.6}{ms}) for several days.  The ground tube submersion and electric field environment of the test setup should be comparable to the real field cage setup or more challenging (e.g., the test liquid level can be lower than %DUNE's 
 that in the \dword{spmod} but not higher).  Additionally, the feedthrough must be leak-tight to satisfy cryogenics requirements.
 
-\Dword{cpa} \dword{qc} consists of forms that are filled out as part of the various procedures from initial assembly at factories to the final testing of connections in the DUNE cryostat.  A group of \dword{qc} forms filled out during initial panel unit assembly travels in the shipping crate with the panel.  At SURF, \dword{cpa} panel and \dword{cpa} plane assemblies have their own set of \dword{qc} forms for \dword{cpa} assembly and for \dword{cpa}-\dword{fc} integration.  Finally, before top and bottom \dword{fc} deployment, a final check of all electrical connections on the \dword{cpa} and between the \dword{cpa} and the top, bottom, and endwall \dwords{fc} is completed.  All of these forms are documented and available in the DUNE Document Database. \fixme{reference properly}
+\Dword{cpa} \dword{qc} consists of forms that are filled out as part of the various procedures from initial assembly at factories to the final testing of connections in the DUNE cryostat.  A group of \dword{qc} forms filled out during initial panel unit assembly travels in the shipping crate with the panel.  At SURF, \dword{cpa} panel and \dword{cpa} plane assemblies have their own set of \dword{qc} forms for \dword{cpa} assembly and for \dword{cpa}-\dword{fc} integration.  Finally, before top and bottom \dword{fc} deployment, a final check of all electrical connections on the \dword{cpa} and between the \dword{cpa} and the top, bottom, and endwall \dwords{fc} is completed.  All of these forms are documented and available in the DUNE Document Database. \fixme{reference properly. RKP: Requires reference policy, under discussion.}
 
-Before shipment of \dword{topfc} and \dword{botfc}, each FRP component is subjected to inspection prior to assembly.
-\fixme{prior to assembly and shipment?} Each of the beams is checked for flatness, torsion, and structural and surface defects, such as cracks or fractures, layer separation, thermal decomposition, and evidence of water-induced bloating. Any scratching or grooving of the surface layer can be remediated by coating with commercially available epoxy.
+Before assembly and shipment of \dword{topfc} and \dword{botfc}, each FRP component is subjected to inspection.
+%prior to assembly.
+\fixme{prior to assembly and shipment? RKP: Yes. Corrected.} Each of the beams is checked for flatness, torsion, and structural and surface defects, such as cracks or fractures, layer separation, thermal decomposition, and evidence of water-induced bloating. Any scratching or grooving of the surface layer can be remediated by coating with commercially available epoxy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{During Local Production and Assembly}
@@ -770,7 +801,7 @@ is connected to its neighbor inside the cryostat.
 \label{sec:fdsp-hv-safety}
 
 Safety is the central consideration in the design of the HPS \fixme{hps?} system. In all phases including fabrication, installation, and operations, safety will be the highest priority. There will be documented assembly, testing, transport, and installation procedures. Particular attention was paid to these topics in the design of %the ProtoDUNE detectors with explicit concern to a design that is identical to the Far Detector design, the most critical of which are also noted in the preliminary \dword{hv} risk assessment. 
-the \dword{pdsp} detector with explicit concern to a design that is identical to the \dword{spmod} design, the most critical of which are also noted in the preliminary \dword{hv} risk assessment. \fixme{ref properly}
+the \dword{pdsp} detector with explicit concern to a design that is identical to the \dword{spmod} design, the most critical of which are also noted in the preliminary \dword{hv} risk assessment. \fixme{ref properly. RKP: Requires reference policy, under discussion.}
 
 The structural and electrical designs for the \dword{sp} \dword{hv} are based on designs that were vetted and validated in the \dword{pdsp} construction, which is currently in its final phase of deployment at CERN. Previously, Fermilab \dword{hv} tests implemented a full-voltage and full-scale \dword{hv} feedthrough, power supply, filtering, and monitoring system, along with the \dword{hv} connection cup and arm, after completing full safety reviews. These devices worked as designed and are essentially reproduced in both \dword{pdsp} and the \dword{spmod}. 
 
@@ -804,8 +835,8 @@ Assembly of the \dword{fc} panels and resistor-divider boards will involve colla
 \subsection{\dword{hv} System Consortium Organization}
 \label{sec:fdsp-hv-org-consortium}
 
-The consortium consolidates all the institutions that are participating in the design, construction and assembly of the \dword{hv} systems for both \dword{pdsp}  and \dword{pddp}. It is currently composed of US institutions and CERN, the only non-US participant. As in the case of \dword{protodune}, CERN is heavily committed to a significant role in terms of funding, manpower 
-\fixme{human resources?} and the provision of infrastructure for R\&D and detector optimization. Moreover, CERN will be responsible for a significant fraction of subsystem deliverables; as such it is the intention of CERN to attract additional European institutions into the consortium.
+The consortium consolidates all the institutions that are participating in the design, construction and assembly of the \dword{hv} systems for both \dword{pdsp}  and \dword{pddp}. It is currently composed of US institutions and CERN, the only non-US participant. As in the case of \dword{protodune}, CERN is heavily committed to a significant role in terms of funding, personnel, 
+\fixme{human resources? RKP: Changed to personnel, added Oxford comma.} and the provision of infrastructure for R\&D and detector optimization. Moreover, CERN will be responsible for a significant fraction of subsystem deliverables; as such it is the intention of CERN to attract additional European institutions into the consortium.
 
 
 %There is still a need to expand this list in the near future by an effort to include new EU participants.
