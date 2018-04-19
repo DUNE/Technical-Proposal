@@ -5,10 +5,10 @@ sample from each APA channel (wire) up to every 500 ns (2~MHz sampling rate).
 Each individual APA has 2,560 channels that are read out by 20 front-end motherboards (FEMBs), with
 each FEMB enabling digitized wire readout from 128 channels.  One cable bundle connects each FEMB to
 the outside of the cryostat via a CE signal cable flange located at the CE feedthrough at the
-top of the cryostat, where a single flange services each APA, as shown in Figure~\ref{fig:connections}.  Two CE signal flanges are located on each feedthrough, together accounting for all electronics channels associated with a pair of APAs (upper and lower, vertically ganged).
+top of the cryostat, where a single flange services each APA, as shown in Figure~\ref{fig:connections}.  Two CE signal flanges are located on each feedthrough, together accounting for all electronics channels associated with a pair of APAs (upper and lower, vertically arranged).
 Each cable bundle contains wires for low-voltage (LV) power, high-speed data readout, and
-clock/digital-control signal distribution.  Eight separate cables carry the TPC wire-bias voltages
-from the signal flange to the APA wire-bias boards, in addition to the bias voltages for the field
+clock/digital-control signal distribution.  Eight separate cables carry the TPC wire bias voltages
+from the signal flange to the APA wire bias boards, in addition to the bias voltages for the field
 cage termination electrodes and for the electron diverters.  At the top of each feedthrough is an additional flange to service the photon detection system (PDS) cables associated with the APA pair.
 
 \begin{dunefigure}
@@ -22,14 +22,14 @@ cage termination electrodes and for the electron diverters.  At the top of each 
 The components of the CE system are the following:
 \begin{itemize}
 \item{FEMBs, on which the ASICs are mounted, which are installed on the APAs;}
-\item{cables for the data, clock/control signals, LV power, and wire-bias voltages between the APA and the signal flanges (cold cables);}
-\item{signal flanges with a CE feedthrough to pass the data, clock/control signals, LV power, and APA wire-bias voltages between the inside and outside of the cryostat, in addition to the corresponding cryostat penetrations and spool pieces;}
+\item{cables for the data, clock/control signals, LV power, and wire bias voltages between the APA and the signal flanges (cold cables);}
+\item{signal flanges with a CE feedthrough to pass the data, clock/control signals, LV power, and APA wire bias voltages between the inside and outside of the cryostat, in addition to the corresponding cryostat penetrations and spool pieces;}
 \item{warm interface electronics crates (WIECs) that are mounted on the signal flanges and contain
 the warm interface boards (WIBs) and power and timing cards (PTCs) for further processing
 and distribution of the signals entering/exiting the cryostat;}
 %\item{fiber cables for transmitting data and clock/control signals between the WIECs and the
 %data acquisition (DAQ) and slow control systems;}
-\item{cables for LV power and wire-bias voltages between the signal flange and external power
+\item{cables for LV power and wire bias voltages between the signal flange and external power
 supplies (warm cables); and}
 \item{LV power supplies for the CE and bias-voltage power supplies for the APAs.}
 \end{itemize}
@@ -55,8 +55,8 @@ Power and timing card (PTC) & 1 per APA & 2,560 \\ \colhline
 Power and timing backplane (PTB) & 1 per APA & 2,560 \\
 %LV power mainframe & ? & ? \\ \colhline
 %LV supply module & ? & ? \\ \colhline
-%Wire-bias mini-crate & ? & ? \\ \colhline
-%Wire-bias supply module & ? & ? \\
+%wire bias mini-crate & ? & ? \\ \colhline
+%wire bias supply module & ? & ? \\
 \end{dunetable}
 
 The baseline design for the DUNE far detector single-phase TPC electronics calls for three types of ASICs to be located inside of the liquid argon:
@@ -65,8 +65,8 @@ The baseline design for the DUNE far detector single-phase TPC electronics calls
 \item{a 16-channel 12-bit ADC ASIC operating at 2~MHz; and}
 \item{a 64-channel control and communications ASIC, referred to as COLDATA in the following.}
 \end{itemize}
-The FE ASIC has been prototyped and is close to meeting requirements (discussed in Section~\ref{sec:fdsp-tpc-elec-ov-req}). Another prototype to address issues in the version deployed in protoDUNE-SP is expected in Spring 2018. Key portions of the control and communications ASIC (also referred to as the COLDATA ASIC) have been prototyped and meet requirements.  However, it has been determined that the ``P1'' ADC ASIC now being used in protoDUNE-SP does not meet requirements, and accordingly, its development has been terminated.  A new cold ADC ASIC is being developed by an LBL-FNAL-BNL collaboration and first prototypes are expected by the end of Summer 2018.  The first full prototype of the controls and communication ASIC is also expected to be available for testing by the end of Summer 2018.  In order to maximize the probability of developing a complete design for cold TPC front-end electronics in a timely fashion, an alternative solution is also being investigated, a single 64-channel ASIC that will include all three functions described above.  This design is being done at SLAC and first prototypes are expected in Summer 2018.
+The FE ASIC has been prototyped and is close to meeting requirements (discussed in Section~\ref{sec:fdsp-tpc-elec-ov-req}). Another prototype to address issues in the version deployed in ProtoDUNE-SP is expected in Spring 2018. Key portions of the control and communications ASIC (also referred to as the COLDATA ASIC) have been prototyped and meet requirements.  However, it has been determined that the ``P1'' ADC ASIC now being used in ProtoDUNE-SP does not meet requirements, and accordingly, its development has been terminated.  A new ADC ASIC (referred to as the Cold ADC ASIC) is being developed by an LBL-FNAL-BNL collaboration and first prototypes are expected by the end of Summer 2018.  The first full prototype of the controls and communication ASIC is also expected to be available for testing by the end of Summer 2018.  In order to maximize the probability of developing a complete design for cold TPC front-end electronics in a timely fashion, an alternative solution is also being investigated, a single 64-channel ASIC that will include all three functions described above.  This design is being done at SLAC and first prototypes are expected in Summer 2018.  An ADC solution in the form of a developmental ADC chip for an upgrade of the ATLAS detector provides an additional backup option; this option will be explored further if the performance of the other two ADC solutions being considered do not meet the requirements for DUNE.
 
 While the higher charge carrier mobility at liquid argon temperature than at room temperature is central to the improved performance of cold electronics, it also leads to the ``hot carrier effect.''  In n-type MOS transistors, the carriers (electrons) can acquire enough kinetic energy to ionize silicon in the active channel.  This charge can become trapped and lead to effects (including threshold shifts) similar to those caused by radiation damage.  This effect can cause MOS circuits to ``age'' much more quickly at liquid argon temperature than at room temperature, reducing performance and potentially causing failure.  In order to mitigate this effect, the maximum electric field in transistor channels must be lower than the field that can be reliably used at room temperature.  This is accomplished by using transistors that are longer than minimum length and by using reduced bias voltage.  Any commercial circuits that are used in the liquid argon must be carefully tested to ensure that they will perform well for the expected 20-year lifetime of the DUNE.
 
-A series of tests are planned to demonstrate that the CE system design will meet DUNE requirements. These include two system tests: one using the protoDUNE ``cold box'' at CERN, and one using a new small liquid argon TPC at Fermilab. The latter will also accommodate one half-length DUNE photodetector, and will provide a low noise environment that will allow one to make detailed comparisons of the performance of the new ASICs. It will also enable the study of interactions between the TPC readout and other systems, including the photodetector readout and the HV distribution. These test facilities are discussed in more detail in Section~\ref{sec:fdsp-tpc-elec-qa-facilities}. Plans are also being made for a second period of data taking for the ProtoDUNE-SP detector, with final APAs including the final ASICs and FEMBs replacing the current prototypes. This second run of ProtoDUNE is planned for 2021/2022.
+A series of tests are planned to demonstrate that the CE system design will meet DUNE requirements. These include two system tests: one using the ProtoDUNE ``cold box'' at CERN, and one using a new small liquid argon TPC at Fermilab. The latter will also accommodate one half-length DUNE photodetector, and will provide a low noise environment that will allow one to make detailed comparisons of the performance of the new ASICs. It will also enable the study of interactions between the TPC readout and other systems, including the photodetector readout and the HV distribution. These test facilities are discussed in more detail in Section~\ref{sec:fdsp-tpc-elec-qa-facilities}. Plans are also being made for a second period of data taking for the ProtoDUNE-SP detector, with final APAs including the final ASICs and FEMBs replacing the current prototypes. This second run of ProtoDUNE is planned for 2021/2022.

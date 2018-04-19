@@ -9,16 +9,16 @@ Electrons passing through the wire grid must drift unimpeded until they reach th
 collection layer. The nominal bias voltages are predicted to result in this electrically 
 transparent configuration, and are given in Section~\ref{sec:fdsp-apa-design}. 
 
-The filtering of wire-bias voltages and AC coupling of wire signals passing
+The filtering of wire bias voltages and AC coupling of wire signals passing
 onto the charge amplifier circuits is done on capacitance-resistance (CR) boards that plug in between the APA wire-board stacks and FEMBs.
-Each CR board includes single R-C filters for the X- and U-plane wire-bias voltages. In addition, each board has 48 
+Each CR board includes single R-C filters for the X- and U-plane wire bias voltages. In addition, each board has 48 
 pairs of bias resistors and AC coupling capacitors for X-plane wires, and 40 pairs for the U-plane wires. The coupling capacitors block DC while passing AC 
-signals to the CE motherboards.  A schematic diagram of the protoDUNE-SP APA wire bias subsystem is illustrated in Figure~\ref{fig:CR-board}.
+signals to the CE motherboards.  A schematic diagram of the ProtoDUNE-SP APA wire bias subsystem is illustrated in Figure~\ref{fig:CR-board}.
 
 \begin{dunefigure}
-[protoDUNE-SP APA wire bias schematic diagram, including the CR board.]
+[ProtoDUNE-SP APA wire bias schematic diagram, including the CR board.]
 {fig:CR-board}
-{protoDUNE-SP APA wire bias schematic diagram, including the CR board.}
+{ProtoDUNE-SP APA wire bias schematic diagram, including the CR board.}
 \includegraphics[width=0.8\linewidth]{tpcelec-cr_board.pdf}
 \end{dunefigure}
 
@@ -45,14 +45,14 @@ The higher value helps to achieve a longer time constant for the high-pass coupl
 Time constants should be at least 25 times the electron drift time so that the undershoot in the digitized waveform
 is small and easily correctable.
 However, leakage currents can develop on PC boards that are exposed to high voltages over extended periods.
-If the bias resistors are much greater than 50\,M$\Omega$, leakage currents may affect the bias voltages applied to the wires. The target value of 50\,M$\Omega$ was used in protoDUNE-SP.
+If the bias resistors are much greater than 50\,M$\Omega$, leakage currents may affect the bias voltages applied to the wires. The target value of 50\,M$\Omega$ was used in ProtoDUNE-SP.
 
 The bias-voltage filters are R-C low-pass networks.
 Resistance values should be much smaller than the bias resistances to control crosstalk between wires
 and limit the voltage drop if any of the wires becomes shorted to the APA frame.
-The value of 2.2\,M$\Omega$ was used in protoDUNE-SP.
+The value of 2.2\,M$\Omega$ was used in ProtoDUNE-SP.
 Smaller values may be considered for DUNE although a larger filter capacitor would be required to maintain a given level of noise reduction.
-The target value of 47\,nF was used in protoDUNE-SP for the filter capacitors.
+The target value of 47\,nF was used in ProtoDUNE-SP for the filter capacitors.
 
 %For the grid-plane bias filters, component values are less critical.
 %If possible they will be identical to those used for the bias resistors and coupling capacitors

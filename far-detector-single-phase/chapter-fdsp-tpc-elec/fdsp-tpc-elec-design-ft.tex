@@ -15,9 +15,9 @@ Optical fiber is employed externally from the WIBs on the signal flange to the D
 
 The design of the signal flange includes a four-way cross spool piece, separate PCB feedthroughs for the CE and PDS cables, and
 an attached crate for the TPC warm electronics, as shown in Figure~\ref{fig:tpcelec-signal_FT}.
-The wire-bias voltage cables connect to standard SHV (safe high voltage) connectors machined directly into the CE feedthrough,
-ensuring no electrical connection between the wire-bias voltages and other signals passing through the signal flange.
-Each CE feedthrough serves the bias/power/digital IO needs of one APA.  
+The wire bias voltage cables connect to standard SHV (safe high voltage) connectors machined directly into the CE feedthrough,
+ensuring no electrical connection between the wire bias voltages and other signals passing through the signal flange.
+Each CE feedthrough serves the bias/power/digital I/O needs of one APA.  
 
 Data/control cable bundles are used to send system clock and control signals from the 
 signal flange to the FEMB, stream the $\sim$1~Gbps high-speed data from the FEMB to the signal flange.  Each FEMB 
@@ -25,11 +25,11 @@ connects to a signal flange via one data cable bundle, leading to 20 bundles bet
 to transmit the following differential signals:
 
 \begin{itemize}
-    \item 4$\times$1.28~Gbps data (2 from each COLDATA)
-    \item 2 64~MHz clocks (1 input to each COLDATA)
-    \item 2 Fast Command lines (1 input to each COLDATA)
-    \item 3 I$^2$C-like control lines (clock, data-in, and data-out)
-    \item 1 multipurpose LArASIC output (temperature, reference voltage, or analog test output)
+    \item four 1.28~Gbps data (two from each COLDATA);
+    \item two 64~MHz clocks (one input to each COLDATA);
+    \item two fast command lines (one input to each COLDATA);
+    \item three I$^2$C-like control lines (clock, data-in, and data-out); and
+    \item one multipurpose LArASIC output (temperature, reference voltage, or analog test output).
 \end{itemize}
 
 LV power is passed from the signal flange to the FEMB by bundles of
@@ -45,7 +45,7 @@ through eight SHV connectors mounted on the signal flange. RG-316 coaxial cables
 from the signal flange to a patch panel PCB which includes noise filtering mounted on the top 
 end of the APA. 
 
-From there, wire-bias voltages are carried by single wires to 
+From there, wire bias voltages are carried by single wires to 
 various points on the APA frame, including the CR boards, a small PCB mounted on or near 
 the patch panel that houses a noise filter and termination circuits for the field cage voltages, and 
-a small mounted board near the electron diverter that also houses wire-bias voltage filters.
+a small mounted board near the electron diverter that also houses wire bias voltage filters.

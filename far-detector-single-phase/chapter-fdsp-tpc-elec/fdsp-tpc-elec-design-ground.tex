@@ -1,20 +1,19 @@
 In order to minimize system noise, the cold electronics cables for each APA enter 
-the cryostat through a single TPC flange, as shown in Figure~\ref{fig:connections}, creating an integrated 
-unit between each APA frame, FEMB ground for all 20 CE Modules, TPC flange and warm interface
+the cryostat through a single CE flange, as shown in Figure~\ref{fig:connections}, creating an integrated 
+unit between each APA frame, FEMB ground for all 20 CE modules, TPC flange and warm interface
 electonics. To accomplish this,
 the input amplifiers on the FE ASICs have their ground terminals connected to the APA frame. 
-All power-return leads and cable shields are connected to both the ground plane of the FEMB and 
-to the TPC signal flange.
+All power-return leads and cable shields are connected to both the ground plane of the FEMB and to the TPC signal flange.
 
 The only point this integrated unit makes electrical contact with the 
-cryostat or ``detector'' ground is at a single point on the CE feedthrough board in the TPC signal flange where the 
+cryostat or ``detector ground'' is at a single point on the CE feedthrough board in the TPC signal flange where the 
 cables exit the cryostat. Mechanical suspension of the APAs is accomplished using insulated supports. 
 To avoid structural ground loops, the APA frames described in Chapter~\ref{ch:fdsp-apa} are 
 insulated from each other.
 
 Filtering circuits for the APA wire-bias voltages are locally referenced to the ground plane of the FEMBs through low-impedance electrical connections. This approach ensures a ground-return path in close proximity to the bias-voltage and signal paths. The close proximity of the current paths minimizes the size of potential loops to further suppress noise pickup.
 
-Photon detector system signals, described in Chapter~\ref{ch:fdsp-pd}, are carried directly on shielded, 
+Signals associated with the photon detector system, described in Chapter~\ref{ch:fdsp-pd}, are carried directly on shielded, 
 twisted-pair cables to the signal feedthrough. The cable shields are connected to the cryostat 
 at the PD flange shown in Figure~\ref{fig:connections}, and to the PCB shield layer on the photon 
 detectors. There is no electrical connection between the cable shields and the APA frame.
