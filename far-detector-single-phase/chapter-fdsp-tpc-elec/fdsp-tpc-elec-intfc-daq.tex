@@ -6,7 +6,7 @@ some serialization taking place in the WIB. For the single phase TPC we have
 chosen to adopt the latter option, which minimizes the requirements on the
 FPGA inside the WIB, and also reduces the power and cooling requirements for the WIEC.
 Based on this decision, the interface between the CE and DAQ consortia is
-defined by the fibre plant
+defined by the fiber plant
 used to transmit the data from the WIBs to the DAQ components housed in the
 Central Utility Cavern (CUC), and to broadcast the clock and controls in the
 opposite direction. Only optical links are used in the connection with the DAQ,
@@ -14,36 +14,36 @@ which guarantees that the DAQ electronics will not induce any noise on the
 APA wires.
 
 The interface is fully defined with the selection of the number
-and type of optical fibre links, their speed, and the type of connectors.
+and type of optical fiber links, their speed, and the type of connectors.
 The FPGA inside the WIB can be used to reformat the data with changes to
 the headers and trailers that include time stamps and geographical addresses
 of the FEMBs. It can also be used to serialize the data from multiple
 COLDATA ASICs into a single stream. In the simplest scheme each electrical
-link from the FEMB is routed to a single optical fibre, transmitting data
+link from the FEMB is routed to a single optical fiber, transmitting data
 at 1.28~Gbps. Depending on the availability and cost of transmitters
 capable of sending data at higher speeds data from multiple electrical
-links (4, 8 or more) could be serialized onto a single link. Using higher transmission
+links (4, 8, or more) could be serialized onto a single link. Using higher transmission
 speeds reduces the number of links that are needed, possibly reducing the
 cost of the DAQ part of the detector. The use of links with speeds
 of 5~Gbps or larger may present the
 drawback that the data has to be deserialized on the CUC side, depending
 on the availability of resources for the extraction of trigger primitives
-on the DAQ boards. The final choice of the number of fibres, link speed and
+on the DAQ boards. The final choice of the number of fibers, link speed, and
 matching between FEMBs and DAQ processing units in the CUC should be
 the result of a cost optimization process that can be delayed until
 the Technical Design Report.
 
 Another aspect of the interface between the DAQ and the CE consortia is the
-transmission of clock and commands. In protoDUNE-SP a single fibre
+transmission of clock and command signals. In ProtoDUNE-SP, a single fiber
 carries this information to the PTC card at each CE flange, which then re-broadcasts
-the information to the five WIBs, using the WIEC backplane. For DUNE we
+the information to the five WIBs, using the WIEC backplane. For DUNE, we
 foresee the possibility of transmitting the information directly to each
-WIB, the functionality for which is already implemented in the protoDUNE-SP WIB, as
+WIB, the functionality for which is already implemented in the ProtoDUNE-SP WIB, as
 shown in Figure~\ref{fig:tpcelec-wib_timing}.
 
 The final aspect of the interface between the DAQ and the CE is
 the definition of the format of the data transmitted by the cold electronics
-to the DAQ.  This format has been defined previously for protoDUNE-SP.
+to the DAQ.  This format has been defined previously for ProtoDUNE-SP.
 Some changes are needed for DUNE to accommodate a larger number of APAs.
 
 %%% PROTODUNE DATA FORMAT:
