@@ -2,10 +2,7 @@
 \section{Interfaces} % (3 pages)} 
 \label{sec:fdsp-apa-intfc}
 
-The interface between the APA consortium and other detector consortia, facilities, and working groups
-covers a wide range of activities. Table~\ref{tab:apa_interface_docdb} summarizes the interface control
-documents being developed. In the following, we elaborate on three relatively important
-interfaces: electronics, photon detectors, and the high voltage system. 
+The interface between the APA consortium and other detector consortia, facilities, and working groups covers a wide range of activities. Table~\ref{tab:apa_interface_docdb} summarizes the interface control documents under development. In the following, we elaborate slightly on the interfaces with the TPC readout electronics and the photon detector system, as well as the connections between neighboring APAs in the DUNE detector and cable routing.  Other important interfaces are to the TPC high voltage system (the field cage) and the detector support structure (DSS) inside the DUNE cryostats.  In all cases, the reader is referred to Chapters within the TDR dedicated to these systems for more information. 
 
 \begin{dunetable}[APA interface control documents]{lr}{tab:apa_interface_docdb}
 {Summary of interface control documents being developed.}  
@@ -24,60 +21,52 @@ interfaces: electronics, photon detectors, and the high voltage system.
 \end{dunetable}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{TPC Cold Electronics}
 \label{sec:fdsp-apa-intfc-elec}
 
-The TPC readout electronics are directly mounted on the APA immersed inside LAr in order to reduce the input capacitance and thus the inherent electronics noise, hence cold electronics (CE).  With the wire-wrapped design, all 2,560 wires to be read out (960 are G-plane wires intended for charge shielding only and not connected to readout electronics) are terminated on wire boards that stack along one end (the head) of the APA frame.  Ten such stacks of wire boards, pinned for readout, are installed across the width of each side of the frame. There are a total of 128 readout channels (48/40/40 for X/U/V) in each stack. The 2,560 channels per APA are, therefore, read out by 20 front-end motherboards (FEMBs), each of which includes eight 16-channel front-end ASICs, eight 16-channel ADC ASICs, low-voltage regulators, and input signal protection circuits.  A schematic view of the head end of an APA with electronics installed and a cable tray mounted above is shown in Fig.~\ref{fig:apa_ce}. 
+The TPC readout electronics is directly mounted to the APA immersed in liquid argon in order to reduce the input capacitance and thus the inherent electronics noise.  With the wire-wrapped design, all 2560 wires to be read out (recall 960 are $G$-plane wires used for charge shielding only and so not read out) are terminated on wire boards that stack along one end (the head) of the APA frame.  The 2560 channels are read out by 20 front-end motherboards (128 channels per board), each of which includes eight 16-channel front-end ASICs, eight 16-channel ADC ASICs, low-voltage regulators, and input signal protection circuits.  A schematic view of the head end of an APA with electronics installed and a cable tray mounted above is shown in Figure~\ref{fig:apa_ce}. 
 
-\begin{dunefigure}[APA electronics interface]{fig:apa_ce}
+\begin{dunefigure}[APA interface with TPC electronics]{fig:apa_ce}
 {The head region of an APA frame showing the 10 wire board stacks on each side, 20 front-end motherboard boxes, and the cable tray mounted above.}
-\includegraphics[width=0.8\textwidth,trim=10mm 0mm 10mm 20mm, clip]{APA_interface.png}
+\includegraphics[width=0.85\textwidth,trim=10mm 0mm 10mm 20mm, clip]{apa-elec-interface.png}
 \end{dunefigure}
 
-The interface between the APA and TPC cold electronics covers a wide range of topics, including the hardware design and production, testing, integration, installation, and commissioning. The hardware interface basically has two components, mechanical and electrical. The mechanical interface includes the support of the 20 CE boxes with each housing a FEMB. 
+The interface between the APA and TPC cold electronics covers a wide range of topics, including the hardware design and production, testing, integration, installation, and commissioning. The hardware interface has two basic components, mechanical and electrical. The mechanical interface includes the support of the 20 cold electronics boxes with each housing a 128 channel front-end motherboard.  These are the gray colored, vertically oriented boxes shown in Figure~\ref{fig:apa_ce}. 
 
-The electrical interface covers $i$) the choice of wire-bias voltages to the four wire planes so that 100\% transparency can be achieved for drifting ionization electrons, $ii$) cable connection for the wire bias voltages from the cryostat feedthroughs to the CR boards, $iii$) interface boards providing connection between CR boards and CE boxes, $iv$) filtering of the wire-bias voltages through CR boards in order to suppress potential introduction of electronics noise, and $v$) an overall grounding scheme and electrical isolation scheme for each APA. The last item is particularly important in order to reach the low electronics noise levels required.
+The electrical interface covers the choice of wire-bias voltages to the four wire planes so that 100\% transparency can be achieved for drifting ionization electrons, cable connection for the wire bias voltages from the cryostat feedthroughs to the CR boards, interface boards providing connection between CR boards and cold electronics boxes, filtering of the wire-bias voltages through CR boards in order to suppress potential introduction of electronics noise, and an overall grounding scheme and electrical isolation scheme for each APA. The last item is particularly important in order to reach the low electronics noise levels required.  See the TPC Electronics Chapter for information on all of these aspects of the front-end electronics system.  
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Photon Detection System}
 \label{sec:fdsp-apa-intfc-pds}
 
-While the design of the Photon Detector System (PDS) is still under development, it is expected that the PDS is integrated into the APA frame to form a single unit for the detection of both ionization charge and scintillation light. For the present baseline design, the PDS is expected to be installed into the APA frame at the integration test facility after the completion of the wire winding (see Section~\ref{sec:fdsp-apa-install}). Figure~\ref{fig:apa-pd} shows the final step in installing the PDS into the APA frame. The PDS signal cable connection is highlighted.  An alternative design of installing PDS elements prior to the wire winding is also under consideration. Similar to that of cold electronics, the interface between PDS and APA covers a wide range of topics, including the hardware design and production, testing, integration, installation, and commissioning. The hardware interface again includes two components: mechanical and electrical interfaces. The mechanical interface includes $i$) supports for the PDS detectors, $ii$) access slots for installation of the detectors, $iii$) access slots for the cabling of the detectors and routing of the PDS cables inside the beams of the APA frame. Depending on the final design of the PDS, the geometry of the APA, including the slot dimension and the number of slots, may require modification. Any proposed changes by the PDS Consortium must be evaluated by the APA Consortium to understand structural impacts or interferences with other components.
+While the design of the photon detector system (PDS) is still under development, it is expected that the PDS is integrated into the APA frame to form a single unit for the detection of both ionization charge and scintillation light.  Cables for the photon detectors must also be accommodated in the APA frame design.  Figure~\ref{fig:apa-pd} shows the interface for a light-guide bar based PDS as has been deployed in ProtoDUNE. Individual bars were inserted through 10 slots left on the side steel tubes of the frame. Rails mounted in the APA frame, as shown in Figure~\ref{fig:apa-frame-2}, support the bars in their final positions. 
 
-The electrical interface includes a grounding scheme and electrical insulation. Due to the strict requirements on the noise from the cold electronics (CE), the electrical interface must be defined together with the CE Consortium. In addition, an electrical test will be performed with a APA/PDS/CE vertical slice test. 
-
-\begin{dunefigure}[APA interface with photon detectors]{fig:apa-pd}
-{(Left) Installation of a photon detector module into the APA frame. The cable connection is highlighted. (Right) The baseline design for PDS cable routing. Photon detector cables are expected to go through the central beam and be distributed inside the supporting tubes of APA frame.}
-\includegraphics[height=0.3\textheight]{PD-APA2.PNG}
-%\includegraphics[height=0.23\textheight]{PD-APA1.PNG}
+\begin{dunefigure}[APA interface with photon detectors in ProtoDUNE]{fig:apa-pd}
+{Installation of a light-guide bar photon detector module into the available slots in the APA frame. Also shown is a concept for routing PDS cables through the rib tubes of the APA frame and up the central vertical tube section.}
+\includegraphics[height=0.3\textheight]{apa-light-bar-detail.png}\qquad\qquad
+\includegraphics[height=0.3\textheight]{apa-light-bar-insert.png}\qquad\qquad
+\includegraphics[height=0.3\textheight]{apa-light-bar-cable.png}
 \end{dunefigure}
+
+Similar to that of cold electronics, the interface between the PDS and APAs covers a wide range of topics, including the hardware design and production, testing, integration, installation, and commissioning. Depending on the final design of the PDS, the geometry of the APA, including access slot dimensions, locations, and number, may require modification. Any proposed changes by the PDS Consortium must be evaluated by the APA Consortium to understand structural impacts or interferences with other components.  The electrical interface includes a grounding scheme and electrical insulation. Due to the strict requirements on the noise from the cold electronics, the electrical interface must be defined together with the Electronics Consortium. 
+
+For more information on the photon system, see the Photon Detector Chapter in the TDR.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{APA to APA Connections and Cable Routing}
+\label{sec:fdsp-apa-intfc-apa}
 
-The TPC readout electronics require that the APA frames must be electrically isolated.  The left panel of Figure~\ref{fig:apa-cabling} shows the current conceptual design for mechanically connecting the two APAs in a vertical stack while maintaining electrical isolation.  The green elements are an insulating panel and sleeve made from G10. 
+The TPC readout electronics require that the APA frames must be electrically isolated.  The left panel of Figure~\ref{fig:apa-cabling} shows the current conceptual design for mechanically connecting the two APAs in a vertical stack while maintaining electrical isolation.  The green elements are an insulating panel and bolt sleeve made from G10. 
 
-For the present baseline design, the cables of the PDS are expected to be routed inside the central beam of the APA frame.  The CE electrical cables need to be routed so that the head end of the lower APA in the 2-APA assembly can be reached. The default design is to rout the CE cables (power and signal) inside the two side beams of the APA frames. The right panel of Fig.~\ref{fig:apa-cabling} shows the baseline cable routing scheme.     
+Cable routing schemes for both the TPC electronics and PDS are actively being developed.  A concept currently under evaluation is to run the cables of the PDS inside the crossing rib tubes to the central beam tube of the APA frames to get to the top.  The cold electronics signal and power cables also need to be routed so that the head end of the lower APA in the 2-APA assembly can be reached. The current concept is to route the electronics cables inside the two side beams of the APA frames. The right panel of Figure~\ref{fig:apa-cabling} depicts such a cable routing scheme. To fully accommodate the cables from two APAs, it is being considered to modify the APA frame design to use larger hollow tube sections. The final design is in progress and prototyping is planned for later this year to verify a cabling and installation solution.     
 
 \begin{dunefigure}[APA-to-APA connection and cable routing]{fig:apa-cabling}
-{(Left) Conceptual design for the APA-to-APA connection.  The green insulator pieces act to electrically isolate the two frames, as required by the front-end electronics.  (Right) The baseline design for PDS cable routing. Photon detector cables are expected to go through the central beam and be distributed inside the supporting tubes of APA frame.  CE cables (both data and power) go down the outside tubes to reach the lower APA.}
+{Left: Conceptual design for the APA-to-APA connection.  The green insulator pieces act to electrically isolate the two frames, as required by the front-end electronics.  Right: A concept for TPC electronics and PDS cable routing. Photon detector cables would go through the central beam and be distributed inside the supporting tubes of the APA frame.  Cold electronics cables (both data and power) from the bottom APA electronics would go through the outside tubes to reach the top of the stack.}
 \setlength{\fboxsep}{0pt}
 \setlength{\fboxrule}{0.5pt}
-\fbox{\includegraphics[height=0.27\textheight]{apa-apa-mating.png}}\qquad \quad
-\includegraphics[height=0.27\textheight]{PD-APA1.PNG}
+\fbox{\includegraphics[height=0.26\textheight]{apa-apa-mating.png}}\qquad \quad
+\includegraphics[height=0.26\textheight]{apa-cable-routing.png}
 \end{dunefigure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{High Voltage System}
-\label{sec:fdsp-apa-intfc-hv}
-
-\todo{Details left for the HV chapter, with  reference here}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{LBNF Cryostat and Detector Support Structure}
-\label{sec:fdsp-apa-intfc-lbnf-dss}
-
-\todo{Details left for the Technical Coordination chapter, with reference here}
