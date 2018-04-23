@@ -9,8 +9,7 @@
 \subsection{Introduction}
 \label{sec:fddp-pd-1.1}
 
-This chapter describes the Photon Detection System (PDS) for the DUNE Dual-Phase (DP) Far Detector (FD). It is essential to ensure that the DP FD PDS is optimized for the full DUNE physics program. In particular, low energy signals like supernova (SN) neutrinos and multi-messenger astronomy, other low-energy signals, and proton decay, will have more stringent requirements on photon detector system performance than the primarily higher energy, beam-synchronous, neutrino oscillation physics. The final specifications of the system will be determined in order to achieve these physics requirements. This Technical Proposal chapter will concentrate on direct projection of the ProtoDUNE-DP design to the DUNE scale. The optimization and final design of the Dual-Phase Photon Detector (DPPD) system will be driven by the ProtoDUNE-DP \cite{protoDUNDP-tdr} data and simulation studies.
-
+This chapter describes the Photon Detection System (PDS) for the DUNE Dual-Phase (DP) Far Detector (FD). The PDS is used primarily as decision to acquire the event (trigger) for non-beam events, for determination of the event absolute time for beam and non-beam events, and for calorimetric measurements. It is essential to ensure that the DP FD PDS is optimized for the full DUNE physics program. In particular, low energy signals like supernova (SN) neutrinos and multi-messenger astronomy, other low-energy signals, and proton decay, will have more stringent requirements on PDS performance than the primarily higher energy, beam-synchronous, neutrino oscillation physics. The final specifications of the system will be determined in order to achieve these physics requirements. This Technical Proposal chapter will concentrate on direct projection of the ProtoDUNE-DP design to the DUNE scale. The optimization and final design of the Dual-Phase Photon Detector (DPPD) system will be driven by the ProtoDUNE-DP \cite{protoDUNDP-tdr} data and simulation studies.
 
 The chapter begins with an overview of the system in section~\ref{sec:fddp-pd-1}. Section~\ref{sec:fddp-pd-2} describes the photo-sensors, namely photomultiplier tubes (PMTs) and the related high-voltage system, wavelength shifters and light collectors. The mechanics associated with the PMTs is described in Section~\ref{sec:fddp-pd-3}, and the readout electronics in ~\ref{sec:fddp-pd-4}. Section~\ref{sec:fddp-pd-5} details the photon calibration system to monitor the PMT gain and stability. Then, the photon detector performance is described in Section~\ref{sec:fddp-pd-6}, and the operations in Section~\ref{sec:fddp-pd-7}. Interfaces with other subsystems are described in Section~\ref{sec:fddp-pd-8}. Section~\ref{sec:fddp-pd-9} includes the installation, integration and commissioning plans. Then, the quality control procedures are outlined in Section~\ref{sec:fddp-pd-10}. The main safety issues to consider are specified in Section~\ref{sec:fddp-pd-11}. To finish, the management and organization is described in Section~\ref{sec:fddp-pd-12}.
 
@@ -20,7 +19,7 @@ The chapter begins with an overview of the system in section~\ref{sec:fddp-pd-1}
 
 The main physics goals of the DUNE DP liquid argon (LAr) Time Projection Chamber (TPC) is to register beam events from LBNF at Fermilab, and operate outside of the beam spill as an efficient observatory for supernovae explosions and proton decays. DUNE will also collect atmospheric neutrino and muon events, and will conduct searches for a number of exotic phenomena postulated by extensions of the Standard Model.  Expected or searched for signals can range in energy from a few MeV to many GeV and have characteristic time duration and topological features that challenge the performance of large noble liquid TPCs. An essential and critical part of the LAr TPC is the PDS, sensitive to light produced by interactions in argon \cite{Cuesta:2017nrs}. In DP TPCs, the timing of prompt scintillation light (usually referred as S1 signal) in LAr is needed for time stamping of events and propagation of tracks in the detector. The extraction and amplification of drift electrons in the gas phase (usually referred to as S2 signal) yields information on the drift time and amount of ionization charge, thus supplementing information from the charge readout on the anode plane. The interplay between the charge and light from an event allows to achieve the pattern recognition and the measurement of energy of interactions.
 
-Ionizing radiation in liquid noble gases leads to the formation of excimers in either singlet or triplet states, which decay radiatively to the dissociative ground state with characteristic S1 fast and slow lifetimes (fast is about \SI{6}{ns}, slow is about \SI{1.6}{$\mu$s} in LAr with the so-called second continuum emission spectrum peaked at the wavelength of approximately \SI{127}{nm}, \SI{126.8}{nm} with a full width at half maximum of \SI{7.8}{nm} \cite{Heindl}). This prompt and relatively high-yield (about \num{40000} photons per MeV) of \SI{127}{nm} scintillation light is exploited in LAr TPC to provide the absolute time ($t_0$) of the ionization signal collected at the anode, thereby providing the absolute value of the drift coordinate of fully contained events, as well as a prompt signal used for triggering purposes.
+Ionizing radiation in liquid noble gases leads to the formation of excimers in either singlet or triplet states, which decay radiatively to the dissociative ground state with characteristic S1 fast and slow lifetimes (fast is about \SI{6}{ns}, slow is about \SI{1.3}{$\mu$s} in LAr with the so-called second continuum emission spectrum peaked at the wavelength of approximately \SI{127}{nm}, \SI{126.8}{nm} with a full width at half maximum of \SI{7.8}{nm} \cite{Heindl}). This prompt and relatively high-yield (about \num{40000} photons per MeV) of \SI{127}{nm} scintillation light is exploited in LAr TPC to provide the absolute time ($t_0$) of the ionization signal collected at the anode, thereby providing the absolute value of the drift coordinate of fully contained events, as well as a prompt signal used for triggering purposes.
 
 The secondary scintillation light S2 is produced in the gas phase of the detector when electrons, extracted form the liquid, are accelerated in the electric field between the liquid phase and the anode. The secondary scintillation in the argon gas (i.e. a vapor phase) is the luminescence in gas caused by accelerated electrons in the electric field and in the Large Electron Multiplier (LEM) anode through Townsend amplification. For a given argon gas density, the number of photons of this S2 signal is proportional to the number of electrons, the electric field, and the length of the drift path in gas covered by the electrons. In an extraction field of \SI{2.5}{kV/cm} in gas, one electron generates about \num{75} photons. The time stretch of S2 reflects the extraction time of original ionization in the liquid phase into the gas phase, thus for about \SI{1}{kV/cm} electric field, the time scale of S2 is of the order of hundreds of microseconds. The time between the occurrence of the primary scintillation light and the secondary scintillation light is equivalent to the drift time of the electrons from the ionization coordinate to the LAr surface.
 
@@ -30,11 +29,7 @@ The baseline design of the light collection system calls for 8-inch diameter cry
 \subsection{Technical Requirements}
 \label{sec:fddp-pd-1.3}
 
-Photomultipliers provide the sharpest time information of events in the LAr TPC and in the gas phase of the extraction stage. Due to necessary wavelength-shifting of photons from the argon luminescence and shadowing by the cathode plane, the efficiency of light detection is challenging and requires careful mechanical, electrical, and optical designs.
-
-PMTs will be installed with the baseline density of \num{1} per \SI{1}{m^2}. The choice of the R5912-MOD20 photomultiplier manufactured by Hamamatsu Photonics \cite{hamamatsu-5912} is assumed as baseline plan. In order to extend the PMT light sensitivity region to the LAr light emission wavelength of \SI{127}{nm}, a wavelength shifter has to be used. Therefore, in the baseline plan, the hemispherical windows of the PMTs will be evaporated with a thin layer of Tetra-Phenyl-Butadiene (TPB) \cite{tpb} for wavelength-shifting into the range suitable for R5912 PMT photocathode sensitivity \cite{hamamatsu-5912}. PMTs have to be rigidly anchored to the bottom of the cryostat. Different PMT densities and placements along the walls are also being considered in simulations. High voltage (HV)/signal cables will be routed along the cryostat walls to feedthroughs installed in the roof of the cryostat. Each PMT will be controlled individually so that its gain can be individually adjusted to match the front-end dynamic range and signal-to-noise ratio. 
-
-The cathode plane is placed at a height of about \SI{2}{m} above the bottom of the cryostat, and the PMT plane will be distant enough from the cathode plane, taking into account the high electrical rigidity of the LAr phase. In order to protect the PMTs, the ground grid will be installed and placed at an identical potential as the PMT photocathode (\SI{0}{V}). The PMTs will be powered to about \num{1.5}-\SI{2.0}{kV} such that the PMT gain is $\sim$\num{10}$^7$-\num{10}$^9$. DPPD Consortium is presently in contact with PMT manufacturers, including Hamamatsu Photonics in Japan \cite{hamamatsu}, Electron Tubes Limited in the US and UK \cite{electrontubeslim}, and HZC in China \cite{hzc}, to define optimal choice and configuration of PMTs satisfying our requirements, tentatively summarized in Table~\ref{tab:dppd_t_1_3}. These requirements will be reviewed based on the physics needs. For this, simulations and ProtoDUNE-DP results will be key.
+Photomultipliers provide the sharpest time information of events in the LAr TPC and in the gas phase of the extraction stage. Due to necessary wavelength-shifting of photons from the argon luminescence and shadowing by the cathode plane, the efficiency of light detection is challenging and requires careful mechanical, electrical, and optical designs. DPPD Consortium is presently in contact with PMT manufacturers, including Hamamatsu Photonics in Japan \cite{hamamatsu}, Electron Tubes Limited in the US and UK \cite{electrontubeslim}, and HZC in China \cite{hzc}, to define optimal choice and configuration of PMTs satisfying our requirements, tentatively summarized in Table~\ref{tab:dppd_t_1_3}. These requirements will be reviewed based on the physics needs. For this, simulations and ProtoDUNE-DP results will be key.
 
 \begin{dunetable}
 [Summary of tentative requirements for the photon detection system of the DP LAr TPC.]
@@ -48,7 +43,9 @@ The cathode plane is placed at a height of about \SI{2}{m} above the bottom of t
  \toprowrule
 {\bf Optical} & & \\ \colhline
 spectral response & \SI{127}{nm} 	& wavelength shifters are required				\\
-light yield & TBD & depending on simulation results \\
+light yield & 2.5 PE/MeV & for ProtoDUNE-DP, final value depending on \\
+
+ 	 & 	 & simulation results \\
 \colhline
 {\bf Electronic}	&			&										\\ \colhline
 minimum light signal & SPE & required to perform the PMT gain measurement \\
@@ -68,11 +65,14 @@ ADC dynamic range & TBD & depending on simulation results, see section \ref{sec:
 PMT placement		& isolated		& PMT's electrically shielded from the TPC cage	\\
 \colhline			
       {\bf Mechanical} 	&			&									\\ \hline
-      	cryogenics 	& \SI{77}{K}		& LAr will be operated at higher T, but	PMT's must	\\
-				&			&  withstand tests in liquid nitrogen \\
+      	temperature 	& cryogenic		& PMTs operated in LAr and tested in liquid nitrogen 	\\
 	pressure 		& \SI{+2}{bar}		& the argon column will be about \SI{10}{m} high	\\
 \colhline			
 \end{dunetable}
+
+PMTs will be installed with the baseline density of \num{1} per \SI{1}{m^2}. The choice of the R5912-MOD20 photomultiplier manufactured by Hamamatsu Photonics \cite{hamamatsu-5912} is assumed as baseline plan. In order to extend the PMT light sensitivity region to the LAr light emission wavelength of \SI{127}{nm}, a wavelength shifter has to be used. Therefore, in the baseline plan, the hemispherical windows of the PMTs will be evaporated with a thin layer of Tetra-Phenyl-Butadiene (TPB) \cite{tpb} for wavelength-shifting into the range suitable for R5912 PMT photocathode sensitivity \cite{hamamatsu-5912}. PMTs have to be rigidly anchored to the bottom of the cryostat. Different PMT densities and placements along the walls are also being considered in simulations. High voltage (HV)/signal cables will be routed along the cryostat walls to feedthroughs installed in the roof of the cryostat. Each PMT will be controlled individually so that its gain can be individually adjusted to match the front-end dynamic range and signal-to-noise ratio. An average light yield of 2.5 PE/MeV is required based on ProtoDUNE-DP simulations (see Section \ref{sec:fddp-pd-6}). The precision of the light yield requirement will be established after the completion of the full DUNE simulations.
+
+The cathode plane, described in the HV DP chapter,  is placed at a height of about \SI{2}{m} above the bottom of the cryostat, and the PMT plane will be distant enough from the cathode plane, taking into account the high electrical rigidity of the LAr phase. In order to protect the PMTs, the ground grid will be installed and placed at an identical potential as the PMT photocathode (\SI{0}{V}). The PMTs will be powered to about \num{1.5}-\SI{2.0}{kV} such that the PMT gain is $\sim$\num{10}$^7$-\num{10}$^9$. Future developments on the quantization of possible TPB dissolution in LAr will be encouraged and followed \cite{TPBdiss}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Detector Layout}
@@ -82,10 +82,10 @@ The PMT plane will be placed below the cathode plane far enough to be sufficient
 
 \begin{dunefigure}[The DUNE DP detector (partially open) with cathode, PMTs, field cage and anode plane with chimneys.]{fig:dppd_3_1}
 {The DUNE DP detector (partially open) with cathode, PMTs, field cage and anode plane with chimneys.}
-\includegraphics[width=0.8\textwidth]{dppd_3_1}
+\includegraphics[width=0.95\textwidth]{dppd_3_1}
 \end{dunefigure}
 
-Since few light sensors are directly sensitive to \SI{127}{nm}, a wavelength shifter will be required. TBP coating directly on the PMT is the default plan. Light collectors to increase the photons detected are under study. A single cable will be used per PMT to carry power and signal, and splitters will be placed out of the cryostat. A photon calibration system will be formed by external light sources and internal optical fibers.  
+Since few light sensors are directly sensitive to \SI{127}{nm}, a wavelength shifter will be required. TPB coating directly on the PMT is the default plan. Light collectors to increase the photons detected are under study. A single cable will be used per PMT to carry power and signal, and splitters will be placed out of the cryostat. A photon calibration system will be formed by external light sources and internal optical fibers.  
 
 The cable trays from the side walls of the cryostat to the PMTs will carry the cables and calibration fibers. The cables and fibers will be routed from the feedthrough flanges at the top of the cryostat and  combined at the side wall trays. These side trays will carry the HV/signal cables in blocks of \num{24} PMTs and four calibration fibers. Therefore, each block of \num{24} PMTs in a \num{6}$\times$\SI{4}{m^2} area will form a sector of underground installation totaling in \num{30} sectors.
 
@@ -119,7 +119,7 @@ The photodetector selected as baseline for the light-readout system is the Hamam
 \includegraphics[width=0.2\textwidth]{dppd_2_1}
 \end{dunefigure}
 
-As the baseline number of PMTs is high and several operations and tests have to be performed with them before the installation, the PMTs have to be ordered with some time in advance. The envisioned operations are: assembly of the voltage divider circuit, mounting on the support structure, test at room and cryogenic temperatures, application of TPB coating, packing and shipment. And finally, they have to be re-tested on-site before installation (see Sections \ref{sec:fddp-pd-9} and \ref{sec:fddp-pd-10}). Considering the large number of PMTs required by DPPD, the purchase order has to be sent, at least, two years in advance of installation. An staged order to achieve a steady supply of PMTs would be convenient to execute the plan mentioned before. 
+As the baseline number of PMTs, \num{720} + \num{80} spares, is high and several operations and tests have to be performed with them before the installation, the PMTs have to be ordered with some time in advance. The envisioned operations are: assembly of the voltage divider circuit, mounting on the support structure, test at room and cryogenic temperatures, application of TPB coating, packing and shipment. And finally, they have to be re-tested on-site before installation (see Sections \ref{sec:fddp-pd-9} and \ref{sec:fddp-pd-10}). Considering the large number of PMTs required by DPPD, the purchase order has to be sent, at least, two years in advance of installation. An staged order to achieve a steady supply of PMTs would be convenient to execute the plan mentioned before. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Photodetector Characterization}
@@ -127,7 +127,7 @@ As the baseline number of PMTs is high and several operations and tests have to 
 
 Before the installation, the most important parameters of the PMT response have to be measured with two aims: first, to reject under-performing PMTs and second, to store the characterization information in a database for later use during the detector commissioning and operation.
 
-Basic and most important parameters to characterize are the dark counts rate vs voltage and the gain vs voltage. Both parameters must be measured at room and at cryogenic temperatures.
+Basic and most important parameters to characterize are the dark counts rate vs voltage and the gain vs voltage. Both parameters must be measured at room and at cryogenic temperatures. Prepulsing and afterpulsing are not expected to be an issue, but will be measured, too. 
 
 From the mechanical point of view, the test setup will require a light tight vessel that could be filled with a cryogenic liquid (argon or nitrogen) plus the infrastructure for filling and operating the vessel with temperature and liquid level controls. For ProtoDUNE-DP, \num{10} PMTs were tested at a time during a week, as the tests of the PMTs on cryogenics require several days for the PMT thermalization. Figure \ref{fig:dppd_2_2a} shows the PMTs being installed in the testing vessel used for the ProtoDUNE-DP PMTs. Increasing the capacity of the vessel, and thus the number of PMTs tested at a time, will reduce the characterization test duration.
 
@@ -140,7 +140,7 @@ Figure \ref{fig:dppd_2_2b} shows the sketch of the envisaged setup for PMT chara
 
 \begin{dunefigure}[Sketch of the setup for PMT characterization tests.]{fig:dppd_2_2b}
 {Sketch of the setup for PMT characterization tests.}
-\includegraphics[width=0.75\textwidth]{dppd_2_2b}
+\includegraphics[width=0.9\textwidth]{dppd_2_2b}
 \end{dunefigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,8 +148,6 @@ Figure \ref{fig:dppd_2_2b} shows the sketch of the envisaged setup for PMT chara
 \label{sec:fddp-pd-2.3}
 
 Based on the experience with the WA105 $3\times1\times1$\,m$^3$ DP prototype, for the PMT HV system, the A7030 power supply modules from CAEN \cite{caen-a7030} were chosen as baseline design. These modules provide up to \SI{3}{kV} with a maximal output current of \SI{1}{mA} and a common floating ground to minimize the noise. Module versions with \num{12}, \num{24}, \num{36}, or \num{48} HV channels are available. The HV polarity can be chosen for each module. According to the baseline PMT powering scheme, modules with positive HV polarity will be acquired for the experiment. Modules with \num{48} HV channels and Radiall \num{52} connector are considered. The corresponding HV cable will connect the modules with the HV splitters which are described in Section \ref{sec:fddp-pd-4.2}. This choice will allow the design of a compact and most cost-effective system occupying between \num{1} and \num{2} racks only. For \num{720} PMTs, \num{15} A7030 modules (+ \num{2} spares) will be needed. These \num{15} HV modules will be installed in mainframes from CAEN.
-
-For the type of HV cables between HV splitters and feedthroughs, the HTC 50-3-2 \cite{htc-50-3-2} have been chosen as baseline. The HTC 50-3-2 has a similar attenuation length compared to the RG-303/U \cite{rg303} which will be used inside the cryostat, but for a factor of \num{8} to \num{10} lower cost. These cables will be attached on one side directly to the HV splitter and will have an SHV connector on the other end.
 
 Each PMT will be powered individually thus allowing the gain of all PMTs to be equalized by adjusting the operating voltage. A control software for this task will be provided taking into account the development of an interface to the PMT calibration system (Section \ref{sec:fddp-pd-5}) which will provide the calibration factors needed for the gain equalization.
 
@@ -170,15 +168,15 @@ Although we are still lacking detailed physics simulations of photon collection 
 
 In the case of a LAr-TPC, there are at least four main parameters for optimizing the light yield and the uniformity in response: i) the number of PMTs per unit area, ii) the placement of PMTs, iii) the augmentation of PMTs with additional light collectors, and iv) the choice of where and how the original \SI{127}{nm} photons can be wavelength-shifted. The most obvious direction for optimizing cost effectiveness are the latter two options. Detector components that are not strictly part of the photon detector system may also play a role in this optimization process, one relevant example being the transparency of the cathode plane. The options to use shifter-reflectors (Winston cones) to increase the effective area of individual PMT windows, or to move shifting of light closer to the cathode and attaching wave-guides coupled to the PMTs, are under study.
 
-Another promising and cost-effective option to increase both light yield and response uniformity is the use of TPB-coated reflector foils covering the detector inner walls. This option is routinely used in dual-phase LAr-TPCs searching for dark matter, such as the ArDM and DarkSide experiments. This is also under investigation for the DUNE single-phase far detector concept, building on the experience already accumulated with the LArIAT experiment, and the one to be gained with SBND. In the DP case, up to four of the six inner faces of the TPC could be covered with dielectric foils, the ones corresponding to the field cage structure. The same WLS used to coat the PMT windows, TPB, would be vacuum-evaporated on the foils. The shifted blue light emitted by the foils would then have a greater chance to reach the PMT windows compared to \SI{127}{nm} light, owing to the better reflective properties given by the combination of foils and blue light. To be adopted, a light collection involving reflective foils would first need to demonstrate satisfactory stability over time during the entire duration of the experiment, and satisfactory spatial uniformity in light collection.
+Another promising and cost-effective option to increase both light yield and response uniformity is the use of TPB-coated reflector foils covering the detector inner walls. This option is routinely used in dual-phase LAr-TPCs searching for dark matter, such as the ArDM and DarkSide experiments. This is also under investigation for the DUNE single-phase far detector concept, building on the experience already accumulated with the LArIAT experiment, and the one to be gained with SBND. In the DP case, up to four of the six inner faces of the TPC could be covered with dielectric foils, the ones corresponding to the field cage structure. The same WLS used to coat the PMT windows, TPB, would be vacuum-evaporated on the foils. The shifted blue light emitted by the foils would then have a greater chance to reach the PMT windows compared to \SI{127}{nm} light, owing to the better reflective properties given by the combination of foils and blue light. To be adopted, a light collection involving reflective foils would first need to demonstrate satisfactory stability over time during the entire duration of the experiment.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mechanics}
 \label{sec:fddp-pd-3}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsection{Mechanical Structure of the Photosensor}
-%\label{sec:fddp-pd-3.1}
+% %\label{sec:fddp-pd-3.1}
 
 An individual PMT mount has been designed and tested in the WA105 $3\times1\times1$\,m$^3$ detector \cite{Zambelli:2017dkg}. The same design will be used for ProtoDUNE-DP and is foreseen for DUNE DP FD. A PMT with the mechanical structure is shown in Figure \ref{fig:dppd_2_1}. The support frame structure is mainly composed of \num{304}L stainless steel with some small Teflon (PTFE) pieces assembled by A4 stainless steel screws that minimize the mass while ensuring the PMT support to the cryostat membrane. The design was done taking into account the shrinking of the different materials during the cooling process to avoid the break of the PMT glass.
 
@@ -186,13 +184,13 @@ An individual PMT mount has been designed and tested in the WA105 $3\times1\time
 %\subsection{Photosensor Fixation to the Membrane Floor}
 %\label{sec:fddp-pd-3.2}
 
-A uniform array of \num{720} cryogenic Hamamatsu R5912-MOD20 PMTs, below the transparent cathode structure, will be fixed on the membrane floor in the areas between the membrane corrugations. The arrangement of the PMTs will need to be optimized in order to be compatible with the presence of the cryogenic piping on the membrane floor, or any other element found in this area. Tests to ensure the correct performance under pressure will be carried out.
+A uniform array of \num{720} cryogenic Hamamatsu R5912-MOD20 PMTs, below the transparent cathode structure, will be fixed on the membrane floor in the areas between the membrane corrugations. The arrangement of the PMTs will need to be optimized in order to be compatible with the presence of the cryogenic piping on the membrane floor, or any other element found in this area. Over-pressure tests were carried out for ProtoDUNE-DP, and further tests to ensure the correct performance under pressure will be carried out.
 
 The mechanics for the attachment of the PMTs has been carefully studied for ProtoDUNE-DP. It must counteract the PMT buoyancy while avoiding stress to the PMT glass due to differentials in the thermal contraction between the support and the PMT itself. The fixation is done via a stainless steel supporting base, that could be point glued to the membrane. The weight of the support and photomultiplier exceeds the buoyancy force of the system. Given the large standing surface of the stainless steel plate support basis, these supports will ensure as well stability against lateral forces possibly acting on the PMTs due to the liquid flow. Figure \ref{fig:dppd_3_2} depicts the PMT together with its support base attached to the bottom of the cryostat.
 
 \begin{dunefigure}[Cryogenic Hamamatsu R5912-MOD20 photomultiplier fixed on the membrane floor.]{fig:dppd_3_2}
 {Cryogenic Hamamatsu R5912-MOD20 photomultiplier fixed on the membrane floor, with the optical fiber of the calibration system.}
-\includegraphics[width=0.45\textwidth]{dppd_3_2}
+\includegraphics[width=0.42\textwidth]{dppd_3_2}
 \end{dunefigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -210,7 +208,7 @@ For the PMT power supply, the cathode grounding and positive high voltage applie
 \includegraphics[width=0.5\textwidth]{dppd_4_1}
 \end{dunefigure}
 
-The PMT base circuit will be based only on resistors and capacitors as semiconductors do not work well in cryogenic temperatures. Nevertheless, the components will be carefully selected and tested to minimize the variations in their characteristics with temperature. The polarization current of the voltage divider (total circuit resistance) will be chosen to meet the PMT light linearity range and maximum power requirements.
+The PMT base circuit will be based only on resistors and capacitors as semiconductors do not work well in cryogenic temperatures. Nevertheless, the components will be carefully selected and tested to minimize the variations in their characteristics with temperature. The polarization current of the voltage divider (total circuit resistance) will be chosen to meet the PMT light linearity range and maximum power requirements. The dynodes voltage ratio will follow the manufacturer recommendations for increased linearity range on the space-charge effect area (tapered divider). In addition, capacitors will be added to the last stages to increase the PMT linearity in pulsed mode. The precise values for the components have not been decided yet as they depend on concrete requirements and also on the results from ProtoDUNE-DP. The ProtoDUNE-DP base design is considered as the baseline solution.
 
 For the connection between the PMT base and the feed-through, the RG-303/U cable was selected by its low attenuation and its proven reliability on cryogenic environments. On one side, this cable will be directly soldered to the PMT base, and, on the other side, it will end with an SHV connector to be attached to the flange. 
 
@@ -255,7 +253,7 @@ In general, the PMT signal dynamic range goes from the mV level to several volts
 \includegraphics[width=0.47\textwidth]{dppd_4_3_b}
 \end{dunefigure}
 
-To calculate the PMT gains, the SPE charge measurement will be performed. Depending on the PMT gain, the SPE amplitude varies from the mV level to hundreds of mV, as it is shown in Figure \ref{fig:dppd_4_3_ab}. Due to the very long cables from the PMTs to the front-end electronics, the noise into the cables could be high. If one considers a noise level around \SI{1}{mV},  the PMT gain must be set to \num{10}$^6$ or higher in order to distinguish the SPE from noise. The average SPE pulse width is around \SI{3.5}{ns} full width at half maximum (FWHM). In order to digitize this signal to reconstruct it with fidelity, a sampling period of \SI{1}{ns} is required.
+To calculate the PMT gains, the SPE charge measurement will be performed. Depending on the PMT gain, the SPE amplitude varies from the mV level to hundreds of mV, as it is shown in Figure \ref{fig:dppd_4_3_ab}. Due to the very long cables from the PMTs to the front-end electronics, the noise into the cables could be high. If one considers a noise level around \SI{1}{mV},  the PMT gain must be set to \num{10}$^6$ or higher in order to distinguish the SPE from noise. The average SPE pulse width is around \SI{3.5}{ns} full width at half maximum (FWHM). In order to digitize this signal to reconstruct it with fidelity, a sampling period on the order of \SI{}{ns} is required.
 
 The \textbf{sampling frequency} also affects the time tagging precision. The time uncertainty due to the PMT alone is around \SI{3}{ns} (transit time spread). There will be other factors, e.g. Rayleigh scattering, that will increase this uncertainty. The sampling period will also increase this uncertainty, so, the lower sampling frequency, the better. At the WA105 $3\times1\times1$\,m$^3$ detector \SI{4}{ns} sampling was used to digitize waveforms. 
 
@@ -265,8 +263,6 @@ The rate of the events observed on the WA105 $3\times1\times1$\,m$^3$ detector w
 {Event rates for different trigger thresholds observed on the WA105 $3\times1\times1$\,m$^3$ detector.}
 \includegraphics[width=0.6\textwidth]{dppd_4_3_c}
 \end{dunefigure}
-
-The PMT signals will generate the \textbf{trigger}. For the same light event, the PMT signals will arrive to the front end electronics with different time delays that depend on different factors e.g. distance from the light emission point to the PMT, scattering and PMT transit time spread. In order to determine if there has been a coincidence on the signals from several PMTs, it is necessary to open a temporal coincidence window every time a signal from a PMT is received. The length of this window, the signal threshold level and the concrete PMTs contributing to this coincidence decision will be on-line configurable. Further information can be found in Section \ref{sec:fddp-pd-7.2}.
 
 The light signal has to be \textbf{synchronized} with the DAQ. All the DAQ electronics will be in sync using White Rabbit protocol. A dedicated White Rabbit $\mu$TCA \cite{utca} slave node will be on the light read-out front-end electronics as sync receiver, distributing clocks to the different front-end cards.
 
@@ -303,12 +299,12 @@ Finally, during the photon calibration system installation, each fiber and sourc
 \section{Photon Detector Performance}
 \label{sec:fddp-pd-6}
 
-To define the PDS performance a good understanding of the light generation is needed. For this, optical simulations and a good knowledge of the light properties is required. The DUNE experiment expects to record not only accelerator neutrino interactions, but also rare non-beam events such as supernova neutrino bursts or nucleon decays. In those cases, an internal trigger is required: an optimized light collection system is hence mandatory. This section will describe the tools developed in the consortium for the light simulation in large detector volumes for these purposes.
+To define the PDS performance, a good understanding of the light generation is needed. For this, optical simulations and a good knowledge of the light properties are required. The DUNE experiment expects to record not only accelerator neutrino interactions, but also rare non-beam events such as supernova neutrino bursts or nucleon decays. In those cases, an internal trigger is required: an optimized light collection system is hence mandatory. This section will describe the tools developed in the consortium for the light simulation in large detector volumes for these purposes.
 
 The main feature of a LAr TPC detector is to collect electrons produced by the energy loss of charged tracks when crossing the volume. This signal provides a high resolution 3D image of the event. The reconstructed topology and the amount of charge collected gives the characterization of the tracks (identification and energy). Together with the charge, scintillation light is also produced in LAr. There are many advantages to collect and exploit the scintillation signal. As only a fraction of the initial energy deposition is converted into electrons, the rest being emitted as photons, light collection can improve the calorimetry of the detector. The light signal can provide the $t_0$ of the event, which is a necessary observable for a proper reconstruction. The study of the slow component can give insights into the purity of the LAr. 
 
 When energy deposition occurs, either the knocked argon atom gets excited or an electron is ejected. For the latter case, the electron has a probability to be recaptured by an argon ion, which depends on the drift field and on the amount of energy deposited. In this case, an excited argon state is also produced. In order to decay to ground state, the excited argon will combine with another argon atom, to form an excited eximer. A photon at \SI{127}{nm} will then be emitted to allow the eximer to return to ground state. As the eximer can be formed in a singlet or triplet state, two time constants will be observed: the singlet at \SI{6}{ns}
-and the triplet at \SI{1.6}{$\mu$s}. These principles are sketched in Fig.~\ref{fig:dppd_6_0}.
+and the triplet at \SI{1.3}{$\mu$s}. These principles are sketched in Fig.~\ref{fig:dppd_6_0}.
 
 \begin{dunefigure}[A sketch depicting the mechanism of light production in argon.]{fig:dppd_6_0}
 {A sketch depicting the mechanism of light production in argon.}
@@ -363,9 +359,7 @@ and the triplet at \SI{1.6}{$\mu$s}. These principles are sketched in Fig.~\ref{
 In the DP technology, due to the amplification area, there are two light signals produced. The first one, S1, is made by scintillation processes when a charged particle crosses the LAr volume. The second signal, S2, is produced in the gaseous phase. As the drifting electrons enter in high field regions (such as the extraction field or the amplification field in the LEMs), their velocities increase and Townsend avalanches occur. The current of electrons will produce electroluminescence light with the same wavelength and similar time structure as for the S1 signal. %The minimum field needed to produce electroluminescence is $\sim$\SI{3.5}{kV/cm} at the gas density at cryogenic temperatures. 
 The S2 light is expected to be an irreducible background for the light studies in ProtoDUNE-DP, as the detector will be on the surface. Indeed, the S2 signal can last as long as the total drift time of the electrons: \SI{0.625}{ms} per meter of drift at a drift field of \SI{500}{V/cm}.
 
-The LAr optical properties are the subject of significant discussions in the community, in particular regarding the LAr absorption length and the Rayleigh scattering length. The former will affect the light yield collected whereas the latter will impact mostly its uniformity. 
-
-Table~\ref{tab:dppd_t_6_0} summarizes the default optical parameters chosen for the light simulation methods described in the following subsection. The absorption/reflection of the VUV photons on stainless-steel (constituting the drift cage, cathode, extraction grid and ground grid) and on copper (on the LEM surfaces) are poorly known. The knowledge of those reflection coefficients is limited by the fact that they depend strongly on the polishing procedure. Hence, one cannot rely on the literature as the tooling will certainly be different. The electroluminescence gain G, defined as the number of S2 photons produced per extracted drifting electron, is also subject to discussion. Experimental measurements of G have been performed in a setup quite similar to the amplification design of the DP technology, although the amount of photons emitted were measured above the LEM. In our case, the S2 photons are the ones leaving the LEM from below, which can be significantly lower. The measurement of the quantum efficiency of the PMTs at vacuum ultra-violet (VUV) wavelengths requires a specific setup operating in vacuum as VUV photons are absorbed in air. For the construction of the DP demonstrator, the PMT quantum efficiencies were measured before and after the TPB coating using an LED that could emit light in the [\num{200}, \num{800}]\,nm range.
+Table~\ref{tab:dppd_t_6_0} summarizes the default optical parameters chosen for the light simulation methods described in the following subsection. The LAr optical properties are the subject of significant discussions in the community, in particular regarding the LAr absorption length and the Rayleigh scattering length. The former will affect the light yield collected whereas the latter will impact mostly its uniformity and timing resolution. The absorption/reflection of the VUV photons on stainless-steel (constituting the drift cage, cathode, extraction grid and ground grid) and on copper (on the LEM surfaces) are poorly known. The knowledge of those reflection coefficients is limited by the fact that they depend strongly on the polishing procedure. Hence, one cannot rely on the literature as the tooling will certainly be different. The measurement of the quantum efficiency of the PMTs at vacuum ultra-violet (VUV) wavelengths requires a specific setup operating in vacuum as VUV photons are absorbed in air. For the construction of the  WA105 $3\times1\times1$\,m$^3$ detectorDP demonstrator, the PMT quantum efficiencies were measured before and after the TPB coating using an LED that could emit light in the [\num{200}, \num{800}]\,nm range. Finally, the electroluminescence gain G, defined as the number of S2 photons produced per extracted drifting electron, is also subject to discussion. Experimental measurements of G have been performed in a setup quite similar to the amplification design of the DP technology, although the amount of photons emitted were measured above the LEM. In our case, the S2 photons are the ones leaving the LEM from below, which can be significantly lower. 
 
 \begin{dunetable}
 [Default optical properties. Below the thick line are presented some quantities used in our studies although they are not linked to the optical properties of the LAr.]
@@ -389,21 +383,21 @@ To understand the performance of the PDS, we need to take into account the follo
 \item Event time resolution extracted from the detected photon signal 
 \end{itemize}
 
-In turn, these indicators will directly impact the strategy and performance of the DUNE trigger system (Sec.~\ref{sec:fddp-pd-7}), and will determine whether the photon detector technical design is sufficient to meet the DUNE physics goals. These higher-level studies will be available on the TDR timescale. Our current understanding of the performance indicators listed above is largely based on ProtoDUNE-DP simulations. The current status of the simulation work is discussed in detail in Sec.~\ref{sec:fddp-pd-6.1}, work is focused on ProtoDUNE-DP in a first phase, and then will be expanded to DUNE DP FD. For a realistic ProtoDUNE-DP geometry, an average light yield of \SI{2}{PEs/MeV} is expected across the entire active volume. This promising yield is obtained  by assuming thirty-six 8-inch PMTs located below the ProtoDUNE-DP cathode plane, averaging to one PMT per m$^2$. On the other hand, spatial non-uniformities in the photon detector response are found to be important and need to be modeled in detail. Variations as large as one order of magnitude both parallel to the drift direction (due to geometrical effects and absorption of light by LAr) as well as perpendicular to it (due to light absorption on detector boundaries) are obtained. The event time resolution due to light production and light propagation times, hence neglecting electronics and DAQ effects for now, is expected to be of order $\mathcal{O}$(\SI{100}{ns}) and hence largely sufficient for our purposes. These initial low-level performance estimates will be refined with more realistic simulations and with ProtoDUNE-DP data (Sec.~\ref{sec:fddp-pd-6.2}) in the future. They will also be extended to the full FD geometry on the TDR timescale.
+In turn, these indicators will directly impact the strategy and performance of the DUNE trigger system (Sec.~\ref{sec:fddp-pd-7}), and will determine whether the photon detector technical design is sufficient to meet the DUNE physics goals. These higher-level studies will be available on the TDR timescale. Our current understanding of the performance indicators listed above is largely based on ProtoDUNE-DP simulations. The current status of the simulation work is discussed in detail in Sec.~\ref{sec:fddp-pd-6.1}, work is focused on ProtoDUNE-DP in a first phase, and then will be expanded to DUNE DP FD. For a realistic ProtoDUNE-DP geometry, an average light yield of \SI{2.5}{PEs/MeV} is expected across the entire active volume. This promising yield is obtained  by assuming thirty-six 8-inch PMTs located below the ProtoDUNE-DP cathode plane, averaging to one PMT per m$^2$. On the other hand, spatial non-uniformities in the photon detector response are found to be important and need to be modeled in detail. Variations as large as one order of magnitude both parallel to the drift direction (due to geometrical effects and absorption of light by LAr) as well as perpendicular to it (due to light absorption on detector boundaries) are obtained. The event time resolution due to light production and light propagation times, hence neglecting electronics and DAQ effects for now, is expected to be of order $\mathcal{O}$(\SI{100}{ns}) and hence largely sufficient for our purposes. These initial low-level performance estimates will be refined with more realistic simulations and with ProtoDUNE-DP data (Sec.~\ref{sec:fddp-pd-6.2}) in the future. They will also be extended to the full FD geometry on the TDR timescale.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulations}
 \label{sec:fddp-pd-6.1}
 
-At zero drift field, when the electron recombination is maximum, roughly \SI{40000}{$\gamma$/MeV} are produced. At the nominal drift field of \SI{500}{V/cm}, then \num{24000}{$\gamma$/MeV} are generated. For reference, the energy deposited by a minimum ionizing particle (MIP) track is \SI{2.12}{MeV/cm}. Given the size of the ProtoDUNE-DP ($6\times6\times6$\,m$^3$) and the fact that it is located on surface, roughly \num{100} muons are expected to cross the fiducial volume during the \SI{4}{ms} time window of the data acquisition. With a full Geant4 \cite{geant4} simulation, it takes roughly 3\,h\,30 to propagate all the photons emitted by a single MIP track crossing the ProtoDUNE-DP detector. A full optical simulation is hence computationally prohibitive. Three simulation approaches are being explored to provide a light simulation needed for the design optimization of the DUNE FD module described in the following.
+At zero drift field, when the electron recombination is maximum, roughly \SI{40000}{$\gamma$/MeV} are produced. At the nominal drift field of \SI{500}{V/cm}, then \num{24000}{$\gamma$/MeV} are generated. For reference, the energy deposited by a minimum ionizing particle (MIP) track is \SI{2.12}{MeV/cm}. Given the size of the ProtoDUNE-DP ($6\times6\times6$\,m$^3$) and the fact that it is located on surface, roughly \num{100} muons are expected to cross the fiducial volume during the \SI{4}{ms} time window of the data acquisition. With a full Geant4 \cite{geant4} simulation, it takes more than three hours to propagate all the photons emitted by a single MIP track crossing the ProtoDUNE-DP detector. A full optical simulation is hence computationally prohibitive. Three simulation approaches are being explored to provide a light simulation needed for the design optimization of the DUNE FD module, described in the following.
 
 
 \subsubsection{Generation of light maps}
 \label{subsec:fddp-pd-6.1.1}
 
-In this method, the photons are propagated in a full dedicated Geant4 simulation only once. The main light characteristics (photon detection probability called visibility hereafter, and time profile) needed for light studies are stored in a map in a ROOT \cite{root} file format which can be then read by any other simulation program. This work was done first using LightSim, a dedicated software developed at LAPP. These maps have been adapted to be read by LArSoft and work is on-going to directly generate them in LArSoft where light maps are known as photon libraries. In particular S2 light needs to be simulated in LArSoft for the first time, as no previous efforts on DP technology were done.
+In this method, the photons are propagated in a full dedicated Geant4 simulation only once. The main light characteristics (photon detection probability called visibility hereafter, and time profile) needed for light studies are stored in a map in a ROOT \cite{root} file format which can then be read by any other simulation program. This work was done first using LightSim, a dedicated software developed at LAPP. These maps have been adapted to be read by LArSoft and work is on-going to directly generate them in LArSoft where light maps are known as photon libraries. In particular, S2 light needs to be simulated in LArSoft for the first time, as no previous effort on DP technology was done.
 
-In the dedicated Geant4 code, special care has been taken to precisely describe all sub-detector components that might affect the light propagation: LEM plates, extraction grid, field cage rings, the cathode and its supporting structure and the ground grid above the PMTs. The LAr fiducial volume is then divided into voxels of \SI{25}{cm^3} and \num{10}$^7$ photons are isotropically generated at the center of each voxel. The number of photons reaching each PMT, and their arrival times are stored. The light map can then be built from these results. For each voxel and for each PMT, the visibility is computed as: $w=N\gamma^{\textrm{collected}}/N\gamma^{\textrm{generated}}$. In order to be able to reproduce the time profile, each distribution is fit to a Landau function. From the fits, three parameters are extracted: the minimum time for photons to arrive to the PMT, $t_0$; the peak of the distribution, $t_{\textrm{peak}}$ from the Landau most probable value (MPV); and the distribution spread, the $\sigma$ of the Landau function. These three parameters are stored in the light maps together with the photon detector identifier. The same procedure is done for the gaseous phase, although the voxel size is smaller in height (only \SI{5}{mm}) and the number of photons generated is higher in order to get sufficient statistics. In Fig.~\ref{fig:dppd_6_1_1_ab}, two fitted time distributions are presented. As one can see, the shapes of the time distributions depend strongly on the source to PMT distance. For close sources, the distributions are very sharp and the Landau description may not be the optimal function to use. On the other hand, when the distance is wider, the distribution is broader and the Landau fit reproduces quite well the simulations. In order to minimize the amount of parameters to be stored in the map, the Landau descriptions for all cases were kept as only a small fraction of the fits could be considered problematic.
+In the dedicated Geant4 code, special care has been taken to precisely describe all sub-detector components that might affect the light propagation: LEM plates, extraction grid, field cage rings, the cathode and its supporting structure and the ground grid above the PMTs. The LAr fiducial volume is then divided into voxels of \SI{25}{cm^3} and \num{10}$^8$ photons are isotropically generated at the center of each voxel. The number of photons reaching each PMT, and their arrival times are stored. The light map can then be built from these results. For each voxel and for each PMT, the visibility is computed as: $w=N\gamma^{\textrm{collected}}/N\gamma^{\textrm{generated}}$. In order to be able to reproduce the time profile, each distribution is fit to a Landau function. From the fits, three parameters are extracted: the minimum time for photons to arrive to the PMT, $t_0$; the peak of the distribution, $t_{\textrm{peak}}$ from the Landau most probable value (MPV); and the distribution spread, the $\sigma$ of the Landau function. These three parameters are stored in the light maps for each photon detector. The same procedure is done for the gaseous phase, although the voxel size is smaller in height (only \SI{5}{mm}). In Fig.~\ref{fig:dppd_6_1_1_ab}, two fitted time distributions are presented. As one can see, the shapes of the time distributions depend strongly on the source to PMT distance. For close sources, the distributions are very sharp and the Landau description may not be the optimal function to use. On the other hand, when the distance is larger, the distribution is broader and the Landau fit reproduces the simulations quite well. In order to minimize the amount of parameters to be stored in the map, the Landau descriptions for all cases were kept as only a small fraction of the fits could be considered problematic.
 
 \begin{dunefigure}[Landau fits (red line) of the travel time distributions (black histogram) for a source close (left) and far (right) to the PMT.]{fig:dppd_6_1_1_ab}
 {Landau fits (red line) of the travel time distributions (black histogram) for a source close (left) and far (right) to the PMT.}
@@ -411,11 +405,11 @@ In the dedicated Geant4 code, special care has been taken to precisely describe 
 \includegraphics[width=0.45\textwidth]{dppd_6_1_1_b}
 \end{dunefigure}
 
-The light collected per PMT can be simulated together with the charge for crossing tracks in a standard simulation code where a detailed description of the detector is not needed. At each step of the track propagation, the energy deposited is computed by Geant4. This energy is converted into number of electrons and photons produced. As for the light simulation, the number of photons reaching each PMT and their time of arrival are obtained from the light maps. As the map has been computed with discrete entries, an interpolation of the four light parameters ($w$, $t_0$, $t_{\textrm{peak}}$, $\sigma$) between the actual source position and the closest voxel centers is performed. An example of the evolution of the visibility and its 3D interpolation is presented in Fig.~\ref{fig:dppd_6_1_1_cd}. The loss of photons due to the cathode and ground grid are visible. Given the ProtoDUNE-DP cathode and supporting structure design, and considering the default optical parameters presented in Table~\ref{tab:dppd_t_6_0}, it has been shown that up to $\sim$\num{70}\% of the photons generated in the active volume are absorbed by those structures before reaching the PMT array.
+As the map has been computed with discrete entries, an interpolation of the four light parameters ($w$, $t_0$, $t_{\textrm{peak}}$, $\sigma$) between the actual source position and the closest voxel centers is performed. An example of the evolution of the visibility and its 3D interpolation is presented in Fig.~\ref{fig:dppd_6_1_1_cd}. The loss of photons due to the cathode and ground grid are visible. Given the ProtoDUNE-DP cathode and supporting structure design, and considering the default optical parameters presented in Table~\ref{tab:dppd_t_6_0}, it has been shown that up to $\sim$\num{70}\% of the photons generated in the active volume are absorbed by those structures before reaching the PMT array.
 
-During the generation of the light maps, the light propagation parameters are the ones presented in Table~\ref{tab:dppd_t_6_0}. One can study afterwards the loss of photons due the LAr absorption length using an approximation of the probability of the photon to be absorbed by the medium as: $p_{\textrm{abs}} = \exp(-\frac{D_{\textrm{travel}}}{\lambda_{\textrm{abs}}})$. For the study of other light propagation parameters (Rayleigh scattering length and absorption on the stainless-steel and copper) new maps have to be generated.
+During the generation of the light maps, the light propagation parameters are the ones presented in Table~\ref{tab:dppd_t_6_0}. One can study afterwards the loss of photons due to the LAr absorption length using an approximation of the probability of the photon to be absorbed by the medium as: $p_{\textrm{abs}} = \exp(-\frac{D_{\textrm{travel}}}{\lambda_{\textrm{abs}}})$. For the study of other light propagation parameters (Rayleigh scattering and absorption on the stainless-steel and copper) new maps have to be generated.
 
-The light maps generation is a long process. It takes roughly 3 days of computing time to generate the maps for ProtoDUNE-DP, even though only 1/8$^{th}$ of the voxels were simulated as the detector and the PMT positioning is symmetric. Generating maps for larger volumes such as the DUNE FD module, where the maximum source to PMT distance will be around \SI{60}{m}, could be too much time consuming. Moreover, the light simulation in the FD is foreseen to drive the optimization of the positioning of the PMTs and will guide the studies of possible implementation of light reflectors. As most of the light propagation parameters in LAr are still subject to large uncertainties, these studies will have to be performed considering various absorption and diffusion values. Therefore, it is crucial to be able to have a faster way to get a quite reliable light simulation, at the cost of losing some precision.
+The light maps generation is a long process. It takes roughly three days of computing time to generate the maps for ProtoDUNE-DP, even though only 1/8$^{th}$ of the voxels were simulated as the detector and the PMT positioning is symmetric. Generating maps for larger volumes such as the DUNE FD module, where the maximum source to PMT distance will be around \SI{60}{m}, could be too much time consuming. Moreover, the light simulation in the FD is foreseen to drive the optimization of the positioning of the PMTs and will guide the studies of possible implementation of light reflectors. As most of the light propagation parameters in LAr are still subject to large uncertainties, these studies will have to be performed considering various absorption and diffusion values. Therefore, it is crucial to be able to have a faster way to get a quite reliable light simulation, at the cost of losing some precision.
 
 \begin{dunefigure}[Evolution of the visibility seen by a central PMT (pointed by the arrow) in ProtoDUNE-DP as a function of different source positions in $x$ and $z$ ($y$ is set at \SI{0}{mm}). The position of the cathode and the ground grid are highlighted.]{fig:dppd_6_1_1_cd}
 {Evolution of the visibility seen by a central PMT (pointed by the arrow) in ProtoDUNE-DP as a function of different source positions in $x$ and $z$ ($y$ is set at \SI{0}{mm}). The position of the cathode and the ground grid are highlighted. Results are limited by the number of photons generated (\num{10}$^7$ photons per voxel), and voxels with less than \num{50} photons arriving to the PMT are not taken into account. Left: discrete values from the maps, right: after 3D interpolation.}
@@ -434,7 +428,7 @@ This preliminary study is quite encouraging for the light simulation in the FD m
 
 \begin{dunefigure}[Evolution of the visibility and peak time as a function of the source-PMT distance as simulated in the ProtoDUNE-DP geometry (Preliminary study).]{fig:dppd_6_1_2}
 {Evolution of the visibility (top) and peak time (bottom) as a function of the source-PMT distance as simulated in the ProtoDUNE-DP geometry (Preliminary study). On the left, all voxels are considered, on the right only the voxels at least 1\,m away from the fiducial border are considered.}
-\includegraphics[width=0.8\textwidth]{dppd_6_1_2}
+\includegraphics[width=0.75\textwidth]{dppd_6_1_2}
 \end{dunefigure}
 
 \subsubsection{Analytical approach}
@@ -451,8 +445,18 @@ G(\textbf{r}, t; \textbf{r}_0, t_0) &=& \frac{1}{[4\pi D c (t-t_0)^{3/2}]}\exp\l
 D &=& \frac{1}{3(\mu_A + (1-g)\mu_S)}
 \end{eqnarray*}
 
-where $\mu_A$ and $\mu_S$ are the absorption and scattering coefficients respectively (both in units of m$^{-1}$), $g$ is the average scattering cosine ($g = 0.025$). In LAr with the default optical properties of Table \ref{tab:dppd_t_6_0}, $D = 18.8$\,cm. In a bound medium, with full absorption of the photons by the field cage and LEMs, a few additional techniques have to be used to obtain a solution. With this method, it takes only a few ms to have the photon density at a given photon detector from a specific point source. From preliminary studies, a relatively good agreement between analytical approach and full simulation has been found. In particular, the arrival time distributions of photons on the PMTs are well reproduced. The only drawback is that one cannot easily implement/study a complicated geometry including regions that are semi-transparent to light. Hence, the comparisons of the visibilities that one gets from the two methods are not in agreement in the overall light yield, but have a very similar trend in terms of spatial dependences. Some studies are ongoing in order to improve the analytical method results as this approach could be extremely powerful for physics studies in the FD module.
+where $\mu_A$ and $\mu_S$ are the absorption and scattering coefficients respectively (both in units of m$^{-1}$), $g$ is the average scattering cosine ($g$ = \num{0.025}). In LAr with the default optical properties of Table \ref{tab:dppd_t_6_0}, $D$ = \SI{18.8}{\cm}. In a bound medium, with full absorption of the photons by the field cage and LEMs, a few additional techniques have to be used to obtain a solution. With this method, it takes only a few ms to have the photon density at a given photon detector from a specific point source. From preliminary studies, a relatively good agreement between analytical approach and full simulation has been found. In particular, the arrival time distributions of photons on the PMTs are well reproduced. The only drawback is that one cannot easily implement/study a complicated geometry including regions that are semi-transparent to light. Hence, the comparisons of the visibilities that one gets from the two methods are not in agreement in the overall light yield, but have a very similar trend in terms of spatial dependences. Some studies are ongoing in order to improve the analytical method results as this approach could be extremely powerful for physics studies in the FD module.
 
+\subsubsection{Simulation of light yield}
+\label{subsec:fddp-pd-6.1.4}
+The light collected per PMT can be simulated together with the charge for crossing tracks in a standard simulation code where a detailed description of the detector is not needed. At each step of the track propagation, the energy deposited is computed by Geant4. This energy is converted into number of electrons and photons produced. As for the light simulation, the number of photons reaching each PMT and their time of arrival is now obtained from the light maps. As an example, the light yield from a uniform generation of \SI{10}{MeV} electrons in the active volume is shown in Fig. \ref{fig:dppd_6_1_4}. The number of PEs/MeV shown is summed over all PMTs and average over the $y$ axis ($z$ being the drift direction). One can notice the large spread in terms of light yield.
+
+\begin{dunefigure}[Light yield in terms of PE/MeV summed over all PMTs and averaged along the y-axis.]{fig:dppd_6_1_4}
+{Light yield in terms of PE/MeV summed over all PMTs and averaged along the y-axis. The mean of all voxels gives a light yield of 2.5 PE/MeV, although the distribution is not uniform, in particular along the z (drift) axis.}
+\includegraphics[width=0.75\textwidth]{dppd_6_1_4}
+\end{dunefigure}
+
+For larger volumes such as the DUNE FD, the light maps might be too big and the time spent accessing the four parameters might strongly reduce the speed of the simulation. Either the parametrization method or the analytical approach are foreseen to replace the current light map usage, the exact strategy is yet to be defined.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Light data in DP prototypes}
 \label{sec:fddp-pd-6.2}
@@ -461,35 +465,35 @@ The DP demonstrator (WA105 $3\times1\times1$\,m$^3$) was operated from June to N
 
 \begin{dunefigure}[Averaged waveform of the S1 light signal taken with one PMT from the WA105 $3\times1\times1$\,m$^3$ LAr DP TPC]{fig:dppd_6_2}
 {Averaged waveform of the S1 light signal taken with one PMT from the WA105 $3\times1\times1$\,m$^3$ LAr DP TPC, fitted with a function (red line) that is the sum of a Gaussian, parametrized by t$_0$ and $\sigma$, and two exponential functions, with decay time constants $\tau_{fast}$ and $\tau_{slow}$, and normalization factors $A_{fast}$ and $A_{slow}$}
-\includegraphics[width=0.6\textwidth]{dppd_6_2}
+\includegraphics[width=0.62\textwidth]{dppd_6_2}
 \end{dunefigure}
 
-Light maps have also been generated with the demonstrator geometry, and data/MC comparisons are ongoing. The preliminary results look promising, although the statistics in each settings and the relatively small size of the detector still constitute a challenge to extract the entire optical properties of the LAr.
+Light maps have also been generated with the demonstrator geometry, and data/MC comparisons are ongoing. The preliminary results look promising, although the statistics in each setting and the relatively small size of the detector still constitute a challenge to extract the entire optical properties of the LAr.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation of physics events}
 \label{sec:fddp-pd-6.3}
 
-\fixme{
-As a starting point toward understanding whether the dual-phase photon detector technical design meets the experiment's physics requirements, several physics events are being produced using LArSoft fast optical simulation tools, and performance plots are being generated. For the 3rd iteration of the TP draft in April, we plan to include plots for the following three event topologies:
+A preliminary study to understand whether the dual-phase photon detector technical design meets the experiment's physics requirements has been performed. In this study, event topologies of interest for DUNE physics have been simulated using LArSoft fast optical simulation tools.
 
-1) Low-energy nue CC interactions in LAr generated with the Marley event generator in LArSoft. The energies will be representative of SN neutrino burst events, eg either 10 MeV mono-energetic neutrinos, or a neutrino flux following a Fermi-Dirac distribution with T=3.5 MeV temperature.
+The simulation framework used represents our current state-of-the-art. It includes realistic models for the primary scintillation production yields in LAr, for Rayleigh scattering in LAr, for detector optical properties (such as field cage reflectivity and cathode transparency), for the density of PMTs underneath the cathode, and for the quantum efficiency of the TPB-coated PMTs (taken to be \num{20}\%). On the other hand, these simulations do not yet include the full dual-phase far detector geometry, but are rather performed in a ProtoDUNE-DP geometry with the same average PMT density as the one proposed here for the far detector (one PMT per m$^2$). Relevant aspects such as secondary scintillation light emission in gaseous argon (a nuisance for event $t_0$ determination), light absorption in LAr, electronics effects, reconstruction effects, and background contributions coming from $^{39}$Ar decays are not accounted for either in this study. While more realistic simulation results including the above effects will be produced on the DUNE TDR timescale, this preliminary study already provides a sense of the capabilities of the planned photon detector design.
 
-2) High-energy nue CC interactions in LAr generated with the Genie event generator in LArSoft. The energies will be representative of DUNE beam events, eg either 3 GeV mono-energetic neutrinos, or following a characteristic DUNE neutrino flux.
+Figure~\ref{fig:dppd_6_3_1} shows the expected light yield for SN neutrino CC interactions. As a representative $\nu_e$ flux from a supernova neutrino burst, we assume a Fermi-Dirac distribution with $T$=\SI{3.5}{\MeV} temperature and no neutrino oscillation effects, yielding an average neutrino energy of about 11~MeV. Low-energy $\nu_e$ CC interactions throughout the entire LAr TPC active volume are generated with the LArSoft-based Marley package. For the assumed SN neutrino flux and for a single interacting neutrino (hence, after convoluting flux and cross-section effects), Marley expects about \SI{19}{\MeV} of energy deposited in the LAr active volume, primarily from the final state electron and from nuclear de-excitation gamma rays. The left panel of Fig.~\ref{fig:dppd_6_3_1} shows a broad light yield distribution, averaging at about \num{50} detected PEs per interaction and after summing all PMTs. This is as expected from the light yield distributions per deposited energy shown in Fig.~\ref{fig:dppd_6_1_4}. The right panel shows the fraction of SN $\nu_e$ CC interactions within the LAr TPC active volume above a given PE detection threshold, as a function of the PE threshold. From the figure, we conclude that about a 70\% fraction of SN $\nu_e$ CC interactions would be seen by the photon detector, if the detector threshold was set at \num{10}~PEs on the sum of the PMT charges.
 
-3) Proton decay events in LAr generated with the Genie event generator in LArSoft. For a representative decay mode, such as p -> nubar K+ or p -> e+ pi0. 
+\begin{dunefigure}[Photon detector response for simulated SN neutrino interactions in the ProtoDUNE-DP geometry.]{fig:dppd_6_3_1}
+{Photon detector response for simulated SN neutrino interactions in the ProtoDUNE-DP geometry. Left panel: distribution of detected PEs per neutrino interaction, for SN $\nu_e$ CC interactions throughout the active volume. Right panel: fraction of SN $\nu_e$ CC interactions above PE threshold, as a function of the PE threshold.}
+\includegraphics[width=0.44\textwidth]{dppd_6_3_1_1} \hfill 
+\includegraphics[width=0.44\textwidth]{dppd_6_3_1_2} 
+\end{dunefigure}
 
-For each event topology above, we plan to include two plots:
+Figure~\ref{fig:dppd_6_3_2} shows the corresponding plots for a representative nucleon decay final state in DUNE, namely $p\to\bar{\nu}K^+$. Nucleon decay events are generated using GENIE, accounting for both initial and final state nuclear effects in argon nuclei. Particles exiting the nucleus are then propagated in LAr using all relevant, Geant4-based, physics processes. The deposited energy per nucleon decay, of order \SI{300}{\MeV}, is much higher than the one per SN neutrino interaction. As a result, the expected light yield for $p\to\bar{\nu}K^+$ events throughout the active volume, shown in the left panel of Fig.~\ref{fig:dppd_6_3_2}, averages to about 800~PEs in this case. The right panel of Fig.~\ref{fig:dppd_6_3_2} shows that about a 98\% fraction of $p\to\bar{\nu}K^+$ decays in the TPC active volume are expected to be seen by the photon detector, for a photon detector threshold of 10~PEs on the PMT charge sum.
 
-a) Histogram of detected light yields per event (in PEs) for events generated throughout the entire TPC active volume
-
-b) Efficiency-like curve with fraction of events above a certain PE detection threshold, as a function of PE detection threshold 
-
-These optical simulation results represent our current state-of-the-art. They include realistic models for the primary scintillation production yields in LAr, for Rayleigh scattering in LAr, for detector optical properties such as field cage reflectivity and cathode transparency, for the areal density of PMTs underneath the cathode, and for the quantum efficiency of the TPB-coated PMTs. 
-
-On the other hand, these simulations do not yet include the full dual-phase far detector geometry (but are rather based on a ProtoDUNE-DP geometry with the same PMT density as there one proposed here for the far detector), secondary scintillation light emission in gaseous argon (a nuisance for event t0 determination), light absorption in LAr, electronics effects, reconstruction effects, and background contributions coming from Ar-39 decays. More realistic simulation results including also these effects will be produced on the TDR timescale.
-}
-
+\begin{dunefigure}[Photon detector response for simulated nucleon decays in the ProtoDUNE-DP geometry.]{fig:dppd_6_3_2}
+{Photon detector response for simulated nucleon decays in the ProtoDUNE-DP geometry. Left panel: distribution of detected PEs per nucleon decay, for $p\to\bar{\nu}K^+$ decays throughout the active volume. Right panel: fraction of $p\to\bar{\nu}K^+$ decays above PE threshold, as a function of the PE threshold.}
+\includegraphics[width=0.44\textwidth]{dppd_6_3_2_1} \hfill 
+\includegraphics[width=0.45\textwidth]{dppd_6_3_2_2} 
+\end{dunefigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Photon Detector Operations}
@@ -501,7 +505,7 @@ On the other hand, these simulations do not yet include the full dual-phase far 
 
 As explained in section \ref{sec:fddp-pd-1.5}, the PDS will operate in different acquisition modes. These modes include the external trigger, which is the case of the beam events; the trigger for non-beam events such as SN bursts; and the calibration mode. 
 
-In the LAr TPC there are different uses of the light signal: cosmic ray/track timing for the reconstruction; non-beam events trigger such as SN neutrino burst, atmospheric neutrinos, and proton decay; and calorimetry, as the light and charge signal are anti-correlated. These physics studies imply different requirements in terms of dynamics of the electronics and data sampling. For example, the light from a 50\,kpc supernova explosion will be at the PE level, a proton decay signal will be at a few hundreds (integrated) PE level and most of the light signal from neutrino interactions will be at much higher level. 
+In the LAr TPC there are different uses of the light signal: cosmic ray/track timing for the reconstruction; non-beam events trigger such as SN neutrino burst, atmospheric neutrinos, and proton decay; and calorimetry, as the light and charge signal are anti-correlated. These physics studies imply different requirements in terms of dynamics of the electronics and data sampling, from a few PE to a much higher level.
 
 For the non-beam event trigger strategies, the requirements can be very different. In the event of a nearby (10\,kpc) SN burst, it is expected that a few thousands of neutrinos will homogeneously interact in the detector for a period as long as $\sim$\SI{100}{s}. Hence, the SN burst trigger strategy is mostly driven by the energy threshold set for $\nu$ detection and its efficiency: \SI{30}{MeV} is sufficient for a galactic SN, \SI{5}{MeV} is needed for a burst in Andromeda. A high-efficiency trigger for proton decay events has to be designed considering the worst case scenario, e.g. the event happening at the top of the detector, \SI{12}{m} away from the closest PMT. In order to minimize the amount of spurious triggers, one can think of signal thresholds for a cluster of close-by PMTs.
 
@@ -554,7 +558,7 @@ Installation & 7006 \\
 
 \item Cryogenic Instrumentation and Slow Control: The main interface points are the layout of the cryogenic instrumentation (e.g. purity monitors and light emitting system for the cameras) and the PMT support structures and cabling; and the slow control and the PDS power supplies and calibration system.
 
-\item DUNE Physics: DPPD will have interfaces with the overall physics requirements on energy, time and angular resolution together with classification of events, decay modes and neutrino flavors.
+\item DUNE Physics: DPPD will have interfaces with the overall physics requirements on energy and time together with classification of events, decay modes and neutrino flavors.
 
 \item Software and Computing: This interface will be on the development of simulation, reconstruction and analysis tools.
 
@@ -620,11 +624,11 @@ As a result of the commissioning tests, the basic performance characteristics of
 The quality control performed at the different institutions labs will include reception of PMTs from the manufacturer and performing of the quality control tests to accept or return the PMTs according to the acceptance/rejection criteria.
 
 \begin{itemize}
-\item The PMT support structure design will be validated by immersing the PMT mounted on it at cryogenic temperatures and at the equivalent pressure of the 12\,m depth of LAr of the detector.
+\item The PMT support structure design will be validated by immersing the PMT mounted on it at cryogenic temperatures and at an over-pressure equivalent pressure of the 12\,m depth of LAr of the detector.
 \item Design validation tests will be carried out in order to confirm that the PMT base design fulfills the specifications at room and cryogenic temperatures. A cable with SHV connector will be soldered to each PMT base to make easier the different base and PMT tests and the final PMT connection during the installation. The PMT bases will be labeled (on the cable) in order to keep track of them. After production of the PMT base boards they will be individually tested before mounting to the PMT to verify that components are correctly mounted. Latter they will be cleaned and tested at maximum voltage on argon gas environment to confirm that there are no sparks on these (worst case) conditions.
 After mounting the bases on the PMTs they will be tested again in argon gas at maximum voltage to confirm that there are no sparks due to bad soldering.
 \item All the light readout units (PMT + base + support) will be tested and characterized in liquid nitrogen in order to check their performance at cryogenic temperature and to obtain a database with the most important parameters from each PMT (gain vs voltage, dark counts, etc.). The PMT base number attached to each PMT will also be included on the database. 
-\item The wrapping materials and techniques will be studied with one fully assembled light readout unit. The handling, transportation and installation scenarios will be carefully studied and the transportation box design will be validated. The transport box and PMT wrapping must warranty darkness enough to allow the PMTs testing without extracting it from the box. This will simplify the PMTs testing at several locations to keep track of possible damages during PMTs transportations.
+\item The wrapping materials and techniques will be studied with one fully assembled light readout unit. The handling, transportation and installation scenarios will be carefully studied and the transportation box design will be validated. The transport box and PMT wrapping must warrant darkness.
 \item The light output of the LEDs and fibers light transmission from the photon calibration system will be measured with a power meter.
 \end{itemize}
 
@@ -687,14 +691,14 @@ USA & University of Texas at Austin & Karol Lang \\
 % \colhline
 \end{dunetable}
 
-The DPPD Consortium is divided in five working groups: photosensors, mechanics, electronics, calibration system, integration and simulation and physics. The corresponding WG conveners are:
+The DPPD Consortium is divided in four working groups: photosensors and electronics, calibration system, mechanics and integration, and simulation and physics. The corresponding WG conveners are:
 \begin{itemize}
-\item WG1: Photosensors - A. Verdugo (CIEMAT)
-\item WG2: Mechanics (TBD)
-\item WG3: Electronics (TBD)
-\item WG4: Calibration system - C. Cuesta (CIEMAT)
-\item WG5: Integration - B. Bilki (Iowa)
-\item WG6: Sim. \& Phys. - K. Scholberg (Duke), M. Sorel (IFIC), L. Zambelli (LAPP)
+
+\item WG1: Photosensors and Electronics - A. Verdugo (CIEMAT)
+\item WG2: Calibration System - C. Cuesta (CIEMAT)
+\item WG3: Mechanics and Integration - B. Bilki (Iowa)
+\item WG4: Sim. \& Phys. - K. Scholberg (Duke), M. Sorel (IFIC), L. Zambelli (LAPP)
+
 \end{itemize}
 
 The DPPD Consortium has regular bi-weekly meetings on Thursdays (4pm CET, 9am CST). Agendas and presentations can be found at: https://indico.fnal.gov/category/699/
@@ -748,6 +752,7 @@ The cost of the baseline DP photon detection system will be defined in a separat
 
 The main activities to be developed by the DPPD Consortium during the next 16 months are focused to complete the Technical Design Report of the DP PDS. The main high-level milestones are detailed in Table \ref{tab:dppd_t_12_4}
 
+% Anne added newstyle table along with updates to dune.cls that are required to go with it
 \begin{table}[htpb] \label{tab:dppd_t_12_4}
 \scriptsize
 \begin{center}
@@ -811,3 +816,67 @@ WBS and institutional responsibilities \& cost & & & & & &  \cellcolor{gray} \\ 
 \label{tab:schedule}
 \end{center}
 \end{table}
+% end Anne's addition
+
+% \begin{table}[htpb] \label{tab:dppd_t_12_4}
+% \scriptsize
+% \begin{center}
+% \caption{DPPD schedule of activities and milestones.}
+% \begin{tabular}{|l|c|c|c|c|c|c|}
+% \hline
+%  &  \multicolumn{4}{c|}{2018} & \multicolumn{2}{|c|}{2019} \\ \hline
+% {\bf Simulation \& Physics} & Q1 & Q2 & Q3 & Q4 & Q1 & Q2\\
+% \hline
+% Understanding the DUNE physics requirements affecting the DPPD system & & \cellcolor{gray} & & & & \\ \hline
+% Finalize the implementation of DP optical simulation in LArSoft for ProtoDUNE-DP & &  \cellcolor{gray} & & & & \\ \hline
+% Propose a solution for a full DP Far Detector optical simulation in LArSoft & & &  \cellcolor{gray} & & & \\ \hline
+% Include electronics response simulation & & &  \cellcolor{gray} & & & \\ \hline
+% Study the physics reach with the current DPPD performance and identify possible issues & & & &  \cellcolor{gray} & & \\ \hline
+% Tuning light simulation using ProtoDUNE-DP light data & & & & &  \cellcolor{gray} & \\ \hline
+% Optimization of the DPPD performance to fulfil the physics requirements & & & & & &  \cellcolor{gray} \\ \hline
+% Definition of a trigger strategy & & & & & &  \cellcolor{gray} \\ \hline
+%  \multicolumn{7}{|l|}{\bf Photosensors} \\
+% \hline
+% Review PMT specifications \& readout electronics based on ProtoDUNE-DP design & &  \cellcolor{gray} & & & & \\ \hline
+% Characterization \& certification plans \& test facility design & & &  \cellcolor{gray} & & & \\ \hline
+% Validation of PMTs \& readout electronics performance with ProtoDUNE-DP data & & & & &  \cellcolor{gray} & \\ \hline
+% Selection of PMT \& wavelength-shifting & & & & &  \cellcolor{gray} & \\ \hline
+% Final design of voltage divider and HV/signal splitters & & & & &  \cellcolor{gray} & \\ \hline
+% Final definition of readout electronics requirements & & & & &  \cellcolor{gray} & \\ \hline
+% \multicolumn{7}{|l|}{\bf PMT calibration system} \\ \hline
+% Initial design of the system for Technical Proposal & &  \cellcolor{gray} & & & & \\ \hline
+% Definition of calibration requirements & & &  \cellcolor{gray} & & & \\ \hline
+% Review the proposed design in light of ProtoDUNE-DP calibration data & & & &  \cellcolor{gray} & & \\ \hline
+% Selection of components, production and testing plan & & & &  \cellcolor{gray} & & \\ \hline
+% \multicolumn{7}{|l|}{\bf Mechanics} \\ \hline
+% Design of PMT mechanical support \& production plans & &  \cellcolor{gray} & & & & \\ \hline
+% PMT layout definition & & &  \cellcolor{gray} & & & \\ \hline
+% Review the proposed design in light of ProtoDUNE-DP operation & & & & &  \cellcolor{gray} & \\ \hline
+% Definition of the mechanical integration with cryostat & & & & & &  \cellcolor{gray} \\ \hline
+% \multicolumn{7}{|l|}{\bf Cabling \& flanges} \\ \hline
+% Definition of warm and cold cables & &  \cellcolor{gray} & & & & \\ \hline
+% Routing plan & & & & &  \cellcolor{gray} & \\ \hline
+% Flanges design & & & & &  \cellcolor{gray} & \\ \hline
+% \multicolumn{7}{|l|}{\bf Quality Control} \\ \hline
+% QC plan and database definition & &  \cellcolor{gray} & & & & \\ \hline
+% \multicolumn{7}{|l|}{\bf Interfaces} \\ \hline
+% Identification of hardware interfaces &  \cellcolor{gray} & & & & & \\ \hline
+% Identification of software interfaces & &  \cellcolor{gray} & & & & \\ \hline
+% \multicolumn{7}{|l|}{\bf Integration, installation \& commissioning} \\ \hline
+% Transportation plan & &  \cellcolor{gray} & & & & \\ \hline
+% Safety requirements & & &  \cellcolor{gray} & & & \\ \hline
+% Integration facility design and definition of tests & & &  \cellcolor{gray} & & & \\ \hline
+% Underground installation plan & & & &  \cellcolor{gray} & & \\ \hline
+% Detector operation definitions and commissioning plan  & & & &  \cellcolor{gray} & & \\ \hline
+% \multicolumn{7}{|l|}{\bf Management \& Organization} \\ \hline
+% Definition of milestones \& activities &  \cellcolor{gray} & & & & & \\ \hline
+% Initial schedule \& risks evaluation & &  \cellcolor{gray} & & & & \\ \hline
+% DPPD Technical proposal & &  \cellcolor{gray} & & & & \\ \hline
+% Initial WBS \& high-level cost estimations & &  \cellcolor{gray} & & & & \\ \hline
+% Identification of risks & & & & &  \cellcolor{gray} & \\ \hline
+% DPPD Technical Design Report & & & & & &  \cellcolor{gray} \\ \hline
+% WBS and institutional responsibilities \& cost & & & & & &  \cellcolor{gray} \\ \hline
+% \end{tabular}
+% \label{tab:schedule}
+% \end{center}
+% \end{table}
