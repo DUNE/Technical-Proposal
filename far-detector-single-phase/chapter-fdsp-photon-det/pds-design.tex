@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Photon Detection System Design}
 \label{sec:fdsp-pd-design}
-%\metainfo{(Length: TDR=50 pages, TP=20 pages)}
+%\metainfo{(Length: \dword{tdr}=50 pages, TP=20 pages)}
 %\metainfo{\color{blue} Content: Conveners}
 
 %dww edits 16mar18
@@ -18,9 +18,9 @@ demonstrated a detection efficiency of 13\%, corresponding to an effective area 
 
 A challenge for the \dword{pds} is that a full set of requirements is not yet fully defined for one of the priority physics topics, \dword{snb} neutrinos. So the designs strive to demonstrate that at minimum the requirements for the accelerator neutrino program, atmospheric neutrinos and nucleon decay will be met, while maintaining the flexibility to adjust to the greater demands for the SBN physics.    
  
-%The core modular element of the \dword{pds} are the large area \textit{photon collectors} that convert incident \SI{128}{nm} scintillation photons into photons in the visible range (>~\SI{400}{nm}), which in turn are converted to an electrical signal by compact silicon photomultipliers (\dword{sipm}) \textit{photon sensors}.  At the time of the Technical Proposal there are three photon collector options under consideration; Figure~\ref{fig:3dtpc-pd} shows how they are incorporated into the TPC anode plane assembly by an identical modular mounting scheme. In the following we summarize the design and development status for each photon collector option\footnote{For the Technical Design Report there will be a baseline design and at most one alternative.}.
+%The core modular element of the \dword{pds} are the large area \textit{photon collectors} that convert incident \SI{128}{nm} scintillation photons into photons in the visible range (>~\SI{400}{nm}), which in turn are converted to an electrical signal by compact silicon photomultipliers (\dword{sipm}) \textit{photon sensors}.  At the time of the Technical Proposal there are three photon collector options under consideration; Figure~\ref{fig:3dtpc-pd} shows how they are incorporated into the TPC anode plane assembly by an identical modular mounting scheme. In the following we summarize the design and development status for each photon collector option\footnote{For the \dword{tdr} there will be a baseline design and at most one alternative.}.
 
-At the time of the Technical Proposal there are three photon collector options under consideration; Figure~\ref{fig:3dtpc-pd} shows how they are incorporated into the TPC anode plane assembly by an identical modular mounting scheme. In the following we summarize the design and development status for each photon collector option\footnote{For the Technical Design Report there will be a baseline design and at most one alternative.}.
+At the time of the Technical Proposal there are three photon collector options under consideration; Figure~\ref{fig:3dtpc-pd} shows how they are incorporated into the TPC anode plane assembly by an identical modular mounting scheme. In the following we summarize the design and development status for each photon collector option\footnote{For the \dword{tdr} there will be a baseline design and at most one alternative.}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Photon Collector}
@@ -376,7 +376,7 @@ Understanding the impact of these competing effects on the physics is under stud
 \label{sec:fdsp-pd-ps}
 %\todo{\color{blue} Content: Zutshi}
 
-The \dword{spmod}\dword{pds} uses a multi-step approach to scintillation light detection with final stage of conversion into electrical charge performed by silicon photomultipliers (\dword{sipm}). Robust photon detection efficiency, low operating voltages, small size and ruggedness make their use attractive in the \single design where the photon detectors must be accommodated inside the \dword{apa} frames. 
+The \dword{spmod} \dword{pds} uses a multi-step approach to scintillation light detection with final stage of conversion into electrical charge performed by silicon photomultipliers (\dword{sipm}). Robust photon detection efficiency, low operating voltages, small size and ruggedness make their use attractive in the \single design where the photon detectors must be accommodated inside the \dword{apa} frames. 
 As implemented in \dword{pdsp}, there are twelve \num{6}$\times$\num{6}\si{mm$^2$} \dwords{sipm} per bar and 6-12 per ARAPUCA box.
 With this configuration, a \SI{10}{kt} \dword{spmod} with \num{150} \dwords{apa}, each with \num{10} \dword{pd} modules, would contain \num{18000}-\num{36000} (single or double-ended readout) \dwords{sipm} for the light guide designs and 10-20 times more for the higher granularity ARAPUCA design. This corresponds to approximately \num{1}-\SI{13}{m$^2$} of active \dword{sipm} surface area.
 
@@ -526,7 +526,7 @@ beam spill to help separate against potential cosmic background interactions. Tw
 Since this requirement has not yet been established the option is kept open in the electronics design.
 
 %Simplification in the readout scheme and a cost reduction can also be realized by reading arrays of \dwords{sipm}, rather than individual photosensors.
-All photon collector options will require some level of electrical ganging of the \dwords{sipm}, either passive direct connection of the \dword{sipm} outputs or active (cold signal summing and possibly amplification).  To that end we desire a system where the ganging is maximized to minimize the electronics channel count while maintaining adequate redundancy and granularity, as well as readout system performance.  This represents a significant interface between the electronics, photosensor and light collector designs, and will be a main focus of our development and optimization work up to the TDR.
+All photon collector options will require some level of electrical ganging of the \dwords{sipm}, either passive direct connection of the \dword{sipm} outputs or active (cold signal summing and possibly amplification).  To that end we desire a system where the ganging is maximized to minimize the electronics channel count while maintaining adequate redundancy and granularity, as well as readout system performance.  This represents a significant interface between the electronics, photosensor and light collector designs, and will be a main focus of our development and optimization work up to the \dword{tdr}.
 
 Technical factors that affect performance of the ganging system are the characteristic capacitance of the \dword{sipm} 
 and the number of \dwords{sipm} connected together, which together dictate the signal to noise ratio and affect the system 

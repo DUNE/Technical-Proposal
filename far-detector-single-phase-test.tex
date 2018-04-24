@@ -1,0 +1,52 @@
+\input{control}
+\ifdefined\isfinal\documentclass[final]{dune}\else\documentclass{dune}\fi
+\pdfoutput=1            % must be in first 5 lines so arXiv finds it
+\graphicspath{ {figures/}{far-detector-single-phase/figures/}{far-detector-generic/figures/}{generated/} }
+
+\input{common/preamble}
+
+\renewcommand\thedoctitle{\volspfd} % defined in common/defs.tex
+%\def\titleextra{\includegraphics[width=0.55\textwidth]{energy_nu_no}} -- change image file
+\begin{document}
+
+\input{common/init}
+
+
+%\input{far-detector-single-phase/chapter-fdsp-design}
+\cleardoublepage
+
+%\input{far-detector-single-phase/chapter-fdsp-overview}
+\cleardoublepage
+
+%\input{far-detector-single-phase/chapter-fdsp-apa}
+\cleardoublepage
+
+%\input{far-detector-single-phase/chapter-fdsp-hv}
+\cleardoublepage
+
+%\input{far-detector-single-phase/chapter-fdsp-tpc-elec}
+\cleardoublepage
+
+\input{far-detector-single-phase/chapter-fdsp-photon-det}
+\cleardoublepage
+
+%\input{far-detector-single-phase/chapter-fdsp-daq}
+\cleardoublepage
+
+%\input{far-detector-single-phase/chapter-fdsp-slow-and-cryo}
+\cleardoublepage
+
+%\input{far-detector-single-phase/chapter-fdsp-coordination}
+\cleardoublepage
+
+%\input{far-detector-single-phase/chapter-fdsp-performance}
+\cleardoublepage
+
+
+\input{common/final}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
