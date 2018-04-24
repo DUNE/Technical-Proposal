@@ -1,14 +1,19 @@
 % See dune-words.tex for detailed explanation.
 
+% mirrors.ctan.org/macros/latex/contrib/glossaries/glossaries-user.pdf
+
 \usepackage[acronyms,toc]{glossaries}
 \makeglossaries
 
 
 \newcommand{\dshort}[1]{\acrshort{abbrev-#1}}
+\newcommand{\dshorts}[1]{\acrshorplt{abbrev-#1}}
 \newcommand{\dlong}[1]{\acrlong{abbrev-#1}}
+\newcommand{\dlongs}[1]{\acrlongpl{abbrev-#1}}
 
 % force the "first time" behavior
-\newcommand{\dfirst}[1]{\glsfirst{abbrev-#1}}
+\newcommand{\dfirst}[1]{\glsfirst{#1}}
+\newcommand{\dfirsts}[1]{\glsfirstplural{#1}}
 
 \newcommand{\dword}[1]{\gls{#1}}
 \newcommand{\dwords}[1]{\glspl{#1}}
@@ -54,18 +59,21 @@
   % this makes acronym entries even if they neither term or abbrev is
   % referenced in the text.
   % \newacronym[see={[Glossary:]{#1}}]{abbrev-#1}{#2}{#3}
-  \newacronym{abbrev-#1}{#2}{#3}
+  \newacronym[longplural=#4]{abbrev-#1}{#2}{#3}
   \newglossaryentry{#1}{
     text={#2},
     long={#3},
-    plural={#4},
+%    plural={#4},
     name={\glsentrylong{#1}{} (\glsentrytext{#1}{})},
     first={\glsentryname{#1}},
-    firstplural={\glsentryplural{#1} (\glsentrytext{#1}\glspluralsuffix{})},
+    firstplural={#4 (\glsentrytext{#1}\glspluralsuffix{})},
     description={#5}
   }
 }
 
+
+% tres meta
+\newduneword{dword}{DUNE Word}{A term in the DUNE lexicon}
 
 %%%%%%     START ADDING WORDS, IN ALPHABETICAL ORDER IF POSSIBLE!    %%%%%%%%
 
