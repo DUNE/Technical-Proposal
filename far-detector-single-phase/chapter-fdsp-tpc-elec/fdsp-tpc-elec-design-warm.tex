@@ -1,84 +1,85 @@
-The warm interface electronics must provide an interface between the cold electronics, DAQ, timing and slow control systems, including local power control at the flange and a real-time diagnostic readout. They are housed in the WIECs attached directly to the CE flange.  The WIEC shown in Figure~\ref{fig:tpcelec-flange} 
-contains one xspower and timing card (PTC), five warm interface boards (WIBs) and a passive
-power and timing backplane (PTB), which fans out signals and LV power from the PTC to the WIBs. The WIEC must provide a Faraday-shielded housing, robust ground connections from the warm electronics boards to the detector ground described in Section~\ref{sec:fdsp-tpc-elec-design-ground}, and only optical fiber links to the DAQ and slow control in order to mitigate noise introduced at the CE feedthrough.
+The warm interface electronics %must 
+provide an interface between the \dword{ce}, \dword{daq}, timing and slow control systems, including local power control at the flange and a real-time diagnostic readout. They are housed in the \dwords{wiec} attached directly to the \dword{ce} flange.  The \dword{wiec} shown in Figure~\ref{fig:tpcelec-flange} 
+contains one xspower and timing card (\dword{ptc}), five warm interface boards (\dwords{wib}) and a passive
+power and timing backplane (PTB), which fans out signals and \dword{lv} power from the \dword{ptc} to the \dwords{wib}. The \dword{wiec} must provide a Faraday-shielded housing, robust ground connections from the \dwords{wib} to the detector ground described in Section~\ref{sec:fdsp-tpc-elec-design-ground}, and only optical fiber links to the \dword{daq} and slow control in order to mitigate noise introduced at the \dword{ce} \fdth.
 
 \begin{dunefigure}
-[Exploded view of the CE signal flange for ProtoDUNE-SP.  The design will be very similar for the DUNE far detector CE signal flange (with two CE signal flanges per feedthrough).]
+[Exploded view of the \dword{ce} signal flange for \dword{pdsp}.]
 {fig:tpcelec-flange}
-{Exploded view of the CE signal flange for ProtoDUNE-SP.  The design will be very similar for the DUNE far detector CE signal flange (with two CE signal flanges per feedthrough).}
+{Exploded view of the \dword{ce} signal flange for \dword{pdsp}.  The design will be very similar for the \dword{spmod} \dword{ce} signal flange (with two \dword{ce} signal flanges per \fdth).}
 \includegraphics[width=0.9\linewidth]{tpcelec-flange.png}
 \end{dunefigure}
 
-The WIB is the interface between the DAQ system and four
-FEMBs. It receives the system clock and control signals from the
+The \dword{wib} is the interface between the \dword{daq} system and four
+\dwords{femb}. It receives the system clock and control signals from the
 timing system and provides for processing and fan-out of those signals to the four
-FEMBs. The WIB also receives the high-speed data signals from the four 
-FEMBs and transmits them to the DAQ system over optical
-fibers. The data signals are recovered onboard the WIB with commercial equalizers.
-The WIBs are attached directly to the TPC
-CE feedthrough on the signal flange. The feedthrough
-board is a PCB with connectors to the cold signal and LV power cables fitted
+\dwords{femb}. The \dword{wib} also receives the high-speed data signals from the four 
+\dwords{femb} and transmits them to the \dword{daq} system over optical
+fibers. The data signals are recovered onboard the \dword{wib} with commercial equalizers.
+The \dwords{wib} are attached directly to the TPC
+\dword{ce} \fdth on the signal flange. The \fdth
+board is a PCB with connectors to the cold signal and \dword{lv} power cables fitted
 between the compression plate on the cold side, and sockets for
-the WIB on the warm side. Cable strain relief for the cold cables is 
-supported from the back end of the feedthrough.
+the \dword{wib} on the warm side. Cable strain relief for the cold cables is 
+supported from the back end of the \fdth.
 
 \begin{dunefigure}
-[Power and timing card (PTC) and timing distribution to the WIB and FEMBs used in ProtoDUNE-SP.]
+[\dword{pdsp} PTC and timing distribution to the WIB and FEMBs]
 {fig:tpcelec-wib_timing}
-{Power and timing card (PTC) and timing distribution to the WIB and FEMBs used in ProtoDUNE-SP.}
+{Power and timing card (\dword{ptc}) and timing distribution to the \dword{wib} and \dwords{femb} used in \dword{pdsp}.}
 \includegraphics[width=0.75\linewidth]{tpcelec-wib_timing.pdf}
 \end{dunefigure}
 
-The ProtoDUNE-SP PTC provides a bidirectional fiber interface to the
+The \dword{pdsp} \dword{ptc} provides a bidirectional fiber interface to the
 timing system. The clock and data
-streams are separately fanned out to the five WIBs as shown in
-Figure~\ref{fig:tpcelec-wib_timing}. The PTC fans the clocks out to the WIB over the
-PTB, which is a passive backplane attached directly to the PTC and
-WIBs.  The received clock on the WIB is separated into clock and
-data using a clock/data separator. Timing endpoint firmware to receive and transmit
-the clock is integrated in the WIB FPGA (the Altera Arria V was used for ProtoDUNE-SP).
-The single-phase far detector timing system, described in Section~\ref{sec:fdsp-daq-timing}, is a development of the ProtoDUNE-SP system, and expected to require the nearly identical functionality at the WIB endpoint.
+streams are separately fanned out to the five \dwords{wib} as shown in
+Figure~\ref{fig:tpcelec-wib_timing}. The \dword{ptc} fans the clocks out to the \dword{wib} over the
+PTB, which is a passive backplane attached directly to the \dword{ptc} and
+\dwords{wib}.  The received clock on the \dword{wib} is separated into clock and
+data using a clock-data separator. Timing endpoint firmware to receive and transmit
+the clock is integrated in the \dword{wib} \dword{fpga} (the Altera Arria V was used for \dword{pdsp}).
+The \dword{spmod} timing system, described in Section~\ref{sec:fdsp-daq-timing}, is a development of the \dword{pdsp} system, and expected to require the nearly identical functionality at the \dword{wib} endpoint.
 
 \begin{dunefigure}
-[LV power distribution to the WIB and FEMBs implemented for ProtoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs. In particular the voltages to the FEMB0-3 will change as the ProtoDUNE-SP FPGA is replaced by COLDATA. ]
+[\dword{pdsp} \dword{lv} power distribution to the \dword{wib} and \dwords{femb}]
 {fig:tpcelec-wib_power}
-{LV power distribution to the WIB and FEMBs implemented for ProtoDUNE-SP. This will be modified for DUNE to provide the required voltage or voltages depending on which ASICs are used on the FEMBs. In particular the voltages to the FEMB0-3 will change as the ProtoDUNE-SP FPGA is replaced by COLDATA. }
+{\dword{lv} power distribution to the \dword{wib} and \dwords{femb} implemented for \dword{pdsp}. This will be modified for the \dword{spmod} to provide the required voltage or voltages depending on which \dwords{asic} are used on the \dwords{femb}. In particular the voltages to the \dword{femb} \numrange{0}{3} will change as the \dword{pdsp} \dword{fpga} is replaced by \dword{coldata}. }
 \includegraphics[width=0.65\linewidth]{tpcelec-wib_power.pdf}
 \end{dunefigure}
 
-The PTC also receives 48V LV power for all cold
-electronics connected through the TPC signal flange: one~PTC, five~WIB, and 20~FEMB. The LV power is then stepped down
-to 12~V via a DC/DC converter onboard the PTC. The output of the PTC converters is filtered with a common-mode choke and fanned out
-on the PTB to each WIB, which provides the necessary 12~V DC/DC conversions and fans
-the LV power out to each of the cold FEMBs supplied by that WIB, 
-as shown in Figure~\ref{fig:tpcelec-wib_power}. The output of the WIB converters are further filtered by a common-mode choke. The 
-majority of the power drawn by a full flange is dissipated in the LAr by the cold FEMB.
+The \dword{ptc} also receives \SI{48}{V} \dword{lv} power for all cold
+electronics connected through the TPC signal flange: one \dword{ptc}, five \dword{wib}, and \num{20}~\dword{femb}. The \dword{lv} power is then stepped down
+to \SI{12}{V} via a DC-DC converter onboard the \dword{ptc}. The output of the \dword{ptc} converters is filtered with a common-mode choke and fanned out
+on the PTB to each \dword{wib}, which provides the necessary \SI{12}{V} DC-DC conversions and fans
+the \dword{lv} power out to each of the cold \dwords{femb} supplied by that \dword{wib}, 
+as shown in Figure~\ref{fig:tpcelec-wib_power}. The output of the \dword{wib} converters are further filtered by a common-mode choke. The 
+majority of the power drawn by a full flange is dissipated in the \lar by the cold \dword{femb}.
 
-%Each WIB contains a 
-%unique IP address for its UDP slow control interface. The IP address for the WIB is 
-%derived from a crate and slot address: the crate address is generated on the PTC 
+%Each \dword{wib} contains a 
+%unique IP address for its UDP slow control interface. The IP address for the \dword{wib} is 
+%derived from a crate and slot address: the crate address is generated on the \dword{ptc} 
 %board via dipswitches and the slot address is generated by the PTB slot, numbered 
-%from one to five. Note that the WIBs also have front-panel
-%connectors for receiving LV power; these can be used in place of 
-%the LV power inputs on the PTB generated by the PTC.
+%from one to five. Note that the \dwords{wib} also have front-panel
+%connectors for receiving \dword{lv} power; these can be used in place of 
+%the \dword{lv} power inputs on the PTB generated by the \dword{ptc}.
 
-As shown in Figure~\ref{fig:tpcelec-dune_wib}, the WIB is capable of receiving LV power in the front panel and distributing it directly to the FEMB, bypassing all DC/DC converters.
+As shown in Figure~\ref{fig:tpcelec-dune_wib}, the \dword{wib} is capable of receiving \dword{lv} power in the front panel and distributing it directly to the \dword{femb}, bypassing all DC/DC converters.
 It can also receive the encoded system timing signals over bi-directional optical
 fibers on the front panel, and processing these using either
-the on-board FPGA or clock synthesizer chip to provide the clock required by the cold electronics.
-The baseline ASIC design currently uses 8b/10b encoding; if the SLAC CRYO ASIC is selected for
-the DUNE far detector, 12b/14b encoding will be used instead of 8b/10b.
+the on-board \dword{fpga} or clock synthesizer chip to provide the clock required by the \dword{ce}.
+The baseline \dword{asic} design currently uses 8b/10b encoding; if the SLAC CRYO \dword{asic} is selected for
+the DUNE \dword{spmod}, 12b/14b encoding will be used instead of 8b/10b.
 
 \begin{dunefigure}
-[Warm interface board (WIB). Note that front panel inputs include a LEMO connector and alternate inputs for LV power and timing.]
+[Warm interface board (\dword{wib})]
 {fig:tpcelec-dune_wib}
-{Warm interface board (WIB). Note that front panel inputs include a LEMO connector and alternate inputs for LV power and timing.}
+{Warm interface board (\dword{wib}). Note that front panel inputs include a LEMO connector and alternate inputs for \dword{lv} power and timing.}
 \includegraphics[width=0.8\linewidth]{tpcelec-dune_wib.jpg}
 \end{dunefigure}
 
-The FPGA on the ProtoDUNE-SP WIB is an Altera Arria V GT variant, which has
-transceivers that can drive the high-speed data to the DAQ system up to
+The \dword{fpga} on the \dword{pdsp} \dword{wib} is an Altera Arria V GT variant, which has
+transceivers that can drive the high-speed data to the \dword{daq} system up to
 10.3125~Gbps per link, implying that all data from
-two FEMB (2$\times$5~Gbps) could be transmitted on a single link.
-The FPGA has an additional Gbps Ethernet transceiver I/O based on the 125~MHz clock, which 
+two \dword{femb} (2$\times$5~Gbps) could be transmitted on a single link.
+The \dword{fpga} has an additional Gbps Ethernet transceiver I/O based on the \SI{125}{MHz} clock, which 
 provides real-time digital data readout to the slow control system.

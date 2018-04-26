@@ -1,31 +1,31 @@
-Directly following the installation of the instrumented APAs into the cryostat, commissioning of the
-TPC electronics will commence.  This should be carried out both before and after the LAr fill;
+Directly following the installation of the instrumented \dwords{apa} into the cryostat, commissioning of the
+TPC electronics will commence.  This should be carried out both before and after the \lar fill;
 the former to establish whether or not the installation procedure led to impairment of the
 electronics, and the latter to check that the cryogenic electronics do not experience failures
-in the cold liquid argon.
+in the cold \lar.
 
 As described in Section~\ref{sec:fdsp-tpc-elec-install-apa}, the electronics checkout prior to
-LAr fill will begin as soon as the APA is installed, and before all APAs are installed; that is,
+\lar fill will begin as soon as the \dword{apa} is installed, and before all \dwords{apa} are installed; that is,
 installation and testing will proceed in parallel.  This has the advantage of informing
-subsequent installation of APAs to help minimize total number of electronics channels lost
+subsequent installation of \dwords{apa} to help minimize total number of electronics channels lost
 during the installation process.  Items to be checked during the commissioning process include
 an evaluation of the noise level on every channel, a check for dead or noisy (high RMS) channels,
 studying cross-talk across neighboring wires or neighboring channels in the electronics,
 characterizing pick-up noise (including spatial dependence in the detector) if present, and
-checking for noise coherent across channels sharing common electronics (e.g.~same FEMB).
+checking for noise coherent across channels sharing common electronics (e.g.~same \dword{femb}).
 These measurements will be performed first during the tests in the cold box.  Repeating these
-measurements prior to filling the cryostat with LAr will allow for final repairs or replacements
-for all the CE components prior to the closure of the TCO. This will also give an opportunity
+measurements prior to filling the cryostat with \lar will allow for final repairs or replacements
+for all the \dword{ce} components prior to the closure of the \dword{tco}. This will also give an opportunity
 to intervene on noise and/or electronics issues that would become evident when reading out
-the entire detector at once, before proceeding proceeding with the LAr fill.
+the entire detector at once, before proceeding proceeding with the \lar fill.
 
-Once every APA is installed and tested as described above, the cool-down process and LAr fill
+Once every \dword{apa} is installed and tested as described above, the cool-down process and \lar fill
 will be carried out.  Monitoring of noise levels and dead/noisy channel count will be
-done continuously during this process.  After the LAr fill, another electronics checkout
+done continuously during this process.  After the \lar fill, another electronics checkout
 similar to the one described above will be carried out.  Any electronics issues identified
-during this procedure will be fixed before continuing, if possible.  The wire bias HV and
-cathode HV will then be brought up, with noise studies repeated after each subsystem is
-turned on.  With the wire bias HV and cathode HV up, one can then utilize ionization signals
+during this procedure will be fixed before continuing, if possible.  The wire bias \dword{hv} and
+cathode \dword{hv} will then be brought up, with noise studies repeated after each subsystem is
+turned on.  With the wire bias \dword{hv} and cathode \dword{hv} up, one can then utilize ionization signals
 (e.g.~from $\mathrm{{}^{39}Ar}$ beta decays) to distinguish between different possible issues
 that might impair the readout of a given channel, such as a short between the wire planes
 (which would alter the wire field response on nearby wires) and a problem with the electronics.
@@ -33,15 +33,15 @@ that might impair the readout of a given channel, such as a short between the wi
 Both during the commissioning phase of the experiment and during normal operations, it may
 be desired to perform an in-situ calibration of one or more parts of the TPC electronics chain.
 These calibrations will utilize a combination of noise data and data collected while a
-calibration pulser (internal DAC on the FE ASIC) is periodically injecting charge into the TPC
+calibration pulser (internal DAC on the FE \dword{asic}) is periodically injecting charge into the TPC
 electronics channels.  Calibrations of interest include determining the gain and shaping time of
-every electronics channel in the TPC (as the FE ASICs may experience changes in these quantities
-in the cold) and characterizing the linearity of the ADC ASICs in the cold.  With the updated ADC ASIC
-design, it is not expected that nonlinearity of the ADCs will be a significant issue (see
+every electronics channel in the TPC (as the FE \dwords{asic} may experience changes in these quantities
+in the cold) and characterizing the linearity of the \dword{adc} \dwords{asic} in the cold.  With the updated \dword{adc} \dword{asic}
+design, it is not expected that nonlinearity of the \dwords{adc} will be a significant issue (see
 Section~\ref{sec:fdsp-tpc-elec-design-femb-adc} for a discussion of the on-chip calibration
 that is used), but it is important to verify this with data collected in the experiment.
-Specific in-situ calibration algorithms are being studied at ProtoDUNE-SP, and will be further
+Specific in-situ calibration algorithms are being studied at \dword{pdsp}, and will be further
 developed there and in the other electronics test facilities described in
-Section~\ref{sec:fdsp-tpc-elec-qa-facilities}.  Experience from MicroBooNE and other running
-LArTPC experiments will be very useful in informing TPC electronics calibration procedures for
-the DUNE far detectors.
+Section~\ref{sec:fdsp-tpc-elec-qa-facilities}.  Experience from \microboone and other running
+\lartpc experiments will be very useful in informing TPC electronics calibration procedures for
+the DUNE \dwords{spmod}.

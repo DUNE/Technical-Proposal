@@ -1,21 +1,20 @@
-In order to minimize system noise, the cold electronics cables for each APA enter 
-the cryostat through a single CE flange, as shown in Figure~\ref{fig:connections}, creating an integrated 
-unit between each APA frame, FEMB ground for all 20 CE modules, TPC flange and warm interface
+In order to minimize system noise, the \dword{ce} cables for each \dword{apa} enter 
+the cryostat through a single \dword{ce} flange, as shown in Figure~\ref{fig:connections}, creating an integrated 
+unit between each \dword{apa} frame, \dword{femb} ground for all \num{20} \dword{ce} modules, TPC flange and warm interface
 electonics. To accomplish this,
-the input amplifiers on the FE ASICs have their ground terminals connected to the APA frame. 
-All power-return leads and cable shields are connected to both the ground plane of the FEMB and to the TPC signal flange.
+the input amplifiers on the \dword{fe} \dwords{asic} have their ground terminals connected to the \dword{apa} frame. 
+All power-return leads and cable shields are connected to both the ground plane of the \dword{femb} and to the TPC signal flange.
 
 The only point this integrated unit makes electrical contact with the 
-cryostat or ``detector ground'' is at a single point on the CE feedthrough board in the TPC signal flange where the 
-cables exit the cryostat. Mechanical suspension of the APAs is accomplished using insulated supports. 
-To avoid structural ground loops, the APA frames described in Chapter~\ref{ch:fdsp-apa} are 
+cryostat or \textit{detector ground} is at a single point on the \dword{ce} \fdth board in the TPC signal flange where the 
+cables exit the cryostat. Mechanical suspension of the \dwords{apa} is accomplished using insulated supports. 
+To avoid structural ground loops, the \dword{apa} frames described in Chapter~\ref{ch:fdsp-apa} are 
 insulated from each other.
 
-Filtering circuits for the APA wire-bias voltages are locally referenced to the ground plane of the FEMBs through low-impedance electrical connections. This approach ensures a ground-return path in close proximity to the bias-voltage and signal paths. The close proximity of the current paths minimizes the size of potential loops to further suppress noise pickup.
+Filtering circuits for the \dword{apa} wire-bias voltages are locally referenced to the ground plane of the \dwords{femb} through low-impedance electrical connections. This approach ensures a ground-return path in close proximity to the bias-voltage and signal paths. The close proximity of the current paths minimizes the size of potential loops to further suppress noise pickup.
 
-Signals associated with the photon detector system, described in Chapter~\ref{ch:fdsp-pd}, are carried directly on shielded, 
-twisted-pair cables to the signal feedthrough. The cable shields are connected to the cryostat 
-at the PD flange shown in Figure~\ref{fig:connections}, and to the PCB shield layer on the photon 
-detectors. There is no electrical connection between the cable shields and the APA frame.
+Signals associated with the \dword{pds}, described in Chapter~\ref{ch:fdsp-pd}, are carried directly on shielded, 
+twisted-pair cables to the signal \fdth. The cable shields are connected to the cryostat 
+at the \dword{pd} flange shown in Figure~\ref{fig:connections}, and to the PCB shield layer on the \dwords{pd}. There is no electrical connection between the cable shields and the \dword{apa} frame.
 
-%The frequency domain of the TPC wire and photon detector signals are separate. The wire readout digitizes at 2~MHz with $<$~500~kHz bandwidth at 1 $\mathrm{\mu}$sec peaking time, while the photon readout operates at 150~MHz with $>$~10~MHz bandwidth. They are separated from the clock frequency (50~MHz) and common noise frequencies through the FE ASIC and cabling designs. All clock signals are transmitted differentially with individual shield to avoid the interference to power lines.
+%The frequency domain of the TPC wire and \dword{pd} signals are separate. The wire readout digitizes at 2~MHz with $<$~500~kHz bandwidth at 1 $\mathrm{\mu}$sec peaking time, while the photon readout operates at 150~MHz with $>$~10~MHz bandwidth. They are separated from the clock frequency (50~MHz) and common noise frequencies through the FE \dword{asic} and cabling designs. All clock signals are transmitted differentially with individual shield to avoid the interference to power lines.
