@@ -294,7 +294,7 @@
 
 
 % Hyperref typically needs to come at the end of all \usepackages 
-\RequirePackage[pdftex,bookmarks]{hyperref}
+\RequirePackage[pdftex,bookmarks,hidelinks]{hyperref}
 
 % Use to import pdf files (Anne 4/28/15)
 \RequirePackage{pdfpages}
