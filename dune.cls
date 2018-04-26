@@ -37,6 +37,8 @@
 \renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
 \renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
 
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}[\glsresetall]
 \titleformat{\subsubsubsection}
   {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
 \titlespacing*{\subsubsubsection}
