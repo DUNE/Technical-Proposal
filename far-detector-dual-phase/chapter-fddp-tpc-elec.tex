@@ -28,9 +28,9 @@ Operation of the \dword{wa105} validatated some of the design choices and provid
 
 The \dword{cro} system is designed to provide continuous, non-zero-suppressed, and losslessly compressed digital signals by reading the charge collected on the \dwords{crp}' \SI{3}{m} long strips that are arranged in two collection views, all with a pitch of \SI{3.125}{mm}.% in the \dword{crp}. 
 The system consists of %a 
-the \dword{fe} analog electronics operating at cryogenic temperatures and digital electronics working in the warm environment outside of the cryostat.  The cryogenic \dshort{fe} analog electronics is based on an application-specific integrated circuit (ASIC) chip with a large dynamic range (up to \SI{1200}{fC}) to cope with the charge amplification in the \dwords{crp}. The analog \dword{fe} cards are housed in dedicated signal feedthrough (\dword{sft}) chimneys and are accessible from the outside even after the \dword{dpmod} is in operation, thus removing any significant risks associated with their long-term survivability. The \dword{sft} chimneys are approximately \SI{2.3}{m} long objects 
+the \dword{fe} analog electronics operating at cryogenic temperatures and digital electronics working in the warm environment outside of the cryostat.  The cryogenic \dshort{fe} analog electronics is based on an application-specific integrated circuit (ASIC) chip with a large dynamic range (up to \SI{1200}{fC}) to cope with the charge amplification in the \dwords{crp}. The analog \dword{fe} cards are housed in dedicated \dwords{sftchimney} and are accessible from the outside even after the \dword{dpmod} is in operation, thus removing any significant risks associated with their long-term survivability. The \dwords{sftchimney} are approximately \SI{2.3}{m} long objects 
 \fixme{metallic cylinders?} that traverse the entire insulation layer of the cryostat allowing placement of the \dword{fe} electronics close to the \dwords{crp} to minimize cable capacitance (noise).  In addition, their metallic structure shields the \dword{fe} cards 
-from any interference from the warm digital electronics and ambient environment. The analog signals are digitized by Advanced Mezzanine Cards \dwords{amc}, which are housed in the commercial \dword{utca} crates on top of the cryostat near the \dword{sft} chimneys. 
+from any interference from the warm digital electronics and ambient environment. The analog signals are digitized by Advanced Mezzanine Cards \dwords{amc}, which are housed in the commercial \dword{utca} crates on top of the cryostat near the \dwords{sftchimney}. 
 
 The data are sampled at the rate of \SI{2.5}{MHz} with \SI{12}{bit} resolution.  
 \fixme{both cro and lro? sounds like only cro.}
@@ -101,7 +101,7 @@ A compression factor of about \num{10} could be achieved with the \rms noise lev
 The primary objective of the \dword{lro} system is to detect signals, from a minimum of one \phel on one \dword{pmt}, giving a precise timestamp that can be used in conjunction with the charge signals to determine the time (drift) coordinate of an event. \fixme{why insert (drift)?}  Precise measurements of signal charge allow the continual monitoring of the \dword{pmt} gain at the single \phel level, and the determination of the number of photons in each scintillation event.  In addition, an \dword{adc}  continuously streams data, downsampled to \SI{400}{ns} as for the \dword{cro} signals,  which, amongst other items, allows measurements of the scintillation time profile. In addition, the \dword{lro} system samples a small number of signals from the \dword{pd} calibration system: the calibration trigger and around \num{20} channels from reference sensors.
 \fixme{``...number of signals from the \dword{pd} calibration trigger and about \num{20} channels from calibration reference sensors.'' (?)}
 
-The cryogenic analog electronics for the \dword{cro} is housed in the dedicated \dword{sft} chimneys. %Their 
+The cryogenic analog electronics for the \dword{cro} is housed in the dedicated \dwords{sftchimney}. %Their 
 Its design %must 
 enables access to the \dword{fe} card for possible replacement without %any 
 risk of contaminating the pure \lar in the main cryostat volume. The chimneys %must 
@@ -145,10 +145,10 @@ The scope of the TPC electronics system covers the procurement, production, test
 \item{The \dword{wrmch} cards for \dword{amc} clock synchronization;}
 \item{\dword{utca} crates;}
 \item{Switches for the \dword{wr} network;}
-\item{\dword{sft} chimneys;}
+\item{\dwords{sftchimney};}
 \item{Low-voltage power supplies, distribution, and filtering system for the \dword{fe} cards;}
-\item{Flat cables connecting the \dword{fe} cards to the warm flange interface of the \dword{sft} chimneys;}
-\item{VHDCI cables connecting the warm flange interface of the \dword{sft} chimneys to \dwords{amc}.}
+\item{Flat cables connecting the \dword{fe} cards to the warm flange interface of the \dwords{sftchimney};}
+\item{VHDCI cables connecting the warm flange interface of the \dwords{sftchimney} to \dwords{amc}.}
 \end{itemize}
 
 \fixme{what about cables/connections to the CRPs and PMTs?}
@@ -163,9 +163,9 @@ Name & Number  \\ \toprowrule
 \dword{cro} cryogenic ASICs (\num{16} ch) & \num{9600} \\ \colhline
 \dword{cro} cryogenic analog \dword{fe} cards (\num{64} ch) & \num{2400} \\ \colhline
 \dword{cro} \dwords{amc} & \num{2400} \\ \colhline
-\dword{sft} chimneys & \num{240} \\ \colhline
-Flat cables for \dword{sft} chimney (\num{68} ch) & \num{2400} \\ \colhline
-Flat cables for \dword{sft} chimney (\num{80} ch) & \num{2400} \\ \colhline
+\dwords{sftchimney} & \num{240} \\ \colhline
+Flat cables for \dword{sftchimney} (\num{68} ch) & \num{2400} \\ \colhline
+Flat cables for \dword{sftchimney} (\num{80} ch) & \num{2400} \\ \colhline
 VHDCI cables (\num{32} ch) & \num{4800} \\ \colhline
 \dword{lro} \dwords{amc} with analog \dword{fe} & \num{45} \\ \colhline
 \dword{utca} crates & \num{245} \\ \colhline
@@ -181,12 +181,12 @@ WR switches (\num{18} ports) & \num{16} \\
 \fixme{separate CRO and LRO}
 
 The \dword{cro} \dword{fe} analog electronics is based on cryogenic ASIC chip with a large dynamic range (up to \SI{1200}{\femto\coulomb}) to accomodate the charge amplification in the %dual-phase 
-\dword{crp}. The \dword{fe} cards read \num{64} \dword{crp} channels each. They are mounted in dedicated  \dword{sft} chimneys and are located within a short distance (\SI{<1}{\metre}) from each \dword{crp} to minimize the noise caused by long cables (large cable capacitance). The cards remain accessible throughout the \dword{dpmod} operation. Each \dword{sft} chimney %hosts 
-accommodates \num{10} \dword{fe} analog cards, which corresponds to the readout of \num{640} \dword{crp} channels per chimney. There are, therefore, \num{240} \dword{sft} chimneys to be installed for the charge readout in a given \dword{dpmod}.   
+\dword{crp}. The \dword{fe} cards read \num{64} \dword{crp} channels each. They are mounted in dedicated  \dwords{sftchimney} and are located within a short distance (\SI{<1}{\metre}) from each \dword{crp} to minimize the noise caused by long cables (large cable capacitance). The cards remain accessible throughout the \dword{dpmod} operation. Each \dword{sftchimney} %hosts 
+accommodates \num{10} \dword{fe} analog cards, which corresponds to the readout of \num{640} \dword{crp} channels per chimney. There are, therefore, \num{240} \dwords{sftchimney} to be installed for the charge readout in a given \dword{dpmod}.   
 
-The differential analog signals from the analog \dword{fe} cards, carried by the twisted-pair ribbon cables and routed via an interface flange of the \dword{sft} chimneys, are digitized by the \dword{amc} cards located %in the warm conditions 
+The differential analog signals from the analog \dword{fe} cards, carried by the twisted-pair ribbon cables and routed via an interface flange of the \dwords{sftchimney}, are digitized by the \dword{amc} cards located %in the warm conditions 
 outside of the cryostat. These cards are %hosted 
-installed in \dword{utca} crates placed in the immediate vicinity of the \dword{sft} chimneys (one crate per chimney). %In the baseline version of the design currently used for \dword{pddp}, each \dword{amc} digitizes \num{64} channels corresponding to reading one \dword{fe} analog card. Each \dword{utca} in such case contains \num{10} \dwords{amc} reading a total of \num{640} channels. However, an implementation with \dwords{amc} supporting a higher channel density is also being investigated for cost reduction purposes.
+installed in \dword{utca} crates placed in the immediate vicinity of the \dwords{sftchimney} (one crate per chimney). %In the baseline version of the design currently used for \dword{pddp}, each \dword{amc} digitizes \num{64} channels corresponding to reading one \dword{fe} analog card. Each \dword{utca} in such case contains \num{10} \dwords{amc} reading a total of \num{640} channels. However, an implementation with \dwords{amc} supporting a higher channel density is also being investigated for cost reduction purposes.
 In the design for \dword{pddp}, each \dword{amc} digitizes \num{64} channels, corresponding to reading one \dword{fe} analog card. Each \dword{utca}  contains \num{10} \dwords{amc} reading a total of \num{640} channels. However, an implementation with \dwords{amc} supporting a higher channel density is being investigated for cost-reduction purposes. \fixme{I need a picture showing the AMC, the FC card, and the \dword{utca}!}
 
 The \dword{lro} \dword{fe} analog and digital electronics is based on a custom-built \dword{amc}. The card contains a \dword{catiroc} ASIC, which is used to determine %precisely 
@@ -194,7 +194,7 @@ the charge and start times of signals from each individual \dword{pmt} to high p
 upgrade is to increase the channel density per card to \num{32} channels. The \dword{lro} cards are housed in five dedicated \dword{utca} crates located close to the \dword{pmt} instrumentation feedthroughs.
 
 \begin{dunefigure}[Top corner view of \dword{dpmod}]{fig:dpele-sft-chimney-pattern}
-{Corner view of \dword{dpmod} showing the pattern of the \dword{sft} chimneys and \dword{utca} crates for charge readout above \dwords{crp}.}
+{Corner view of \dword{dpmod} showing the pattern of the \dwords{sftchimney} and \dword{utca} crates for charge readout above \dwords{crp}.}
 \includegraphics[width=0.6\textwidth]{dpele-sft-chimney-pattern}
 \end{dunefigure}
 \fixme{Need a similar picture for the LRO system. anne}
@@ -207,7 +207,7 @@ The \dword{mch} switch streams the data from \dwords{amc} via a dedicated optica
 
 The \dword{wrmch} time synchronization unit is based on the \dword{wr} system, which provides hardware and protocols for the network-based sub-\si{\nano\s} synchronization between a master and different slave nodes. The connection of the \dword{wrmch} to the \dword{wr} network is done via \SI{1}{Gbit/s} synchronous Ethernet optical link. \dword{wrmch} distributes the timing information for synchronization of the \dwords{amc} via the \dword{utca} backplane. In addition, this unit can be used to transmit triggers to the digitization units within the crate. This is achieved by sending it dedicated data packets containing trigger timestamp information. 
 
-Figure~\ref{fig:dpele-sft-chimney-pattern} shows a corner view of the \dword{dpmod} illustrating the pattern of the \dword{sft} chimneys and the attached \dword{utca} crates above the \dwords{crp}. Each crate/\dword{sft} chimney collects signals from \SI{3}{\meter} long strips of two \SI[product-units=power]{1x3}{\meter} \dword{crp} segments. Each chimney completely %traverses 
+Figure~\ref{fig:dpele-sft-chimney-pattern} shows a corner view of the \dword{dpmod} illustrating the pattern of the \dwords{sftchimney} and the attached \dword{utca} crates above the \dwords{crp}. Each crate/\dword{sftchimney} collects signals from \SI{3}{\meter} long strips of two \SI[product-units=power]{1x3}{\meter} \dword{crp} segments. Each chimney completely %traverses 
 penetrates the cryostat insulation layers (not shown in the figure). 
 %A cut-out view of the chimney illustrates the location of the \dword{fe} cards and provides the overall scale of this object. 
 
@@ -219,9 +219,9 @@ parameters of the TPC electronics system.]
 {Summary of some of the principal %numbers 
 parameters  of the TPC electronics system for charge and light readout of a \dword{dpmod}.}
 Name & Number  \\ \toprowrule
-   \dword{cro} \dword{sft} chimneys/\dword{utca} crates              &  \num{240}   \\ \colhline
-   \dword{cro} channels per \dword{sft} chimney/\dword{utca} crate & \num{640} \\ \colhline
-   \dword{cro} cryogenic analog \dword{fe} cards per \dword{sft} chimney    &  \num{10}     \\ \colhline
+   \dword{cro} \dwords{sftchimney}/\dword{utca} crates              &  \num{240}   \\ \colhline
+   \dword{cro} channels per \dword{sftchimney}/\dword{utca} crate & \num{640} \\ \colhline
+   \dword{cro} cryogenic analog \dword{fe} cards per \dword{sftchimney}    &  \num{10}     \\ \colhline
 %   \dword{cro} Cryogenic analog \dword{fe} cards (total)                   & \num{2400}  \\ \colhline
    \dword{cro} \dwords{amc} per \dword{utca} crate                       & \num{10}      \\ \colhline
 %   Charge readout \dwords{amc} (total)                                   & \num{2400}      \\ \colhline 
@@ -295,7 +295,7 @@ using the cryostat as the ground reference. The low-voltage power supplies for t
 using insulating transformers to ensure that %they could see 
 no other ground could interfere. %On the other hand, 
 In contrast, the design of the slow control system did not include any insulation transformers. This equipment was grounded to the building electrical network, thereby creating an interference with the ground of the cryostat. Stricter treatment of the ground connections, as %foreseen 
-implemented for \dword{pddp} and planned for the \dword{dpmod}, and a lower \dword{sft} chimney operating temperature of around \SI{110}{\kelvin} (from \SI{150}{\kelvin}) should help to further reduce the noise %levels 
+implemented for \dword{pddp} and planned for the \dword{dpmod}, and a lower \dword{sftchimney} operating temperature of around \SI{110}{\kelvin} (from \SI{150}{\kelvin}) should help to further reduce the noise %levels 
 from the levels observed in \dword{wa105}.
 
 
@@ -303,26 +303,26 @@ from the levels observed in \dword{wa105}.
 \subsection{Signal Feedthrough Chimneys}
 \label{sec:fddp-tpc-elec-design-sft}
 
-The \dword{sft} chimneys are designed to enable access to the \dword{fe} analog electronics for a potential repair or exchange while the \dword{dpmod} is filled and in operation. % (filled with the liquid argon). 
+The \dwords{sftchimney} are designed to enable access to the \dword{fe} analog electronics for a potential repair or exchange while the \dword{dpmod} is filled and in operation. % (filled with the liquid argon). 
 In addition, their metallic structure acts as a Faraday cage isolating the \dword{fe} ASICs from environmental interference.  Each \dword{sft} hosts \num{10} analog cryogenic \dword{fe} cards (reading \num{640} channels in total).  %Some of the 
 Details of the design are illustrated in Figure~\ref{fig:dpele-sft-chimney-design}. 
 \fixme{diff between ``SFT chimney'' and just SFT?}
 
-\begin{dunefigure}[Details of the \dword{sft} chimney design]{fig:dpele-sft-chimney-design}
+\begin{dunefigure}[Details of the \dword{sftchimney} design]{fig:dpele-sft-chimney-design}
 {Details of the \dword{sft} chimney design.}
 \includegraphics[width=0.8\textwidth]{dpele-sft-chimney-design}
 \end{dunefigure}
 
 The chimneys are closed at the bottom and top with vacuum-tight feedthrough flanges whose function is to dispatch the signal and slow control lines. The feedthrough at the bottom, the cold (signal) feedthrough, isolates (Ulta-High Vacuum tightness standard) the inner volume of the \dword{dpmod} from the chimney volume and interconnects the signals from the \dword{crp} to the analog \dword{fe} cards. The feedthrough at the top, the warm (signal) feedthrough, seals the chimney from the outside environment. It also passes the low voltage and control lines to the \dword{fe} electronics inside and brings out the differential analog signal lines from the \dword{fe} amplifiers. 
 
-The \dword{sft} chimney volume is filled with nitrogen gas at near-atmospheric pressure. The temperature inside the chimney can be adjusted using a heat exchanger copper coil cooled with \lar. It is located at the bottom close to the cold feedthrough around the \dword{fe} cards. %The functions of 
+The \dword{sftchimney} volume is filled with nitrogen gas at near-atmospheric pressure. The temperature inside the chimney can be adjusted using a heat exchanger copper coil cooled with \lar. It is located at the bottom close to the cold feedthrough around the \dword{fe} cards. %The functions of 
 This cooling system %are to 
 mitigates the heat input to the main \dword{dpmod} volume and provides an optimal (lowest noise) operating temperature for the \dword{fe} electronics of around \SI{110}{K}. A pressure release valve, indicated in Figure~\ref{fig:dpele-sft-chimney-design}, protects the structure from an accidental overpressure in the inner volume. 
 
-The expected heat input from a given \dword{sft} chimney is about \SI{20}{\watt}. This number includes the heat through the twisted-pair cables connected to the warm feedthrough, the heat in the  \dword{sft} outer metallic tube, as well as the heat dissipation by the \dword{fe} cards. A total heat input from all \num{240} \dword{sft} chimneys is at the level of \SI{5}{\kilo\watt}. 
+The expected heat input from a given \dword{sftchimney} is about \SI{20}{\watt}. This number includes the heat through the twisted-pair cables connected to the warm feedthrough, the heat in the  \dword{sft} outer metallic tube, as well as the heat dissipation by the \dword{fe} cards. A total heat input from all \num{240} \dwords{sftchimney} is at the level of \SI{5}{\kilo\watt}. 
 
 \begin{dunefigure}[\dword{sft} chimney cold flange]{fig:dpele-sft-cold-pcb}
-{\dword{sft} chimney cold feedthrough flange with one of the \dword{fe} cards mounted.}
+{\dword{sftchimney} cold feedthrough flange with one of the \dword{fe} cards mounted.}
 \includegraphics[width=0.6\textwidth]{dpele-sft-cold-pcb}
 \end{dunefigure}
 %%%%%%%%%%%% anne to here 4/13
@@ -330,7 +330,7 @@ The analog \dword{fe} cards are inserted directly onto the PCB of the cold feedt
 these rails guide the \dword{fe} cards to their respective connectors on the cold feedthrough. 
 
 Prior to the commissioning of a \dword{dpmod}, the chimneys are evacuated via a dedicated KF16 port (see Figure~\ref{fig:dpele-sft-chimney-design}) and then filled with nitrogen gas. This ensures the removal of % the 
-any moisture that would otherwise condense around the \dword{fe} cards, once the \dword{dpmod} is filled with the \lar, damaging the electronics. To access the \dword{fe} cards once the \dword{dpmod} is cold, the stainless steel flange at the top of the \dword{sft} chimney (Figure~\ref{fig:dpele-sft-chimney-design}) must be removed. This procedure requires continuous flushing of nitrogen gas at slight over-pressure (with respect to atmospheric) in order to prevent the humid air entering. % and generating condensation inside the chimney. 
+any moisture that would otherwise condense around the \dword{fe} cards, once the \dword{dpmod} is filled with the \lar, damaging the electronics. To access the \dword{fe} cards once the \dword{dpmod} is cold, the stainless steel flange at the top of the \dword{sftchimney} (Figure~\ref{fig:dpele-sft-chimney-design}) must be removed. This procedure requires continuous flushing of nitrogen gas at slight over-pressure (with respect to atmospheric) in order to prevent the humid air entering. % and generating condensation inside the chimney. 
 Once a chimney is opened, it is possible to extract the blades with the \dword{fe} cards after unplugging the flat cables (two per card) connected on the inner side of the warm flange (Figure~\ref{fig:dpele-sft-chimney-design}).
 
 The procedure to access the \dword{fe} cards \textit{at cold} was successfully tested during the operation of the \dword{wa105} detector. The %temperature at the 
@@ -504,11 +504,11 @@ Parameter & Value  \\ \toprowrule
 In the current design, as used for \dword{pddp}, the \dword{mch} operates with a \SI{10}{Gbit/s} uplink. Given that a \dword{utca} crate hosts \num{10} \dwords{amc} for charge readout, the required bandwidth to stream the data to \dword{daq} is about \SI{1.8}{Gbit/s}. This assumes that the data exiting the \dwords{amc} are losslessly compressed with the compression factor of \num{10}. The bandwidth required per crate link for streaming the \dword{lro} data is \SI{4.7}{Gbit/s}. The \SI{10}{Gbit/s} \dword{mch} is therefore sufficient to support these data rates. However, the technology is moving towards supporting the \SI{40}{Gbit/s} rates. In addition, the channel density per \dword{amc} could also be increased for cost optimization. For these reasons an upgrade to a \SI{40}{Gbit/s} \dword{mch} could be foreseen in the future. This would also imply that the optical links connecting the \dword{daq} system to \dword{utca} \dword{mch} should be operable at \SI{40}{Gbit/s}. A summary of the required and supported bandwidths per \dword{utca} crate for continous data streaming is provided in Table~\ref{tab:dp-utcabandwidth}.
 
 \begin{dunefigure}[Instrumented $\mu$TCA crate from the \dword{wa105}]{fig:dpele-311-utca-image}
-{Pictures of an instrumented \dword{utca} crate from \dword{wa105} detector. The crate contains five \dword{amc} cards, correspondingly to the number of readout channels per the \dword{sft} chimney. The images below show the crate after the  cables are connected to the warm flange of the \dword{sft} chimney.}
+{Pictures of an instrumented \dword{utca} crate from \dword{wa105} detector. The crate contains five \dword{amc} cards, correspondingly to the number of readout channels per the \dword{sftchimney}. The images below show the crate after the  cables are connected to the warm flange of the \dword{sftchimney}.}
 \includegraphics[width=0.6\textwidth]{dpele-311-utca-image}
 \end{dunefigure}
 
-As an illustration, Figure~\ref{fig:dpele-311-utca-image} shows pictures of one of the instrumented \dword{utca} crates used for the charge readout of \dword{wa105} at CERN. In this detector each \dword{sft} chimney reads \num{320} channels thus requiring only five \dwords{amc} per the \dword{utca} crate. The two optical fiber links, one (\SI{10}{Gbit/s}) for data and the other (\SI{1}{Gbit/s}) for clock/trigger timing distribution, are visible in the images.       
+As an illustration, Figure~\ref{fig:dpele-311-utca-image} shows pictures of one of the instrumented \dword{utca} crates used for the charge readout of \dword{wa105} at CERN. In this detector each \dword{sftchimney} reads \num{320} channels thus requiring only five \dwords{amc} per the \dword{utca} crate. The two optical fiber links, one (\SI{10}{Gbit/s}) for data and the other (\SI{1}{Gbit/s}) for clock/trigger timing distribution, are visible in the images.       
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Timing Distribution}
@@ -555,7 +555,7 @@ The production of the cryogenic ASICs and analog \dword{fe} cards is envisioned 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Signal Feedthrough Chimneys}
 \label{sec:fddp-tpc-elec-prod-sft}
-A number of items require manufacture in order to produce the \dword{sft} chimneys. These include 
+A number of items require manufacture in order to produce the \dwords{sftchimney}. These include 
 %The production of \dword{sft} chimneys consists of manufacturing 
 \begin{itemize}
 \item the PCB flanges for the warm and cold feedthrough flange interfaces, 
@@ -569,10 +569,10 @@ The flat cables that connect the \dword{fe} cards to the warm flange are commerc
 The %produced pieces 
 manufactured components are delivered to %one or %several more
 designated institutions participating in the \dual electronics consortium where teams verify the signal continuity %is verified 
-for both cold and warm flanges, then assemble them into \dword{sft} chimneys and test for leaks. %The \dword{sft} chimneys are then assembled and tested for leaks. 
+for both cold and warm flanges, then assemble them into \dwords{sftchimney} and test for leaks. %The \dwords{sftchimney} are then assembled and tested for leaks. 
 They also check the blade insertion, %is also checked 
  test the flat cables,  % are tested. The 
- then, once verified, pack the assembled \dword{sft} chimneys %are then packed 
+ then, once verified, pack the assembled \dwords{sftchimney} %are then packed 
  and ship them to SURF. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -582,7 +582,7 @@ They also check the blade insertion, %is also checked
 The timing system components, the  \num{16} \dword{wr} switches and the \num{245} \dword{utca} crates containing the power modules, carrier hubs (\dword{mch}), and fan units,  %commercial components. 
 are commercially available. The manufacturer takes the responsibility for the necessary quality control and quality assurance of these components, requiring no further testing on the part of the \dual electronics consortium. Once the components are delivered to the designated institutions, they can be sent to SURF for the installation. 
 
-The commerical VHDCI signal cables (connecting the \dwords{amc} to the \dword{sft} chimneys) are procured and tested with the \dword{sft} chimney warm flanges.
+The commerical VHDCI signal cables (connecting the \dwords{amc} to the \dwords{sftchimney}) are procured and tested with the \dword{sftchimney} warm flanges.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Low-voltage Power Supply System}
@@ -640,10 +640,10 @@ included in the integration effort.
 \section{Interfaces}
 \label{sec:fddp-tpc-elec-intfc}
 
-%The \dword{dpmod} TPC electronics system has interfaces to several other systems. The system must read the charge and light signals from the \dword{dpmod} and thus needs to interface to \dword{crp} and the photo-detection systems.  The digitized data must in turn be transmitted to \dword{daq} via the optical links in each \dword{utca} crate. The \dword{sft} chimneys need to be integrated into the cryostat structure and connected to the cryogenic/gas  system. The management of the low-voltage power supplies for the \dword{fe} analog electronics and \dword{utca} crates as well as the monitoring of various sensors in the \dword{sft} chimneys have to be part of the slow control. The features of these interfaces are described here, while Table~\ref{tab:dpele-interfaces} provides the references to the relevant interface documents.
+%The \dword{dpmod} TPC electronics system has interfaces to several other systems. The system must read the charge and light signals from the \dword{dpmod} and thus needs to interface to \dword{crp} and the photo-detection systems.  The digitized data must in turn be transmitted to \dword{daq} via the optical links in each \dword{utca} crate. The \dwords{sftchimney} need to be integrated into the cryostat structure and connected to the cryogenic/gas  system. The management of the low-voltage power supplies for the \dword{fe} analog electronics and \dword{utca} crates as well as the monitoring of various sensors in the \dwords{sftchimney} have to be part of the slow control. The features of these interfaces are described here, while Table~\ref{tab:dpele-interfaces} provides the references to the relevant interface documents.
 
 The \dual electronics system interfaces to several other systems, starting with the \dword{crp} and the \dword{pd} systems.  The digitized data must in turn %be transmitted 
-flow to the \dword{daq} via the optical links in each \dword{utca} crate. The \dword{sft} chimneys integrate into the cryostat structure and connect to the cryogenics and gas systems. The slow-control system takes on management of the low-voltage power supplies for the \dword{fe} analog electronics and \dword{utca} crates, and  monitors various sensors in the \dword{sft} chimneys. %have to be part of the slow control. 
+flow to the \dword{daq} via the optical links in each \dword{utca} crate. The \dwords{sftchimney} integrate into the cryostat structure and connect to the cryogenics and gas systems. The slow-control system takes on management of the low-voltage power supplies for the \dword{fe} analog electronics and \dword{utca} crates, and  monitors various sensors in the \dwords{sftchimney}. %have to be part of the slow control. 
 %The features of these interfaces are described here, while 
 Table~\ref{tab:dpele-interfaces} provides the references to the relevant interface documents for each interface, stored in the DUNE document database (DocDB).
 
@@ -670,7 +670,7 @@ Software and computing to \dword{dp} TPC electronics & 7117 \\
 \label{sec:fddp-tpc-elec-intfc-crppmt}
 \fixme{clarify CRO vs LRO anne}
 
-The cold feedthrough flange of the \dword{sft} chimneys forms the interface between the \dword{crp} and the TPC electronics systems. 
+The cold feedthrough flange of the \dwords{sftchimney} forms the interface between the \dword{crp} and the TPC electronics systems. 
 
 On the side facing the cryostat the flange PCB has \num{20} \num{68}\,pin connectors (KEL 8930E-068-178MS-F) for plugging the flat cables from the \dword{crp}. These are \num{68}\,channel twisted-pair flat cables, each carrying signals from \num{32} anode strips and are part of the \dword{crp} system. Each analog \dword{fe} card reads \num{64} anode strips, i.e., % implying receiving 
 signals from two KEL connectors. The order in which the cables are connected %into 
@@ -680,7 +680,7 @@ Figure~\ref{fig:dpele-sft-cold-flange} shows two images of the cold feedthrough 
 %%%%%%%%%  Anne to here EOB 4/16
 
 \begin{dunefigure}[Images of \dword{wa105} \dword{sft} cold feedthrough]{fig:dpele-sft-cold-flange}
-{Images of \dword{wa105} \dword{sft} cold feedthrough with the \dword{fe} cards inserted (right) and signal cables from \dword{crp} connected (left). The \dword{wa105} \dword{sft} chimneys read only \num{320} channels thus requiring \num{5} \dword{fe} cards.}
+{Images of \dword{wa105} \dword{sft} cold feedthrough with the \dword{fe} cards inserted (right) and signal cables from \dword{crp} connected (left). The \dword{wa105} \dwords{sftchimney} read only \num{320} channels thus requiring \num{5} \dword{fe} cards.}
 \includegraphics[width=0.8\textwidth]{dpele-sft-cold-flange}
 \end{dunefigure}
 
@@ -722,12 +722,12 @@ The software interface between the \dword{daq} and the electronics systems
 \subsection{Electronics System to Cryostat and Cryogenics}
 \label{sec:fddp-tpc-elec-intfc-cryo}
 
-The interface point between the cryostat and the \dual electronics system is at the cryostat penetrations where the \dword{sft} chimneys are %to be 
+The interface point between the cryostat and the \dual electronics system is at the cryostat penetrations where the \dwords{sftchimney} are %to be 
 installed. Each penetration %should 
 accommodates the chimney (of external diameter \SI{254}{\mm}). Each chimney has a CF-273 flange welded to its outer structure (see Figure~\ref{fig:dpele-sft-chimney-crosspipe}). After the chimney is inserted, this flange is in contact with the corresponding flange on the crossing (or penetration) pipe embedded in the cryostat structure to which it is eventually fastened. In order to avoid any leaks at this interface a CF-273 copper gasket is used to ensure the vacuum tightness.  
 
-\begin{dunefigure}[Details of \dword{sft} chimney interface to the cryostat structure]{fig:dpele-sft-chimney-crosspipe}
-{Details of \dword{sft} chimney interface to the cryostat structure.}
+\begin{dunefigure}[Details of \dword{sftchimney} interface to the cryostat structure]{fig:dpele-sft-chimney-crosspipe}
+{Details of \dword{sftchimney} interface to the cryostat structure.}
 \includegraphics[width=0.7\textwidth]{dpele-sft-chimney-crosspipe}
 \end{dunefigure}
 
@@ -736,13 +736,13 @@ a connection for nitrogen gas line with the same pipe dimensions as those for th
 is used for filling the chimney after it is closed following the installation of the \dword{fe} electronics. The nitrogen line is also required for flushing the chimney in the case of an access to the \dword{fe} cards after the \dword{dpmod} is cooled for the operation. \fixme{does last sentence belong here?}
 
 The \dword{utca} crates for charge readout %need to be 
-are installed within a short \SI{<0.5}{\meter} distance from the \dword{sft} chimneys on top of the cryostat roof. The five \dword{utca} crates for the light readout are also placed on the roof of the cryostat at optimal locations defined by the routing of the \dword{pmt} signal cables. The required volume to accommodate the crates is roughly \SI[product-units=power]{60x50x40}{\cm}. 
+are installed within a short \SI{<0.5}{\meter} distance from the \dwords{sftchimney} on top of the cryostat roof. The five \dword{utca} crates for the light readout are also placed on the roof of the cryostat at optimal locations defined by the routing of the \dword{pmt} signal cables. The required volume to accommodate the crates is roughly \SI[product-units=power]{60x50x40}{\cm}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electronics System to Slow Control System}
 \label{sec:fddp-tpc-elec-intfc-sc}
 
-The integration with the slow control of the low-voltage power supply system for the \dword{fe} cards and \dword{utca} crates is required to enable the remote management and monitoring (current consumption by ASICs, set voltage, etc.). In addition, the \dword{sft} chimneys contain several sensors that need to be monitored. These include a pressure transducer that measures the pressure inside the chimney and at least two temperature probes (PT1000) that monitor the gas temperature inside near the cold flange at the bottom and close to the warm flange at the top.  
+The integration with the slow control of the low-voltage power supply system for the \dword{fe} cards and \dword{utca} crates is required to enable the remote management and monitoring (current consumption by ASICs, set voltage, etc.). In addition, the \dwords{sftchimney} contain several sensors that need to be monitored. These include a pressure transducer that measures the pressure inside the chimney and at least two temperature probes (PT1000) that monitor the gas temperature inside near the cold flange at the bottom and close to the warm flange at the top.  
 \fixme{specify who is responsible for what}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -751,11 +751,11 @@ The integration with the slow control of the low-voltage power supply system for
 %\fixme{provide rough dimensions for boxes, chimney weights?}
 %\fixme{specify that the chimneys are to be delivered for the installation underground and positioned around the cryostat on top.}
 
-The \dword{sft} chimneys are \SI{2350}{\mm} long %objects with the weight of 
+The \dwords{sftchimney} are \SI{2350}{\mm} long %objects with the weight of 
 and weigh \SI{180}{\kg}.  The cold and warm flanges are mounted on them at the assembly site, and the chimneys undergo leak-testing prior to shipping in wooden crates (approximate dimensions \SI[product-units=power]{2.5x0.5x0.5}{m}). %, and arrive with the cold and warm flanges already mounted. 
 Once at SURF the crates are moved underground and placed on the roof of the cryostat by the \dword{uit}. The %personnel from the 
 \dual electronics consortium %then proceeds 
-is then responsible for unpacking the crates and installing the \dword{sft} chimneys. %The chimneys are delivered with the cold and warm flanges already mounted and after they have been tested for leaks by one or several participating institutions.  
+is then responsible for unpacking the crates and installing the \dwords{sftchimney}. %The chimneys are delivered with the cold and warm flanges already mounted and after they have been tested for leaks by one or several participating institutions.  
 \fixme{ I took out mention of ``one or several participating institutions'' Why not put that in section~\ref{sec:fddp-tpc-elec-design-sft}?}
 
 The boxes containing the electronic cards and \dword{utca} crates are also handled by \dual electronics consortium personnel. These are expected to be lightweight and %could be easily carried. 
@@ -765,7 +765,7 @@ easy to carry. \fixme{transport info on the cards?}
 \section{Installation, Integration and Commissioning}
 \label{sec:fddp-tpc-elec-install}
 
-The installation of the TPC electronics systems proceeds in several stages. In order to cable the \dwords{crp} to the \dword{sft} chimneys, %these 
+The installation of the TPC electronics systems proceeds in several stages. In order to cable the \dwords{crp} to the \dwords{sftchimney}, %these 
  the chimneys \fixme{check} %have to be 
 are installed first, prior to the start of the \dword{crp} installation inside the cryostat. %After the chimneys are installed 
 Next the \dword{fe} cards %could be 
@@ -781,8 +781,8 @@ Once the \dword{utca} crates are installed and all the digital cards are inserte
 \subsection{SFT Chimneys}
 \label{sec:fddp-tpc-elec-install-sft}
 
-The installation of the \dword{sft} chimneys requires a compact gantry crane with %the supports 
-movable supports along the length of the cryostat. The crane itself moves along the transverse direction. The crates containing the \dword{sft} chimneys are placed along the edges of the cryostat roof. An unpacked chimney is hoisted and transported to %its respective 
+The installation of the \dwords{sftchimney} requires a compact gantry crane with %the supports 
+movable supports along the length of the cryostat. The crane itself moves along the transverse direction. The crates containing the \dwords{sftchimney} are placed along the edges of the cryostat roof. An unpacked chimney is hoisted and transported to %its respective 
 the appropriate penetration crossing pipe for installation. Once in place, the chimney is fastened to the flange on the crossing pipe. %The length of each chimney is about \SI{2.4}{m}. 
 Enough overhead room to accommodate a chimney's \SI{2.4}{m} length is required
 %should therefore be foreseen 
@@ -790,7 +790,7 @@ to allow to free movement of the chimney with the crane along the direction tran
 
 In parallel with the chimney installation, the \dword{fe} cards are unpacked on top of the cryostat and mounted on the blades.  
  \fixme{Is this necessary: ``This work is performed on the roof of the cryostat to avoid repackaging the blades after the assembly in order to bring them on top of the cryostat.''?} 
-With \dword{sft} chimneys secured in the cryostat structure, the blades with mounted \dword{fe} cards %can be inserted and the chimney can be sealed. 
+With \dwords{sftchimney} secured in the cryostat structure, the blades with mounted \dword{fe} cards %can be inserted and the chimney can be sealed. 
 are inserted prior to sealing the chimney.
 %At this stage, the connections with the pipes for the liquid argon and gas nitrogen delivery could also be made, if these latter have already been installed. The pressure probes and temperature sensors can be connected to the slow control system.
 At this stage, if the \lar and gas nitrogen delivery pipes are already installed \fixme{will the sequence be known?} it is possible to make the connections with them and to connect the pressure probes and temperature sensors to the slow control system.
@@ -801,7 +801,7 @@ At this stage, if the \lar and gas nitrogen delivery pipes are already installed
 \label{sec:fddp-tpc-elec-install-utca}
 
 The installation of the \dword{utca} crates with the digital electronics %should happen 
-takes place in the final stage of the \dword{dpmod} installation to avoid damaging the fragile equipment. The crates are placed in their designated positions on the cryostat and connected to the power distribution network. The \dword{amc} cards and \dword{wrmch} modules are inserted in their slots. The VHDCI cables are then attached connecting the \dword{cro} \dwords{amc} to the warm flange interface of the \dword{sft} chimneys.  The fibers from the timing system are connected to \dword{wrmch}. 
+takes place in the final stage of the \dword{dpmod} installation to avoid damaging the fragile equipment. The crates are placed in their designated positions on the cryostat and connected to the power distribution network. The \dword{amc} cards and \dword{wrmch} modules are inserted in their slots. The VHDCI cables are then attached connecting the \dword{cro} \dwords{amc} to the warm flange interface of the \dwords{sftchimney}.  The fibers from the timing system are connected to \dword{wrmch}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Infrastructure}
@@ -837,7 +837,7 @@ is connected to specified inputs on the cards.
 \subsection{Comissioning}
 \label{sec:fddp-tpc-elec-comission}
 
-The \dword{sft} chimneys are commissioned as a first step. This consists of evacuating and then filling them with nitrogen gas at slight overpressure with respect to %the atmospheric. % pressure. 
+The \dwords{sftchimney} are commissioned as a first step. This consists of evacuating and then filling them with nitrogen gas at slight overpressure with respect to %the atmospheric. % pressure. 
 %To ensure that no damage happened to the flange interfaces during installation, the chimney vacuum tightness can be verified again at this stage by checking leak rate when the chimney is under vacuum and monitoring the nitrogen pressure once it is filled.
 It is necessary to check the leak rate when the chimney is under vacuum and to monitor the nitrogen pressure once it is filled in order to verify that no damage occurred to the flange interfaces during installation.
 
@@ -875,14 +875,14 @@ The design of the \dual electronics system takes into account several risk facto
 The \dword{fe} cards should include suitable protection components. The TVS diodes used in the current design  have been sufficient to protect the electronics in \dword{wa105} detector. 
  In addition, the cards are accessible and could be replaced if damaged. }
  
-\item{\textbf{Overpressure in the \dword{sft} chimneys}: The \dword{sft} chimneys are equipped with safety valves that vent the excess gas in case of the sudden pressure rise. The overpressure threshold %should 
+\item{\textbf{Overpressure in the \dwords{sftchimney}}: The \dwords{sftchimney} are equipped with safety valves that vent the excess gas in case of the sudden pressure rise. The overpressure threshold %should 
 shall be set low enough such that no significant damage could happen to the flanges. }
 
 \item{\textbf{Leak of nitrogen inside the \dword{dpmod} via cold flange}: The chimney volume %would be
 is  filled with argon gas instead of nitrogen.}
 
-\item{\textbf{Mechanical problems with \dword{fe} card extraction due to insufficient overhead clearance}: %In case of insufficient overhead space it would not be possible to extract the blades from the \dword{sft} chimneys. This is addressed by making the requirement for LBNF to ensure there is always enough clearance around the chimneys.}
-This is addressed by imposing a requirement for LBNF to ensure enough overhead clearance to extract the blades from the \dword{sft} chimneys.}
+\item{\textbf{Mechanical problems with \dword{fe} card extraction due to insufficient overhead clearance}: %In case of insufficient overhead space it would not be possible to extract the blades from the \dwords{sftchimney}. This is addressed by making the requirement for LBNF to ensure there is always enough clearance around the chimneys.}
+This is addressed by imposing a requirement for LBNF to ensure enough overhead clearance to extract the blades from the \dwords{sftchimney}.}
 \item{\textbf{Data flow increase due to inefficient compression caused by higher noise}: Currently there is a factor of \num{5} margin in the available bandwidth with \SI{10}{Gbit/s} \dword{mch}.} 
 \item{\textbf{Damage to \dword{utca} crates due to presence of water on the roof of the cryostat}: This is addressed by imposing a requirement for LBNF to ensure that the top cryostat surface remains dry.}
 \item{\textbf{Problems with the ventilation system of the \dword{utca} crates due to bad air quality}: Normal conditions similar to any industrial environment (e.g., at CERN or Fermilab) %should 
@@ -898,7 +898,7 @@ for proper crate functioning. It is important to avoid liberation of large quant
 %Obsoleteness of electronic components over the period of experiment & \\ \colhline
 %Modification to \dword{fe} electronics due to evolution in design of photon detectors & \\ \colhline
 %Damage to electronics due HV discharges or other reasons & \\ \colhline
-%Overpressure in the \dword{sft} chimneys & \\ \colhline
+%Overpressure in the \dwords{sftchimney} & \\ \colhline
 %Leak of nitrogen inside the detector via cold flange & \\ \colhline
 %Mechanical problems with \dword{fe} card extraction & \\ \colhline
 %Data flow increase due to inefficient compression caused by higher noise & \\ \colhline
