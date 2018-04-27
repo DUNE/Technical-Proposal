@@ -102,6 +102,10 @@ Volume 2: \textit{The Single-Phase Far Detector\xspace}
 \def\lartemp{\SI{88}\,K\xspace}
 \def\larmass{\SI{17.5}{\kt}\xspace} % full mass in cryostat
 \def\tpcheight{\SI{12.0}{\meter}\xspace} % height of SP TPC, APA, CPA and of DP TPC
+\def\cryostatht{\SI{14.1}{\meter}\xspace} % height of cryostat
+\def\cryostatlen{\SI{62.0}{\meter}\xspace} % height of cryostat
+\def\cryostatwdth{\SI{14.0}{\meter}\xspace} % height of cryostat
+\def\nominalmodsize{\SI{10}{kt}\xspace} % nominal module size 10 kt
 
 % Parameters SP
 \def\spmaxfield{\SI{500}{\volt/per\centi\meter}} % SPfield strength
@@ -110,17 +114,28 @@ Volume 2: \textit{The Single-Phase Far Detector\xspace}
 \def\sptpclen{\SI{58}{\meter}\xspace} % length of SP TPC, APA, CPA
 \def\apacpapitch{\SI{2.32}{\meter}\xspace} % pitch of SP CPAs and APAs
 \def\spfcmodlen{\SI{3.5}{\m}} % length of SP FC module
-
+\def\spnumch{\num{384000}\xspace} % total number of readout channels 
 \def\uvpitch{\SI{4.669}{\milli\meter}\xspace}
 \def\xgpitch{\SI{4.790}{\milli\meter}\xspace}
 \def\planespace{\SI{4.75}{\milli\meter}\xspace}
 
 % Parameters DP
 \def\dpactivelarmass{\SI{12.096}{\kt}\xspace} % active mass in cryostat
-\def\dpmaxdrift{\SI{12}{\m}\xspace}
-
-
-% What other parameters to include?  Wire spacings? Drift lengths? Decay pipe length?
+\def\dpfidlarmass{\SI{10.643}{\kt}\xspace} % active mass in cryostat
+\def\dpmaxdrift{\SI{12}{\m}\xspace} % max drift length
+\def\dptpclen{\SI{60}{\meter}\xspace} % length of TPC
+\def\dptpcwdth{\SI{12}{\meter}\xspace} % width of TPC
+\def\dpswchpercrp{\num{36}\xspace} % number of anode/lem sandwiches per CRP 
+\def\dpnumswch{\num{2880}\xspace} % total number of anode sandwiches in module
+\def\dptotcrp{\num{80}\xspace} % total number of CRPs in module
+\def\dpchpercrp{\num{1920}\xspace} %  channels per CRP
+\def\dpnumcrpch{\num{153600}\xspace} % total number of CRP channels in module
+\def\dpchperchimney{\num{6400}\xspace} %  channels per chimney
+\def\dpnumpmtch{\num{720}\xspace} % number of PMT channels
+\def\dpstrippitch{\SI{3.125}{\milli\meter}\xspace} % pitch of anode strips
+\def\dpnumfcmod{\num{244}\xspace} % number of FC modules
+\def\dpnumfcres{\num{240}\xspace} % number of FC resistors
+\def\dpnumfcrings{\num{60}\xspace} % number of FC rings
 
 % Nominal readout window time
 %% SP has 2.25ms drift time.  The readout is 2*dt + 20%*dt extra.
@@ -153,6 +168,7 @@ Volume 2: \textit{The Single-Phase Far Detector\xspace}
 \newcommand{\Lbl}{Long-baseline\xspace}
 \newcommand{\rms}{RMS\xspace} % Might want this small caps?
 \newcommand{\threed}{3D\xspace}
+\newcommand{\twod}{2D\xspace}
 
 %detectors and modules
 \newcommand{\fardet}{Far Detector\xspace}
