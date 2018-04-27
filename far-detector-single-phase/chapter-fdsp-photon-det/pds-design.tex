@@ -7,7 +7,7 @@
 %dww edits 16mar18
 %rjw edits 15-17mar18
 
-The principal task of the \dword{spmod}\dword{pds} is to measure the \dword{vuv} scintillation light produced by ionizing tracks in the TPC within the geometrical constraints of the \dword{apa} structure. A commercially available compact solution for photon measurement is the \dword{sipm}, however, the response of the devices, which typically peaks in the visible range (>\SI{400}{nm}) is not well-matched to incident \SI{128}{nm} scintillation photons, so a wavelength shifter or some sort must be employed. 
+The principal task of the \dword{spmod}\dword{pds} is to measure the \dword{vuv} scintillation light produced by ionizing tracks in the TPC within the geometrical constraints of the \dword{apa} structure. A commercially available compact solution for photon measurement is the \dword{sipm}, however, the response of the devices, which typically peaks in the visible range (>\SI{400}{nm}) is not well-matched to incident \SI{127}{nm} scintillation photons, so a wavelength shifter or some sort must be employed. 
 In addition, even though production cost and key performance parameters have improved significantly in recent years, the cost of the readout electronics (channel count) and the \dword{sipm}s needed to meet the physics requirements of the \dword{pds} would be prohibitive. 
 
 The photon collector must optimize the costs of various components of the system while meeting the performance requirements.  In practice, this consists of collecting \dword{vuv} photons over an area of hundreds of square-meters (viewing the entire \SI{10}{kt} \lar fiducial mass), converting the photons to longer wavelengths and guiding them onto \dwords{sipm} that are typically O(cm$^2$). For reference, an array of \num{48} \dwords{sipm}
@@ -60,7 +60,7 @@ where R is the average value of the reflectivity of the internal surfaces; for a
 %\subsubsection{Measurements performed in Brazil}
 \label{subsec:testlnls}
 
-ARAPUCA prototypes with different configurations have been tested in \lar at multiple facilities. In each case, the first wavelength shift of \SI{128}{nm} scintillation photons down to \SI{350}{nm} that can pass through the filter substrate was performed by p-TerPhenyl (pTP) evaporated onto the outside of a dichroic filter window. 
+ARAPUCA prototypes with different configurations have been tested in \lar at multiple facilities. In each case, the first wavelength shift of \SI{127}{nm} scintillation photons down to \SI{350}{nm} that can pass through the filter substrate was performed by p-TerPhenyl (pTP) evaporated onto the outside of a dichroic filter window. 
 
 The first prototype was made of PTFE with internal dimensions of \SI{3.5}{cm}$\times$\SI{2.5}{cm}$\times$\SI{0.6}{cm} with a window formed from a dichroic filter with dimensions of \SI{3.5}{cm}$\times$\SI{2.5}{cm} and wavelength cut-off at \SI{400}{nm}. 
 TetraPhenyl-Butadiene (\dword{tpb}) was evaporated onto the internal side of the filter where it absorbs the shifted \SI{350}{nm} photons and reemits around \SI{430}{nm}. Trapped light is detected by a single \SI{0.6}{cm}$\times$\SI{0.6}{cm} sensL \dword{sipm} mod C60035\footnote{http://sensl.com/products/c-series/}.
@@ -401,14 +401,14 @@ address inherent device characteristics (gain, dark rate, x-talk, after-pulsing 
 Experience acquired from \dword{pdsp} construction and operation will inform QA/QC plans for the full detector, which will need to be delineated in detail.
 
 \item The optimal \dword{sipm} may depend on the photon collector option selected.  All 
-options currently being considered involve shifting the 128~nm \lar scintillation light to 
+options currently being considered involve shifting the \SI{127}{nm} \lar scintillation light to 
 longer wavelengths, but each may present a different  spectral distribution to the \dword{sipm}. 
 In this case, final selection of the \dword{sipm} might be delayed to allow an optimal match to the photon collector. 
 However, we would not expect this fine-tuning to be more than a 15-20\% effect, so it is not a driving factor.
 
 \item For the light guide photon collector designs, the \dword{sipm} packaging should allow for tileable arrays to be constructed to facilitate high packing efficiency across the end of the bars and efficient space utilization inside the \dword{apa} frame. 
 
-\item Current candidate \dwords{sipm} have an area of less than \SI{1}{cm$^2$}, a much finer granularity than needed. In addition, the cold feedthrough size and space in the \dwords{apa} for cable runs limits  the number of \dword{pd} signal and power cables. These constraints, and other considerations, imply that the signal output of \dwords{sipm} must be electrically ganged. The degree of ganging depends on the photon collectors technology and currently ranges from \num{6}~\dwords{sipm} for the light guides to \num{48} or more for the ARAPUCA modules. Whether simple passive-ganging (wiring the outputs together) will suffice or if active-ganging (with active components) is under investigation as a joint responsibility of the photon sensor and electronics working groups (see Section~\ref{sec:fdsp-pd-elec-intro} for more details).
+\item Current candidate \dwords{sipm} have an area of less than \SI{1}{cm$^2$}, a much finer granularity than needed. In addition, the cold feedthrough size and space in the \dwords{apa} for cable runs limits  the number of \dword{pd} signal and power cables. These constraints, and other considerations, imply that the signal output of \dwords{sipm} must be electrically ganged. The degree of ganging depends on the photon collectors technology and currently ranges from six \dwords{sipm} for the light guides to \num{48} or more for the ARAPUCA modules. Whether simple passive-ganging (wiring the outputs together) will suffice or if active-ganging (with active components) is under investigation as a joint responsibility of the photon sensor and electronics working groups (see Section~\ref{sec:fdsp-pd-elec-intro} for more details).
 
 \item The terminal capacitance of the sensors strongly affects the signal-to-noise when devices are ganged in parallel and so is a factor in \dword{sipm} selection, and may ultimately determine the maximum number of individual sensors that can be ganged this way. 
 
