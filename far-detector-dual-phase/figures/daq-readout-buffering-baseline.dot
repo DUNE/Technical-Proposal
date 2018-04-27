@@ -167,7 +167,7 @@ digraph top {
                         }
                 }
                 subgraph cluster_daqblob {
-                        label="Single-Phase Module Back-end Computing";
+                        label="Detector Module Back-end Computing";
                         labelloc=top;
                         
                         eb[label="Event Builder"];
