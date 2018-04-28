@@ -53,13 +53,13 @@ Significant discrepancies between real data and simulations can have potential i
   \includegraphics[height=0.4\textwidth]{cisc_cfd_inlet_z52.png}
 \end{dunefigure}
 
-Figure\ \ref{fig:cfd-example} shows an example of the temperature
+Figure~ref{fig:cfd-example} shows an example of the temperature
 distribution on a plane intersecting a \dword{lar} inlet and at a
 plane halfway between an inlet and an outlet; the geometry used for
 this simulation is shown in Figure\ \ref{fig:cfd-example-geometry}.
 Note the plume of higher temperature \dword{lar} between the walls and
 the outer APA on the inlet plane.  The current locations of instrumentation in
-the cryostat as shown in Figure\ \ref{fig:sp-slow-cryo-ports} were
+the cryostat as shown in Figure~ref{fig:sp-slow-cryo-ports} were
 determined using the temperature and impurity distributions from these
 previous simulations.
 
@@ -74,12 +74,12 @@ previous simulations.
   \includegraphics[width=0.8\textwidth]{cisc_cfd_inlet-outlet-layout}
 \end{dunefigure}
 
-The initial strategy for the future \dword{cfd} simulation effort is to understand the performance of ProtoDUNE cryogenics system and model the far detectors to derive requirements for instrumentation devices.
+The initial strategy for the future \dword{cfd} simulation effort is to understand the performance of \dword{protodune} cryogenics system and model the \dwords{fd} to derive requirements for instrumentation devices.
 The following is a prioritized set of studies planned to help drive the requirements for other systems:
 \begin{enumerate}
 \item Review the DUNE \dword{fd} cryogenics system design and verify the current implementation in simulation; this is important to ensure that the model represents what will be built.
-\item Model the ProtoDUNE liquid and gas regions with the same precision as the \dword{fd}; presently only liquid model exists; the liquid model will be needed to interpret the thermometer data and the gas model is needed to understand how to place thermometers in the ullage and verify the design of gaseous argon purge system.
-\item Perform a \dword{cfd} study to determine the feasibility of a wier for DP; this will help determine if it can be used to clean the liquid argon surface before the extraction grid is submerged in DP.
-\item Verify the DUNE \dword{fd} \single \dword{cfd} model in simulation performed by LBNF; this will define the requirements for instrumentation devices ({\em e.g.}\ thermometry).
-\item Model the \dword{pddp} liquid and gas regions with the same precision as the \dword{fd}.
+\item Model the \dword{pddp}  liquid and gas regions with the same precision as the \dword{fd}; presently only liquid model exists; the liquid model will be needed to interpret the thermometer data and the gas model is needed to understand how to place thermometers in the ullage and verify the design of gaseous argon purge system.
+\item Perform a \dword{cfd} study to determine the feasibility of a wier for \dual; this will help determine if it can be used to clean the \lar surface before the extraction grid is submerged in the \dword{dpmod}.
+\item Verify the \dword{spmod} \single \dword{cfd} model in simulation performed by LBNF; this will define the requirements for instrumentation devices (e.g., thermometry).
+\item Model the \dword{pddp} liquid and gas regions with the same precision as the \dword{fd}. \fixme{same as a previous bullet}
 \end{enumerate}
