@@ -36,14 +36,14 @@ The overall data flow, higher level triggering and building of
 This processing begins with the data being received by the
 \dword{felix} PCIe board hosted in the \dword{fec}. 
 The \dword{felix} board performs a DMA transfer of the data into the
-\dword{ringbuffer} for the \dword{daqfrag} which resides in the
+\dword{daqbuf} for the \dword{daqfrag} which resides in the
 \dword{fec} host system RAM.
 This buffer is sized to hold ten seconds of data assuming the maximum,
 uncompressed input rate associated with the fragment.
 While data is being written to the buffer, data a delayed portion is
 also being read in order to dispatch it for various purposes.
 Any and all requests to further dispatch a subset of this data from
-the \dword{ringbuffer} must arrive within this buffer time.
+the \dword{daqbuf} must arrive within this buffer time.
 In the nominal design, the only dispatching will be from a request
 made by an \dword{eb} (described more below) on its receipt of a
 \dword{trigcommand}. 
@@ -67,14 +67,14 @@ initiated by normal (non-\dword{snb}) \dwords{trigcommand} is
 identical. 
 This dispatch, commonly termed ``event building'' involves collection
 of data spanning an identical and continuous period of time from
-multiple \dwords{ringbuffer} across the DAQ.
+multiple \dwords{daqbuf} across the DAQ.
 As introduced above, each \dword{trigcommand} is consumed by an
 \dword{eb} process. 
 It will use fragment address information in the \dword{trigcommand} to
 query the \dword{daqds} process representing each referenced
 \dword{daqfrag} and accept the returned a \dword{datafrag}.
 In the exceptional case that the delay of this request was so large
-that the \dword{ringbuffer} no longer contains the data then an error
+that the \dword{daqbuf} no longer contains the data then an error
 return will be supplied and recorded by the \dword{eb} in place of the
 lost data. 
 Such failures lead to indicators displayed by the detector operation
@@ -131,7 +131,7 @@ While it is performing this dump it must continue to form
 \dwords{trigprimitive} and pass them and the full data stream to the
 connected \dword{fec}.
 
-In the alternative design the same \dword{ringbuffer} provides the
+In the alternative design the same \dword{daqbuf} provides the
 \snbpretime of pre-trigger \dword{snb} buffering. 
 Like in the nominal case, it must rely on fast, local \dword{ssd}
 storage to sink the dump. 

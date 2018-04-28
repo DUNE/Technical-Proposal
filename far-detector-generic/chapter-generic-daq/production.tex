@@ -8,22 +8,30 @@ The DUNE FD DAQ system comprises the classes of components listed below. In each
 
 \subsubsection{Custom electronic modules}
 
-Custom electronic modules, specified and designed by the DAQ consortium,
-will be used for real-time data processing (in the case of the SP TPC
-detector) and for interfacing detector electronics to the DAQ computing
-system. In the baseline system design, these modules are in ATCA blade
-and PCIe expansion card format respectively. They are likely to be based
-on the existing COB and FELIX designs used in ProtoDUNE-SP, but will be
-new versions of these modules optimised for DUNE requirements. It is
-possible that we will make use of commercially-designed hardware in one
-or other of these roles. DAQ consortium institutes have significant
-experience in the design and production of high performance digital
-electronics for previous experiments. Our strategy is therefore to carry
-out design in-house, manufacturing and QA steps in industry, and testing
-and QC procedures at a number of specialised centres. Where technically
-and economically feasible, modules will be split into subassemblies
-({\it e.g.} carrier board plus processing daughtercards), allowing
-production tasks to be spread over more consortium institutes.
+
+Custom electronic modules, specified and designed by the DAQ
+consortium, will be used for two functional components in the DAQ
+front-end. 
+First is for interfacing with detector electronics to the DAQ
+\dword{fec} systems which are likely to be based on the \dword{felix}
+PCIe board.
+The other is for real-time data processing (particularly for the
+\dword{sp} \dword{detmodule}) which will likely be based on the
+\dword{cob} \dword{atca} blade.
+Both designs have current implementation in use in the \dword{pdsp}
+experiment and new designs will be developed which are optimized for
+DUNE requirements.
+It is possible that we will make use of commercially-designed hardware
+in one or other of these roles. DAQ consortium institutes have
+significant experience in the design and production of high
+performance digital electronics for previous experiments.
+Our strategy is therefore to carry out design in-house, manufacturing
+and QA steps in industry, and testing and QC procedures at a number of
+specialized centers.
+Where technically and economically feasible, modules will be split
+into subassemblies ({\it e.g.} carrier board plus processing
+daughtercards), allowing production tasks to be spread over more
+consortium institutes.
 
 DUNE electronic hardware will be of relatively high performance by commercial standards, and will contain high value subassemblies such as large FPGAs. Achieving a high yield will require significant effort in design verification, prototyping and pre-production tests, as well as in tendering and vendor selection. The production schedule is largely driven by these stages and the need for thorough testing and integration with firmware and software before installation, rather than by the time for series hardware manufacture. This is somewhat different to the majority of other DUNE FD components.
 

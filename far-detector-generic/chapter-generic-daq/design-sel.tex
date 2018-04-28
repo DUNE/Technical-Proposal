@@ -81,11 +81,19 @@ triggering, and will not depend on the noise environment across
 In addition, the wide \dword{readout window} ensures that the data of
 all associated activity is recorded.
 As generous as it is, it is estimated that this \dword{readout window}
-will not produce an unmanageable volume of data. 
-We anticipate, however, that as we gain experience running DUNE the
-overall data volume will reduced by writing out data from only a
-subset of \dwords{fec} for any given \dword{trigcommand}, and possibly
-by reducing the size of the readout window.
+will not produce an unmanageable volume of data.
+As shown in table~\ref{tab:daq-data-rates}, the uncompressed selected
+data from the \dword{sp} \dword{detmodule} will fill about half of the
+nominal annual data budget. 
+The longer DP drift and fewer channels will give approximately the
+same data rate. 
+However, once a modest amount of lossless compression is applied the
+nominal data budget can be met. 
+Early running will allow experience to be gained and more advanced
+data selection algorithms to be validated allowing the DAQ to discard
+the many \dwords{datafrag} in each trigger which will be consistent
+with just electronics noise. 
+This has the potential for at least another factor of ten reduction.
 
 Other trigger streams---calibrations, random triggers, and prescales
 of various trigger thresholds, will also be generated at the
@@ -236,7 +244,7 @@ The \dword{mtl} is also responsible to include in the
 \dword{trigcommand} a global timestamp built from its input
 \dwords{trigcandidate}, and information on what type of trigger was
 created. 
-A log of all \dwords{trigcandidate} will also be kept, whether or not
+Information on \dwords{trigcandidate} will also be kept, whether or not
 they contribute to the formation of a \dword{trigcommand}. 
 As described above, the \dword{readout window} for nominal
 \dwords{trigcommand} (those other than for \dword{snb} candidates)

@@ -55,7 +55,7 @@ was analysed, and it was found that 97\% of packets arrived within
 
 The \dword{sls} will therefore have estimators of the GPS-times of
 future spills, and recent spills with associated data contained in the
-\dwords{ringbuffer}. These estimators will improve in precision as
+\dwords{daqbuf}. These estimators will improve in precision as
 more packets arrive.  The DAQ will use data in a wider window than
 usual, if, at the time the trigger decision has to be made, the
 precision is less accurate due to missing or late packets.  From the

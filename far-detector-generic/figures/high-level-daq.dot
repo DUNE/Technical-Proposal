@@ -1,5 +1,5 @@
 digraph hl {
-        node[shape=record];
+        node[shape=box];
 
         subgraph cluster_dmunit {
                 label="Detector unit of one module\nfeeding one DAQ fragment";
@@ -8,11 +8,25 @@ digraph hl {
         }
         subgraph cluster_fe {
                 label="DAQ front-end fragment, (hardware and software, N≈100 per module)";
-                fer[label="{{Front-end readout}|{trigger primitive\npipeline}|{SNB buffer}}"];
-                
-                dr[label="{{Data receiver}|{trigger candidate\npipeline}}"];
+                fer[shape=none,label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<tr><td>Front-end readout</td></tr>
+<tr><td>trigger primitive<br/>pipeline</td></tr>
+<tr><td>SNB buffer</td></tr>
+</TABLE>>];
+                 dr[shape=none,label=<
+ <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+ <tr><td>Data receiver</td></tr>
+ <tr><td>trigger candidate<br/>pipeline</td></tr>
+ </TABLE>>];
+
                 buf[label="Primary\nbuffer",shape=circle];
-                ds[label="{{Data selector}|{<tx>send|<rx>recv}}"];
+                 ds[shape=none,label=<
+ <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+ <tr><td colspan="2">Data selector</td></tr>
+ <tr><td port="tx">send</td><td port="rx">recv</td></tr>
+ </TABLE>>];
+
                 {rank=same; fer, dr, buf, ds}
         }
         subgraph cluster_bec {
@@ -44,7 +58,7 @@ digraph hl {
 
         // selected data
         edge[penwidth=1];
-        buf->ds;
+        buf->ds:tx;
         ds:tx->eb[label="data\nfragment\n(network)"];
 
         // "event" data
@@ -55,7 +69,7 @@ digraph hl {
         
         // trigger 
         edge[penwidth=1, style=dashed];
-        ds->buf[constraint=false];
+        ds->buf[constraint=false,label="index"];
         mtl->eb[label="normal trigger commands"];
         dr->mtl[label="trigger candidates\n(network)"];
         eb->ds:rx[label="trigger\ncommand\n(network)"];

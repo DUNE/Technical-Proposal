@@ -1,15 +1,12 @@
 \subsection{Front-end Trigger Primitive Generation}
 \label{sec:fd-daq-fetp}
 
-\metainfo{Josh Klein \& J.J. Russel \& Brett Viren.  This section is DP-specific.
-This file is \texttt{far-detector-dual-phase/chapter-fddp-daq/design-fero.tex}}
-
-In the nominal design, the bump-on-wire (BOW) computers decompress the
+In the nominal design, the \dword{bow} computers decompress the
 CRO data stream and execute algorithms to search for per-channel
 localized activity above some threshold based on a recent measure of
 the noise. 
 These trigger primitives are then sent out along with the original,
-compressed CRO data to the \dword{fec} associated with the BOW.
+compressed CRO data to the \dword{fec} associated with the \dword{bow}.
 
 Initial studies have shown some promise that this type of trigger
 primitive pipeline can be implemented on commodity CPUs and keep up
@@ -25,16 +22,32 @@ Most of the same technical triggering issues apply in the nominal and
 the alternative design (generically diagrammed in
 Fig~\ref{fig:daq-overview-alt}) as both call for deploying trigger
 primitive pipelines on commodity CPUs. 
+The main difference is that the \dwords{bow} hosts become trigger farm
+hosts. 
+They move from being upstream and inline of the data flow before the
+\dword{fec} to being downstream and receiving the data after it has
+been buffered. 
+Their \dwords{trigcandidate} no longer have to be inserted into the
+stream and stripped out by the \dword{fec} and instead are sent
+directly to the \dword{mtl}. 
 Additional study is required to understand the multiplicity of trigger
 processing computers and how that might scale as one considers
 different multiplicities of CRO \dword{utca} crates w.r.t. each
 \dword{fec}.
 
-In both designs, the LRO data is nominally not involved in triggering
-because the CRO triggering is expected to be more efficient.
-Future studies may indicate additional benefit to including LRO
-information in triggering and both the nominal and alternative design
-can elastically accommodate this increase scope although possibly at
-the cost of either more BOW or trigger processor computers.
-
+In both designs, the \dword{lro} data is currently not considered for
+triggering as the \dword{cro} triggering is expected to be more
+efficient although using light information for triggering has not yet
+been ruled out. 
+Future studies may indicate additional benefit to including
+\dword{lro} information in triggering and both the nominal and
+alternative design can elastically accommodate this increase scope
+although possibly at the cost of either more \dword{bow} or trigger
+processor computers.
+As described elsewhere, the \dword{lro} data flow is handled by
+separate \dwords{daqfrag} from those which service the \dwords{cro}. 
+Thus, if any \dwords{trigprimitive} and \dwords{trigcandidate} are to
+be formed from \dword{lro} data they would come from these separate
+fragments and be combined in the \dword{mtl} as peers of the
+\dword{cro} and external candidates.
 

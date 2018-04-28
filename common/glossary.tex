@@ -152,6 +152,11 @@
   This buffer also marks the interface with the DUNE Offline}
 
 % data quality monitoring
+\newduneabbrev{om}{OM}{online monitoring}{Processes which run inside
+  the DAQ on data ``in flight'', specifically before landing on the
+  offline disk buffer, and which provide feedback on the operation of
+  the DAQ itself and the general health of the data it is marshalling}
+
 \newduneabbrev{dqm}{DQM}{data quality monitoring}{Analysis of the raw
   data to monitor the integrity of the data and the performance of the
   detectors and their electronics. This type of monitoring may be
@@ -201,11 +206,6 @@
   In particular in referencing the value for the mixing angle
   $\theta_{23}$}
 
-% primary DAQ buffer
-\newduneword{ringbuffer}{primary DAQ buffer}{A buffer in the
-  DAQ with sufficient size to store data long enough for a
-  trigger decision to be made and with sufficient endurance and
-  throughput to allow constant flow of full-stream data}
 
 % sub-detector ??? %%%%%%%%%%%%%%%%%%%      Why not ``subdet''? (Anne)  %%%%%% ???????
 \newduneword{submodule}{sub-detector}{A detector unit of granularity less
@@ -245,6 +245,10 @@
 % \fixme{Needs improvement}
 \newduneabbrev{rce}{RCE}{Reconfigurable Computing Element}{One of four
   nodes in a \gls{cob} which consists of ARM CPU and FPGA resources}
+
+\newduneabbrev{bow}{BOW}{Bump On Wire}{A working name for the front-end readout computing elements used in the nominal DAQ design to interface the DP crates to the DAQ front end computers}
+
+
 
 % \fixme{Needs improvement}
 \newduneabbrev{atca}{ATCA}{Advanced Telecommunications Computing
@@ -306,6 +310,7 @@ Each \gls{detunit} of a  certain granularity, such as two SP APAs, has one front
   trigger candidates produced from the input trigger primitives and
   forwards the full data stream to the \gls{daqbuf}}
 
+% primary DAQ buffer
 \newduneabbrev{daqbuf}{primary buffer}{DAQ primary buffer}{The portion
   of the \gls{daqfrag} which accepts full data stream from the
   corresponding \gls{detunit} and retains it sufficiently long for it
@@ -398,6 +403,8 @@ Each \gls{detunit} of a  certain granularity, such as two SP APAs, has one front
   situated just outside the SP cryostat which receives digital data
   from the FEMBs over cold copper connections and sends it to the RCE
   FE readout hardware}
+
+\newduneabbrev{nic}{NIC}{network interface controller}{Hardware for controlling the interface to a communication network.  Typically, one which obeys the Ethernet protocol}
 
 \newduneabbrev{wiec}{WIEC}{warm interface electronics crate}{Crates mounted on the signal flanges that contain the warm interface boards}
 

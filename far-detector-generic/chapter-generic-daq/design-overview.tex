@@ -2,15 +2,6 @@
 \subsection{Overview}
 \label{sec:fd-daq-overview}
 
-\metainfo{Giles Barr, BV. 
-  This is a shared DP/SP section. 
-  We try to describe the high level design from
-  Figure~\ref{fig:daq-overview} in more detail than in the main
-  overview section but defer to the coming sections for ``inside the
-  boxes'' detail as well as to break make distinct SP and DP
-  implementation in their respective tex files.}
-
-
 The design for the \dword{daq} has been driven by finding a cost
 effective solution that satisfies the requirements. Several design
 choices have nevertheless been made and two major variations remain to
@@ -78,20 +69,21 @@ number of \dwords{detunit} with one \dfirst{fec}.
 This fragment forms one conceptual unit of the front-end DAQ.
 The processing on a \dword{fec} is kept minimal such that each has a
 throughput limited by I/O bandwidth. 
-PCIe v4 doubles the bandwidth from the prior version and thus we
-assume $\approx$\SI{20}{\GB/\s} throughput (out of a theoretical
-\SI{32}{\GB/\s} max) can be achieved based on tests using PCIe v3.
-
-In principle then, this allows one \dword{fec} to accept the data from
-two (if uncompressed) or ten (if $5\times$ compressed) of the 150
-\dword{sp} APAs, the $10\times$ compressed data from ten of the 240
-\dword{dp} \dword{cro} crates or the uncompressed data from all five
-\dword{dp} \dword{lro} crates.
+The recently released PCIe v4 doubles the bandwidth from the prior
+version and thus we assume $\approx$\SI{20}{\GB/\s} throughput (out of
+a theoretical \SI{32}{\GB/\s} max) can be achieved based on tests
+using PCIe v3.
+In principle then, this allows one \dword{fec} to accept the data
+from: two (if uncompressed) or ten (if $5\times$ compressed) of the
+150 \dword{sp} APAs, ten of the 240 \dword{dp} \dword{cro} crates
+given their nominal $10\times$ compression or the uncompressed data
+from all five \dword{dp} \dword{lro} crates.
 
 In the nominal design, the data enters the DAQ via the fragment's
 \dfirst{daqfer} component.
 In the \dword{sp} the \dword{daqfer} consists of eight \dwords{rce}
-and in the \dword{dp} it consists of a number of computers.  
+and in the \dword{dp} it consists of a number of \dword{bow}
+computers, (see Section~\ref{sec:fd-daq-fero} in each respective \dword{detmodule} volume).
 The \dword{daqfer} is responsible for accepting that data and from it
 producing channel level \dwords{trigprimitive}.
 It is also responsible for forwarding compressed data and the
@@ -109,37 +101,47 @@ written to file on the \dword{diskbuffer}.
 From there the data becomes responsibility of the Offline group to
 transfer to Fermilab for permanent storage and further processing.
 
-In the alternative design, the data is received directly by the
-\dword{daqdr} in a \dword{fec} from the detector electronics:
-\dword{sp} \dword{wib} or \dword{dp} \dword{utca} crate. 
+In the alternative design, the data is accepted directly by the
+\dfirst{daqdr} in a \dword{fec} from the detector electronics
+for the particular \dword{detmodule}.
 The data then flows into the \dword{daqbuf} and the portion required
 for forming trigger primitives is dispatched to the trigger computers
 of the fragment for the production of \dwords{trigprimitive}.
 Current SSD technology may allow SSD to be directly mounted to the
 \dword{fec} to provide for the SNB dump buffer. 
 Another solution which puts less pressure on write throughput is to
-distribute the SSD to the trigger computers. 
-In order to supply enough CPU they will likely have to number at least
-two for every \dword{fec} and while their CPUs may be busy, their I/O
-bandwidth will be relatively empty and thus they provide synergistic,
+distribute the SSD for the SNB dumps to the trigger computers. 
+In order to supply enough CPU for trigger primitive pipelines it is
+expected that at least two hosts per \dword{fec} will be needed.
+While their CPUs are busy finding trigger primitives, their I/O
+bandwidth will be relatively unused and thus they provide synergistic,
 cost effective hosting for the SSDs.
 
 Regardless of where the \dwords{trigprimitive} are produced in either
-design they are further processed at the \dword{daqfrag} level to
-produce \dwords{trigcandidate}. 
+the nominal or alternative design they are further processed at the
+\dword{daqfrag} level to produce \dwords{trigcandidate}. 
 At this level, they represent possible activity localized in time and
 channel to a portion of the overall \dword{detmodule}.
 The \dwords{trigcandidate} emitted by all \dwords{daqfrag} are sent to
-the \dfirst{mtl} associated with the \dword{daqpart}. 
+the \dfirst{mtl} associated with the \dword{daqpart}.
 There, they are time ordered and otherwise processed to form
 \dwords{trigcommand}.
 At this level they represent activity localized across the
 \dword{detmodule} and over some period of time.
 
-Each such command is consumed by an \dword{eb} in order to query back
-to the \dword{daqpart} level as described above.
-In addition, the \dword{mtl} of one module is exchanging messages
-in the form of \dwords{trigcandidate} with the others. 
+The \dword{daqpart} (or DAQ instance) just introduced is the cohesive
+collection of DAQ parts. 
+One \dword{daqpart} operates essentially independently from any other
+and there is typically one per \dword{detmodule}. 
+In some cases multiple \dwords{daqpart} may operate simultaneously in
+a \dword{detmodule}, such as when some fraction of \dwords{detunit}
+are undergoing isolated testing or calibration.
+
+Each \dword{trigcommand} is consumed by a single \dword{eb} instance
+in order to query back to the \dwords{daqfrag} of its \dword{daqpart}
+as described above.
+In addition, the \dword{mtl} of one module is exchanging messages in
+the form of \dwords{trigcandidate} with the others. 
 For example, one module may raise a local \dword{snb}
 \dword{trigcandidate} and forward it to all other modules.
 Each module is also emitting candidates to sinks and accepting them
@@ -150,4 +152,7 @@ particularly those near the front-end, depends on particular
 \dword{detmodule}. 
 The required specialization and in general, more implementation level
 details are described in the following sections.
+Subsequent description proceeds toward the DAQ back end including
+processes handling dataflow, trigger, event building and data
+selection.
 

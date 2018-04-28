@@ -1,77 +1,103 @@
 digraph hl {
-        node[shape=record];
-
+        graph[fontsize=32,nodesep=0.1];
+        node[fontsize=28,shape=box];
+        edge[fontsize=26];
+        
         subgraph cluster_dmunit {
                 label="Detector unit of one module\nfeeding one DAQ fragment";
                 color=gray;
                 ce[label="Readout electronics\nTPC+PDS",color=gray];
         }
         subgraph cluster_fe {
-                label="DAQ front-end fragment\nhardware and software\nN≈100 per module";
-                
-                subgraph cluster_fec {
-                        label="Front-end computer"
-                        dr[label="Data receiver"];
-                        buf[label="Primary\nbuffer",shape=circle];
-                        ds[label="{{Data selector}|{<tx>send|<rx>recv}}"];
-                        dd[label="Data dispatcher"];
-                }
-                subgraph cluster_tf {
-                        label="Front-end fragment\nTrigger computer(s)";
-                        tfn1[label="Trigger\nPrimitive\nPipelines"];
-                        ssd1[label="SSD"];
-                }
+                label="DAQ front-end fragment hardware and software\n(N≈100 per module)\n\n";
+
+                fec[shape=none,label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<tr><td colspan="2">Front End Computer</td></tr>
+<tr><td port="dr">receiver</td><td port="dd">dispatcher</td></tr>
+<tr><td colspan="2" port="buf">primary RAM buffer</td></tr>
+<tr><td colspan="2">Data selector</td></tr>
+<tr><td port="rx">recv</td><td port="tx">send</td></tr>
+</TABLE>>];
+                        tc[shape=none,label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<tr><td colspan="2">Trigger farm fragment</td></tr>
+<tr>
+<td port="pc1">host 1</td>
+<td port="pc2">host 2</td>
+</tr>
+<tr>
+<td port="ram1">RAM buffer</td>
+<td port="ram2">RAM buffer</td>
+</tr>
+<tr>
+<td port="ssd1">ssd buffer</td>
+<td port="ssd2">ssd buffer</td>
+</tr>
+<tr>
+<td port="tpp1">trigger<br/>primitive<br/>pipeline</td>
+<td port="tpp2">trigger<br/>primitive<br/>pipeline</td>
+</tr>
+<tr>
+<td colspan="2" port="tcp">trigger candidate<br/>pipeline</td>
+</tr>
+</TABLE>>];
+                        {rank=same ;
+                                fec,tc}
         }
         subgraph cluster_bec {
-                label="DAQ back-end\nfor one detector module\n(eg, SP / DP, N=4)";
+                label="DAQ back-end computing\nfor one detector module\n(eg, SP / DP / M3 / M4)";
+                labelloc=top;
+                
                 mtl[label="Module-Level\nTrigger Logic"];
-                eb[label="Event\nBuilder"];
+                eb[label="Event Builder\n(instance for one trigger)"];
 //                {rank=same; mtl, eb}
         }
         subgraph cluster_offline {
-                label="DAQ/Offline boundary";
+                label="DAQ/Offline\nboundary";
+                labelloc=bottom;
                 dsk[label="Output\ndisk buffer"];
         }
         subgraph cluster_outside {
-                label="Fermilab";
+                label="Fermilab\nand others";
                 labelloc=bottom;
                 color=gray;
-                fnal[label="tape/disk/computing",color=gray];
+                fnal[label="Offline\npermanent storage\nand computing",color=gray];
         }
 
-        gtl[label="External trigger logic (N=1)\n(beam, other modules, SNEWS)"];
+        gtl[label="External trigger\nlogic unit\n(beam, SNEWS\nother modules)"];
         
         edge[penwidth=6];
-        ce->dr[label=" (fiber)"];
-        dr->buf[label="full data stream\n(RAM DMA)"];
+        ce->fec:dr[label=" (fiber)"];
+        //dr->buf[label="full data stream\n(RAM DMA)"];
 
         
         edge[penwidth=2];
-        buf->dd;
-        tfn1->dd[dir=back,constraint=false];
-        ssd1->dd[dir=back,penwidth=6];
+        //buf->dd[penwidth=6,label="all data"];
+        fec:dd->tc:pc1[penwidth=6,constraint=true,label="data stream (network)"];
+        //dd->tc:pc2[penwidth=3];
+
 
         // selected data
         edge[penwidth=1];
-        buf->ds;
-        ds:tx->eb[label="data\nfragment\n(network)"];
+        fec:tx->eb[label="data\nfragment\n(network)"];
 
         // "event" data
         edge[penwidth=4];
-        eb->dsk[label="module-level\n DAQ event block\n(network)"];
+        eb->dsk[label="module-level\n DAQ event block\n(network)",weight=10];
         
         dsk->fnal[label=" raw DAQ files\n(Internet)"];
         
         // trigger 
         edge[penwidth=1, style=dashed];
-        ds->buf[constraint=false];
-        mtl->eb[label="trigger commands"];
-        eb->ds[label="trigger\ncommand\n(network)"];
-        mtl->gtl[dir=both,label=" bidirectional exchange of\ntriger candidates\n(network)"];
-        tfn1->mtl;
+        mtl->eb[label="trigger\ncommands\n(network)"];
+        fec:rx->eb[style=dotted,dir=back,label="data selection\nrequest\n(network)"];
+        gtl->mtl[dir=both,label=" bidirectional\nexchange of\ntriger candidates\n(network)"];
+        tc:tcp->mtl[constraint=true,label="trigger\ncandidates\n(network)"];
+        //tc:tpp2->mtl;
         
 
-        edge[penwidth=1, style=dashed, color=red];
-
-
+        edge[style=invis,constraint=true,weight=10];
+        eb->fnal;
+        
 }

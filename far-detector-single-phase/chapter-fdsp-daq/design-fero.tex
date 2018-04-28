@@ -55,14 +55,14 @@ The next generation of \dword{felix} based on PCIe v3 is expected to
 obtain about a factor of two improvement.
 The \dwords{trigprimitive} will be combined across channels to form
 \dwords{trigcandidate} which will be sent to the \dword{mtl}.
-Meanwhile, the data stream will stream into a \dword{ringbuffer}. 
+Meanwhile, the data stream will stream into a \dword{daqbuf}. 
 This buffer will be sized sufficient to retain the full data stream
 for the period of time needed for a \dword{trigdecision} to be made. 
 As described above, that decision culminates in a \dword{trigcommand}
 which is sent to a \dword{eb}. 
 Based on its information the \dword{eb} makes a request to the
 \dword{daqds} representing the \dword{daqfrag} and it replies with a
-\dword{datafrag} build from the data available in the \dword{ringbuffer}.
+\dword{datafrag} build from the data available in the \dword{daqbuf}.
 
 An \dword{snb} \dword{trigcommand} is formed via the usual trigger
 hierarchy as described in more detail in Section~\ref{sec:fd-daq-fetp}

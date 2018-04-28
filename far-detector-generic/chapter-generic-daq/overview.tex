@@ -25,7 +25,7 @@ DAQ achieve these goals while reducing the input data volume by almost four
 orders of magnitude.
 
 The current generation of LArTPC DAQ, such as used in
-\dword{protodune} and \microboone, record data over a fixed window of
+\dword{protodune} and \microboone, produce data spanning a fixed window of
 time which is chosen based on the acceptance of an external trigger. 
 The DUNE DAQ faces several major challenges beyond those of the
 current generation. 
@@ -137,9 +137,12 @@ much data as possible over their duration.
 Thus the DAQ must greatly reduce the full-stream of its input data
 while using the data itself to do so. 
 It must do this efficiently both in terms of recording essentially all
-activity important to the physics goals of DUNE and in terms of
-output data at a rate which is manageable.  
-
+activity important to the physics goals of DUNE and in terms of output
+data at a rate which is manageable.  
+To perform these primary duties the DAQ requires and will provide run
+control, configuration management, monitoring of both its processes
+and the general health of the data and a user interface to these
+aspects.  
 
 \subsection{Design Considerations}
 \label{sec:fd-daq-des-consid}
@@ -158,21 +161,29 @@ ultimate consumer of its data, DUNE offline computing.
 It must also accept and process the data from a variety of other
 sources including the accelerator, various calibration systems
 (including laser, cold electronics, photodetectors, and potentially
-others) as well as trigger sources external to DUNE. 
+others) as well as trigger sources external to DUNE.
+The modular nature of the DUNE FD means that the DAQ instances running
+on each module must also exchange trigger information. 
+In particular, exchanging module-local \dword{snb} trigger information
+will allow higher efficiency to this important physics.
 The DAQ must be optimized for the above while also retaining
 flexibility to scale to handle certain risks such as excess noise,
 changes in high voltage, cut network connectivity and other credible
 potentialities.
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}
-  {The high-level, nominal design for the DUNE FD DAQ showing data (solid, with
-    line width indicating throughput) and trigger (dashed) flows. 
+  {The high-level, nominal design for the DUNE FD DAQ showing data
+    (solid, with line width indicating throughput) and trigger
+    (dashed) flows. 
+    The red box and dashed arrows indicate delivery of special trigger
+    commands related to \dword{snb}. 
+    The data flow related to \dword{snb} is not depicted. 
     A detector module has specialized implementation of some of these
     high level components, particularly toward the upstream front-end
     as described in the text. 
     The grayed boxes are not in the DAQ scope.
     See text for details.
-}
+  }
 % This PDF is made from the .dot of the same name.
 \includegraphics[width=0.8\textwidth]{high-level-daq.pdf}%
 \end{dunefigure}
@@ -196,7 +207,7 @@ they buffer the data after it is received from the detector
 electronics and in which they use that data to form
 \dwords{trigprimitive}.
 The first design, designated as nominal, forms \dwords{trigprimitive}
-before the data reaches the DAQ \dword{ringbuffer}. 
+before the data reaches the DAQ \dword{daqbuf}. 
 In a high-level way, it is illustrated in Fig~\ref{fig:daq-overview}
 in terms of data and trigger flows.
 The second, designated as alternative, reverses this order and is
@@ -308,7 +319,7 @@ optimize this threshold.
   Cosmics and atmospherics & 10 &  \SI{10}{\MeV} threshold, anti-coincident with beam time \\ \colhline
   Radiologicals & $\le$1 & fake rate of $\le$100 per year \cite{daq:simreport}\\ \colhline
  Front-end calibration & 0.2 & Four calibration runs per year, 100 measurements per point \\ \colhline
- Radioactive source calibration & 0.1 & source rate $\le$10~Hz; single APA readout; lossless readout \\ \colhline
+ Radioactive source calibration & 0.1 & source rate $\le$10~Hz; single fragment readout; lossless readout \\ \colhline
  Laser calibration & 0.2 & 1$\times$10$^6$ total laser pulses, lossy readout \\ \colhline
  Supernova candidates & 0.5 & 30 seconds full readout, average once per month \\ \colhline
  Random triggers & 0.06 & 45 per day\\ \colhline
@@ -331,7 +342,7 @@ to $10\times$ may be achieved with the DP data.
 Of course, the compression factor achieved will ultimately depend on
 the level of excess noise experienced in each \dword{detmodule}
 cryostat. 
-Studies using data from the LBNE 35t prototype and early MicroBooNE
+Studies using data from the LBNE 35t prototype and early \microboone
 running have shown that a compression factor of at least $4\times$ can
 be expected even in the case of rather high levels of excess noise.
 
@@ -385,14 +396,14 @@ systems:
 \item Front-end readout (nominal design) or trigger farm (alternative
   design) hardware and firmware or software development for
   \dword{trigprimitive} generation.
-\item Front-end computing for hosting of \dword{daqdr}, \dword{ringbuffer} and \dword{daqds}.
+\item Front-end computing for hosting of \dword{daqdr}, \dword{daqbuf} and \dword{daqds}.
 \item Back-end computing for hosting \dword{mtl}, \dword{eb} and the \dword{daqoob} processes.
 \item External trigger logic and its host computing.
 \item Algorithms to generate trigger commands which perform data selection.
 \item Timing distribution system
 \item DAQ data handling software including receiving and building of
   events
-\item Online monitoring of DAQ performance and data content.
+\item The \dword{om} of DAQ performance and data content.
 \item Run control software, configuration database, and user interface
 \item Rack infrastructure in the central utility cavern for readout
   electronics, front-end computing, timing distribution, and data

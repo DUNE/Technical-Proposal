@@ -1,7 +1,8 @@
 digraph top {
-        graph[compound=true,ordering=out,outputorder=edgesfirst,splines=false,layout=dot,rankdir=LR,fontsize=20];
-        node[shape=box,style="rounded,filled",fillcolor=white,fontsize=16];
-        label="Dual-Phase Module -- N CRO crates";
+        graph[compound=true,ordering=out,outputorder=edgesfirst,splines=false,layout=dot,rankdir=LR,fontsize=40,ranksep=.01,nodesep=.01,sep=0.01];
+        node[shape=box,style="rounded,filled",fillcolor=white,fontsize=32];
+        label="Dual-Phase Module -- 8 of N CRO and all 5 LRO crates";
+        edge[fontsize=32];
         
         subgraph cluster_cros {
                 label="CRO uTCA Crates\n8 out of 240 ";
@@ -70,6 +71,7 @@ digraph top {
 
                         subgraph cluster_ferohwlro {
                                 label="Front-End Readout for all 5 LRO crates";
+                                
                                 subgraph cluster_bow0 {
                                         label="DP BOW for LRO";
                                         bow0nic0[label="out NIC"];
@@ -146,19 +148,20 @@ digraph top {
                                 }
                         }
                         subgraph cluster_fecomp{
-                                label="Front-End Computing needed for\n8 CRO uTCA crates and all 5 LRO crates";
+                                label="Front-End Computing needed for\n8 of 240 CRO uTCA crates and all 5 LRO crates";
+                                labelloc=bottom;
                                 style=filled;
                                 fillcolor=white;
                                 
                                 subgraph cluster_felixpc0 {
-                                        label="FELIX Host Computer";
+                                        label="Front-End Computer (FELIX Host)";
                                         felix0[label="FELIX\nPCIe board"];
                                         ring0[shape=circle,label="RAM\nBuffer"];
                                         selector0[label="Data Selector"];
                                         
                                 }
                                 subgraph cluster_felixpc1 {
-                                        label="FELIX Host Computer";
+                                        label="Front-End Computer (FELIX Host)";
                                         felix1[label="FELIX\nPCIe board"];
                                         ring1[shape=circle,label="RAM\nBuffer"];
                                         selector1[label="Data Selector"];
@@ -227,8 +230,8 @@ digraph top {
         edge[penwidth=1,style=dashed,color=black];
         selector1->eb[dir=back];
         selector0->eb[dir=back];
-        selector1->ring1;
-        selector0->ring0;
+        selector1->ring1:se;
+        selector0->ring0:se;
         
 
         edge[penwidth=1,style=dotted];
@@ -240,7 +243,7 @@ digraph top {
 
         // Send trigger back to each rce
         edge[penwidth=1,style=dashed,color=red,constraint=false];
-        mtl->oob[label="OOB dump command"];
+        mtl->oob[label="OOB\ndump\ncommand"];
         bow0nic0->oob[dir=back];
         bow1nic0->oob[dir=back];
         bow2nic0->oob[dir=back];
