@@ -57,7 +57,7 @@ front \dwords{ewfc} and the third one in the middle of the cryostat
 %except for the membrane sensors that may come from Minco.
 
 % % % %
-\subsubsection{Static T-Gradient monitors}
+\subsubsection{Static T-gradient Monitors}
 \label{sp-cisc-thermom-static-t}
 
 Several vertical arrays of high-precision temperature sensors cross-calibrated in the laboratory will be installed near the lateral walls
@@ -110,7 +110,7 @@ which will be used to extract the cables.
 
 
 % % % %
-\subsubsection{Dynamic T-Gradient monitors}
+\subsubsection{Dynamic T-gradient Monitors}
 
 Dynamic temperature monitor is a vertical array of high precision temperature sensors with the goal of measuring vertical temperature gradient with precision of few \si{mK}. The design of the system is driven by two factors:
 \begin{itemize}
@@ -127,13 +127,22 @@ Simulations of the cryogenic recirculation predict very slow change in temperatu
 %%anne to here saturday 4/27
  
  In order to address concerns related to potential difference in the sensor reading prior to %installation 
- and after installation in a \dword{detmodule}, a dynamic temperature monitor allows cross-calibration of sensors in situ. Namely, this T-gradient monitor  can move vertically while installed in \dword{detmodule}, which allows for precise cross-calibration between the sensors in-situ at predefined locations, as well as in between them. 
+ and after installation in a \dword{detmodule}, a dynamic temperature monitor allows cross-calibration of sensors in situ. 
+ \fixme{difference in voltage, or differences in the sensor reading that may happen? I think the latter... (anne)}
+ Namely, this T-gradient monitor  can move vertically while installed in the \dword{detmodule}, which allows for precise cross-calibration between the sensors in situ at predefined locations, as well as in between them. \fixme{not clear}
  The procedure for cross-calibrations is the following: the temperature reading is taken at the lowest position with all sensors. The stepper motor then moves the carrier rod up for \SI{50}{cm} 
- \fixme{just ``up 50cm''?} putting all sensors in the location of their neighbor that is \SI{50}{cm} above them. Then the second reading is taken. In this manner, except for the lowest position we have temperature measurement at each location with two adjacent sensors, and by linking the temperature offsets between the two readings at each location, temperature readings from all sensors are cross-calibrated in situ, cancelling all offsets due to electromagnetic noise or any parasitic resistances that may have prevailed despite the four point connection to the sensors that should cancel most of the offsets. These measurements are taken with very stable current source, which ensures high precision of repeated temperature measurements over time. The motion of the dynamic T-monitor is stepper motor operated, delivering measurements with high spatial resolution. 
+ \fixme{just ``up 50cm''?} putting all sensors in the location of their neighbor that is \SI{50}{cm} above them. 
+ Then the second reading is taken. In this manner, except for the lowest position we have temperature measurement at each location with two adjacent sensors, and by linking the temperature offsets between the two readings at each location, temperature readings from all sensors are cross-calibrated in situ, cancelling all offsets due to electromagnetic noise or any parasitic resistances that may have prevailed despite the four point connection to the sensors that should cancel most of the offsets. These measurements are taken with very stable current source, which ensures high precision of repeated temperature measurements over time. The motion of the dynamic T-monitor is stepper motor operated, 
+delivering measurements with high spatial resolution. \fixme{or spatial precision?}
+ \fixme{above pgraph needs some work}
 
 
-\subsubsection{Dynamic t-gradient monitor design}
-Dynamic T-gradient monitor consists of three distinct parts: carrier rod on which sensors are mounted, enclosure above the cryostat housing the space that allows vertical motion of the carrier rod 1.5\,m above its lowest location, and motion mechanism. The motion mechanism consists of a stepper motor connected to a gear and pinion motion mechanism through ferrofluidic dynamic seal. The sensors have two pins that are soldered to a printed circuit board (PCB). Two wires are soldered to the common soldering pad for each pin, individually.   There is a cutout in the PCB around the sensor that allows free flow of argon for more accurate temperature reading.  Stepper motors typically have very fine steps allowing high precision positioning of the sensors.  Figure~\ref{fig:fd-slow-cryo-dt-monitor-overview} shows the overall design of the dynamic T-gradient monitor with the sensor carrier rod, enclosure above the cryostat and stepper motor mounted on the side of the enclosure. The enclosure consists of two parts connected by 6-cross flange. One side of the 6-cross flange will be used to for the signal wires, another side will be used as a viewing window, while the two other ports will be spares. Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Left shows the mounting of the PCB board on the carrier rod and mounting on the sensor on the PCB along with the four point connection to the signal readout wires. Finally, Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Right shows the stepper motor mounted on the side of the rod enclosure. The motor is kept outside, at room temperature and its power and control cables are also kept outside.
+\subsubsection{Dynamic T-gradient Monitor Design}
+%Dynamic T-gradient monitor consists of three distinct parts: carrier rod on which sensors are mounted, enclosure above the cryostat housing the space that allows vertical motion of the carrier rod 1.5\,m above its lowest location, and motion mechanism. The motion mechanism consists of a stepper motor connected to a gear and pinion motion mechanism through ferrofluidic dynamic seal. The sensors have two pins that are soldered to a printed circuit board (PCB). Two wires are soldered to the common soldering pad for each pin, individually.   There is a cutout in the PCB around the sensor that allows free flow of argon for more accurate temperature reading.  Stepper motors typically have very fine steps allowing high precision positioning of the sensors.  Figure~\ref{fig:fd-slow-cryo-dt-monitor-overview} shows the overall design of the dynamic T-gradient monitor with the sensor carrier rod, enclosure above the cryostat and stepper motor mounted on the side of the enclosure. The enclosure consists of two parts connected by 6-cross flange. One side of the 6-cross flange will be used to for the signal wires, another side will be used as a viewing window, while the two other ports will be spares. Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Left shows the mounting of the PCB board on the carrier rod and mounting on the sensor on the PCB along with the four point connection to the signal readout wires. Finally, Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Right shows the stepper motor mounted on the side of the rod enclosure. The motor is kept outside, at room temperature and its power and control cables are also kept outside.
+
+A dynamic T-gradient monitor consists of three distinct parts: a carrier rod on which sensors are mounted, an enclosure above the cryostat housing the space that allows vertical motion of the carrier rod 1.5\,m above its lowest location, and motion mechanism. The motion mechanism consists of a stepper motor connected to a gear and pinion motion mechanism through ferrofluidic dynamic seal. The sensors have two pins that are soldered to a printed circuit board (PCB). Two wires are soldered to the common soldering pad for each pin, individually.   There is a cutout in the PCB around the sensor that allows free flow of argon for more accurate temperature reading.  Stepper motors typically have very fine steps allowing high-precision positioning of the sensors.  Figure~\ref{fig:fd-slow-cryo-dt-monitor-overview} shows the overall design of the dynamic T-gradient monitor with the sensor carrier rod, enclosure above the cryostat and stepper motor mounted on the side of the enclosure. The enclosure consists of two parts connected by 6-cross flange. One side of the 6-cross flange 
+\fixme{is this one flange with six ``crosses'' or six ``cross flanges''?} will be used to for the signal wires, another side will be used as a viewing window, while the two other ports will be spares. Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Left shows the mounting of the PCB board on the carrier rod and mounting on the sensor on the PCB along with the four point connection to the signal readout wires. Finally, Figure~\ref{fig:fd-slow-cryo-sensor-mount}-Right shows the stepper motor mounted on the side of the rod enclosure. The motor is kept outside, at room temperature and its power and control cables are also kept outside.
+ \fixme{above pgraph needs some work}
 
 \begin{dunefigure}[Dynamic T-gradient monitor overview]{fig:fd-slow-cryo-dt-monitor-overview}
   {An overview of the dynamic T-gradient monitor.}
@@ -150,13 +159,13 @@ Dynamic T-gradient monitor consists of three distinct parts: carrier rod on whic
 % % % %
 \subsubsection{Individual Temperature Sensors}
 
-T-Gradient monitors will provide a vertical temperature profiling outside the TPCs. Those will be complemented by a coarser 2D array at the top and bottom of the
+T-Gradient monitors will provide a vertical temperature profiling outside the TPCs. Those will be complemented by a coarser \twod array at the top and bottom of the
 detector. Sensors, cables and readout system will be the same as for the T-gradient monitors. 
 
 In principle a similar distribution of sensors will be used at top and bottom.
-Following \dword{pdsp} design, bottom sensors will use the cryogenic pipes as support structure, while top sensors will be anchored to the ground planes.
-Teflon pieces (see Figure~\ref{fig:cable-support}) will be used to route cables from the sensors to the CF63 side ports on DSS/cryogenic ports, which will be used to extract the cables.
-PCB sensor's support, cables and connection to the flanges will be the same as for the static T-gradient monitors. 
+Following the \dword{pdsp} design, bottom sensors will use the cryogenic pipes as a support structure, while top sensors will be anchored to the \dwords{gp}.
+Teflon pieces (see Figure~\ref{fig:cable-support}) will be used to route cables from the sensors to the CF63 side ports on \dword{dss}-cryogenics ports, which will be used to extract the cables.
+The PCB sensor's support, cables and connection to the flanges will be the same as for the static T-gradient monitors. 
 
 \begin{dunefigure}[Cable supports for individual temperature sensors]{fig:cable-support}
   {Left: support for two cables on ground planes. Right: Supports for three cables  mounted on cryogenics pipes using split clamps}
@@ -167,22 +176,22 @@ PCB sensor's support, cables and connection to the flanges will be the same as f
 
 
 % % % %
-\subsubsection{Readout system for thermometers}
+\subsubsection{Readout System for Thermometers}
 \label{sec:fdgen-slow-cryo-therm-readout}
 
-A high precision and very stable system is required to achieved the design precihsion of $< \SI{5}{mK}$.
+A high precision and very stable system is required to achieved the design precision of $<\SI{5}{mK}$.
 The proposed readout system is the one used in \dword{pdsp}, which is based on a variant of an existing mass PT100 temperature readout system developed at
 CERN for one of the LHC experiments. The system consists of three parts:
 \begin{itemize}
-\item An accurate current source for the excitation of the temperature sensors, implemented by a compact electronic circuit using high a precision voltage reference from Texas Instruments. 
+\item An accurate current source for the excitation of the temperature sensors, implemented by a compact electronic circuit using a high-precision voltage reference from Texas Instruments~\footnote{Texas Instruments\texttrademark{}, \url{http://www.ti.com/}.};
 \item A multiplexing circuit based on an ADG707 Analog Device multiplexer electronic device;
-\item A high resolution and accuracy voltage signal readout module based on National Instruments NI9238, which has 24 bits resolution over \SI{1}{V} range.
-  This module is inserted in a National Instruments compact RIO device, which will distribute the temperature values to the main Slow Control Software
-  through the standard protocol, OPC UA. The Ethernet DAQ will include also the multiplexing logic.
+\item A high-resolution and accuracy voltage signal readout module based on National Instruments~\footnote{National Instruments\texttrademark{}, \url{http://www.ni.com/en-us.html/}.} NI9238, which has \SI{24}{bit} resolution over a \SI{1}{V} range.
+  This module is inserted in a National Instruments compact RIO device, which will distribute the temperature values to the main slow control Software
+  through the standard protocol, OPC UA. The Ethernet \dword{daq} will include also the multiplexing logic.
 \end{itemize}
 
 
-The current mode of operation averages over 2000 samples taken every second for each sensor. 
-As inferred from Figure~\ref{fig:Trepro} the system has a resolution better than \
-\SI{1}{mK}, the RMS of one of the offsets in the stable region.
+The current mode of operation averages over \num{2000} samples taken every second for each sensor. 
+As inferred from Figure~\ref{fig:Trepro} the system has a resolution better than
+\SI{1}{mK}, the \rms of one of the offsets in the stable region.
 
