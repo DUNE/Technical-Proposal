@@ -1,0 +1,132 @@
+digraph daqalthl {
+        graph[ranksep=1]
+        rankdir=LR;
+
+        node[shape=none];
+
+        subgraph cluster_detector {
+                label="Data Source"
+                graph[color=lightgray,style=filled];
+                ce[shape=box, label="Dectector Module\nTPC and PDS\nElectronics\n(≈1-10% of total\nper DAQ fragment)"];
+        }
+
+        subgraph cluster_dataflow {
+                label="Data Flow and Trigger Primitive Production\nfor one front-end DAQ fragment (out of ≈100)"
+                fec[label=<
+<table border="1" cellborder="1">
+<tr><td border="0">Front-end Computer<br/>(one machines per frag)</td></tr>
+<tr><td port="rx">Data Receiver</td></tr>
+<tr><td>Front End Buffer</td></tr>
+<tr><td>Data Reformatter<br/> and Splitter</td></tr>
+<tr><td port="tx">Data Dispatcher<br/>(fan out data)</td></tr>
+</table>
+>];
+                tpp[label=<
+<table border="1" cellborder="1">
+<tr><td border="0">Trigger Primitive Processing<br/>And Primary Buffer Computers<br/>(≈2/fragment)</td></tr>
+<tr><td port="rx">Data Receiver</td></tr>
+<tr><td port="ring">Primary DAQ Buffer<br/>and SNB Buffer<br/>(10s RAM ring)</td></tr>
+<tr><td port="ssd">SNB Buffer<br/>(SSD storage)</td></tr>
+
+<tr><td>
+<table border="0" cellborder="1">
+<tr><td>Trigger<br/>Primitive<br/>Pipeline</td></tr>
+<tr><td port="tx">Trigger Primitives</td></tr>
+</table>
+</td></tr>
+
+<tr><td>
+<table border="0" cellborder="1">
+<tr><td border="0">Data Selector</td></tr>
+<tr><td port="req">request</td></tr>
+<tr><td port="send">send</td></tr>
+</table>
+</td></tr>
+</table>
+                    >];
+
+        }
+        subgraph cluster_trigflow {
+                label="Trigger Flow for one DAQ partition (nominally, one detector module)"
+                tcp[label=<
+<table border="1" cellborder="1">
+<tr><td border="0">Trigger Candidate Processing Farm<br/></td></tr>
+<tr><td port="rx">Trigger Primitives<br/>(collect from all<br/>DAQ fragments)</td></tr>
+<tr><td>Trigger<br/>Candidate<br/>Pipeline</td></tr>
+<tr><td port="tx">Trigger Candidates<br/>(representing DAQ<br/>partition activity)</td></tr>
+</table>
+                    >];
+                mtl[label=<
+<table border="1" cellborder="1">
+<tr><td border="0">Module Trigger<br/>Logic Unit</td></tr>
+<tr><td port="rx">Trigger Candidates<br/>(input from ETL unit and<br/>DAQ partition TCP farm)</td></tr>
+<tr><td port="tx">Trigger Commands (output)</td></tr>
+</table>
+                    >];
+
+        }
+        subgraph cluster_backend {
+                label="Event Building for one DAQ partition\n(nominally, one detector module)";
+                eb[label=<
+<table border="1" cellborder="1">
+<tr><td border="0">Event Builder Instance<br/>(one per trigger command)</td></tr>
+<tr><td port="rx">Trigger Command (input)</td></tr>
+<tr><td>
+<table border="0" cellborder="1">
+<tr><td >Fragment query</td></tr>
+<tr><td port="req">request</td></tr>
+<tr><td port="ret">receive</td></tr>
+</table>
+</td></tr>
+<tr><td port="tx">DAQ Event Block</td></tr>
+</table>
+                   >];
+           }
+           gtl[label=<
+<table border="1" cellborder="1">
+<tr><td border="0">External Trigger Logic Unit<br/>(one for all FD)</td></tr>
+<tr><td port="fan">MTL candidates<br/> (fanin/fanout)</td></tr>
+<tr><td port="beam">Beam trigger (input)</td></tr>
+<tr><td port="etc">other external (input)</td></tr>
+</table>
+>];
+        subgraph cluster_offline {
+                label="Data Sink"
+                graph[color=lightgray,style=filled];
+                dsk[shape=box,
+                    label="Offline Disk Buffer\n(one storage array\nper detector module)"];
+        }
+
+           
+
+        // full data
+        edge[penwidth=6, style=solid];
+        ce->fec:rx[color=blue,taillabel="\n    fiber"];
+
+        // split full data
+        edge[penwidth=3, style=solid];
+        fec:tx->tpp:rx[taillabel=" 25-100 Gbps NIC"];
+
+        // select fragment data
+        edge[penwidth=1, style=solid, color=darkgreen];
+        eb:req->tpp:req[style=dashed];
+        tpp:send->eb:ret[penwidth=2];
+
+        // select whole-module data
+        edge[penwidth=3, style=solid, color=darkgreen];
+        eb:tx->dsk[taillabel="  10 Gbps NIC"];
+
+        // trig prim
+        edge[penwidth=3, style=dashed, color=black];
+        tpp:tx->tcp:rx;
+
+        // trig cand
+        edge[penwidth=1, style=dashed];
+        tcp:tx->mtl:rx;
+
+        gtl:rxtx->mtl:rx[dir=both];
+
+        // trig command
+        mtl:tx->eb:rx;
+        
+}

@@ -172,58 +172,142 @@ changes in high voltage, cut network connectivity and other credible
 potentialities.
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview}
-  {The high-level, nominal design for the DUNE FD DAQ showing data
-    (solid, with line width indicating throughput) and trigger
-    (dashed) flows. 
-    The red box and dashed arrows indicate delivery of special trigger
-    commands related to \dword{snb}. 
-    The data flow related to \dword{snb} is not depicted. 
-    A detector module has specialized implementation of some of these
+  {The high-level, \textbf{nominal} design for the DUNE FD DAQ in
+    terms of data (solid) and trigger (dashed) flows between one
+    \dword{daqfrag} front-end and the trigger processing and event
+    building back-end for one \dword{daqpart}. 
+    Line thickness indicates relative bandwidth requirements.
+    Blue indicates where the full data flow for the \dword{daqfrag} is
+    concentrated to one endpoint.
+    Green indicates final output of normally triggered (non-\dword{snb}) data.
+    Red indicates special handling of potential \dword{snb}. 
+    Each detector module has specialized implementation of some of these
     high level components, particularly toward the upstream front-end
     as described in the text. 
     The grayed boxes are not in the DAQ scope.
     See text for details.
   }
 % This PDF is made from the .dot of the same name.
-\includegraphics[width=0.8\textwidth]{high-level-daq.pdf}%
+% \includegraphics[width=0.8\textwidth]{high-level-daq.pdf}%
+  \includegraphics[width=0.8\textwidth]{daq-nom-hl.pdf}%
 \end{dunefigure}
 
 \begin{dunefigure}[DAQ Overview]{fig:daq-overview-alt}
-  {The high-level, alternative design for the DUNE FD DAQ showing data (solid, with
-    line width indicating throughput) and trigger (dashed) flows. 
-    A detector module has specialized implementation of some of these
-    high level components, particularly toward the upstream front-end
-    as described in the text. 
+  {The high-level, \textbf{alternative} design for the DUNE FD DAQ in
+    terms of data (solid) and trigger (dashed) flows between one
+    \dword{daqfrag} front-end and the trigger processing and event
+    building back-end for one \dword{daqpart}. 
+    Line thickness indicates relative bandwidth requirements.
+    Blue indicates where the full data flow for the \dword{daqfrag} is
+    concentrated to one endpoint.
+    Green indicates final output.
+    Note, except for a longer readout, \dword{snb} is handled
+    symmetric to normal data.
+    Each detector module has specialized implementation of some of
+    these high level components, particularly toward the upstream
+    front-end as described in the text. 
     The grayed boxes are not in the DAQ scope.
     See text for details.
-}
+  }
 % This PDF is made from the .dot of the same name.
-\includegraphics[width=0.8\textwidth]{high-level-daq-alt.pdf}%
+% \includegraphics[width=0.8\textwidth]{high-level-daq-alt.pdf}%
+  \includegraphics[width=0.8\textwidth]{daq-alt-hl.pdf}%
 \end{dunefigure}
 
-Currently, two major variations for the DUNE DAQ are considered. 
-They differ at their front-ends and in terms of the order in which
-they buffer the data after it is received from the detector
-electronics and in which they use that data to form
-\dwords{trigprimitive}.
-The first design, designated as nominal, forms \dwords{trigprimitive}
-before the data reaches the DAQ \dword{daqbuf}. 
-In a high-level way, it is illustrated in Fig~\ref{fig:daq-overview}
-in terms of data and trigger flows.
-The second, designated as alternative, reverses this order and is
+Currently, two major variations for the DUNE DAQ are being considered. 
+The eventual goal is to reduce this to a single high level design
+which will service both SP and DP \dwords{detmodule} and be reasonably
+expected to support the third and forth modules to come.
+The first design, designated in this proposal as \textbf{nominal} is
+illustrated in a high-level way in terms of its data and trigger flow
+in Fig~\ref{fig:daq-overview}. 
+The second design, designated as \textbf{alternative} is similarly
 illustrated in Fig~\ref{fig:daq-overview-alt}. 
-These high level diagrams and their design are described in
-detail in Section~\ref{sec:fd-daq-overview}.
+The two variants differ largely at their front-ends in terms of the
+order in which they buffer the data received from the detector
+electronics and use it to form \dwords{trigprimitive}. 
+They also differ in how they treat triggering and data flow due to
+potential \dword{snb}. 
+As their front-ends are also sensitive to differences between the
+\dword{detmodule} electronics, this further variation for each general
+design is described below in Sections~\ref{sec:fd-daq-fero}
+and~\ref{sec:fd-daq-fetp} for the module specific to this volume.
 
-At their level of detail the two diagrams are generic to all
-\dwords{detmodule} but some of the depicted roles will necessarily
-have implementation specific to their \dword{detmodule}.
-The subsections of Section~\ref{sec:fd-daq-design} give more
-description of this high-level design as well as details on
-specialized implementations in particular see
-Sections~\ref{sec:fd-daq-fero} and~\ref{sec:fd-daq-fetp} which
-describe specializations of the front end required to adapt to the SP
-and DP \dwords{detmodule}.
+At this general high level, the two designs are outlined here. 
+For both, the diagrams are drawn centered on one \dword{daqfrag}
+front-end which is a portion of the entire \dword{daqpart} servicing a
+\dword{detmodule} which has one \dword{fec} accepting about
+10-20~\si{\Gbps/\s} of data (uncompressed rate) from some integral
+number of \dwords{detunit}. 
+Each of the participating \dwords{daqfrag} provide the actions:
+\begin{itemize}
+\item Accept TPC and PDS data from the \dwords{detunit} associated with the \dword{daqfrag}.
+\item Produce and emit a stream of per-channel \dwords{trigprimitive}.
+\item Buffer the full data stream long enough for the \dword{trigdecision} to complete (at least \snbpretime as driven by \dword{snb} requirements).
+\item Accept data selection requests and return corresponding \dwords{datafrag}.
+\end{itemize}
+
+All participating \dwords{daqfrag} in the particular \dword{daqpart}
+(aka the DAQ instance) servicing a portion of one \dword{detmodule}
+communicate with one trigger processing and event building system.
+The trigger processing system must:
+\begin{itemize}
+\item Receive the stream of per-channel \dwords{trigprimitive} from all \dwords{daqfrag}.
+\item Correlate the primitives in time and spatially (across channels) and otherwise use them to form higher level \dwords{trigcandidate}.
+\item Exchange \dwords{trigcandidate} with the \dword{gtl}
+\item From them form \dwords{trigcommand} each of which describes a
+  portion of the data in time and channel to be read out and such that
+  no two trigger commands overlap.
+\item Dispatch these commands as required (in general to the \dword{eb})
+\end{itemize}
+The event building system is responsible to perform the following actions:
+\begin{itemize}
+\item Accept a trigger command and allocate one \dword{eb} instance to dispatch it.
+\item The \dword{eb} interprets and executes the command by making
+  data selection requests to referenced \dwords{daqfrag}.
+\item The \dword{eb} accepts the returned \dword{datafrag} from each
+  \dword{daqfrag} and combines them into a \dword{rawevent}.
+\item Write the result to the \dword{diskbuffer} which is the boundary
+  shared with DUNE offline computing.
+\end{itemize}
+
+The nominal and the alternative DAQ designs differ largely in where
+the \dword{trigprimitive} and \dword{snb} buffering exist. 
+The \textbf{nominal} design places these functions in machines
+comprising a \dword{daqfer} which is upstream to the \dword{fec}. 
+This then requires the \dword{snb} data and trigger handling to be
+different than that for normal (non-\dword{snb}) data. 
+When a \dword{snb} trigger command is raised it is forwarded to the
+\dword{daqoob} which sends it down to the \dwords{daqfer}. 
+After the \dword{snb} data is dumped to \dwords{ssd} it is
+``trickled'' out via a path separate from the normal data to the
+\dword{diskbuffer}. 
+On the other hand, the \textbf{alternative} design places these
+functions downstream of the \dword{fec} in trigger processing and data
+buffering nodes.
+The RAM of those nodes are used to provide the primary DAQ buffer for
+normal triggering as well as the deeper buffers needed for SNB. 
+The alternative design handles the \dword{snb} data somewhat
+symmetrically with normal data. 
+When an \dword{eb} makes a request for \dword{snb} data it differs
+only in its duration, spanning tens of seconds of instead just a few
+milliseconds. 
+The front-end buffering nodes, instead of directly attempting to
+return the full \dword{sbn} data immediately, will stream it to local
+\dword{ssd} storage. 
+From that storage, the data is sent to the \dword{eb} as a low
+priority (ie, also ``trickled out'').
+Since the \dword{mtl} assures no overlapping commands the the buffer
+nodes may service subsequent requests from post dump data that will be
+in the RAM buffer.
+And, since each trigger command is handled by an individual \dword{eb}
+instance, the ``trickle'' proceeds asynchronously from any subsequent
+trigger command handled by another \dword{eb} instances.
+
+As mentioned above, further description of aspects of these designs,
+including some of which is specific to a given \dword{detmodule}, is
+given in Section~\ref{sec:fd-daq-design}.
+
 
 The high level requirements for the DUNE FD DAQ are provided in
 \cite{daq:reqs}.
