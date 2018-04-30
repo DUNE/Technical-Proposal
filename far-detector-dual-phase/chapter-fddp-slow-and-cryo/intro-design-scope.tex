@@ -3,7 +3,7 @@
 \label{sec:fddp-slow-cryo-intro}
 
 % RC:
-% - Clarity could be increased by making the document more consistent about what systems are included in the CISC scope. Figure 1.1 contains several items that are not mentioned elsewhere in the document: "Instrumentation Feed-throughs," "Feedthrough contamination studies," and "Instrumentation Precision Studies."
+% - Clarity could be increased by making the document more consistent about what systems are included in the \dword{cisc} scope. Figure 1.1 contains several items that are not mentioned elsewhere in the document: "Instrumentation Feed-throughs," "Feedthrough contamination studies," and "Instrumentation Precision Studies."
 % - Firmware and racks are mentioned in the introduction but not elaborated on much later in the document or included in Fig. 1.1.
 % - E-field simulations are mentioned in the Introduction and Interface sections but not described in the main body (Sec. 1.2 and 1.3).
 % - A clear statement in words (or as a boundary on Fig. 1.1) of the exact border between DUNE and LBNF would be very helpful. One particularly unclear point is whether feed-throughs are the responsibility of DUNE or LBNF.
@@ -68,12 +68,12 @@ Those are included inside the cryogenics instrumentation branch.
 
 % specific to DP
 
-For all liquid argon instrumentation devices, ProtoDUNE-DP designs are
+For all liquid argon instrumentation devices, \dword{pddp} designs are
 considered as baseline designs, and requirements for most design
-parameters are extrapolated from ProtoDUNE. Hence a critical step for
-the CISC consortium is to analyze data from ProtoDUNE when available
+parameters are extrapolated from \dword{protodune}. Hence a critical step for
+the \dword{cisc} consortium is to analyze data from \dword{protodune} when available
 to validate the instrumentation designs and understand their
-performance. For example, a crucial design parameter, which should be evaluated in ProtoDUNE,
+performance. For example, a crucial design parameter, which should be evaluated in \dword{protodune},
 is the maximum noise level induced by instrumentation devices on the readout electronics, that can be tolerated 
 in order to avoid confusing event reconstruction. 
 
@@ -96,14 +96,14 @@ instrumentation devices and to design the appropriate E-field shielding
 in the case the electric field approaches the limit. 
 
 Another common consideration for all instrumentation devices is their support structure
-design which is expected to be substantially different from the one used in ProtoDUNE.
+design which is expected to be substantially different from the one used in \dword{protodune}.
 
 For slow controls, the system needs to be designed such that it is
 robust enough to support large number of variables, broad range of
 monitoring and archiving rates and has the capability to interface
 with large number of systems to establish two-way communication for
 control and monitoring. Table \ref{tab:dp-cisc-requirements} shows
-some of the important CISC system design requirements.
+some of the important \dword{cisc} system design requirements.
 
 %A full list of
 % requirements for design parameters can be found in DUNE Doc-DB 6440.
@@ -111,10 +111,10 @@ some of the important CISC system design requirements.
 
 
 \begin{dunetable}
-[Important design requirements on the DP CISC system design]
+[Important design requirements on the DP \dword{cisc} system design]
 {p{0.22\textwidth}p{0.17\textwidth}p{0.32\textwidth}p{0.19\textwidth}}
 {tab:dp-cisc-requirements}
-{Important design requirements on the dual phase CISC system design}   
+{Important design requirements on the dual phase \dword{cisc} system design}   
 Design Parameter
  & Requirement
  & Motivation
@@ -126,8 +126,8 @@ Electron lifetime measurement precision
 \\  \colhline
 Thermometer precision
  & $<\SI{5}{mK}$
-& Driven by \dshort{cfd} simulation validation; based on ProtoDUNE-SP design
-& Expected ProtoDUNE performance \SI{2}{mK}
+& Driven by \dshort{cfd} simulation validation; based on \dword{pdsp} design
+& Expected \dword{protodune} performance \SI{2}{mK}
 \\ \colhline
 Thermometer density
  & \(>2/\si{m}\) (vert.), \(\sim\)~0.2/\si{m} (horiz.)
@@ -137,12 +137,12 @@ Thermometer density
 % Liquid level meters precision (SP)
 %  & \SI{0.1}{\%} over \SI{14}{m}
 % & Standard sensitivity; will use two level meters for redundancy
-% & ProtoDUNE design
+% & \dword{protodune} design
 % \\  \colhline
 Liquid level meters precision (DP)
  & \(<\SI{1}{mm}\)
 & Maintain constant gas phase drift
-& WA105 / ProtoDUNE-DP design \SI{0.1}{mm}
+& WA105 / \dword{pddp} design \SI{0.1}{mm}
 \\  \colhline
  Cameras
  & \multicolumn{3}{p{0.64\textwidth}}{--- multiple requirements imposed by interfaces: see Table \ref{tab:fdgen-cameras-req} ---}
@@ -156,12 +156,12 @@ Cryogenic Instrumentation Test Facility cryostat volumes
  & \(<\SI{30}{kV/cm}\)
  & The mechanical design of the system should be such that E-field is below this value, 
  to minimize the risk of dielectric breakdown in \dword{lar}
- & ProtoDUNE designs based on electrostatic simulations
+ & \dword{protodune} designs based on electrostatic simulations
 \\ \colhline
  Noise introduced into readout electronics
  & Below significant levels
  & Keep readout electronics free from external noise, which confuses event reconstruction
- & To be evaluated at ProtoDUNE
+ & To be evaluated at \dword{protodune}
 \\ \colhline
 Total no.\ of variables
  & 50k to 100k
@@ -245,9 +245,9 @@ outside the scope of the consortium and require interfacing with other
 groups. This is discussed in Sec. \ref{sec:fdgen-slow-cryo-intfc}.
 
 % More specific information on how \dword{cisc} scope of activities
-% interface with other consortia can be found at DUNE Doc-dbs 6679 (APA),
-% 6730 (SP-PD), 6745 (SP-CE), 6760 (DP-CRP), 6781 (DP-PD), 6784 (DP-CE),
-% 6787 (HV), and 6790 (DAQ). The \dword{cisc} interface documents with facility,
+% interface with other consortia can be found at DUNE Doc-dbs 6679 (\dword{apa}),
+% 6730 (SP-PD), 6745 (SP-CE), 6760 (DP-\dword{crp}), 6781 (DP-PD), 6784 (DP-CE),
+% 6787 (HV), and 6790 (\dword{daq}). The \dword{cisc} interface documents with facility,
 % installation, integration, calibration, and physics can be found at DUNE
 % Doc-dbs 6991, 7018, 7045, 7072, and 7099, respectively. The \dword{cisc}
 % interface document with software and computing can be found at DUNE

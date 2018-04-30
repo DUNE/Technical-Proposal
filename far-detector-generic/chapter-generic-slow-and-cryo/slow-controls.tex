@@ -28,36 +28,36 @@ software for the slow controls.
 The slow controls requires a small amount of dedicated network and
 computing hardware as described below.  It also relies on common
 infrastructure, as described in
-sec.\ \ref{sec:fdgen-slow-cryo-slow-infra}.
+Section~\ref{sec:fdgen-slow-cryo-slow-infra}.
 
 % % % % Alec
 \subsubsection{Slow Controls Network Hardware}
 \label{sec:fdgen-slow-cryo-slow-network}
-The Slow Controls data originates from the cryogenic instrumentation discussed in
-sec.~\ref{sec:fdgen-cryo-instr} and from other systems,
+The slow controls data originates from the cryogenic instrumentation discussed in
+Section~\ref{sec:fdgen-cryo-instr} and from other systems,
 and is collected by software running on servers
-(sec.~\ref{sec:fdgen-slow-cryo-slow-compute})
-housed in the underground data room in the \dlong{cuc} (\dshort{cuc}),
-where data is archived in a central CISC database.
+(Section~\ref{sec:fdgen-slow-cryo-slow-compute})
+housed in the underground data room in the \dlong{cuc},
+where data is archived in a central \dword{cisc} database.
 The instrumentation data is transported over
 conventional network hardware from any sensors located in the cryogenic
-plant.  However, the readouts which are located in the racks on top the
+plant.  However, the readouts that are located in the racks on top the
 cryostats have to be careful about grounding and noise.  Therefore, each
 rack on the cryostat will have a small network switch which will send
 any network traffic from that rack to the \dshort{cuc} via a fiber transponder.
 This is the only network hardware specific to slow controls;
 network infrastructure requirements are described in
-sec.\ \ref{sec:fdgen-slow-cryo-slow-infra}.
+Section~\ref{sec:fdgen-slow-cryo-slow-infra}.
 
 % % % % Alec
 \subsubsection{Slow Controls Computing Hardware}
 \label{sec:fdgen-slow-cryo-slow-compute}
 
 Two servers (a primary server and a replicated backup) suitable for the needed relational database discussed
-in Sec.~\ref{sec:fdgen-slow-cryo-sw} will be located in the \dshort{cuc} data
+in Section~\ref{sec:fdgen-slow-cryo-sw} will be located in the \dshort{cuc} data
 room, with an additional
-two servers to perform front-end monitoring interface services: for
-example, assembling dynamic CISC monitoring web pages from the adjacent
+two servers to perform \dword{fe} monitoring interface services: for
+example, assembling dynamic \dword{cisc} monitoring web pages from the adjacent
 databases.  Any special purpose software, such as iFix or EPICS, would
 also run here: it expected one or two more servers will accommodate
 these programs.
@@ -86,18 +86,18 @@ would fit tightly into one rack or very comfortably into two.
 \subsection{Slow Controls Infrastructure}
 \label{sec:fdgen-slow-cryo-slow-infra}
 
-The total number of slow controls quantities and update rate are low enough
-that the data rate will be the tens of kilobytes per second range
-(sec.~\ref{sec:fdgen-slow-cryo-quant}), placing minimal requirements
+The total number of slow controls quantities and the update rate are low enough
+that the data rate will be in the tens of kilobytes per second range
+(Section~\ref{sec:fdgen-slow-cryo-quant}), placing minimal requirements
 on the local network infrastructure.
-Network traffic out of SURF to Fermilab will be primarily database calls
-to the central CISC database: either from monitoring applications, or from
-database replication to the offline version of the CISC database.  This
+Network traffic out of \surf to \fnal will be primarily database calls
+to the central \dword{cisc} database: either from monitoring applications, or from
+database replication to the offline version of the \dword{cisc} database.  This
 traffic is of a low enough bandwidth that the proposed general purpose
-links both out of the mine and back to Fermilab can accommodate it.
+links both out of the mine and back to \fnal can accommodate it.
 
 Up to two racks of space and appropriate power and cooling are
-available in the \dshort{cuc}'s DAQ server room for CISC usage.
+available in the \dshort{cuc}'s \dword{daq} server room for \dword{cisc} usage.
 Somewhat less space than that is currently envisioned, as described in
 \ref{sec:fdgen-slow-cryo-slow-compute}.
 
@@ -108,7 +108,7 @@ Somewhat less space than that is currently envisioned, as described in
 
 % same for SP and DP
 
-The Slow Controls software will need to include the following components
+The slow controls software will need to include the following components
 to provide complete monitoring and control of detector sub-systems:
 %
 \begin{description}
@@ -123,16 +123,17 @@ to provide complete monitoring and control of detector sub-systems:
   controls and monitoring.
 \end{description}
 
-An additional requirement for the software is to be able to indirectly
-interface with external systems ({\em e.g.}\ Cryogenics control
-system) and databases ({\em e.g.}\ beam database) to export data into
+An additional requirement for the software is the ability to indirectly
+interface with external systems (e.g., cryogenics control
+system) and databases (e.g., beam database) to export data into
 slow controls process variables (or channels) for archiving and status
 displays. This allows integrating displays and warnings into one
-system for the experiment operators, and to provide integrated
+system for the experiment operators, and %to provide 
+provides integrated
 archiving for sampled data in the archived database. In this case, one
-can imagine an Input Output Controller (IOC) running on a central DAQ
-server provides ``soft'' channels for these data.
-Fig.\ \ref{fig:gen-slow-controls-diagram} shows a typical workflow of a
+can imagine an Input Output Controller (IOC) running on a central \dword{daq}
+server provides \textit{soft} channels for these data.
+Figure~\ref{fig:gen-slow-controls-diagram} shows a typical workflow of a
 slow controls system.
 
 In terms of key features of the software, a highly evolved software is
@@ -148,7 +149,7 @@ arbitrary number of clients and provide logic for delayed alarms and
 acknowledging alarms. As part of the software, a standard naming
 convention for channels will be followed to aid dealing with large
 number of channels and sub-systems.
-
+\fixme{lots of ``should'' rather than is or shall. Also, lots of future tense in chap}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -163,39 +164,40 @@ by the needs of the subsystems being monitored, as documented in
 appropriate ICDs (Interface Control Documents), and continually revised based on operational
 experience.  The total number of quantities to monitor has been very
 roughly estimated by taking the total number of quantities monitored
-in MicroBooNE and scaling by the detector length and the number of
-planes, giving a number in the range of 50k to 100k.
+in \microboone and scaling by the detector length and the number of
+planes, giving a number in the range of \numrange{50}{100}k.
 Quantities are expected to update on average no faster than once per minute.
 The subsystems
-to be monitored include the detector cryogenic instrumentation
+to be monitored include the %detector 
+cryogenic instrumentation
 described in this chapter, the other detector systems, and relevant
 infrastructure and external devices. Table \ref{tab:gen-slow-quant}
 lists the kind of quantities expected from each system.
 
 \begin{dunetable}
-[Slow Controls Quantities]
+[Slow controls quantities]
 {p{0.3\textwidth}p{0.6\textwidth}}
 {tab:gen-slow-quant}
 {Slow controls quantities}
 System & Quantities \\ \toprowrule
 \multicolumn{2}{l}{\bf Detector Cryogenic Instrumentation } \\ \colhline
-Purity Monitors & anode and cathode charge, bias voltage and current, flash lamp status, calculated electron lifetime \\ \colhline
+Purity monitors & anode and cathode charge, bias voltage and current, flash lamp status, calculated electron lifetime \\ \colhline
 Thermometers & temperature, position of dynamic thermometers \\ \colhline
 Liquid level & liquid level \\ \colhline
 Gas analyzers & purity level readings \\ \colhline
 Cameras & camera voltage and current draw, temperature, heater current and voltage, lighting current and voltage \\ \colhline
-Cryogenic internal piping & feedthrough gas purge flow and temperature \\ \colhline
+Cryogenic internal piping & \fdth gas purge flow and temperature \\ \colhline
 \multicolumn{2}{l}{\bf Other Detector Systems } \\ \colhline
-High Voltage Systems & Drift HV voltage, current; end-of-field cage current, bias; ground plane currents \\ \colhline
-TPC Electronics & voltage and current to electronics \\ \colhline
-Photon Detection & bias, current, electronics \\ \colhline
-Data Acquisition & warm electronics currents and voltages; run status; DAQ buffer sizes, trigger rates, data rates, GPS status, etc.; computer and disk health status; other health metrics as defined by DAQ group \\ \colhline
-Charge Readout Plane / Anode Plane Array & bias voltages and currents \\ \colhline
-\multicolumn{2}{l}{\bf Infrastructure and External Systems } \\ \colhline
+\dword{hv} systems & Drift \dword{hv} voltage, current; end-of-field cage current, bias; ground plane currents \\ \colhline
+TPC electronics & voltage and current to electronics \\ \colhline
+\dword{pd} & bias, current, electronics \\ \colhline
+\dword{daq} & warm electronics currents and voltages; run status; \dword{daq} buffer sizes, trigger rates, data rates, GPS status, etc.; computer and disk health status; other health metrics as defined by \dword{daq} group \\ \colhline
+\dword{crp} / \dword{apa} & bias voltages and currents \\ \colhline
+\multicolumn{2}{l}{\bf Infrastructure and external systems } \\ \colhline
 Cryogenics (external) & status of pumps, flow rates, inlet and return temperature and pressure (via OPC or similar SCADA interface) \\ \colhline
 Beam status & protons on target, rate, target steering, beam pulse timing (via IFBeamDB) \\ \colhline
 Near detector & near detector run status (through common slow controls database) \\ \colhline
-Racks power and status & PDU current and voltage, air temperature, fan status if applicable, interlock status (fire, moisture, etc) \\
+Racks power and status & PDU current and voltage, air temperature, fan status if applicable, interlock status (fire, moisture, etc.) \\
 \end{dunetable}
 
 
@@ -212,7 +214,7 @@ Racks power and status & PDU current and voltage, air temperature, fan status if
 % so keeping the subsection and adding some text saying what it is.
 
 The local integration for the slow controls consists entirely of software
-and network interfaces with systems outside of the scope of the detector.
+and network interfaces with systems outside of the scope of the \dword{detmodule}.
 This includes the following:
 \begin{itemize}
 \item readings from the LBNF-managed external cryogenics systems, for status of pumps, flow rates, inlet and return temperature and pressure, which will be be implemented via OPC or a similar SCADA interfaces;
@@ -221,10 +223,10 @@ This includes the following:
 \end{itemize}
 
 This integration will occur after both the slow controls and non-detector
-systems are in place.  The LBNF-CISC interface will be managed by the
+systems are in place.  The LBNF-\dword{cisc} interface will be managed by the
 Cryogenics Systems working group described in section
 \ref{sec:fdgen-slow-cryo-int-piping}.  IFBeamDB is already well established.
-An internal near-detector--far-detector working group may be established
+An internal near-detector--\dword{fd} working group may be established
 to coordinate detector status exchange between near and far sites interfacing.
 
 
