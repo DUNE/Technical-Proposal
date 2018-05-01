@@ -22,14 +22,21 @@ This discussion leans heavily on the \dword{daq} design described in \ref{sec:fd
 \begin{itemize}
 \item Long-baseline neutrino oscillation studies, which require a near detector operating in a high rate environment and far detectors in which beam-coincident events are rare but in time with the beam spill and of sufficient energy to be readily recognizable.  
 
-The proposed  full size 17 kT modules for the  \dword{dune}/LBNF\ref{FDsections} far detectors will  have an active volume 12m high, 14.5m wide and 58m long.  Each Single Phase (SP) module will consist of
+The proposed  full size 17 kT modules for the  \dword{dune}/LBNF\ref{FDsections} far detectors will  have an active volume 12m high, 14.5m wide and 58m long. 
+
+\subsection{Single Phase estimates}
+ Each Single Phase (SP) module will consist of
 150 alternating vertical cathode and anode planes  spaced 3.5 m apart and operated at 180 kV for a 500 V/cm drift field.  The anode planes are made up of Anode Plane Assemblies  (APA's) which are 6.3 m tall by 2.3 m wide. %The APA's are wrapped with readout wires and read out through one of the shorter ends.  %Figure \ref{bigone} illustrates the layout of anode and cathode planes in the full size detector.
 For modules of this size, drift times in the liquid argon are of order 2.5 msec and raw data sizes before compression are of order 25 GB per 5.4 msec readout window. Table \ref{sw:bigone} summarizes the estimates for 4 Single Phase modules from the 2015 Conceptual Design Report \cite{cdr-annex-rates}.  With no triggering and no zero suppression or compression, the raw data volume would be of order 145 exaB/year. 
 
 Requiring  coincidence with the \dword{lbnf} beam will reduce the effective live-time from the full 1.2-1.5 sec beam cycle to a 5.4 ms readout window coincident with the 10 microsecond beam spill, leading to an uncompressed data rate for beam-coincident events of around 20 GB/sec for 4 17 kt detector modules;  still too high to record permanently.
 Only a few thousand actual beam interactions in the far detectors are expected each year.  Conservative triggering based on photon detectors and ionization should reduce the data rate from beam interactions by several orders of magnitude without sacrificing efficiency.
 
-The discussion above is for Single Phase technology. Dual phase technology is likely to have lower data volumes due to the lower number of readout channels and higher signal to noise ratios which allow more efficient  lossless compression.
+\subsection{Dual Phase technology}
+
+For the dual phase technology, each 10kT module will have 153,600 channels (pitch size 3.125 mm) . Drift time in the liquid argon is 7.5 ms. Given the number of samples per readout, the event size is 4.2 GB (for 1 drift window).  Due to a good S/N ratio (the RMS noise is at the level of 1-2 ADC counts) the loss-less compression is applied at the front-end allowing compressing the readout data flow by a factor 10, bringing the event size to 0.42 GB. Writing on disk the entire detector drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. The 10KT module can be seen as 20 ProtoDUNE-DP  detectors  running in parallel, each one defining a Region of Interest (ROI). For beam or cosmic events it is possible to dump on disk only the interested ROI(s).The size of a single ROI is  22MB (compressed)
+
+%Dual phase technology is likely to have lower data volumes due to the lower number of readout channels and higher signal to noise ratios which allow more efficient  lossless compression.
 
 %\fixme{more on DP}
 
@@ -250,7 +257,7 @@ For algorithms, the  \dword{microboone}\cite{Acciarri:2016smi} experiment has be
 
 \subsection{ProtoDUNE}\label{sw:PD-planning}
 
-The \dword{protodune} single and dual phase experiments will run in the Fall of 2018.  While the detectors themselves are 4\% of the final far detectors, the higher beam rates (up to 25 Hz) and the presence of cosmic rays make the expected instantaneous data rates of 20 Gb/sec from these detectors comparable to those from the full far detectors and similar to those expected for a near detector. 
+The \dword{protodune} single and dual phase experiments will run in the Fall of 2018.  While the detectors themselves have only 4\% of the channel count  of the final far detectors, the higher beam rates (up to 25 Hz) and the presence of cosmic rays make the expected instantaneous data rates of 20 Gb/sec from these detectors comparable to those from the full far detectors and similar to those expected for a near detector. 
 
 In addition, the entire suite of issues in transferring, cataloging, calibrating, reconstructing and analyzing these data are the same as for the full detectors and are driving the design and development of a substantial array of computing services necessary for both \dword{protodune} and  \dword{dune}.
 
@@ -363,7 +370,7 @@ Our overall conclusion from this test is that most components for data movement 
 The collaboration has performed multiple Monte Carto challenges to create samples for physics studies for the Technical Proposal and in preparation for the TDR.  In the last major challenge,  MCC10 in early 2018, 17M events, taking up 252 TB of space were generated and catalogued automatically using the central DUNE production framework in response to requests by the Physics groups. 
 
 \subsection{Reconstruction tests}
-Reconstruction tests have been performed on simulated test beam interactions with cosmic rays and an electronic noise simulation based on MicroBooNE's experience.  Hit finding and shaping is found to take around 2 minutes/event with a 2GB memory footprint, leading to a reduction in data size of a factor of four.  Higher-level pattern recognition occupies 10 minutes/event with a 4-6~GB memory footprint. For real data, calibration, electric field nonuniformities and other factors will likely raise the CPU needs per event. We will learn this when real data starts to arrive in late summer. 
+Reconstruction tests have been performed on simulated test beam interactions with cosmic rays and an electronic noise simulation based on MicroBooNE's experience.  Hit finding and shaping is found to take around 2 minutes/event with a 2GB memory footprint, leading to a reduction in data size of a factor of four.  Higher-level pattern recognition occupies 10 minutes/event with a 4-6~GB memory footprint. For real data, calibration, electric field non-uniformities and other factors will likely raise the CPU needs per event. We will learn this when real data starts to arrive in late summer. 
 
 
 \section{Resource planning and prospects}
