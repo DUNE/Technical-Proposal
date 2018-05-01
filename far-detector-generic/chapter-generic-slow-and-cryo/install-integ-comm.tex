@@ -42,7 +42,7 @@
 
 The installation of internal cryogenic pipes should occur soon after the cryostat is completed or towards the end of the cryostat completion, depending on how the cryostat work proceeds. A concrete installation plan will be developed by the company designing the internal cryogenics. It depends on how they address the thermal contraction of the long horizontal and vertical runs. We are investigating several options, which will have different installation sequences. In general though, prefabricated spool pieces (as long as allowed) will be delivered and welded together inside the cryostat. The vertical lines will be vacuum insulated, whereas the horizontal ones will just be bare pipes.
 
-The cool down assemblies will be installed in dedicated cool down feedthroughs at the top. There are two rows of ten each in the long direction of the cryostat. Each one features a liquid argon line connected to a gaseous argon line via a mixing nozzle and a gaseous argon line with spraying nozzles. The mixing nozzles generate droplets of liquid that are circulated uniformly inside the cryostat by the spraying nozzles. They are prefabricated at the vendor's site and delivered as full pieces, which will then be mounted over the feedthroughs.
+The cool-down assemblies will be installed in dedicated cool-down \fdth{}s at the top. There are two rows of ten each in the long direction of the cryostat. Each one features a \lar line connected to a gaseous argon line via a mixing nozzle and a gaseous argon line with spraying nozzles. The mixing nozzles generate droplets of liquid that are circulated uniformly inside the cryostat by the spraying nozzles. They are prefabricated at the vendor's site and delivered as full pieces, which will then be mounted over the \fdth{}s.
 
 The current \threed model of the internal cryogenics is developed and archived at CERN as part of the full Cryostat model. CERN is currently responsible for the integration of the Detector Cavern: cryostat, detector, and proximity cryogenics in the Detector Cavern, including cryogenics on the mezzanine and main \lar circulation pumps.
 
@@ -52,11 +52,11 @@ The prefabricated spool pieces and the cool down nozzles will be tested at the v
 \subsection{Purity Monitors}
 \label{sec:fdgen-slow-cryo-instal-pm}
 
-The purity monitor system will be built in a modular way, such that is can be assembled outside of DUNE-FD cryostat.  The assembly of the purity monitors themselves would occur outside of the cryostat and would include everything described in the previous section.  The installation of the purity monitor system can then be carried out with the least number of steps inside the cryostat.  The assembly itself would come into the cryostat with the three individual purity monitors mounted to the support tubes and no \dword{hv} cables or optical fibers installed yet.  The support tube at the top and bottom of the assembly would then be mounted to the brackets inside the cryostat that could be attached to the cables trays and/or the detector support structure.  In parallel to this work, the front-end electronics and light source can be installed on the top of the cryostat, along with the installation of the electronics and power supplies into the electronics rack.  
+The purity monitor system will be built in a modular way, such that is can be assembled outside of DUNE-FD cryostat.  The assembly of the purity monitors themselves would occur outside of the cryostat and would include everything described in the previous section.  The installation of the purity monitor system can then be carried out with the least number of steps inside the cryostat.  The assembly itself would come into the cryostat with the three individual purity monitors mounted to the support tubes and no \dword{hv} cables or optical fibers installed yet.  The support tube at the top and bottom of the assembly would then be mounted to the brackets inside the cryostat that could be attached to the cables trays and/or the detector support structure.  In parallel to this work, the \dword{fe} electronics and light source can be installed on the top of the cryostat, along with the installation of the electronics and power supplies into the electronics rack.  
 
-Integration would begin by running the \dword{hv} cables and optical fibers to the purity monitors, coming from the top of the cryostat.  The \dword{hv} cables would be attached to the \dword{hv} feedthroughs with enough length to reach each of the respective purity monitors.  The cables would be run through the port reserved for the purity monitor system, along cable trays inside the cryostat until they reach the purity monitor system, and would then be terminated through the support tube down to each of the purity monitors.  Each purity monitor will have three \dword{hv} cables that connect it to the feedthrough, and then along to the front-end electronics.  The optical fibers would then be run through the special optical fiber feedthrough, into the cryostat, and would be guided to the purity monitor system either using the cables trays or guide tubes.  Which ever solution is adopted for running the optical fibers from the feedthrough to the purity monitor system, it should protect the fibers from accidental breakage during the remainder of the detector and instrumentation installation process.  The optical fibers would then be run inside of the purity monitor support tube and to the respective purity monitors terminating them at the photocathode of each, protecting them from breakage near the purity monitor system itself.
+Integration would begin by running the \dword{hv} cables and optical fibers to the purity monitors, coming from the top of the cryostat.  The \dword{hv} cables would be attached to the \dword{hv} \fdth{}s with enough length to reach each of the respective purity monitors.  The cables would be run through the port reserved for the purity monitor system, along cable trays inside the cryostat until they reach the purity monitor system, and would then be terminated through the support tube down to each of the purity monitors.  Each purity monitor will have three \dword{hv} cables that connect it to the \fdth, and then along to the \dword{fe} electronics.  The optical fibers would then be run through the special optical fiber \fdth, into the cryostat, and would be guided to the purity monitor system either using the cables trays or guide tubes.  Whichever solution is adopted for running the optical fibers from the \fdth to the purity monitor system, it should protect the fibers from accidental breakage during the remainder of the detector and instrumentation installation process.  The optical fibers would then be run inside of the purity monitor support tube and to the respective purity monitors terminating them at the photocathode of each, protecting them from breakage near the purity monitor system itself.
 
-Integration would continue with the connection of the \dword{hv} cables between the feedthrough and the system front-end electronics, and then optical fibers to the light source.  The cables connecting the front-end electronics and the light source to the electronics rack would also be run and connected at this point.  This would allow for the system to be turned on and the software to begin testing the various components and connections.  Once it was confirmed that all connections had been successfully made, the integration to the slow controls system would be made, first by establishing communications between the two systems and then transferring data between them to ensure successful exchange of important system parameters and measurements.  
+Integration would continue with the connection of the \dword{hv} cables between the \fdth and the system \dword{fe} electronics, and then optical fibers to the light source.  The cables connecting the \dword{fe} electronics and the light source to the electronics rack would also be run and connected at this point.  This would allow for the system to be turned on and the software to begin testing the various components and connections.  Once it was confirmed that all connections had been successfully made, the integration to the slow controls system would be made, first by establishing communications between the two systems and then transferring data between them to ensure successful exchange of important system parameters and measurements.  
 
 Commissioning of the purity monitor system would officially be done once the cryostat had been purged and a gaseous argon atmosphere was present.  At this point the \dword{hv} for the purity monitors could be ramped up without the fear of discharge through the air, and the light source the turned on.  Although the drift electron lifetime in the gaseous argon would be very large and therefore not really measurable with the purity monitors themselves, the signal strength at both the cathode and anode would give a good indication of how well the light source is generating drift electrons from the photocathode and that they are successfully drifted to the anode by looking at the signal strength at the anode and comparing it to that of the cathode.
 
@@ -71,12 +71,12 @@ to the corresponding cryostat port. Once all cables going to the same port have 
 to the pins of the SUBD-25 connectors on the flange. In order to avoid damaging the sensors, those will be installed at a later stage just before unfolding the bottom ground planes.
 
 Static T-gradient monitors should be installed before the outer \dwords{apa}. Thus, the best moment could be right after the installation of the pipes
-and before the installation of individual sensors. This will proceed in several steps: i) installation of the two stainless steel strings to the bottom and top corners of the cryostat,
-ii) tension and verticality checks, iii) installation of cable supports in one of the strings, iv) installation of sensor supports in the other string, v) cable routing starting from
-the sensor end towards the corresponding cryostat port, vi) cut all cables at the same point in that port, vii) solder cable wires to the pins of the SUBD-25 connectors on the flange,
-viii) plug sensors onto IDC-4 connectors at a later stage, just before moving corresponding \dword{apa} into its final position. 
+and before the installation of individual sensors. This will proceed in several steps: (1) installation of the two stainless steel strings to the bottom and top corners of the cryostat,
+(2) tension and verticality checks, (3) installation of cable supports in one of the strings, (4) installation of sensor supports in the other string, (5) cable routing starting from
+the sensor end towards the corresponding cryostat port, (6) cut all cables at the same point in that port, (7) solder cable wires to the pins of the SUBD-25 connectors on the flange,
+(8) plug sensors onto IDC-4 connectors at a later stage, just before moving corresponding \dword{apa} into its final position. 
 
-For the single phase, individual sensors on the top ground plane will have to be integrated with the ground planes. For each \dshort{cpa} (with its corresponding 4 \dshort{gp} modules)
+For the \single , individual sensors on the top \dword{gp} will have to be integrated with the \dwords{gp}. For each \dshort{cpa} (with its corresponding four \dshort{gp} modules)
 going inside the cryostat, cable and sensor supports will be anchored to the \dshort{gp} threaded rods as soon as possible.
 Once the \dshort{cpa} is moved into its final position and its top \dshort{gp}s are ready to be unfolded, sensors on those \dshort{gp}s will be installed. Once unfolded, cables 
 exceeding the \dshort{gp} limits can be routed to the corresponding cryostat port either using neighboring \dshort{gp}s or \dshort{dss} I-bins. 
@@ -86,18 +86,20 @@ Dynamic T-gradient monitors will be installed after the completion of the detect
 The monitor will come in several segments with sensors and cabling already
 in place. Additional slack will be provided at segment joints to ease the
 installation process. Segments will be fed into the flange one at the
-time. The segments being fed into the detector will be held at the top
+time. The segments being fed into the \dword{detmodule} will be held at the top
 with a pin that prevents the segment from sliding in all the way. The next
 segment will be connected at that time. Then the pin will be removed,
 segment will be pushed down, until the next segment top is held with the
 pin at the flange. Then the following segment will be installed. The
 process will continue until the entire monitor is placed in its place
-inside the cryostat. A use of crane is foreseen to facilitate the process.
+inside the cryostat. Use of a crane is foreseen to facilitate the process.
 Extra cable slack at the top will be provided again in order to ease  the
 connection to the D-sub flange and to allow  vertical movement of the
-entire system. Then,  a 4-way cross with flange electric feedthroughs on
-one side and a widow on the other side. The wires will  be connected to
-the D-sub connector on the electric flange feedthrough on the side. On the
+entire system. Then,  a four-way cross with flange electric \fdth{}s on
+one side and a widow on the other side. 
+\fixme{window, I presume? Also, sentence missing verb} 
+The wires will  be connected to
+the D-sub connector on the electric flange \fdth on the side. On the
 top of the cross, a moving mechanism will then be installed with a crane.
 The pinion will be connected to the top segment. The moving mechanism will
 come reassembled with motor on the side in place and pinion and gear
@@ -114,11 +116,11 @@ The final commissioning phase will be done during and after cryostat filling.
 \subsection{Gas Analyzers}
 \label{sec:fdgen-slow-cryo-install-ga}
  
-The Gas Analyzers need to be installed prior to the Piston Purge and Gas recirculation phases of the Cryostat commissioning. They should be installed near the location of the tubing switchyard to minimize tubing runs and for convenience when switching the sampling points and gas analyzers. Since each is a stand alone module, a single rack with shelves, should be adequate to house the modules.
+The gas analyzers need to be installed prior to the piston purge and gas recirculation phases of the cryostat commissioning. They should be installed near the location of the tubing switchyard to minimize tubing runs and for convenience when switching the sampling points and gas analyzers. Since each is a stand alone module, a single rack with shelves, should be adequate to house the modules.
 
-Concerning the integration, the gas analyzers typically have an analog output (4-20 \si{mA} or 0-10\si{V}) which maps to the input range of the analyzers. They also usually have a number of relays that indicate the scale they are currently running. These outputs can be connected to the slow controls for readout. However it is preferred to use a digital readout since this directly gives the analyzer reading at any scale. Currently there are a number of digital output connections, ranging from RS-232, RS-485, USB, and ethernet. At the time of purchase, one can choose the preferred option, since the protocol is likely to evolve. The readout usually responds to a simple set of text commands. Due to the natural time scales of the gas analyzers, and lags in the gas delivery times (depending on the length of the tubing runs), sampling at the minute level most likely is adequate.
+Concerning the integration, the gas analyzers typically have an analog output (\numrange{4}{20} \si{mA} or \numrange{0}{10}\si{V}) which maps to the input range of the analyzers. They also usually have a number of relays that indicate the scale they are currently running. These outputs can be connected to the slow controls for readout. However it is preferred to use a digital readout since this directly gives the analyzer reading at any scale. Currently there are a number of digital output connections, ranging from RS-232, RS-485, USB, and Ethernet. At the time of purchase, one can choose the preferred option, since the protocol is likely to evolve. The readout usually responds to a simple set of text commands. Due to the natural time scales of the gas analyzers, and lags in the gas delivery times (depending on the length of the tubing runs), sampling at the minute level most likely is adequate. \fixme{``sampling on timescales of a minute...'' otherwise `minute' may strike reader as pronounced ``minoot''}
 
-For commissioning, before the beginning of the gas phase of the Cryostat commissioning, the analyzers need to be brought online and calibrated. Calibration varies for the different modules, but often requires using Argon gas with both zero contaminants (usually removed with a local inline filter)for the zero of the analyzer, and Argon with a known level of the contaminant to check the scale. Since the start of the gas phase of the Cryostat begins with normal air, the more sensitive analyzers will be valved off at the switchyard to prevent overloading their inputs (and potentially saturating their detectors). As the Argon Purge and gas recirculation progress, the various analyzers will be valved back in when the contaminant levels reach the upper limits of the analyzer ranges. 
+For commissioning, before the beginning of the gas phase of the cryostat commissioning, the analyzers need to be brought online and calibrated. Calibration varies for the different modules, but often requires using argon gas with both zero contaminants (usually removed with a local inline filter) for the zero of the analyzer, and argon with a known level of the contaminant to check the scale. Since the start of the gas phase of the cryostat begins with normal air, the more sensitive analyzers will be valved off at the switchyard to prevent overloading their inputs (and potentially saturating their detectors). As the argon purge and gas recirculation progress, the various analyzers will be valved back in when the contaminant levels reach the upper limits of the analyzer ranges. 
 
 \subsection{Liquid Level Monitoring}
 \label{sec:fdgen-slow-cryo-install-llm}
@@ -158,32 +160,31 @@ The capacitance level sensors will be installed at the top of the
 cryostat in coordination with \dshort{tpc} installation.  Their
 placement relative to the upper ground plane (single phase) or
 \dshort{crp} (dual phase) is important as these sensors will be used for a
-hardware interlock on the high voltage, and, in the case of the dual
-phase, to measure the \lar level at the millimeter level as required
-for dual phase operation.
+hardware interlock on the \dword{hv}, and, in the case of the \dual, to measure the \lar level at the millimeter level as required
+for \dual operation.
 % It will measure then nominal value (currently 13.5 m -0.6 / + 0.4 m). <<< this already stated in the level meter design -- omit here to avoid having numbers in too many places
 Post installation in situ testing of the capacitive level sensors can be
 accomplished with a small dewar of liquid.
 
 
-\subsection{Cameras and light emitting system}
+\subsection{Cameras and Light-Emitting System}
 \label{sec:fdgen-slow-cryo-install-c}
 
 Fixed camera installation is in principle simple, but involves a
 considerable number of interfaces. Each camera enclosure will have
 threaded holes to allow it to be bolted to a bracket. A mechanical
 interface is required with the cryostat wall, cryogenic internal
-piping, or detector support structure. Each enclosure will be attached
+piping, or \dword{dss}. Each enclosure will be attached
 to a gas line for maintaining appropriate underpressure in the fill
 gas, an interface with cryogenic internal piping. Each camera has a
 cable for the video signal (coax or optical), and a multiconductor
 cable for power and control, to be run through cable trays to flanges
-on assigned instrumentation feedthroughs.
+on assigned instrumentation \fdth{}s.
 
 The inspection camera is designed to be inserted and removed on any
-instrumentation feedthrough equipped with a gate valve at any time
+instrumentation \fdth equipped with a gate valve at any time
 during operation.  Installation of the gate valves and purge system
-for instrumentation feedthroughs falls under cryogenic internal
+for instrumentation \fdth{}s falls under cryogenic internal
 piping.
 
 Installation of fixed lighting sources separate from the cameras would
@@ -196,7 +197,7 @@ installation.
 \subsection{Slow Controls Hardware}
 \label{sec:fdgen-slow-cryo-install-sc-hard}
 
-Slow Controls hardware installation will include installing multiple
+Slow controls hardware installation will include installing multiple
 servers, network cables, any specialized cables that will be needed
 for device communication, and possibly some custom-built rack
 monitoring hardware. The installation sequence will be interfaced and
@@ -209,26 +210,34 @@ after the common rack hardware is installed, and will be coordinated
 with other consortia and the \dword{daq} group respectively.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Transport, handling and storage}
+\subsection{Transport, Handling and Storage}
 \label{sec:fdgen-slow-cryo-install-transport}
 
-Most instrumentation devices will be shipped to SURF in pieces and mounted on-site. 
-Instrumentation devices are in general small except the support structures for Purity Monitors and T-gradient monitors,
-which will cover the entire height of the cryostat. Being the load on those structures relatively small (\(<\SI{100}{kg}\)) they can be fabricated in parts of less than \SI{3}{m},
-which can be easily transported to SURF. Those parts can also be easily transported down the shaft and through the tunnels.
-All instrumentation devices except the dynamic T-Gradient monitors, which will be introduced into the cryostat through the cryostat port above, can be
+Most instrumentation devices will be shipped to \surf in pieces and mounted on-site. 
+\fixme{in situ?}
+Instrumentation devices are in general small except the support structures for purity monitors and T-gradient monitors,
+which will cover the entire height of the cryostat. Being the load on those structures relatively small
+\fixme{Given that the load... is relatively small}
+ (\(<\SI{100}{kg}\)) they can be fabricated in parts of less than \SI{3}{m},
+which can be easily transported to \surf. Those parts can also be easily transported down the shaft and through the tunnels.
+All instrumentation devices except the dynamic T-gradient monitors, which will be introduced into the cryostat through the cryostat port above, 
+\fixme{above what?}
+can be
 moved into the cryostat without the crane.
 
 %We are talking about almost , they will take some space.
-Cryogenics internal piping needs an special treatment given the number of pipes and their lengths.
+Cryogenic internal piping needs special treatment given the number of pipes and their lengths.
 %There will be 750 m of pipes inside each cryostat (300 m of 3'' pipe and almost 450 m of 2'' pipes).
 Purging and filling pipes will be most likely pre-assembled by the manufacturer as much as possible, using the largest  
-size that they can ship and transported down the shaft. Assuming \SI{6}{m} long sections,
-pipes could be grouped in bunches of 10-15 pipes and stored in 5 pallets/boxes of about \SI{6.2}{m} x \SI{0.8}{m} x \SI{0.5}{m}. 
+size that can be shipped and transported down the shaft. Assuming \SI{6}{m} long sections,
+pipes could be grouped in bunches of \numrange{10}{15} pipes and stored in five pallets/boxes
+\fixme{pallets or boxes?}
+ of about \SI{6.2}{m} $\times$ \SI{0.8}{m} $\times$ \SI{0.5}{m}. 
 %(assuming 10 sections of the 3” and 15 of the 2”).
-These would need to be delivered to the site, stored, transported down, and stored again before they are used.
+These would need to be delivered to the site, stored, transported down
+\fixme{to the 4850L}, and stored again before they are used.
 Depending on when they are installed they could be stored inside the cryostat itself or in one of the drifts. 
-Cool down pipes are easier to handle. They could be transported in 20 boxes of \SI{2.2}{m} x \SI{0.6}{m} x \SI{0.6}{m}, although
+Cool-down pipes are easier to handle. They could be transported in \num{20} boxes of \SI{2.2}{m} $\times$ \SI{0.6}{m} $\times$ \SI{0.6}{m}, although
 there is room for saving some space using a different packaging. 
 %They could also put many of them in the same box and save space, but they will soon run into shaft limits.
 %These would need to be delivered to the site, stored, transported down, and stored again before they are used.

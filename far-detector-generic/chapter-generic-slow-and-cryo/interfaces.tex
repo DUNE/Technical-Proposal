@@ -55,7 +55,7 @@ There are also interfaces with the \dword{pds}~\cite{bib:docdb6730}. Purity moni
 Although this should be understood and quantified, \dword{cisc} and the \single \dword{pds} may have to define the necessary hardware interlocks
 that avoid turning on any other light source accidentally when \dwords{pd} are on.
 
-The \dword{daq}-\dword{cisc} interface \cite{bib:docdb6790} is described in Section~\ref{sec:fd-daq-intfc-sc}. %As discribed there, 
+The \dword{daq}-\dword{cisc} interface~\cite{bib:docdb6790} is described in Section~\ref{sec:fd-daq-intfc-sc}. %As discribed there, 
 \dword{cisc} data will be stored both locally (in \dword{cisc} database servers in the
 \dword{cuc}) and offline (the databases will be replicated back to \fnal)
 in a relational database indexed by timestamp.
@@ -99,13 +99,13 @@ monitor the interlock bit status for laser and radioactive sources.
 %Understand the location of Cold cameras & lights for inspection of CFT related devices, as well as the
 %requirements of Cold/Warm cameras: resolution, field of view, light sensitivity, low light operation, frames per second, operation in triggered mode?  etc.
 
-\dword{cisc} indirectly interfaces to Physics through the CFT devices. One specific need for physics will be to extract
+\dword{cisc} indirectly interfaces to physics through the CFT devices. One specific need for physics will be to extract
 instrumentation or slow controls data to correlate high-level quantities to low-level or calibration data.
 This requires tools to extract data from the slow controls database (see \dword{cisc}-\dword{swc} interface document \cite{bib:docdb7126}).
 A brief list of what \dword{cisc} data is needed by physics is given in the \dword{cisc}-Physics interface document \cite{bib:docdb7099}. 
 
 Interfaces between \dword{cisc} and technical coordination are detailed in the corresponding interface documents for the facility \cite{bib:docdb6991}, installation \cite{bib:docdb7018}
-and integration facility \cite{bib:docdb7045}.
+and integration facility~\cite{bib:docdb7045}.
 
 \fixme{Interfaces with technical coordination has to be expanded}
 
