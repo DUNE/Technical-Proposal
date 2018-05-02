@@ -79,7 +79,7 @@ in order to avoid confusing event reconstruction.
 
 Some of the common design considerations for
 instrumentation devices include stability, reliability and longevity
-such that the devices can survive for a period of at least 20 years
+such that the devices can survive for a period of at least \dunelifetime
 (current official DUNE run time).  Since it is uncommon for any device
 to have such a long lifetime, provisions will be made in the overall
 design to allow replacement of devices after certain number of
@@ -90,9 +90,9 @@ the electric field on the instrumentation devices is
 required to be less than \SI{30}{kV\per\cm},
 such that the risk of dielectric breakdown in \dword{lar} is minimized.
 This requirement imposes stringent constraints on the location and mechanical 
-design of some of those devices. Electrostatic simulations (e.g. Comsol) 
+design of some of those devices. Electrostatic simulations (e.g., Comsol) 
 will be performed to compute the expected field on the boundaries of 
-instrumentation devices and to design the appropriate E-field shielding
+instrumentation devices and to design the appropriate \efield shielding
 in the case the electric field approaches the limit. 
 
 Another common consideration for all instrumentation devices is their support structure
@@ -122,7 +122,7 @@ Design Parameter
 Electron lifetime measurement precision
  & $<\SI{1.4}{\%}$ at \SI{3}{ms}
  & Per DUNE-FD Task Force\,\cite{fdtf-final-report}, needed to keep the bias on the charge readout in the \dshort{tpc} to below \SI{0.5}{\%} at \SI{3}{ms}
- & Purity monitors do not directly sample \dshort{tpc}: see sec.\ \ref{sec:fdgen-slow-cryo-purity-mon}
+ & Purity monitors do not directly sample \dshort{tpc}: see Section~\ref{sec:fdgen-slow-cryo-purity-mon}
 \\  \colhline
 Thermometer precision
  & $<\SI{5}{mK}$
@@ -130,7 +130,7 @@ Thermometer precision
 & Expected \dword{protodune} performance \SI{2}{mK}
 \\ \colhline
 Thermometer density
- & \(>2/\si{m}\) (vert.), \(\sim\)~0.2/\si{m} (horiz.)
+ & \(>2/\si{m}\) (vert.), \(\sim\)~\SI{0.2}{m} (horiz.)
  & Driven by \dshort{cfd} simulation
  & Achieved by design
 \\ \colhline
@@ -139,13 +139,13 @@ Thermometer density
 % & Standard sensitivity; will use two level meters for redundancy
 % & \dword{protodune} design
 % \\  \colhline
-Liquid level meters precision (DP)
+Liquid level meters precision (\dual)
  & \(<\SI{1}{mm}\)
 & Maintain constant gas phase drift
-& WA105 / \dword{pddp} design \SI{0.1}{mm}
+& \dword{wa105} / \dword{pddp} design \SI{0.1}{mm}
 \\  \colhline
  Cameras
- & \multicolumn{3}{p{0.64\textwidth}}{--- multiple requirements imposed by interfaces: see Table \ref{tab:fdgen-cameras-req} ---}
+ & \multicolumn{3}{p{0.64\textwidth}}{--- multiple requirements imposed by interfaces: see Table~\ref{tab:fdgen-cameras-req} ---}
  \\ \colhline
 Cryogenic Instrumentation Test Facility cryostat volumes
  & 0.5 to \SI{3}{m^3}
@@ -154,7 +154,7 @@ Cryogenic Instrumentation Test Facility cryostat volumes
 \\  \colhline
  Max.\ E-field on instrumentation devices
  & \(<\SI{30}{kV/cm}\)
- & The mechanical design of the system should be such that E-field is below this value, 
+ & The mechanical design of the system should be such that \efield is below this value, 
  to minimize the risk of dielectric breakdown in \dword{lar}
  & \dword{protodune} designs based on electrostatic simulations
 \\ \colhline
@@ -164,7 +164,7 @@ Cryogenic Instrumentation Test Facility cryostat volumes
  & To be evaluated at \dword{protodune}
 \\ \colhline
 Total no.\ of variables
- & 50k to 100k
+ & \numrange{50}{100}\si{k}
 & Expected number based on scaling past experiments; requires robust base software model that can handle large no. of variables.
 & Achievable in existing control systems; DUNE choice in progress.
 \\  \colhline
@@ -242,7 +242,7 @@ buying such control cables.
 
 In addition to the listed activities, \dword{cisc} also has activities that span
 outside the scope of the consortium and require interfacing with other
-groups. This is discussed in Sec. \ref{sec:fdgen-slow-cryo-intfc}.
+groups. This is discussed in Section~\ref{sec:fdgen-slow-cryo-intfc}.
 
 % More specific information on how \dword{cisc} scope of activities
 % interface with other consortia can be found at DUNE Doc-dbs 6679 (\dword{apa}),
