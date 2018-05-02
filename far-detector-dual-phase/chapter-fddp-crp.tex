@@ -168,7 +168,8 @@ Differential thermal contraction occurs between G10 and INVAR frames.
 
 \subsubsection{Decoupling system}
 %During cooling, INVAR is nearly keeping its dimensions while G10 frame and \dwords{lem}/Anodes are contracting in similar ways. 
-During cooling, INVAR's dimensions remain nearly unchanged whereas the G10 frame and \dwords{lem}-anodes contract in similar ways. Thermal decoupling allows a lateral sliding of the G10 frame, without changing the altitude. \fixme{altitude? maybe `level' is better?}
+During cooling, INVAR's dimensions remain nearly unchanged whereas the G10 frame and \dwords{lem}-anodes contract in similar ways. Thermal decoupling allows a lateral sliding of the G10 frame, without changing the level. 
+%\fixme{altitude? maybe `level' is better?}
 Dedicated decoupling systems are installed at each corner of the INVAR frame (\num{50} systems by  \num{3}$\times$\SI{3}{m$^{2}$} module). One decoupling system that allows the G10+ \dword{lem}-anodes elements to slide is shown in  Figure~\ref{fig:crp-decoupling}.
 
 \begin{dunefigure}[Decoupling system attached to the INVAR frame]{fig:crp-decoupling}
@@ -190,7 +191,7 @@ wire tensioning system with the pushing screws and calibrated wedges to keep the
 \end{dunefigure}
 
 The PCB has \num{64} soldering pads with \SI{200}{\micro\meter} grooves for precise positioning of the wires. During the %wire-
-soldering process each wire is tensioned and positioned in a groove. The PCB is then mounted on the G10 supporting bars and the tension of the group of \num{64} wires can be precisely adjusted by pushing the supporting bars against the \dword{crp}’s G10 frame with screws. The tensioning is performed by tightening \textit{pushing screws}, adding a calibrated wedge, and locking the supporting square.
+soldering process each wire is tensioned and positioned in a groove. The PCB is then mounted on the G10 supporting bars and the tension of the group of \num{64} wires can be precisely adjusted by pushing the supporting bars against the \dword{crp}s G10 frame with screws. The tensioning is performed by tightening \textit{pushing screws}, adding a calibrated wedge, and locking the supporting square.
 %The wires, \SI{3}{m} long in both $x$ and $y$ directions, have their sags minimized to \SI{0.1}{mm} thanks to $x$ and $y$ oriented supporting comb-teeth blades  inserted between G10 subframes of 1 m$^2$ size. 
 Supporting comb-teeth blades that are inserted between the \SI{1}{m$^2$} G10 subframes in both $x$ and $y$ restrict the sag to \SI{0.1}{mm} in the wires, which are \SI{3}{m} long in both directions. The array of blades penetrates the liquid surface and has the additional benefit of maintaining the liquid level still.
 
@@ -207,7 +208,7 @@ The total active area of a \dword{lem} module used for  \dword{pddp} represents 
 
 \begin{dunefigure}
 [Picture of a \dword{lem} module used for  \dword{pddp}]
-{fig:LEM_CFR-35.jpg}
+{fig:LEM_CFR-35}
 {Picture of a \dword{lem} module used for  \dword{pddp}}
 \includegraphics[width=.8\textwidth]{LEM_CFR-35.jpg}
 \end{dunefigure}
@@ -238,22 +239,23 @@ Each strip, made of thin gold-plated copper tracks, has a capacitance per unit l
 \subsubsection{Distance meters and level meters}
 
 The vertical and lateral positions of the \dwords{crp} are measured by different means. 
-For the vertical position, %the use of the
- a suspension system and its motorization on three points provides an accurate measurement for each \dword{crp} of the order of \SI{0.1}{mm} thanks to the accuracy of the steps motors and encoders. 
- Prior to these measurements the known absolute position of the \dword{crp} will be obtained by survey of suspensions and anchor points on the \dword{crp}. There will be also the possibility to get relative measurements of the \dword{crp} position with respect to the \lar level using capacitive level meters put on the sides of the  external \dword{crp} of the detection plane. 
- \fixme{prev pgraph needs work but I don't understand it well enough to improve it; some accuracy vs precision issues too}
+It is possible to know the vertical position of the \dword{crp} both from the suspension system and from some dedicated capacitive measurements.
+The  suspension system and its motorization on three points provides an accurate measurement for each \dword{crp} of the order of \SI{0.1}{mm} thanks to the accuracy of the steps motors and encoders. 
+In order to exploit the information from the encoders,  the anchor points on the \dword{crp} must be surveyed during construction and the absolute positions of the suspensions must be surveyed from the roof of the cryostat during the installation of the \fdth.
+
+There will be also the possibility to get relative measurements of the \dword{crp} position with respect to the \lar level using capacitive level meters put on the sides of the \dword{crp}s located at the periphery of the detection plane.  The  measurements of the capacitance between the \dword{lem} and the extraction grid, which depends on the height of the liquid above the grid, can also provide a relative measurement  of the \dword{crp}'s vertical position with respect to the liquid surface. This method is used for the \dword{crp}s which are not located at the periphery, while the ones at the periphery can exploit both the  \dword{lem}-grid capacitance measurements and the capacitive level meters.
  
-The  measurements of the capacitance between the \dword{lem} and the extraction grid, which depends on the height of the liquid above the grid, could also give a relative measurement  of the \dword{crp}'s vertical position with respect to the liquid surface.
+% \fixme{prev pgraph needs work but I don't understand it well enough to improve it; some accuracy vs precision issues too} Rephrasing performed
+ 
+The measurement of the distance between each \dword{crp} pair is performed by using capacitive devices called \textit{distance meters} made of two parallel plates. %will be used for 
+This measurement allows to position the \dword{crp}s with the correct  inter-\dword{crp} distance all along the detection plane. These devices do not require any contact among  \dword{crp}s and give an accuracy of the order of \SI{0.1}{mm} on the  inter-\dword{crp} distance.  Four devices per \dword{crp} side are embedded in the G10 frame side as can be seen on Figure~\ref{fig:distancemeter}.
 
-For the lateral measurement of the \dword{crp}, capacitive devices called \textit{distance meters} made of two parallel plates %will be used for 
-provide the relative alignment of  \dword{crp} lateral position. This device gives an accuracy of the order of \SI{0.1}{mm} on the  inter-\dword{crp} distance. 
-With these capacitive measurements, no contact is required and four devices per \dword{crp} side are embedded in the G10 frame side as can be seen on Figure~\ref{fig:distancemeter}.
-
-\begin{dunefigure}[View of the distance meter plates on the sides of a \dword{crp}]{fig:distance meter}
-{View of the distance meter plates on the sides of a \dword{crp}.}
+\begin{dunefigure}[View of the distance meter plates on the sides of a \dword{crp}]{fig:distancemeter}
+{CAD views (left, center) of the distance meter plates, represented by the yellow rectangles, on the sides of a \dword{crp}. Two different plate sizes are used in pairs facing from one \dword{crp} to the neighbour one in order to increase the measurement accuracy of the overlapping surface which translates in the capacitance to be measured. A set of five distance meter plates of the two sizes (right) received from the production factory}
 \includegraphics[width=0.85\textwidth]{distancemeter.png}
 \end{dunefigure}
-\fixme{Fig \ref{fig:distance meter} could use more explanation}
+
+%\fixme{Fig \ref{fig:distance meter} could use more explanation} DONE
 
 \subsubsection{Thermometers}
 
@@ -292,9 +294,9 @@ In case of variation of the cryostat pipes' verticality, this system allows to c
 \end{dunefigure}
 
 Each motor has independent controls for tuning the horizontality of the plane using the  level information output from the %different available 
-sensors. In standard, stable running  conditions several \dword{crp} modules are associated together and a controlled via an automatic process command of a virtual master axis.
-The corresponding motors (real axes) are the slaves of the virtual one.
-\fixme{I don't understand this. what's a master ``axis''?}
+sensors. In standard, stable running  conditions several \dword{crp} modules are associated together as a global system and controlled via an automatic process.
+
+%\fixme{I don't understand this. what's a master ``axis''?} REMOVED
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Quality Assurance}
@@ -313,11 +315,11 @@ The G10 and INVAR frames are both produced by industry. For the \dword{dpmod}, %
 \dptotcrp INVAR frames and \dpnumpmtch %720 
 G10 subframes of \SI{1}{m$^2$} are required. %should be produced.
 For \dword{pddp}, the process and \dword{qc} procedures have been defined.
-For the INVAR structure, SDMS~\footnote{SDMS\texttrademark{}, \url{}.}, the company chosen for \dword{pddp}'s four \dwords{crp},  %managed the realization 
+For the INVAR structure, SDMS~\footnote{SDMS\texttrademark{}, \url{www.sdms.fr/en}.}, the company chosen for \dword{pddp}'s four \dwords{crp},  %managed the realization 
 has produced them within the specifications without identified problems.
 They had to organize the procurement of raw INVAR plates, which depends on the available world stock. For the \dword{dpmod} it is important to plan ahead, %should be well anticipated
  for this procurement. 
- \fixme{I cannot find the url for SDMS (anne)}
+% \fixme{I cannot find the url for SDMS (anne)} DONE
 The manufacturing process followed by the manufacturer (SDMS) included eight steps:\\
 \begin{itemize}
 \item Plate rectification,
@@ -339,44 +341,6 @@ The acceptance tests are mostly based on geometrical and dimension criteria, and
 The G10 production is longer and more difficult than that for the INVAR structure. G10 production would require a minimum of two production sites, while one company would suffice for the INVAR frame production.
 %%% end new from DD
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Production and Assembly}
-\label{sec:fddp-crp-prod-assy}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{G10 and INVAR frame production}
-\label{sec:fddp-crp-frame}
-
-% new from DD
-The G10 and INVAR frames are both produced by industry. For the \dword{dpmod}, %80
-\dptotcrp INVAR frames and \dpnumpmtch %720 
-G10 subframes of \SI{1}{m$^2$} are required. %should be produced.
-For \dword{pddp}, the process and \dword{qc} procedures have been defined.
-For the INVAR structure, SDMS~\footnote{SDMS\texttrademark{}, \url{}.}, the company chosen for \dword{pddp}'s four \dwords{crp},  %managed the realization 
-has produced them within the specifications without identified problems.
-They had to organize the procurement of raw INVAR plates, which depends on the available world stock. For the \dword{dpmod} it is important to plan ahead, %should be well anticipated
- for this procurement. 
- \fixme{I cannot find the url for SDMS (anne)}
-The manufacturing process followed by the manufacturer (SDMS) included eight steps:\\
-\begin{itemize}
-\item Plate rectification,
-\item  Laser cutting,
-\item  Assembly,
-\item  Welding,
-\item  Geometrical controls,
-\item  Washing,
-\item  Packing, and
-\item  Shipping.
-\end{itemize}
-
-During the process a special validation step was included  for a full-size test frame to verify all the technical aspects and conformity to the requirements. 
-The acceptance tests are performed on the geometry, the welding quality and the proper position of the different holes made in the INVAR beams.
-
-For \dword{pddp}, fabrication of the G10 frames for the four \dwords{crp} was done by a company with expertise in composite materials. The manufacturing process includes the %realization 
-production of frames with fiber layers in different orientations as explained in Section~\ref{sec:invar-frame}, the drilling of more than \num{100} screw threads per square meter of G10 frames, among them \num{80} with a \SI{2}{mm} diameter.
-The acceptance tests are mostly based on geometrical and dimension criteria, and quality of the threads.  
-The G10 production is longer and more difficult than that for the INVAR structure. G10 production would require a minimum of two production sites, while one company would suffice for the INVAR frame production.
-%%% end new from DD
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{LEM and Anode Production}
@@ -384,13 +348,15 @@ The G10 production is longer and more difficult than that for the INVAR structur
 
 
 The construction of %a 10\,kT far detector based on the Dual Phase \lar technology
-\dword{dpmod} involves the production of \dpnumswch charge readout modules made of a \dword{lem} and its anode. For such a large production, it is desirable to use more than one manufacturer in order to mitigate risks and costs. The ELTOS~\footnote{ ELTOS\texttrademark{} \url{www.eltos.com}} company in Italy is making the \dword{lem} modules and the anodes for  \dword{pddp} and as such, has successfully worked out the \dword{qa} and \dword{qc} processes based on requirements and specifications agreed with the \dword{wa105} collaboration. So far, the fraction of rejected \dword{lem} modules produced by ELTOS, after the final phase of tests, has proven to be rather small, i.e., less than one \dword{lem} per \dword{crp}. The rejection factor for the anodes is, however, higher and corresponds to about \SI{10}{\%}, due to the very thin and fragile conducting strips forming the anode plane and also to the vicinity of the outer strips with the PCB edges. 
-\fixme{``...to the close proximity of these strips to the PCB edges''?}
+\dword{dpmod} involves the production of \dpnumswch charge readout modules made of a \dword{lem} and its anode. For such a large production, it is desirable to use more than one manufacturer in order to mitigate risks and costs. The ELTOS~\footnote{ ELTOS\texttrademark{} \url{www.eltos.com}} company in Italy is making the \dword{lem} modules and the anodes for  \dword{pddp} and as such, has successfully worked out the \dword{qa} and \dword{qc} processes based on requirements and specifications agreed with the \dword{wa105} collaboration. So far, the fraction of rejected \dword{lem} modules produced by ELTOS, after the final phase of tests, has proven to be rather small, i.e., less than one \dword{lem} per \dword{crp}. The rejection factor for the anodes is, however, higher and corresponds to about \SI{10}{\%}, due to the very thin and fragile conducting strips forming the anode plane and also to the close proximity of the outer strips to the PCB edges. 
+
+%\fixme{``...to the close proximity of these strips to the PCB edges''?} DONE
+
 Small modifications to the anode design will be necessary for the \dword{dpmod} in order to increase the robustness of the manufacturing process. It is believed that such modifications are possible without  %can be envisaged without affecting 
 significantly affecting the performance of the anode.   
 
 A second manufacturer, ELVIA~\footnote{ ELVIA\texttrademark{} \url{https://www.pcb-elvia.com/}} in France, is also known to have the capability for large-scale \dword{lem} and anode production with the requested specifications. Recently, several \dword{lem} prototypes have indeed been built for CEA/Irfu 
-\fixme{lrfu?}
+%\fixme{lrfu?} Irfu is an institute of CEA
 by ELVIA and extensive tests have %shown %that the same \dword{lem} performance as with ELTOS could be achieved.
 demonstrated the same  \dword{lem} performance as the ELTOS products achieve.
  One key issue for a very large production, like the one necessary for DUNE, is to establish thorough \dword{qa} and \dword{qc} processes that can be applied throughout the whole \dword{lem} production. The definition of the \dword{lem} manufacturing requirements and specifications is naturally an important part of the tendering process. As far as the anodes are concerned, several prototypes have already been manufactured by ELVIA with satisfactory results. Despite the large size (\num{50}$\times$\SI{50}{cm$^2$}) of the anode, its fabrication follows a rather standard process mastered by several PCB manufacturers in Europe and around the world.     
@@ -435,7 +401,7 @@ followed by the detector survey. The parameters that determine the \dword{lem} a
 \item {\bf \dword{hv} connection.} The next step consists of soldering the \dword{hv} connection pins on the two \dword{lem} copper surfaces as well as gluing the MACOR insulators around the connectors.
 
 \item {\bf Cleaning and polymerization.} The cleaning operation is an important phase of the \dword{lem} preparation. Following a procedure defined by CERN/EP-DT-EF-MP and CEA/Irfu,
-\fixme{should these be references?}
+%\fixme{should these be references?} we do not have at  the moment a written document which can be referred to
  this is done using an ultrasonic bath at \SI{65}{C} with a micro-finishing solution (NGL 17.40 Sp ALU III) to clean the gold-plated copper surfaces of the \dword{lem}. It is followed by a rinsing phase with water and then with a spray of pressurized deionized water %sprayed under pressure 
  ($<$\,30\,bar). The \dword{lem} is then dried in an oven 
 at \SI{60}{C}  for several hours and then baked for three hours up to \SI{160}{C}, %at 
@@ -534,8 +500,9 @@ Figure~\ref{fig:gridtooling} shows the \SI{3}{m} long wiring bench with details 
 \subsection{Assembly Procedures}
 \label{sec:fddp-crp-assy}
 
-The \dword{crp} assembly production activity will span over two years 
-\fixme{span 2 yrs or > 2yrs?} prior to \dword{crp} installation underground at \surf. The \dwords{crp} will be integrated in at least two different production sites and stored locally in temporary storage boxes before being shipped to the ITF delivery facility. The \dword{crp} assembly will be pipelined with the \dword{lem} and anode production and testing during these two production years with an initial  shift of three months. This is intended to constitute a large enough buffer between the \dwords{lem} and anodes to start the \dword{crp} assembly activities.
+The \dword{crp} assembly production activity will span two years 
+%\fixme{span 2 yrs or > 2yrs?} 
+prior to \dword{crp} installation underground at \surf. The \dwords{crp} will be integrated in at least two different production sites and stored locally in temporary storage boxes before being shipped to the ITF delivery facility. The \dword{crp} assembly will be pipelined with the \dword{lem} and anode production and testing during these two production years with an initial  shift of three months. This is intended to constitute a large enough buffer between the \dwords{lem} and anodes to start the \dword{crp} assembly activities.
 
 %%% new from DD
 The assembly of a \dword{crp} in the clean room is a process that goes from the reception of the INVAR frame to the  closing of the transport box. 
@@ -571,7 +538,7 @@ Once ready, the planarity of the \dword{crp} is checked and adjusted using metro
 All the components and instrumentation of the \dword{crp} are carefully checked, and the assembly is then packed in the transport box.
 %% end new from DD
 
-An example of the assembly procedures performed for the \dword{crp}  construction in the clean room in Building 185 at CERN for \dword{pddp} can be seen at: \url{https://youtu.be/jcnJjlU-Cyc}.
+%An example of the assembly procedures performed for the \dword{crp}  construction in the clean room in Building 185 at CERN for \dword{pddp} can be seen at: \url{https://youtu.be/jcnJjlU-Cyc}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -623,7 +590,6 @@ distributes \dword{hv} to six individual \dword{lem} modules with a \SI{500}{\me
 \end{dunefigure}
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Cryostat and Detector Support Structure}
 \label{sec:fddp-crp-intfc-support}
@@ -651,9 +617,9 @@ The interface with the slow controls includes:
 The installation of the \dwords{crp} in the cryostat will be performed on a time span of eight months, following the installation of the signal chimneys, which will take three months. The signal chimneys must be present in order to %be able to 
 connect the \dword{crp} signal flat cables. The suspension, instrumentation and \dword{hv} flanges must also be  installed prior to \dword{crp} installation. The installation of these flanges can be performed in parallel with the installation of the signal chimneys. 
 
-The production of the \dwords{crp} will be performed before the installation, and the \dwords{crp} will be stored in temporary storage boxes at the production centers. During installation the already produced \dwords{crp} will be moved to the transportation boxes in order to be shipped to the ITF and then moved underground. Given the installation rate of 8 \dwords{crp}/month a set of \num{30} transportation boxes will ensure a sufficient turnover among the production sites and the installation site.
-\fixme{I can't make out when they leave the production site to go to the ITF, and when they leave ITF for installation at the 4850. It appears to be staggered.}
+The production of the \dwords{crp} will be performed before the installation, and the \dwords{crp} will be stored in temporary storage boxes at the production centers. During installation the already produced \dwords{crp} will be moved to the transportation boxes in order to be shipped to the ITF, which is used as a delivery destination buffer, and then immediately moved underground for installation. Given the installation rate of 8 \dwords{crp}/month a set of \num{30} transportation boxes will ensure a sufficient turnover among the production sites and the installation site.
 
+%\fixme{I can't make out when they leave the production site to go to the ITF, and when they leave ITF for installation at the 4850. It appears to be staggered.} DONE we cannot deliver directly to the mine, the ITF is the delivery destination
 
 The installation procedure %foresees the operation from
 plans for three two-person teams working in parallel inside the cryostat to %manage the installation of 3 
@@ -662,7 +628,7 @@ approximately \num{1.3} weeks is needed for a team to prepare, survey, tune and 
 
 Once the three \dwords{crp} are ready to be lifted, three persons are needed to manipulate the manual winches on the top of the cryostat for a few hours. This activity is expected to occur during the \num{1.3}-week period just before the cabling activity for the connection to the flanges.
 
-\fixme{Put here more details of the different steps for the underground installation/ positioning of the box, suspension of the \dword{crp}, cabling at height, etc .. and the associated tooling ! (not anne)}
+%\fixme{Put here more details of the different steps for the underground installation/ positioning of the box, suspension of the \dword{crp}, cabling at height, etc .. and the associated tooling ! (not anne)}
 
 
 %%% new from DD
@@ -683,7 +649,7 @@ The sequence of operations needed underground per \dword{crp} is similar to the 
 \item The compression tool is removed and the bellows attached;
 \item The motor is inserted and screwed from the top.
 \end{enumerate}
-
+ 
 
 The assembly is then complete and operational.
 The lateral and vertical alignment of the \dword{crp} is performed from the top of the cryostat with a SPFT translation mechanism, distance meter measurements and metrology.
@@ -696,10 +662,10 @@ The cabling activity is done  working at the nominal height position using eleva
 \subsection{Transport and Handling}
 \label{sec:fddp-crp-install-transport}
 
-The transportation boxes are sized for the shafts and underground handling at \surf{}.
-\fixme{provide here the external envelope of the box(not anne)}
-They are protected by a plastic layer that should be removed once the transportation box arrives at the gray room area 
-\fixme{never heard of gray room area}
+The transportation boxes are sized ($3.5 \times 3.5 \times 0.8 m$) for the shafts and underground handling at \surf{}.
+%\fixme{provide here the external envelope of the box(not anne)}
+They are protected by a plastic layer that should be removed once the transportation box arrives at the clean area underground.
+%\fixme{never heard of gray room area}
 underground so that the box can be introduced into the cryostat in a clean state via the \dword{tco}. The transportation box is also essential for manipulating the \dword{crp} from the vertical orientation (i.e., for insertion in the \dword{tco}) to the horizontal orientation, required %in which the \dword{crp} should be
  prior to hanging it from the suspension system. Once the installation is complete the transportation boxes are wrapped again with a protective layer and shipped back to the production centers. 
 
@@ -707,15 +673,18 @@ underground so that the box can be introduced into the cryostat in a clean state
 \subsection{Calibration}
 \label{sec:fddp-crp-install-calib}
 
-The \dword{crp} calibration relies on a pulsing system that performs charge injection in the strips via \SI{1}{pF} capacitors. The pulse distribution system and related cabling, and the boards with the charge-injection capacitors are integrated  with the \dword{crp} at the time of the \dword{crp} assembly. At this time, this system is connected via flat cables to the instrumentation flange. A pulsing distribution system external to the cryostat and  provided by the \dword{cisc} consortium ensures the driving of the charge injection system. 
-\fixme{drives the system?} The information from the pulse calibration is then complemented 
-\fixme{combined?} with the one from the \dword{fe} electronics calibration and the one from the analysis of the reconstructed charged tracks in order to extract the overall calibration constants per channel.
+The \dword{crp} calibration relies on a pulsing system that performs charge injection in the strips via \SI{1}{pF} capacitors. The pulse distribution system and related cabling, and the boards with the charge-injection capacitors are integrated  with the \dword{crp} at the time of the \dword{crp} assembly. At this time, this system is connected via flat cables to the instrumentation flange. A pulsing distribution system external to the cryostat and  provided by the \dword{cisc} consortium ensures the signals feeding to the charge injection system. 
+%\fixme{drives the system?} 
+The information from the pulse calibration is then combined
+%\fixme{combined?} 
+with the one from the \dword{fe} electronics calibration and the one from the analysis of the reconstructed charged tracks in order to extract the overall calibration constants per channel.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quality Control}
 \label{sec:fddp-crp-qc}
 
-Several QA \fixme{qa or qc?}
+Several quality control 
+%\fixme{qa or qc?}
 procedures are applied at the level of the \dword{lem} and anode production, as described in more detail in their corresponding sections. The components of the \dword{hv} distribution system are also individually tested. Continuity tests are performed at the time of the \dword{crp} assembly. The \dword{crp} geometry is also systematically surveyed as well as the tensioning of the grid wires. On a small subsample of the \dwords{crp} production, it will be also possible to perform cold-box testing by using the infrastructure set up at CERN for \dword{pddp}.
 
 
