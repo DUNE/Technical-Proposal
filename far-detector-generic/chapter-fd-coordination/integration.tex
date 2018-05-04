@@ -5,12 +5,14 @@
 The major aspects of detector integration focus on the mechanical and
 electrical connections between each of the detector systems. This
 includes verification that subassemblies and their interfaces are
-correct (e.g. APA and SPPD). A second major area is in the support of
-the detector and its interfaces to the cryostat and cryogenics. A
-third major area is in assuring that the detector can be installed ---
+correct (e.g., \dword{apa} and \single \dword{pds}). A second major area is in the support of
+the %detector and its  
+\dwords{detmodule} and their interfaces to the cryostat and cryogenics. A
+third major area is in assuring that the \dwords{detmodule} %detector 
+can be installed ---
 that the integrated components can be moved into their final
-configuration. A fourth major area is in the integration of the
-detector with the necessary services provided by the conventional
+configuration. A fourth major area is in the integration of the %detector 
+\dwords{detmodule} with the necessary services provided by the conventional
 facilities.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,33 +29,33 @@ configuration files. Appropriate thresholds for tracking and for
 change control will be established.
 
 For mechanical design aspects, the \dword{tc} engineering team
-will maintain full 3-D CAD models of the detectors. Appropriate level
+will maintain full \threed CAD models of the \dwords{detmodule}. Appropriate level
 of detail will be specified for each type of model. Each consortium
 will be responsible for providing CAD models of their detector
 components to be integrated into overall models. The \dword{tc} engineering
 team will work with the \dword{lbnf} project team to integrate the
-full detector models into a global \dword{lbnf} CAD model which will
-include cryostats, cryogenic systems, and the conventional
+full \dword{detmodule} models into a global \dword{lbnf} CAD model which will
+include cryostats, cryogenics systems, and the conventional
 facilities. These will include models using varying software
 packages. The \dword{tc} engineering team will work directly with the
-consortia Technical Leads and their supporting engineering teams to
+consortium Technical Leads and their supporting engineering teams to
 resolve any detector component interference or interface issues with
 other detector systems, detector infrastructure, and facility
 infrastructure.
 
 For electrical design aspects, the \dword{tc} engineering team will maintain
-high level interface documents which describe all aspects of required
+high-level interface documents that describe all aspects of required
 electrical infrastructure and electrical connections. All consortia
 must document power requirements and rack space
-requirements. Consortia are responsible for defining any cabling which
-bridges the design efforts of two or more consortia. This agreed upon
+requirements. Consortia are responsible for defining any cabling that
+bridges the design efforts of two or more consortia. This agreed-upon
 and signed-off interface documentation shall include cable
 specification, connector specification, connector pinout and any data
 format, signal levels and timing. All cables, connectors, printed
 circuit board components, physical layout and construction will be
 subject to project review. This is especially true of elements which
 will be inaccessible during the project lifetime. Consortia shall
-provide details on liquid argon temperature acceptance testing and
+provide details on \lar temperature acceptance testing and
 lifetime of components, boards, cables and connectors.
 
 
@@ -62,7 +64,7 @@ At the time of the release of the \dword{tdr}, the
 formal engineering drawings for all detector components.  These
 drawings are expected to be signed by the consortia Technical Leads,
 project engineers, and Technical Coordinator.  Starting from that
-point, the detector models and drawings will sit under formal change
+point, the \dwords{detmodule} models and drawings will sit under formal change
 control as discussed in Section~\ref{sec:fdsp-coord-qa}.  It is
 anticipated that designs will undergo further revisions prior to the
 start of detector construction, but any changes made after the release
@@ -70,13 +72,13 @@ of the \dword{tdr} will need to be agreed to by all of
 the drawing signers and an updated, signed drawing produced. The major
 areas of configuration management include:
 \begin{enumerate}
-  \item 3-D Model
-  \item Interface Definitions
-  \item Envelope Drawings for installation
-  \item Drawing management
+  \item \threed model,
+  \item Interface definitions,
+  \item Envelope drawings for installation,
+  \item Drawing management.
 \end{enumerate}
 
-\dword{tc} will put into place processes for configuration
+\Dword{tc} will put into place processes for configuration
 management.  Configuration management will provide \dword{tc}
 and engineering staff the ability to define and control
 the actual build of the detector at any point in time and to track any
@@ -84,10 +86,10 @@ changes which may occur over duration of the build as well as the
 lifetime of the project as described in
 Section~\ref{sec:fdsp-coord-qa}.
 
-For detector elements within the cryostat, configuration management
+For detector elements within a cryostat, configuration management
 will be frozen once the elements are permanently sealed within the
 cryostat.  However, during the integration and installation process of
-building the detector within the cryostat, changes may need to occur.
+building the \dwords{detmodule} within the cryostat, changes may need to occur.
 For detector elements outside the cryostat and accessible, all
 repairs, replacements, hardware upgrades, system grounding changes,
 firmware and software changes must be tracked.
@@ -97,14 +99,15 @@ identification, change management and release management.
 
 {\bf Revision Control}\\ Consortia will be responsible for providing
 accurate and well documented revision control.  Revision control
-should provide a method of tracking and maintaining the history of
+should 
+\fixme{should or will?} provide a method of tracking and maintaining the history of
 changes to a detector element.  Each detector element must be clearly
 identified with a document which includes a revision number and
 revision history.  For mechanical elements, this will be reflected by
 a drawing number with revision information.  For electrical elements,
 schematics will be used to track revisions.  Consortia will be
 responsible for identifying the revision status of each installed
-detector elements. Revisions are further controlled through maintenance
+detector element. Revisions are further controlled through maintenance
 of the documents in DocDB and \dword{edms}.
 
 {\bf Configuration Identification}\\
@@ -113,13 +116,13 @@ numbers for each detector element.  Plans will be developed on how
 inventories will be maintained and tracked during the build.  Plans
 will clearly identify any dynamic configuration modes which may be
 unique to a specific detector element.  For example, a printed circuit
-board may have firmware which effects its performance.
+board may have firmware that effects its performance.
 
 {\bf Change Management}\\
 \dword{tc} will provide guidelines
 for formal change management.  During the beginning phase of the
 project, drawings and interface documents are expected to be signed by
-the consortia Technical Leads, project engineers, and Technical
+the consortium Technical Leads, project engineers, and Technical
 Coordinator.  Once this initial design phase is complete, the detector
 models, drawings, schematics and interface documents will be under
 formal change control.  It is anticipated that designs will undergo
@@ -131,7 +134,7 @@ drawing produced.
 {\bf Release Management}\\
 Release management focuses on the delivery of the more dynamic aspects
 of the project such as firmware and software.  Consortia with
-deliverables that have the ability to effect performance of the
+deliverables that have the potential to affect performance of the
 detector by changing firmware or software must provide plans on how
 these revisions will be tracked, tested and released.  The
 modification of any software or firmware after the initial release,
@@ -139,17 +142,17 @@ must be formally controlled, agreed upon and tracked.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Engineering process and support}
+\subsection{Engineering Process and Support}
 \label{sec:fdsp-coord-integ-engr-proc}
  
 
-The \dword{dune} \dword{tc} organization will work with
+The \dword{tc} organization will work with
 the consortia through its \dword{tc} engineering team to ensure the proper
 integration of all detector components.  The \dword{tc} engineering team will
 document requirements on engineering standards and documentation that
 the consortia will need to adhere to in the design process for the
 detector components under their responsibility.  Similarly, the
-project QA and \dword{esh} managers will document quality control and safety
+project \dword{qa} and \dword{esh} managers will document \dword{qc} and safety
 criteria that the consortia will be required to follow during the
 construction, installation, and commissioning of their detector
 components, as discussed in sections~\ref{sec:fdsp-coord-qa}
@@ -157,27 +160,27 @@ and~\ref{sec:fdsp-coord-esh}.
 
 
 Consortia interfaces with the conventional facilities, cryostats, and
-cryogenics are managed through the \dword{dune} \dword{tc}
+cryogenics are managed through the \dword{tc}
 organization.  The \dword{tc} engineering team will work with the
 consortia to understand their interfaces to the facilities and then
-communicate these globally to the \dword{lbnf} project team.  For conventional
+communicate these globally to the \dword{lbnf} Project team.  For conventional
 facilities the types of interfaces to be considered are requirements
 for bringing needed detector components down the shaft and through the
-underground tunnels to the detector cavern, overall requirements for
+underground tunnels to the appropriate detector cavern, overall requirements for
 power and cooling in the detector caverns, and the requirements on
 cable connections from the underground area to the surface.
 Interfaces to the cryostat include the number and sizes of the
 penetrations on top of the cryostat, required mechanical structures
 attaching to the cryostat walls for supporting cables and
 instrumentation, and requirements on the global positioning of the
-detector within the cryostat.  Cryogenic system interfaces include
-requirements on the location of inlet/output ports, requirements on
-the monitoring of the liquid argon both inside and outside the
-cryostat, and grounding/shielding requirements on piping attached to
+\dwords{detmodule} within the cryostat.  Cryogenics system interfaces include
+requirements on the location of inlet and output ports, requirements on
+the monitoring of the \lar both inside and outside the
+cryostat, and grounding and shielding requirements on piping attached to
 the cryostat.
 
 \dword{lbnf} will be responsible for the design and construction of the
-cryostats used to house the detectors.  The consortia are required to
+cryostats used to house the \dwords{detmodule}.  The consortia are required to
 provide input on the location and sizes of the needed penetrations at
 the top of the cryostats.  The consortia also need to specify any
 mechanical structures to be attached to the cryostat walls for
@@ -185,22 +188,23 @@ supporting cables or instrumentation.  The \dword{tc} engineering
 team will work with the \dword{lbnf} cryostat engineering team to understand
 what attached fixturing is possible and iterate with the consortia as
 necessary.  The consortia will also work with the \dword{tc} engineering
-team through the development of the 3-D CAD model to understand the
-overall position of the detector within the cryostat and any issues
+team through the development of the \threed CAD model to understand the
+overall position of the \dwords{detmodule} within the cryostat and any issues
 associated with the resulting locations of their detector components.
 
 \dword{lbnf} will be responsible for the cryogenics systems used to purge,
 cool, and fill the cryostats.  It will also be responsible for the
-system that continually re-circulates liquid argon through filtering
+system that continually re-circulates \lar through filtering
 systems to remove impurities.  Any detector requirements on the flow
-of liquid within the cryostat should be developed by the consortia and
+of liquid within the cryostat should \fixme{should? (also elsewhere in this file} be developed by the consortia and
 transmitted to \dword{lbnf} through the \dword{tc} engineering team.  Similarly,
 any requirements on the rate of cool-down or maximum temperature
 differential across the cryostat during the cool-down process should
 be specified by the consortia and transmitted to the \dword{lbnf} team.
 
 The engineering design process is defined by a set of steps taken to
-fulfill the requirements of the design.  By the time of the \dword{tdr}, all design requirements must be fully defined and
+fulfill the requirements of the design.  By the time of the \dword{tdr}, 
+all design requirements must be fully defined and
 proposed designs must be shown to meet these requirements.  Based on
 prior work, some detector elements may be quite advanced in the
 engineering process, while others may be in earlier stages.  Each
@@ -224,17 +228,17 @@ will be scheduled for major detector elements.
 {\bf Engineering Risk Analysis}\\ Each consortium is responsible for
 identifying and defining the level of risk associated with their
 deliverables as described in Section~\ref{sec:fdsp-coord-risk}.
-\dword{dune} \dword{tc} will work with the consortia,
+\Dword{tc} will work with the consortia,
 through its \dword{tc} engineering team, to document these risks in a Risk
 Database and follow them throughout the project until they are
 realized or can be retired.
 
 {\bf Specification Review}\\
 The \dword{dune} \dword{tc} organization and project engineers
-shall review consortia specifications for overall compliance with the
+shall review consortium specifications for overall compliance with the
 project requirements.  Consortia must document all internal reviews
 and provide that documentation to \dword{tc}.
-Additional higher level reviews may be scheduled by \dword{tc}
+Additional higher-level reviews may be scheduled by \dword{tc}
 as described in Section~\ref{sec:fdsp-coord-reviews}.
 
 {\bf System Design}\\
@@ -249,7 +253,7 @@ available for the review process.
 
 {\bf Design Review}\\ The design review process is determined by the
 complexity and risk associated with the design element.  For a simple
-design element, the consortia may do an internal review.  For a more
+design element, a consortium may do an internal review.  For a more
 complex or high risk element a formal review will be scheduled.
 \dword{dune} \dword{tc} will facilitate the review,
 bringing in outside experts as needed.  In all cases, the result of
@@ -271,12 +275,12 @@ their procurement staff as needed.
 the consortia shall provide the Technical Coordinator with updates on
 schedule.  A test plan will be fully developed which will allow for
 verification that the initial requirements have been met. This is part of
-the quality assurance plan that will be documented and followed as described
+the \dword{qa} plan that will be documented and followed as described
 in Section ~\ref{sec:fdsp-coord-qa}.
 
 {\bf Testing and Validation\\} The testing plan documented in the
 above step will be followed and results will be well documented in
-consultation with the QAM.  The Technical Coordinator and \dword{tc}
+consultation with the \dword{qam}.  The Technical Coordinator and \dword{tc}
 engineering team will be informed as to the results and whether the
 design meets the specifications.  If not, a plan will be formulated to
 address any shortcomings and presented to the Technical Coordinator.
