@@ -9,7 +9,7 @@
 
 \section{Overview}
 
-Offline computing for  \dword{dune} faces new and considerable challenges due to the large scale and diverse physics goals of the experiment.  In particular, the advent of Liquid Argon TPC's with exquisite resolution and sensitivity, combined with enormous physical volumes, creates challenges in acquiring and storing large data volumes and in analyzing and reducing them.  The computing landscape is changing rapidly, with the traditional HEP architecture of individual cores running Linux being superseded by multi-core machines and CPU's. At the same time, algorithms for LAr reconstruction are still in their infancy and developing rapidly.  As a result , we have reason to be optimistic about the future but we are not able to predict it accurately.  The \dword{protodune} single and dual phase tests at CERN in the fall of 2018 will provide a wealth of data that will inform the future evolution of  the \dword{dune} computing models.
+Offline computing for  \dword{dune} faces new and considerable challenges due to the large scale and diverse physics goals of the experiment.  In particular, the advent of \dword{lar} TPC's with exquisite resolution and sensitivity, combined with enormous physical volumes, creates challenges in acquiring and storing large data volumes and in analyzing and reducing them.  The computing landscape is changing rapidly, with the traditional HEP architecture of individual cores running Linux being superseded by multi-core machines and GPU's. At the same time, algorithms for \dword{lar} reconstruction are still in their infancy and developing rapidly.  As a result, we have reason to be optimistic about the future but we are not able to predict it accurately.  The \dword{protodune} single and dual phase tests at CERN in the fall of 2018 will provide a wealth of data that will inform the future evolution of  the \dword{dune} computing models.
 
 The  \dword{dune} offline computing challenges can be classified in several ways.  We will start with the different detector/physics configurations that drive the large scale data storage and reconstruction. 
 This discussion leans heavily on the \dword{daq} design described in \voltitlespfd and \voltitledpfd  of the DUNE Technical Proposal. 
@@ -20,8 +20,8 @@ The DUNE experiment will consist of four 17 kT far detector modules, using eithe
 The proposed  full-size 17 kT modules for the far detectors will  have an active volume 12m high, 14.5m wide and 58m long. 
 
 \subsubsection{Single Phase estimates}
- Each Single Phase (SP) module will consist of 
-150 alternating vertical cathode and anode planes  spaced 3.5 m apart and operated at 180 kV for a 500 V/cm drift field.  The anode planes are made up of Anode Plane Assemblies  (APA's) which are 6.3 m tall by 2.3 m wide and have 2,560 readout channels each. Each channel is sampled with 12-bit precision every 500 nsec. %The APA's are wrapped with readout wires and read out through one of the shorter ends.  %Figure \ref{bigone} illustrates the layout of anode and cathode planes in the full size detector.
+ Each  \dword{sp}  module will consist of 
+150 alternating vertical cathode and anode planes  spaced 3.5 m apart and operated at 180 kV for a 500 V/cm drift field.  The anode planes are made up of \dword{apa}'s which are 6.3 m tall by 2.3 m wide and have 2,560 readout channels each. Each channel is sampled with 12-bit precision every 500 nsec. %The APA's are wrapped with readout wires and read out through one of the shorter ends.  %Figure \ref{bigone} illustrates the layout of anode and cathode planes in the full size detector.
 For modules of this size, drift times in the liquid argon are of order 2.5 msec and raw data sizes before compression are of order 6 GB per module per 5.4 msec readout window.  With no triggering and no zero suppression or compression, the raw data volume for 4 modules would be of order 145 exaB/year. 
 
 
@@ -29,11 +29,11 @@ For modules of this size, drift times in the liquid argon are of order 2.5 msec 
 
 \subsubsection{Dual Phase technology}
 
-For the dual phase technology, each  module will have 153,600 channels. Drift time in the liquid argon is 7.5 ms. Given the number of samples per readout, the uncompressed event size is 4.2 GB (for 1 drift window).  Due to gas amplification, the signal to noise ratio is quite high, allowing loss-less compression to be applied at the front-end  with a compression factor of ten, bringing the event size to 0.42 GB. Recording the entire detector drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. A  far detector module can be treated as 20 smaller  detectors (with similar number  of readout channels to the prototype currently being constructed at CERN), running in parallel, each one defining a Region of Interest (ROI). For beam or cosmic events it is possible to record only the interesting ROI(s) with the compressed size of a single ROI being 22MB.
+For the dual-phase technology, each  module will have 153,600 channels. Drift time in the liquid argon is 7.5 ms. Given 20,000 samples in an 8 ms readout, the uncompressed event size is 4.2 GB (for 1 drift window).  Due to gas amplification, the signal to noise ratio is quite high, allowing loss-less compression to be applied at the front-end  with a compression factor of ten, bringing the event size to 0.42 GB. Recording the entire detector drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. A  far detector module can be treated as 20 smaller  detectors (with similar number  of readout channels to the prototype currently being constructed at CERN), running in parallel, each one defining a \dword{roi}. For beam or cosmic events it is possible to record only the interesting ROI(s) with the compressed size of a single ROI being 22MB.
 
 \subsubsection{Beam coincident rates}
 
-Requiring  coincidence with the \dword{lbnf} beam will reduce the effective live-time from the full 1.2-1.5 sec beam cycle to a 5.4 ms (7.5 ms for DP)  readout window coincident with the 10 microsecond beam spill, leading to an uncompressed data rate for beam-coincident events of around 20 GB/sec for 4 17 kT single-phase detector modules; ($\sim$ 16 GB/sec for dual-phase) still too high to record permanently.
+Requiring  coincidence with the \dword{lbnf} beam will reduce the effective live-time from the full 1.2-1.5 sec beam cycle to a 5.4 ms (8 ms for DP)  readout window coincident with the 10 microsecond beam spill, leading to an uncompressed data rate for beam-coincident events of around 20 GB/sec for 4 17 kT single-phase detector modules ($\sim$ 16 GB/sec for dual-phase), still too high to record permanently.
 Only a few thousand true beam interactions in the far detectors are expected each year.  Compression and conservative triggering based on photon detectors and ionization should reduce the data rate from beam interactions by several orders of magnitude without sacrificing efficiency.
 
 \subsubsection{ Near detector} The near detector configuration is not yet defined  but we do have substantial experience from T2K and  \dword{microboone} at lower energies, and  \dword{minerva} at the  \dword{dune} beam energies on cosmic and beam interactions under similar conditions.  We can expect that a near detector will experience $\sim$ 5-10 beam interactions/beam pulse and non-negligible rates of cosmic rays, spread over an area of a few square meters. MicroBooNE experience and \dword{protodune} simulations indicate compressed event sizes of 100-1000 MB, leading to yearly data volumes of 2-20 PB.  Storing and disentangling this information will be challenging but comparable to the \dword{protodune} data expected in 2018.%Dual phase technology is likely to have lower data volumes due to the lower number of readout channels and higher signal to noise ratios which allow more efficient  lossless compression.
@@ -79,21 +79,21 @@ Only a few thousand true beam interactions in the far detectors are expected eac
  \dword{dune} physics will consist of several different processes with very different rates and event sizes. 
 
 
-\subsubsection{Long-baseline neutrino oscillations} Neutrino oscillation measurements will require a near detector operating in a high rate environment and far detectors in which beam-coincident events are rare but in time with the beam spill and of sufficient energy to be readily recognizable.  Studies discussed in the \dword{daq} section of  Technical Proposal Volumes 2 and 3 indicate that high efficiencies are achievable at an energy threshold of 10 MeV, leading to event rates for beam-initiated  interactions of $\sim 6,400$/year and an uncompressed data volume of around 30 TB/year per 17-kT module. 
+\subsubsection{Long-baseline neutrino oscillations} Neutrino oscillation measurements will require a near detector operating in a high rate environment and far detectors in which beam-coincident events are rare but in time with the beam spill and of sufficient energy to be readily recognizable.  Studies discussed in the \dword{daq} section of  Technical Proposal Volumes 2 and 3 indicate that high efficiencies are achievable at an energy threshold of 10 MeV, leading to event rates for beam-initiated  interactions of $\sim 6,400$/year and an uncompressed data volume of around 30 TB/year per 17 kT single-phase module. 
 
 
 Table \ref{tab:daq-data-rates-sw} summarizes the event and data rates after appropriate filtering from the  DAQ section of Volume 2 of the Technical Proposal.
 
-\begin{dunetable} [Uncompressed data rates for one SP module.]
+\begin{dunetable} [Uncompressed data rates for one \dword{sp} module.]
   {p{0.30\textwidth}p{0.13\textwidth}p{0.4\textwidth}}
   {tab:daq-data-rates-sw} {Anticipated annual, uncompressed data rates
-    for a single SP module from the far detector Technical Proposals. The rates for normal (non-SNB triggers)
+    for a single SP module from the far detector Technical Proposals. The rates for normal (non-\dword{snb} triggers)
     assume a readout window of \SI{5.4}{\ms}. 
-    For planning purposes these rates are assumed to apply to the DP
+    For planning purposes these rates are assumed to apply to the \dword{dp}
     module as well which has a longer readout time but fewer channels. 
     In reality, lossless compression will be applied which is expected
-    to provide as much as a $4\times$ reduction in data volume for the SP module
-    and as much as $10\times$ for the DP module.}   
+    to provide as much as a $4\times$ reduction in data volume for the \dword{sp} module
+    and as much as $10\times$ for the \dword{dp} module.}   
   Event Type  & Data Volume \si{\PB/year} & Assumptions \\ \toprowrule
   Beam interactions & 0.03 & 800 beam and 800 rock muons; \SI{10}{\MeV} threshold in coincidence with beam time; include cosmics\\ \colhline
   Cosmics and atmospherics & 10 &  \SI{10}{\MeV} threshold\\ \colhline
@@ -226,7 +226,7 @@ We are currently planning to have the primary raw data repository at Fermilab, w
 \subsubsection{Core HEP code infrastructure}
 We plan to use shared HEP infrastructure wherever possible.  Notably the ROOT\cite{root} and GEANT4~\cite{geant4,Allison:2006ve} frameworks.   For event simulation, we plan to use and contribute to  the broad range of available generators (GENIE, NEUT, NuWro...) shared with the worldwide neutrino community.
 
-In addition, we are using the infrastructure developed for the LHC and the Intensity Frontier experiments at Fermilab, notably grid infrastructure,  the \dword{art} framework and the \dword{sam} data catalog.  The NOvA and MicroBooNe experiments are already using these tools for distributed computing and the \dword{protodune} data challenges are integrating CERN and Fermilab storage and CPU resources.  We are now extending this integration to the  institutions within the collaboration who have access to substantial storage and CPU resources. 
+In addition, we are using the infrastructure developed for the LHC and the Intensity Frontier experiments at Fermilab, notably grid infrastructure,  the \dword{art} framework and the \dword{sam} data catalog.  The \dword{nova} and \dword{microboone} experiments are already using these tools for distributed computing and the \dword{protodune} data challenges are integrating CERN and Fermilab storage and CPU resources.  We are now extending this integration to the  institutions within the collaboration who have access to substantial storage and CPU resources. 
 
 
 
@@ -235,7 +235,7 @@ This category includes the simulations, signal processing and reconstruction alg
 
 \subsubsection{External products}
 The image-like nature of TPC data allows us to make use of external machine-learning systems such as TensorFlow\cite{DBLP:journals/corr/AbadiABBCCCDDDG16}, 
-Keras\cite{chollet2015keras}, Caffe\cite{Jia:2014:CCA:2647868.2654889} among many.  All of these are being evaluated for pattern recognition. While they encapsulate a wealth of experience, they are also somewhat volatile as driven by external needs.  We must have access to and preserve the underlying source codes in order to maintain reproducibility. 
+Keras\cite{chollet2015keras} and Caffe\cite{Jia:2014:CCA:2647868.2654889}.  Many of these are being evaluated for pattern recognition. While they encapsulate a wealth of experience, they are also somewhat volatile as driven by external needs.  We must have access to and preserve the underlying source codes in order to maintain reproducibility. 
 
 
 
