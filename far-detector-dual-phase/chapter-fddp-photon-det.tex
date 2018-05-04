@@ -488,8 +488,9 @@ simulate the light reliably, even at the cost of losing some precision.
 Without considering the border effects where the photons are mostly absorbed,
 the visibility and the time profile depend only on the source-to-\dword{pmt} distance.
 
-This approach has been followed for the SBND~\cite{sbnd} light simulation and is under consideration for the \dword{dpmod} as well. In Figure~\ref{fig:dppd_6_1_2}, the evolution of the visibility and the peak time as a function of the source-to-\dword{pmt} distance are shown. As these plots have been generated from the light maps, where the borders are taken into account, the same evolutions are also presented only for voxels at least \SI{1}{m} away from the active volume boundaries. For the visibility, the structure is quite complicated when taking all the voxels highlighting the complexity of the light simulation in a closed space. When looking at voxels away from the boundaries, one can see a clear correlation between distance and visibility. As for the time distribution (here for the peak time, but same goes for $t_0$ and $\sigma$ parameters), one can notice two different regimes for short and large distance (the transition being at around \SI{2}{m}).
-\fixme{previous pgraph needs some work (anne)}
+%This approach has been followed for the SBND~\cite{sbnd} light simulation and is under consideration for the \dword{dpmod} as well. In Figure~\ref{fig:dppd_6_1_2}, the evolution of the visibility and the peak time as a function of the source-to-\dword{pmt} distance are shown. As these plots have been generated from the light maps, where the borders are taken into account, the same evolutions are also presented only for voxels at least \SI{1}{m} away from the active volume boundaries. For the visibility, the structure is quite complicated when taking all the voxels highlighting the complexity of the light simulation in a closed space. When looking at voxels away from the boundaries, one can see a clear correlation between distance and visibility. As for the time distribution (here for the peak time, but same goes for $t_0$ and $\sigma$ parameters), one can notice two different regimes for short and large distance (the transition being at around \SI{2}{m}).
+This approach has been followed for the SBND~\cite{sbnd} light simulation and is under consideration for the \dword{dpmod} as well. In Figure~\ref{fig:dppd_6_1_2} the evolution of the visibility and the peak time as a function of the source-to-\dword{pmt} distance are shown. On the left, the borders are taken into account, and the visibility structure is quite complicated due to the complexity of the light simulation in a closed space. However, on the right, the same evolutions are presented only for voxels at least \SI{1}{m} from the active volume boundaries, and a clear correlation between distance and visibility is observed. As for the time distribution (here for the peak time, but the same goes for $t_0$ and $\sigma$ parameters), one can notice two different regimes when looking at all voxels, with a transition at a propagation distance of around  \SI{2}{m}. When considering only the central voxels, the evolution of the peak time is fully correlated with the propagation distance. The parametrization of the light propagation parameters as a function of the propagation distance is a promising option for very large volumes such as the \dword{dpmod}, at least for light sources far from the fiducial volume boundaries. 
+%\fixme{previous pgraph needs some work (anne) - they provided new text, above}
 
 This preliminary study is quite encouraging for the light simulation in the \dword{dpmod}, at least for light sources far from the fiducial volume boundaries. Since it is complicated to disentangle the effects due to the propagation and absorption parameters from the light maps, a careful dedicated study should be performed to get parametrization of the visibility and time distribution parameters as a function of the photon traveling distance. %\fixme{sounds like you're parameterizing parameters...? Response: Not yet, but yes this is the purpose.}
 
@@ -583,9 +584,7 @@ For the non-beam event trigger strategies, the requirements can be very differen
 
 All these important studies will be further investigated once a reliable light simulation of the \dword{dpmod} is available. For the \dual  technology, the main light trigger concerns are the amount of light collectable for a photon traveling distance of \SI{12}{m} and the S1-S2 separation. The data that is collected in the \dword{pddp} will provide crucial inputs for the optimization of the \dword{dpmod} light-collection system and for the design of an efficient trigger strategy for rare non-beam events. 
 
-The \dword{pds} trigger will be flexible to fulfill the different physics requirements explained before. 
-\fixme{suggest: The \dword{pds} trigger design is flexible so as to fulfill the different physics requirements explained before.} %%%% anne
-The light readout \dword{fe} board will be in charge of the \dword{pds} trigger generation. The trigger will be decided based on the coincidence of several \dword{pmt} signals over a threshold during a time window. The number of \dwords{pmt} that contribute to the trigger, the signal threshold and the length of the coincidence time window will be programmable on-line to be able to adapt to different physics cases.
+The \dword{pds} trigger design is flexible so as to fulfill the different physics requirements explained before. The light readout \dword{fe} board will be in charge of the \dword{pds} trigger generation. The trigger will be decided based on the coincidence of several \dword{pmt} signals over a threshold during a time window. The number of \dwords{pmt} that contribute to the trigger, the signal threshold and the length of the coincidence time window will be programmable on-line to be able to adapt to different physics cases.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -636,8 +635,7 @@ Installation & 7006 \\
 
 \item Software and Computing: This interface is on the development of simulation, reconstruction and analysis tools.
 
-\item Calibration: The \dword{pds} will participate in the Global Calibration Task Force and will provide handles to allow global monitoring of the \dword{pmt} performance.
-\fixme{will participate or is participating?}
+\item Calibration: The \dword{pds} is participating in the Global Calibration Task Force and will provide handles to allow global monitoring of the \dword{pmt} performance.
 
 \item \dword{itf}: The operations at the \dword{itf} are described in Section~\ref{sec:fddp-pd-9.2}. The interface items can be summarized as shipping and receiving of the \dword{pds} components and basic testing and repairing at the facility. The interface also includes recycling and returning the packaging materials.
 
@@ -659,7 +657,7 @@ includes the transportation of the \dword{pds} components to and between undergr
 
 The \dpnumpmtch \dwords{pmt} of the \dword{pds} are shipped from various locations following base and cable assembly for the \dword{tpb} coating at the \dword{itf}. %The shipping boxes will contain \num{24} \dwords{pmt} resulting in \num{30} deliveries to total \num{720} \dwords{pmt}. 
 They are shipped in boxes of \num{24}, for a total of \num{30} deliveries.
-The \dwords{pmt} are individually wrapped with different wrapping materials. The wrappings will have special openings to enable the basic electronics tests at the \dword{itf}. \fixme{different wrapping materials?}
+The \dwords{pmt} are individually wrapped with special wrapping materials. 
 
 The \dwords{pmt} are placed in modular shock-absorbing assemblies inside the boxes. %The assemblies will also allow a limited amount of safe inclination. 
 The boxes have integrated pellets for easy handling and short distance transportation, and a limited amount of safe inclination for the assemblies is allowed. The \dwords{pmt} will reach the \dword{itf} by means of air and ground transportation. Each box has a dedicated bar-code which visible on each side. This bar-code is also associated with the shipping documents. 
@@ -713,7 +711,7 @@ a depth of \SI{12}{m} in \lar{}. % of the detector.
 \item Design validation tests are carried out to confirm that the \dword{pmt} base design fulfills the specifications at room and cryogenic temperatures. A cable with SHV connector is soldered to each \dword{pmt} base to facilitate the different base and \dword{pmt} tests and the final \dword{pmt} connection during the installation. The \dword{pmt} bases are labeled (on the cable) in order to keep track of them. After production of the \dword{pmt} base boards they are individually tested before mounting to the \dword{pmt} to verify that components are correctly mounted. Later they are cleaned and tested at maximum voltage in an argon gas environment to confirm that there are no sparks on these (worst case conditions).
 After mounting the bases on the \dwords{pmt} they are tested again in argon gas at maximum voltage to confirm that there are no sparks due to bad soldering.
 \item All the light readout units (\dword{pmt} + base + support) are tested and characterized in liquid nitrogen in order to check their performance at cryogenic temperature and to obtain a database with the most important parameters from each \dword{pmt} (gain versus voltage, dark counts, etc.). The \dword{pmt} base number attached to each \dword{pmt} is also included in the database. 
-\item The wrapping materials and techniques are studied with one fully assembled light readout unit. The handling, transportation and installation scenarios are carefully studied and the transportation box design is validated. The transport box and \dword{pmt} wrapping must warrant darkness. \fixme{must ensure complete darkness??}
+\item The wrapping materials and techniques are studied with one fully assembled light readout unit. The handling, transportation and installation scenarios are carefully studied and the transportation box design is validated. The transport box and \dword{pmt} wrapping must  ensure complete darkness. 
 \item The light output of the \dwords{led} and the fibers' light transmission from the photon calibration system are measured with a power meter.
 \end{itemize}
 
@@ -721,11 +719,9 @@ After mounting the bases on the \dwords{pmt} they are tested again in argon gas 
  \subsection{Post-Factory Installation}
  \label{sec:fddp-pd-10.2}
  
-Upon receipt at \dword{itf}, the \dwords{pmt} go through verification measurements in order to discard possible damages during transportation. 
-\fixme{discard any damaged items?}  Gain versus voltage and dark current values are compared with those obtained before transportation.
+Upon receipt at \dword{itf}, the \dwords{pmt} go through verification measurements in order to identify any items damaged during transport.  Gain versus voltage and dark current values are compared with those obtained before transportation.
 
-The \dword{tpb} coating is also performed at the \dword{itf}. The first few samples undergo microscopic examination and surface uniformity tests, and the coating procedure is validated. The production \dwords{pmt} are randomly sampled for basic coating \dword{qa}.
-\fixme{QC or QA?}
+The \dword{tpb} coating is also performed at the \dword{itf}. The first few samples undergo microscopic examination and surface uniformity tests, and the coating procedure is validated. The production \dwords{pmt} are randomly sampled for basic coating \dword{qc}.
 
 After  transport from the \dword{itf} to \surf the \dwords{pmt} are tested again before installation to confirm that no damage occurred during the last stage of transportation. During the installation, the \dwords{pmt} database is updated with the position in the \dword{detmodule} of each \dword{pmt} (identified by its serial number and base number). After installation, the full connection from the \dword{fe} to the \dwords{pmt} is checked. The \dword{fe} channel and splitter number connected to each \dword{pmt} are also included in the \dword{pmt} database. %At the moment that it could be possible to make darkness in the detector the \dwords{pmt} will be tested applying voltage and checking the signal with a scope or with the FE electronics if they are already available.
 Once it is possible to fully darken the \dword{detmodule}, voltage can be applied to the \dwords{pmt} to test the signal with a scope or, if available, with the \dword{fe} electronics.
