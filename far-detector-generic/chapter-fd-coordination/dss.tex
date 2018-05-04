@@ -1,22 +1,22 @@
 \subsection{Detector Support System}
 
-The \dword{dss} provides the structural support for the single-phase
-detector inside the cryostat.  It also provides the necessary
+The \dword{dss} provides the structural support for the \dword{spmod}
+inside the cryostat.  It also provides the necessary
 infrastructure to move the detector elements into location during
 assembly. As the \dword{dss} is a new design and is quite different
-from the \dword{protodune} \dword{dss} it is described in some detail in this
+from the \dword{pdsp} \dword{dss} it is described in some detail in this
 section. The detector elements supported by the \dword{dss} include
-the field cage endwalls, the \dwords{apa}, and the \dwords{cpa} with
-top and bottom field cage panels.  The \dword{dss} is supported by the
-cryostat outer steel structure through a series of feedthroughs which
+the \dwords{ewfc}, the \dwords{apa}, and the \dwords{cpa} with
+top and bottom \dword{fc} panels.  The \dword{dss} is supported by the
+cryostat outer steel structure through a series of \fdth{}s that
 cross through the cryostat insulation and are anchored with flanges on
 the cryostat roof. Inside the cryostat a series of stainless steel
-I-beams are connected to the feedthroughs and used to support the
+I-beams are connected to the \fdth{}s and used to support the
 detector. The \dword{dss} defines the location of the detector inside
 the cryostat and it also defines how the detector elements
-move/contract as the detector is brought to \dword{lar}
+move and contract as the detector is brought to \dword{lar}
 temperature. The design of the \dword{dss} encompasses the overall
-structural design of the detector as only after the elements are
+structural design of the \dword{detmodule} as only after the elements are
 mounted to the \dword{dss} and are connected together do they make a
 unified mechanical structure. The requirements of the \dword{dss} are
 as follows:
@@ -27,25 +27,30 @@ as follows:
 % \small
 \item Support the weight of the detector.
 \item Accommodate cryostat roof movement during filling, testing, and operation.
-\item Accommodate variation in feedthrough locations and
+\item Accommodate variation in \fdth locations and
   variation in the flange angles due to installation tolerances and
   loading on the warm structure.
 \item Accommodate shrinkage of the detector and \dword{dss} from ambient
   temperature to \dword{lar} temperature.
 \item Define the position of the detector components relative to each other. 
 \item Provide electrical connection to the cryostat ground and remain electrically isolated from the detector.
-\item Support penetrations must be purged with GAr to prevent contaminants from diffusing back into the liquid
-\item The instrumentation cabling must not interfere with the \dword{dss}.
-\item Components must be installed through the \dword{tco}
-\item Design to meet AISC-360 or appropriate codes required at SURF
-\item Design to meet seismic requirements 1 mile underground at SURF
-\item All materials must be compatible for operation in ultrapure \dword{lar}
-\item Beams will be completely submerged in \dword{lar}
-\item Ensure that detector components shall not be less than \SI{400}{mm} from the membrane flat surface
-\item Supports shall not interfere with the cryostat I-beam structures
-\item Design such that the detector lower ground plane is above the cryogenic piping and the top of the \dword{dss} beams are submerged in \dword{lar} while leaving a 4\% ullage at the top of the cryostat.
-\item Infrastructure necessary to move the \dword{apa} and
-  \dword{cpa}-FC assemblies from outside the cryostat through the
+\item Allow for the support penetrations to be purged with gaseous argon to prevent contaminants from diffusing back into the liquid. 
+\item Ensure that the instrumentation cabling does not interfere with the \dword{dss}.
+\item Consist entirely of components that can %Components must 
+be installed through the \dword{tco}.
+\item %Design to m
+Meet AISC-360 or appropriate codes required at \surf.
+\item %Design to m
+Meet seismic requirements one mile underground at \surf.
+\item Consist entirely of %All materials must be 
+materials that are compatible for operation in ultrapure \dword{lar}.
+\item Ensure that beams are completely submerged in \dword{lar}.
+\item Ensure that detector components are not less than \SI{400}{mm} from the membrane flat surface.
+\item Ensure that the supports do not interfere with the cryostat I-beam structures.
+\item Ensure %Design such 
+that the detector's lower \dword{gp} is above the cryogenic piping and the top of the \dword{dss} beams are submerged in \dword{lar} while leaving a \SI{4}{\%} ullage at the top of the cryostat.
+\item Include the infrastructure necessary to move the \dword{apa} and
+  \dword{cpa}-\dword{fc} assemblies from outside the cryostat through the
   \dword{tco} and to the correct position.
 \end{itemize}
 
@@ -54,13 +59,13 @@ five rows of supports for the alternating rows of
 \dword{apa}-\dword{cpa}-\dword{apa}-\dword{cpa}-\dword{apa}.  The
 \dword{dss} is connected to the warm structure at a flange that is
 mounted on the outside of the cryostat.  Figure~\ref{fig:DSS} (right)
-shows the layout of these structural feedthroughs.  The \dword{dss}
-consists of pairs of feedthroughs that support \SI{6.4}{m}-long
+shows the layout of these structural \fdth{}s.  The \dword{dss}
+consists of pairs of \fdth{}s that support \SI{6.4}{m}-long
 S8x18.4 stainless steel I-beam sections. The proposed design of the
 \dword{dss} has \num{10} I-beam segments per row for a total of
 \num{50} I-beam segments. Each I-beam is suspended on both ends by
-rods from feedthroughs that penetrate the roof.  In the cold condition
-each beam will shrink which will cause gaps to form between
+rods from \fdth{}s that penetrate the roof.  %In the cold condition
+When cold, each beam will shrink, causing gaps to form between
 \dwords{apa} that are adjacent but supported on separate beams.
 \dwords{apa} that are supported on the same beam will not have gaps
 develop because both the beam and \dwords{apa} are stainless steel so
@@ -78,83 +83,84 @@ contracts.
 %I-beam at a clevis.  The gas seal is obtained by Conflat Flange and a
 %bellows that seals around the swivel washer.  The lateral position of
 %the rod can be adjusted to adjust the height of the \dword{dss} I-beams.
-\begin{figure}[htbp]
-\begin{center}
-\begin{minipage}[c]{0.49\textwidth}
-\includegraphics[width=\textwidth]{far-detector-single-phase/figures/DSS-1.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.49\textwidth}
-\includegraphics[width=\textwidth]{far-detector-single-phase/figures/DSS-2.pdf}
-\end{minipage}
-\caption{3-D model of the Detector Support System showing the entire
+
+\begin{dunefigure}[\threed model of the \dword{dss} ]{fig:DSS}
+  {\threed model of the \dword{dss} showing the entire
   structure on the left along with one row of \dword{apa} and
-  \dword{cpa}/FC at each end. The right panel is a zoomed image
+  \dword{cpa}-\dword{fc} at each end. The right panel is a zoomed image
   showing the connections between the vertical supports and the
   horizontal I-beams.}
-\label{fig:DSS}
-\end{center}
-\end{figure}
+\includegraphics[width=.49\textwidth]{DSS-1.pdf}
+ \includegraphics[width=.49\textwidth]{DSS-2.pdf}
+\end{dunefigure}
+
+%\begin{figure}[htbp]
+%\begin{center}
+%\begin{minipage}[c]{0.49\textwidth}
+%\includegraphics[width=\textwidth]{far-detector-single-phase/figures/DSS-1.pdf}
+%\end{minipage}
+%\begin{minipage}[c]{0.49\textwidth}%
+%\includegraphics[width=\textwidth]{far-detector-single-phase/figures/DSS-2.pdf}
+%\end{minipage}
+%end{center}
+%\end{figure}
 
 
 Detector components will be installed using a shuttle beam system
-illustrated in Fig.~\ref{shuttle}.  The last two columns of
-feedthroughs (eastern most) will support temporary beams that run
+illustrated in Figure~\ref{shuttle}.  The last two columns of
+\fdth{}s (eastern-most) will support temporary beams that run
 north-south, perpendicular to the main \dword{dss} beams.  A shuttle
 beam
 %shown in orange
 will have trolleys mounted to it and will transverse
 north-south until aligned with the required row of \dword{dss} beam.  The last
 \dword{apa} or \dword{cpa} in a row is supported by the shuttle beam which is bolted
-directly to the feedthroughs once it is in place.  As the last \dword{cpa} or
-\dword{apa} in each row is installed the north-south beams are removed.
+directly to the \fdth{}s once it is in place.  As the last \dword{cpa} or
+\dword{apa} in each row is installed, the north-south beams are removed.
 
 There will be a mechanical interlock system that prevents trolleys
 from passing the end of the shuttle beam unless it is aligned with a
-corresponding \dword{dss} beam.  The shuttle beam and each detector will be
+corresponding \dword{dss} beam.  The shuttle beam and each detector \fixme{detector component?} will be
 moved using a motorized trolley.  A commercially available motorized
 trolley will be modified as needed to meet the needs of the
 installation.
-\begin{figure}[htbp]
-\begin{center}
-\begin{minipage}[c]{0.49\textwidth}
-\includegraphics[width=\textwidth]{far-detector-single-phase/figures/Shuttle-1.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.42\textwidth}
-\includegraphics[width=\textwidth]{far-detector-single-phase/figures/shuttle-2.pdf}
-\end{minipage}
-\caption{3-D models of the shuttle beam end of the \dword{dss}. The figures show how an \dword{apa}
-is translated into position using the North-South beams until it lines up with the correct
-row of I-beams.}
-\label{shuttle}
-\end{center}
-\end{figure}
+
+\begin{dunefigure}[\threed models of the shuttle beam end of the \dword{dss}]{fig:shuttle}
+  {\threed models of the shuttle beam end of the \dword{dss}. The figures show how an \dword{apa}
+is translated into position using the north-south beams until it lines up with the correct
+row of I-beams}
+\includegraphics[width=.49\textwidth]{/Shuttle-1.pdf}
+ \includegraphics[width=.42\textwidth]{shuttle-2.pdf}
+\end{dunefigure}
+
 
 The \dword{dss} installation begins with the placement and alignment of all
-the feedthroughs onto the flanges that are mounted to the warm vessel.
-There are \num{25} feedthroughs per row and five rows for a total of \num{125}
-feedthroughs.  A fixture with a tooling ball will be attached to the
-clevis of each feedthrough.  The $XY$ position in the horizontal plane
-and the vertical $Z$ position of this tooling ball will be defined.  A
+the \fdth{}s onto the flanges that are mounted to the warm vessel.
+There are \num{25} \fdth{}s per row and five rows for a total of \num{125}
+\fdth{}s.  A fixture with a tooling ball will be attached to the
+clevis of each \fdth.  The $xy$ position in the horizontal plane
+and the vertical $z$ position of this tooling ball will be defined.  A
 survey will be performed to determine the location of each tooling
-ball center and $XY$ and $Z$ adjustments will be made to get the tooling
+ball center and $xy$ and $z$ adjustments will be made to get the tooling
 ball centers to within $\pm$\SI{3}{mm}.  The \SI{6.4}{m} long I-beams will then be
-raised and pinned to the clevis.  Each beam weighs roughly 350~lbs.
-A lifting tripod will be placed over each of the feedthroughs
-supporting a beam and a $1/4 ^{''}$ cable will be fed through the top
-flange of the feedthrough down the \SI{14}{m} to the cryostat floor where it
+raised and pinned to the clevis.  Each beam weighs roughly \SI{160}{kg} (\SI{350}{lbs}.
+A lifting tripod will be placed over each of the \fdth{}s
+supporting a beam and a \SI{0.64}{cm} \SI{0.25}{in}  %$1/4 ^{''}$ 
+cable will be fed through the top
+flange of the \fdth down the \SI{14}{m} to the cryostat floor where it
 will be attached to the I-beam.  The winches on each tripod will raise
 the beam in unison in order to get it to the correct height to be
-pinned to the feedthrough clevis.  Once the beams are mounted a final
-survey of the beams will occur to ensure they are located and aligned
-to each other properly.
+pinned to the \fdth clevis.  Once the beams are mounted, a final
+survey of the beams will occur to ensure they are properly located and aligned
+to each other.
 
-A mock up of the shuttle system will be constructed to test the
+A mock-up of the shuttle system will be constructed to test the
 mechanical interlock and drive systems for the shuttle beam
-for each detector.  Tests will be conducted to evaluate the level of
+for each \dword{detmodule}.  Tests will be conducted to evaluate the level of
 misalignment between beams that can be tolerated and the amount of
 positional control that can be achieved with the motorized trolley. It
-is expected this will be finished prior to the TDR. At the time of the
-TDR a larger prototype installation at Ash River will be under
+is expected this will be finished prior to the \dword{tdr}. At the time of the
+\dword{tdr} a larger prototype installation at Ash River will be under
 construction. This prototype will use full scale elements and will be
-used to develop the installation procedures and to also test the
-detector installation process.
+used to develop the installation procedures and to test the
+\dword{detmodule} installation process.

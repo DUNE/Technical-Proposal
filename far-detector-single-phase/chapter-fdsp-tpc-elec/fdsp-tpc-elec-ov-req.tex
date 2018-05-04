@@ -1,22 +1,21 @@
 In addition to the noise requirement (less than \num{1000}\,$e^{-}$), several additional requirements determine most of the other important TPC electronics specifications.  These are:
 
 \begin{itemize}
-\item{The \dword{fe} peaking time shall %should 
-be \numrange{1}{3}\,\si{\micro\second}.  This requirement is derived primarily from the time required for drifting charges to travel from one plane of anode wires to the next.}
-\item{The \dword{fe} shall %should 
+\item{The \dword{fe} peaking time must  %should 
+be  in the range \numrange{1}{3}\,\si{\micro\second}.  This requirement is derived primarily from the time required for drifting charges to travel from one plane of anode wires to the next.}
+\item{The \dword{fe} must %should 
  have an adjustable baseline.  This requirement reflects the fact that the signal from induction wires is bipolar while the signal from the collection wires is mostly unipolar.}
-\item{The \dword{adc} sampling frequency shall %should 
+\item{The \dword{adc} sampling frequency must %should 
 be \SI{2}{MHz}.  This value is chosen to match a \dword{fe} shaping time of \SI{1}{\micro\second} (approximate Nyquist condition) while minimizing the data rate.}
-\item{The system shall %must 
-have a linear response up to an impulse input of at least \num{530000}\,$e^{-}$.  This roughly corresponds to the charge collected on a single wire from one stopping proton and two more highly ionizing protons, all assumed to have trajectories at \num{45}\,$^{\circ}$ with respect to the beam axis.  This number was chosen so that saturation will occur in less than \numrange{5}{10}\,\% of beam related events.  Studies are ongoing (including an evaluation of \lariat~\cite{Cavanna:2014iqa} data and simulation studies) to better understand this requirement.}
-\item{The dynamic range of the system must be at least \num{3000}:\num{1}. This number is given by the ratio between (the maximum signal for no saturation) and $\sim$50\% of the lowest possible noise level.  It implies a \num{12}-bit \dword{adc}.}
-\item{The effective noise that the \dword{adc} adds to the \dword{fe} noise shall %must 
-be insignificant.  This requirement is dependent on the gain of the \dword{fe}, but for each gain setting translates into requirements on \dword{adc} parameters including non-linearity and noise.}
-\item{The power dissipated by the electronics located in the \lar shall %must 
+\item{The system must 
+have a linear response up to an impulse input of at least \num{530000}\,$e^{-}$.  This roughly corresponds to the charge collected on a single wire from one stopping proton and two more highly ionizing protons, all assumed to have trajectories at \num{45}\,$^{\circ}$ with respect to the beam axis.  This number was chosen so that saturation will occur in less than \SI{5}{\%} of beam related events.  Studies are ongoing (including an evaluation of \lariat~\cite{Cavanna:2014iqa} data and simulation studies) to better understand this requirement.}
+\item{The dynamic range of the system must be at least \num{3000}:\num{1}. This number is given by the ratio between the maximum signal for no saturation and 50\% of the lowest possible noise level.  It implies a \num{12}-bit \dword{adc}.}
+\item{The \dword{adc} must not contribute significantly to overall \dword{fe} noise. This requirement is dependent on the gain of the \dword{fe}, but for each gain setting translates into requirements on \dword{adc} parameters including non-linearity and noise.}
+\item{The power dissipated by the electronics located in the \lar must 
 be less than \SI{50}{mW/channel}.  Lower power dissipation is desirable because the mass of the power cables scales with the power.  Studies are ongoing to understand if the amount of power dissipated by the electronics should be minimized further due to potential complications from argon boiling; in principle this should not be a problem because the \dword{ce} boxes housing the \dwords{femb} are designed to channel bubbles to the \dword{apa} frames.}
 \end{itemize}
 
-Finally, all electronics located in the \lar shall %must 
+Finally, all electronics located in the \lar must 
 be highly reliable because it will not be possible to access the \dword{ce} for repair once the cryostat is filled with \lar. Studies are ongoing to quantify the impact of failures in the TPC and electronics, including single wire failures, and failures of groups of \num{16}, \num{64}, or \num{128} channels.
 
 % A number of risks associated with the \dword{ce} (or their integration with another subsystem) are detailed below:
