@@ -1,15 +1,19 @@
 % See dune-words.tex for detailed explanation.
 
-% mirrors.ctan.org/macros/latex/contrib/glossaries/glossaries-user.pdf
+% http://mirrors.ctan.org/macros/latex/contrib/glossaries/glossaries-user.pdf
 
 \usepackage[acronyms,toc]{glossaries}
 \makeglossaries
 
 
-\newcommand{\dshort}[1]{\acrshort{abbrev-#1}}
-\newcommand{\dshorts}[1]{\acrshorplt{abbrev-#1}}
-\newcommand{\dlong}[1]{\acrlong{abbrev-#1}}
-\newcommand{\dlongs}[1]{\acrlongpl{abbrev-#1}}
+% \newcommand{\dshort}[1]{\acrshort{abbrev-#1}}
+% \newcommand{\dshorts}[1]{\acrshorplt{abbrev-#1}}
+% \newcommand{\dlong}[1]{\acrlong{abbrev-#1}}
+% \newcommand{\dlongs}[1]{\acrlongpl{abbrev-#1}}
+\newcommand{\dshort}[1]{\acrshort{#1}}
+\newcommand{\dshorts}[1]{\acrshortpl{#1}}
+\newcommand{\dlong}[1]{\glsentrylong{gloss-#1}}
+\newcommand{\dlongs}[1]{\acrlongpl{#1}}
 
 % force the "first time" behavior
 \newcommand{\dfirst}[1]{\glsfirst{#1}}
@@ -38,16 +42,13 @@
 %                 1      2     3       4 
 % \newduneabbrev{label}{abbrev}{term}{description}
 \newcommand{\newduneabbrev}[4]{
-  % this makes acronym entries even if they neither term or abbrev is
-  % referenced in the text.
-  % \newacronym[see={[Glossary:]{#1}}]{abbrev-#1}{#2}{#3}
-  \newacronym{abbrev-#1}{#2}{#3}
-  \newglossaryentry{#1}{
+  \newacronym[first={#3 (#2)\glsadd{gloss-#1}}]{#1}{#2}{#3}
+  \newglossaryentry{gloss-#1}{
     text={#2},
     long={#3},
-    name={\glsentrylong{#1}{} (\glsentrytext{#1}{})},
-    first={\glsentryname{#1}},
-    firstplural={\glsentrylong{#1}\glspluralsuffix{} (\glsentrytext{#1}\glspluralsuffix{})},
+    name={\glsentrylong{gloss-#1}{} (\glsentrytext{gloss-#1}{})},
+    first={\glsentryname{gloss-#1}},
+    firstplural={\glsentrylong{gloss-#1}\glspluralsuffix{} (\glsentrytext{gloss-#1}\glspluralsuffix{})},
     description={#4}
   }
 }
@@ -56,16 +57,13 @@
 %                 1      2     3       4        5
 % \newduneabbrev{label}{abbrev}{term}{terms}{description}
 \newcommand{\newduneabbrevs}[5]{
-  % this makes acronym entries even if they neither term or abbrev is
-  % referenced in the text.
-  % \newacronym[see={[Glossary:]{#1}}]{abbrev-#1}{#2}{#3}
-  \newacronym[longplural=#4]{abbrev-#1}{#2}{#3}
-  \newglossaryentry{#1}{
+  \newacronym[first={#3 (#2)\glsadd{gloss-#1}}, longplural={#4}]{#1}{#2}{#3}
+  \newglossaryentry{gloss-#1}{
     text={#2},
     long={#3},
-%    plural={#4},
-    name={\glsentrylong{#1}{} (\glsentrytext{#1}{})},
-    first={\glsentryname{#1}},
+    plural={#4},
+    name={\glsentrylong{gloss-#1}{} (\glsentrytext{gloss-#1}{})},
+    first={\glsentryname{gloss-#1}},
     firstplural={#4 (\glsentrytext{#1}\glspluralsuffix{})},
     description={#5}
   }
@@ -533,7 +531,7 @@ Each \gls{detunit} of a  certain granularity, such as two SP APAs, has one front
 % fixme: should not have degenerate definition.  This also should be an abbrev.
 \newduneword{blm}{BLM}{(in Volume 4) beamline measurement (system); (in Volume 3) beam loss monitor}
 
-\newduneabbrev{cpa}{CPA}{cathode plane assembly}{The component of the SP detector module which provides the drift HV cathode}
+\newduneabbrevs{cpa}{CPA}{cathode plane assembly}{cathode plane assemblies}{The component of the SP detector module which provides the drift HV cathode}
 
 \newduneabbrev{fc}{FC}{field cage}{The component of a LArTPC which contains and shapes the applied electric field}
 
