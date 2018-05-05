@@ -1,15 +1,15 @@
 \subsection{Timing and Synchronization}
 \label{sec:fd-daq-timing}
 
-\metainfo{David Cussans \& Kostas Manolopoulos.  This is a DP-specific section. The file is \texttt{far-detector-dual-phase/chapter-fddp-daq/design-timing.tex}}
+\metainfo{David Cussans \& Kostas Manolopoulos.  This is a \dual-specific section. The file is \texttt{far-detector-dual-phase/chapter-fddp-daq/design-timing.tex}}
 
 The timing distribution is integrated into the TPC electronics design
 and is described in section \ref{sec:fddp-tpc-elec-intfc-daq} and
 \ref{sec:fddp-tpc-elec-wr} using a \dfirst{wr} network over
 synchronous \SI{1}{\Gbps} Ethernet (SyncE), using PTPV2 packets.
 
-The synchronization between the far detector and the beam pulses from
-the LBNF beamline is done by a single overall system for single phase
-and dual phase and is described in the folowing section.
+The synchronization between the \dword{fd} and the beam pulses from
+the LBNF beamline is done by a single overall system for \single 
+and \dual  and is described in the folowing section.
 
 \input{far-detector-generic/chapter-generic-daq/design-timing-beam}

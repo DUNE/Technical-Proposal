@@ -2,26 +2,24 @@
 \label{sec:fd-daq-fetp}
 
 In the nominal design, the \dword{bow} computers decompress the
-CRO data stream and execute algorithms to search for per-channel
+\dword{cro} data stream and execute algorithms to search for per-channel
 localized activity above some threshold based on a recent measure of
 the noise. 
-These trigger primitives are then sent out along with the original,
-compressed CRO data to the \dword{fec} associated with the \dword{bow}.
+These \dwords{trigprimitive} are then sent out along with the original,
+compressed \dword{cro} data to the \dword{fec} associated with the \dword{bow}.
 
-Initial studies have shown some promise that this type of trigger
-primitive pipeline can be implemented on commodity CPUs and keep up
+Initial studies have shown some promise that this type of \dwords{trigprimitive} pipeline can be implemented on commodity CPUs and keep up
 with the data. 
 The studies made use of \dword{sp} signal and noise simulation but
-given the relatively higher signal-to-noise ratio expected in the DP
-detector data, coupled with fewer total channels, these studies should
+given the relatively higher signal-to-noise ratio expected in the \dword{dpmod}
+data, coupled with fewer total channels, these studies should
 be applicable and even better performance may be expected. 
 With that said, more realistic studies using \dword{dp}-specific
-simuilations and with ProtoDUNE-DP data are needed.
+simuilations and with \dword{pddp} data are needed.
 
 Most of the same technical triggering issues apply in the nominal and
 the alternative design (generically diagrammed in
-Figure\ref{fig:daq-overview-alt}) as both call for deploying trigger
-primitive pipelines on commodity CPUs. 
+Figure~\ref{fig:daq-overview-alt}), as both call for deploying \dword{trigprimitive} pipelines on commodity CPUs. 
 The main difference is that the \dwords{bow} hosts become trigger farm
 hosts. 
 They move from being upstream and inline of the data flow before the
@@ -32,20 +30,20 @@ stream and stripped out by the \dword{fec} and instead are sent
 directly to the \dword{mtl}. 
 Additional study is required to understand the multiplicity of trigger
 processing computers and how that might scale as one considers
-different multiplicities of CRO \dword{utca} crates w.r.t. each
+different multiplicities of \dword{cro} \dword{utca} crates with respect to each
 \dword{fec}.
 
 In both designs, the \dword{lro} data is currently not considered for
 triggering as the \dword{cro} triggering is expected to be more
-efficient although using light information for triggering has not yet
+efficient. However, using light information for triggering has not yet
 been ruled out. 
 Future studies may indicate additional benefit to including
 \dword{lro} information in triggering and both the nominal and
-alternative design can elastically accommodate this increase scope
+alternative design can elastically accommodate this increased scope
 although possibly at the cost of either more \dword{bow} or trigger
 processor computers.
 As described elsewhere, the \dword{lro} data flow is handled by
-separate \dwords{daqfrag} from those which service the \dwords{cro}. 
+separate \dwords{daqfrag} from those that service the \dwords{cro}. 
 Thus, if any \dwords{trigprimitive} and \dwords{trigcandidate} are to
 be formed from \dword{lro} data they would come from these separate
 fragments and be combined in the \dword{mtl} as peers of the

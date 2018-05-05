@@ -4,7 +4,7 @@
 \label{sec:fd-daq-org}
 
 %\metainfo{2 Pages}
-At the time of writing, the \dword{daq} Consortium comprises 30 institutions, including universities and national labs, from five countries. Ever since its conception, the \dword{daq} Consortium has met roughly on a weekly basis, and has so far held two international workshops dedicated to advancing the DUNE FD \dword{daq} design.
+At the time of writing, the \dword{daq} consortium comprises \num{30} institutions, including universities and national labs, from five countries. Since its conception, the \dword{daq} consortium has met on roughly a weekly basis, and has so far held two international workshops dedicated to advancing the  \dword{fd} \dword{daq} design.
 
 Several key technical and architectural decisions have been made in the last months, that have formed an agreed basis for the \dword{daq} design and implementation presented in this document.
 
@@ -12,34 +12,35 @@ Several key technical and architectural decisions have been made in the last mon
 \subsection{\dword{daq} Consortium Organization}
 \label{sec:fd-daq-org-consortium}
 
-The DUNE \dword{daq} Consortium is currently organized in the form of five active
+The DUNE \dword{daq} consortium is currently organized in the form of five active
 Working Groups (WG) and WG Leaders:
 \begin{itemize}
-\item Architecture, WG Leaders: Giles Barr (U. Oxford) and Giovanna Lehman-Miotto (CERN)
-\item Hardware, WG Leaders: David Cussans (U. Bristol) and Matthew Graham (SLAC)
-\item Data Selection, WG Leader: Josh Klein (U. Penn.)
-\item Back-End, WG Leader: Kurt Biery (FNAL)
+\item Architecture, WG Leaders: Giles Barr (U. Oxford) and Giovanna Lehman-Miotto (CERN);
+\item Hardware, WG Leaders: David Cussans (U. Bristol) and Matthew Graham (SLAC);
+\item Data selection, WG Leader: Josh Klein (U. Penn.);
+\item Back-end, WG Leader: Kurt Biery (\fnal);
 \item Integration and Infrastructure, WG Leader: Alec Habig
-  (U. Minnesota Duluth)
+  (U. Minnesota Duluth).
 \end{itemize}
 
-During the ongoing early stages of the design, the Architecture and Hardware WGs have been holding additional meetings focused on aspects of the design related to architecture solutions and costing. In parallel, the \dword{daq} Simulation Task Force effort which was in place at the time of the Consortium inception has been adopted under the Data Selection WG, and simulation studies have continued to inform design considerations. This working structure is expected to remain in place through at least the completion of the Technical Proposal. During the construction phase of the project we anticipate a new organisation, built around major subsystem construction and commissioning responsibilities, and drawing also upon expertise build up during the ProtoDUNE projects.
+During the ongoing early stages of the design, the architecture and hardware WGs have been holding additional meetings focused on aspects of the design related to architecture solutions and costing. In parallel, the \dword{daq} Simulation Task Force effort, which was in place at the time of the consortium inception, has been adopted under the data selection WG, and simulation studies have continued to inform design considerations. This working structure is expected to remain in place through at least the completion of the Technical Proposal. During the construction phase of the project we anticipate a new organization, built around major subsystem construction and commissioning responsibilities, and drawing also upon expertise build up during the \dword{protodune} projects.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Planning Assumptions}
 \label{sec:fd-daq-org-assmp}
 
-The \dword{daq} planning is based the assumption of a first single-phase and second dual-phase module. The schedule is sensitive to this assumption, as the \dword{daq} requirements for the two module types are quite different. We plan five partially-overlapping phases of activity (see Figure~\ref{fig:daq-schedule}):
+The \dword{daq} planning is based the assumption of a \dword{spmod} first, followed by a \dword{dpmod}. The schedule is sensitive to this assumption, as the \dword{daq} requirements for the two module types are quite different. We plan five partially overlapping phases of activity (see Figure~\ref{fig:daq-schedule}):
 
 \begin{itemize}
-	\item A further period of R\&D activity, beginning at the time of writing, and culminating in a documented system design in the TDR around July 2019
-	\item Production and testing of a full prototype \dword{daq} slice of realistic design, culminating in an Engineering Design Review
-	\item Preparation and fit out of the CUC counting room with a minimal \dword{daq} slice, in support of the first module installation
-	\item Production and delivery of final hardware, computing, software and firmware for the first module
-	\item Production and delivery of final hardware, computing, software and firmware for the second module
+	\item A further period of R\&D activity, beginning at the time of writing, and culminating in a documented system design in the \dword{tdr} around July 2019;
+	\item Production and testing of a full prototype \dword{daq} slice of realistic design, culminating in an Engineering Design Review;
+	\item Preparation and fit out of the \dword{cuc} counting room with a minimal \dword{daq} slice, in support of the first module installation;
+	\item Production and delivery of final hardware, computing, software and firmware for the first module;
+	\item Production and delivery of final hardware, computing, software and firmware for the second module.
 \end{itemize}
 
-This schedule assumes beneficial occupancy of the CUC counting room by end of 22Q1, and the availability of facilities to support an extended large-scale integration test in 2020 (e.g. CERN or FNAL). We assume the availability of resources for installation and commissioning of final \dword{daq} hardware (e.g. surface control room and server room facilities) from around 23Q1, and the Integration and Test Facility from 22Q2. The mjority of capital resources for \dword{daq} construction will be required from 22Q2, with a first tranche of funds for the minimal \dword{daq} slice from 21Q1.
+This schedule assumes beneficial occupancy of the \dword{cuc} ounting room by end of 22Q1, and the availability of facilities to support an extended large-scale integration test in 2020 (e.g., CERN or \fnal). We assume the availability of resources for installation and commissioning of final \dword{daq} hardware (e.g., surface control room and server room facilities) from around 23Q1, and the \dword{itf} from 22Q2. The majority of capital resources for \dword{daq} construction will be required from 22Q2, with a first %tranche 
+portion of funds for the minimal \dword{daq} slice from 21Q1.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{WBS and Responsibilities}
@@ -51,24 +52,24 @@ This schedule assumes beneficial occupancy of the CUC counting room by end of 22
 \subsection{High-level Cost and Schedule}
 \label{sec:fd-daq-org-cs}
 
-The high-level \dword{daq} schedule, which is based upon the current DUNE FD top-level schedule, is shown in Figure~\ref{fig:daq-schedule}.
+The high-level \dword{daq} schedule, which is based upon the current DUNE \dword{fd} top-level schedule, is shown in Figure~\ref{fig:daq-schedule}.
 
 \begin{dunefigure}[\dword{daq} high-level schedule]{fig:daq-schedule}
   {\dword{daq} high-level schedule}
 \includegraphics[width=0.8\textwidth]{DAQ-schedule.pdf}
 \end{dunefigure}
 
-A high-level breakdown of the \dword{daq} cost for the first two detectors is summarised in Tab.~\ref{tab:daq-cost}.
+A high-level breakdown of the \dword{daq} cost for the first two detectors is summarised in Table~\ref{tab:daq-cost}.
 
-\begin{dunetable}[\dword{daq} high-level cost breakdown (2017 kUSD)]{lllll}{tab:daq-cost}{\dword{daq} high-level cost breakdown}
+\begin{dunetable}[\Dword{daq} high-level cost breakdown (2017 kUSD)]{lllll}{tab:daq-cost}{\dword{daq} high-level cost breakdown}
 	Cost item &  Module 1 & Module 2 & Common costs & Total \\ \toprowrule
-	Data links & 741 & 133 & 0 & 874 \\
-	Front-end hardware & 5110 & 0 & 0 & 5110 \\
-	Front-end computing & 1029 & 710 & 0 & 1739 \\
-	Back-end computing & 151 & 56 & 122 & 329 \\
-	Service computing & 45 & 45 & 6 & 96 \\
-	Timing system & 96 & 61 & 24 & 181 \\
-	Network & 103 & 343 & 5 & 451 \\
-	Infrastructure & 106 & 106 & 145 & 357 \\
-	\bf{Total} & 7380 & 1454 & 303 & \bf{9136} \\
+	Data links & \num{741} & \num{133} & \num{0} & \num{874} \\
+	Front-end hardware & \num{5110} & \num{0} & \num{0} & \num{5110} \\
+	Front-end computing & \num{1029} & \num{710} & \num{0} & \num{1739} \\
+	Back-end computing & \num{151} & \num{56} & \num{122} & \num{329} \\
+	Service computing & \num{45} & \num{45} & \num{6} & \num{96} \\
+	Timing system & \num{96} & \num{61} & \num{24} & \num{181} \\
+	Network & \num{103} & \num{343} & \num{5} & \num{451} \\
+	Infrastructure & \num{106} & \num{106} & \num{145} & \num{357} \\
+	\bf{Total} & \num{7380} & \num{1454} & \num{303} & \bf{\num{9136}} \\
 \end{dunetable}
