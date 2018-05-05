@@ -1,20 +1,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Offline Computing (Kurt Biery)}
+\subsection{Offline Computing} % (Kurt Biery)}
 \label{sec:fd-daq-intfc-fnal-cmptg}
 
-The interface between the \dword{daq} and Offline Computing is
+The interface between the \dword{daq} and offline computing is
 described in DUNE-doc-7123~\cite{docdb-7123}.
-The \dword{daq} team will be responsible for reducing the data volume
+The \dword{daq} team is responsible for reducing the data volume
 to the level that is agreed upon by all interested parties, and the
-raw data files will be transfered from SURF to Fermilab using a
+raw data files are transfered from \surf to \fnal using a
 dedicated network connection.
-A disk buffer will be provided by the \dword{daq} on or near the SURF
+A disk buffer is provided by the \dword{daq} on or near the \surf
 site to hold the data from several days of data taking so that the
-operation of the experiment will not be affected if there happens to
-be a network disruption between SURF and Fermilab.
+operation of the experiment is be affected if there happens to
+be a network disruption between \surf and \fnal.
 %\fixme{Add ref for docdb-7123.}  done - ATH, 4/16/18
 
-During stable running, the data volume that will be produced by the
+During stable running, the data volume produced by the
 \dword{daq} systems of all four \dwords{detmodule} will be no larger
 than \offsitepbpy.
 This maximum data rate is expected to be independent of the number of
@@ -24,25 +24,25 @@ During the construction of the second, third, and fourth
 to gather data to aid in the refinement of the data selection
 algorithms.
 During commissioning, the data rate is expected to be higher than
-nominal running and is anticipated that something on order of one year
-data volume will be necessary to commission a \dword{detmodule}.
+nominal running and it is anticipated that  %something on order of one year data volume will be necessary to commission a \dword{detmodule}.
+a data volume on the order of one year will be necessary to commission a \dword{detmodule}.
 
-The disk buffer at SURF is planned to be \SI{300}{\TB} in size.
-The data link from SURF to Fermilab will support \surffnalbw
+The disk buffer at \surf is planned to be \SI{300}{\TB} in size.
+The data link from \surf to \fnal will support \surffnalbw
 (\offsitepbpy corresponds to about \offsitegbps).
-The Offline Computing team will be responsible for developing the
-software to manage the transfer of files from SURF to Fermilab.
-The \dword{daq} team will be responsible for producing a reference
+The offline computing team is responsible for developing the
+software to manage the transfer of files from \surf to \fnal.
+The \dword{daq} team is responsible for producing a reference
 implementation of the software that is used to access and decode the
 raw electronics data.
-The offline group will also be responsible for providing the framework
+The offline group is also responsible for providing the framework
 for real-time \dword{dqm}. 
 This monitoring is distinct from the \dfirst{om}.
-Developing the payload jobs which running various algorithms to
-summarize the data is the join responsibility of the \dword{daq}, Offline,
-Reconstruction and other groups.
-The \dword{dqm} system includes a visualization system which can be
-accessed from the Internet and specifically where operation shifts are
+Developing the payload jobs that run various algorithms to
+summarize the data is the joint responsibility of the \dword{daq}, offline,
+reconstruction and other groups.
+The \dword{dqm} system includes a visualization system that can be
+accessed from the Internet and shows specifically where operation shifts are
 performed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,76 +52,77 @@ performed.
 
 The \dword{cisc} systems monitor detector hardware and conditions not
 directly involved in taking the data described above.
-That data will be stored both locally (in CISC database servers in the
-CUC) and offline (the databases will be replicated back to Fermilab)
+That data is stored both locally (in \dword{cisc} database servers in the
+\dword{cuc}) and offline (the databases will be replicated back to \fnal)
 in a relational database indexed by timestamp.
-This will allow bi-directional communications between \dword{daq} and CISC by
+This allows bi-directional communications between the \dword{daq} and \dword{cisc} by
 reading or inserting data into the database as needed for non
 time-critical information.  
 
-For prompt, time sensitive status information such as ``Run is in
-progress'' or ``Camera is on'', a low-latency software status register
-will be available on the local network to both systems.
+For prompt, time sensitive status information such as \textit{Run is in
+progress} or \textit{Camera is on}, a low-latency software status register
+is available on the local network to both systems.
 
-There is not a hardware interface, aside from the fact that several
-racks of CISC servers will be in the /counting room/ in the CUC, and that rack
-monitors in \dword{daq} racks will be read out into the CISC data stream.
+%There is not a hardware interface, aside from the fact that several racks of \dword{cisc} servers will be in the /counting room/ in the \dword{cuc}, and that rack monitors in \dword{daq} racks will be read out into the \dword{cisc} data stream.
+There is no hardware interface. However, several racks of \dword{cisc} servers are in the counting room of the \dword{cuc}, and rack monitors in \dword{daq} racks are read out into the \dword{cisc} data stream.
 
-Note that life and hardware safety critical items will be hardware
-interlocked in the standard Fermilab fashion, and fall outside of this
-interface's scope.
+Note that life and hardware safety-critical items will be hardware
+interlocked %in the standard \fnal fashion, 
+according to \fnal standards, and fall outside the scope of this interface.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{External Systems (Giles \& Alec)}
+\subsection{External Systems} % (Giles \& Alec)}
 \label{sec:fd-daq-intfc-ext}
 
 \fixme{Need to receive information on beam spills (Giles) , SNEWS (Alec).}
 
-The \dword{daq} will need to save data based on external triggers, for
-example: for times around when the pulse of beam neutrinos from LBNF
-arrives at the Far Detector; or if notice of an interesting
-astrophysical event is given by \dword{snews}\cite{snews} or LIGO.
-This could involve going back in time to save data that has already
-been buffered (see Sec.~\ref{sec:fd-daq-fero}), or changing the trigger
-or zero suppression criteria for data in the interesting time period.
+%The \dword{daq} will need to save data based on external triggers, for example: for times around when the pulse of beam neutrinos from LBNF arrives at the Far Detector; or if notice of an interesting astrophysical event is given by \dword{snews}\cite{snews} or LIGO. This could involve going back in time to save data that has already been buffered (see Section~\ref{sec:fd-daq-fero}), or changing the trigger or zero suppression criteria for data in the interesting time period.
 
-\subsubsection{Beam Trigger:} The method for predicting and receiving the
-time of the beam spill is described in
-Sec.~\ref{sec:fd-daq-design-beamtiming}.
-Once that time is known to the \dword{daq}, a high level trigger can be issued
+The \dword{daq} is required to save data based on external triggers, e.g., when a pulse of beam neutrinos  arrives at the \dword{fd}; or upon notice of an interesting astrophysical event by \dword{snews}~\cite{snews} or LIGO. This could involve going back %in time 
+to save data that has already been buffered (see Section~\ref{sec:fd-daq-fero}), or changing the trigger or zero suppression criteria for data taken during the interesting time period.
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Beam Trigger} 
+
+The method for predicting and receiving the time of the beam spill is described in
+Section~\ref{sec:fd-daq-design-beamtiming}.
+Once that time is known to the \dword{daq}, a high-level trigger can be issued
 to ensure that the necessary full data can be saved from the buffer
 and saved as an event.
 
-\subsubsection{Astrophysical Triggers:} \dfirst{snews} is a coincidence
-network of neutrino experiments which are individually sensitive to
-the burst of neutrinos which would be observed from a core-collapse
-supernova somewhere in our galaxy.
-While DUNE should be sensitive to such a burst on its own able to
-contribute to the coincidence network (Sec.~\ref{sec:fd-daq-sel}) via
-a TCP/IP socket, being able to save data based on other observations
-adds an additional chance to not miss saving this rare and valuable
-data.
-A \dword{snews} alert is formed when two or more neutrino experiments
-report a potential supernova signal within \SI{10}{\s}.
-The earliest time in the coincidence is then sent via running a script
-on the \dword{snews} server at BNL provided by the experiment wishing
-to receive the alert.
-The latency from neutrino burst is set by the response time of the
-second fastest detector to report to \dword{snews}: this could be as
-short as seconds, but might be tens of seconds.
-At latencies larger than \SI{10}{\s}, full data might not be
-available, but selected data is expected to be manageable.
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Astrophysical Triggers} 
 
-There are other astrophysical triggers available for occurrences which
-DUNE might not sensitive to individually, but could be either rarely
-or if taken as an ensemble.
-Gravitational wave triggers will be available (details being worked
-out during the current LIGO shutdown), as will high energy photon
+\dfirst{snews} is a coincidence
+network of neutrino experiments that are individually sensitive to
+an \dword{snb} % burst of neutrinos which would be 
+observed from a core-collapse
+supernova somewhere in our galaxy.
+While DUNE must be sensitive to such a burst on its own, and %able to
+is expected to be able to contribute to the coincidence network (Section~\ref{sec:fd-daq-sel}) via a TCP/IP socket, the capability to save data based on other observations provides an additional opportunity to ensure capture of this rare and valuable data. 
+%being able to save data based on other observations adds an additional chance to not miss saving this rare and valuable data.
+A \dword{snews} alert is formed when two or more neutrino experiments
+report a potential \dword{snb} signal within \SI{10}{\s}.
+%The earliest time in the coincidence is then sent via running a script
+%on the \dword{snews} server at BNL provided by the experiment wishing
+%to receive the alert.
+A script running on the \dword{snews} server at BNL, provided by a given experiment that wishes to receive an alert,  sends out a message with the earliest time in the coincidence.
+The latency from the neutrino burst is set by the response time of the
+second fastest detector to report to \dword{snews}: this could be as
+short as seconds, but could be tens of seconds.
+At latencies larger than \SI{10}{\s}, full data might not be
+available, but selected data is expected to be manageable. \fixme{what is this trying to say? }
+
+\fixme{Anne replacing: There are other astrophysical triggers available for occurrences which DUNE might not sensitive to individually, but could be either rarely or if taken as an ensemble. Gravitational wave triggers will be available (details being worked out during the current LIGO shutdown), as will high energy photon transients, most notably gamma ray bursts. In fact, cooperation between LIGO/VIRGO, the Gamma Ray Coordinates Network (GCN)(footnote removed here), and a number of automated telescopes via network sockets on the time scale of seconds enabled the discovery that ``short/hard'' gamma ray bursts are caused by colliding neutron stars - cite kilonova.}
+
+Other astrophysical triggers are available to which DUNE alone is unlikely to be sensitive to, except in rare cases, or if the triggers are taken as an ensemble. 
+ Among these are gravitational wave triggers %will be available 
+ (the details are being worked
+out during the current LIGO shutdown), and high energy photon
 transients, most notably gamma ray bursts.
-In fact, cooperation between LIGO/VIRGO, the Gamma Ray Coordinates
-Network (GCN)\footnote{Described in detail at
+In fact, the use of network sockets on the time scale of seconds
+enabled cooperation between LIGO, VIRGO, the Gamma Ray Coordinates
+Network (GCN)~\footnote{Described in detail at
   \url{https://gcn.gsfc.nasa.gov/gcn_describe.html}}, and a number of
-automated telescopes via network sockets on the time scale of seconds
-enabled the discovery that ``short/hard'' gamma ray bursts are caused
-by colliding neutron stars\cite{kilonova}.
+automated telescopes to make the discovery that \textit{short/hard} gamma ray bursts are caused by colliding neutron stars~\cite{kilonova}.

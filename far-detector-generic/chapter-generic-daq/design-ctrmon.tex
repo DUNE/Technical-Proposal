@@ -1,6 +1,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Run Control \& Monitoring}
+\subsection{Run Control and Monitoring}
 \label{sec:fd-daq-tcm}
 
 \metainfo{Giovanna Miotto \& Jingbo Wang.  THis is a DP/SP shared section.  The file is \texttt{far-detector-generic/chapter-generic-daq/design-ctrmon.tex}}
@@ -9,44 +9,49 @@
 % I need to check if there is a distinction (bv).
 
 The online software constitutes the backbone of the DUNE \dword{daq}
-system and allows to control, configure and monitor the data taking in
+system and provides control, configuration and monitoring of the data taking in
 a uniform way.
 It can be subdivided logically into four subsystems: the run control,
-the management of \dword{daq} and detector electronics configuration, the monitoring, the non-physics data archival.
-Each of those subsystems has a well defined function, but their
+the management of the \dword{daq} and \dword{detmodule} electronics configuration, the monitoring, and the non-physics data archival.
+Each of these subsystems has a distinct %well defined 
+function, but their
 implementation will share underlying technologies and tools.
 
-Contrary to experiments in which data taking sessions, {\it i.e.} runs, are
-naturally subdivided into time slots by external conditions ({\it e.g.} a
-collider fill, a beam extraction period), the DUNE experiment aims at
-taking data continuously.
+In contrast to experiments in which data taking sessions, i.e., runs, are
+naturally subdivided into time slots by external conditions (e.g., a
+collider fill, a beam extraction period), the DUNE experiment aims to
+take data continuously.
 Therefore, a classic run control with a coherent state machine and a
 predefined and concurrently configured number of active detector and
 \dword{daq} elements does not seem adequate. 
 
-The DUNE online software will thus be structured following the
-architecture principle of loose coupling: each component will have as
+The DUNE online software is thus structured according to the
+architecture principle of loose coupling: each component has as
 little knowledge as possible of other components.
-While in the back-end \dword{daq} components may have the granularity of
+%While in the back-end \dword{daq} components may have the granularity of
+%individual software processes, for the front-end \dword{daq} a minimum
+%granularity will have to be defined, balancing fault tolerance and
+%recovery capability with the requirement of data consistency.
+While the granularity of the back-end \dword{daq} components may match the 
 individual software processes, for the front-end \dword{daq} a minimum
-granularity will have to be defined, balancing fault tolerance and
-recovery capability with the requirement of data consistency.
-The smallest independent component is called a \dword{daqfrag} which
+granularity must be defined, balancing fault tolerance and
+recovery capability against the requirement of data consistency.
+The smallest independent component is called a \dword{daqfrag}, which
 is made up of the \dwords{detunit} associated with a single
 \dlong{fec}.
 In the nominal design, this corresponds to two \dword{sp} \dwords{apa}
-or about ten \dword{dp} \dword{cro} crates.
+and about ten \dword{dp} \dword{cro} crates.
 
-The concept of ``run'' will represent periods of time in which the same
-front-end elements are active and/or the same data selection criteria
-are used (possibly with a maximum lengths for offline processing
+The concept of \textit{run} represents a period of time in which the same
+\dword{fe} elements are active or the same data selection criteria
+are in effect (possibly with maximum lengths for offline processing
 reasons). 
 
-In summary, the run control, more than orchestrating data taking will
-provide the mechanisms allowing \dword{daq} applications to publish
-their availability, subscribe to information and exchange messages. 
+More than just orchestrating data taking, the run control
+provides the mechanisms allowing \dword{daq} applications to publish
+their availability, subscribe to information, and exchange messages. 
 
-In addition, the online software will provide a configuration service
+In addition, the online software provides a configuration service
 for \dword{daq} elements to store their settings and a conditions
 archive, keeping track of varying detector electronics settings and
 status.
@@ -55,22 +60,20 @@ Another important aspect of the online software is the monitoring
 service.
 Monitoring can be subdivided into two main domains: the monitoring of
 the data taking operations (rates, number of \dwords{datafrag}
-in flight, error flags, application logs, network bandwidth, monitoring
-of computing and network infrastructure) and the monitoring of the
+in flight, error flags, application logs, network bandwidth, %monitoring of 
+computing and network infrastructure) and the monitoring of the
 physics data.
-Both are essential to the success of an experiment and should be
+Both are essential to the success of the experiment and must be %should be
 designed and integrated into the \dword{daq} system from the start.
-In particular, for such a large and distributed system it will be
-important to have a well thought through information sharing and
-archival system, and also to put human resources into the development
-of scalable and easily accessible data visualization tools, which will
-evolve during the lifetime of the experiment.
+\fixme{Anne removed: In particular, for such a large and distributed system, it is important to have a well thought through information sharing and archival system, and also to put human resources into the development of scalable and easily accessible data visualization tools, which will evolve during the lifetime of the experiment.}
+In particular, for such a large and distributed system, the information sharing and archival system is very important, as are \fixme{Anne removed:  and also to put human resources into the development of }
+scalable and easily accessible data visualization tools, which will evolve during the lifetime of the experiment.
 
-In summary, the online software provides the glue that holds the
-\dword{daq} applications together and allows to operate the data
-taking.
-While it is not involved in physics data flow nor selection, it has a
-large impact on the \dword{daq}: its architecture will guide the
-approach to \dword{daq} application design and also shape the view
+The online software provides the glue that holds the
+\dword{daq} applications together and enables %allows to operate the 
+data taking.
+\fixme{Anne removed: While it is not involved in physics data flow nor selection, it has a large impact on the \dword{daq}: }
+Its architecture guides the
+approach to \dword{daq} application design and also shapes the view
 that the operators will have of the experiment.
 

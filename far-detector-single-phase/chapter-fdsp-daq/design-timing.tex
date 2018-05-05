@@ -1,4 +1,4 @@
-\subsection{Timing \& Synchronization}
+\subsection{Timing and Synchronization}
 \label{sec:fd-daq-timing}
 
 \metainfo{David Cussans \& Kostas Manolopoulos.  This is an SP-specific section.  It's file is \texttt{far-detector-single-phase/chapter-fdsp-daq/design-timing.tex}}
@@ -74,27 +74,27 @@ during comissioning without the risk of losing the SPTS if a bug is
 introduced.
 
 
-\begin{dunefigure}[Arrangement of Components in DUNE Timing System]{fig:daq-readout-timing}
-  {Illustration of the components in the DUNE Timing System.}
+\begin{dunefigure}[Arrangement of components in DUNE timing system]{fig:daq-readout-timing}
+  {Illustration of the components in the DUNE timing system.}
 \includegraphics[width=0.8\textwidth]{DUNE_Timing_overall.pdf}
 \end{dunefigure}
 
 All the custom electronic components for the SPTS are contained in two
-Micro-TCA shelves. At any one time one is active and the other is a
-hot-spare. The \SI{10}{\MHz} reference clock and the \dword{pps} are received
-by a single width AMC at the centre of the Micro-TCA shelf. This
-master timing AMC produces the SPTS signals and encodes them onto a
+\dword{utca} shelves. At any one time one is active and the other is a
+hot spare. The \SI{10}{\MHz} reference clock and the \dword{pps} are received
+by a single width \dword{amc} at the centre of the \dword{utca} shelf. This
+master timing \dword{amc} produces the SPTS signals and encodes them onto a
 serial data stream. This serial datastream is distributed over a
-standard star-point backplane to the fanout AMCs which each drive the
-signal onto up to 13 SFP cages. The SFP cages are either occupied by
-1000Base-BX SFPs, each of which connects to a fibre running to an \dword{apa},
+standard star-point backplane to the fanout \dwords{amc} which each drive the
+signal onto up to \num{13} SFP cages. The SFP cages are either occupied by
+1000Base-BX SFPs, each of which connects to a fiber running to an \dword{apa},
 or to a Direct Attach cable which connects to systems elsewhere in the
-CUC, {\it i.e.} the \dword{rce} crates and the data selection system. This
-arrangement is shown in figure \ref{fig:daq-readout-sp-timing}
+\dword{cuc},  i.e., the \dword{rce} crates and the data selection system. This
+arrangement is shown in Figure~\ref{fig:daq-readout-sp-timing}
 
 
 \begin{dunefigure}[Arrangement of components in \dlong{sp} timing system]{fig:daq-readout-sp-timing}
-  {Illustration of the components in the Single Phase Timing System.}
+  {Illustration of the components in the \single timing system.}
   %\fixme{Add a diagram of the SPTS electronics}
   \includegraphics[width=0.8\textwidth]{DUNE_SP_Timing.pdf}
 \end{dunefigure}

@@ -1,43 +1,42 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Computing \& Network Infrastructure}
+\subsection{Computing and Network Infrastructure}
 \label{sec:fd-daq-infra}
 
 \metainfo{Kurt Biery \& Babak Abi.  This is a DP/SP shared section.  It's file is \texttt{far-detector-generic/chapter-generic-daq/design-compnet.tex}}
 
 The computing and network infrastructure that will be used in each
-of the four \dwords{detmodule} will be similar, if not identical.
-It will support the buffering, data selection, event
+of the four \dwords{detmodule} is similar, if not identical.
+It supports the buffering, data selection, event
 building, and data flow functionality described
-above, and it will include computing elements which consist of servers that:
+above, and it includes computing elements that consist of servers that:
 
 \begin{itemize}
 \item buffer the data until a \dword{trigdecision}
-  is received
+  is received;
 \item host the software processes that
   build the data fragments from the relevant
-  parts of the detector into complete events
+  parts of the detector into complete events;\fixme{whole detector or module?}
 \item host the processes that make the
-  \dword{trigdecision}
+  \dword{trigdecision};
 \item host the data logging processes and
-  the disk buffer where the data is written
-\item host the real-time \dlong{dqm} processing
-\item host the control and monitoring processes
+  the disk buffer where the data is written;
+\item host the real-time \dlong{dqm} processing;
+\item host the control and monitoring processes.
 \end{itemize}
 
-The network infrastructure that will connect these computers
-will have the following components:
+The network infrastructure that connects these computers has the following components:
 
 \begin{itemize}
 \item subnet(s) for transferring triggered data from the buffer
-  nodes to the event builder nodes.  These will need to
+  nodes to the event builder nodes.  These need to
   connect underground and above-ground computers.
-\item a control and monitoring subnet that will connect all
-  computers in the \dword{daq} system and all front-end
+\item a control and monitoring subnet that connects all
+  computers in the \dword{daq} system and all \dword{fe}
   electronics that support Ethernet communication.  This
-  sub-network will need to connect underground and
+  sub-network must connect to underground and
   above-ground computers.
 \item a subnet for transferring complete events from the
   event builder servers to the storage servers.  This subnet
-  will be completely above-ground.
+  is completely above-ground.
 \end{itemize}
