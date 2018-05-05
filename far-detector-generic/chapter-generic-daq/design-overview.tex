@@ -2,12 +2,11 @@
 \subsection{Overview}
 \label{sec:fd-daq-overview}
 
-The design for the \dword{daq} has been driven by finding a cost
-effective solution that satisfies the requirements. Several design
+The design for the \dword{daq} has been driven by finding a cost-effective solution that satisfies the requirements. Several design
 choices have nevertheless been made and two major variations remain to
 be studied. 
-From a hardware perspecive, the DAQ design follows a standard HEP
-experiment design, with customised hardware at the upstream, feeding
+From a hardware perspecive, the \dword{daq} design follows a standard HEP
+experiment design, with customized hardware at the upstream, feeding
 and funnelling (merging) and moving the data into computers. 
 Once the data and triggering information are in computers, a
 considerable degree of flexibility is available and the processing
@@ -15,10 +14,10 @@ proceeds with a pipelined sequence of software operations, involving
 both parallel processing on multi-core computers and switched
 networks. The flexibility allows the procurement of computers and
 networking to be done late in the delivery cycle of the DUNE
-detectors, to benefit from increased capability of commercial devices
+\dwords{detmodule}, to benefit from increased capability of commercial devices
 and falling prices.
 
-Since DUNE will operate over a number of decades, the DAQ has been
+Since DUNE will operate over a number of decades, the \dword{daq} has been
 designed with upgradability in mind. 
 With the fall in cost of serial links, a guiding principle is to
 include enough output bandwidth to allow all the data to be passed
@@ -31,11 +30,11 @@ and higher than tolerable by the baseline trigger decision mechanism;
 it will allow additional data processing infrastructure to be added
 (at additional cost).
 
-Digital data will be collected from the TPC and photon-detector
-readout electronics of the single-phase and dual-phase
+Digital data will be collected from the TPC and \dword{pd}
+readout electronics of the \single and \dual
 \dwords{detmodule}. 
 These categories of data sources are viewed as essentially four types
-of \dwords{submodule} within the DAQ and will follow the same overall
+of \dwords{submodule} within the \dword{daq} and will follow the same overall
 data collection scheme as shown for the nominal design in
 Figure~\ref{fig:daq-overview} and for the alternative design in
 Figure~\ref{fig:daq-overview-alt}. 
@@ -46,19 +45,19 @@ Initial inputs are formed at the channel level, then combined at the
 \dword{detmodule} level.
 In addition, the \dword{trigdecision} process combines this level of
 information that may come from the other \dwords{detmodule} as well as
-information sources external to the DAQ. 
+information sources external to the \dword{daq}. 
 This hierarchical structure in forming and consuming triggers will
 allow safeguards to be developed so that any problems in one cavern or
 in one \dword{detunit} of one \dword{detmodule} need not overwhelm the
-entire DAQ.
-It will also allow a supernova neutrino burst to be recorded in all
+entire \dword{daq}.
+It will also allow a \dword{snb} to be recorded in all
 operational parts of the detector while others may be down for
 calibration or maintenance.
 
-Generally speaking, the DAQ consists of data and trigger flow.
+Generally speaking, the \dword{daq} consists of data and trigger flow.
 The trigger flow involved in self-triggering originates from
 processing a portion of the data flow. 
-The trigger flow is then consumed back by the DAQ in order to govern
+The trigger flow is then consumed back by the \dword{daq} in order to govern
 what portion of the data flow is finally written out to permanent
 storage. 
 The nominal and alternative designs differ in where in the data flow
@@ -66,7 +65,7 @@ the trigger flow originates.
 
 In both designs, a single \dword{daqfrag} associates an integral
 number of \dwords{detunit} with one \dfirst{fec}.
-This fragment forms one conceptual unit of the front-end DAQ.
+This fragment forms one conceptual unit of the \dword{fe} \dword{daq}.
 The processing on a \dword{fec} is kept minimal such that each has a
 throughput limited by I/O bandwidth. 
 The recently released PCIe v4 doubles the bandwidth from the prior
@@ -75,11 +74,11 @@ a theoretical \SI{32}{\GB/\s} max) can be achieved based on tests
 using PCIe v3.
 In principle then, this allows one \dword{fec} to accept the data
 from: two (if uncompressed) or ten (if $5\times$ compressed) of the
-150 \dword{sp} APAs, ten of the 240 \dword{dp} \dword{cro} crates
+\num{150} \single \dwords{apa}, ten of the \num{240} \dual \dword{cro} crates
 given their nominal $10\times$ compression or the uncompressed data
 from all five \dword{dp} \dword{lro} crates.
 
-In the nominal design, the data enters the DAQ via the fragment's
+In the nominal design, the data enters the \dword{daq} via the fragment's
 \dfirst{daqfer} component.
 In the \dword{sp} the \dword{daqfer} consists of eight \dwords{rce}
 and in the \dword{dp} it consists of a number of \dword{bow}
@@ -98,8 +97,8 @@ When the \dword{eb} receives a \dword{trigcommand} it uses the
 included information to query all appropriate \dwords{daqds} and from
 their returned \dwords{datafrag} an \dword{rawevent} is built and
 written to file on the \dword{diskbuffer}. 
-From there the data becomes responsibility of the Offline group to
-transfer to Fermilab for permanent storage and further processing.
+From there the data becomes responsibility of the offline group to
+transfer to \fnal for permanent storage and further processing.
 
 In the alternative design, the data is accepted directly by the
 \dfirst{daqdr} in a \dword{fec} from the detector electronics
@@ -107,15 +106,15 @@ for the particular \dword{detmodule}.
 The data then flows into the \dword{daqbuf} and the portion required
 for forming trigger primitives is dispatched to the trigger computers
 of the fragment for the production of \dwords{trigprimitive}.
-Current SSD technology may allow SSD to be directly mounted to the
-\dword{fec} to provide for the SNB dump buffer. 
+Current \dword{ssd} technology may allow \dword{ssd} to be directly mounted to the
+\dword{fec} to provide for the \dword{snb} dump buffer. 
 Another solution which puts less pressure on write throughput is to
-distribute the SSD for the SNB dumps to the trigger computers. 
+distribute the \dword{ssd} for the \dword{snb} dumps to the trigger computers. 
 In order to supply enough CPU for trigger primitive pipelines it is
 expected that at least two hosts per \dword{fec} will be needed.
 While their CPUs are busy finding trigger primitives, their I/O
 bandwidth will be relatively unused and thus they provide synergistic,
-cost effective hosting for the SSDs.
+cost effective hosting for the \dword{ssd}s.
 
 Regardless of where the \dwords{trigprimitive} are produced in either
 the nominal or alternative design they are further processed at the
@@ -129,9 +128,9 @@ There, they are time ordered and otherwise processed to form
 At this level they represent activity localized across the
 \dword{detmodule} and over some period of time.
 
-The \dword{daqpart} (or DAQ instance) just introduced is the cohesive
-collection of DAQ parts. 
-One \dword{daqpart} operates essentially independently from any other
+The \dword{daqpart} (or \dword{daq} instance) just introduced is the cohesive
+collection of \dword{daq} parts. 
+One \dword{daqpart} operates essentially independently from any other,
 and there is typically one per \dword{detmodule}. 
 In some cases multiple \dwords{daqpart} may operate simultaneously in
 a \dword{detmodule}, such as when some fraction of \dwords{detunit}
@@ -147,12 +146,12 @@ For example, one module may raise a local \dword{snb}
 Each module is also emitting candidates to sinks and accepting them
 from sources of external trigger information.
 
-The exact implementation of some of these high level functions,
-particularly those near the front-end, depends on particular
+The exact implementation of some of these high-level functions,
+particularly those near the \dword{fe}, depends on the particular
 \dword{detmodule}. 
-The required specialization and in general, more implementation level
+The required specialization and in general, more implementation-level
 details are described in the following sections.
-Subsequent description proceeds toward the DAQ back end including
+Subsequent description proceeds toward the \dword{daq} back end including
 processes handling dataflow, trigger, event building and data
 selection.
 
