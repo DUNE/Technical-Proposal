@@ -5,30 +5,33 @@
 
 %Describe the generation of timing/synchronisation signals and and distribution to the detectors.
 
-All components of the DUNE \dword{sp} \dword{detmodule} are
+All components of the \dword{spmod} are
 synchronized to a common clock.  In order make full use of the
-information from the \dword{pds} the common clock must be
-aligned within a single \dword{detunit} with an accuracy of O(1ns).
+information from the \dword{pds}, the common clock must be
+aligned within a single \dword{detunit} with an accuracy of $O\,1$\si{ns}).
 In order to form a common trigger for \dword{snb} between
-\dwords{detmodule} the timing between them must be aligned with an
-accuracy of O(1ms).  However, a tighter constraint is the need to
+\dwords{detmodule}, the timing between them must be aligned with an
+accuracy of $O\,1$\si{ms}.  However, a tighter constraint is the need to
 calibrate the common clock to universal time (derived from GPS) in
 order to adjust the data selection algorithm inside an accelerator
-spill, which requires an absolute accuracy of O(1us).
+spill, which requires an absolute accuracy of $O\,1$\si{\micro\s}.
 
-Single and Dual phase detector modules use a different timing system,
+\single and \dual \dwords{detmodule} use different timing systems,
 driven by the different technical requirements and development history
-of the two systems. A single phase detector module has many more
-timing end-points than a dual phase module and many of the end-points
-are simpler than the end-points in the dual phase, for example a \dword{wib}
-vs. uTCA crate. Both systems have been sucessfully prototyped.
+of the two technologies. %systems. 
+A \dword{spmod} has many more
+timing end points than a \dword{dpmod} and many of the end points
+are simpler than the end points in the \dual{}, for example a \dword{wib}
+versus \dword{utca} crate. Both systems have been sucessfully prototyped.
 
-The DUNE \dword{sp} \dword{detmodule} uses a development of the protoDUNE
+The DUNE \dword{spmod} uses a development of the \dword{pdsp} 
 timing system. Synchronization messages are transmitted over a serial
 data stream with the clock embedded in the data. The format is
-described in DUNE DocDB-1651~\cite{docdb-1651}. Figurere~\ref{fig:daq-readout-timing}
-shows the overall arrangement of components within the Single Phase
-Timing System(SPTS). A stable master clock, disciplined with a \SI{10}{\MHz}
+described in DUNE DocDB-1651~\cite{docdb-1651}. Figure~\ref{fig:daq-readout-timing}
+shows the overall arrangement of components within the \single
+Timing System (SPTS). 
+\fixme{need a gloss term?}
+A stable master clock, disciplined with a \SI{10}{\MHz}
 reference is used in the SPTS. A \dword{pps} is
 also received by the system and is time-stamped onto a counter clocked
 by the SPTS master clock, however the periodic synchronization
@@ -37,37 +40,37 @@ of clock cycles apart even if there is jitter in the \dword{pps}.
 %\fixme{Need reference added for DocDB-1651.}  done - ATH, 4/16/18
 
 The GPS signal is encoded onto optical fibre and transmitted to the
-CUC, where it is converted back to an RF signal on coaxial cable and
+\dword{cuc}, where it is converted back to an RF signal on coaxial cable and
 used as the input to a GPS displined oscillator. The oscillator module
 also houses a IEEE 1588 (PTP) Grand Master and an NTP server. The PTP
-Grand Master provides a timing signal for the \dword{dp} White Rabbit
+Grand Master provides a timing signal for the \dword{dp} \dword{wr}
 timing network. The NTP server provides an absolute time for the
 \dword{pps}. The SPTS relates its time counter onto GPS time by
 timestamping the \dword{pps} onto the SPTS time counter and reading
 the time in software from the NTP server.
 
 The latency from the GPS antenna on the surface to the GPS receiver in
-the CUC will be measured by optical time domain reflectometry at
+the \dword{cuc} will be measured by optical time domain reflectometry at
 installation. Given the modest absolute time accuracy required
 (sufficient to select data within an accelerator spill) dynamic
 monitoring of this delay is not required.
 
-The White Rabbit synchronization signals from the \dword{dp} \dword{detmodule} are
+The \dword{wr} synchronization signals from the \dword{dp} \dword{detmodule} are
 time-stamped onto the SPTS clock domain and the SPTS synchronization
 signals are time stamped onto the \dword{dp} clock domain. This allows
-the timing in the \dword{sp} and \dword{dp} detectors to be
-aligned. A similar scheme is used to relate the \dword{sp} protoDUNE
-\dword{sp} timing domain to be related to the beam instrumentation
-White Rabbit time domain.
+the timing in the \dword{sp} and \dword{dp} \dwords{detmodule} to be
+aligned. A similar scheme is used to relate the \dword{pdsp}
+ timing domain to the beam instrumentation
+\dword{wr} time domain.
 
 In order to provide redundancy, and also the ability to easily detect
 issues with the timing path, two independent GPS systems are used. One
-with an antenna at the head of the Yates shaft, the other with an
-antenna at the head of the Ross shaft. The two independent timing
-paths are brought together in the same rack in the CUC. Using 1:2
-fibre splitters one SPTS unit can be left as a hot-spare while the
+with an antenna at the head of the Yates Shaft, the other with an
+antenna at the head of the Ross Shaft. The two independent timing
+paths are brought together in the same rack in the \dword{cuc}. Using 1:2
+fibre splitters one SPTS unit can be left as a hot spare while the
 other is active. This also allows testing of new firmware and software
-during comissioning without the risk of loosing the SPTS if a bug is
+during comissioning without the risk of losing the SPTS if a bug is
 introduced.
 
 
