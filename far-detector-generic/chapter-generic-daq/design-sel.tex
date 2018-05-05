@@ -6,28 +6,28 @@
 
 \metainfo{Josh Klein \& Brett Viren.  This is a shared DP/SP section.  It's file is \texttt{far-detector-generic/chapter-generic-daq/design-sel.tex}}
 
-Data Selection will follow a hierarchical design. 
+Data selection follows a hierarchical design. 
 It begins with forming \dword{detunit}-level \dwords{trigcandidate}
-inside the \dword{daqfrag} front-end computing using channel-level
+inside the \dword{daqfrag} \dword{fe} computing using channel-level
 \dwords{trigprimitive}. 
-These will then be used to form \dword{detmodule} \dwords{trigcommand}
+These are then used to form \dword{detmodule} \dwords{trigcommand}
 in the \dword{mtl}.
 When executed, they lead to readout of a small subset of the total
 data. 
-In addition, \dwords{trigcandidate} will be provided to the
+In addition, \dwords{trigcandidate} are provided to the
 \dword{mtl} from external sources such as the \dword{gtl} in order to
 indicate external events such as beam spills, or \dword{snb} candidates
 detected by the other \dwords{detmodule}. 
 In addition to supplying triggers to \dword{snews}, triggers from
 \dword{snews} or other cosmological detector sources such as LIGO and
-VIRGO can be accepted in order to possibly record low energy or
+VIRGO can be accepted in order to possibly record low-energy or
 dispersed activity that would not pass the self-triggering. 
 The latency of arrival for these sources must be less than the nominal
 \snbpretime buffers used to capture low-level early \dword{snb}
 activity.
 A \dword{hlt} may also be active within the \dword{mtl}. 
-The hierarchical approach is both natural from a design standpoint, as
-well as allowing for vertical slice testing and running multiple
+The hierarchical approach is both natural from a design standpoint, and 
+it allows for vertical slice testing and running multiple
 \dwords{daqpart} simultaneously during commissioning of the system or
 when debugging of individual \dwords{detunit} is required.
 
@@ -36,25 +36,26 @@ and~\ref{sec:fd-daq-fetp}, \dwords{trigprimitive} will be generated in
 either in \dwords{daqfer} (in the nominal design) or in trigger
 processing computers (in the alternative design). 
 In both designs, and for both \dword{sp} and \dword{dp}
-\dwords{detmodule}, only data from TPC collection channels ($\frac{3}{8}$ of SP and all of DP channels) will feed
-the self-triggering as their waveforms directly supply a measure of
+\dwords{detmodule}, only data from TPC collection channels ($\frac{3}{8}$ of \single and all of \dual channels) will feed
+the self-triggering, as their waveforms directly supply a measure of
 ionization activity without computationally costly signal processing.
-The \dwords{trigprimitive} will contain summary information for each
+The \dwords{trigprimitive} contains summary information for each
 channel, such as the time of any threshold-crossing pulse, its
 integral charge, and time over threshold. 
 A channel with an associated \dword{trigprimitive} is said to be
-``hit'' for the time spanned by the primitive. 
+\textit{hit} for the time spanned by the primitive. 
 Trigger primitives from one \dword{detunit} are then further processed
 to produce a \dword{trigcandidate}. 
-The candidate represents a cluster of ``hits'' across time and
+The candidate represents a cluster of \textit{hits} across time and
 channel, localized to the \dword{detunit}.
 The candidates from all \dwords{daqfrag} are passed to the
 \dword{mtl}.
+
 The \dword{mtl} arbitrates between various trigger types, determines
 trigger priority and ultimately the time range and detector coverage
-for a \dword{trigcommand} which it emits back to the \dwords{fec}.
-The \dword{mtl} assures that no \dwords{trigcommand} are issued which
-overlap in time nor detector channel space.
+for a \dword{trigcommand}, which it emits back to the \dwords{fec}.
+The \dword{mtl} assures that no \dwords{trigcommand} are issued that 
+overlap in time or in detector channel space.
 It also may employ a \dword{hlt} to reduce or aggregate triggers into
 fewer \dwords{trigcommand} so as to optimize the subsequent readout. 
 For example, aggregating many small readouts into fewer but larger
@@ -67,36 +68,37 @@ command is sent down to the \dwords{fec} instructing which slice of
 time of its buffered data should be saved. 
 The \dword{trigcommand} information is saved along with this data. 
 At the start of DUNE data taking, it is anticipated that for any given
-single-interaction trigger (a cosmic ray track, for example) waveforms
+single-interaction trigger (a cosmic-ray track, for example) waveforms
 from all channels in the \dword{detmodule} will be recorded over a one
 \dword{readout window} (nominally, \spreadout for \dword{sp} and
-\dpreadout for \dword{dp}, chosen to be two drift times with plus
-extra 20\%). 
+\dpreadout for \dword{dp}, chosen to be two drift times  plus an
+extra \SI{20}{\%}). 
+
 Such an approach is clearly very generous in terms of the amount of
 data saved, but it ensures that associated low-energy physics (such as
 captures of neutrons produced by neutrino interactions or cosmic rays)
-will be recorded without any need to fine-tune \dword{detunit}-level
-triggering, and will not depend on the noise environment across
+are recorded without any need to fine-tune \dword{detunit}-level
+triggering, and does not depend on the noise environment across
 \dwords{detunit}. 
 In addition, the wide \dword{readout window} ensures that the data of
 all associated activity is recorded.
 As generous as it is, it is estimated that this \dword{readout window}
 will not produce an unmanageable volume of data.
-As shown in table~\ref{tab:daq-data-rates}, the uncompressed selected
-data from the \dword{sp} \dword{detmodule} will fill about half of the
+As shown in Table~\ref{tab:daq-data-rates}, the uncompressed selected
+data from the \dword{spmod} will fill about half of the
 nominal annual data budget. 
-The longer DP drift and fewer channels will give approximately the
+The longer \dual drift and its fewer channels will give approximately the
 same data rate. 
-However, once a modest amount of lossless compression is applied the
+However, once a modest amount of lossless compression is applied, the
 nominal data budget can be met. 
 Early running will allow experience to be gained and more advanced
 data selection algorithms to be validated allowing the \dword{daq} to discard
-the many \dwords{datafrag} in each trigger which will be consistent
+the many \dwords{datafrag} in each trigger consistent
 with just electronics noise. 
-This has the potential for at least another factor of ten reduction.
+This has the potential for a reduction of at least another factor of ten.
 
-Other trigger streams---calibrations, random triggers, and prescales
-of various trigger thresholds, will also be generated at the
+Other trigger streams -- calibrations, random triggers, and prescales
+of various trigger thresholds -- are also generated at the
 \dword{detmodule} level, and filtering and compression can be applied
 based upon the trigger stream. 
 For example, a large fraction of random triggers may have \dword{zs}
@@ -107,79 +109,81 @@ streams if needed and if the processing is available, such as fast
 analyses of calibration data.
 
 At the \dword{detmodule} level, a decision can also be made on whether
-a series of interactions are consistent with a \dword{snb}. 
-If the number of \dword{detunit} level, low-energy
+a series of interactions is consistent with an \dword{snb}. 
+If the number of \dword{detunit}-level, low-energy
 \dwords{trigcandidate} exceeds a threshold for the number of such
 events in a given time, a trigger command is sent from the \dword{mtl}
 back to the \dwords{daqfer}, which store up to \SI{10}{\s} of full
 waveform data. 
 That data is then streamed to non-volatile storage to allow for
-subsequent analysis by the supernova working group, perhaps as an
+subsequent analysis by the \dword{snb} working group, perhaps as an
 automated process. 
-If not rejected it is then sent out of the \dword{daq} to permanent offline
+If not rejected, it is sent out of the \dword{daq} to permanent offline
 storage.
+
 In addition, the \dword{mtl} passes \dwords{trigcandidate} up to a
-detector-wide \dfirst{gtl}, which among other functions can decide
+detector-wide \dfirst{gtl}, which among other functions, can decide
 whether, integrated across all modules, enough \dwords{detunit} have
-detected interactions to qualify for a \dword{snb}, even if within a
+detected interactions to qualify as an \dword{snb}, even if within a
 particular module the threshold is not exceeded. 
 \Dwords{trigcandidate} from the \dword{gtl} are passed to the
 \dword{mtl} for dispatch to the \dwords{fec} (or \dwords{daqfer} in the
 case of \dword{snb} dump commands in the nominal design). 
 That is, to the \dword{mtl}, an \dword{externtrigger} looks like just
-one more ``external'' trigger input.
+one more \textit{external} trigger input.
 
-\Dword{detunit} level \dwords{trigcandidate} will be generated within
+\Dword{detunit} level \dwords{trigcandidate} are generated within
 the context of one \dword{daqfrag}, specifically in each \dword{fec}. 
-The trigger decision will be based on the number of nearby channels
-hit in a given fragment within a time window (roughly \SI{100}{\us}),
-the total charge collected in these adjacent channels and possibly the
+The trigger decision is based on the number of nearby channels
+hit in a given fragment within a time window (roughly \SI{100}{\micro\s}),
+the total charge collected in these adjacent channels, and possibly the
 union of time-over-threshold for the \dwords{trigprimitive} in the
 collection plane.
 Our studies show that even for low-energy events (roughly
 \SIrange{10}{20}{\MeV}) the reduction in radiological backgrounds is
 extremely high with such criteria.
 The highest-rate background, $^{39}$Ar, which has a decay rate of
-10~MBq within a \SI{10}{\kton} volume of argon, has an endpoint of 500
-keV and requires significant pileup in both space and time to get near
+\SI{10}{MBq} within a \nominalmodsize volume of argon, has an endpoint 
+of \SI{500}{keV} and requires significant pileup in both space and time to get near
 a \SI{10}{\MeV} threshold.
-One important background source is $^{42}$Ar, which has a 3.5 MeV
-endpoint and a decay rate of 1 kBq. 
-$^{222}$Rn decays via a highly-quenched $\alpha$ of 5.5 MeV and is
+One important background source is $^{42}$Ar, which has a \SI{3.5}{MeV}
+endpoint and a decay rate of \SI{1}{kBq}. 
+$^{222}$Rn decays via a highly-quenched $\alpha$ of \SI{5.5}{MeV} and is
 also an important source of background.
-\fixme{Need Rn-222 decay rate.  Punted and removed mention of ``decay rate XXXX''.  Someone please fix.}
-The radon decays to $^{218}$Po which a few minutes later leads to a
-quenched $\alpha$ of 6 MeV, and ultimately a $^{214}$Bi daughter (many
-minutes later) which has a $\beta$ decay with endpoint near 3.5 MeV. 
+\fixme{Need Rn-222 decay rate.  Punted and removed mention of ``decay rate XXXX''.  Someone please fix. Anne finds half life of 3.5 days, but other measures in Bq per cubic m}
+The radon decays to $^{218}$Po, which within a few minutes leads to a
+quenched $\alpha$ of \SI{6}{MeV}, and ultimately a $^{214}$Bi daughter (many
+minutes later), which has a $\beta$ decay with endpoint near \SI{3.5}{MeV}. 
 The $\alpha$ ranges are short and will hit at most a few electrodes,
 but the charge deposit can be large, and therefore the charge
-threshold will have to be well above the $\alpha$ deposits plus any
+threshold must be well above the $\alpha$ deposits plus any
 pileup from $^{39}$Ar and noise.
 
 At the level of one \dword{detunit}, two kinds of local
 \dwords{trigcandidate} can be generated.
-One is a ``high-energy'' trigger, that indicates local ionization
-activity corresponding to more than than \SI{10}{\MeV} has been found.
-The per channel thresholds on total charge and time-over-threshold
-will be optimized to achieve at least 50\% efficiency at this energy
-threshold, with efficiency increasing to 100\% via a turn-on curve
-that ensures at least 90\% efficiency at \SI{20}{\MeV}. 
-The second type of trigger candidate that will be generated is for
+One is a \textit{high-energy} trigger that indicates local ionization
+activity corresponding to more than than \SI{10}{\MeV}. % has been found.
+The per-channel thresholds on total charge and time-over-threshold
+will be optimized to achieve at least \SI{50}{\%} efficiency at this energy
+threshold, with efficiency increasing to \SI{100}{\%} via a turn-on curve
+that ensures at least \SI{90}{\%} efficiency at \SI{20}{\MeV}. 
+The second type of trigger candidate %that will be 
+generated is for
 low-energy events between \SI{5}{\MeV} and \SI{10}{\MeV}. 
-In isolation, these candidates will not lead to formation of a
+In isolation, these candidates do not lead to formation of a
 \dword{trigcommand}. 
-Rather, at the \dword{detmodule} level they will be combined, time
+Rather, at the \dword{detmodule} level they are combined, time
 ordered and their aggregate rate compared against a threshold based on
-fluctuations due to noise and backgrounds in order to form a
+fluctuations due to noise and backgrounds in order to form an
 \dword{snb} \dword{trigcommand}.
 
 The \dword{mtl} takes as input \dwords{trigcandidate} (both low-energy
 and high-energy) from the participating \dwords{daqfrag}, as well as
-\dword{externtrigger} sources, such as the \dword{gtl} which includes
+\dword{externtrigger} sources, such as the \dword{gtl}, which includes
 global, detector-wide triggers, external trigger sources such as
-\dword{snews}, and information about the time of a Fermilab beam
+\dword{snews}, and information about the time of a \fnal beam
 spill. 
-The \dword{mtl} will also generate \dwords{trigcommand} for internal
+The \dword{mtl}  also generates \dwords{trigcommand} for internal
 consumption, such as random triggers and calibration triggers (for
 example, telling a laser system to fire at a prescribed time). 
 The \dword{mtl} can also generate \dwords{trigcommand} from a
@@ -188,7 +192,7 @@ such commands on their own.
 For example, a prescaled fraction of single, low-energy trigger
 commands could be allowed to generate a trigger command, even though
 those candidates normally only result in a trigger command when
-aggregated ({\it i.e.}, as they would be for a \dword{snb}).
+aggregated (i.e., as they would be for an \dword{snb}).
 
 
 The \dword{mtl} is also responsible for checking candidate triggers
@@ -198,27 +202,27 @@ certain \dwords{trigcandidate} streams should not be considered
 because their \dwords{daqfrag} have been producing unreasonably large
 rates in the recent past (such as may be due to noise spikes, flaky
 hardware or buggy software).
-In addition, the \dword{mtl} will count low-energy trigger candidates
+In addition, the \dword{mtl} counts low-energy trigger candidates,
 and based upon their number and distribution over a long time interval
-({\it e.g.}, \SI{10}{\s}), decide to generate a \dword{snb} trigger command.
+(e.g., \SI{10}{\s}), decides to generate an \dword{snb} trigger command.
 The trigger logic will be optimized to record the data due to at least
-90\% of all Milky Way supernovae, and studies of simple low-energy
+\SI{90}{\%} of all Milky Way supernovae, and studies of simple low-energy
 trigger criteria show that a much higher efficiency can likely be
 achieved.
 
 	
 The \dword{hlt} can also be applied at this level, particularly if
 there are unexpectedly higher rates from instrumental or low-energy
-backgrounds, that require some level of reconstruction or pattern
+backgrounds that require some level of reconstruction or pattern
 recognition. 
 An \dword{hlt} might also allow for efficiently triggering on
 lower-energy single interactions, or allow for better sensitivity for
 supernovae beyond the Milky Way, by employing a weighting scheme to
-individual \dwords{trigcandidate}---higher-energy
+individual \dwords{trigcandidate} -- higher-energy
 \dwords{trigcandidate} receiving higher weights. 
 Thus, for example, two \dwords{trigcandidate} consistent with
 \SI{10}{\MeV} interactions in \SI{10}{\s} might be enough to create a
-\dword{snb} candidate trigger, while 100 \SI{5}{\MeV} trigger
+\dword{snb} candidate trigger, while a hundred \SI{5}{\MeV} trigger
 candiates in \SI{10}{\s} might not.
 Lastly, the \dword{hlt} can allow for dynamic thresholding; for
 example, if a trigger appears to be due to a cosmic-ray muon, the
@@ -236,7 +240,7 @@ All low-energy \dwords{trigcandidate} are also passed upwards to the
 occurring. 
 This approach increases the sensitivity to trigger on \dwords{snb} by
 a factor of four (for \SI{40}{\kton}), thus extending the burst
-sensitivity to a distance twice as far as for a single \SI{10}{\kton}
+sensitivity to a distance twice as far as for a single \nominalmodsize
 \dword{detmodule}. 
 
 	
@@ -244,11 +248,11 @@ The \dword{mtl} is also responsible to include in the
 \dword{trigcommand} a global timestamp built from its input
 \dwords{trigcandidate}, and information on what type of trigger was
 created. 
-Information on \dwords{trigcandidate} will also be kept, whether or not
+Information on \dwords{trigcandidate} is also kept, whether or not
 they contribute to the formation of a \dword{trigcommand}. 
 As described above, the \dword{readout window} for nominal
 \dwords{trigcommand} (those other than for \dword{snb} candidates)
-somewhat more than two times the maximum drift time. 
+is somewhat more than two times the maximum drift time. 
 Further, a nominal readout spans all channels in a \dword{detmodule}. 
 The \dword{mtl} is also responsible for sending the trigger commands
 that tell the \dwords{daqfer} to stream all data from the past
