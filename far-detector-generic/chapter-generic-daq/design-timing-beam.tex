@@ -17,7 +17,7 @@ of redundancy in the prediction process.
 Several stages prediction based on recent spill behavior will be applied aiming
 for an accuracy of better than 10\% of a readout
 time (sub-\si{\ms}) in time for the data to be selected from
-the DAQ buffers. 
+the \dword{daq} buffers. 
 Ultimately, an offline database will match the actual time of the
 spill with the data, thus removing any reliance on real-time network
 transfer for this crucial stage of the oscillation measurements, the
@@ -56,7 +56,7 @@ was analysed, and it was found that 97\% of packets arrived within
 The \dword{sls} will therefore have estimators of the GPS-times of
 future spills, and recent spills with associated data contained in the
 \dwords{daqbuf}. These estimators will improve in precision as
-more packets arrive.  The DAQ will use data in a wider window than
+more packets arrive.  The \dword{daq} will use data in a wider window than
 usual, if, at the time the trigger decision has to be made, the
 precision is less accurate due to missing or late packets.  From the
 MINOS monitoting analysis, this will be very rare.

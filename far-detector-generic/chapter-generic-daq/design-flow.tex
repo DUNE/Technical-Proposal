@@ -6,8 +6,8 @@
 \metainfo{Giles Barr \& Josh Klein \& Giovanna Miotto \& Kurt Biery \& Brett Viren.  This is a DP/SP shared section.  It's file is \texttt{far-detector-generic/chapter-generic-daq/design-flow.tex}}
 
 In the general data and trigger flow diagrams for the nominal
-(Fig.~\ref{fig:daq-overview}) and alternative
-(Fig.~\ref{fig:daq-overview-alt}) designs the dataflow, trigger and
+(Figure~\ref{fig:daq-overview}) and alternative
+(Figure~\ref{fig:daq-overview-alt}) designs the dataflow, trigger and
 event builder functions take as input data from the \dword{detmodule}
 electronics and culminate in files deposited to \dword{diskbuffer} for
 transfer to permanent storage by offline computing processes.  
@@ -18,8 +18,8 @@ any given time is approximately limited to \offsitegbyteps.
 
 To accept this high data inflow rate and to apply the substantial
 processing needed to achieve the required reduction factor which is on
-order of \num{1000} the DAQ follows a distributed design.
-The units of distribution for the front end of the DAQ must match up
+order of \num{1000} the \dword{daq} follows a distributed design.
+The units of distribution for the front end of the \dword{daq} must match up
 with natural units of the \dword{detmodule} providing the data. 
 This unit is called the \dword{daqfrag} and each accepts input at a
 rate of about 10-20 \si{\GB/\s}. 
@@ -67,7 +67,7 @@ initiated by normal (non-\dword{snb}) \dwords{trigcommand} is
 identical. 
 This dispatch, commonly termed ``event building'' involves collection
 of data spanning an identical and continuous period of time from
-multiple \dwords{daqbuf} across the DAQ.
+multiple \dwords{daqbuf} across the \dword{daq}.
 As introduced above, each \dword{trigcommand} is consumed by an
 \dword{eb} process. 
 It will use fragment address information in the \dword{trigcommand} to
@@ -84,16 +84,16 @@ The \dword{eb} will finally assemble all responses into a
 it becomes responsibility of DUNE offline computing.
 
 The \dword{daqds} and \dword{eb} services will be implemented using
-artDAQ which is a modern, general-purpose software framework for
+art\dword{daq} which is a modern, general-purpose software framework for
 distributed data combination and processing. 
 It has been used in the ProtoDUNE and other experiments.
 It is designed to exploit the parallelism that is possible with
 modern multi-core and networked computers. 
-It is the principal architecture that will be used for the DUNE DAQ
+It is the principal architecture that will be used for the DUNE \dword{daq}
 back-end computing.
-The authors of artDAQ have accomodated DUNE-specific feature-addition
+The authors of art\dword{daq} have accomodated DUNE-specific feature-addition
 requests and a number of libraries have been developed based on
-existing parts of artDAQ used to handle incoming data from data
+existing parts of art\dword{daq} used to handle incoming data from data
 sources. 
 It is likely that future DUNE extensions will be by one of these two
 routes.
@@ -116,7 +116,7 @@ as described in Section~\ref{sec:daq-fero}.
 In that location, due to larger granularity of computing units, the
 data rate into any one \dword{ssd} is within the quoted write
 bandwidth. 
-However, and as shown in Fig.~\ref{fig:daq-overview}, the data and
+However, and as shown in Figure~\ref{fig:daq-overview}, the data and
 trigger flow for \dword{snb} in the nominal case, takes a special
 path. 
 Instead of an \dword{eb} consuming the \dword{trigcommand} as
@@ -174,8 +174,8 @@ whole-detector data dump will occur per month on average.
 Using the \dword{sp} \dword{detmodule} as an example, and choosing the
 nominal time span for the dump to be \snbtime about \spsnbsize of
 uncompressed data would result.
-In the nominal \dword{sp} DAQ design, this dump would be spread over
-600 \dword{ssd} units leading to \SI{75}{\GB} per SSD per dump.
+In the nominal \dword{sp} \dword{daq} design, this dump would be spread over
+600 \dword{ssd} units leading to \SI{75}{\GB} per \dword{ssd} per dump.
 % this number assumes defs.tex hasn't had its numbers changed.
 % check once in a while
 Thus, typical \dwords{ssd} offer storage to allow any given dump to be
@@ -183,11 +183,11 @@ held for at least one half year before it must be purged to assure
 storage is available for subsequent dumps.
 If every dump were to be sent to permanent storage, it would represent
 a sustained \SI{0.14}{\Gbps} (per \dword{detmodule}) which is a small
-perturbation on the bandwidth supplied throughout the DAQ network. 
+perturbation on the bandwidth supplied throughout the \dword{daq} network. 
 Saved to permanent storage this rate integrates to \SI{0.5}{\PB/\year}
 which while substantial is a minor fraction of the total data budget.
 The size of each dump is still larger than is convenient to place into
-a single file and so the SNB event building will likely differ from
+a single file and so the \dword{snb} event building will likely differ from
 that for normal triggers in that the entire dump will not be held in a
 single \dword{rawevent}. 
 Finally, it's important to qualify that these rates assume

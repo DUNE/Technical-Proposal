@@ -39,7 +39,7 @@ The offline group will also be responsible for providing the framework
 for real-time \dword{dqm}. 
 This monitoring is distinct from the \dfirst{om}.
 Developing the payload jobs which running various algorithms to
-summarize the data is the join responsibility of the DAQ, Offline,
+summarize the data is the join responsibility of the \dword{daq}, Offline,
 Reconstruction and other groups.
 The \dword{dqm} system includes a visualization system which can be
 accessed from the Internet and specifically where operation shifts are
@@ -55,7 +55,7 @@ directly involved in taking the data described above.
 That data will be stored both locally (in CISC database servers in the
 CUC) and offline (the databases will be replicated back to Fermilab)
 in a relational database indexed by timestamp.
-This will allow bi-directional communications between DAQ and CISC by
+This will allow bi-directional communications between \dword{daq} and CISC by
 reading or inserting data into the database as needed for non
 time-critical information.  
 
@@ -65,7 +65,7 @@ will be available on the local network to both systems.
 
 There is not a hardware interface, aside from the fact that several
 racks of CISC servers will be in the /counting room/ in the CUC, and that rack
-monitors in DAQ racks will be read out into the CISC data stream.
+monitors in \dword{daq} racks will be read out into the CISC data stream.
 
 Note that life and hardware safety critical items will be hardware
 interlocked in the standard Fermilab fashion, and fall outside of this
@@ -78,7 +78,7 @@ interface's scope.
 
 \fixme{Need to receive information on beam spills (Giles) , SNEWS (Alec).}
 
-The DAQ will need to save data based on external triggers, for
+The \dword{daq} will need to save data based on external triggers, for
 example: for times around when the pulse of beam neutrinos from LBNF
 arrives at the Far Detector; or if notice of an interesting
 astrophysical event is given by \dword{snews}\cite{snews} or LIGO.
@@ -89,7 +89,7 @@ or zero suppression criteria for data in the interesting time period.
 \subsubsection{Beam Trigger:} The method for predicting and receiving the
 time of the beam spill is described in
 Sec.~\ref{sec:fd-daq-design-beamtiming}.
-Once that time is known to the DAQ, a high level trigger can be issued
+Once that time is known to the \dword{daq}, a high level trigger can be issued
 to ensure that the necessary full data can be saved from the buffer
 and saved as an event.
 

@@ -16,7 +16,7 @@ When executed, they lead to readout of a small subset of the total
 data. 
 In addition, \dwords{trigcandidate} will be provided to the
 \dword{mtl} from external sources such as the \dword{gtl} in order to
-indicate external events such as beam spills, or SNB candidates
+indicate external events such as beam spills, or \dword{snb} candidates
 detected by the other \dwords{detmodule}. 
 In addition to supplying triggers to \dword{snews}, triggers from
 \dword{snews} or other cosmological detector sources such as LIGO and
@@ -90,7 +90,7 @@ same data rate.
 However, once a modest amount of lossless compression is applied the
 nominal data budget can be met. 
 Early running will allow experience to be gained and more advanced
-data selection algorithms to be validated allowing the DAQ to discard
+data selection algorithms to be validated allowing the \dword{daq} to discard
 the many \dwords{datafrag} in each trigger which will be consistent
 with just electronics noise. 
 This has the potential for at least another factor of ten reduction.
@@ -116,7 +116,7 @@ waveform data.
 That data is then streamed to non-volatile storage to allow for
 subsequent analysis by the supernova working group, perhaps as an
 automated process. 
-If not rejected it is then sent out of the DAQ to permanent offline
+If not rejected it is then sent out of the \dword{daq} to permanent offline
 storage.
 In addition, the \dword{mtl} passes \dwords{trigcandidate} up to a
 detector-wide \dfirst{gtl}, which among other functions can decide
@@ -125,7 +125,7 @@ detected interactions to qualify for a \dword{snb}, even if within a
 particular module the threshold is not exceeded. 
 \Dwords{trigcandidate} from the \dword{gtl} are passed to the
 \dword{mtl} for dispatch to the \dwords{fec} (or \dwords{daqfer} in the
-case of SNB dump commands in the nominal design). 
+case of \dword{snb} dump commands in the nominal design). 
 That is, to the \dword{mtl}, an \dword{externtrigger} looks like just
 one more ``external'' trigger input.
 

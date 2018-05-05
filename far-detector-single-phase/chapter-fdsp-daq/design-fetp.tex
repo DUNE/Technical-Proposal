@@ -6,30 +6,30 @@
 \metainfo{Josh Klein \& J.J. Russel \& Brett Viren.  This section is SP-specific.}
 
 \Dwords{trigprimitive} are generated inside the \dword{fe} readout
-hardware associated with each APA from TPC data on a per-channel basis.
-They are sent along with the waveform data to the \dword{fe} DAQ
+hardware associated with each \dword{apa} from TPC data on a per-channel basis.
+They are sent along with the waveform data to the \dword{fe} \dword{daq}
 computing.
-In the alternative design, the data is directly sent from the APAs to
+In the alternative design, the data is directly sent from the \dwords{apa} to
 the \dwords{fec} and the data are sent to the trigger processing
 computers.  
 In both designs, the primitives from one \dword{daqfrag} are further
 processed to produce \dwords{trigcandidate}. 
 As such they represent a localization of activity to the corresponding
-APAs and for some period of time. 
+\dwords{apa} and for some period of time. 
 These candidates are emitted to the the \dword{mtl} which may consider
 candidates from other detector modules or external sources before
 generating trigger commands.
 Section~\ref{sec:fd-daq-sel} describes the selections involved in this
 triggering.
 
-Only the 480 collection channels associated with each APA face are
+Only the 480 collection channels associated with each \dword{apa} face are
 used for forming \dwords{trigprimitive}. 
 Reasons for this limitation include the fact that collection
 channels:
 
 \begin{itemize}
 \item have higher signal to noise ratio compared to induction channels.
-\item are fully and independently sensitive to activity on their APA face.
+\item are fully and independently sensitive to activity on their \dword{apa} face.
 \item have unipolar signals that directly give an approximate measure
   of ionization charge without costly computation required to
   deconvolve the field response functions as required to make use of
@@ -40,13 +40,13 @@ channels:
 \end{itemize}
 
 
-Figure~\ref{fig:daq-readout-buffering-baseline} illustrates the connectivity between the
-four connectors on each of the five WIBs and the \dword{fe} readout hardware.
+Figurere~\ref{fig:daq-readout-buffering-baseline} illustrates the connectivity between the
+four connectors on each of the five \dwords{wib} and the \dword{fe} readout hardware.
 The data is received via 80 1 Gbps fiber optical links by four \dwords{rce}
 in the \dword{atca} \dword{cob} system. 
 
-The pattern of connectivity between WIBs and RCEs results in the data
-from the collection channels covering one contiguous half of one APA
+The pattern of connectivity between \dwords{wib} and \dwords{rce} results in the data
+from the collection channels covering one contiguous half of one \dword{apa}
 face being received by each \dword{rce}.
 Each \dword{rce} has two primary functions. 
 The first is transmission of all data as described in
@@ -60,7 +60,7 @@ development but can be broadly described.
 \item On a per channel basis calculate a rolling baseline and spread
   level which characterizes recent noise behavior such that the result
   is effectively free of influence from actual ionization signals.
-\item Locate contiguous runs of ADC samples that are above a threshold
+\item Locate contiguous runs of \dword{adc} samples that are above a threshold
   defined in terms of the baseline and noise spread.
 \item Emit their time bounds and total charge as a \dword{trigprimitive}.
 \end{enumerate}
@@ -73,7 +73,7 @@ wires.
 Depending on the threshold set, these \dwords{trigprimitive} may be
 numerous due to \Ar39 decays and noise fluctuations.
 If their rate can not be sustained, the threshold may be raised or
-further processing may be done still at the APA level and which
+further processing may be done still at the \dword{apa} level and which
 considers more global information.
 This may be performed either in the \dwords{rce} or later in the
 \dword{fe} computing hosts. 
@@ -90,7 +90,7 @@ must occur before the data is sent for \dword{trigprimitive}
 production. 
 If the required mitigation algorithms outgrow the nominally specified
 \dword{rce} \dword{fpga} it is possible to double the number of
-\dwords{cob} per APA which will require a redistribution of fibers. 
+\dwords{cob} per \dword{apa} which will require a redistribution of fibers. 
 Alternatively, or in addition, the higher number of
 \dwords{trigprimitive} produced as a result of excess noise can be
 passed along for further processing in the \dword{fe} computing. 

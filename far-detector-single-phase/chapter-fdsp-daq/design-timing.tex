@@ -7,7 +7,7 @@
 
 All components of the DUNE \dword{sp} \dword{detmodule} are
 synchronized to a common clock.  In order make full use of the
-information from the photon detection system the common clock must be
+information from the \dword{pds} the common clock must be
 aligned within a single \dword{detunit} with an accuracy of O(1ns).
 In order to form a common trigger for \dword{snb} between
 \dwords{detmodule} the timing between them must be aligned with an
@@ -20,13 +20,13 @@ Single and Dual phase detector modules use a different timing system,
 driven by the different technical requirements and development history
 of the two systems. A single phase detector module has many more
 timing end-points than a dual phase module and many of the end-points
-are simpler than the end-points in the dual phase, for example a WIB
+are simpler than the end-points in the dual phase, for example a \dword{wib}
 vs. uTCA crate. Both systems have been sucessfully prototyped.
 
 The DUNE \dword{sp} \dword{detmodule} uses a development of the protoDUNE
 timing system. Synchronization messages are transmitted over a serial
 data stream with the clock embedded in the data. The format is
-described in DUNE DocDB-1651~\cite{docdb-1651}. Figure~\ref{fig:daq-readout-timing}
+described in DUNE DocDB-1651~\cite{docdb-1651}. Figurere~\ref{fig:daq-readout-timing}
 shows the overall arrangement of components within the Single Phase
 Timing System(SPTS). A stable master clock, disciplined with a \SI{10}{\MHz}
 reference is used in the SPTS. A \dword{pps} is
@@ -84,7 +84,7 @@ master timing AMC produces the SPTS signals and encodes them onto a
 serial data stream. This serial datastream is distributed over a
 standard star-point backplane to the fanout AMCs which each drive the
 signal onto up to 13 SFP cages. The SFP cages are either occupied by
-1000Base-BX SFPs, each of which connects to a fibre running to an APA,
+1000Base-BX SFPs, each of which connects to a fibre running to an \dword{apa},
 or to a Direct Attach cable which connects to systems elsewhere in the
 CUC, {\it i.e.} the \dword{rce} crates and the data selection system. This
 arrangement is shown in figure \ref{fig:daq-readout-sp-timing}

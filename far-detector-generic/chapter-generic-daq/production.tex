@@ -2,17 +2,17 @@
 \section{Production and Assembly}
 \label{sec:fd-daq-prod-assy}
 
-\subsection{DAQ components}
+\subsection{\dword{daq} components}
 
-The DUNE FD DAQ system comprises the classes of components listed below. In each case, we outline the production / procurement and QA / QC strategy.
+The DUNE FD \dword{daq} system comprises the classes of components listed below. In each case, we outline the production / procurement and QA / QC strategy.
 
 \subsubsection{Custom electronic modules}
 
 
-Custom electronic modules, specified and designed by the DAQ
-consortium, will be used for two functional components in the DAQ
+Custom electronic modules, specified and designed by the \dword{daq}
+consortium, will be used for two functional components in the \dword{daq}
 front-end. 
-First is for interfacing with detector electronics to the DAQ
+First is for interfacing with detector electronics to the \dword{daq}
 \dword{fec} systems which are likely to be based on the \dword{felix}
 PCIe board.
 The other is for real-time data processing (particularly for the
@@ -22,7 +22,7 @@ Both designs have current implementation in use in the \dword{pdsp}
 experiment and new designs will be developed which are optimized for
 DUNE requirements.
 It is possible that we will make use of commercially-designed hardware
-in one or other of these roles. DAQ consortium institutes have
+in one or other of these roles. \dword{daq} consortium institutes have
 significant experience in the design and production of high
 performance digital electronics for previous experiments.
 Our strategy is therefore to carry out design in-house, manufacturing
@@ -33,11 +33,11 @@ into subassemblies ({\it e.g.} carrier board plus processing
 daughtercards), allowing production tasks to be spread over more
 consortium institutes.
 
-DUNE electronic hardware will be of relatively high performance by commercial standards, and will contain high value subassemblies such as large FPGAs. Achieving a high yield will require significant effort in design verification, prototyping and pre-production tests, as well as in tendering and vendor selection. The production schedule is largely driven by these stages and the need for thorough testing and integration with firmware and software before installation, rather than by the time for series hardware manufacture. This is somewhat different to the majority of other DUNE FD components.
+DUNE electronic hardware will be of relatively high performance by commercial standards, and will contain high value subassemblies such as large \dwords{fpga}. Achieving a high yield will require significant effort in design verification, prototyping and pre-production tests, as well as in tendering and vendor selection. The production schedule is largely driven by these stages and the need for thorough testing and integration with firmware and software before installation, rather than by the time for series hardware manufacture. This is somewhat different to the majority of other DUNE FD components.
 
 \subsubsection{Commercial computing}
 
-The majority of procured items will be standard commercial computing equipment, in the form of compute and storage servers. Here, the emphasis will be on correct definition of the detailed specification, and the tracking of technology development, such that best value for money is obtained during the tendering process. Computing hardware will be procured in several batches, as the need for DAQ throughput increases during the construction period. 
+The majority of procured items will be standard commercial computing equipment, in the form of compute and storage servers. Here, the emphasis will be on correct definition of the detailed specification, and the tracking of technology development, such that best value for money is obtained during the tendering process. Computing hardware will be procured in several batches, as the need for \dword{daq} throughput increases during the construction period. 
 
 \subsubsection{Networking and data links}
 
@@ -45,15 +45,15 @@ The data movement system will be a combination of custom optical links (for data
 
 \subsubsection{Infrastructure}
 
-All DUNE DAQ components will be designed for installation in standard 19-inch rack infrastructure, either in the CUC or above ground. Standard commercial server racks with local air--water heat exchangers are likely to be used. These items will be specified and procured within the consortium, but will be pre-installed (along with the necessary electrical, cooling and safety infrastructure) under the control of TC before DAQ beneficial occupancy.
+All DUNE \dword{daq} components will be designed for installation in standard 19-inch rack infrastructure, either in the CUC or above ground. Standard commercial server racks with local air--water heat exchangers are likely to be used. These items will be specified and procured within the consortium, but will be pre-installed (along with the necessary electrical, cooling and safety infrastructure) under the control of TC before \dword{daq} beneficial occupancy.
 
 \subsubsection{Software and firmware}
 
-The majority of DAQ construction effort will be invested in the production of custom software and firmware. Based on previous experiments, these projects are likely to use tens to hundreds of staff-years of effort, and will be significant projects even by commercial standards, mainly due to the specialised skills required for real-time software and firmware. A major project management effort will be required to guide the specification, design, implementation and testing of the necessary components, especially as developers will be distributed around the world. Use of common components and frameworks across all areas of DAQ will be mandatory. Effective DAQ software and firmware development has been a demonstrated weakness of several previous experiments, and substantial work will need to be done in the next two years to put in place the necessary project management regime.
+The majority of \dword{daq} construction effort will be invested in the production of custom software and firmware. Based on previous experiments, these projects are likely to use tens to hundreds of staff-years of effort, and will be significant projects even by commercial standards, mainly due to the specialised skills required for real-time software and firmware. A major project management effort will be required to guide the specification, design, implementation and testing of the necessary components, especially as developers will be distributed around the world. Use of common components and frameworks across all areas of \dword{daq} will be mandatory. Effective \dword{daq} software and firmware development has been a demonstrated weakness of several previous experiments, and substantial work will need to be done in the next two years to put in place the necessary project management regime.
 
 \subsection{QA/QC}
 
-High availability is a basic requirement for the DAQ, and this rests upon three key principles:
+High availability is a basic requirement for the \dword{daq}, and this rests upon three key principles:
 
 \begin{itemize}
 	\item A rigorous QA/QC regime for components (including software and firmware)
@@ -65,7 +65,7 @@ The lifetime of most electronic assemblies or commercial computing components wi
 
 \subsection{Integration testing}
 
-Since the DAQ will use subcomponents produced by many different teams,
+Since the \dword{daq} will use subcomponents produced by many different teams,
 integration testing is a key tool in ensuring compatibility and
 conformance to specification. This is particularly important in the
 prototyping phase before the design of final hardware. Once
@@ -74,8 +74,8 @@ be necessary in order to perform final debugging and performance tuning
 of firmware and software. In order to facilitate ongoing optimisation in
 parallel with operations, and compatibility testing of new hardware or
 software, we envisage the construction of one or more permanent
-integration test stands at DAQ institutes. These will be in locations
+integration test stands at \dword{daq} institutes. These will be in locations
 allowing them to be accessed easily by the majority of consortium
-members, {\it e.g.} at major labs in Europe and the US. A temporary DAQ
+members, {\it e.g.} at major labs in Europe and the US. A temporary \dword{daq}
 integration and testing facility near to SURF will also be required as
 part of the installation procedure.
