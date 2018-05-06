@@ -67,7 +67,7 @@ The \hv system consists of components both exterior and interior to the cryostat
 \item \hv extender and voltage degrader,
 \item cathode plane and \dword{gp}, 
 \item \fcage{},
-\item \hv return \fdth and resister box.
+\item \hv return \fdth and resistor box.
 \end{itemize}
 
 
@@ -233,7 +233,7 @@ The extruded aluminum profiles are mounted to the \SI{15.2}{\cm} (\num{6}\,in) I
 \subsubsection{Electrical Interconnections}
 
 An aluminum clip connects the ends of each set of two end-to-end \fc profiles, forming continuous equipotential rectangular rings  \SI{144}{\m} long. 
- \Dword{hv} divider boards (HVDB), consisting of two resistors and a series of four surge-protection varistors in parallel, bridge the gap between the two neighboring stacked profile rings.   The total number of rows of HVDB will be determined based on the redundancy and the current-limit requirements;  one row of HVDB is in principle sufficient to provide the required potential difference of \SI{3}{\kV} between neighboring rings, but more are desirable for redundancy.
+\Dwords{hvdb}, consisting of two resistors and a series of four surge-protection varistors in parallel, bridge the gap between the two neighboring stacked profile rings.   The total number of rows of \dword{hvdb} will be determined based on the redundancy and the current-limit requirements;  one row of \dword{hvdb} is in principle sufficient to provide the required potential difference of \SI{3}{\kV} between neighboring rings, but more are desirable for redundancy.
 
 
 The resistive chain for voltage division between the profiles provides a linear voltage gradient between the cathode and the top-most field shaping ring. It is critical as it determines the strength of the \efield between one profile and its neighbors, as well as between the profile and other surrounding parts, e.g., the grounded stainless steel membrane. The \efield needs to be kept well below \SI{30}{\kV\per\cm} at all points in the \lar bath to enable safe TPC operation.
@@ -250,21 +250,21 @@ for the planned \fc configuration and operating voltage. Figure~\ref{fig:profile
 \end{dunefigure}
 
 Two distinct types of \hv divider boards are used for \dword{pddp}: \num{10} stage and \num{8} stage boards.  Each stage consists of two \SI{2}{\giga\ohm} resistors in parallel and four variable resistors of threshold voltage \SI{1.28}{kV} to protect the resistors in case of a sudden discharge.  The total expected current at \dptargetdriftvoltpos is therefore \SI{3}{\micro\ampere} per row.  Since multiple rows, which are connected in parallel, are used for redundancy, the expected current in the entire system is simply the number of rows times the current per each row.
-For optimization purposes, one \dword{dpmod} HVDB will connect \num{11} stages.  This enables  one \tpcheight tall module to be covered by fifteen \num{11} stage HVDB and one \num{10} stage HVDB at the bottom to make the final connection.  
+For optimization purposes, one \dword{dpmod} \dword{hvdb} will connect \num{11} stages.  This enables  one \tpcheight tall module to be covered by fifteen \num{11} stage \dword{hvdb} and one \num{10} stage \dword{hvdb} at the bottom to make the final connection.  
 
 
-Figure~\ref{fig:dp-hvdb} shows one HVDB board and  Figure~\ref{fig:dune-dp-fc-all}.d. shows the connection of one row of HVDB along the entire height of the \fc as installed in \dword{pddp}. The  \dptpcwdth (W) $\times$ \dptpclen (L) ground plane consists of \num{80} unit planes (each \SI{3}{\m} $\times$ \SI{3}{\m}).  
-The cathode plane is mounted to the bottom of the \fc, together forming one contiguous unit of field-providing structure.  The bottom-most HVDB makes the connection between the cathode and the bottom-most field-shaping ring.
-For redundancy, a total of two HVDB rows are used in \dword{pddp}.  
-The \dpmod will use one HVDB chain every four \fc modules, providing an ample redundancy.  However, the final number of rows of HVDB must take into account the impact of the underlying current through the \fc due to the particle interactions.
+Figure~\ref{fig:dp-hvdb} shows one \dword{hvdb} board and  Figure~\ref{fig:dune-dp-fc-all}.d. shows the connection of one row of \dword{hvdb} along the entire height of the \fc as installed in \dword{pddp}. The  \dptpcwdth (W) $\times$ \dptpclen (L) ground plane consists of \num{80} unit planes (each \SI{3}{\m} $\times$ \SI{3}{\m}).  
+The cathode plane is mounted to the bottom of the \fc, together forming one contiguous unit of field-providing structure.  The bottom-most \dword{hvdb} makes the connection between the cathode and the bottom-most field-shaping ring.
+For redundancy, a total of two \dword{hvdb} rows are used in \dword{pddp}.  
+The \dpmod will use one \dword{hvdb} chain every four \fc modules, providing an ample redundancy.  However, the final number of rows of \dword{hvdb} must take into account the impact of the underlying current through the \fc due to the particle interactions.
 
 
-\begin{dunefigure}[DP HVDB]{fig:dp-hvdb}{\dword{pddp} \dword{hv} divider board (a) schematic circuit diagram,( b)photo of the top of the board, (c) photo of the bottom of the board}
+\begin{dunefigure}[\dual \dword{hvdb}]{fig:dp-hvdb}{\dword{pddp} \dword{hv} divider board (a) schematic circuit diagram, (b)photo of the top of the board, (c) photo of the bottom of the board}
 \includegraphics[width=0.75\textwidth]{dp-hvdb.png}
 \end{dunefigure}
-%%%%%%%%% to here 1pm sunday anne
 
-\begin{dunefigure}[\dual \dword{fc} installation process and intermodule connection]{fig:dp-fc-installation-connection}{Left: Two submodules connected and hanging from the two sets of stainless steel cables from the ceiling.  The lifting wires are used to raise the module to its position as submodules are connected; the hanging wires keep the fully integrated module into its final position.  Right: These show inter-submodule connections.  Each connection is made by two 1cm thick G10 plates along the height of the I-beams and one 1cm thick G10 plate on the flange.}
+
+\begin{dunefigure}[\dual \dword{fc} installation process and intermodule connection]{fig:dp-fc-installation-connection}{Left: Two submodules connected and hanging from the two sets of stainless steel cables on the ceiling.  The lifting wires are used to raise the module to its position as submodules are connected; the hanging wires keep the fully integrated module in its final position.  Right: Inter-submodule connections.  Each connection is made by two \num{1}{cm} thick G10 plates along the height of the I-beams and one \num{1}{cm} thick G10 plate on the flange.}
 \includegraphics[width=0.75\textwidth]{module-connection-installation.png}
 \end{dunefigure}
 
@@ -272,12 +272,12 @@ The \dpmod will use one HVDB chain every four \fc modules, providing an ample re
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{HV Return and Monitoring Devices}
 
-In order to maintain the potential difference between the top most field shaping ring and the extraction grid of the charge readout plane, either a dedicated \dword{hv} supply and an adjustable resistor chain is used in the HV return outside of the cryostat.  This requires an independent 10kV \fdth similar to those developed for the extraction grid.
+In order to maintain the potential difference between the top-most field shaping ring and the extraction grid of the charge readout plane, either a dedicated \dword{hv} supply and an adjustable resistor chain is used in the \dword{hv} return outside of the cryostat.  This requires an independent \SI{10}{kV} \fdth similar to those developed for the extraction grid.
 
 Multiple devices are planned for monitoring the \hv.  
 \begin{itemize}
 \item The Heinzinger units have typical sensitivities down to tens of nanoamperes with current readback capability.  The units are able to sample the current and voltage every few \SI{100}{\milli\s}.  
-\item Inside the cryostat, so-called pick-off points near the anode will monitor the current through the HVDB resistor chain.  
+\item Inside the cryostat, so-called pick-off points near the anode will monitor the current through the \dword{hvdb} resistor chain.  
 
 Additional pick-off points could be implemented on the \dword{gg} below the cathode to monitor possible stray currents.
 \end{itemize}
@@ -288,36 +288,46 @@ Additional pick-off points could be implemented on the \dword{gg} below the cath
 \section{Quality Assurance}
 \label{sec:fddp-hv-qa}
 
-{\bf Field Cage FRP Parts} Upon delivery of the FRP I-beams and other parts, all parts will undergo a visual inspection process to look for defects, in particular those affecting structural integrity, such as cracks, air bubble holes, depression and flatness. The parts will be sorted into three preliminary categories: category 0 (pass), category 1 (problematic but could be repairable) and category 2 (severe and unusable) .
+\fixme{Should this section be about QC rather than QA? Anne}
+{\bf Field Cage FRP Parts} Upon delivery of the FRP I-beams and other parts, all parts undergo a visual inspection process to look for defects, in particular those affecting structural integrity, such as cracks, air bubble holes, depression and flatness. The parts are sorted into three preliminary categories: category 0 (pass), category 1 (problematic but could be repairable) and category 2 (severe and unusable) .
 
-The visual inspection will be followed by critical dimension measurements to verify individual submodule assembly and module interconnection integrity.  These measurements will focus on cross sectional dimensions for rods, plates and bars, and on the length, straightness, flatness and camber of the beams and flanges.
+The visual inspection is followed by critical dimension measurements to verify individual submodule assembly and module interconnection integrity.  These measurements focus on cross sectional dimensions for rods, plates and bars, and on the length, straightness, flatness and camber of the beams and flanges.
 All measurements must satisfy the mechanical tolerance provided by the design drawings and the standard industry quality criteria.
 
-The FRP I-beams and parts in category 1 will undergo a repair process during the preparation stage through defibering, deburring and sanding.  Another set of measurements will be performed after the repair to determine the category of the repaired part.
+The FRP I-beams and parts in category 1 undergo a repair process during the preparation stage through defibering, deburring and sanding.  Another set of measurements is performed after the repair to redetermine the part's category.
 
-Those in category 2 will be returned to the vendor for replacements.
+Those in category 2 are returned to the vendor for replacements.
 
-{\bf High Voltage Divider Board}
-All resisters used for board production are numbered and undergo three step quality testing for final selection; 1. room temperature resistance measurement at voltages up to 4kV in 500V steps, 2. liquid nitrogen resistance measurement at voltages up to 4kV in 500V steps and 3. resistance measurement at voltages up to 4kV in 500V steps after warming up to room temperature.  Once the resistance of all resistors are measured, the measured resistance values are histogrammed for the final selection.   The selection is made based on the grouping of the resistors whose resistance are within 1\$ of each other using the results from all three testing stages.   Since it is more important to have the resistance values close to each other than being the given value (unless they are totally out of range from the design values) selecting the tighter grouping provide better quality assurance.
+{\bf \dword{hv} Divider Board}
+%All resistors used for board production are numbered and undergo a three-step quality test for final selection; (1) room temperature resistance measurement at voltages up to \SI{4}{kV} in \SI{500}{V} steps; (2) LN resistance measurement at voltages up to \SI{4}{kV} in \SI{500}{V} steps; and (3) resistance measurements at voltages up to \SI{4}{kV} in \SI{500}{V} steps after warming up to room temperature.  Once the resistance of all resistors is measured, the measured values are histogrammed for the final selection.   
+All resistors used for board production are numbered and undergo a three-stage \dword{qa} test for final selection. Resistance is measured at voltages up to \SI{4}{kV} in \SI{500}{V} steps for each stage. The first stage is done at  room temperature, the second at LN temperature, and the third again at room temperature after warming up.  The measured values are histogrammed for the final selection, in order to look for groupings of values.   
+%The selection is made based on the grouping of the resistors whose resistance are within 1\$ of each other using the results from all three testing stages.   
+%It is more important to have the resistance values close to each other than being the given value (unless they are totally out of range from the design values) selecting the tighter grouping provide better quality assurance.
+It is more important that the resistance values be close to each other than that they be at any particular value (unless the values are too far from the design values). The resistors for which the resistance values are within 1\$ of each other are selected.   \fixme{I reworded the prev pgraph}
 
-All varistors for board production are also numbered for quality assurance and undergo three step quality testing for the final selection; 1. room temperature clamping voltage measurement, 2. liquid nitrogen clamping voltage measurement and 3. clamping voltage measurement after warming up to room temperature.  Once the clamping voltages of all varistors are measured, the measured clamping voltages in all thee stages are histogrammed separately for the final selection.   The selection is made based on the clamping voltage being closer to the design values to ensure proper protection.   
+%All varistors for board production are also numbered for \dword{qa} purposes and undergo a three-step \dword{qa} testing for the final selection; 1. room temperature clamping voltage measurement, 2. liquid nitrogen clamping voltage measurement and 3. clamping voltage measurement after warming up to room temperature.  Once the clamping voltages of all varistors are measured, the measured clamping voltages in all thee stages are histogrammed separately for the final selection.   The selection is made based on the clamping voltage being closer to the design values to ensure proper protection.   
+All varistors for board production are also numbered for \dword{qa} purposes and undergo a three-stage \dword{qa} testing program for the final selection. Each stage is a clamping voltage measurement, first at room temperature, then at LN temperature, and again after warming back up up to room temperature.  
+The measured values are histogrammed for the final selection; those for which the clamping voltage is closer to the design values are selected, to ensure proper protection.   
 
-Once the electrical parts are mounted on the HVDB by the vendor, they undergo three step quality assurance tests; 1. room temperature resistance measurement of each stage, 2. liquid nitrogen resistance measurement of each stage and 3. resistance measurement of each stage after warming up to room temperature.  These measurements for each board is histogrammed and used for HVDB selection.  The boards with any of the resistance of any stage is more than 0.5\% out of the mean do not pass the quality assurance.  The boards are in three categories: 0. Pass, 1. Repairable and 2. Reject.  Board in category 1 will be sent back to the vendor with the selected resisters so that the parts in the failed stages can be replaced.
+%Once the electrical parts are mounted on the \dword{hvdb} by the vendor, they undergo three step quality assurance tests; 1. room temperature resistance measurement of each stage, 2. liquid nitrogen resistance measurement of each stage and 3. resistance measurement of each stage after warming up to room temperature.  These measurements for each board is histogrammed and used for \dword{hvdb} selection.  The boards with any of the resistance of any stage is more than 0.5\% out of the mean do not pass the quality assurance.  The boards are in three categories: 0. Pass, 1. Repairable and 2. Reject.  Board in category 1 will be sent back to the vendor with the selected resistors so that the parts in the failed stages can be replaced.
+Once the electrical parts are mounted on the \dword{hvdb} by the vendor, they undergo a three-stage \dword{qa} testing program. Each stage involves a resistance measurement, , first at room temperature, then at LN temperature, and again after warming back up up to room temperature.  The measured values are histogrammed for the final selection.
+The boards can fall into three categories: 0. Pass, 1. Repairable and 2. Rejected.  
+If at any testing stage the resistance is more than \SI{0.5}{\%} away from the mean, the part does not fall into category 0, pass.  Boards in category 1 are sent back to the vendor with the selected resistors so that the parts in the failed stages can be replaced. \fixme{with the selected resistors? pls clarify}
 
 {\bf Aluminum Profiles and Clips}
-The quality of aluminum profiles and clips will be done on prototype production samples prior to the full production.   The samples will be visually inspected for the shape and the adherence to the design drawing, the smoothness of the surface, the surface coating quality and the smoothness of the bend for the 45 degree bent profiles.  Clip samples will be visually inspected for the shape and the adherence to the drawing, the smoothness of the edges and the mechanical fitness and tightness to the profiles.
+The \dword{qa} testing of the aluminum profiles and clips is done on prototype production samples prior to full production.   The samples are visually inspected for their shape and their adherence to the design drawing, the surface smoothness, the surface-coating quality, and the smoothness of the bend (for the profiles with the \num{45}$^{\circ}$ bend).  Clip samples are visually inspected for their shape and their adherence to the drawing, their edge smoothness, their mechanical fitness, and how tightly they fit to the profiles. 
 
 
-{\bf Cathode, HVFT and the Extender} The QA for other components are under development within the \dword{pddp} construction efforts.
+{\bf Cathode, HVFT and the Extender} The \dword{qa} for other components is under development as part of the \dword{pddp} construction efforts.
 
 
-{\bf Power Supply and Feedthrough} The power supply is tested extensively along with the controls and monitoring software.  Features to be included in the software are:
+{\bf Power Supply and Feedthrough} The power supply is tested extensively along with the controls and monitoring software.  Features to be included in the software \fixme{tests?} are:
 \begin{itemize}
-\item Capability to ramp and change the voltage; rate change and pause capabilities and settings included. 
+\item Capability to ramp and change the voltage; including rate change and pause capabilities and settings. 
 \item Capability to accept user-defined current limit.  This parameter sets the value of current at which the supply reduces the voltage output in order to stay below it.  The current limiting itself is done in hardware.
-\item Capability to accept a setting for trip threshold current.  At this threshold the software would reduce the voltage output. 
+\item Capability to accept a setting for the trip threshold current.  At this threshold the software would reduce the voltage output. 
 In previous experiments, the trip function in software would set the output to \SI{0}{kV}. 
-\item The software shall record the current and voltage readback values with a user-defined frequency, and also any irregular current or voltage events. 
+\item Capability to record the current and voltage readback values with a user-defined frequency, and also to record any irregular current or voltage events. 
 \end{itemize}
 
 
@@ -332,7 +342,7 @@ In previous experiments, the trip function in software would set the output to \
 
 %Once the FRP parts are prepared, the submodule will be pre-assembled on the table prior to packaging to ensure fitness of all parts, including inserts, screws and slip nuts.   When the fitness is verified, the submodule will be dissembled and packaged into a $20cm\times 20cm\times 2m$ compact package with edges will be wrapped with a thick plastic layer to protect the FRP parts from mechanical damage from a fall.  This package will include all necessary parts for the given submodule assembly along with 10 - 20\% spare parts.  This ensures each package is self-sufficient for the final assembly.  Each package will be given a submodule number for further tracking purposes.
 
-%Many of these packages can be shipped to SURF underground for the final assembly prior to the installation.   The 3m long aluminum profiles will be produced separately and shipped to SURF as well for the final assembly.  The quality control of the profiles will be conducted as the submodule is assembled.   Profiles with deep scratches and sharp protrusion that could provide excess charge concentration will be rejected.
+%Many of these packages can be shipped to \surf underground for the final assembly prior to the installation.   The 3m long aluminum profiles will be produced separately and shipped to \surf as well for the final assembly.  The quality control of the profiles will be conducted as the submodule is assembled.   Profiles with deep scratches and sharp protrusion that could provide excess charge concentration will be rejected.
 
 %The final assembly of these submodules will be carried out inside the cryostat.   An assembly table with precision alignment bar for rapid profile alignment will be used for the assembly.   The package will be cut open on the table and the FRP frame which consists of two 6 inch I-beams and two 3 inch I-beam cross bars will be assembled with four L-brackets and sixteen 2.21 inch threaded rods through the G10 insert and eight 2.27 inch threaded rods through G10 inserts held by the plastic nuts.  These nuts will be hand-tightened first and then torque set using the specific setting (12V Dewalt Power Screw Driver torque set at 8).
 
@@ -341,21 +351,21 @@ In previous experiments, the trip function in software would set the output to \
 %Once all profiles are inserted, each of the profiles will be mounted onto the I-beam using two M4 button head- hex drive stainless steel screws with the length 5cm (check the number) onto the aluminum slip nut.   When all screws are hand tightened as much as possible, final torque setting will be applied using the 12V Dewalt Power Screw Driver torque set at 1.  The final alignment of the profiles will then be made using hand screwed driver only by tightening further one of the two screws.  A wheel based with a unistruct bars will then be mounted to the bottom of the submodule and stored into an area for installation.   The wheel will have the submodule number clearly attached for tracking purposes.
 
 
-All FRP parts that pass the QA process undergo the preparation process, which involves \dword{qc} at each step.  Each of the parts is first defibered, deburred, sanded to smooth the edges, then varnished to
-suppress any remaining fibers.  Once the part completes the preparation process, it is stored in a humidity- and temperature-controlled drying area for \numrange{24}{48} hours to fully cure the varnish.  Upon full curing, each module is laser-engraved with a unique part number and recorded in a QC database. 
+All FRP parts that pass the \dword{qa}  process undergo the preparation process, which involves \dword{qc} at each step.  Each of the parts is first defibered, deburred, sanded to smooth the edges, then varnished to
+suppress any remaining fibers.  Once the part completes the preparation process, it is stored in a humidity- and temperature-controlled drying area for \numrange{24}{48} hours to fully cure the varnish.  Upon full curing, each module is laser-engraved with a unique part number and recorded in a \dword{qc}  database. 
 
 At this point the submodule is pre-assembled on a table prior to packaging to ensure fitness of all parts, including inserts, screws and slip nuts.   When the fitness is verified, the submodule is disassembled and packaged into a \SI{2}{\cm}$\times$\SI{20}{\cm}$\times$\SI{2}{\m} compact package with the edges wrapped with a thick plastic layer to protect the parts from mechanical damage, e.g., from a fall.  This package includes all necessary parts to assemble the given submodule 
-along with \numrange{10}{20}\% spare parts.  This ensures that each package is self-sufficient for the final assembly.  Each package is given a submodule number for further tracking purposes.  This submodule number stays with it throughout the assembly at SURF and the final installation so that the given submodule can be assigned to a specific module in the specific location within the module. 
+along with \numrange{10}{20}\% spare parts.  This ensures that each package is self-sufficient for the final assembly.  Each package is given a submodule number for further tracking purposes.  This submodule number stays with it throughout assembly at \surf and final installation so that the submodule can be assigned to its specific module and in its proper location within the module. 
 
-These packages will be shipped to SURF underground 
-for the final assembly prior to the installation.   
-The \SI{3}{\m} long aluminum profiles are produced and shipped to SURF separately for final assembly.  The final QC of the profiles will be conducted during submodule assembly.   Profiles with deep scratches and sharp protrusions that could provide excess charge concentration will be rejected. This process must be done underground at the time of submodule assembly since the delicate nature of the coated surface and the requirement of the smoothness to meet the local maximum field requirement.
+These packages are shipped to \surf and transported underground 
+for final assembly prior to the installation.   
+The \SI{3}{\m} long aluminum profiles are produced and shipped to \surf separately for final assembly.  The final \dword{qc} of the profiles is conducted during submodule assembly.   Profiles with deep scratches and sharp protrusions that could cause excess charge concentration will be rejected. This process must be done underground at the time of submodule assembly because of the delicate nature of the coated surface and the smoothness requirement. \fixme{I took out: of the smoothness to meet the local maximum field requirement.}
 
-The assembly of submodules from the parts will be carried out inside the cryostat.   An assembly table with a precision alignment bar for rapid profile alignment is used for the assembly.   The package is opened on the table and the FRP frame is assembled with four L-brackets and sixteen \SI{5.61}{\cm} (\num{2.21}\,in) threaded rods through the G10 insert and eight \SI{5.77}{\cm} (\num{2.27}\,in) threaded rods through G10 inserts held by the plastic nuts.  These nuts are hand-tightened first and then torque set using the specific setting (12V Dewalt Power Screw Driver\footnote{12V Dewalt\texttrademark{} Power Screw Driver \url{https://www.dewalt.com/} .} torque set at 8).
+Assembly of submodules from the parts is carried out inside the cryostat.   An assembly table with a precision alignment bar for rapid profile alignment is used for this task.   The package is opened on the table and the FRP frame is assembled with four L-brackets and sixteen \SI{5.61}{\cm} (\num{2.21}\,in) threaded rods through the G10 insert and eight \SI{5.77}{\cm} (\num{2.27}\,in) threaded rods through G10 inserts held by the plastic nuts.  These nuts are hand-tightened first and then torque-set using the specific setting (12V Dewalt Power Screw Driver\footnote{12V Dewalt\texttrademark{} Power Screw Driver \url{https://www.dewalt.com/} .} torque set at 8).
 
 Once the frame is assembled, aluminum profiles are inserted through the corresponding slots on the \SI{15.2}{\cm} (\num{6}\,in) on either side.  One slip-nut 
 is inserted onto the center rib rail prior to the profile insertion.  
-Care must be taken to ensure the profiles are not scratched during the insertion process. 
+Care must be taken to ensure that the profiles are not scratched during the insertion process. 
 
 Once all profiles are inserted into the frame, each of the profiles is mounted onto the I-beam using two \SI{45}{\mm} M4 button head hex drive stainless steel screws into the aluminum slip nut. 
 When all screws are hand-tightened as much as possible, the final torque is applied using the 12V Dewalt Power Screw Driver torque set at 1.  The final alignment of the profiles is then made by hand, tightening only one or two screws, as necessary.
@@ -369,7 +379,7 @@ A wheel base made of unistrut bars is then mounted to the bottom of the submodul
 %The \dpmod has one cathode plane that consists of multiple $3m\times 3m$ units to cover $12m (W) \times 60m (L)$, with one drift volume of $12m(W)\times 12m (H)\times 60m(L)$. There are eighty $3m\times 3m$ cathode units, installed contiguously at the bottom of the TPC. One $3m\times 3m$ cathode unit is made of stainless steel tube frame holding stainless steel grid.
 
 
-Each cathode module is assembled off-site and shipped to SURF in its transport container.   The containers are transported underground to the cryostat and opened in front of the cryostat.  The cathode module is then inserted into the cryostat for installation.  The detailed installation process is under development in \dword{pddp}.
+Each cathode module is assembled off-site and shipped to \surf in its transport container.   The containers are transported underground to the cryostat and opened in front of the cryostat.  The cathode module is then inserted into the cryostat for installation.  The detailed installation process is under development in \dword{pddp}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Ground Plane} % Grid}
@@ -377,17 +387,17 @@ Each cathode module is assembled off-site and shipped to SURF in its transport c
 
 %Ground Grid is placed at the membrane with nine Pillars. Center pillar will be point glued at the membrane in order to stay xed. The other eight external Pillar have a Te on sheet on their bottom in order to shrink freely during the cool down without inducing stress at the membrane
 
-Each \dword{gg} module is assembled off-site and shipped to SURF in its transport container.   The containers are transported underground to the cryostat and opened in front of the cryostat.  The \dword{gg} module is then inserted into the cryostat for installation. The detailed installation process is under development in \dword{pddp}.
+Each \dword{gg} module is assembled off-site and shipped to \surf in its transport container.   The containers are transported underground to the cryostat and opened in front of the cryostat.  The \dword{gg} module is then inserted into the cryostat for installation. The detailed installation process is under development in \dword{pddp}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electrical Interconnections}
 \label{sec:fddp-prod-assy-elec-connec}
 
-The HVDB will be mounted on the profiles as the submodules are built.  For optimization purposes, one DUNE DP HVDB will connect 11 stages.  This enables to cover one $12m$ tall module to be covered by fifteen 11 stage HVDB and one 10 stage HVDB at the bottom to make the final connection.   One row of HVDB will be mounted every four \fc modules.  All connections and electrical functionality must be checked with high sensitivity electrometer.
+The \dwords{hvdb} are mounted on the profiles as the submodules are built.  For optimization purposes, one \dword{dpmod} \dword{hvdb} connects \num{11} stages.  \fixme{stages of what?} %This enables one \tpcheight tall module to be covered by fifteen \num{11}-stage \dwords{hvdb} and one \num{10}-stage \dword{hvdb} at the bottom to make the final connection.   One row of \dword{hvdb} is mounted every four \fc modules.  All connections and electrical functionality must be checked with high sensitivity electrometer.
+One \tpcheight tall module is covered by fifteen \num{11}-stage \dwords{hvdb}, and one \num{10}-stage \dword{hvdb} is at the bottom to make the final connection.   One row of \dwords{hvdb} is mounted every four \fc modules.  All connections and electrical functionality must be checked with a high-sensitivity electrometer.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  anne to here sunday evening
 \section{Interfaces to the HV System}
 \label{sec:fddp-hv-intfc}
 
@@ -457,10 +467,10 @@ The extruded aluminum profiles for \dword{fc} will be shipped separately in a st
 \% spare.  The same number of aluminum clips will also be in the standard wooden crates and be transported down underground separately. 
 
 
-The cathode modules of dimension $3m\times 3m$ are assembled off-site and shipped to SURF in their transport containers. Given the paucity of storage space at the 4850L, the cathode plane is assembled as each unit cathode plane arrives at the cavern -- in its assigned order -- and is unwrapped. The cathode plane is assembled inside the cryostat by connecting the cathode units mechanically and electrically. 
+The cathode modules of dimension $3m\times 3m$ are assembled off-site and shipped to \surf in their transport containers. Given the paucity of storage space at the 4850L, the cathode plane is assembled as each unit cathode plane arrives at the cavern -- in its assigned order -- and is unwrapped. The cathode plane is assembled inside the cryostat by connecting the cathode units mechanically and electrically. 
 
 
-The power supply, \fdth{}s and HV extender are sent to SURF in standard shipping crates. Unwrapping  will require  clean areas and careful handling. Surfaces can be cleaned with alcohol and allowed to dry.
+The power supply, \fdth{}s and HV extender are sent to \surf in standard shipping crates. Unwrapping  will require  clean areas and careful handling. Surfaces can be cleaned with alcohol and allowed to dry.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -476,11 +486,11 @@ The aluminum profiles will be visually and through touching inspected for severe
 The \dword{hv} divider boards will be tested on site for the resistance for each stage in room temperature to ensure the integrity of the board and each electrical connection of the resistors before the installation onto the submodule. 
 
 
-At SURF, Cathode and ground plane modules will be checked for the required planarity and mechanical integrity. During the installation phase also the electrical continuity between the modules will be checked.
+At \surf, Cathode and ground plane modules will be checked for the required planarity and mechanical integrity. During the installation phase also the electrical continuity between the modules will be checked.
 
 The \fdth and the \hv extender will be tested simultaneously at the testing facility  site (possibly at CERN) preferably with the planned purchased power supply.  To pass, the \fdth shall hold the goal voltage (\dptargetdriftvoltneg{}) in ultra pure \lar ( TPC-quality purity corresponding to a free electron lifetime, $\tau\geq$\SI{7}{\ms}) for at least \num{24} hours. The ground tube submersion and \efield environment of the test setup shall be comparable to the real \fc setup or more challenging.  Additionally, the \fdth will be UHV-grade leak-tight.
 
-Upon arrival at SURF the Power supply used in the \dword{dpmod} \hv system will tested before installation, with  output voltages and currents checked on a known load. 
+Upon arrival at \surf the Power supply used in the \dword{dpmod} \hv system will tested before installation, with  output voltages and currents checked on a known load. 
 
 
 
