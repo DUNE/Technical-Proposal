@@ -12,18 +12,22 @@
 
 A \dword{lartpc} requires an equipotential cathode plane at \dword{hv} and a precisely regulated interior \efield to drive 
 electrons from particle interactions to sensor planes.  In the case of the DUNE \dlong{dp} technology, 
-this requires a horizontal cathode plane, held at negative \dword{hv}; a horizontal charge readout plane (\dword{crp}) in gas phase as described in  Chapter~\ref{sec:fddp-crp-intro}; and formed sets of conductors at graded voltages surrounding the
- the central drift volume, collectively called the \dlong{fc} as shown in Figure~\ref{fig:dune_dp_fd}. The \dword{fc} consists of continuous field shaping rings that provide voltage degradation in vertical direction and forms a one contiguous active volume.
+this requires a horizontal cathode plane, held at negative \dword{hv}; a horizontal charge readout plane (\dword{crp}) in the gas phase as described in  Chapter~\ref{sec:fddp-crp-intro}; and formed sets of conductors at graded voltages surrounding the
+ the central drift volume, collectively called the \dlong{fc} as shown in Figure~\ref{fig:dune_dp_fd}. The \dword{fc} consists of continuous field shaping rings that provide voltage degradation in the vertical direction and forms one continuous active volume.
 
 
-\begin{dunefigure}[A DP Overview]{fig:dune_dp_fd}
-{A cutaway showing an overview of a DP detector module, showing the cathode plane and the \dword{pd} on the floor and the 12m tall \dword{fc} modules surrounding the active volume, as well as the anode plane, the only part of the charge readout plane (\dword{crp}) visible in this angle}
+\begin{dunefigure}[\Dword{dpmod} overview]{fig:dune_dp_fd}
+{A cutaway showing an overview of a \dword{dpmod}, with the cathode plane and the \dword{pds} on the floor, the \tpcheight tall \dword{fc} modules surrounding the active volume, and the anode plane, the only part of the \dword{crp} visible from this angle.}
 \includegraphics[width=0.8\textwidth]{Overview_Cutaway.png}
 \end{dunefigure}
 
-The \dword{hv} consortium provides systems that operate at the nominal voltages to provide the uniform $500V/cm$ \efield in the \dword{tpc} drift volume. As a result, its systems actually constitute a large fraction of the total internal structures of the \dword{tpc} itself. Mechanical and structural concerns are taken into account together with electrical design to meet the requirements. 
+The \dword{hv} consortium provides systems that operate at the nominal voltages to provide the uniform \SI{500}{V/cm} \efield in the \dword{tpc} drift volume. As a result, its systems %actually 
+constitute a large fraction of the %total 
+internal structures of the \dword{tpc}. % itself. 
+Mechanical and structural concerns are taken into account, together with the electrical design to meet the requirements. 
 
-The design presented in this chapter is primarily based on the \dword{pddp} and WA105 experience. This document could not have been possible without the tremendous amounts of work and leadership ETHZ team has devoted throughout the entire efforts of Dual Phase \lartpc development.
+The design presented in this chapter is primarily based on the \dword{pddp} and \dword{wa105} experience. This document could not have been possible without the tremendous amounts of work and leadership ETHZ team has devoted throughout the entire efforts of \dual \lartpc development.
+\fixme{not sure we want this kind of acknowledgment here - anne}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Design Considerations}
@@ -36,10 +40,10 @@ avoidance of over-complication in order to maximize data collection efficiency).
 A collection of essential requirements for the \dword{hv} system is shown in Table~\ref{tab:hvphysicsreqs}.
 
 \begin{dunetable}
-[\hv System Requirements]{p{0.05\textwidth}p{0.2\textwidth}p{0.35\textwidth}p{0.15\textwidth}p{0.15\textwidth}}
+[\Dword{hv} system requirements]{p{0.05\textwidth}p{0.2\textwidth}p{0.35\textwidth}p{0.15\textwidth}p{0.15\textwidth}}
 {tab:hvphysicsreqs}
-{HV System Requirements}
-No. & Requirement & Physics Requirement Driver & Requirement & Goal \\ \toprowrule
+{\dword{hv} System Requirements}
+No. & Requirement & Physics requirement driver & Requirement & Goal \\ \toprowrule
 1 & Exceed minimum \efield TPC drift volume & Maintain adequate particle ID, which is impacted by slower drift speed and increased recombination, diffusion and space charge effects. & >\SI{250}{V/cm} &\SI{500}{V/cm} \\ \colhline
  2 & Do not exceed maximum \efield in \lar volume & Avoid damage to detector to enable data collection over long periods. & \SI{30}{kV/cm} & \dword{alara} \\  \colhline
 3 & Minimize power supply ripple & Keep readout electronics free from external noise %, which confuses event reconstruction.  
@@ -58,30 +62,31 @@ includes the continued procurement of materials for, and the fabrication, testin
 The \hv system consists of components both exterior and interior to the cryostat. The \hv power supply is located external to the cryostat.  In the \dword{dpmod}, the \hv power supply is expected to be located on top of the \hv \fdth. \Dword{hv} is further distributed by interior components that form part of the TPC structure, as depicted in Figure~\ref{fig:dune-dp-hvs}.a.  These components are:
 
 \begin{itemize}
-\item power supply
+\item power supply,
 \item \dword{hv} \fdth
-\item \hv extender and voltage degrader
-\item cathode plane \& ground plane
-\item \fcage
-\item \hv return \fdth and resister box
+\item \hv extender and voltage degrader,
+\item cathode plane and \dword{gp}, 
+\item \fcage{},
+\item \hv return \fdth and resister box.
 \end{itemize}
 
 
 \begin{dunefigure}[HV system for a \dpmod ]
 {fig:dune-dp-hvs}
-{(a) A schematic overview of the \hv system for a \dpmod{}, 
-(b) a photo of the \SI{300}{\kV} Heinzinger power supply\footnote{Heinzinger\texttrademark{} PNChp 300000 power supply.} used in the $3\times 1\times 1$ pilot \dual detector, (c) the VHV \fdth used in the $3\times 1\times 1$ pilot \dual detector and (d) the \hv return connection used in the $3\times 1 \times 1$ pilot \dual detector}
+{(a) Schematic overview of the \hv system for a \dpmod{}, 
+(b) photo of the \SI{300}{\kV} Heinzinger power supply\footnote{Heinzinger\texttrademark{} PNChp 300000 power supply.}, (c) the VHV \fdth{}, and (d) the \hv return connection. (All photos from \dword{wa105}.).}
 \includegraphics[width=1.0\textwidth,height=1.2\textwidth]{dp-hvs-n-photos.png}
 \end{dunefigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{System Overview}
 
-A \dpmod  has a single modular cathode plane that forms the bottom of the single  \SI{12}{\m} (W) $\times$ \SI{12}{\m} (H) $\times$ \SI{60}{\m} (L) drift volume. It is constructed of eighty \SI{3}{\m} $\times$ \SI{3}{\m} contiguous units. 
-The cathode units consist of stainless steel tube frames that hold a stainless steel grid. It is kept at a potential of \SI{-600}{\kV}.  A similar but highly transparent ground plane is placed just above \dword{pds}, below the cathode to shield it from the \dword{hv}.
+A \dpmod  has a single modular cathode plane that forms the bottom of the single
+  \dptpcwdth (W) $\times$ \tpcheight (H) $\times$ \dptpclen (L) drift volume. It is constructed of eighty \SI{3}{\m} $\times$ \SI{3}{\m} contiguous units. 
+The cathode units consist of stainless steel tube frames that hold a stainless steel grid. It is kept at a potential of \dptargetdriftvoltneg.  A similar but highly transparent ground plane is placed just above \dword{pds}, below the cathode to shield it from the \dword{hv}.
 The cathode bias is provided by an external \hv power supply through a \hv \fdth and a voltage extender unit that reaches the cathode.
  
-The \fc surrounds the drift volume in a set of equidistant, stacked, horizontal, rectangular-shaped aluminum rings. Its function is to ensure a uniformity drift field of \SI{500}{\V\per\cm}. This is accomplished by gradually decreasing the voltage over the \SI{12}{\m} height from the cathode voltage of \SI{-600}{\kV} to \SI{-10}{\kV} at the top-most field shaping ring, to allow for electron extraction into the gas volume of the \dword{crp}. The \fc consists of aluminum field-shaping rings, made up of mechanically and electrically connected $3m$ long aluminum profiles.  
+The \fc surrounds the drift volume in a set of equidistant, stacked, horizontal, rectangular-shaped aluminum rings. Its function is to ensure a uniformity drift field of \SI{500}{\V\per\cm}. This is accomplished by gradually decreasing the voltage over the \tpcheight height from the cathode voltage of \dptargetdriftvoltneg to \SI{-10}{\kV} at the top-most field shaping ring, to allow for electron extraction into the gas volume of the \dword{crp}. The \fc consists of aluminum field-shaping rings, made up of mechanically and electrically connected \SI{3}{m} long aluminum profiles.  
 This is a cost-effective system for establishing the required equipotential surfaces. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,11 +102,11 @@ The \dword{hv} delivery system consists of
 \item an \hv cryogenic extender.
 \end{itemize}
 
-To ensure the nominal \efield of \SI{500}{V/cm} over  the \SI{12}{\m} drift distance, an external power supply shall be capable of delivering \SI{-600}{\kV} to  the cathode through one \hv cryogenic \fdth, with a maximum current draw of \SI{0.5}{\milli\ampere}.
+To ensure the nominal \efield of \SI{500}{V/cm} over  the \dpmaxdrift drift distance, an external power supply shall be capable of delivering \dptargetdriftvoltneg to  the cathode through one \hv cryogenic \fdth, with a maximum current draw of \SI{0.5}{\milli\ampere}.
 At present such a power supply does not exist, but  Heinzinger, the industrial partner and leader in the production of \hv power supplies, is executing a vigorous R\&D program towards this goal, relying on the following facts:
 
 \begin{itemize}
-\item \SI{600}{\kV} power supplies are feasible, scaling the present industrial technology;
+\item \dptargetdriftvoltpos power supplies are feasible, scaling the present industrial technology;
 \item The same is possibly true for the \hv cryogenic \fdth, scaling to large diameter and longer size with respect to the present \SI{300}{\kV} prototypes;
 \item The critical points of the \hv distribution are then the cable and its connectors on the power supply and on the \hv{}-\fdth. 
 \end{itemize}
@@ -109,73 +114,83 @@ At present such a power supply does not exist, but  Heinzinger, the industrial p
 The joint R\&D program between DUNE and Heinzinger aims to eliminate cables and connectors, and build a power supply that can be connected directly on the top of the \hv{}-\fdth.  A sample schematic and some details are shown in Figure~\ref{fig:dune-dp-hvps-ft}. 
 Heinzinger is motivated to pursue this effort because of possible new industrial applications.
 
-\begin{dunefigure}[HV PS and FT for a \dpmod ]
+\begin{dunefigure}[HV powersupply and \fdth for a \dpmod ]
 {fig:dune-dp-hvps-ft}
-{(a) Vertical cross section of the proposed VHV power supply inserted over the 750 kV HVFT for a \dpmod{}, 
-(b) Insertion detail of the proposed VHV power supply inserted over the 750 kV HVFT. The female HDPE of the HVFT is indicated in green. The male plug of the HVPS, shown inserted, is a metallic conductor inserted in a HDPE insulating tube (indicated in yellow. The gap between male and female is filled, via a tube inside the HVPS (not indicated) by silicone oil such as RHODORSIL 47 V1000. (c) Vertical cross section of the HVPS. The front panel is on the left. The HV multiplication and regulation (not indicated) is in the beige region.}
+{(a) Vertical cross section of the proposed VHV power supply inserted over the \SI{750}{kV} HVFT for a \dpmod{}, 
+(b) Insertion detail of the proposed VHV power supply inserted over the \SI{750}{kV} HVFT. The female HDPE of the HVFT is indicated in green. The male plug of the HVPS, shown inserted, is a metallic conductor inserted in a HDPE insulating tube (indicated in yellow. The gap between male and female is filled, via a tube inside the HVPS (not indicated) by a silicone oil such as RHODORSIL 47 V1000. (c) Vertical cross section of the HVPS. The front panel is on the left. The \hv multiplication and regulation (not indicated) is in the beige region.}
 \includegraphics[width=0.5\textwidth]{dp-hvps-750kv.png}
 \end{dunefigure}
 
 
-Typical Heinzinger power supplies have ripples in the range of $\sim$\SI{30}{k\hertz} with an amplitude of $0.001\%V_{nom} \pm 50$ mV. Low-pass RC filter designed to reduce the voltage ripple could be integrated into the output of the power supply.  It should be noted, however, that the required ripple suppression does not need to be as high as for the \dword{spmod} thanks to the \dword{dpmod}'s more effective shielding of the anodic structure, performed by the extraction grid and by the \dword{crp} signal amplification stage. 
+Typical Heinzinger power supplies have ripples in the range of $\sim$\SI{30}{k\hertz} with an amplitude of \SI{0.001}{\%V_{nom}} $\pm$ \SI{50}{mV}. A low-pass RC filter designed to reduce the voltage ripple could be integrated into the output of the power supply.  It should be noted, however, that the required ripple suppression does not need to be as high as for the \dword{spmod} due to the \dword{dpmod}'s more effective shielding of the anodic structure, performed by the extraction grid and by the \dword{crp} signal amplification stage. 
 
 %Assuming the distance between the power supply and the cathode to be \SI{15}{\m} and the capacitance of the \fdth and \hv extender to be about \SI{100}{\pF/\m}, a resistance of a few M$\Omega$ integrated at the output of the power supply is sufficient for noise reduction.
 
-The \hv \fdth is based on the same successful ICARUS design that was adopted in \dword{pdsp} and \dword{pddp}.  In this design, the voltage is transmitted along a stainless steel center conductor on the warm exterior of the cryostat, where this conductor mates with a cable end.  Inside the cryostat, the end of the center conductor has a spring-loaded tip that  contacts a receptacle cup mounted on the cathode, from which point \hv is delivered to the \fc.  The center conductor of the \fdth is surrounded by Ultra-High Molecular Weight Polyethylene (UHMW PE).  
+The \hv \fdth is based on the same successful ICARUS design that was adopted in both \dword{pdsp} and \dword{pddp}.  In this design, the voltage is transmitted along a stainless steel center conductor on the warm exterior of the cryostat, where this conductor mates with a cable end.  Inside the cryostat, the end of the center conductor has a spring-loaded tip that  contacts a receptacle cup mounted on the cathode, from which point \hv is delivered to the \fc.  The center conductor of the \fdth is surrounded by Ultra-High Molecular Weight Polyethylene (UHMW PE).  
 
 
-To first order, the upper bound of operating voltage on a \fdth is set by the maximum \efield on the \fdth.  Increasing the insulator radius reduces the \efield.  For the target voltage, the \fdth uses a UHMW PE cylinder of at least \SI{15.2}{\cm} (\SI{6}\,in) diameter.  In the gas space and into at least \SI{15.2}{\cm} of the liquid, a tight-fitting stainless steel ground tube surrounds the insulator.  The ground tube has a Conflat flange of at least \SI{25.4}{\cm} (\SI{10}\,in) welded on for attachment to the cryostat.  A prototype\footnote{The prototype was manufactured by the company CINEL\texttrademark{} Strumenti Scientifici Srl.}  has been successfully tested up to \SI{-300}{\kV} in pure argon in a dedicated setup; two similar prototypes are currently being installed in \dword{pdsp} and \dword{pddp}.
+To first order, the upper bound of operating voltage on a \fdth is set by the maximum \efield on the \fdth.  Increasing the insulator radius reduces the \efield.  For the target voltage, the \fdth uses a UHMW PE cylinder of at least \SI{15.2}{\cm} (\SI{6}\,in) diameter.  In the gas space and into at least \SI{15.2}{\cm} of the liquid, a tight-fitting stainless steel ground tube surrounds the insulator.  The ground tube has a Conflat~\footnote{Conflat\texttrademark{}, \url{}.} 
+\fixme{I can't find url for Conflat - anne}
+flange of at least \SI{25.4}{\cm} (\SI{10}\,in) welded on for attachment to the cryostat.  A prototype\footnote{The prototype was manufactured by the company CINEL\texttrademark{} Strumenti Scientifici Srl.}  has been successfully tested up to \SI{-300}{\kV} in pure argon in a dedicated setup; two similar prototypes are currently being installed in \dword{pdsp} and \dword{pddp}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{High Voltage Extender and Voltage Degrader}
 
-Since the \hv has to be guided from the top of the cryostat to the cathode (\SI{12}{\m} below the \dword{lar} surface), an extension of the \hv \fdth is required, as shown in Figure~\ref{fig:pd-hvft-extender}a, b and c. The extender contains an inner conductor at \SI{-600}{\kV} surrounded by an insulator. Since the extension runs the entire height of the drift volume, metallic rings (degrader rings) are installed on the periphery of the extension close to the field-shaping ring. Each degrader ring is electrically connected to the field shaping ring at the same height thus guaranteeing that the \efield in the \lar between the extender and the \dword{fc} remains at 0.
+Since the \hv has to be guided from the top of the cryostat to the cathode (\SI{12}{\m} below the \dword{lar} surface), an extension of the \hv \fdth is required, as shown in Figure~\ref{fig:pd-hvft-extender}a, b and c. The extender contains an inner conductor at \dptargetdriftvoltneg surrounded by an insulator. Since the extension runs the entire height of the drift volume, metallic rings (degrader rings) are installed on the periphery of the extension close to the field-shaping ring. Each degrader ring is electrically connected to the field shaping ring at the same height thus guaranteeing that the \efield in the \lar between the extender and the \dword{fc} remains at 0.
 
 
-\begin{dunefigure}[DP HVFT and Extender]{fig:dp-hvft-extender}{Pictures of High Voltage \fdth and \dword{hv} extender-degrader; a) Overview of the \dword{hv} FT, \dword{hv} Extender and the degrader chain, b) Details of the top portion of the \dword{hv} extender and its connections to the field shaping rings, c) The detail of the \dword{hv} extender and degrader connection to the bottom part of the \dword{fc}, including the connection to the cathode plane}
+\begin{dunefigure}[\dual HVFT and extender]{fig:dp-hvft-extender}{Pictures of \dword{hv} \fdth and \dword{hv} extender-degrader; a) Overview of the \dword{hv} FT, \dword{hv} extender and the degrader chain, b) details of the top portion of the \dword{hv} extender and its connections to the field shaping rings, c) detail of the \dword{hv} extender and degrader connection to the bottom part of the \dword{fc}, including the connection to the cathode plane.}
 \includegraphics[width=0.75\textwidth]{dp-hvft-extender.png}
 \end{dunefigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cathode Plane}
 
-The \dpmod{}'s cathode plane forms the  bottom of the single  \SI{12}{\m} (W) $\times$ \SI{12}{\m} (H) $\times$ \SI{60}{\m} (L) drift volume and provides a constant potential surface at \SI{-600}{\kV}.  It receives its \hv from the central conductor of the extender that carries the voltage from the power supply through the \hv \fdth.  
+The \dpmod{}'s cathode plane forms the  bottom of the single 
+\dptpcwdth (W) $\times$ \tpcheight (H) $\times$ \dptpclen
+% \SI{12}{\m} (W) $\times$ \SI{12}{\m} (H) $\times$ \SI{60}{\m} (L) 
+drift volume and provides a constant potential surface at \dptargetdriftvoltneg{}.  It receives its \hv from the central conductor of the extender that carries the voltage from the power supply through the \hv \fdth.  
 
 The cathode plane consists of eighty \SI{3}{\m} $\times$ \SI{3}{\m} modules. 
 The cathode module design is based on the design used in  \dword{pddp}, for which the cathode consists of a stainless steel (316L) mechanical structure 
-made from two types of tubes: An external frame made from \SI{60}{\milli\m} diameter tubes, internal oval pipes of $\SI{20}{\milli\m}\times \SI{40}{\milli\m}$ with \SI{1.5}{mm} thickness, as shown in Figure~\ref{fig:dune-dp-cathode}. 
-This frame is filled with smaller tubes of \SI{12}{\milli\m} diameter (not shown in the figure), forming a grid, to provide uniformity of the quippotential surface, while ensuring 60\% optical transparency. All diameters were optimized to guarantee a uniform potential  potential across cathode and to satisfy the maximum local field requirement of $\SI{30}{kV/\centi\m}$, and to minimize the local \efield{}s to ground. 
+made from two types of tubes: 
+\fixme{it seems like 3: the \SI{60}{\milli\m} diameter tubes, the internal oval pipes of $\SI{20}{\milli\m}\times \SI{40}{\milli\m}$ and the smaller tubes of \SI{12}{\milli\m} diameter. Pls clarify. -anne}
+an external frame made from \SI{60}{\milli\m} diameter tubes, internal oval pipes of $\SI{20}{\milli\m}\times \SI{40}{\milli\m}$ with \SI{1.5}{mm} thickness, as shown in Figure~\ref{fig:dune-dp-cathode}. 
+This frame is filled with smaller tubes of \SI{12}{\milli\m} diameter (not shown in the figure), forming a grid, to provide a uniform equippotential surface, while ensuring \SI{60}{\%} optical transparency. All diameters are optimized to guarantee a uniform potential across the cathode, to satisfy the maximum local field requirement of $\SI{30}{kV/\centi\m}$, and to minimize the local \efield{}s to ground. 
 The cathode plane components are bolted together and fixed to the supporting FRP I-beams of the \fc. 
 
 
-\begin{dunefigure}[Cutaway view of \dword{pddp} Cathode]{fig:dune-dp-cathode}
+\begin{dunefigure}[Cutaway view of \dword{pddp} cathode]{fig:dune-dp-cathode}
 {A cutaway view of \dword{pddp} cathode(Credit: ETHZ)}
 \includegraphics[width=0.8\textwidth]{dp-cathode.png}
 \end{dunefigure}
 
-\begin{dunefigure}[\dword{pddp} Cathode field]{fig:dune-dp-cathode-field}
-{Place holder for field between cathode and the ground grid} 
+\begin{dunefigure}[\dword{pddp} cathode field]{fig:dune-dp-cathode-field}
+{Place holder for field between cathode and the \dword{gg}} 
 \includegraphics[width=0.7\textwidth]{field10.png}
 \end{dunefigure}
-
-The energy stored in the volume between the cathode plane and the ground grid (which sits under the cathode and above the \dwords{pd}) is estimated to be about \SI{1.7}{\kilo\joule} over the \SI{12}{\m} $\times$ \SI{60}{\m} area, based on the cathode voltage and the distance of \SI{1}{\m} between the cathode and the ground grid describe in the next section. 
-A sudden discharge from the cathode frame to the cryostat membrane could cause severe damage to it.  The modular construction of the cathode helps minimize this effect in case of discharge. During assembly in the cryostat, the cathode units will be kept electrically insulated and connected to their adjacent neighbors through \si{\giga\ohm}  
+\fixme{placeholder figure?}
+The energy stored in the volume between the cathode plane and the \dword{gg} (which sits under the cathode and above the \dwords{pd}) is estimated to be about \SI{1.7}{\kilo\joule} over the \dptpcwdth $\times$ \dptpclen area, based on the cathode voltage and the distance of \SI{1}{\m} between the cathode and the \dword{gg} described in Section~\ref{sec:dp-hv-groundgrid}. 
+A sudden discharge from the cathode frame to the cryostat membrane could cause severe damage to it.
+\fixme{to which? or both?}  The modular construction of the cathode helps minimize this effect in case of discharge. During assembly in the cryostat, the cathode units are kept electrically insulated and connected to their adjacent neighbors through \si{\giga\ohm}  
 resistors. Given the \SI{100}{\pico\farad} capacitance of each cathode unit, any discharge occurring in one unit will release at most 
 \SI{21}{\joule} of stored energy while the discharge rate  
-to the other units will be slowed down to the several hundred millisecond range.
+to the other units is slowed to the several-hundred-millisecond range.
 
-Detailed calculations are in progress to determine the final shape and the size of the cathode and ground grid frames to meet the requirement that limits the maximum \efield to \SI{30}{\kV\per\cm}  
-throughout the \lar volume (Figure~\ref{fig:dune-dp-cathode-field}).  Structural calculations are also needed to verify the planarity of the cathode as it hangs on the \fc supports.
+Detailed calculations are in progress to determine the final shape and the size of the cathode and \dword{gg} frames to %meet the requirement that 
+limit the maximum \efield to \SI{30}{\kV\per\cm}  
+throughout the \lar volume (Figure~\ref{fig:dune-dp-cathode-field}), as per requirement 2 (Table~\ref{tab:hvphysicsreqs}.  Structural calculations are also needed to verify the planarity of the cathode as it hangs on the \fc supports.
 Value and voltage characteristics of the connecting resistors will also be defined according to results from dedicated simulations of the cathode electrical model.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Ground Grid}
-The ground grid is installed between the \dword{pd} and the cathode plane to shield the \pmt{}s from a discharge.  
-%Similarly to the cathode, the ground grid consists of 316 L stainless tubes in \dword{pddp}. It also comes in 4 modules of dimension $3m\times 3m$ and is placed on the membrane floor by supporting feet. The central feet is glued to the membrane (STYCAST 2850FT). The ground for DUNE DP FD will use the similar structure, taking into account the field generated by the 600kV potential as in the case of the cathode.
+\label{sec:dp-hv-groundgrid}
+The \dword{gg} is installed between the \dword{pd} and the cathode plane to shield the \pmt{}s from a discharge.  
+%Similarly to the cathode, the \dword{gg} consists of 316 L stainless tubes in \dword{pddp}. It also comes in 4 modules of dimension $3m\times 3m$ and is placed on the membrane floor by supporting feet. The central feet is glued to the membrane (STYCAST 2850FT). The ground for DUNE DP FD will use the similar structure, taking into account the field generated by the 600kV potential as in the case of the cathode.
 
-The ground grid consists of 316 L stainless tubes, as does the cathode. It is made of eighty \SI{3}{\m} $\times$ \SI{3}{\m} modules. Unlike the cathode, the ground grid has a single layer supported a set of feet resting on the membrane floor.
+The \dword{gg} consists of 316 L stainless tubes, as does the cathode. It is made of eighty \SI{3}{\m} $\times$ \SI{3}{\m} modules. Unlike the cathode, the \dword{gg} has a single layer supported by a set of feet resting on the membrane floor.
 Detailed studies on the grid geometry are ongoing to ensure that the requirement on the maximum local field is satisfied.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,27 +200,26 @@ Detailed studies on the grid geometry are ongoing to ensure that the requirement
 The field shaping rings of the \fc are made up of extruded roll-formed aluminum open profiles.  
 The profiles are stacked horizontally and constructed into continuous rectangular rings that form the vertical sides of the drift volume. The aluminum profiles are attached to structural elements made of pultruded fiber-reinforced plastic (FRP). 
 
-
-FRP is non-conductive and strong enough to withstand the \fc loads in the temperature range of \num{-150}\,C and \num{23}\,C.
+FRP is non-conductive and strong enough to withstand the \fc loads in the temperature range of \num{-150}\,C to \num{23}\,C.
 This material meets the  Class A International Building Code classification for flame spread and smoke development, 
 as characterized by ASTM E84. 
 
 
 Each of these modules is composed of three 
-styles of submodules of dimensions \SI{3}{\m} (W) $\times$ \SI{2}{\m} (H). These submodules are supported by two \num{6}\,in FRP I-beams (with profile slots cut out) and two \num{3}\,in "cross bar" I-beams that form a rectangular frame.  
+styles of submodules of dimensions \SI{3}{\m} (W) $\times$ \SI{2}{\m} (H). These submodules are supported by two \SI{15.2}{cm} (\SI{6}{in}) FRP I-beams (with profile slots cut out) and two \SI{7.62}{cm} (\SI{3}{in}) \textit{cross bar} I-beams that form a rectangular frame.  
 
 
-The \fc is modular, each module covering a vertical area of \SI{3}{\m} (W) $\times$ \SI{12}{\m} (H). 
-There are two types of modules, straight section and corner, both types having the dimensions \SI{3}{\m} (W) $\times$ \SI{12}{\m} (H). A total of 72 straight section modules (i.e., with straight profiles) and eight corner section modules, where profiles bent \num{45} degrees at one corner to allow straight connections via clips at the corner as shown in Figure~\ref{fig:dune-dp-fc-all}.c.  A photo of \dword{pddp} \fc is shown in Figure~\ref{fig:dune-dp-fc-all}.d.
+The \fc is modular, each module covering a vertical area of \SI{3}{\m} (W) $\times$ \tpcheight (H). 
+There are two types of modules, straight section and corner, both types having the dimensions \SI{3}{\m} (W) $\times$ \tpcheight (H). A total of \num{72} straight section modules (i.e., with straight profiles) and eight corner section modules, with profiles bent \num{45} degrees at one corner to allow straight connections via clips at the corner, as shown in Figure~\ref{fig:dune-dp-fc-all}.c.  A photo of the \dword{pddp} \fc is shown in Figure~\ref{fig:dune-dp-fc-all}.d.
 
-\begin{dunefigure}[DP \dword{fc} Parts]{fig:dune-dp-fc-all}
-{Field Cage Parts and connections for \dword{pddp} detector.  a. One \dword{pddp} \dword{fc} Panel which consists of three submodules.  The \dword{dpmod} has virtually identical structure, except for the number of middle submodule to be four, b. A photo of the top module connection to the stainless steel I-beam and an inter-submodule connection, c. Aluminum clip connection at the corner and at straight sections, d. \dword{hv} Divider Board and their connections on \dword{pddp} \fc }
+\begin{dunefigure}[\dual \dword{fc} parts]{fig:dune-dp-fc-all}
+{\dword{fc} parts and connections for \dword{pddp} detector.  a. One \dword{pddp} \dword{fc} panel which consists of three submodules.  The \dword{dpmod} has virtually ithe dentical structure, except for the number of middle submodules, which is four, b. A photo of the top module connection to the stainless steel I-beam and an inter-submodule connection, c. Aluminum clip connection at the corner and at straight sections, d. \dword{hv} divider board and their connections on \dword{pddp} \fc }
 \includegraphics[width=1.0\textwidth,height=1.0\textwidth]{dp-fc-parts.png}
 \end{dunefigure}
 
 
 Each \fc module is made of six submodules of three distinct types: top, bottom and middle. The dimensions for all submodules are \SI{3}{\m} (W) $\times$ \SI{2}{\m} (H).
-Each module has one top submodule with 33 profiles, four middle submodules with 33 profiles each, and one bottom submodule with 32 profiles, for a total of 197 profiles per module. The voltage of the top-most field shaping ring  is \SI{-9}{\kV}. 
+Each module has one top submodule with \num{33} profiles, four middle submodules with \num{33} profiles each, and one bottom submodule with \num{32} profiles, for a total of \num{197} profiles per module. The voltage of the top-most field shaping ring  is \SI{-9}{\kV}. 
 The top submodules make the mechanical connection to the ceiling of the cryostat from which the entire \fc hangs as shown in Figure~\ref{fig:dp-fc-installation-connection}, left. The bottom modules make both mechanical and electrical connections to the cathode. 
 
 
@@ -213,13 +227,13 @@ A railed rib runs along the length of the aluminum profiles at the center of the
 All profiles at a given height are electrically connected via an aluminum clip screwed onto the slip nut across two neighboring profiles.  A resistive divider chain interconnects the aluminum profiles to provide a linear voltage gradient between the cathode and the top field-shaping ring.   
 
 
-The extruded aluminum profiles are mounted to the \SI{15.2}{\cm} (\num{6}\,in) I-beam via two stainless screws and aluminum slip nuts in the center enforcement rail of the profile. The mounting is only on one of the \SI{15.2}{\cm} I-beams to allow contraction on either side of the profile. The top submodule has an extended \SI{15.2}{\cm} FRP beam with holes to connect it to the stainless steel I-beam hanging from the ceiling.  The bottom submodule has a cut-out to hold the cathode plane onto it. The four middle submodules are symmetric and thus are interchangeable.
+The extruded aluminum profiles are mounted to the \SI{15.2}{\cm} (\num{6}\,in) I-beam via two stainless screws and aluminum slip nuts in the center enforcement rail of the profile. The mounting is only on one of the \SI{15.2}{\cm} I-beams to allow contraction on either side of the profile. The top submodule has an extended \SI{15.2}{\cm} FRP beam with holes to connect it to the stainless steel I-beam hanging from the ceiling.  The bottom submodule has a cutout to hold the cathode plane onto it. The four middle submodules are symmetric and thus interchangeable.
 
 
 \subsubsection{Electrical Interconnections}
 
 An aluminum clip connects the ends of each set of two end-to-end \fc profiles, forming continuous equipotential rectangular rings  \SI{144}{\m} long. 
- \Dword{hv} divider boards (HVDB), consisting of two resistors and a series of four surge protection varistors in parallel, bridge the gap between the two neighboring stacked profile rings.   The total number of rows of HVDB will be determined based on the redundancy and the current limit requirements;  one row of HVDB is in principle sufficient to provide the required potential difference of \SI{3}{\kV} between neighboring rings, but more are desirable for redundancy.
+ \Dword{hv} divider boards (HVDB), consisting of two resistors and a series of four surge-protection varistors in parallel, bridge the gap between the two neighboring stacked profile rings.   The total number of rows of HVDB will be determined based on the redundancy and the current-limit requirements;  one row of HVDB is in principle sufficient to provide the required potential difference of \SI{3}{\kV} between neighboring rings, but more are desirable for redundancy.
 
 
 The resistive chain for voltage division between the profiles provides a linear voltage gradient between the cathode and the top-most field shaping ring. It is critical as it determines the strength of the \efield between one profile and its neighbors, as well as between the profile and other surrounding parts, e.g., the grounded stainless steel membrane. The \efield needs to be kept well below \SI{30}{\kV\per\cm} at all points in the \lar bath to enable safe TPC operation.
@@ -230,26 +244,27 @@ for the planned \fc configuration and operating voltage. Figure~\ref{fig:profile
 
 
 \begin{dunefigure}
-[Electric field map and equipotential contours of an array of roll-formed profiles]{fig:profile-e-field}
-{Electric field map (color) and equipotential contours of an array of roll formed profiles biased up to \SI{-300}{\kV} and a ground clearance of about \SI{100}{\cm} in \dword{pddp}(CAD model)} \includegraphics[width=0.8\textwidth]{pddp-field-map.png}
+[\efield map and equipotential contours of an array of roll-formed profiles]{fig:profile-e-field}
+{\efield map (color) and equipotential contours of an array of roll-formed profiles biased up to \SI{-300}{\kV} and a ground clearance of about \SI{100}{\cm} in \dword{pddp} (CAD model)} 
+\includegraphics[width=0.8\textwidth]{pddp-field-map.png}
 \end{dunefigure}
 
-Two distinct types of \hv divider boards are used for \dword{pddp} - 10 stage and 8 stage boards.  Each stage consists of two 2 $G\Omega$ resistors in parallel and four variable resistors of threshold voltage \SI{1.28}{kV} to protect the resisters in case of a sudden discharge.  The total expected current at 600kV is therefore 3 $\mu A$ per row.  Since multiple rows which are connected in parallel will be used for redundancy, the expected current in the entire system is simply the number of rows times the current per each row.
-For optimization purposes, one DUNE DP HVDB will connect 11 stages.  This enables  one $12m$ tall module to be covered by fifteen 11 stage HVDB and one 10 stage HVDB at the bottom to make the final connection.  
+Two distinct types of \hv divider boards are used for \dword{pddp}: \num{10} stage and \num{8} stage boards.  Each stage consists of two \SI{2}{\giga\ohm} resistors in parallel and four variable resistors of threshold voltage \SI{1.28}{kV} to protect the resistors in case of a sudden discharge.  The total expected current at \dptargetdriftvoltpos is therefore \SI{3}{\micro\ampere} per row.  Since multiple rows, which are connected in parallel, are used for redundancy, the expected current in the entire system is simply the number of rows times the current per each row.
+For optimization purposes, one \dword{dpmod} HVDB will connect \num{11} stages.  This enables  one \tpcheight tall module to be covered by fifteen \num{11} stage HVDB and one \num{10} stage HVDB at the bottom to make the final connection.  
 
 
-Figure~\ref{fig:dp-hvdb} shows one HVDB board and  Figure~\ref{fig:dune-dp-fc-all}.d. shows the connection of one row of HVDB along the entire height of the \fc as installed in the \dword{pddp}. The  \SI{12}{\m} (W) $\times$ \SI{60}{\m} (L) ground plane consists of 80 unit planes (each \SI{3}{\m} $\times$ \SI{3}{\m}).  
+Figure~\ref{fig:dp-hvdb} shows one HVDB board and  Figure~\ref{fig:dune-dp-fc-all}.d. shows the connection of one row of HVDB along the entire height of the \fc as installed in \dword{pddp}. The  \dptpcwdth (W) $\times$ \dptpclen (L) ground plane consists of \num{80} unit planes (each \SI{3}{\m} $\times$ \SI{3}{\m}).  
 The cathode plane is mounted to the bottom of the \fc, together forming one contiguous unit of field-providing structure.  The bottom-most HVDB makes the connection between the cathode and the bottom-most field-shaping ring.
 For redundancy, a total of two HVDB rows are used in \dword{pddp}.  
 The \dpmod will use one HVDB chain every four \fc modules, providing an ample redundancy.  However, the final number of rows of HVDB must take into account the impact of the underlying current through the \fc due to the particle interactions.
 
 
-\begin{dunefigure}[DP HVDB]{fig:dp-hvdb}{\dword{pddp} \dword{hv} divider board a) schematic circuit diagram, b)photo of the top of the board, c) photo of the bottom of the board}
+\begin{dunefigure}[DP HVDB]{fig:dp-hvdb}{\dword{pddp} \dword{hv} divider board (a) schematic circuit diagram,( b)photo of the top of the board, (c) photo of the bottom of the board}
 \includegraphics[width=0.75\textwidth]{dp-hvdb.png}
 \end{dunefigure}
+%%%%%%%%% to here 1pm sunday anne
 
-
-\begin{dunefigure}[DP \dword{fc} installation process and intermodule connection]{fig:dp-fc-installation-connection}{Left: Two submodules connected and hanging from the two sets of stainless steel cables from the ceiling.  The lifting wires are used to raise the module to its position as submodules are connected; the hanging wires keep the fully integrated module into its final position.  Right: These show inter-submodule connections.  Each connection is made by two 1cm thick G10 plates along the height of the I-beams and one 1cm thick G10 plate on the flange.}
+\begin{dunefigure}[\dual \dword{fc} installation process and intermodule connection]{fig:dp-fc-installation-connection}{Left: Two submodules connected and hanging from the two sets of stainless steel cables from the ceiling.  The lifting wires are used to raise the module to its position as submodules are connected; the hanging wires keep the fully integrated module into its final position.  Right: These show inter-submodule connections.  Each connection is made by two 1cm thick G10 plates along the height of the I-beams and one 1cm thick G10 plate on the flange.}
 \includegraphics[width=0.75\textwidth]{module-connection-installation.png}
 \end{dunefigure}
 
@@ -264,7 +279,7 @@ Multiple devices are planned for monitoring the \hv.
 \item The Heinzinger units have typical sensitivities down to tens of nanoamperes with current readback capability.  The units are able to sample the current and voltage every few \SI{100}{\milli\s}.  
 \item Inside the cryostat, so-called pick-off points near the anode will monitor the current through the HVDB resistor chain.  
 
-Additional pick-off points could be implemented on the ground grid below the cathode to monitor possible stray currents.
+Additional pick-off points could be implemented on the \dword{gg} below the cathode to monitor possible stray currents.
 \end{itemize}
 \noindent 
 
@@ -362,7 +377,7 @@ Each cathode module is assembled off-site and shipped to SURF in its transport c
 
 %Ground Grid is placed at the membrane with nine Pillars. Center pillar will be point glued at the membrane in order to stay xed. The other eight external Pillar have a Te on sheet on their bottom in order to shrink freely during the cool down without inducing stress at the membrane
 
-Each ground grid module is assembled off-site and shipped to SURF in its transport container.   The containers are transported underground to the cryostat and opened in front of the cryostat.  The ground grid module is then inserted into the cryostat for installation. The detailed installation process is under development in \dword{pddp}.
+Each \dword{gg} module is assembled off-site and shipped to SURF in its transport container.   The containers are transported underground to the cryostat and opened in front of the cryostat.  The \dword{gg} module is then inserted into the cryostat for installation. The detailed installation process is under development in \dword{pddp}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -394,11 +409,11 @@ A possible improvement on the \dword{pddp} interface is to use remote-controlled
 There shall be no direct hardware interface between the \hv and \dword{crp} systems. The cryostat penetrations and \fdth{}s for the two systems are completely independent, as are their control electronics. The only interface envisaged includes a system for maintaining the proper distance between the top-most field-shaping profile and the extraction grid in order to maintain the proper extraction field and to ensure the physical separation between the two systems. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{System to \dword{pds}}
+\subsection{System to Photon Detection System}
 \label{sec:fddp-hv-intfc-to-pds}
 
 
-There shall be no direct hardware interface between the \hv and \dword{pd} systems. The cryostat penetrations and \fdth{}s for the two systems are completely independent, as are their control electronics. The only interfaces envisaged include (1) maintenance of a safe minimum distance between the \dwords{pd} and the \SI{-600}{\kV} cathode; (2)
+There shall be no direct hardware interface between the \hv and \dword{pd} systems. The cryostat penetrations and \fdth{}s for the two systems are completely independent, as are their control electronics. The only interfaces envisaged include (1) maintenance of a safe minimum distance between the \dwords{pd} and the \dptargetdriftvoltneg cathode; (2)
  definition of the \dword{pd} power dissipation limit (production of bubbles from power dissipation would compromise the \hv stability). This second concern depends on the final \dword{pd} density chosen, which is awaiting simulation results. Aspects of the cathode design are also awaiting simulation results to determine its impact on the \dword{pds}. 
 These interfaces are effectively at the level of design requirements. 
 %
@@ -463,7 +478,7 @@ The \dword{hv} divider boards will be tested on site for the resistance for each
 
 At SURF, Cathode and ground plane modules will be checked for the required planarity and mechanical integrity. During the installation phase also the electrical continuity between the modules will be checked.
 
-The \fdth and the \hv extender will be tested simultaneously at the testing facility  site (possibly at CERN) preferably with the planned purchased power supply.  To pass, the \fdth shall hold the goal voltage (-600 kV) in ultra pure \lar ( TPC-quality purity corresponding to a free electron lifetime, $\tau\geq$\SI{7}{\ms}) for at least \num{24} hours. The ground tube submersion and \efield environment of the test setup shall be comparable to the real \fc setup or more challenging.  Additionally, the \fdth will be UHV-grade leak-tight.
+The \fdth and the \hv extender will be tested simultaneously at the testing facility  site (possibly at CERN) preferably with the planned purchased power supply.  To pass, the \fdth shall hold the goal voltage (\dptargetdriftvoltneg{}) in ultra pure \lar ( TPC-quality purity corresponding to a free electron lifetime, $\tau\geq$\SI{7}{\ms}) for at least \num{24} hours. The ground tube submersion and \efield environment of the test setup shall be comparable to the real \fc setup or more challenging.  Additionally, the \fdth will be UHV-grade leak-tight.
 
 Upon arrival at SURF the Power supply used in the \dword{dpmod} \hv system will tested before installation, with  output voltages and currents checked on a known load. 
 
@@ -508,7 +523,7 @@ institutions to participate in the design, construction and assembly of the \dwo
 The consortium still needs to grow in the near future, and it hopes to attract new  institutions, in particular from EU to balance US participation with additional international participants.
 
 \begin{dunetable}
-[HV Consortium Participants]
+[HV consortium participants]
 {p{0.35\linewidth}p{0.25\linewidth}p{0.35\linewidth}}
 {tab:hvconsortiumparticipants}
 {HV Consortium Participants}   
@@ -557,11 +572,11 @@ it had for \dword{pddp}. The consortium is organized into six working groups (WG
 The present baseline design for all elements of the \dword{hv} system for \dword{dpmod} follows strictly the \dword{pddp} design as it has been produced and is being assembled.  It is also assumed that no major issues in the \hv system operation of \dword{pddp} will be encountered and therefore that the basic \hv system concepts are sound.
 
 However some design modifications and simplifications must be implemented to take into account the %twice-as-long 
-doubled drift distance, implying the increase in \hv delivery to the cathode from \SI{-300}{\kV} to \SI{-600}{\kV}.
+doubled drift distance, implying the increase in \hv delivery to the cathode from \SI{-300}{\kV} to \dptargetdriftvoltneg{}.
 
-The \dual \dword{hv} system distribution and the related cathode structure still require intense R\&D, given the unprecedented value of the required \dword{hv} (\SI{-600}{\kV}).
-The related results could lead to revision of design details such as the shape of the cathode elements and of the %ground grid 
-\dword{gp} structures, the distance from the cryostat walls, the distance between the cathode and the %ground grid 
+The \dual \dword{hv} system distribution and the related cathode structure still require intense R\&D, given the unprecedented value of the required \dword{hv} (\dptargetdriftvoltneg).
+The related results could lead to revision of design details such as the shape of the cathode elements and of the %\dword{gg} 
+\dword{gp} structures, the distance from the cryostat walls, the distance between the cathode and the %\dword{gg} 
 \dword{gp} protecting the \dwords{pd}, and resistive connections of the cathode modules. It is important to ensure that the \efield intensity in the \lar is below the critical value of  about \SI{30}{\kV/\cm} everywhere and that the energy stored in the \fc is not  released catastrophically to the detector membrane. % skin.
 
 As for the \dword{spmod}, \dword{pdsp} is the playground where to understand and optimize detector element assembly, installation sequence, and integration as well as requirements in %manpower, 
@@ -593,7 +608,7 @@ Substantial savings from higher-volume production is still possible, however. Fo
 {Cost estimates for the \dword{hv} system materials}   
 Element&Unit Cost  (FY18 k\$)& Units per \dword{fd} Module & Total Cost  (FY18 k\$)\\ \toprowrule
 cathode plane (\SI{3x3}{\m} unit) &\num{10}&\num{80}&\num{800}\\ \colhline
-ground grid plane (\SI{3x3}{\m} unit) &\num{5}&\num{80}&\num{400}\\ \colhline
+\dword{gg} plane (\SI{3x3}{\m} unit) &\num{5}&\num{80}&\num{400}\\ \colhline
 \fc submodule (\SI{3x2}{\m} unit as for \dword{pddp})&\num{10}&\num{288}&\num{2,880}\\ \colhline
 \hv distribution (one power supply + one and one \hv extender \fdth{}s)&\num{250}&\num{1}&\num{250}\\ \colhline
 Total DP1&&&\num{6},\num{718}\\ 
