@@ -16,7 +16,7 @@ surface. The drift field of the TPC brings the electrons up to the \lar surface 
 
 This extraction field is defined by the potentials applied to submersed extraction grid (stainless steel wires tensioned in both $x$ and $y$ directions) and to the bottom side of the \dwords{lem}. The \dwords{lem} are printed circuit boards oriented horizontally, with conductive layers (electrodes) on the top and bottom surfaces, and many holes drilled through.  The holes form a micro-pattern structure within which the amplification occurs given the presence of a strong \efield.
 
-By applying voltages across the two electrodes of the \dword{lem}, an \efield region (up to \SI{35}{kV/cm}) is defined in the holes, allowing to achieve a gain exceeding \num{20} after the initial phase of  charging-up the \dword{lem} dielectric material. The nominal operation conditions correspond to a gain of \num{20} after charging up. Electrons transiting these high \efield regions in the holes trigger Townsend multiplication in the pure argon gas.
+By applying voltages across the two electrodes of the \dword{lem}, an \efield region (up to \SI{35}{kV/cm}) is defined in the holes, which produces an electronic signal gain exceeding \num{20} after the initial phase of charging-up the \dword{lem} dielectric material.  Electrons transiting these high \efield regions in the holes trigger Townsend multiplication in the pure argon gas.
 
 The amplified charge is then collected and recorded on a \twod anode consisting of two sets of \dpstrippitch-pitch gold-plated copper strips that provide the $x$ and $y$ coordinates (and thus two orthogonal views) of the event. The strips are defined by a pattern of tracks on the bottom face of the anode printed circuit board. It is possible  to define two electrically insulated views of strips crossing each other orthogonally by ensuring continuity of the tracks with a set of vias and tracks extending to the top face of the anode printed circuit board.
 
@@ -46,10 +46,10 @@ engineering view of one \dword{crp} fully assembled.
 
 The \dword{crp} mechanical structure provides the integration of the \dword{lem}-anode sandwiches over a large area by minimizing the dead spaces. The planarity of the active surface must be guaranteed despite possible sagging effects with respect to the three hanging points, differential thermal contraction effects on the various  components and the presence of a temperature gradient in the gas phase, which could induce different thermal contractions as a function of the distance from the liquid surface. In order to %solve these aspects 
 ensure the planarity, the design % is based on 
-incorporates a supporting frame in INVAR, which % . INVAR allows building 
+incorporates a supporting frame in Invar, which % . Invar allows building 
 can provide a stiff supporting structure, extending vertically into the gas phase, with little sagging and %little 
 very minor contraction effects. The \dword{lem} and anodes, which would be affected by a significant thermal contraction, are integrated into a G10 planar structure with similar contraction %effects. 
-properties. The G10 structure is mechanically decoupled on the horizontal plane with respect to the INVAR structure  and it is free to slide during thermal contraction. 
+properties. The G10 structure is mechanically decoupled on the horizontal plane with respect to the Invar structure  and it is free to slide during thermal contraction. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Design Considerations}
@@ -59,7 +59,7 @@ Each \dword{crp} is an independent detector element that performs charge
 extraction, multiplication and collection, and has its own \dword{hv} system and independent signal \fdth{}s. The entire area of the \dword{lem} and anode in a \dword{crp} is active. The position and the parallelism with respect to the \lar surface can be individually adjusted for each \dword{crp}.
 
 The \dword{lem} and corresponding anode are mounted in units of \num{50}$\times$\SI{50}{cm$^2$}, called %\dword{lem}/Anode Sandwich (LAS) 
-\dword{las} modules, before being assembled with an extraction grid into a \dword{crp}. Each anode in a \dword{las} is segmented in 50-cm long $x$ and $y$ strips . Adjacent \dword{las} anodes are bridged together to form readout strips of the required length by connecting short flat cables to KEL connectors soldered onto the top sides of the anodes. The signals from the last anode in each  strip chain are brought to \fdth{}s mounted on the other side of the front-end electronics embedded inside dedicated signal-\fdth chimneys using \SI{50}{cm}-long flat cables.
+\dword{las} modules, before being assembled with an extraction grid into a \dword{crp}. Each anode in a \dword{las} is segmented in 50-cm long $x$ and $y$ strips . Adjacent \dword{las} anodes are bridged together to form readout strips of the required length by connecting short flat cables to KEL~\footnote{KEL 8925E-068-1795 .27mm Pitch, 2 piece, IDC for 0.635mm FC Connector, Low profile type, KEL Corporation\texttrademark{}, \url{https://www.kel.jp/english/product/}.} connectors soldered onto the top sides of the anodes. The signals from the last anode in each  strip chain are brought to \fdth{}s mounted on the other side of the front-end electronics embedded inside dedicated signal-\fdth chimneys using \SI{50}{cm}-long flat cables.
 
 Each \dword{crp} is independently hung from the vessel deck through its three
 suspension \fdth{}s. It has its own \dword{hv} system and  independent signal and slow-control \fdth{}s.
@@ -92,7 +92,7 @@ The scope of the \dwords{crp} includes the continued procurement of materials fo
 
 \begin{itemize}
 \item  Production and \dword{qa} of the \dword{lem} and anodes;
-\item  Production of the G10 and INVAR frames;
+\item  Production of the G10 and Invar frames;
 \item Production of the suspension \fdth{}s and motorization;
 \item Production of the extraction grid elements;
 \item Production of the HV distribution system associated to the \dword{crp} to apply voltages to the \dword{lem} and anodes;
@@ -132,15 +132,15 @@ The complete \dword{crp} system includes, as illustrated in Figure~\ref{fig:figu
 \subsection{Mechanical structure}
 \label{sec:fddp-crp-mechanics}
 %%%%%%%%%%%%%%%%%%%
-\subsubsection{INVAR Frame}
+\subsubsection{Invar Frame}
 
-The main mechanical supporting structure of the \dword{crp} is made of INVAR nickel-iron alloy. This material is chosen for its low coefficient of thermal expansion leading to a very small deformation at cold temperatures, especially in the gas argon where the temperature gradient in the cryostat may be of the order of a few \si{K/cm}.
-The structure is made of a grid of soldered INVAR beams \SI{3000}{mm} long and \SI{6.5}{mm} wide. The four main ones have a height of \SI{150}{mm} while the internal ones are \SI{40}{mm} height as well as the four surrounding plates. The heights have been optimized to keep the stiffness as needed and to reduce the total frame weight pf %which amounts to
+The main mechanical supporting structure of the \dword{crp} is made of Invar nickel-iron alloy. This material is chosen for its low coefficient of thermal expansion leading to a very small deformation at cold temperatures, especially in the gas argon where the temperature gradient in the cryostat may be of the order of a few \si{K/cm}.
+The structure is made of a grid of soldered Invar beams \SI{3000}{mm} long and \SI{6.5}{mm} wide. The four main ones have a height of \SI{150}{mm} while the internal ones are \SI{40}{mm} height as well as the four surrounding plates. The heights have been optimized to keep the stiffness as needed and to reduce the total frame weight pf %which amounts to
  about \SI{112}{kg}.
 Figure~\ref{fig:invarframe} shows the soldering of one of the first \dword{crp} frame for \dword{pddp}.
 
-\begin{dunefigure}[First \dword{crp} INVAR frame under construction for \dword{pddp}]{fig:invarframe}
-{First \dword{crp} INVAR frame under construction for \dword{pddp}}
+\begin{dunefigure}[First \dword{crp} Invar frame under construction for \dword{pddp}]{fig:invarframe}
+{First \dword{crp} Invar frame under construction for \dword{pddp}}
 \includegraphics[width=0.95\textwidth]{invar-framev2.png}
 \end{dunefigure}
 
@@ -164,16 +164,14 @@ The subframes have been designed to guarantee %enough
 adequate stiffness in the  regions subject to larger tension while minimizing material in order to reduce the weight.
 The G10 structure is \SI{15}{mm} thick and weights about \SI{68}{kg}. 
 
-Differential thermal contraction occurs between G10 and INVAR frames.
-
 \subsubsection{Decoupling system}
-%During cooling, INVAR is nearly keeping its dimensions while G10 frame and \dwords{lem}/Anodes are contracting in similar ways. 
-During cooling, INVAR's dimensions remain nearly unchanged whereas the G10 frame and \dwords{lem}-anodes contract in similar ways. Thermal decoupling allows a lateral sliding of the G10 frame, without changing the level. 
+%During cooling, Invar is nearly keeping its dimensions while G10 frame and \dwords{lem}/Anodes are contracting in similar ways. 
+During cooling, Invar's dimensions remain nearly unchanged whereas the G10 frame and \dwords{lem}-anodes contract in similar ways. Thermal decoupling allows a lateral sliding of the G10 frame, without changing the level. 
 %\fixme{altitude? maybe `level' is better?}
-Dedicated decoupling systems are installed at each corner of the INVAR frame (\num{50} systems by  \num{3}$\times$\SI{3}{m$^{2}$} module). One decoupling system that allows the G10+ \dword{lem}-anodes elements to slide is shown in  Figure~\ref{fig:crp-decoupling}.
+Dedicated decoupling systems are installed at each corner of the Invar frame (\num{50} systems by  \num{3}$\times$\SI{3}{m$^{2}$} module). One decoupling system that allows the G10+ \dword{lem}-anodes elements to slide is shown in  Figure~\ref{fig:crp-decoupling}.
 
-\begin{dunefigure}[Decoupling system attached to the INVAR frame]{fig:crp-decoupling}
-{Decoupling system attached to the INVAR frame, with detailed view. Example of one of the systems built for \dword{pddp}.}
+\begin{dunefigure}[Decoupling system attached to the Invar frame]{fig:crp-decoupling}
+{Decoupling system attached to the Invar frame, with detailed view. Example of one of the systems built for \dword{pddp}.}
 \includegraphics[width=0.8\textwidth]{decoupling.png}
 \end{dunefigure}
 
@@ -193,7 +191,7 @@ wire tensioning system with the pushing screws and calibrated wedges to keep the
 The PCB has \num{64} soldering pads with \SI{200}{\micro\meter} grooves for precise positioning of the wires. During the %wire-
 soldering process each wire is tensioned and positioned in a groove. The PCB is then mounted on the G10 supporting bars and the tension of the group of \num{64} wires can be precisely adjusted by pushing the supporting bars against the \dword{crp}s G10 frame with screws. The tensioning is performed by tightening \textit{pushing screws}, adding a calibrated wedge, and locking the supporting square.
 %The wires, \SI{3}{m} long in both $x$ and $y$ directions, have their sags minimized to \SI{0.1}{mm} thanks to $x$ and $y$ oriented supporting comb-teeth blades  inserted between G10 subframes of 1 m$^2$ size. 
-Supporting comb-teeth blades that are inserted between the \SI{1}{m$^2$} G10 subframes in both $x$ and $y$ restrict the sag to \SI{0.1}{mm} in the wires, which are \SI{3}{m} long in both directions. The array of blades penetrates the liquid surface and has the additional benefit of maintaining the liquid level still.
+Supporting comb-teeth blades that are inserted between the \SI{1}{m$^2$} G10 subframes in both $x$ and $y$ restrict the sag to \SI{0.1}{mm} in the wires, which are \SI{3}{m} long in both directions. The array of blades penetrates the liquid surface and has the additional benefit of acting as a baffle against potential surface waves in the \lar.
 
 The grid \dword{hv}-connection for a \dword{crp} is made through a varnished copper track into two of the \dword{crp}'s \num{60} PCB plates; a special isolated connection %performed 
 is made inside the \dword{crp} structure.
@@ -202,9 +200,9 @@ is made inside the \dword{crp} structure.
 \subsection{Large Electron Multiplier (LEM)}
 \label{sec:fddp-crp-lem}
 
-Each \dword{lem} consists of a \SI{1}{mm}-thick,  \num{50}$\times$\SI{50}{cm$^{2}$} copper-clad standard PCB epoxy plate. Holes of \SI{500}{\micro\meter} diameter, through which electrons undergo amplification, are mechanically drilled in a hexagonal pattern with a pitch of \SI{800}{\micro\meter}, yielding about \num{180} holes per \si{cm$^2$}. In addition, each hole has a  \SI{40}{\micro\meter} dielectric rim, obtained by a chemical process, to prevent electrical discharges from occurring near the holes. The holes provide confinement for the UV photons produced during the avalanche process and thus act as a mechanical quencher to prevent photon feedback. This property makes the \dword{lem} suitable for operation in ultra-pure argon vapor without the addition of a quenching gas. The final gold-plated copper thickness of each \dword{lem} electrode is about  \SI{60}{\micro\meter}. Twenty peripheral and nine central \SI{2.2}{mm}-diameter holes are used for assembling the \dword{lem} module together with its anode on the G10 frame. Figure~\ref{fig:LEM_CFR-35} shows a picture of a \dword{lem} module used for  \dword{pddp}. To prevent \dword{hv} discharges near or across the edges, the \dword{lem} module has a  \SI{10}{mm} border free from metallization and another \SI{5}{mm} copper guard ring. Similar copper guard rings are located around the \SI{2.2}{mm} diameter holes and the \dword{hv} connectors. The latter are made with \SI{1.2}{mm} diameter male pins (DEUTSCH~\footnote{DEUTSCH\texttrademark{} \url{http://www.deutsch.net/}} 6860-201-22278) that are soldered onto specifically designed pads imprinted on the \dword{lem} electrodes. The pins are insulated with circular tubes made in MACOR and a  \SI{10}{mm} circular clearance around each pin. 
+Each \dword{lem} consists of a \SI{1}{mm}-thick,  \num{50}$\times$\SI{50}{cm$^{2}$} copper-clad standard PCB epoxy plate. Holes of \SI{500}{\micro\meter} diameter, through which electrons undergo amplification, are mechanically drilled in a hexagonal pattern with a pitch of \SI{800}{\micro\meter}, yielding about \num{180} holes per \si{cm$^2$}. In addition, each hole has a  \SI{40}{\micro\meter} dielectric rim, obtained by a chemical process, to prevent electrical discharges from occurring near the holes. The holes provide confinement for the UV photons produced during the avalanche process and thus act as a mechanical quencher to prevent photon feedback. This property makes the \dword{lem} suitable for operation in ultra-pure argon vapor without the addition of a quenching gas. The final gold-plated copper thickness of each \dword{lem} electrode is about  \SI{60}{\micro\meter}. Twenty peripheral and nine central \SI{2.2}{mm}-diameter holes are used for assembling the \dword{lem} module together with its anode on the G10 frame. Figure~\ref{fig:LEM_CFR-35} shows a picture of a \dword{lem} module used for  \dword{pddp}. To prevent \dword{hv} discharges near or across the edges, the \dword{lem} module has a  \SI{10}{mm} border free from metallization and another \SI{5}{mm} copper guard ring. Similar copper guard rings are located around the \SI{2.2}{mm} diameter holes and the \dword{hv} connectors. The latter are made with \SI{1.2}{mm} diameter male pins (Deutsch~\footnote{Deutsch\texttrademark{} \url{http://www.deutsch.net/}} 6860-201-22278.) that are soldered onto specifically designed pads imprinted on the \dword{lem} electrodes. The pins are insulated with circular tubes made in MACOR and a  \SI{10}{mm} circular clearance around each pin. 
 
-The total active area of a \dword{lem} module used for  \dword{pddp} represents about \SI{86}{\%} of the \num{50}$\times$\SI{50}{cm$^{2}$} area. The choice of the \dword{lem} design for  \dword{pddp} was made in order to achieve stable operation conditions up to \SI{3.5}{kV} in DLAr mode, corresponding to amplification gains larger than \num{30} (\num{100}) after (before) charging-up of the \dword{lem} dielectric material. For the \dword{dpmod}, a further optimization of the current \dword{lem} design will  be performed in order  to find the best compromise between the detector active area and the operation stability.
+The total active area of a \dword{lem} module used for  \dword{pddp} represents about \SI{86}{\%} of the \num{50}$\times$\SI{50}{cm$^{2}$} area. The choice of the \dword{lem} design for  \dword{pddp} was made in order to achieve stable operation conditions up to \SI{3.5}{kV} in \dual \lar (D\lar{}) mode, corresponding to amplification gains larger than \num{30} (\num{100}) after (before) charging-up of the \dword{lem} dielectric material. For the \dword{dpmod}, a further optimization of the current \dword{lem} design will  be performed in order  to find the best compromise between the detector active area and the operation stability.
 
 \begin{dunefigure}
 [Picture of a \dword{lem} module used for  \dword{pddp}]
@@ -219,7 +217,7 @@ The total active area of a \dword{lem} module used for  \dword{pddp} represents 
  
 The anode is a four-layer PCB having a set of orthogonal strips with a \dpstrippitch pitch that provide the two views of the collected charge. The area of the anode is  \num{50}$\times$\SI{50}{cm$^2$}, identical to the \dword{lem} one. Twenty nine holes of \SI{2.2}{mm} diameter matching the \dword{lem} holes are used for the \dword{lem} and anode assembly on their G10 frame. The \SI{2}{mm} distance between the anode and the \dword{lem} is ensured by \num{29} precisely machined spacers made of polyetheretherketone (PEEK). 
 
-The pattern of readout strips, printed on the bottom PCB layer and used for charge collection, is optimized such that the charge is evenly split between both views (Figure~\ref{fig:Anode}. Electrical insulation in the locations where orthogonal tracks would superimpose is achieved by 
+The pattern of readout strips, printed on the bottom PCB layer and used for charge collection, is optimized such that the charge is evenly split between both views (Figure~\ref{fig:Anode}). Electrical insulation in the locations where orthogonal tracks would superimpose is achieved by 
 %having tracks crossing over and under each other using a system of vias between the top and bottom layers of the PCB. 
 using a system of vias between the top and bottom layers of the PCB to allow the tracks to cross over and under one another. 
 Each strip, made of thin gold-plated copper tracks, has a capacitance per unit length to ground of about 
@@ -239,8 +237,8 @@ Each strip, made of thin gold-plated copper tracks, has a capacitance per unit l
 \subsubsection{Distance meters and level meters}
 
 The vertical and lateral positions of the \dwords{crp} are measured by different means. 
-It is possible to know the vertical position of the \dword{crp} both from the suspension system and from some dedicated capacitive measurements.
-The  suspension system and its motorization on three points provides an accurate measurement for each \dword{crp} of the order of \SI{0.1}{mm} thanks to the accuracy of the steps motors and encoders. 
+It is possible to know the vertical position of the \dword{crp} both from the suspension system and from dedicated capacitive measurements.
+The  suspension system and its motorization on three points provides an accurate measurement for each \dword{crp} of order\SI{0.1}{mm} due to the accuracy of the steps motors and encoders. 
 In order to exploit the information from the encoders,  the anchor points on the \dword{crp} must be surveyed during construction and the absolute positions of the suspensions must be surveyed from the roof of the cryostat during the installation of the \fdth.
 
 There will be also the possibility to get relative measurements of the \dword{crp} position with respect to the \lar level using capacitive level meters put on the sides of the \dword{crp}s located at the periphery of the detection plane.  The  measurements of the capacitance between the \dword{lem} and the extraction grid, which depends on the height of the liquid above the grid, can also provide a relative measurement  of the \dword{crp}'s vertical position with respect to the liquid surface. This method is used for the \dword{crp}s which are not located at the periphery, while the ones at the periphery can exploit both the  \dword{lem}-grid capacitance measurements and the capacitive level meters.
@@ -307,17 +305,17 @@ sensors. In standard, stable running  conditions several \dword{crp} modules are
 \label{sec:fddp-crp-prod-assy}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{G10 and INVAR Frame Production}
+\subsection{G10 and Invar Frame Production}
 \label{sec:fddp-crp-frame}
 
 % new from DD
-The G10 and INVAR frames are both produced by industry. For the \dword{dpmod}, %80
-\dptotcrp INVAR frames and \dpnumpmtch %720 
+The G10 and Invar frames are both produced by industry. For the \dword{dpmod}, %80
+\dptotcrp Invar frames and \dpnumpmtch %720 
 G10 subframes of \SI{1}{m$^2$} are required. %should be produced.
 For \dword{pddp}, the process and \dword{qc} procedures have been defined.
-For the INVAR structure, SDMS~\footnote{SDMS\texttrademark{}, \url{www.sdms.fr/en}.}, the company chosen for \dword{pddp}'s four \dwords{crp},  %managed the realization 
+For the Invar structure, SDMS~\footnote{SDMS\texttrademark{}, \url{www.sdms.fr/en}.}, the company chosen for \dword{pddp}'s four \dwords{crp},  %managed the realization 
 has produced them within the specifications without identified problems.
-They had to organize the procurement of raw INVAR plates, which depends on the available world stock. For the \dword{dpmod} it is important to plan ahead, %should be well anticipated
+They had to organize the procurement of raw Invar plates, which depends on the available world stock. For the \dword{dpmod} it is important to plan ahead, %should be well anticipated
  for this procurement. 
 % \fixme{I cannot find the url for SDMS (anne)} DONE
 The manufacturing process followed by the manufacturer (SDMS) included eight steps:\\
@@ -333,12 +331,12 @@ The manufacturing process followed by the manufacturer (SDMS) included eight ste
 \end{itemize}
 
 During the process a special validation step was included  for a full-size test frame to verify all the technical aspects and conformity to the requirements. 
-The acceptance tests are performed on the geometry, the welding quality and the proper position of the different holes made in the INVAR beams.
+The acceptance tests are performed on the geometry, the welding quality and the proper position of the different holes made in the Invar beams.
 
 For \dword{pddp}, fabrication of the G10 frames for the four \dwords{crp} was done by a company with expertise in composite materials. The manufacturing process includes the %realization 
 production of frames with fiber layers in different orientations as explained in Section~\ref{sec:invar-frame}, the drilling of more than \num{100} screw threads per square meter of G10 frames, among them \num{80} with a \SI{2}{mm} diameter.
 The acceptance tests are mostly based on geometrical and dimension criteria, and quality of the threads.  
-The G10 production is longer and more difficult than that for the INVAR structure. G10 production would require a minimum of two production sites, while one company would suffice for the INVAR frame production.
+The G10 production is longer and more difficult than that for the Invar structure. G10 production would require a minimum of two production sites, while one company would suffice for the Invar frame production.
 %%% end new from DD
 
 
@@ -348,14 +346,14 @@ The G10 production is longer and more difficult than that for the INVAR structur
 
 
 The construction of %a 10\,kT far detector based on the Dual Phase \lar technology
-\dword{dpmod} involves the production of \dpnumswch charge readout modules made of a \dword{lem} and its anode. For such a large production, it is desirable to use more than one manufacturer in order to mitigate risks and costs. The ELTOS~\footnote{ ELTOS\texttrademark{} \url{www.eltos.com}} company in Italy is making the \dword{lem} modules and the anodes for  \dword{pddp} and as such, has successfully worked out the \dword{qa} and \dword{qc} processes based on requirements and specifications agreed with the \dword{wa105} collaboration. So far, the fraction of rejected \dword{lem} modules produced by ELTOS, after the final phase of tests, has proven to be rather small, i.e., less than one \dword{lem} per \dword{crp}. The rejection factor for the anodes is, however, higher and corresponds to about \SI{10}{\%}, due to the very thin and fragile conducting strips forming the anode plane and also to the close proximity of the outer strips to the PCB edges. 
+\dword{dpmod} involves the production of \dpnumswch charge readout modules made of a \dword{lem} and its anode. For such a large production, it is desirable to use more than one manufacturer in order to mitigate risks and costs. The ELTOS~\footnote{ ELTOS\texttrademark{} \url{www.eltos.com}.} company in Italy is making the \dword{lem} modules and the anodes for  \dword{pddp} and as such, has successfully worked out the \dword{qa} and \dword{qc} processes based on requirements and specifications agreed with the \dword{wa105} collaboration. So far, the fraction of rejected \dword{lem} modules produced by ELTOS, after the final phase of tests, has proven to be rather small, i.e., less than one \dword{lem} per \dword{crp}. The rejection factor for the anodes is, however, higher and corresponds to about \SI{10}{\%}, due to the very thin and fragile conducting strips forming the anode plane and also to the close proximity of the outer strips to the PCB edges. 
 
 %\fixme{``...to the close proximity of these strips to the PCB edges''?} DONE
 
 Small modifications to the anode design will be necessary for the \dword{dpmod} in order to increase the robustness of the manufacturing process. It is believed that such modifications are possible without  %can be envisaged without affecting 
 significantly affecting the performance of the anode.   
 
-A second manufacturer, ELVIA~\footnote{ ELVIA\texttrademark{} \url{https://www.pcb-elvia.com/}} in France, is also known to have the capability for large-scale \dword{lem} and anode production with the requested specifications. Recently, several \dword{lem} prototypes have indeed been built for CEA/Irfu 
+A second manufacturer, ELVIA~\footnote{ ELVIA\texttrademark{} \url{https://www.pcb-elvia.com/}.} in France, is also known to have the capability for large-scale \dword{lem} and anode production with the requested specifications. Recently, several \dword{lem} prototypes have indeed been built for CEA/Irfu 
 %\fixme{lrfu?} Irfu is an institute of CEA
 by ELVIA and extensive tests have %shown %that the same \dword{lem} performance as with ELTOS could be achieved.
 demonstrated the same  \dword{lem} performance as the ELTOS products achieve.
@@ -408,7 +406,7 @@ at \SI{60}{C}  for several hours and then baked for three hours up to \SI{160}{C
 a temperature near the glass transition point of the dielectric material. From the cleaning operation on, each \dword{lem} is handled via an aluminum frame on which it is mounted in order to avoid any contact with the PCB surfaces. They are also to be %Once cleaned, all \dword{lem} modules need in addition to be 
 handled and operated in a clean environment with the use, for example, of a laminar flux.  
 
-\item {\bf \dword{hv} tests.} The final validation of a \dword{lem} is obtained after  successful and stable operation in pure argon at room temperature and an absolute pressure of about \numrange{3.2}{3.3}\,bar. A high-pressure vessel is used for this purpose.  The argon pressure value is precisely adjusted as a function of the argon temperature inside the vessel in order to reach the same gas density as the one existing in \dual \lar mode. In such a way, the \dword{lem} modules are tested at the same Townsend avalanche operation point as in cold. Figure~\ref{fig:HP} shows the \SI{360}{L} high-pressure vessel used at CEA/Irfu for the characterization of the  \dword{pddp} \dword{lem} modules. Up to nine \dword{lem} modules can be stacked inside this chamber for the \dword{hv} tests. The HP vessel is also instrumented with \dword{fe} electronics and a \dword{daq} system for gain measurements in pure argon. In this configuration, a single \dword{lem} is installed with its \twod charge-collecting anode inside 
+\item {\bf \dword{hv} tests.} The final validation of a \dword{lem} is obtained after  successful and stable operation in pure argon at room temperature and an absolute pressure of about \numrange{3.2}{3.3}\,bar. A high-pressure vessel is used for this purpose.  The argon pressure value is precisely adjusted as a function of the argon temperature inside the vessel in order to reach the same gas density as the one existing in D\lar mode. In such a way, the \dword{lem} modules are tested at the same Townsend avalanche operation point as in cold. Figure~\ref{fig:HP} shows the \SI{360}{L} high-pressure vessel used at CEA/Irfu for the characterization of the  \dword{pddp} \dword{lem} modules. Up to nine \dword{lem} modules can be stacked inside this chamber for the \dword{hv} tests. The HP vessel is also instrumented with \dword{fe} electronics and a \dword{daq} system for gain measurements in pure argon. In this configuration, a single \dword{lem} is installed with its \twod charge-collecting anode inside 
 a \num{50}$\times$\num{50}$\times$\SI{5}{cm$^3$} 
 TPC together with a collimated $^{241}$Am open alpha source mounted on 
 the cathode. Figure~\ref{fig:HP_ED} shows an event display of a \SI{5.5}{MeV} alpha track observed in pure argon gas at an 
@@ -478,15 +476,15 @@ PCB sagitta & < 1\,mm \\
 \label{sec:fddp-crp-tooling}
 
 %%% new from DD
-Once the anodes, the \dwords{lem}, the mechanical INVAR and G10 frames are produced and delivered, the \dwords{crp} production site should be equipped with several toolings.
+Once the anodes, the \dwords{lem}, the mechanical Invar and G10 frames are produced and delivered, the \dwords{crp} production site should be equipped with several toolings.
 The \dwords{crp} construction activity requires a clean room large enough to accommodate the different work spaces. Separate work areas are required in this clean room for: %It can be divided into four main work areas, requiring:
 \begin{itemize}
 \item{a \SI{10}{m$^2$} table for assembling the G10 subframes and for surveying the whole structure}
-\item{a supporting structure to hang the INVAR frame and to allow coupling of the G10 frame and the installation of the anodes, \dword{lem} and extraction grid modules.}
+\item{a supporting structure to hang the Invar frame and to allow coupling of the G10 frame and the installation of the anodes, \dword{lem} and extraction grid modules.}
 \item{storage of the anodes and \dwords{lem} on special shelves }
 \item{construction of the extraction grid modules and storage of the modules before mounting on the \dword{crp} structure}
 \end{itemize}
-The required tooling includes: two mobile cranes (\SI{4}{m} span) to manipulate the INVAR frame, an aluminum support frame and parts of the transport boxes, a large assembly table, storage shelves for the \dword{lem} and anodes and for cables, and a fabrication bench for the extraction grid modules.
+The required tooling includes: two mobile cranes (\SI{4}{m} span) to manipulate the Invar frame, an aluminum support frame and parts of the transport boxes, a large assembly table, storage shelves for the \dword{lem} and anodes and for cables, and a fabrication bench for the extraction grid modules.
 Figure~\ref{fig:gridtooling} shows the \SI{3}{m} long wiring bench with details and the real tooling at CERN used for the \dword{crp} of \dword{pddp}.
 
 \begin{dunefigure}[Extraction grid construction bench details]{fig:gridtooling}
@@ -505,16 +503,16 @@ The \dword{crp} assembly production activity will span two years
 prior to \dword{crp} installation underground at \surf. The \dwords{crp} will be integrated in at least two different production sites and stored locally in temporary storage boxes before being shipped to the ITF delivery facility. The \dword{crp} assembly will be pipelined with the \dword{lem} and anode production and testing during these two production years with an initial  shift of three months. This is intended to constitute a large enough buffer between the \dwords{lem} and anodes to start the \dword{crp} assembly activities.
 
 %%% new from DD
-The assembly of a \dword{crp} in the clean room is a process that goes from the reception of the INVAR frame to the  closing of the transport box. 
+The assembly of a \dword{crp} in the clean room is a process that goes from the reception of the Invar frame to the  closing of the transport box. 
 The illustration of the assembly steps and procedures performed for the \dword{crp}  construction in the clean room in Building 185 at CERN for \dword{pddp} can be seen at \url{https://youtu.be/jcnJjlU-Cyc}.
 
 This is divided in the following way:
 \begin{enumerate}
-\item Reception of the INVAR frame in the clean room;
-\item  Suspension of the INVAR frame below the supporting structure;
+\item Reception of the Invar frame in the clean room;
+\item  Suspension of the Invar frame below the supporting structure;
 \item  Vertical position of the frame is adjusted using lifting cranks;
 \item  In parallel, assembly of the G10 frame proceeds on the optical table;
-\item  The INVAR frame is brought above the G10 frame, and connected through \num{50} decoupling systems;
+\item  The Invar frame is brought above the G10 frame, and connected through \num{50} decoupling systems;
 \item  Assembly of \dword{lem} and anodes is done from below;
 \item  Anodes are connected with jumpers;
 \item  In parallel, the extraction grid is woven and soldered on the special tooling, then stored on shelves, or directly installed on the \dword{crp}.
@@ -567,12 +565,12 @@ Calibration of the strips is then performed jointly by the two consortia.
 \subsection{Instrumentation and HV Feedthrough Flanges}
 \label{sec:fddp-crp-intfc-FT}
 The \num{36} \dword{lem} modules of a \dword{crp} are supplied with \dword{hv} by \num{42} coaxial cables 
-connecting the \fdth flange from the top of the cryostat to distribution boxes located on the \dword{crp} (Figure \ref{fig:CRP_DB}). Each cable (\num{20}\,AWG, \SI{50}{\ohm} KAPTON insulated coaxial cable from ACCU-GLASS~\footnote{ACCU-GLASS\texttrademark{}, \url{http://www.accu-glass.com/}}) can sustain \SI{30}{kV} in air and has SHV plugs on each end in order to facilitate connections during the \dword{crp} installation.
+connecting the \fdth flange from the top of the cryostat to distribution boxes located on the \dword{crp} (Figure \ref{fig:CRP_DB}). Each cable (\num{20}\,AWG, \SI{50}{\ohm} KAPTON insulated coaxial cable from ACCU-GLASS~\footnote{ACCU-GLASS\texttrademark{}, \url{http://www.accu-glass.com/}.}) can sustain \SI{30}{kV} in air and has SHV plugs on each end in order to facilitate connections during the \dword{crp} installation.
 
 
 There are six cables used for the \dword{lem} top electrodes and \num{36} cables for the bottom ones. Each of the coaxial cables for the \dword{lem} top electrodes is connected to a single distribution box. The latter contains a PCB that %allows to 
 distributes \dword{hv} to six individual \dword{lem} modules with a \SI{500}{\mega\ohm} resistor in series for each 
-\dword{lem} (Figure~\ref{fig:LEM_DB}). The \num{36} coaxial cables for the \dword{lem} bottom electrodes are connected in groups of four to nine distribution boxes. In this case, each \dword{hv} cable is directly linked to an individual \dword{lem} bottom electrode. In total, \num{72} output coaxial cables rated for \SI{10}{kV} (\num{26}\,AWG, \SI{50}{\ohm} KAPTON insulated coaxial cable from ACCU-GLASS) are used to supply \dword{hv} to both electrodes of all \dword{lem} modules of a \dword{crp}. The grounding of each coaxial line is ensured by the \fdth flange down to about \SI{5}{cm} from the \dword{lem} final connection point via the PCB located inside each of the \num{15} distribution boxes. In this way, contributions from the \dword{hv} lines to the electronic noise is limited as much as possible. In order to avoid electrical discharges inside the distribution boxes, the latter are filled with ARATHANE epoxy glue. Finally, the connections to the \dword{hv} contacts of the \dword{lem} modules are done via  DEUTSCH 6862-201-22278 female connectors and each of them is covered by a heat-shrink sleeve. 
+\dword{lem} (Figure~\ref{fig:LEM_DB}). The \num{36} coaxial cables for the \dword{lem} bottom electrodes are connected in groups of four to nine distribution boxes. In this case, each \dword{hv} cable is directly linked to an individual \dword{lem} bottom electrode. In total, \num{72} output coaxial cables rated for \SI{10}{kV} (\num{26}\,AWG, \SI{50}{\ohm} KAPTON insulated coaxial cable from ACCU-GLASS) are used to supply \dword{hv} to both electrodes of all \dword{lem} modules of a \dword{crp}. The grounding of each coaxial line is ensured by the \fdth flange down to about \SI{5}{cm} from the \dword{lem} final connection point via the PCB located inside each of the \num{15} distribution boxes. In this way, contributions from the \dword{hv} lines to the electronic noise is limited as much as possible. In order to avoid electrical discharges inside the distribution boxes, the latter are filled with ARATHANE epoxy glue. Finally, the connections to the \dword{hv} contacts of the \dword{lem} modules are done via  Deutsch 6862-201-22278 female connectors and each of them is covered by a heat-shrink sleeve. 
 
 \begin{dunefigure}
 [\dword{lem} \dword{hv} distribution boxes mounted on a \dword{crp}]
