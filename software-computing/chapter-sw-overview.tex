@@ -29,7 +29,8 @@ For modules of this size, drift times in the liquid argon are of order 2.5~ms an
 
 \subsubsection{Dual-phase technology}
 
-For the dual-phase technology, each  module will have 153,600 channels. Drift time in the liquid argon is 7.5 ms. Given 20,000 samples in an 8~ms readout, the uncompressed event size is 4.2~GB (for 1 drift window).  Due to gas amplification, the signal to noise ratio is quite high, allowing loss-less compression to be applied at the front-end  with a compression factor of ten, bringing the event size to 0.42~GB. Recording the entire detector drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. A  far detector module can be treated as 20 smaller  detectors (with similar number  of readout channels to the prototype currently being constructed at CERN), running in parallel, each one defining a \dword{roi}. For beam or cosmic events it is possible to record only the interesting ROI(s) with the compressed size of a single ROI being 22~MB.
+For dual-phase, electrons drift the full height of the cryostat, emerge from the liquid and are collected - after gas amplification, on an grid of instrumented pads at the top of the detector.  The WA105 3x1x1 m test of this technology ran successfully in the summer of 2017\cite{Murphy:20170516}. 
+Each 17~kT module will have 153,600 channels. Drift time in the liquid argon is 7.5 ms. Given 20,000 samples in an 8~ms readout, the uncompressed event size is 4.2~GB (for 1 drift window).  Due to gas amplification, the signal to noise ratio is quite high, allowing loss-less compression to be applied at the front-end  with a compression factor of ten, bringing the event size/module to 0.42~GB. Recording the entire module drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. A  far detector module can be treated as 20 smaller  detectors (with similar number  of readout channels to the prototype currently being constructed at CERN), running in parallel, each one defining a Region of Interest  (\dword{roi}). For beam or cosmic events it is possible to record only the interesting ROI(s) with the compressed size of a single ROI being 22~MB.
 
 \subsubsection{Beam coincident rates}
 
@@ -82,18 +83,16 @@ Only a few thousand true beam interactions in the far detectors are expected eac
 \subsubsection{Long-baseline neutrino oscillations} Neutrino oscillation measurements will require a near detector operating in a high rate environment and far detectors in which beam-coincident events are rare but in time with the beam spill and of sufficient energy to be readily recognizable.  Studies discussed in the \dword{daq} section of  Technical Proposal Volumes 2 and 3 indicate that high efficiencies are achievable at an energy threshold of 10 MeV, leading to event rates for beam-initiated  interactions of $\sim 6,400$/year and an uncompressed data volume of around 30~TB/year per 17~kT single-phase module. 
 
 
-Table \ref{tab:daq-data-rates-sw} summarizes the event and data rates after appropriate filtering from the  \dword{daq} section of Volume 2 of the Technical Proposal.
+Tables \ref{tab:daq-data-rates-sp} and  \ref{tab:daq-data-rates-dp} summarize the event and data rates after appropriate filtering from the  \dword{daq} section of Volumes 2 and 3 of the Technical Proposal.
 
-\begin{dunetable} [Uncompressed data rates for one \dword{sp} module.]
+\begin{dunetable} [Uncompressed data volumes/year for one \dword{sp} module.]
   {p{0.30\textwidth}p{0.13\textwidth}p{0.4\textwidth}}
-  {tab:daq-data-rates-sw} {Anticipated annual, uncompressed data rates
+  {tab:daq-data-rates-sp} {Anticipated annual, uncompressed data rates
     for a single \dword{sp} module from the far detector Technical Proposals. The rates for normal (non-\dword{snb} triggers)
     assume a readout window of \SI{5.4}{\ms}. 
-    For planning purposes these rates are assumed to apply to the \dword{dp}
-    module as well which has a longer readout time but fewer channels. 
     In reality, lossless compression will be applied which is expected
-    to provide as much as a $4\times$ reduction in data volume for the \dword{sp} module
-    and as much as $10\times$ for the \dword{dp} module.}   
+    to provide as much as a $4\times$ reduction in data volume for each \dword{sp} module.}
+    %and as much as $10\times$ for the \dword{dp} module.}   
   Event Type  & Data Volume \si{\PB/year} & Assumptions \\ \toprowrule
   Beam interactions & 0.03 & 800 beam and 800 rock muons; \SI{10}{\MeV} threshold in coincidence with beam time; include cosmics\\ \colhline
   Cosmics and atmospherics & 10 &  \SI{10}{\MeV} threshold\\ \colhline
@@ -104,6 +103,33 @@ Table \ref{tab:daq-data-rates-sw} summarizes the event and data rates after appr
  Supernova candidates & 0.5 & 30 seconds full readout, average once per month \\ \colhline
  Random triggers & 0.06 & 45 per day\\ \colhline
  Trigger primitives & $\le$6 &  all three wire planes; 12 bits per primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
+\end{dunetable}
+
+\begin{dunetable} [Uncompressed data volumes/year for one \dword{dp} module.]
+{p{0.30\textwidth}p{0.13\textwidth}p{0.4\textwidth}}
+{tab:daq-data-rates-dp} {Anticipated annual, uncompressed data rates
+for  \dword{dp} modules. The rates for normal (non-\dword{snb} triggers)
+assume a readout window \SI{7.5}{\ms}.
+%The \dword{dp} module has a longer readout time but fewer channels.
+These numbers do not include lossless compression which  is expected
+to provide as much as a  $10\times$ reduction in data volume.}
+Event Type & Data Volume \si{\PB/year} & Assumptions \\ \toprowrule
+%Beam interactions (SP) & 0.03 & 800 beam and 800 rock muons; \SI{10}{\MeV} threshold in coincidence with beam time; include cosmics\\
+Beam interactions (DP) & 0.007 & 800 beam and 800 rock muons; this becomes 700 GB/year if just 2 ROIs/event are dumped on disk \\
+\colhline
+%Cosmics/atmospherics (SP)& 10 & \SI{10}{\MeV} threshold\\
+Cosmics/atmospherics (DP)& 2.33 & This becomes 230 TB/year if two ROIs/event are dumped on disk \\
+\colhline
+%Supernova candidates (SP) & 0.5 & 30 seconds full readout, average once per month \\
+Supernova candidates (DP) & 0.06 & 10 seconds full readout, all ROIs are dumped on disk \\
+\colhline
+%Radiologicals ($^{39}Ar$ snd other).& $\le$1 & fake rate of $\le$100 per year\\ \colhline
+%ront-end calibration & 0.2 & Four calibration runs per year, 100 measurements per point \\ \colhline
+%Radioactive source calibration & 0.1 & source rate $\le$10~Hz; single fragment readout; lossless readout \\ \colhline
+%Laser calibration & 0.2 & 1$\times$10$^6$ total laser pulses, lossy readout \\ \colhline
+%\colhline
+%Random triggers & 0.06 & 45 per day\\ \colhline
+%Trigger primitives & $\le$6 & all three wire planes; 12 bits per primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
 \end{dunetable}
 
 \subsubsection{Processes not in synchronization with the beam spill} These include supernova physics, atmospheric neutrinos, proton decay, neutron conversion and solar neutrinos.  These processes are generally at lower energy, making triggering more difficult, and asynchronous, thus requiring an internal or external trigger.  In particular, supernovae signals will consist of a large number of low-energy interactions spread throughout the far detector volume over a time period of 1-30 seconds. Buffering and storing 10 seconds of data would require around 2000 readout windows, or around 50~TB per supernova readout.  At a rate of one such event/month, this is 600~TB of uncompressed data per module/year.
@@ -196,7 +222,7 @@ In addition to physics channels, continuous calibration of the detectors will be
 
 \subsubsection{Zero suppression}
 
-The data volumes discussed above are for un-zero-suppressed data.  Efficient zero suppression mechanisms can substantially reduce the final data volume but previous experience in HEP indicates that signal processing must be done carefully and often happens well into data-taking when the data are well understood.  Experience from  \dword{microboone} and the \dword{protodune} experiments will aid us in developing these algorithms but it is likely that they will be applied later in the processing chain. 
+The data volumes discussed above are for un-zero-suppressed data.  Efficient zero suppression mechanisms can substantially reduce the final data volume but previous experience in HEP indicates that signal processing must be done carefully and often happens well into data-taking when the data are well understood.  Experience from  \dword{microboone} and the \dword{protodune} experiments will aid us in developing these algorithms but it is likely that they will be applied later in the processing chain for single-phase.  No zero-suppression is planned for dual-phase.
 
 The constrained environment at the Sanford Lab motivates a model where any further data reduction via zero-suppression is done downstream, either on the surface or after delivery to computing facilities at FNAL or elsewhere. This could be analogous to the HLT's used by LHC experiments. The relative optimization of data movement and processing location is an important consideration for the design of both the \dword{daq} and offline computing.
 
@@ -346,48 +372,110 @@ Parameter & Value \\
  % \label{tab:np04_data_rate}
 \end{dunetable}
 
+%\subsection{Dual-Phase prototype}
+
+
 \subsection{Dual-Phase prototype}
 
-The dual-phase prototype will either run in the NP02 beamline in late Fall 2018, or run at high rate on cosmics soon thereafter.  In this detector, electrons drift the full height of the cryostat, emerge from the liquid and are collected - after gas amplification - on an grid of instrumented pads at the top of the detector.  The WA105 3x1x1 m test of this technology ran successfully in the summer of 2017\cite{Murphy:20170516}.  Table \ref{sw:np02_data_rate} shows the expected data rates from \dword{protodune}-DP.   \dword{sp} and \dword{dp} are not expected to be running at high rates simultaneously.
+
+The Dual-Phase prototype will either run in the NP02 beamline in late Fall 2018, or run at high rate on cosmics soon thereafter.
+%In this detector electrons drift vertically over the full height of the cryostat, emerge from the iquid and are collected, after having been amplified in avalanches occurring micro-pattern detectors operating in pure argon gas, on a segmented anode at the top of the cryostat. The WA105 3x1x1 $m^2$ test of this technology ran successfully in the summer of 2017\cite{Murphy:20170516}.
+Table \ref{sw:np02_data_rate} shows the originally expected data beam data rates from \dword{protodune}-DP. \dword{sp} and \dword{dp} were not expected to be running at high rates simultaneously. Given the most recent construction schedule the Dual-Phase prototype is now likely that the experiment will skip the beam data taking and focus on  detector performance assessment with cosmics only. \dword{protodune}-DP will then run with cosmics at a rate going from 20 to 100 Hz from late Fall 2018 to at least April 2019. During six months of operation, with 50\% efficiency, \dword{protodune}-DP is expected to collect about 300 millions of cosmic triggers at various rates, corresponding to a total data volume of 2.5 PB.
+
 
 \begin{dunetable}[DoublePhase]
-{p{0.5\textwidth}p{0.3\textwidth}} 
+{p{0.5\textwidth}p{0.3\textwidth}}
 {sw:np02_data_rate}
 {Parameters for \dword{protodune}-DP run at CERN including both
-  the in-spill and out-of-spill data. }
-%\begin{table}[htbp]
- % \centering
- % \begin{tabular}[h]{l|r}
-%\hline
+the in-spill and out-of-spill data. }
 Parameter & Value \\
-   Trigger rate & 100\,Hz \\
-    Spill duration & 4.5\,s\\
-    SPS Cycle & 22.5\,s \\
-    Single readout size (per trigger) & 159\,MB \\
-    Lossless compression factor & 10\\
-    Instantaneous data rate (in-spill) & 1590\,MB/s \\
-    Average data rate & 305\,MB/s \\
-    \hline
-   Average off-spills cosmic data flow to offline data storage &   12.4 MB/s\\
-    Planned total statistics of beam triggers in 30 beam days &25M\\
-    Planned overall storage size of beam events&   0.4 PB\\
-   Cosmic rays in 30  beam days&  2.1  M\\
-   Planned storage size for cosmic rays during beam period&  0.04 PB\\
-   Requested (in 2016) overall storage envelope for \dword{protodune}-DP&0.7 PB \\
-%    3-Day buffer depth & 300\,TB \\
-%     Compressed, non-zero-suppressed event size & 15.9 MB\\
-%    Average beam data flow to offline data storage &   305.3 MB/s  \\
-%    Average off-spills cosmic data flow to offline data storage &   12.4 MB/s\\
-%    Planned total statistics of beam triggers in 30 beam days with 50\% efficiency&25M\\
-%    Planned overall storage size of beam events&   0.4 PB\\
-%   Cosmic rays in 30  beam days&  2.1  M\\
-%   Planned storage size for cosmic rays during beam period&  0.04 PB\\
-%   Requested (in 2016) overall storage envelope for \dword{protodune}-DP&0.7 PB \\
-%    \hline
- % \end{tabular}
-% \caption{NP02 data volume}
- % \label{tab:np02_data_rate}
+Trigger rate & 100\,Hz \\
+Spill duration & 4.5\,s\\
+SPS Cycle & 22.5\,s \\
+Single readout size (per trigger) & 159\,MB \\
+Lossless compression factor & 10\\
+Instantaneous data rate (in-spill) & 1590\,MB/s \\
+Average data rate & 305\,MB/s \\
+\hline
+Average off-spill cosmic data flow to offline data storage & 12.4 MB/s\\
+Planned total statistics of beam triggers in 30 beam days &25M\\
+Planned overall storage size of beam events& 0.4 PB\\
+Cosmic rays in 30 beam days& 2.1 M\\
+Planned storage size for cosmic rays during beam period& 0.04 PB\\
+Requested overall storage envelope for \dword{protodune}-DP&0.7 PB \\
 \end{dunetable}
+
+% 3-Day buffer depth & 300\,TB \\
+
+% Compressed, non-zero-suppressed event size & 15.9 MB\\
+
+% Average beam data flow to offline data storage & 305.3 MB/s \\
+
+% Average off-spills cosmic data flow to offline data storage & 12.4 MB/s\\
+
+% Planned total statistics of beam triggers in 30 beam days with 50\% efficiency&25M\\
+
+% Planned overall storage size of beam events& 0.4 PB\\
+
+% Cosmic rays in 30 beam days& 2.1 M\\
+
+% Planned storage size for cosmic rays during beam period& 0.04 PB\\
+
+% Requested (in 2016) overall storage envelope for \dword{protodune}-DP&0.7 PB \\
+
+% \hline
+
+% \end{tabular}
+
+% \caption{NP02 data volume}
+
+% \label{tab:np02_data_rate}
+
+
+
+
+%
+%The dual-phase prototype will  run on cosmics from late Fall 2018 to at least April 2019 at a data rate from 20Hz up to 100Hz.
+%       The overall storage envelope, including some redundancy, is 2.6 PB.  Table \ref{sw:np02_data_rate} shows the expected data rates from \dword{protodune}-DP.   \dword{sp} and \dword{dp} are not expected to be running at high rates simultaneously.
+%
+%\begin{dunetable}[DoublePhase]
+%{p{0.5\textwidth}p{0.3\textwidth}} 
+%{sw:np02_data_rate}
+%{Parameters for \dword{protodune}-DP run at CERN including both
+%  the in-spill and out-of-spill data. }
+%%\begin{table}[htbp]
+% % \centering
+% % \begin{tabular}[h]{l|r}
+%%\hline
+%Parameter & Value \\
+%   Trigger rate & 25-100\,Hz \\
+%   % Spill duration & 4.5\,s\\
+%   % SPS Cycle & 22.5\,s \\
+%    Single readout size (per trigger) & 159\,MB \\
+%    Lossless compression factor & 10\\
+%    Instantaneous data rate (in-spill) &400-1590\,MB/s \\
+%   % Average data rate & 305\,MB/s \\
+%    \hline
+%   %Average off-spills cosmic data flow to offline data storage &   12.4 MB/s\\
+%    %Planned total statistics of beam triggers in 30 beam days &25M\\
+%   % Planned overall storage size of beam events&   0.4 PB\\
+%   %Cosmic rays in 30  beam days&  2.1  M\\
+%   %Planned storage size for cosmic rays during beam period&  0.04 PB\\
+%   Overall storage envelope for \dword{protodune}-DP&2.6 PB \\
+%%    3-Day buffer depth & 300\,TB \\
+%%     Compressed, non-zero-suppressed event size & 15.9 MB\\
+%%    Average beam data flow to offline data storage &   305.3 MB/s  \\
+%%    Average off-spills cosmic data flow to offline data storage &   12.4 MB/s\\
+%%    Planned total statistics of beam triggers in 30 beam days with 50\% efficiency&25M\\
+%%    Planned overall storage size of beam events&   0.4 PB\\
+%%   Cosmic rays in 30  beam days&  2.1  M\\
+%%   Planned storage size for cosmic rays during beam period&  0.04 PB\\
+%%   Requested (in 2016) overall storage envelope for \dword{protodune}-DP&0.7 PB \\
+%%    \hline
+% % \end{tabular}
+%% \caption{NP02 data volume}
+% % \label{tab:np02_data_rate}
+%\end{dunetable}
 
 \subsection{Data Challenges}
 
