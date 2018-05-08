@@ -10,9 +10,10 @@
 The principal task of the \dword{spmod}\dword{pds} is to measure the \dword{vuv} scintillation light produced by ionizing tracks in the TPC within the geometrical constraints of the \dword{apa} structure. A commercially available compact solution for photon measurement is the \dword{sipm}, however, the response of the devices, which typically peaks in the visible range (>\SI{400}{nm}) is not well-matched to incident \SI{127}{nm} scintillation photons, so a wavelength shifter or some sort must be employed. 
 In addition, even though production cost and key performance parameters have improved significantly in recent years, the cost of the readout electronics (channel count) and the \dword{sipm}s needed to meet the physics requirements of the \dword{pds} would be prohibitive. 
 
-The photon collector must optimize the costs of various components of the system while meeting the performance requirements.  In practice, this consists of collecting \dword{vuv} photons over an area of hundreds of square-meters (viewing the entire \SI{10}{kt} \lar fiducial mass), converting the photons to longer wavelengths and guiding them onto \dwords{sipm} that are typically O(cm$^2$). For reference, an array of \num{48} \dwords{sipm}
-\footnote{Twelve 4x4 arrays of \SI{3}{mm}$\times$\SI{3}{mm} sensL C-series coated with \SI{100}{$\mu$g/cm$^2$} of \dword{tpb}, tested in the Fermilab \dword{tallbo} \lar facility with an alpha source (Am241).}  
-demonstrated a detection efficiency of 13\%, corresponding to an effective area of \SI{2.2}{cm$^2$}.
+The photon collector must optimize the costs of various components of the system while meeting the performance requirements.  In practice, this consists of collecting \dword{vuv} photons over an area of hundreds of square-meters (viewing the entire \SI{10}{kt} \lar fiducial mass), converting the photons to longer wavelengths and guiding them onto \dwords{sipm} that are typically O(cm$^2$). 
+For reference, an array of \num{48} \dwords{sipm} demonstrated a detection efficiency of \SI{13}{\%}, corresponding to an effective area of \SI{2.2}{cm$^2$}. This array, tested in the \fnal \dword{tallbo} \lar facility, consisted of twelve \num{4}$\times$\num{4} units of \SI{3}{mm}$\times$\SI{3}{mm} sensL C-series coated with \SI{100}{$\mu$g/cm$^2$} of \dword{tpb}. 
+
+%For reference, an array of \num{48} \dwords{sipm} demonstrated a detection efficiency of \SI{13}{\%}, corresponding to an effective area of \SI{2.2}{cm$^2$}. This array consisted of twelve \num{4}$\times$\num{4} arrays of \SI{3}{mm}$\times$\SI{3}{mm} sensL C-series coated with \SI{100}{$\mu$g/cm$^2$} of \dword{tpb} were tested in the Fermilab \dword{tallbo} \lar facility with an alpha source ($^{241}Am).
 %\footnote{An array of 12 SensL 4x4 arrays of \SI{3}{mm}$\times$\SI{3}{mm} SensL C-series \dwords{sipm} (48 in all)  coated with \dword{tpb} and mounted on an active ganging board. This detector tested in the Fermilab \dword{tallbo} \lar facility with an alpha source (Am241) in March 2017. With a coating of \SI{100}{$\mu$g/cm$^2$} of \dword{tpb} the array demonstrated an efficiency of 13\%.}. 
 
 
@@ -106,8 +107,8 @@ Two arrays of ARAPUCA modules will be operated inside \dword{pdsp} to test the d
 %The first array has been installed in the \dword{apa} \#3, while the second one will be installed in the \dword{apa} \#6.
  
 Each \dword{pdsp} ARAPUCA module array is composed of sixteen cells where each cell is an ARAPUCA box with dimensions of \SI{8}{cm}$\times$\SI{10}{cm}; half of the cells have twelve \dwords{sipm} installed on the bottom side of the cell and  half have six \dwords{sipm}. The \dwords{sipm} have active dimensions \SI{0.6}{cm}$\times$\SI{0.6}{cm} and account for 5.6\% (\num{12} \dwords{sipm}) or \num{2.8}\% (\num{6} \dwords{sipm}) of the area of the window (\SI{7.8}{cm}$\times$\SI{9.8}{cm}).
-The \dwords{sipm}  are passively ganged together, so that only one readout channel is needed for each ARAPUCA grouping of \num{12} \dwords{sipm} (the boxes with six \dwords{sipm} are ganged together to form \num{12}-\dword{sipm} units) so a total of \num{12} channels is required per array. Studies are underway to investigate active ganging that would permit combining signals from multiples boxes as required to reduce the number of electronics channels and cables (currently in the \dword{spmod} \SI{10}{kt}, we anticipate being restricted to four readout channels per \dword{pd} module). 
-The total width of a module is \SI{9.6}{cm}, while the active width of an ARAPUCA is \SI{7.8}{cm}, the length is the same as the light guide modules ($\sim$\SI{210}{cm}). 
+The \dwords{sipm}  are passively ganged together, so that only one readout channel is needed for each ARAPUCA grouping of \num{12} \dwords{sipm} (the boxes with six \dwords{sipm} are ganged together to form \num{12}-\dword{sipm} units) so a total of \num{12} channels is required per array. Studies are underway to investigate active ganging that would permit combining signals from multiple boxes, as required to reduce the number of electronics channels and cables under the working assumption that the \single \dword{pds} is restricted to four readout channels per \dword{pd} module. 
+The total width of a module is \SI{9.6}{cm}, while the active width of an ARAPUCA is \SI{7.8}{cm}, the length is the same as the light guide modules (\SI{210}{cm}). 
 The first ARAPUCA array installed in \dword{pdsp} is shown in Figure~\ref{fig:arapuca_array}. If the ARAPUCA cells achieved the same detection efficiency as earlier prototypes (1.8\%), the effective area of an ARAPUCA module will be approximately \SI{23}{cm$^2$}.
 
 %\begin{dunefigure}[Drawing of two ARAPUCAs of the design used for \dword{pdsp}.]{fig:arpk}
@@ -133,7 +134,7 @@ The first ARAPUCA array installed in \dword{pdsp} is shown in Figure~\ref{fig:ar
 \subsubsection{X-ARAPUCA} 
 \label{sssec:x-arapuca}
 X-ARAPUCA represents  an alternative line of development with the aim of further improving the collection efficiency, while retaining the same working principle, mechanical form factor and active  photo-sensitive coverage. X-ARAPUCA is effectively a hybrid solution between the ARAPUCA and the wavelength-shifting light guide concepts, where photons trapped in the ARAPUCA box are shifted and transported to the readout via total internal reflection in a short light guide placed inside the box.
-This solution minimizes the number of reflections on the internal surfaces of the box and thus the probability of photon loss. Simulations suggest that this modification will lead to a rather significant increase of the collection efficiency, to around 60\%, so the photon detection efficiency including the \dword{sipm} response could approach 20\%. 
+This solution minimizes the number of reflections on the internal surfaces of the box and thus the probability of photon loss. Simulations suggest that this modification will lead to a significant increase of the collection efficiency, to around 60\%, so the photon detection efficiency including the \dword{sipm} response could approach 20\%. 
 
  \begin{dunefigure}[X-ARAPUCA design: assembled cell (left),  exploded view (right).]{fig:pds-x-arapuca-cell}
 {X-ARAPUCA design: assembled cell (left),  exploded view (right). The size and aspect ratio of the cells can be adjusted to match the spatial granularity required for a \dword{pd} module.}
@@ -186,7 +187,7 @@ The optimal configuration of ARAPUCA modules has not yet been determined, but th
 
 %\subsubsection{Description}
 
-The \textit{dip-coated} light guide design is mechanically the simplest of the three options. Figure~\ref{fig:pds-dippedbarpic} illustrates the process by which \lar scintillation photons are converted and detected in this approach.  \dword{vuv} scintillation photons incident on the bar are absorbed and wavelength-shifted to blue ($\sim$\SI{430}{nm}) by the \dword{tpb}-based coating on the surface of the bar.  A portion of this light is captured in the bar and guided to one end through total internal reflection where it is detected by an array of \dwords{sipm}, whose PDE is well-matched to the blue light.  Dimensions of the bars in \dword{pdsp} are: \SI{209.3}{cm}$\times$\SI{8.47}{cm}$\times$\SI{0.60}{cm}.
+The dip-coated light guide design is mechanically the simplest of the three options. Figure~\ref{fig:pds-dippedbarpic} illustrates the process by which \lar scintillation photons are converted and detected in this approach.  \dword{vuv} scintillation photons incident on the bar are absorbed and wavelength-shifted to blue ($\sim$\SI{430}{nm}) by the \dword{tpb}-based coating on the surface of the bar.  A portion of this light is captured in the bar and guided to one end through total internal reflection where it is detected by an array of \dwords{sipm}, whose PDE is well-matched to the blue light.  Dimensions of the bars in \dword{pdsp} are: \SI{209.3}{cm}$\times$\SI{8.47}{cm}$\times$\SI{0.60}{cm}.
 Since the bar is coated on all sides, in the \dword{spmod} it can be employed both in the wall \dwords{apa} as well as in the center \dword{apa} array where scintillation light approaches from two drift volumes.
 
 \begin{dunefigure}[Schematic of scintillation light detection with dip-coated light guide bars.]{fig:pds-dippedbarpic}
@@ -228,15 +229,15 @@ In addition, test bars have been produced with a higher \dword{tpb}-to-acrylic r
 %\todo{\color{blue} Content: Whittington}
 %Update DW 2/23/18
 
-In the early implementations of the dip-coated light guide development there was a strong dependence of the light yield along the length of the bar, presumed to be due to the impact of the coating on the total internal reflection efficiency.  In an effort to mitigate this effect, the \textit{double-shift} light guide design decouples the process of converting \dword{vuv} photons to optical
+In the early implementations of the dip-coated light guide development there was a strong dependence of the light yield along the length of the bar, presumed to be due to the impact of the coating on the total internal reflection efficiency.  In an effort to mitigate this effect, the double-shift light guide design decouples the process of converting \dword{vuv} photons to optical
 wavelengths from the transportation of photons along the bars. This is achieved by positioning an array of acrylic plates coated with \dword{tpb} in front of a high-quality commercial polystyrene light guide doped with a second wavelength-shifting compound.
 
 %\subsubsection{Description}
 
 Figure~\ref{fig:pds-doubleshiftlg-cartoon} illustrates the double-shift light guide concept. \dword{vuv} scintillation photons incident on the acrylic plates are converted to blue wavelengths ($\sim$\SI{430}{nm}) and a fraction of these blue photons penetrate the light guide and are converted to green ($\sim$\SI{490}{nm}). The re-emission of these green photons, taken to be a Lambertian distribution (isotropic luminance), leads to some becoming trapped by total internal reflection within the light guide and  transported to the end of the light guide where they are detected by an array of \dwords{sipm}.
 
-\begin{dunefigure}[Schematic of the principle of a double-shift light guide.]{fig:pds-doubleshiftlg-cartoon}
-{Schematic of the principle of a double-shift light guide.}
+\begin{dunefigure}[Schematic of double-shift light guide concept]{fig:pds-doubleshiftlg-cartoon}
+{Schematic of the double-shift light guide concept.}
   \includegraphics[width=0.8\columnwidth]{pds-doubleshiftlg-cartoon.pdf}
 \end{dunefigure}
 
@@ -269,14 +270,15 @@ An improved design similar to that deployed at \dword{pdsp} was studied at the B
 
 %\subsubsection{Performance}
 
-Analysis of the double-shift light guide's attenuation properties determined an attenuation profile in \lar characterized by a double-exponential function of the form $f(z) = A \exp(-z/\lambda_{A}) + B \exp(-z/\lambda_B)$ with $z$ the distance from the instrumented end and parameters $A = $0.29, $\lambda_A = $4.3~cm, $B = $0.71, and $\lambda_B = $225~cm~\cite{bib:DoubleShiftLG-NIM-171113}. The effective attenuation length of $\sim$\SI{2}{m} is comparable to the width of an \dword{apa} when the double-shift light guide is deployed in \lar.
+Analysis of the double-shift light guide's attenuation properties determined an attenuation profile in \lar characterized by a double-exponential function of the form $f(z) = A \exp(-z/\lambda_{A}) + B \exp(-z/\lambda_B)$ with $z$ the distance from the instrumented end and parameters $A = $0.29, $\lambda_A = $4.3~cm, $B = $0.71, and $\lambda_B = $225~cm~\cite{bib:DoubleShiftLG-NIM-171113}. The effective attenuation length of \SI{2.25}{m} is comparable to the width of an \dword{apa} when the double-shift light guide is deployed in \lar.
 
 %\fixme{what is the measured central value and spread if known on more than one bar?}
 
-Using both direct measurement with the monochromator and scintillation light, the photon detection efficiency of this detector was determined to be 0.48\% at the end close to the \dword{sipm} readout. The total effective area for detecting \dword{vuv} scintillation photons in this module can be determined by integrating the product of this efficiency and the attenuation function over the area of the detector:
-\begin{equation*}
-  A_{eff} = (0.0048) (8.5\text{cm}) \int_{0\text{cm}}^{210\text{cm}} \hspace{-2em}dz \left( 0.29 \exp(-z/4.3\text{cm}) + 0.71 \exp(-z/225\text{cm}) \right)
-\end{equation*}
+Using both direct measurement with the monochromator and scintillation light, the photon detection efficiency of this detector was determined to be 0.48\% at the end close to the \dword{sipm} readout. The total effective area for detecting \dword{vuv} scintillation photons in this module can be determined by integrating the product of this efficiency and the attenuation function over the area of the detector, 
+yielding an effective area $A_{eff}=4.1$.
+%\begin{equation*}
+%  A_{eff} = (0.0048) (8.5\text{cm}) \int_{0\text{cm}}^{210\text{cm}} \hspace{-2em}dz \left( 0.29 \exp(-z/4.3\text{cm}) + 0.71 \exp(-z/225\text{cm}) \right)
+%\end{equation*}
 This corresponds to an effective area for detecting \dword{vuv} scintillation photons of 4.1 cm$^{2}$ per module per drift volume, which corresponds to overall 0.23\% photon detection efficiency for events occurring on one side of the \dword{apa}.
 Since the radiator plates are deployed on both faces of the light guide, modules in the center \dword{apa} array are sensitive to scintillation light from the two drift volumes on either side. 
 % and modules in the outer arrays are able to detect scintillation light originating outside of the TPC volume, if this is desirable (they can be masked, if not).
@@ -315,7 +317,7 @@ Another benefit is the increase in uniformity - this can enable calorimetric rec
 
 Coated reflector foils are manufactured through low-temperature evaporation of \dword{tpb} on dielectric reflectors e.g. 3M DM2000 or Vikuiti\texttrademark\  ESR. Foils prepared in this manner have been successfully used in dark matter detectors such as WArP\cite{Acciarri:2008kv}. Recently they have been shown to work in LArTPCs at neutrino energies, namely  in the LArIAT test-beam detector \cite{Garcia-Gamez:2017cmu}. In LArIAT they have been installed on the field-cage walls and, during the last run, on the cathode.  
 
-The necessity to record both \dword{vuv} and visible photons in the Photon Collectors would require a change in the current design but is conceptually possible. For example, if the cathode plane were coated with tTP,  some of the ARAPUCA modules could be constructed without the pTP coating on the outer surface of the filter and benefit from the same photon trapping effect but these cells would no longer be sensitive to direct scintillator light.   
+The necessity to record both \dword{vuv} and visible photons in the photon collectors would require a change in the current design but is conceptually possible. For example, if the cathode plane were coated with tTP,  some of the ARAPUCA modules could be constructed without the pTP coating on the outer surface of the filter and benefit from the same photon trapping effect but these cells would no longer be sensitive to direct scintillator light.   
 Understanding the impact of these competing effects on the physics is under study by the simulation group and the feasibility of coating the cathode with a dielectric medium is being investigated with the DUNE HV consortium.
 
 %This experience has led to the decision to install such foils on the CPA of the SBND detector (a part of the Fermilab  Short-Baseline Neutrino program). 
@@ -377,10 +379,10 @@ Understanding the impact of these competing effects on the physics is under stud
 %\todo{\color{blue} Content: Zutshi}
 
 The \dword{spmod} \dword{pds} uses a multi-step approach to scintillation light detection with final stage of conversion into electrical charge performed by silicon photomultipliers (\dword{sipm}). Robust photon detection efficiency, low operating voltages, small size and ruggedness make their use attractive in the \single design where the photon detectors must be accommodated inside the \dword{apa} frames. 
-As implemented in \dword{pdsp}, there are twelve \num{6}$\times$\num{6}\si{mm$^2$} \dwords{sipm} per bar and 6-12 per ARAPUCA box.
-With this configuration, a \SI{10}{kt} \dword{spmod} with \num{150} \dwords{apa}, each with \num{10} \dword{pd} modules, would contain \num{18000}-\num{36000} (single or double-ended readout) \dwords{sipm} for the light guide designs and 10-20 times more for the higher granularity ARAPUCA design. This corresponds to approximately \num{1}-\SI{13}{m$^2$} of active \dword{sipm} surface area.
+As implemented in \dword{pdsp}, there are twelve \num{6}$\times$\SI{6}{mm$^2$} \dwords{sipm} per bar and \numrange{6}{12} per ARAPUCA box.
+With this configuration, a \nominalmodsize \dword{spmod} with \num{150} \dwords{apa}, each with \num{10} \dword{pd} modules, would contain \num{18000}-\num{36000} (single or double-ended readout) \dwords{sipm} for the light guide designs and 10-20 times more for the higher granularity ARAPUCA design. This corresponds to approximately \num{1}-\SI{13}{m$^2$} of active \dword{sipm} surface area.
 
-In the following we summarize the most salient guiding principles and requirements for this \dword{sipm}-based photodetection system.
+The following summarizes the most salient guiding principles and requirements for this \dword{sipm}-based photodetection system.
 
 \begin{itemize}
 
@@ -391,7 +393,7 @@ performance characteristics close to that needed for the \dword{pds} (see Table~
 Nearly one thousand of several types of these devices are used in the \dword{pdsp} \dword{pd}\footnote{\dword{pdsp} \dword{pds} uses 516 sensL MicroFC-60035C-SMT, 288 Hamamatsu MPPC 13360-6050CQ-SMD with cryogenic packaging, 180 Hamamatsu MPPC 13360-6050VE.}, which will provide an excellent test bed for evaluating and monitoring \dword{sipm}
 performance in a realistic environment over a period of months.
 
-\item A key requirement is to ensure the mechanical and electrical integrity of these devices in a cryogenic environment. However, currently, catalogue devices for most vendors are certified for operation only down to -40$^\circ$C. It is essential to be in close communication with  vendors in the design, fabrication and \dword{sipm} packaging certification stages to ensure that the device will be robust and reliable for long-term operation in a cryogenic environment. 
+\item A key requirement is to ensure the mechanical and electrical integrity of these devices in a cryogenic environment. However, currently, catalogue devices for most vendors are certified for operation only down to \num{-40}$^\circ$C. It is essential to be in close communication with  vendors in the design, fabrication and \dword{sipm} packaging certification stages to ensure that the device will be robust and reliable for long-term operation in a cryogenic environment. 
 Two sources have expressed interest to engage with the consortium in this fashion with the goal of having the vendor warranty the product for our application: Hamamatsu Photonics K.K., a large well-known commercial vendor in Japan and Fondazione Bruno Kessler (FBK) in Italy, an experienced developer of solid state photosensors that typically licenses its technology and which is partnering with the DarkSide collaboration to develop a devices with very similar requirements as DUNE. 
 Contact with other vendors and experiments using this technology in a similar environment is being pursued. 
 
@@ -526,7 +528,7 @@ beam spill to help separate against potential cosmic background interactions. Tw
 Since this requirement has not yet been established the option is kept open in the electronics design.
 
 %Simplification in the readout scheme and a cost reduction can also be realized by reading arrays of \dwords{sipm}, rather than individual photosensors.
-All photon collector options will require some level of electrical ganging of the \dwords{sipm}, either passive direct connection of the \dword{sipm} outputs or active (cold signal summing and possibly amplification).  To that end we desire a system where the ganging is maximized to minimize the electronics channel count while maintaining adequate redundancy and granularity, as well as readout system performance.  This represents a significant interface between the electronics, photosensor and light collector designs, and will be a main focus of our development and optimization work up to the \dword{tdr}.
+All photon collector options require some level of electrical ganging of the \dwords{sipm}, either passive direct connection of the \dword{sipm} outputs or active (cold signal summing and possibly amplification).  To that end we desire a system where the ganging is maximized to minimize the electronics channel count while maintaining adequate redundancy and granularity, as well as readout system performance.  This represents a significant interface between the electronics, photosensor and light collector designs, and will be a main focus of our development and optimization work up to the \dword{tdr}.
 
 Technical factors that affect performance of the ganging system are the characteristic capacitance of the \dword{sipm} 
 and the number of \dwords{sipm} connected together, which together dictate the signal to noise ratio and affect the system 
@@ -534,13 +536,13 @@ performance and design considerations. Selection of the ganging option will incl
 circuitry may require cold components such as an amplifier in the \lar volume. Design options with active cold components will need 
 to address issues of power dissipation and potential risks of single-point failures of multi-channel devices inside the cryostat.
 In the case of passive ganging, analog signals are transmitted outside of the cryostat for processing and digitalization. 
-Successful demonstrations of passive ganging at \lar temperatures have been made for groups of four and twelve 6x6 mm Micro-FC-60035C-SMT C series, and groups of 2, 4, 8, and 12  Hamamatsu MPPCs (S13360-6050PE) at  \num{25}$^\circ$C, - \num{70}$^\circ$C and \SI{77}{K}. Active ganging has been demonstrated for an array of 12 sensL \num{4}$\times$\num{4} arrays of \SI{3}{mm}$\times$\SI{3}{mm} sensL C-series \dwords{sipm} (48 in all) and  72 \dwords{sipm} mounted in a hybrid combination of passive and active ganging using \SI{6}{mm}$\times$\SI{6}{mm} MPPCs with a low noise operational amplifier--this design combines 12 active branches into the op-amp, where each branch has 6 MPPCs in a parallel passive-ganging configuration.
+Successful demonstrations of passive ganging at \lar temperatures have been made for groups of four and twelve 6x6 mm Micro-FC-60035C-SMT C series, and groups of 2, 4, 8, and 12  Hamamatsu MPPCs (S13360-6050PE) at  \num{25}$^\circ$C, - \num{70}$^\circ$C and \SI{77}{K}. Active ganging has been demonstrated for an array of 12 sensL \num{4}$\times$\num{4} arrays of \SI{3}{mm}$\times$\SI{3}{mm} sensL C-series \dwords{sipm} (48 in all) and  72 \dwords{sipm} mounted in a hybrid combination of passive and active ganging using \SI{6}{mm}$\times$\SI{6}{mm} MPPCs with a low noise operational amplifier--this design combines 12 active branches into the op-amp, where each branch has six MPPCs in a parallel passive-ganging configuration.
 %\fixme{9 apr18 decide which Gustavo figures to use }
 
 Typically, arrival time and total charge are the key parameters to be obtained from a detector. Extraction of these parameters 
 is possible using analog or digital systems. Charge preamplifiers will be connected to the output of the detector to integrate 
 current producing a charge proportional output. In the case of digital systems an amplifier is needed to adjust the detector output signal 
-level to the input of an Analog to Digital Converter.  In both systems, performance parameters related  to sampling rate, number of bits, 
+level to the input of an \dword{adc}.  In both systems, performance parameters related  to sampling rate, number of bits, 
 power requirements, signal to noise ratio, and interface requirements should be evaluated to arrive to selected solution.  
 Pulse shapes can be fully analyzed to improve detection of a new physics but it will have an important impact on the digitalization frequency.
 
@@ -565,41 +567,41 @@ Pulse shapes can be fully analyzed to improve detection of a new physics but it 
 
 % For the bar-style photon-detectors the solution with three \dword{sipm} ganged together, being read-out through the single readout channels has been implemented. 
 
-A dedicated photon-detector readout system, presented schematically  in Figure~\ref{fig:fig-pds-readout}(left), was developed for \dword{pdsp}, which will be operational in the second half of \num{2018}.  Twenty-four custom \dword{sipm} Signal Processor (SSP) units were produced to read out the 58 light guide and 2 ARAPUCAs photon collectors.  
-An SSP contains of twelve readout channels packaged in  a self-contained 1U module; four SSPs are shown in Figure~\ref{fig:fig-pds-readout}(right).
+A dedicated photon-detector readout system, presented schematically  in Figure~\ref{fig:fig-pds-readout}(left), was developed for \dword{pdsp}, which will be operational in the second half of \num{2018}.  Twenty-four custom \dword{sipm} Signal Processor (\dword{ssp}) units were produced to read out the 58 light guide and 2 ARAPUCAs photon collectors.  
+An \dword{ssp} contains of twelve readout channels packaged in  a self-contained 1U module; four \dwords{ssp} are shown in Figure~\ref{fig:fig-pds-readout}(right).
 
-A passive ganging scheme with three \dwords{sipm} ganged together was chosen for the light guides (4 SSP channels for each bar) and groups of twelve \dwords{sipm} are passively ganged for the two ARAPUCA modules (12 SSP channels per module).  The unamplified analog signals from the \dwords{sipm} are transmitted to outside the cryostat for processing and digitization over an approximately \SI{25}{m} cable to the SSP outside the cryostat. 
- Each channel receives the \dword{sipm} signal into a termination resistor that matches the characteristic impedance of the signal cable followed by a fully-differential voltage amplifier and a \num{14}-bit, \num{150}-MSPS analog-to-digital converter (ADC) that digitizes the \dword{sipm} signal waveforms. 
+A passive ganging scheme with three \dwords{sipm} ganged together was chosen for the light guides (4 \dword{ssp} channels for each bar) and groups of twelve \dwords{sipm} are passively ganged for the two ARAPUCA modules (12 \dword{ssp} channels per module).  The unamplified analog signals from the \dwords{sipm} are transmitted to outside the cryostat for processing and digitization over an approximately \SI{25}{m} cable to the \dword{ssp} outside the cryostat. 
+ Each channel receives the \dword{sipm} signal into a termination resistor that matches the characteristic impedance of the signal cable followed by a fully-differential voltage amplifier and a \num{14}-bit, \num{150}-MSPS \dword{adc} that digitizes the \dword{sipm} signal waveforms. 
   
-%\begin{dunefigure}[Block diagram of the \dword{pdsp} SSP module]{\dword{pd}_fig-e-3}{Block diagram of the \dword{pdsp} SSP module} 
-%\includegraphics[width=\textwidth]{pds-\dword{pdsp}-SSP-block-diagram.png}
+%\begin{dunefigure}[Block diagram of the \dword{pdsp} \dword{ssp} module]{\dword{pd}_fig-e-3}{Block diagram of the \dword{pdsp} \dword{ssp} module} 
+%\includegraphics[width=\textwidth]{pds-\dword{pdsp}-\dword{ssp}-block-diagram.png}
 %\end{dunefigure}
 
- \begin{dunefigure}[\dword{pdsp} Photon Detector readout.]
+ \begin{dunefigure}[\dword{pdsp} \dword{pd} module readout.]
  {fig:fig-pds-readout}
- {Block diagram of the \dword{pdsp} photon detector readout module (left). Photon detector readout system operational at \dword{pdsp} (right). }
+ {Block diagram of the \dword{pdsp} \dword{pd}  readout module (left). \Dword{pd}  readout system operational at \dword{pdsp} (right). }
 \includegraphics[angle=0,width=8.4cm,height=6cm]{pds-fig-e-3.png}\includegraphics[angle=0,width=8.4cm,height=6cm]{pds-protodune_readout_coldbox.jpg}
 \end{dunefigure}
 
 In the standard mode of operation, the module performs waveform capture, using either an external or internal trigger. In the latter case the 
 module self-triggers to capture only waveforms with an amplitude greater than a specified threshold. In \dword{pdsp} the photon readout 
-is configured to read waveforms when triggered by a beam event, and/or to provide header information when self-triggered by cosmic muons.
-The header portion summarizes pulse amplitude, integrated charge, and time-stamp information of events. The SSP for \dword{pdsp} uses \si{Gb} Ethernet 
+is configured to read waveforms when triggered by a beam event, or to provide header information when self-triggered by cosmic muons.
+The header portion summarizes pulse amplitude, integrated charge, and time-stamp information of events. The \dword{ssp} for \dword{pdsp} uses \si{Gb} Ethernet 
 communication implemented over an optical interface. The \SI{1}{Gb/s} Ethernet supports full TCP/IP protocol.  
 
-The module includes a separate \num{12}-bit high-voltage DAC for each channel to provide bias to each \dword{sipm}\footnote{Currently there are two DAC options: one with a voltage range of \num{0}-\SI{30}{V}, used with the sensL \dwords{sipm} (17 of the 24 SSP units); and the other with a range \num{0}-\SI{60}{V} for use with the Hamamatsu MPPCs (7 of the 24 SSP units). }. The SSP provides a trigger output signal from internal discriminators in firmware based on programmable coincidence logic, with a standard ST fiber interface to the central trigger board (CTB).
-Input signals are provided to CTB from the beam instrumentation, the SSPs, and the beam TOF system. The CTB receives timing information from 
+The module includes a separate \num{12}-bit high-voltage DAC for each channel to provide bias to each \dword{sipm}. Currently there are two DAC options: one with a voltage range of \SIrange{0}{30}{V}, used with the sensL \dwords{sipm} (\num{17} of the \num{24} \dword{ssp} units); and the other with a range \SIrange{0}{60}{V} for use with the Hamamatsu MPPCs (seven of the 24 \dword{ssp} units). The \dword{ssp} provides a trigger output signal from internal discriminators in firmware based on programmable coincidence logic, with a standard ST fiber interface to the central trigger board (CTB).
+Input signals are provided to CTB from the beam instrumentation, the \dwords{ssp}, and the beam TOF system. The CTB receives timing information from 
 the \dword{pdsp} timing system and the CTB trigger inputs are distributed to the experiment via the timing system.
-To that end, the SSP implements the timing receiver/transmitter endpoint hardware to receive trigger inputs and clock signals from the timing system.
+To that end, the \dword{ssp} implements the timing receiver/transmitter endpoint hardware to receive trigger inputs and clock signals from the timing system.
 
 
 \subsubsection{Electronics Next Steps}
 
-Although the requirements for the electronics system are not all fully established, it not expected that the system will require novel high-risk techniques and can be developed and fabricated well within the schedule for the \dword{pds}.
+Although the requirements for the electronics system are not all fully established, it not expected that the system requires novel high-risk techniques and can be developed and fabricated well within the schedule for the \dword{pds}.
 In the latter half of CY18, \dword{pdsp} test beam and cosmic-ray muon data analysis will provide evaluation of the readout system implemented in \dword{pdsp} and the \dword{pd} Photon Sensor and Simulation groups will provide essential guidance on optimization of performance and cost.
 
 As identified in Section~\ref{sec:fdsp-pd-ps}, the most important near term R\&D program will be to optimize the ganging scheme including choice of \dword{sipm} and cable types. 
-The first objective is to demonstrate that an ensemble of 48-72 Hamamatsu \SI{6}{mm}$\times$\SI{6}{mm} MPPCs can be summed into a single channel by a combination of passive and active ganging. This board will also measure the photoelectron collection efficiency when the \dwords{sipm} are coated with \dword{tpb} as a reference for ARAPUCA measurements with a similar ganging level (the summing  board is the same size as the \dword{pdsp} ARAPUCA backplane to facilitate the comparisons).
+The first objective is to demonstrate that an ensemble of \numrange{48}{72} Hamamatsu \SI{6}{mm}$\times$\SI{6}{mm} MPPCs can be summed into a single channel by a combination of passive and active ganging. This board will also measure the photoelectron collection efficiency when the \dwords{sipm} are coated with \dword{tpb} as a reference for ARAPUCA measurements with a similar ganging level (the summing  board is the same size as the \dword{pdsp} ARAPUCA backplane to facilitate the comparisons).
 Charge processing requires a charge preamplifier ideally located within the cold environment, so the design must take into consideration the failure risks and the power dissipated into the environment.
 
 The timing resolution, minimum threshold and dynamic range requirements for the system are dictated by the physics requirements. These are well known for the higher energy physics (>\SI{200}{MeV}) but, as noted elsewhere in this document, are still evolving for lower energy. Currently, 
