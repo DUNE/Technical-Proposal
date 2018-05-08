@@ -4,7 +4,7 @@
 % computing and provide a guide to the organization of the volume
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Overview of Software and Computing }
-\fixme{3 pages}
+%\fixme{3 pages}
 
 
 \section{Overview}
@@ -108,7 +108,7 @@ Tables \ref{tab:daq-data-rates-sp} and  \ref{tab:daq-data-rates-dp} summarize th
 \begin{dunetable} [Uncompressed data volumes/year for one \dword{dp} module.]
 {p{0.30\textwidth}p{0.13\textwidth}p{0.4\textwidth}}
 {tab:daq-data-rates-dp} {Anticipated annual, uncompressed data rates
-for  \dword{dp} modules. The rates for normal (non-\dword{snb} triggers)
+for  one \dword{dp} module. The rates for normal (non-\dword{snb} triggers)
 assume a readout window \SI{7.5}{\ms}.
 %The \dword{dp} module has a longer readout time but fewer channels.
 These numbers do not include lossless compression which  is expected
@@ -136,7 +136,7 @@ Supernova candidates (DP) & 0.06 & 10 seconds full readout, all ROIs are dumped 
 
 \subsubsection{
 Calibration}
-In addition to physics channels, continuous calibration of the detectors will be necessary.  It is likely that, for the far detectors, calibration samples will  dominate the data volume. Cosmic-ray muons and atmospheric neutrino interactions will provide a substantial sample for energy and position calibration.  Dedicated runs with radioactive sources and laser calibration will also generate substantial and extremely valuable samples. Table \ref{tab:daq-data-rates-sw} lists estimates for the single-phase far detector.   Cosmic ray and atmospheric neutrino signals collected for calibration make up the bulk of the uncompressed data volume at $\sim$ 10~PB/year per 17~kT module and will dominate the rates from the far detectors.  %For the near detectors, calibration samples are likely to make up a smaller fraction of the final data sample.
+In addition to physics channels, continuous calibration of the detectors will be necessary.  It is likely that, for the far detectors, calibration samples will  dominate the data volume. Cosmic-ray muons and atmospheric neutrino interactions will provide a substantial sample for energy and position calibration.  Dedicated runs with radioactive sources and laser calibration will also generate substantial and extremely valuable samples. Table \ref{tab:daq-data-rates-sp} includes estimates for the single-phase far detector.   Cosmic ray and atmospheric neutrino signals collected for calibration make up the bulk of the uncompressed \dword{sp} data volume at $\sim$ 10~PB/year per 17~kT module and will dominate the rates from the far detectors.  %For the near detectors, calibration samples are likely to make up a smaller fraction of the final data sample.
 
 
 
@@ -227,9 +227,9 @@ The data volumes discussed above are for un-zero-suppressed data.  Efficient zer
 The constrained environment at the Sanford Lab motivates a model where any further data reduction via zero-suppression is done downstream, either on the surface or after delivery to computing facilities at FNAL or elsewhere. This could be analogous to the HLT's used by LHC experiments. The relative optimization of data movement and processing location is an important consideration for the design of both the \dword{daq} and offline computing.
 
 \subsection{Summary}
-In summary, uncompressed data volumes will be dominated by calibration for the far detectors (10 PB/year/module) and by beam and cosmic ray interactions in the near detectors (2-20 PB/year).   With four \dword{fd} modules but a conservative factor of four for compression a total compressed data volume of 12-30 PB/year is anticipated. 
+In summary, uncompressed data volumes will be dominated by calibration for the far detectors ($\sim$10~PB/year/module \dword{sp} or $\sim$ 3 PB/year/module \dword{dp}) and by beam and cosmic ray interactions in the near detectors (2-20 PB/year).   With four \dword{fd} modules but a conservative factor of four for compression a total compressed data volume of 12-30~PB/year is anticipated. 
 
-After discussion with the Trigger/\dword{daq} group, we asked them to include as limits in their design a  maximum data transfer rate from the far detectors to Fermilab of \surffnalbw, which is consistent with projected network bandwidths in the mid 2020's and a limit of 30 PB/year raw data stored to tape.  
+After discussion with the \dword{sp} Trigger/\dword{daq} group, we asked them to include as limits in their design a  maximum data transfer rate from the far detectors to Fermilab of \surffnalbw, which is consistent with projected network bandwidths in the mid 2020's and a limit of 30~PB/year raw data stored to tape.  
 %Table \ref{daq:datarates} summarizes the data rates expected from the \dword{daq} section of this proposal. 
 
 
@@ -380,7 +380,7 @@ Parameter & Value \\
 
 The Dual-Phase prototype will either run in the NP02 beamline in late Fall 2018, or run at high rate on cosmics soon thereafter.
 %In this detector electrons drift vertically over the full height of the cryostat, emerge from the iquid and are collected, after having been amplified in avalanches occurring micro-pattern detectors operating in pure argon gas, on a segmented anode at the top of the cryostat. The WA105 3x1x1 $m^2$ test of this technology ran successfully in the summer of 2017\cite{Murphy:20170516}.
-Table \ref{sw:np02_data_rate} shows the originally expected data beam data rates from \dword{protodune}-DP. \dword{sp} and \dword{dp} were not expected to be running at high rates simultaneously. Given the most recent construction schedule the Dual-Phase prototype is now likely that the experiment will skip the beam data taking and focus on  detector performance assessment with cosmics only. \dword{protodune}-DP will then run with cosmics at a rate going from 20 to 100 Hz from late Fall 2018 to at least April 2019. During six months of operation, with 50\% efficiency, \dword{protodune}-DP is expected to collect about 300 millions of cosmic triggers at various rates, corresponding to a total data volume of 2.5 PB.
+Table \ref{sw:np02_data_rate} shows the originally expected data beam data rates from \dword{protodune}-DP. \dword{sp} and \dword{dp} were not expected to be running at high rates simultaneously. Given the most recent construction schedule the Dual-Phase prototype is now likely that the experiment will skip the beam data taking and focus on  detector performance assessment with cosmics only. \dword{protodune}-DP will then run with cosmics at a rate going from 20 to 100 Hz from late Fall 2018 to at least April 2019. During six months of operation, with 50\% efficiency, \dword{protodune}-DP is expected to collect about 150 million cosmic triggers at various rates, corresponding to a total data volume of 2.5 PB.
 
 
 \begin{dunetable}[DoublePhase]
@@ -402,7 +402,9 @@ Planned total statistics of beam triggers in 30 beam days &25M\\
 Planned overall storage size of beam events& 0.4 PB\\
 Cosmic rays in 30 beam days& 2.1 M\\
 Planned storage size for cosmic rays during beam period& 0.04 PB\\
-Requested overall storage envelope for \dword{protodune}-DP&0.7 PB \\
+Cosmic rays over a 6 month run& 150 M\\
+Requested beam storage envelope for \dword{protodune}-DP&0.7 PB \\
+Requested overall storage envelope for \dword{protodune}-DP&2.5 PB \\
 \end{dunetable}
 
 % 3-Day buffer depth & 300\,TB \\
