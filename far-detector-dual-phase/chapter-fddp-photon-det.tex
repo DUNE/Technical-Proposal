@@ -9,7 +9,8 @@
 \subsection{Introduction}
 \label{sec:fddp-pd-1.1}
 
-This chapter describes the \dword{pds} for the \dword{dpmod}. The \dword{pds} is used primarily as decision to acquire the event (trigger) for non-beam events, for determination of the event absolute time for beam and non-beam events, and for calorimetric measurements. It is essential to ensure that the \dual \dword{pds} is optimized for the full DUNE physics program. In particular, low-energy signals like \dword{snb} neutrinos and multi-messenger astronomy, other low-energy signals, and proton decay, will have more stringent requirements on \dword{pds} performance than the primarily higher energy, beam-synchronous, neutrino oscillation physics. The final specifications of the system will be determined in order to achieve these physics requirements. See \voltitlespfd{}, Chapter 6.
+The \dword{dp} \dword{pds} is used primarily as decision to acquire the event (trigger) for non-beam events, for determination of the event absolute time for beam and non-beam events, and for calorimetric measurements. It is essential to ensure that the \dual \dword{pds} is optimized for the full DUNE physics program. In particular, low-energy signals like \dword{snb} neutrinos and multi-messenger astronomy, other low-energy signals, and proton decay, will have more stringent requirements on \dword{pds} performance than the primarily higher energy, beam-synchronous, neutrino oscillation physics. The final specifications of the system will be determined in order to achieve these physics requirements. 
+A number of scientific and technical issues impact the \dual \dword{pds}  and \single \dword{pds}  in a similar way, and the consortia for these two systems cooperate closely.  See \voltitlespfd{}, Chapter 6 for details on the \single \dword{pds}.
 
 This %Technical Proposal
  chapter concentrates on direct projection of the \dword{pddp} design to the DUNE scale. The optimization and final design of the \dual \dword{pds} is driven by the \dword{pddp} \cite{protoDUNDP-tdr} data and simulation studies.
@@ -36,7 +37,7 @@ The baseline design of the light collection system calls for \SI{20.3}{cm} (\SI{
 
 \Dwords{pmt} provide the sharpest time information of events in the \lartpc and in the gas phase of the extraction stage. Due to necessary wavelength-shifting of photons from the argon luminescence and shadowing by the cathode plane, the efficiency of light detection is challenging and requires careful mechanical, electrical, and optical designs. The \dual \dword{pd} consortium is presently in contact with \dword{pmt} manufacturers, including 
 %
-Hamamatsu Photonics~\footnote{Hamamatsu Photonics\texttrademark{}, \url{http://www.hamamatsu.com/resources/pdf/etd/LARGE_AREA_PMT_TPMH1286E.pdf}} in Japan %~ 
+Hamamatsu Photonics~\footnote{Hamamatsu Photonics\texttrademark{}, \url{http://www.hamamatsu.com/resources/pdf/etd/LARGE_AREA_PMT_TPMH1286E.pdf}} in Japan, %~ 
 % \cite{hamamatsu}, 
 Electron Tubes Limited~\footnote{Electron Tubes Ltd\texttrademark{}, \url{http://www.electron-tubes.co.uk//}} in the USA and UK, and 
 % ~\cite{electrontubeslim}
@@ -85,10 +86,10 @@ timing resolution & few ns & to distinguish S1 from S2 component \\
 \end{dunetable}
 
 \Dwords{pmt} will be installed with the baseline density of \num{1} per \SI{1}{m^2}. The choice of the Hamamatsu R5912-MOD20 \dword{pmt} %manufactured by Hamamatsu Photonics \cite{hamamatsu-5912} 
-is assumed as baseline plan. In order to extend the \dword{pmt} light sensitivity region to the \lar light emission wavelength of \SI{127}{nm}, a wavelength shifter has to be used. Therefore, in the baseline plan, the hemispherical windows of the \dwords{pmt} are evaporated with a thin layer of \dword{tpb}~\cite{tpb} for wavelength-shifting into the range suitable for R5912 \dword{pmt} photocathode sensitivity~\cite{hamamatsu-5912}. \Dwords{pmt} have to be rigidly anchored to the bottom of the cryostat. Different \dword{pmt} densities and placements along the walls are also being considered in simulations. \dword{hv} signal cables are routed along the cryostat walls to \fdth{}s installed in the roof of the cryostat. Each \dword{pmt} is controlled individually so that its gain can be individually adjusted to match the \dword{fe} dynamic range and \dword{s/n} ratio. An average light yield of \SI{2.5}{\phel/MeV} is required based on \dword{pddp} simulations (see Section~\ref{sec:fddp-pd-6}). The precision of the light yield requirement will be established after the completion of the full DUNE simulations.
+is assumed as baseline plan. In order to extend the \dword{pmt} light sensitivity region to the \lar light emission wavelength of \SI{127}{nm}, a wavelength shifter has to be used. Therefore, in the baseline plan, the hemispherical windows of the \dwords{pmt} are evaporated with a thin layer of \dword{tpb}~\cite{tpb} for wavelength-shifting into the range suitable for R5912 \dword{pmt} photocathode sensitivity~\cite{hamamatsu-5912}. The \dwords{pmt} have to be rigidly anchored to the bottom of the cryostat. Different \dword{pmt} densities and placements along the walls are also being considered in simulations. The \dword{hv} signal cables are routed along the cryostat walls to \fdth{}s installed in the roof of the cryostat. Each \dword{pmt} is controlled individually so that its gain can be individually adjusted to match the \dword{fe} dynamic range and \dword{s/n} ratio. An average light yield of \SI{2.5}{\phel/MeV} is required based on \dword{pddp} simulations (see Section~\ref{sec:fddp-pd-6}). The precision of the light yield requirement will be established after the completion of the full DUNE simulations.
 
 The cathode plane, described in Chapter~\ref{ch:fddp-hv}, %the \dword{hv} chapter, 
- is placed at a height of about \SI{2}{m} above the bottom of the cryostat, and the \dword{pmt} plane is distant enough from the cathode plane, taking into account the high electrical rigidity of the \lar phase. In order to protect the \dwords{pmt}, the ground grid is installed and placed at an identical potential as the \dword{pmt} photocathode (\SI{0}{V}). The \dwords{pmt} are powered to about \numrange{1.5}{2.0}\si{kV} such that the \dword{pmt} gain is $\sim$\numrange{e7}{e9}. Future developments on the quantization of possible \dword{tpb} dissolution in \lar will be encouraged and followed \cite{TPBdiss}.
+ is placed at a height of about \SI{2}{m} above the bottom of the cryostat, and the \dword{pmt} plane is distant enough from the cathode plane, taking into account the high electrical rigidity of the \lar phase. In order to protect the \dwords{pmt}, the ground grid is installed and placed at an identical potential as the \dword{pmt} photocathode (\SI{0}{V}). The \dwords{pmt} are powered to values between \numrange{1.5}{2.0}\si{kV} such that the \dword{pmt} gain is $\sim$\numrange{e7}{e9}. Future developments on the quantification of possible \dword{tpb} dissolution in \lar will be encouraged and followed \cite{TPBdiss}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Detector Layout}
@@ -101,9 +102,9 @@ The \dword{pmt} plane is placed far enough below the cathode plane to be suffici
 \includegraphics[width=0.95\textwidth]{dppd_3_1}
 \end{dunefigure}
 
-Since few light sensors are directly sensitive to \SI{127}{nm}, a wavelength shifter is required. \dword{tpb} coating directly on the \dword{pmt} is the default plan. Light collectors to increase the photons detected are under study. A single cable per \dword{pmt} carries power and signal, and splitters are placed out of the cryostat. A photon calibration system will be formed by external light sources and internal optical fibers.  
+Since few light sensors are directly sensitive to \SI{127}{nm}, a wavelength shifter is required. A \dword{tpb} coating directly on the \dword{pmt} is the default plan. Light collectors to increase the photons detected are under study. A single cable per \dword{pmt} carries power and signal, and splitters are placed out of the cryostat. A photon calibration system will be formed by external light sources and internal optical fibers.  
 
-The cable trays from the side walls of the cryostat to the \dwords{pmt} carry the cables and calibration fibers. The cables and fibers are routed from the \fdth flanges at the top of the cryostat and  combined at the side wall trays. These side trays carry the \dword{hv}/signal cables in blocks of \num{24} \dwords{pmt} and four calibration fibers. Therefore, each block of \num{24} \dwords{pmt} in a \num{6}$\times$\SI{4}{m^2} area forms a sector of underground installation, totaling \num{30} sectors.
+The cable trays from the side walls of the cryostat to the \dwords{pmt} carry the cables and calibration fibers. The cables and fibers are routed from the \fdth flanges at the top of the cryostat and  combined at the side wall trays. These side trays carry the \dword{hv}/signal cables in blocks of \num{24} \dwords{pmt} and four calibration fibers. Therefore, each block of \num{24} \dwords{pmt} in a \num{6}$\times$\SI{4}{m^2} area forms a sector of underground installation, with a total of \num{30} sectors.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Operation Principles}
@@ -179,13 +180,13 @@ prototype, %for the \dword{pmt} \dword{hv} system, the A7030 power supply module
 the A7030 power supply modules from CAEN~\footnote{CAEN\texttrademark{}, \url{http://www.caen.it/csite/CaenFlyer.jsp?parent=222}} 
 %\cite{caen-a7030} 
 will form the baseline design of the \dword{pmt} \dword{hv} system. 
-These modules provide up to \SI{3}{kV} with a maximal output current of \SI{1}{mA} and a common floating ground to minimize the noise. Module versions with \num{12}, \num{24}, \num{36}, or \num{48} \dword{hv} channels are available. The \dword{hv} polarity can be chosen for each module. According to the baseline \dword{pmt} powering scheme, modules with positive \dword{hv} polarity will be acquired for the experiment. Modules with \num{48} \dword{hv} channels and Radiall \num{52} connectors are %considered. 
+These modules provide up to \SI{3}{kV} with a maximal output current of \SI{1}{mA} and a common floating ground to minimize the noise. Module versions with \num{12}, \num{24}, \num{36}, or \num{48} \dword{hv} channels are available. The \dword{hv} polarity can be chosen for each module. According to the baseline \dword{pmt} powering scheme, modules with positive \dword{hv} polarity will be acquired for the experiment. Modules with \num{48} \dword{hv} channels and Radiall \num{52}\footnote{Radiall\texttrademark{}, \url{https://www.radiall.com/}.}  connectors are %considered. 
 under consideration. The corresponding \dword{hv} cable will connect the modules with the \dword{hv} splitters, described in Section \ref{sec:fddp-pd-4.2}. This choice will allow the design of a compact and most cost-effective system occupying only %between 
 \num{1} to \num{2} racks. % only. 
 For \dpnumpmtch \dwords{pmt}, \num{15} A7030 modules (+ \num{2} spares) will be needed. These \num{15} \dword{hv} modules will be installed in mainframes from CAEN.
 
 Each \dword{pmt} is powered individually thus allowing the gain of all \dwords{pmt} to be equalized by adjusting the operating voltage. %A control software for this task will be provided taking into account the development of an interface to the \dword{pmt} calibration system (Section~\ref{sec:fddp-pd-5}) which will provide the calibration factors needed for the gain equalization.
-This will be sofware-controlled. The software will need to interface to the \dword{pmt} calibration system (Section~\ref{sec:fddp-pd-5}) in order to extract the calibration factors needed for the gain equalization.
+This will be sofware-controlled. The software must interface to the \dword{pmt} calibration system (Section~\ref{sec:fddp-pd-5}) in order to extract the calibration factors needed for the gain equalization.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Wavelength Shifters}
@@ -268,7 +269,7 @@ The \dword{pddp} \dword{pmt} power supply has a grounded cathode and positive \d
 \end{dunefigure}
 
 %The \dword{pmt} base circuit will be based only on resistors and capacitors as semiconductors do not work well in cryogenic temperatures. Nevertheless, the components will be carefully selected and tested to minimize the variations in their characteristics with temperature. The polarization current of the voltage divider (total circuit resistance) will be chosen to meet the \dword{pmt} light linearity range and maximum power requirements. The dynodes voltage ratio will follow the manufacturer recommendations for increased linearity range on the space-charge effect area (tapered divider). In addition, capacitors will be added to the last stages to increase the \dword{pmt} linearity in pulsed mode. The precise values for the components have not been decided yet as they depend on concrete requirements and also on the results from \dword{pddp}. The \dword{pddp} base design is considered as the baseline solution.
-The \dword{pmt} base circuit uses only resistors and capacitors, as semiconductors do not work well in cryogenic temperatures. The components are carefully selected and tested to minimize the variations in their characteristics with temperature. The polarization current of the voltage divider (total circuit resistance) is chosen to meet the \dword{pmt} light linearity range and maximum power requirements. The dynodes' voltage ratio will follow the manufacturer recommendations for increased linearity range on the space-charge effect area (tapered divider). In addition, capacitors are added to the last stages to increase the \dword{pmt} linearity in pulsed mode. The precise values for the components have not been decided yet, as they depend on concrete requirements and also on the results from \dword{pddp}. The \dword{pddp} %base 
+The \dword{pmt} base circuit uses only resistors and capacitors. The components are carefully selected and tested to minimize the variations in their characteristics with temperature. The polarization current of the voltage divider (total circuit resistance) is chosen to meet the \dword{pmt} light linearity range and maximum power requirements. The dynodes' voltage ratio will follow the manufacturer recommendations for increased linearity range on the space-charge effect area (tapered divider). In addition, capacitors are added to the last stages to increase the \dword{pmt} linearity in pulsed mode. The precise values for the components have not been decided yet, as they depend on concrete requirements and also on the results from \dword{pddp}. The \dword{pddp} %base 
 design is considered as the baseline solution.
 
 For the connection between the \dword{pmt} base and the \fdth, the RG-303/U cable was selected for its low attenuation and its proven reliability in cryogenic environments. %On one side, t
@@ -430,7 +431,7 @@ Finally, the electroluminescence gain $G$, defined as the number of S2 photons p
 
 To understand the performance of the \dword{pds}, it is important to take into account the following indicators:
 \begin{itemize}
-\item Overall detected light yield, in \phel{}s per /si{MeV} of deposited energy in \lar{};
+\item Overall detected light yield, in \phel{}s per \si{MeV} of deposited energy in \lar{};
 \item Uniformity of the light yield across the entire \lartpc active volume;
 \item Event time resolution extracted from the detected photon signal. 
 \end{itemize}
@@ -450,7 +451,7 @@ At zero drift field, when the electron recombination is maximum, roughly \SI{400
 \subsubsection{Generation of light maps}
 \label{subsec:fddp-pd-6.1.1}
 
-In this method, the photons are propagated in a full dedicated \dword{geant4} simulation only once. The main light characteristics needed for light studies (photon detection probability, called \textit{visibility} hereafter, and time profile) are stored in a map in a ROOT \cite{root} file format which can then be read by any other simulation program. This work was done first using LightSim, a dedicated software developed at LAPP. These maps have been adapted to be readable by \larsoft, where light maps are known as \textit{photon libraries}. Work to generate them directly in \larsoft is in progress, in particular for S2 light, which has not yet been simulated for \dual technology.
+In this method, the photons are propagated in a full dedicated \dword{geant4} simulation only once. The main light characteristics needed for light studies (photon detection probability, called \textit{visibility} hereafter, and time profile) are stored in a map in a ROOT \cite{root} file format which can then be read by any other simulation program. This work was done first using LightSim, a dedicated software developed at LAPP, France. These maps have been adapted to be readable by \larsoft, where light maps are known as \textit{photon libraries}. Work to generate them directly in \larsoft is in progress, in particular for S2 light, which has not yet been simulated for \dual technology.
 
 In the dedicated \dword{geant4}  code, special care has been taken to precisely describe all subdetector components that might affect the light propagation: \dword{lem} plates, extraction grid, \dword{fc} rings, the cathode and its supporting structure, and the ground grid above the \dwords{pmt}. The \lar fiducial volume is then divided into voxels of \SI{25}{cm^3} and \num{e8} photons are isotropically generated at the center of each voxel. The number of photons reaching each \dword{pmt}, and their arrival times are stored. The light map can then be built from these results. For each voxel and for each \dword{pmt}, the visibility is computed as: $w=N\gamma^{\textrm{collected}}/N\gamma^{\textrm{generated}}$. In order to be able to reproduce the time profile, each distribution is fit to a Landau function. From the fits, three parameters are extracted: the minimum time for photons to arrive to the \dword{pmt}, $t_0$; the peak of the distribution, $t_{\textrm{peak}}$ from the Landau most probable value (MPV); and the distribution spread, the $\sigma$ of the Landau function. These three parameters are stored in the light maps for each \dword{pd}. The same procedure is done for the gaseous phase, although the voxel size is smaller in height (only \SI{5}{mm}). In Figure~\ref{fig:dppd_6_1_1_ab}, two fitted time distributions are presented. As is visible, the shapes of the time distributions depend strongly on the source-to-\dword{pmt} distance. For close sources, the distributions are very sharp and the Landau description may not be the optimal function to use. On the other hand, for longer distances, the distribution is broader and the Landau fit reproduces the simulations quite well. %In order to minimize the amount of parameters to be stored in the map, the Landau descriptions for all cases were kept as only a small fraction of the fits could be considered problematic.
 For practical purposes, the Landau parametrization was used for all cases.
@@ -470,8 +471,8 @@ Table~\ref{tab:dppd_t_6_0} presents the light propagation parameters used during
 After generation, it is possible to study the loss of photons due to absorption using an approximation of the probability that the medium absorbs the photon %to be absorbed by the medium 
 as: $p_{\textrm{abs}} = \exp(-\frac{D_{\textrm{travel}}}{\lambda_{\textrm{abs}}})$. For the study of other light propagation parameters (Rayleigh scattering and absorption on the stainless-steel and copper) new maps have to be generated.
 
-The light maps generation takes roughly three days of computing time to generate the maps for \dword{pddp}, even though only %1/8$^{th}$ 
-an eighth of the voxels were simulated, since the detector and the \dword{pmt} positioning are symmetric. Generating maps for larger volumes such as the \dword{dpmod}, where the maximum source-to-\dword{pmt} distance is around \SI{60}{m}, could be too time-consuming. Moreover, the light simulation for the \dword{dpmod} is foreseen to drive the optimization of the positioning of the \dwords{pmt} and will guide the studies of possible implementation of light reflectors. As most of the light propagation parameters in \lar are still subject to large uncertainties, these studies will have to %be performed 
+It takes roughly three days of computing to generate the light maps for \dword{pddp}, even though only %1/8$^{th}$ 
+an eighth of the voxels need to be simulated, since the detector and the \dword{pmt} positioning are symmetric. Generating maps for larger volumes such as the \dword{dpmod}, where the maximum source-to-\dword{pmt} distance is around \SI{60}{m}, could be too time-consuming. Moreover, the light simulation for the \dword{dpmod} is foreseen to drive the optimization of the positioning of the \dwords{pmt} and will guide the studies of possible implementation of light reflectors. As most of the light propagation parameters in \lar are still subject to large uncertainties, these studies will have to %be performed 
 consider various absorption and diffusion values. Therefore, it is crucial to find %be able to have 
 a faster way to %get a quite reliable light simulation, 
 simulate the light reliably, even at the cost of losing some precision.
@@ -660,7 +661,7 @@ They are shipped in boxes of \num{24}, for a total of \num{30} deliveries.
 The \dwords{pmt} are individually wrapped with special wrapping materials. 
 
 The \dwords{pmt} are placed in modular shock-absorbing assemblies inside the boxes. %The assemblies will also allow a limited amount of safe inclination. 
-The boxes have integrated pellets for easy handling and short distance transportation, and a limited amount of safe inclination for the assemblies is allowed. The \dwords{pmt} will reach the \dword{itf} by means of air and ground transportation. Each box has a dedicated bar-code which visible on each side. This bar-code is also associated with the shipping documents. 
+The boxes have integrated pallets for easy handling and short distance transportation, and a limited amount of safe inclination for the assemblies is allowed. The \dwords{pmt} will reach the \dword{itf} by means of air and ground transportation. Each box has a dedicated bar-code which visible on each side. This bar-code is also associated with the shipping documents. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Integration and Testing Facility Operations}
@@ -789,7 +790,7 @@ The \dual \dword{pd} consortium is divided into four working groups: photosensor
 
 \end{itemize}
 
-The \dual \dword{pd} consortium holds regular bi-weekly meetings on Thursdays (4pm CET, 9am CST). Agendas and presentations can be found at: \url{https://indico.fnal.gov/category/699/}.
+%The \dual \dword{pd} consortium holds regular bi-weekly meetings on Thursdays (4pm CET, 9am CST). Agendas and presentations can be found at: \url{https://indico.fnal.gov/category/699/}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Planning Assumptions}
@@ -837,71 +838,58 @@ The \dual \dword{pd} consortium has developed a detailed breakdown of deliverabl
 \subsection{High-Level Cost and Schedule}
 \label{sec:fddp-pd-12.4}
 
-The cost of the baseline \dual  \dword{pds} will be defined in a separated document.
+The cost of the baseline \dual  \dword{pds} will be defined in a separate document. \fixme{need a ref to it?}
 
-The main activities to be developed by the \dual \dword{pd} consortium during the next \num{16} months are focused to complete the \dword{tdr} of the \dual \dword{pds}. The main high-level milestones are detailed in Table~\ref{tab:dppd_t_12_4}
+The \dual \dword{pds} consortium's main activities during the next \num{16} months are focused on developing the \dword{tdr}. The main high-level milestones are detailed in Table~\ref{tab:dppd_t_12_5} for this period. The plan for the activities in the post-\dword{tdr} period is summarized in Table~\ref{tab:dppd_t_12_6}.
 
-% Anne added newstyle table along with updates to dune.cls that are required to go with it
-\begin{table}[htpb] \label{tab:dppd_t_12_4}
-\scriptsize
-\begin{center}
-\caption{\dual \dword{pd} schedule of activities and milestones.}
-\begin{tabular}{|l|c|c|c|c|c|c|}
-\hline
-\rowtitlestyle &  \multicolumn{4}{c|}{2018} & \multicolumn{2}{|c|}{2019} \\ % \hline
-\rowtitlestyle {\bf Simulation \& Physics} & Q1 & Q2 & Q3 & Q4 & Q1 & Q2\\
-\hline
+\begin{dunetable}
+[Pre-\dword{tdr} Key Milestones]
+{|l|l| p{0.8\textwidth}}
+{tab:dppd_t_12_5}
+{Pre-\dword{tdr} Key Milestones}
 
-Understanding the DUNE physics requirements affecting the \dual \dword{pd} system & & \cellcolor{gray} & & & & \\ \hline
-Finalize the implementation of \dual optical simulation in \larsoft for \dword{pddp} & &  \cellcolor{gray} & & & & \\ \hline
-Propose a solution for a full \dword{dpmod} optical simulation in \larsoft & & &  \cellcolor{gray} & & & \\ \hline
-Include electronics response simulation & & &  \cellcolor{gray} & & & \\ \hline
-Study the physics reach with the current \dual \dword{pd} performance and identify possible issues & & & &  \cellcolor{gray} & & \\ \hline
-Tuning light simulation using \dword{pddp} light data & & & & &  \cellcolor{gray} & \\ \hline
-Optimization of the \dual \dword{pd} performance to fulfil the physics requirements & & & & & &  \cellcolor{gray} \\ \hline
-Definition of a trigger strategy & & & & & &  \cellcolor{gray} \\ \hline
-\rowcolor{dunetablecolor}  \multicolumn{7}{|l|}{\bf Photosensors} \\
-\hline
-Review \dword{pmt} specifications \& readout electronics based on \dword{pddp} design & &  \cellcolor{gray} & & & & \\ \hline
-Characterization \& certification plans \& test facility design & & &  \cellcolor{gray} & & & \\ \hline
-Validation of \dwords{pmt} \& readout electronics performance with \dword{pddp} data & & & & &  \cellcolor{gray} & \\ \hline
-Selection of \dword{pmt} \& wavelength-shifting & & & & &  \cellcolor{gray} & \\ \hline
-Final design of voltage divider and \dword{hv}/signal splitters & & & & &  \cellcolor{gray} & \\ \hline
-Final definition of readout electronics requirements & & & & &  \cellcolor{gray} & \\ \hline
-\rowcolor{dunetablecolor} \multicolumn{7}{|l|}{\bf \dword{pmt} calibration system} \\ \hline
-Initial design of the system for Technical Proposal & &  \cellcolor{gray} & & & & \\ \hline
-Definition of calibration requirements & & &  \cellcolor{gray} & & & \\ \hline
-Review the proposed design in light of \dword{pddp} calibration data & & & &  \cellcolor{gray} & & \\ \hline
-Selection of components, production and testing plan & & & &  \cellcolor{gray} & & \\ \hline
-\rowcolor{dunetablecolor} \multicolumn{7}{|l|}{\bf Mechanics} \\ \hline
-Design of \dword{pmt} mechanical support \& production plans & &  \cellcolor{gray} & & & & \\ \hline
-\dword{pmt} layout definition & & &  \cellcolor{gray} & & & \\ \hline
-Review the proposed design in light of \dword{pddp} operation & & & & &  \cellcolor{gray} & \\ \hline
-Definition of the mechanical integration with cryostat & & & & & &  \cellcolor{gray} \\ \hline
-\rowcolor{dunetablecolor} \multicolumn{7}{|l|}{\bf Cabling and flanges} \\ \hline
-Definition of warm and cold cables & &  \cellcolor{gray} & & & & \\ \hline
-Routing plan & & & & &  \cellcolor{gray} & \\ \hline
-Flanges design & & & & &  \cellcolor{gray} & \\ \hline
-\rowcolor{dunetablecolor} \multicolumn{7}{|l|}{\bf Quality Control} \\ \hline
-QC plan and database definition & &  \cellcolor{gray} & & & & \\ \hline
-\rowcolor{dunetablecolor} \multicolumn{7}{|l|}{\bf Interfaces} \\ \hline
-Identification of hardware interfaces &  \cellcolor{gray} & & & & & \\ \hline
-Identification of software interfaces & &  \cellcolor{gray} & & & & \\ \hline
-\rowcolor{dunetablecolor} \multicolumn{7}{|l|}{\bf Integration, installation and commissioning} \\ \hline
-Transportation plan & &  \cellcolor{gray} & & & & \\ \hline
-Safety requirements & & &  \cellcolor{gray} & & & \\ \hline
-Integration facility design and definition of tests & & &  \cellcolor{gray} & & & \\ \hline
-Underground installation plan & & & &  \cellcolor{gray} & & \\ \hline
-Detector operation definitions and commissioning plan  & & & &  \cellcolor{gray} & & \\ \hline
-\rowcolor{dunetablecolor} \multicolumn{7}{|l|}{\bf Management \& Organization} \\ \hline
-Definition of milestones \& activities &  \cellcolor{gray} & & & & & \\ \hline
-Initial schedule \& risks evaluation & &  \cellcolor{gray} & & & & \\ \hline
-\dual \dword{pd} Technical proposal & &  \cellcolor{gray} & & & & \\ \hline
-Initial WBS \& high-level cost estimations & &  \cellcolor{gray} & & & & \\ \hline
-Identification of risks & & & & &  \cellcolor{gray} & \\ \hline
-\dual \dword{pd} Technical Design Report & & & & & &  \cellcolor{gray} \\ \hline
-WBS and institutional responsibilities \& cost & & & & & &  \cellcolor{gray} \\ \hline
-\end{tabular}
-\label{tab:schedule}
-\end{center}
-\end{table}
+Milestone & End date \\ \toprowrule
+Simulations and physics: %Finalize the 
+Implementation of \dual optical & \\
+simulation in \larsoft for \dword{pddp} & 08/2018 \\ \colhline
+Simulations and physics: Optimization of the & \\
+\dword{dpmod} performance to fulfill the physics requirements and & \\
+definition of a trigger strategy & 05/2019 \\ \colhline
+Photosensors: Components selection and final design & 03/2019 \\ \colhline
+\dword{pmt} calibration system design and selection of components & 03/2019 \\ \colhline
+Cabling definition and design of flange & 03/2019 \\ \colhline
+Design review in light of \dword{pddp} calibration data & 03/2019 \\ \colhline
+\dword{qc} plan & 06/2018 \\ \colhline
+Identification of Interfaces & 06/2018 \\ \colhline
+Integration, installation and commissioning plans & 12/2018 \\ \colhline
+\dword{dpmod} \dword{tdr} & 06/2019 \\ 
+\end{dunetable}
+
+\begin{dunetable}
+[Post-\dword{tdr} Key Milestones]
+{|l|l|l| p{0.8\textwidth}}
+{tab:dppd_t_12_6}
+{Post-\dword{tdr} Key Milestones}
+
+Milestone & Start date & End date \\ \toprowrule
+\textbf{\dword{pmt} preparation and installation} (can be done in batches) & & \\ \colhline
+\dword{pmt} procurement procedure and production & 01/2021 & 12/2022 \\ \colhline
+\dword{pmt} base design and manufacturing & 01/2022 & 12/2022 \\ \colhline
+\dword{pmt} support structure production and assembly & 08/2022 & 01/2023 \\ \colhline
+\dword{pmt} characterization - \num{10} \dwords{pmt}/week (two facilities) & 02/2023 & 12/2023 \\ \colhline
+\dword{tpb} coating (two facilities similar to that for CERN ICARUS) & 01/2024 & 12/2024 \\ \colhline
+Splitter production and tests & 05/2024 & 12/2024 \\ \colhline
+\textbf{Installation at \surf} & & \\ \colhline
+\dword{pmt} cable and fiber routing in cryostat from flange to bottom & & \\
+                  (depends on \dword{fc} and flange installation) & 9/2024 & 9/2024 \\ \colhline
+\dword{pmt} testing, installation in cryostat and cabling (\num{72} \dwords{pmt}/month) & 10/2024 & 07/2025 \\ \colhline
+\dword{pmt} support installation on the membrane & & \\
+                  (in parallel by sector with \dword{pmt} installation) & 10/2024 & 07/2025 \\ \colhline
+Splitter installation & & \\
+                  (in parallel with \dword{pmt} installation to test cabling and connections) & 10/2024 & 07/2025 \\ \colhline
+\textbf{Light calibration system} & & \\ \colhline
+Fibers, light source tests and procurement & 06/2023 & 05/2024 \\ \colhline
+Fiber calibration system installation & & \\
+                  (in parallel with \dword{pmt} installation with validation test) & 9/2024 & 07/2025 \\ 
+\end{dunetable}
+
