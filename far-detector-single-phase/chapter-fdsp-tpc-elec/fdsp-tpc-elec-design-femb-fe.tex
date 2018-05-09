@@ -1,25 +1,25 @@
-\dword{larasic} receives signals from the CR board and
+The \dword{larasic} receives signals from the CR board and
 provides a means to amplify and shape the current signals originally coming from the TPC wires; the
 shaping serves as an anti-aliasing filter for the TPC signals.
 Each \dword{larasic} channel has a charge amplifier circuit with a programmable
-gain selectable from one of \num{4.7}, \num{7.8}, \num{14} and 25~mV/fC
-(full scale charge of \num{300}, \num{180}, \num{100} and 55~fC),
+gain selectable from one of \num{4.7}, \num{7.8}, \num{14} or \SI{25}{mV/fC}
+(corresponding to full-scale charge of \num{300}, \num{180}, \num{100} and \SI{55}{fC}),
 a high-order anti-aliasing filter with programmable time
 constant (semi-Gaussian with peaking time \num{0.5}, \num{1}, \num{2}, and \SI{3}{\micro\second}),
 an option to enable AC coupling,
-and a baseline adjustment for operation with either the collecting (\SI{200}{mV}) or the non-collecting (\SI{900}{mV}) wires.
+and a baseline adjustment for operation with either the collecting (\SI{200}{mV} nominal) or the non-collecting (\SI{900}{mV} nominal) wires.
 
 Figure~\ref{fig:fe-output} (left) shows the simulated pulse response for all gains and peaking times and both baselines.
-Note that the gain is independent of the peaking time, such that the same amount of charge produces the same peak voltage signal regardless of the peaking time.  
+Note that the gain is independent of the peaking time;  the same amount of charge produces the same peak voltage signal regardless of the peaking time.  
 
-Shared among the 16 channels in the \dword{larasic} are the bias circuits, programming registers,
+Shared among the \num{16} channels in the \dword{larasic} are the bias circuits, programming registers,
 a temperature monitor, an analog buffer for signal monitoring, and the digital interface.
-The power dissipation of \dword{larasic} is about \SI{6}{mW} per channel at \SI{1.8}{V} supply.
+The power dissipation of \dword{larasic} is about \SI{6}{mW} per channel at \SI{1.8}{V} supply voltage.
 
-\dword{larasic} is implemented using the TSMC \SI{180}{nm} \dword{cmos} process.  The charge sensitive amplifier uses a very large P-channel Field Effect Transistor (P\dword{fe}T) with a width of \SI{20}{mm} and a length of 270~nm followed by a dual cascode stage, a pulse shaping network, and a baseline restoration circuit.  
+The \dword{larasic} is implemented using the TSMC \SI{180}{nm} \dword{cmos} process.\footnote{TSMC 0.18-micron Technology\texttrademark{}, Taiwan Semiconductor Manufacturing Company Ltd., \url{http://www.tsmc.com/english/dedicatedFoundry/technology/0.18um.htm}.}  The charge sensitive amplifier uses a very large p-channel field effect transistor (PFET) with a width of \SI{20}{mm} and a length of \SI{270}{nm} followed by a dual cascode stage, a pulse shaping network, and a baseline restoration circuit.  
 
-Each channel also implements a high-performance output driver,
-which can be used to drive a long cable, but is disabled when interfaced to an \dword{adc} \dword{asic} to reduce the power consumption.
+Each channel also implements a high-performance output driver 
+that can be used to drive a long cable, but which is disabled when interfaced to an \dword{adc} \dword{asic} to reduce the power consumption.
 The \dword{asic} integrates a band-gap reference (BGR) to generate all the internal bias voltages and currents.
 This guarantees a high stability of the operating point over a wide range of
 temperatures, including cryogenic temperatures.
@@ -43,7 +43,7 @@ stability of the peaking time demonstrate the high stability of the
 passive components as a function of temperature. Channel-to-channel and chip-to-chip
 variation in the calibration capacitor are typically less than \num{1}\%. 
 
-Prototype \dword{larasic} have been evaluated and characterized at room temperature (\SI{300}{K}) and LN$_2$
+Prototype \dwords{larasic} have been evaluated and characterized at room temperature and LN 
 (\SI{77}{K}) temperature.
 During testing the circuits have been cycled multiple times
 between the two temperatures and operated without any change in performance.
