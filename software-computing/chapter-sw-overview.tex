@@ -95,12 +95,12 @@ Tables \ref{tab:daq-data-rates-sp} and  \ref{tab:daq-data-rates-dp} summarize th
     %and as much as $10\times$ for the \dword{dp} module.}   
   Event Type  & Data Volume \si{\PB/year} & Assumptions \\ \toprowrule
   Beam interactions & 0.03 & 800 beam and 800 rock muons; \SI{10}{\MeV} threshold in coincidence with beam time; include cosmics\\ \colhline
-  Cosmics and atmospherics & 10 &  \SI{10}{\MeV} threshold\\ \colhline
+  Supernova candidates & 0.5 & 30 seconds full readout, average once per month \\ \colhline
+ Cosmics and atmospherics & 10 &  \SI{10}{\MeV} threshold\\ \colhline
   Radiologicals  ($^{39}Ar$ snd others.& $\le$1 & fake rate of $\le$100 per year\\ \colhline
  Front-end calibration & 0.2 & Four calibration runs per year, 100 measurements per point \\ \colhline
  Radioactive source calibration & 0.1 & source rate $\le$10~Hz; single fragment readout; lossless readout \\ \colhline
  Laser calibration & 0.2 & 1$\times$10$^6$ total laser pulses, lossy readout \\ \colhline
- Supernova candidates & 0.5 & 30 seconds full readout, average once per month \\ \colhline
  Random triggers & 0.06 & 45 per day\\ \colhline
  Trigger primitives & $\le$6 &  all three wire planes; 12 bits per primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
 \end{dunetable}
@@ -112,24 +112,26 @@ for  one \dword{dp} module. The rates for normal (non-\dword{snb} triggers)
 assume a readout window \SI{7.5}{\ms}.
 %The \dword{dp} module has a longer readout time but fewer channels.
 These numbers do not include lossless compression which  is expected
-to provide as much as a  $10\times$ reduction in data volume.}
+to provide as much as a  $10\times$ reduction in data volume. }
 Event Type & Data Volume \si{\PB/year} & Assumptions \\ \toprowrule
 %Beam interactions (SP) & 0.03 & 800 beam and 800 rock muons; \SI{10}{\MeV} threshold in coincidence with beam time; include cosmics\\
 Beam interactions (DP) & 0.007 & 800 beam and 800 rock muons; this becomes 700 GB/year if just 2 ROIs/event are dumped on disk \\
 \colhline
 %Cosmics/atmospherics (SP)& 10 & \SI{10}{\MeV} threshold\\
+Supernova candidates (DP) & 0.06 & 10 seconds full readout, all ROIs are dumped on disk \\
+\colhline
 Cosmics/atmospherics (DP)& 2.33 & This becomes 230 TB/year if two ROIs/event are dumped on disk \\
 \colhline
 %Supernova candidates (SP) & 0.5 & 30 seconds full readout, average once per month \\
-Supernova candidates (DP) & 0.06 & 10 seconds full readout, all ROIs are dumped on disk \\
-\colhline
-%Radiologicals ($^{39}Ar$ snd other).& $\le$1 & fake rate of $\le$100 per year\\ \colhline
-%ront-end calibration & 0.2 & Four calibration runs per year, 100 measurements per point \\ \colhline
-%Radioactive source calibration & 0.1 & source rate $\le$10~Hz; single fragment readout; lossless readout \\ \colhline
-%Laser calibration & 0.2 & 1$\times$10$^6$ total laser pulses, lossy readout \\ \colhline
+%Supernova candidates (DP) & 0.06 & 10 seconds full readout, all ROIs are dumped on disk \\
 %\colhline
-%Random triggers & 0.06 & 45 per day\\ \colhline
-%Trigger primitives & $\le$6 & all three wire planes; 12 bits per primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
+Radiologicals ($^{39}Ar$ snd other).& $\le$1 & fake rate of $\le$100 per year\\ \colhline
+%Front-end calibration & 0.1 & Four calibration runs per year, 100 measurements per point \\ \colhline 
+%Laser calibration & 0.1 & 1$\times$10$^6$ total laser pulses, lossy readout \\ \colhline
+%\colhline
+Miscellaneous calibrations& 0.5 & similar to SP\\ \colhline
+Random triggers & 0.02 & 45 per day\\ \colhline
+Trigger primitives & $\le$6 &  similar to SP \\ \colhline
 \end{dunetable}
 
 \subsubsection{Processes not in synchronization with the beam spill} These include supernova physics, atmospheric neutrinos, proton decay, neutron conversion and solar neutrinos.  These processes are generally at lower energy, making triggering more difficult, and asynchronous, thus requiring an internal or external trigger.  In particular, supernovae signals will consist of a large number of low-energy interactions spread throughout the far detector volume over a time period of 1-30 seconds. Buffering and storing 10 seconds of data would require around 2000 readout windows, or around 50~TB per supernova readout.  At a rate of one such event/month, this is 600~TB of uncompressed data per module/year.
@@ -392,19 +394,19 @@ Parameter & Value \\
 Trigger rate & 100\,Hz \\
 Spill duration & 4.5\,s\\
 SPS Cycle & 22.5\,s \\
-Single readout size (per trigger) & 159\,MB \\
+Single readout size (per trigger) & 80\,MB \\
 Lossless compression factor & 10\\
-Instantaneous data rate (in-spill) & 1590\,MB/s \\
-Average data rate & 305\,MB/s \\
+Instantaneous data rate (in-spill) & 800\,MB/s \\
+Average data rate & 160\,MB/s \\
 \hline
-Average off-spill cosmic data flow to offline data storage & 12.4 MB/s\\
+Average off-spill cosmic data flow to offline data storage & 6.4 MB/s\\
 Planned total statistics of beam triggers in 30 beam days &25M\\
-Planned overall storage size of beam events& 0.4 PB\\
+Planned overall storage size of beam events& 0.2 PB\\
 Cosmic rays in 30 beam days& 2.1 M\\
-Planned storage size for cosmic rays during beam period& 0.04 PB\\
-Cosmic rays over a 6 month run& 150 M\\
-Requested beam storage envelope for \dword{protodune}-DP&0.7 PB \\
-Requested overall storage envelope for \dword{protodune}-DP&2.5 PB \\
+Planned storage size for cosmic rays during beam period& 0.02 PB\\
+Cosmic rays over a 6 month run& 300 M\\
+Requested beam storage envelope for \dword{protodune}-DP&0.2 PB \\
+Requested cosmic storage envelope for \dword{protodune}-DP&2.4 PB \\
 \end{dunetable}
 
 % 3-Day buffer depth & 300\,TB \\
