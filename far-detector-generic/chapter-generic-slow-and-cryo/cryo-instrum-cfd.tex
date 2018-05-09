@@ -15,8 +15,8 @@ As mentioned in the Introduction, cryogenics instrumentation requires simulation
 for the coherent analysis of the instrumentation data. 
 
 Figure~\ref{fig:sp-slow-cryo-ports} shows the current map of cryostat ports for the \dword{spmod}, highlighting the ones assigned to instrumentation devices,
-as well as the preliminary location for some of these devices. Vertical temperature profilers will be located behind the \dwords{apa} ($T_S$) and behind the east end wall ($T_D$).
-They will be complemented by a coarser \twod grid of sensors at the top and bottom of the cryostat (not shown in the figure). Purity monitors as well as level meters are planned
+as well as the preliminary location for some of these devices. Vertical temperature profilers are located behind the \dwords{apa} ($T_S$) and behind the east end wall ($T_D$).
+They are complemented by a coarser \twod grid of sensors at the top and bottom of the cryostat (not shown in the figure). Purity monitors as well as level meters are planned
 in each detector side, behind the two front end walls. Inspection cameras will use some of the multipurpose instrumentation ports, but their exact locations are yet to be decided. 
 
 \begin{dunefigure}[Cryostat ports]{fig:sp-slow-cryo-ports}
@@ -78,8 +78,8 @@ The initial strategy for the future \dword{cfd} simulation effort is to understa
 The following is a prioritized set of studies planned to help drive the requirements for other systems:
 \begin{enumerate}
 \item Review the DUNE \dword{fd} cryogenics system design and verify the current implementation in simulation; this is important to ensure that the model represents what will be built.
-\item Model the \dword{pddp}  liquid and gas regions with the same precision as the \dword{fd}; presently only liquid model exists; the liquid model will be needed to interpret the thermometer data and the gas model is needed to understand how to place thermometers in the ullage and verify the design of gaseous argon purge system.
-\item Perform a \dword{cfd} study to determine the feasibility of a wier for \dual; this will help determine if it can be used to clean the \lar surface before the extraction grid is submerged in the \dword{dpmod}.
-\item Verify the \dword{spmod} \single \dword{cfd} model in simulation performed by LBNF; this will define the requirements for instrumentation devices (e.g., thermometry).
+\item Model the \dword{pddp}  liquid and gas regions with the same precision as the \dword{fd}; presently only liquid model exists; the liquid model is needed to interpret the thermometer data and the gas model is needed to understand how to place thermometers in the ullage and verify the design of gaseous argon purge system.
+\item Perform a \dword{cfd} study to determine the feasibility of a wier for \dual; this helps to determine if it can be used to clean the \lar surface before the extraction grid is submerged in the \dword{dpmod}.
+\item Verify the \dword{spmod} \single \dword{cfd} model in simulation performed by LBNF; this defines the requirements for instrumentation devices (e.g., thermometry).
 \item Model the \dword{pddp} liquid and gas regions with the same precision as the \dword{fd}. \fixme{same as a previous bullet}
 \end{enumerate}

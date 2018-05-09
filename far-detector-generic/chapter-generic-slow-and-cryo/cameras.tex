@@ -18,14 +18,14 @@ fine detail \cite{Auger:2015xlo}.  Cameras are commonly used during
 calibration source deployment in many experiments ({\em e.g.,} the
 \kamland \textit{ultra-clean} system \cite{Banks:2014hra}).
 
-In DUNE, cameras will be used to verify the stability, straightness,
+In DUNE, cameras are used to verify the stability, straightness,
 and alignment of the hanging TPC structures during cool-down and
 filling; to ensure that there is no bubbling near the \dwords{gp}
 (\single) or \dwords{crp} (\dual); to inspect the
 state of movable parts in the \dword{detmodule} (calibration devices, dynamic
 thermometers) as needed; and to closely inspect parts of the TPC as
 necessary following any seismic activity or other unanticipated
-occurrence.  These functions will be performed using set of fixed
+occurrence.  These functions are performed using set of fixed
 \textit{cold} cameras permanently mounted at fixed points in the cryostat
 for use during filling and commissioning, and a movable, replaceable
 \textit{warm} inspection camera that can be deployed through any free
@@ -44,7 +44,7 @@ requirements for the camera system.
  No component may produce bubbles in the liquid argon if the \dword{hv} is on. & Bubbles increase risk of \dword{hv} discharge. \\ \toprowrule
  No point in the camera system shall have a field greater than \SI{15}{kV/cm} when the drift field is at nominal voltage. & Fields must be well below \SI{30}{kV/cm} to avoid risk of \dword{hv} discharge.\\ \toprowrule
 The camera system shall not produce measurable noise in any detector system. & Low noise is required for TPC operation. \\ \toprowrule
- Cameras will provide the viewing functionality as agreed upon with the other subsystems for viewing, as documented in the ICDs with the individual systems. \\ \toprowrule
+ Cameras provide the viewing functionality as agreed upon with the other subsystems for viewing, as documented in the ICDs with the individual systems. \\ \toprowrule
 {\bf Cold cameras} \\ \colhline
 minimal heat dissipation when camera not in operation & do not generate bubbles when \dword{hv} is on \\ \colhline
 longevity exceeds 18 months & cameras must function throughout cryostat filling and detector commissioning \\ \colhline
@@ -66,9 +66,10 @@ design may be used for both the single and dual phase detectors.
 
 
 % % % %
-\subsubsection{Cryogenic Cameras (cold)}
+\subsubsection{Cryogenic Cameras (Cold)}
 
-The fixed cameras will be used to monitor the following during filling:
+The fixed cameras %will be used to 
+monitor the following items during filling:
 \begin{itemize}
 \item Positions of corners of \dword{apa} or \dword{crp}, \dword{cpa} or cathode, \dwords{fc}, \dwords{gp} (\(\sim\SI{1}{mm}\) scale);
 \item Relative straightness and alignment of \dword{apa}/\dword{crp}, \dword{cpa}/cathode, and \dword{fc} (\(<\sim\SI{1}{mm}\));
@@ -97,16 +98,16 @@ In addition, many low-cost cameras use digital interfaces not intended
 for long distances, such as USB (\(2\sim\SI{5}{m}\)) or CSI (circuit
 board scale), leading to signal degradation and noise problems.
 
-The design for the DUNE fixed cameras will use an enclosure based on
+The design for the DUNE fixed cameras uses an enclosure based on
 the successful EXO-100 design\cite{Delaquis:2013hva} which was also
 used successfully in
-LAPD. (See Figure~ref{fig:gen-fdgen-cameras-enclosure}) The enclosure will
-be connected to a stainless steel gas line to allow the enclosure to be
+LAPD. (See Figure~ref{fig:gen-fdgen-cameras-enclosure}) The enclosure is
+ connected to a stainless steel gas line to allow the enclosure to be
 flushed with argon gas at low enough pressure to prevent
 liquification, using the same design asthe gas line for the beam plug
 tested in the \dword{35t} \dword{hv} test and in \dword{protodune}.  A thermocouple in the
-enclosure will allow temperature monitoring, and a heating element
-will provide temperature control.  The camera will transmit its video
+enclosure allows temperature monitoring, and a heating element
+provides temperature control.  The camera transmits its video
 signal using either a composite video signal over shielded coax or
 ethernet over optical fiber.  Most importantly, the DUNE \dword{cisc}
 consortium must work with vendors to design camera circuit boards that
@@ -122,7 +123,7 @@ are robust and reliable in the cryogenic environment.
 
 
 % % % %
-\subsubsection{Inspection Cameras (warm)}
+\subsubsection{Inspection Cameras (Warm)}
 
 The inspection cameras are intended to be as versatile as possible.
 However, the following locations have been identified as likely
@@ -142,9 +143,9 @@ to be of interest:
 Unlike the fixed cameras, the inspection cameras need operate only as
 long as inspection lasts, as camera replacable in case of failure.  It
 is also more practical to keep the cameras continuously \textit{warm}
-(above \SI{-150}{\celsius}) during deployment, and therefore we will
-have more options for commercial cameras.  For example, we could
-deploy the same model camera used successfully to observe discharges
+(above \SI{-150}{\celsius}) during deployment; this offers %and therefore we willhave 
+more options for commercial cameras, e.g., %.  For example, we could deploy 
+the same model camera used successfully to observe discharges
 in \lar from \SI{120}{cm} away \cite{Auger:2015xlo}.
 
 \begin{dunefigure}[Inspection camera design]{fig:gen-fdgen-cameras-movable}
@@ -152,21 +153,21 @@ in \lar from \SI{120}{cm} away \cite{Auger:2015xlo}.
   \includegraphics[width=0.3\textwidth]{Camera-Sketch}%
 \end{dunefigure}
 
-The design for the inspection camera system will use the same basic
+The design for the inspection camera system employs the same basic
 enclosure design as for cold cameras, but mounted on an insertable
 fork using a design similar to the dynamic temperature probes. (See
 Figure~\ref{fig:gen-fdgen-cameras-movable} and
-Figure~\ref{fig:fd-slow-cryo-sensor-mount}.)  The entire system will be sealed to
+Figure~\ref{fig:fd-slow-cryo-sensor-mount}.)  The entire system is sealed to
 avoid contamination with air. In order to avoid contamination, the
 camera can only be deployed through a \fdth equipped with a gate
 valve and a purging system, similar to that used for the vertical axis
 calibration system at \kamland~\cite{Banks:2014hra}. The entire system
-will be purged with pure argon gas before the gate valve is opened.
+is  purged with pure argon gas before the gate valve is opened.
 
-Motors above the flange will allow the fork to be
-rotated and moved vertically.  A chain drive system, with motor
-mounted on the end of the fork, will allow the camera assembly to be
-tilted, creating a point-tilt mount with vertical motion capability.
+Motors above the flange allow rotation and vertical movement of the fork. 
+ A chain drive system, with motor
+mounted on the end of the fork, allows tilting of the camera assembly, 
+creating a point-tilt mount with vertical motion capability.
 Taking into account the room above the cryostat flanges and the
 thickness of the cryostat insulation, a vertical range of motion of
 \SI{1}{m} inside the cryostat is achievable.
@@ -176,32 +177,32 @@ thickness of the cryostat insulation, a vertical range of motion of
 % deployment system similar to the KamLAND full-volume calibration
 % system\cite{Busenitz:2009ac}, but this is not currently part of the
 % baseline design.
-The motors for rotation and vertical motion will be outside the sealed
+The motors for rotation and vertical motion are located outside the sealed
 volume, coupled mechanically using ferrofluidic seals, thus reducing
 contamination risks and allowing for manual rotation of the vertical
 drive in the event of a motor failure.  A significant protyping and
-testing effort will be needed to finalize and validate this design.
+testing effort is needed to finalize and validate this design.
 
 % % % %
 \subsubsection{Light-emitting system}
 %%% same text as dual-phase
-The light-emitting system will be based on \dwords{led} with the capability of illuminating the interior with selected
+The light-emitting system is based on \dwords{led} with the capability of illuminating the interior with selected
 wavelengths (IR and visible) that are suitable for detection by the
 cameras.  Performance criteria for the light-emission system are based
 on the efficiency of detection with the cameras, in conjunction with
 adding minimal heat to the cryostat. The use of very high-efficiency
-\dwords{led} will assist with the goal of reducing heat generation; as an
+\dwords{led}  %assists with the goal of 
+helps reduce heat generation; as an
 example, one \SI{750}{nm} \dword{led} has a specification of
 \SI{32}{\%} conversion of electrical input power to light.
 
 While data on the performance of \dwords{led} at cryogenic temperatures is sparse,
-there are some studies related to NASA projects~\cite{Carron:2017zzz} that
+some studies related to NASA projects~\cite{Carron:2017zzz} 
 indicate that \dword{led} efficiency increases with reduced temperature,
-and that the emitted wavelengths may change, particularly for blue \dwords{led},
-but the wavelength changes cited would have no impact on illumination, since
-in order  to avoid degradation of wavelength
-shifting materials in the \dword{pds},
-such short wavelength \dwords{led} would not used.
+and that the emitted wavelengths may change, particularly for blue \dwords{led}.
+The wavelength changes cited would have no impact on illumination, however, since
+in order  to avoid degradation of wavelength-shifting materials in the \dword{pds},
+such short wavelength \dwords{led} would not be used.
 
 \begin{dunefigure}[\dword{led} chain for illumination]{fig:gen-cisc-LED}
   {Suggested \dword{led} chain for lighting inside the cryostat, with
@@ -209,18 +210,19 @@ such short wavelength \dwords{led} would not used.
 \includegraphics[width=0.7\textwidth]{CISC-Lighting}
 \end{dunefigure}
 
+\fixme{shoulds and woulds...}
 A \textit{chain} of \dwords{led} should be connected in series and driven with a
 constant-current circuit. It would be advantageous to pair each
 \dword{led} in parallel with an opposite polarity \dword{led} and a resistor
 (see Figure~\ref{fig:gen-cisc-LED}).
 This allows two different wavelengths of illumination with a single installed
 chain (by changing the direction of the drive current) and 
-continued use of an \dword{led} chain even if individual \dwords{led} have failed.
+continued use of an \dword{led} chain even if individual \dwords{led} fail.
 
 The \dwords{led} should be placed as a \textit{ring light} around the outside of each
 camera lens, pointing in the same direction as the lens, to 
 illuminate the part of the \dword{detmodule} within the field of
 view of the camera. Commercially available \dwords{led} can be obtained with
-a range of angular spreads, so can be matched to the needs of the
+a range of angular spreads, and can be matched to the needs of the
 cameras without additional optics. 
 
