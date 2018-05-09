@@ -1,6 +1,6 @@
 The warm interface electronics %must 
-provide an interface between the \dword{ce}, \dword{daq}, timing and slow control systems, including local power control at the flange and a real-time diagnostic readout. They are housed in the \dwords{wiec} attached directly to the \dword{ce} flange.  The \dword{wiec} shown in Figure~\ref{fig:tpcelec-flange} 
-contains one xspower and timing card (\dword{ptc}), five warm interface boards (\dwords{wib}) and a passive
+provide an interface between the \dword{ce}, \dword{daq}, timing, and slow control systems, including local power control at the flange and a real-time diagnostic readout. They are housed in the \dwords{wiec} attached directly to the \dword{ce} flange.  The \dword{wiec} shown in Figure~\ref{fig:tpcelec-flange} 
+contains one power and timing card (\dword{ptc}), five warm interface boards (\dwords{wib}) and a passive
 power and timing backplane (PTB), which fans out signals and \dword{lv} power from the \dword{ptc} to the \dwords{wib}. The \dword{wiec} must provide a Faraday-shielded housing, robust ground connections from the \dwords{wib} to the detector ground described in Section~\ref{sec:fdsp-tpc-elec-design-ground}, and only optical fiber links to the \dword{daq} and slow control in order to mitigate noise introduced at the \dword{ce} \fdth.
 
 \begin{dunefigure}
@@ -37,7 +37,7 @@ Figure~\ref{fig:tpcelec-wib_timing}. The \dword{ptc} fans the clocks out to the 
 PTB, which is a passive backplane attached directly to the \dword{ptc} and
 \dwords{wib}.  The received clock on the \dword{wib} is separated into clock and
 data using a clock-data separator. Timing endpoint firmware to receive and transmit
-the clock is integrated in the \dword{wib} \dword{fpga} (the Altera Arria V was used for \dword{pdsp}).
+the clock is integrated in the \dword{wib} \dword{fpga} (the Altera Arria V\footnote{Altera Arria\texttrademark{}, V FPGA family, \url{https://www.altera.com/products/fpga/arria-series/arria-v/overview.html}.} was used for \dword{pdsp}).
 The \dword{spmod} timing system, described in Section~\ref{sec:fdsp-daq-timing}, is a development of the \dword{pdsp} system, and expected to require the nearly identical functionality at the \dword{wib} endpoint.
 
 \begin{dunefigure}
@@ -65,7 +65,7 @@ majority of the power drawn by a full flange is dissipated in the \lar by the co
 
 As shown in Figure~\ref{fig:tpcelec-dune_wib}, the \dword{wib} is capable of receiving \dword{lv} power in the front panel and distributing it directly to the \dword{femb}, bypassing all DC/DC converters.
 It can also receive the encoded system timing signals over bi-directional optical
-fibers on the front panel, and processing these using either
+fibers on the front panel, and process these using either
 the on-board \dword{fpga} or clock synthesizer chip to provide the clock required by the \dword{ce}.
 The baseline \dword{asic} design currently uses 8b/10b encoding; if the SLAC CRYO \dword{asic} is selected for
 the DUNE \dword{spmod}, 12b/14b encoding will be used instead of 8b/10b.

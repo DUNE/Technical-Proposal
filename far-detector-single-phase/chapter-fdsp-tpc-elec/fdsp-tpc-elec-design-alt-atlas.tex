@@ -1,5 +1,5 @@
 An alternative \dword{adc} solution is to adapt the \dword{adc} chip under development for the 
-ATLAS \lar calorimeter readout upgrade for the HL-LHC.  The main ATLAS 
+ATLAS \lar calorimeter readout upgrade for the high luminosity LHC.  The main ATLAS 
 requirements are given in Table~\ref{tab:ATLAS-adc-reqs}.  Adapting the chip to %DUNE 
 the \dword{spmod} needs 
 would require doubling the number of channels per chip as well as adapting the output 
@@ -21,7 +21,7 @@ Output & E-link interface operating at \SI{640}{Mbps}\\
 \end{dunetable}
 
 To achieve a \SI{14}{bit} dynamic range, each analog channel is comprised
-of two main sections: a Dynamic Range Enhancement (\dword{dre}) block that determines the
+of two main sections: a dynamic range enhancement (\dword{dre}) block that determines the
 most significant two bits of the \SI{14}{bit} digital code, followed by a \SI{12}{bit} \dword{sar} block. %The design of the \dword{dre} is shown schematically in Figure~\ref{fig:65nm\dword{adc}architecture_dre}.
 The input signal to the \dword{dre} block is sampled on two
 paths, one with unity gain and the other of gain four. A comparator determines which gain to use.
@@ -51,8 +51,8 @@ Such procedures are well understood and applied to both pipeline~\cite{Kuppambat
 \includegraphics[width=.9\textwidth]{tpcelec-SARdesign.pdf}
 \end{dunefigure}
 
-An \dword{adc} test chip, dubbed \textit{COLUTA65V1}, was designed and submitted for fabrication in May 2017 and received
-in September of 2017.  The \dword{dre} and \dword{sar} blocks of the COLUTA65V1 were first tested independently. Measurements were made of the \dword{sar} precision using the sine-wave Fast Fourier Transform method. An effective number of bits
+An \dword{adc} test chip, dubbed COLUTA65V1, was designed and submitted for fabrication in May 2017 and received
+in September of 2017.  The \dword{dre} and \dword{sar} blocks of the COLUTA65V1 were first tested independently. Measurements were made of the \dword{sar} precision using the sine-wave fast Fourier transform method. An effective number of bits
 (ENOB) of \SI{11.6}{bits} at \SI{20}{MHz} (after calibration) was obtained.
 %Similar measurements at \SI{40}{MHz} do not match the expected performance and 
 %additional testing and simulation indicates that the layout of the connection between the first \dword{sar} stage and the amplifier is not optimal. Similar results were observed with

@@ -8,12 +8,12 @@ As the \dword{lv} power is delivered at \SI{48}{V} to the \dword{ptc}, each \dwo
 roughly \numrange{30}{60}{V}, \SI{13.5}{A}, \SI{650}{W} maximum capacity per \dword{apa}. Using 10AWG cable, a \SI{0.8}{V} drop is 
 expected along the cable with a required power of \SI{306}{W} out of \SI{650}{W} available.  
 This leaves a significant margin that allows for larger distances between the power supplies and 
-the warm interface crates than the $\sim$\SI{20}{\meter} in \dword{pdsp}.
+the warm interface crates than the \SI{20}{\meter} in \dword{pdsp}.
 
 Four wires are used for each module; two 10AWG, shielded, twisted-pair cables for the power and return; and two 20AWG, shielded, twisted-pair cables for the sense.
 The primary protection is the over-current protection circuit in the \dword{lv} supply modules, 
-which is set above the $\sim$\SI{20}{A} current draw of the \dword{wiec}.  Secondary sense line fusing is 
-provided on the \dword{ptc}.  The \dword{lv} power cable uses FCi micro TCA connectors, shown in
+which is set above the \SI{20}{A} current draw of the \dword{wiec}.  Secondary sense line fusing is 
+provided on the \dword{ptc}.  The \dword{lv} power cable uses FCi micro TCA\footnote{MicroTCA\texttrademark{} ($\mu$TCA) vertical card-edge connectors, Amphenol ICC,  \url{https://www.amphenol-icc.com/product-series/micro-tca-card-edge.html}.} connectors, shown in
 Figure~\ref{fig:tpcelec-power_conn}.
 
 \begin{dunefigure}
@@ -28,7 +28,7 @@ connectors machined directly into the \dword{ce} \fdth, so there is no electrica
 the \dword{lv} power and data connectors and wire bias voltages.
 
 Optical fibers are used for all connections between the \dwords{wiec}, which act as
-Faraday-shielded boxes, and the \dword{daq} and slow control systems.  Duplex LC optical fibers
-transmit the one GIG-E connection from each \dword{wib} to the slow control system.  The \dword{wib} reports
+Faraday-shielded boxes, and the \dword{daq} and slow control systems.  %Duplex LC optical fiberstransmit the one GIG-E connection from each \dword{wib} to the slow control system.  
+The \dword{wib} reports
 its onboard temperature and the current draw from each \dword{femb} to the slow control system, while the
 current draw for each \dword{apa} is monitored at the mainframe itself.

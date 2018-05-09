@@ -1,7 +1,7 @@
 Directly following the installation of the instrumented \dwords{apa} into the cryostat, commissioning of the
 TPC electronics will commence.  This should be carried out both before and after the \lar fill;
-the former to establish whether or not the installation procedure led to impairment of the
-electronics, and the latter to check that the cryogenic electronics do not experience failures
+the former establishes whether or not the installation procedure led to impairment of the
+electronics, and the latter checks that the cryogenic electronics do not experience failures
 in the cold \lar.
 
 As described in Section~\ref{sec:fdsp-tpc-elec-install-apa}, the electronics checkout prior to
@@ -9,14 +9,14 @@ As described in Section~\ref{sec:fdsp-tpc-elec-install-apa}, the electronics che
 installation and testing will proceed in parallel.  This has the advantage of informing
 subsequent installation of \dwords{apa} to help minimize total number of electronics channels lost
 during the installation process.  Items to be checked during the commissioning process include
-an evaluation of the noise level on every channel, a check for dead or noisy (high RMS) channels,
-studying cross-talk across neighboring wires or neighboring channels in the electronics,
-characterizing pick-up noise (including spatial dependence in the detector) if present, and
-checking for noise coherent across channels sharing common electronics (e.g.~same \dword{femb}).
+the noise level on every channel, dead or noisy (high \rms) channels,
+cross-talk across neighboring wires or neighboring channels in the electronics,
+pick-up noise (including spatial dependence in the detector) if present, and
+noise coherent across channels sharing common electronics (e.g.,~same \dword{femb}).
 These measurements will be performed first during the tests in the cold box.  Repeating these
 measurements prior to filling the cryostat with \lar will allow for final repairs or replacements
 for all the \dword{ce} components prior to the closure of the \dword{tco}. This will also give an opportunity
-to intervene on noise and/or electronics issues that would become evident when reading out
+to intervene on noise or electronics issues that would become evident when reading out
 the entire detector at once, before proceeding proceeding with the \lar fill.
 
 Once every \dword{apa} is installed and tested as described above, the cool-down process and \lar fill
@@ -40,7 +40,7 @@ in the cold) and characterizing the linearity of the \dword{adc} \dwords{asic} i
 design, it is not expected that nonlinearity of the \dwords{adc} will be a significant issue (see
 Section~\ref{sec:fdsp-tpc-elec-design-femb-adc} for a discussion of the on-chip calibration
 that is used), but it is important to verify this with data collected in the experiment.
-Specific in-situ calibration algorithms are being studied at \dword{pdsp}, and will be further
+Specific in situ calibration algorithms are being studied at \dword{pdsp}, and will be further
 developed there and in the other electronics test facilities described in
 Section~\ref{sec:fdsp-tpc-elec-qa-facilities}.  Experience from \microboone and other running
 \lartpc experiments will be very useful in informing TPC electronics calibration procedures for
