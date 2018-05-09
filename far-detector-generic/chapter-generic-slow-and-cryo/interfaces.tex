@@ -24,25 +24,25 @@ Detailed descriptions of \dword{cisc} interfaces are kept in DUNE \dword{fd} int
 \cite{bib:docdb7045},
 \cite{bib:docdb7018}.} This section provides a brief summary. 
 
-There are obvious iterfaces with detector consortia since \dword{cisc} will provide full rack monitoring (rack fans, thermometers and rack protection system),
+There are obvious iterfaces with detector consortia since \dword{cisc} provides full rack monitoring (rack fans, thermometers and rack protection system),
 interlock status bit monitoring (not the actual interlock mechanism) and monitoring and control for all \pwrsupps. % (PS). The choice of these   
 \pwrsupps as well as the cables from any device connected to SC ethernet switches (\pwrsupps, electronics, heaters, fans, ...)
 should be a combined decision between \dword{cisc} and each consortium so that the hardware choices allow for robust control and monitoring, and for the required precision. % needed.  
-Also, installation of instrumentation devices will interfere with other devices and must be coordinated with the respective consortia.  
-On the software side \dword{cisc} will have to define in coordination with other consortia the quantities to be monitored/controlled by slow controls and the corresponding alarms,
+Also, installation of instrumentation devices interferes with other devices and must be coordinated with the respective consortia.  
+On the software side \dword{cisc} must define in coordination with other consortia the quantities to be monitored and controlled by slow controls and the corresponding alarms,
 archiving and GUIs. 
 
 %Rack space distribution and interaction between slow controls (SC) modules and other modules (\dwords{apa}, \dword{hv}, PD, \dword{daq}, etc)
 
 %SC signals into main \dword{daq} data stream and viceversa
 
-A major interface is the one with the cryogenics system. As mentioned in Section~\ref{sec:fdgen-slow-cryo-purity-mon} purity monitors and gas analyzers will be essential
+A major interface is the one with the cryogenics system. As mentioned in Section~\ref{sec:fdgen-slow-cryo-purity-mon} purity monitors and gas analyzers are essential
 to mitigate the liquid argon contamination risk. The appropriate interlock mechanism to prevent the cryonenics system from irreversible contamination
 must be designed and implemented. 
 
 Another important interface is the one with the \dword{hv} system \cite{bib:docdb6787} since several aspects related with safety must be taken into account. 
 For all instrumentation devices inside the cryostat, \efield simulations are needed to guaranty proper shielding is in place.
-Although this is a \dword{cisc} responsibility, input from \dword{hv} will be crucial.
+Although this is a \dword{cisc} responsibility, input from \dword{hv} is crucial.
 %The location of cold cameras and lights for inspection of \dword{hv} related devices,
 %as well as the requirements of cold/warm cameras (see Sec.~\ref{sec:fdgen-slow-cryo-cameras}) have to be understood
 %in cooperation with \dword{hv} consortium.
@@ -56,12 +56,11 @@ Although this should be understood and quantified, \dword{cisc} and the \single 
 that avoid turning on any other light source accidentally when \dwords{pd} are on.
 
 The \dword{daq}-\dword{cisc} interface~\cite{bib:docdb6790} is described in Section~\ref{sec:fd-daq-intfc-sc}. %As discribed there, 
-\dword{cisc} data will be stored both locally (in \dword{cisc} database servers in the
-\dword{cuc}) and offline (the databases will be replicated back to \fnal)
+\dword{cisc} data is stored both locally (in \dword{cisc} database servers in the
+\dword{cuc}) and offline (the databases are replicated back to \fnal)
 in a relational database indexed by timestamp.
-This will allow bidirectional communications between \dword{daq} and \dword{cisc} by
-reading or inserting data into the database as needed for non
-time-critical information.  
+This allows bidirectional communications between \dword{daq} and \dword{cisc} by
+reading or inserting data into the database as needed for non-time-critical information.  
 
 
 %\fixme{Does this x-ref work?  The cut-n-paste below (commented out) from
@@ -75,7 +74,7 @@ time-critical information.
 
 %\dword{daq} status.  
 
-\dword{cisc} also interfaces with the beam and cryogenics group since at least the status of these systems will be monitored.
+\dword{cisc} also interfaces with the beam and cryogenics group since at least the status of these systems must be monitored.
 %The interface with the facility: .... Building controls; Detector hall monitoring; ground impedance monitoring
 
 %  Power distribution units monitoring; Computer hardware monitoring
@@ -86,20 +85,20 @@ The hardware interfaces resposibility of the \dword{swc} include networking inst
 maintenance of SC servers 
 \fixme{SC=scientific computing?}
 and any additional computing hardware needed by instrumentation devices.
-\dword{cisc} will provide the needed monitoring for power distribution units (PDUs). Regarding software interfaces the \dword{swc} group will provide:
+\dword{cisc} provides the needed monitoring for power distribution units (PDUs). Regarding software interfaces the \dword{swc} group  provides:
 (1) SC database maintenance, (2) API for accessing the SC database offline,
 (3) UPS packages, local installation and maintenace of software needed by \dword{cisc}, and (4) \dword{swc} creating and maintaining computer accounts on production clusters. 
-On the other direction \dword{cisc} will provide the required monitoring and control of \dword{swc} quantities including alarms, archiving and GUIs when applicable. 
+On the other direction \fixme{on the other hand?}  \dword{cisc} provides the required monitoring and control of \dword{swc} quantities including alarms, archiving, and GUIs, where applicable. 
 
 
-\dword{cisc} has profound hardware interfaces with the Calibration Task Force (CTF) \cite{bib:docdb7072}. Indeed, since \dword{cisc} and CTF ports will be multi-purpose to enable deploying various devices,
-both systems will need to interact in terms of flange design and sharing space around the ports. Also, \dword{cisc} might use calibration ports to extract cables from \dword{cisc} devices. 
-At the software level \dword{cisc} will be responsible for calibration device monitoring (and control to the extent needed) and will 
-monitor the interlock bit status for laser and radioactive sources. 
+\dword{cisc} has profound \fixme{crucial?} hardware interfaces with the Calibration Task Force (CTF) \cite{bib:docdb7072}. Indeed, since \dword{cisc} and CTF ports are multi-purpose to enable deploying various devices,
+both systems must interact in terms of flange design and sharing space around the ports. Also, \dword{cisc} might use calibration ports to extract cables from \dword{cisc} devices. 
+At the software level, \dword{cisc} is responsible for calibration device monitoring (and control to the extent needed) and 
+monitors the interlock bit status for laser and radioactive sources. 
 %Understand the location of Cold cameras & lights for inspection of CFT related devices, as well as the
 %requirements of Cold/Warm cameras: resolution, field of view, light sensitivity, low light operation, frames per second, operation in triggered mode?  etc.
 
-\dword{cisc} indirectly interfaces to physics through the CFT devices. One specific need for physics will be to extract
+\dword{cisc} indirectly interfaces to physics through the CFT devices. One specific need for physics is to extract
 instrumentation or slow controls data to correlate high-level quantities to low-level or calibration data.
 This requires tools to extract data from the slow controls database (see \dword{cisc}-\dword{swc} interface document \cite{bib:docdb7126}).
 A brief list of what \dword{cisc} data is needed by physics is given in the \dword{cisc}-Physics interface document \cite{bib:docdb7099}. 
