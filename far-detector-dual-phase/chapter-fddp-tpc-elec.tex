@@ -20,7 +20,7 @@ These two tasks are respectively accomplished by the \dword{cro} and \dword{lro}
 The design of the system incorporates the components already developed for \dword{pddp} as a result of an R\&D activity started in 2006. One of the key objectives of this R\&D program has been the design of an electronics system that is easily scalable and cost-effective in order to meet the needs of the large-scale neutrino \dword{lar} detector.  %\dword{dpmod}. % neutrino \dword{lar} detector. <-The R&D was for both SP and DP electronics  
 %\fixme{you need a figure here - schematic maybe - showing the CRO and LRO system and how it fits in with the other systems (anne)} DONE
 
-While a single \dword{dpmod} has a factor of \num{20} more readout (both charge and light) channels than \dword{pddp}, a simple scaling of the number of the components used in the prototype design is sufficient to meet these needs without necessitating any additional R\&D. A small-scale version of the TPC electronics system was used in a preliminary \dual \lartpc prototype, \dword{wa105},  at CERN with an active volume  of \SI[product-units=power]{3x1x1}{m} (\dword{crp} area of \SI[product-units=power]{3x1}{m}) that took data in the summer-fall of 2017. %The experience gained from the \dword{wa105} operation allowed to validate already some of the design choices and check various performance markers (e.g., noise). 
+While a single \dword{dpmod} has a factor of \num{20} more readout (both charge and light) channels than \dword{pddp}, a simple scaling of the number of the components used in the prototype design is sufficient to meet these needs without necessitating any additional R\&D. A small-scale version of the TPC electronics system was used in the \dword{wa105} at CERN, a preliminary \dual \lartpc prototype with an active volume  of \SI[product-units=power]{3x1x1}{m} (\dword{crp} area of \SI[product-units=power]{3x1}{m}) that took data in the summer-fall of 2017. %The experience gained from the \dword{wa105} operation allowed to validate already some of the design choices and check various performance markers (e.g., noise). 
 Operation of the \dword{wa105} validatated the design choices and provided checks on various performance markers, e.g., noise. 
 
 \begin{dunefigure}[Schematic layout of the \dword{dp} \dword{cro} sub-system]{fig:dpele-crosystem-sketch}
@@ -276,8 +276,8 @@ Each cryogenic \dword{fe} card, shown in Figure~\ref{fig:dpele-fe-card-blade-ima
 holds four ASIC amplifier chips and a few passive discrete components. The input stage of each amplifier channel has a \SI{1}{\giga\ohm} resistor to ground followed by a \SI{2.2}{\nano\farad} decoupling capacitor; both are rated for \dword{hv} operation. The %function of the 
 resistor grounds the \dword{crp} anode strips. A TVS diode\footnote{Bourns\texttrademark{} CDSOD323-T08LC TVS diode.} protects each input stage against discharges coming from the \dword{dpmod}. This component was selected after studying the performance of different devices for the electrostatic discharge protection by subjecting them systematically to discharges of a few \si{kV} with an energy similar to that of the \dwords{lem} in the \dword{crp}. The \dword{fe} cards also house the blocking capacitors for further filtering of the low-voltage power lines. These are first filtered at the level of the power supply and transported via shielded cables.
 
-\begin{dunefigure}[Noise measurements in \dword{wa105} in different conditions]{fig:dpele-311-noise}
-{Noise of measurements in \dword{wa105} in different conditions. Left: warm with the slow control cables connected to the cryostat flanges (red points) and disconnected (black points). Right: warm (red points) and cold (black points) with the slow control cables disconnected. The channels with negative (positive) channel number correspond to the strips of \SI{3}{\meter} (\SI{1}{\meter}).}
+\begin{dunefigure}[Noise measurements in the \dword{wa105} in different conditions]{fig:dpele-311-noise}
+{Noise of measurements in the \dword{wa105} in different conditions. Left: warm with the slow control cables connected to the cryostat flanges (red points) and disconnected (black points). Right: warm (red points) and cold (black points) with the slow control cables disconnected. The channels with negative (positive) channel number correspond to the strips of \SI{3}{\meter} (\SI{1}{\meter}).}
 \includegraphics[width=0.45\textwidth]{dpele-311-noise-warm}
 \includegraphics[width=0.45\textwidth]{dpele-311-noise-warm-cold}
 \end{dunefigure}
@@ -287,21 +287,21 @@ Although the \dword{fe} amplifier ASICs are in a shielded environment provided b
 %\fixme{``which act as'' Faraday cages?} DONE 
 interference from other equipment (via a noisy ground or ground loops) could significantly worsen the noise performance from the design target. Figure~\ref{fig:dpele-311-noise} shows %some 
 results of %the 
-noise measurements performed under different conditions in the \dword{wa105} detector. The channels reading \SI{3}{\meter} (\SI{1}{\metre}) long strips correspond to negative (positive) channel numbering in the plots and the \num{1} \dword{adc} count is equivalent to about \num{900} electrons. The left plot of Figure~\ref{fig:dpele-311-noise} shows the noise measurements performed at warm temperature with and without slow control cables (\dword{crp} \dword{hv}, \dword{crp} motors, level meters, temperature probes, etc.) connected. 
+noise measurements performed under different conditions in the \dword{wa105}. The channels reading \SI{3}{\meter} (\SI{1}{\metre}) long strips correspond to negative (positive) channel numbering in the plots and the \num{1} \dword{adc} count is equivalent to about \num{900} electrons. The left plot of Figure~\ref{fig:dpele-311-noise} shows the noise measurements performed at warm temperature with and without slow control cables (\dword{crp} \dword{hv}, \dword{crp} motors, level meters, temperature probes, etc.) connected. 
 %\fixme{stuff in parentheses all pertain to slow controls?} YES THESE LIST EXAMPLES OF THE E\dword{lem}ENTS OF THE 311 SLOW CONTROL SYSTEM WHICH WERE NOT GROUNDED IN A CLEAN WAY
 The noise is clearly affected by the grounding of the slow controls: the average value of the noise \rms is around \num{1.7} \dword{adc} with slow control cables connected, and decreases to about \num{1.5} \dword{adc} when they are removed. %As explained later,
 %\fixme{ref section} IT IS EXPLAINED AT THE END OF THIS SECTION
-The grounding scheme of \dword{wa105} does not correspond to the one %foreseen for DUNE, 
+The grounding scheme of the \dword{wa105} does not correspond to the one %foreseen for DUNE, 
 planned for the \dword{dpmod}, where all electrical equipment is referred uniquely to the cryostat ground and is completely insulated from the external environment. 
 
 One interesting feature, particularly visible with the cables disconnected, is %that the noise measured in \dword{wa105} is similar for the channels connected to the \SI{1}{\meter} and \SI{3}{\meter} long strips. 
-the similarity of the noise measured for the channels connected to the \SI{1}{\meter} and \SI{3}{\meter} long strips in \dword{wa105}. 
+the similarity of the noise measured for the channels connected to the \SI{1}{\meter} and \SI{3}{\meter} long strips in the \dword{wa105}. 
 Given that the longer strips have %thrice 
 three times the input capacitance of the shorter ones, the expected noise (see Figure~\ref{fig:dpele-fe-asic-prop}) for these should be larger by about a factor of two as indicated by the dashed line in the plot. In addition, the noise on the short strips is lower than expected (\num{1.5} \dword{adc}) for the \SI{160}{pF/m} strip input capacitance (\num{1.7} \dword{adc}). The reason for this behavior %of the noise in the \dword{crp} of 
-in \dword{wa105} is still under investigation. %However, 
+in the \dword{wa105} is still under investigation. %However, 
 Measurements have already shown that the capacitance of the \dword{crp} anode strips is not purely to ground, but rather it is driven by the inter-strip couplings, which creates a more complicated electrical network. 
 
-Figure~\ref{fig:dpele-311-noise} (right) also shows a comparison of the noise measurements in \dword{wa105} taken with the \dword{fe} electronics at warm (red points) and cold (black points) at around \SI{150}{\kelvin}. The slow control cables were disconnected in both cases. However, the cold measurements were performed with the recirculation pump active and the cathode \dword{hv} connected. 
+Figure~\ref{fig:dpele-311-noise} (right) also shows a comparison of the noise measurements in the \dword{wa105} taken with the \dword{fe} electronics at warm (red points) and cold (black points) at around \SI{150}{\kelvin}. The slow control cables were disconnected in both cases. However, the cold measurements were performed with the recirculation pump active and the cathode \dword{hv} connected. 
 %\fixme{present? means hv was connected?} DONE
 The \rms noise averaged over all channels decreases by about 25\% from roughly \SI{1.5}{\dword{adc}} to \SI{1.1}{\dword{adc}} when the \dword{fe} analog cards are cold. For comparison, the expected signal for a \dword{mip} with the \dword{crp} gain of \num{20} should be around \SI{200}{\dword{adc}} counts. %\fixme{counts?} DONE
 
@@ -311,7 +311,7 @@ using insulating transformers to ensure that %they could see
 no other ground could interfere. %On the other hand, 
 In contrast, the design of the slow control system did not include any insulation transformers. This equipment was grounded to the building electrical network, thereby creating an interference with the ground of the cryostat. Stricter treatment of the ground connections, as %foreseen 
 implemented for \dword{pddp} and planned for the \dword{dpmod}, and a lower \dword{sftchimney} operating temperature of around \SI{110}{\kelvin} (from \SI{150}{\kelvin}) should help to further reduce the noise %levels 
-from the levels observed in \dword{wa105}.
+from the levels observed in the \dword{wa105}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -519,12 +519,12 @@ Parameter & Value  \\ \toprowrule
 
 In the current design, as used for \dword{pddp}, the \dword{mch} operates with a \SI{10}{Gbit/s} uplink. Given that a \dword{utca} crate hosts \num{10} \dwords{amc} for charge readout, the required bandwidth to stream the data to \dword{daq} is about \SI{1.8}{Gbit/s}. This assumes that the data exiting the \dwords{amc} are losslessly compressed with the compression factor of \num{10}. The bandwidth required per crate link for streaming the \dword{lro} data is \SI{4.7}{Gbit/s}. The \SI{10}{Gbit/s} \dword{mch} is therefore sufficient to support these data rates. However, the technology is moving towards supporting the \SI{40}{Gbit/s} rates. In addition, the channel density per \dword{amc} could also be increased for cost optimization. For these reasons an upgrade to a \SI{40}{Gbit/s} \dword{mch} could be foreseen in the future. This would also imply that the optical links connecting the \dword{daq} system to \dword{utca} \dword{mch} should be operable at \SI{40}{Gbit/s}. A summary of the required and supported bandwidths per \dword{utca} crate for continous data streaming is provided in Table~\ref{tab:dp-utcabandwidth}.
 
-\begin{dunefigure}[Instrumented $\mu$TCA crate from the \dword{wa105}]{fig:dpele-311-utca-image}
-{Pictures of an instrumented \dword{utca} crate from \dword{wa105} detector. The crate contains five \dword{amc} cards, correspondingly to the number of readout channels per the \dword{sftchimney}. The images below show the crate after the  cables are connected to the warm flange of the \dword{sftchimney}.}
+\begin{dunefigure}[Instrumented \dword{utca} crate from the \dword{wa105}]{fig:dpele-311-utca-image}
+{Pictures of an instrumented \dword{utca} crate from the \dword{wa105}. The crate contains five \dword{amc} cards, correspondingly to the number of readout channels per the \dword{sftchimney}. The images below show the crate after the  cables are connected to the warm flange of the \dword{sftchimney}.}
 \includegraphics[width=0.6\textwidth]{dpele-311-utca-image}
 \end{dunefigure}
 
-As an illustration, Figure~\ref{fig:dpele-311-utca-image} shows pictures of one of the instrumented \dword{utca} crates used for the charge readout of \dword{wa105} at CERN. In this detector each \dword{sftchimney} reads \num{320} channels thus requiring only five \dwords{amc} per the \dword{utca} crate. The two optical fiber links, one (\SI{10}{Gbit/s}) for data and the other (\SI{1}{Gbit/s}) for clock/trigger timing distribution, are visible in the images.       
+As an illustration, Figure~\ref{fig:dpele-311-utca-image} shows pictures of one of the instrumented \dword{utca} crates used for the charge readout of the \dword{wa105} at CERN. In this detector each \dword{sftchimney} reads \num{320} channels thus requiring only five \dwords{amc} per the \dword{utca} crate. The two optical fiber links, one (\SI{10}{Gbit/s}) for data and the other (\SI{1}{Gbit/s}) for clock/trigger timing distribution, are visible in the images.       
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Timing Distribution}
@@ -537,7 +537,7 @@ precision on the clock synchronization is not strictly needed for aligning sampl
 timing granularity on the data is \SI{400}{ns}. However, the \dword{wr} timing system offers readily available industrial components and the necessary protocols %needed 
 for synchronization with automatic calibration of delay propagation. % and it, therefore, has been adopted. 
 %This solution for the timing distribution was part of the R\&D started in 2006 and the final design for integrating this system with the readout of \dword{pddp} was completed in 2016.
-R\&D on this timing distribution solution started in 2006; the final design for integrating this system, foreseen for the \dword{dpmod}, into the \dword{pddp} and \dword{wa105} readout was completed in 2016. 
+R\&D on this timing distribution solution started in 2006; the final design for integrating this system, foreseen for the \dword{dpmod}, into the \dword{pddp} and the \dword{wa105} readout was completed in 2016. 
 %\fixme{Is this relevant? what about timing of decision on using it for dp det module?} YES, THIS DEMONSTRATE THE STATE OF THE DESIGN READINESS
 
 In the implementation specific to \dword{pddp}, a GPS-disciplined 
@@ -694,11 +694,11 @@ The cold \fdth flange of the \dwords{sftchimney} forms the interface between the
 signals from two KEL connectors. The order in which the cables are connected %into 
 to the cold flange determines the mapping of the electronic channels to the physical location of the strips on the \dword{crp} and is %should be 
 coordinated carefully with the \dword{crp} consortium. %As an illustration, 
-Figure~\ref{fig:dpele-sft-cold-flange} shows two images of the cold \fdth from the \dword{wa105} detector.
+Figure~\ref{fig:dpele-sft-cold-flange} shows two images of the cold \fdth from the \dword{wa105}.
 %%%%%%%%%  Anne to here EOB 4/16
 
-\begin{dunefigure}[Images of \dword{wa105} \dword{sft} cold \fdth]{fig:dpele-sft-cold-flange}
-{Images of \dword{wa105} \dword{sft} cold \fdth with the \dword{fe} cards inserted (right) and signal cables from \dword{crp} connected (left). The \dword{wa105} \dwords{sftchimney} read only \num{320} channels thus requiring \num{5} \dword{fe} cards.}
+\begin{dunefigure}[Images of the \dword{wa105} \dword{sft} cold \fdth]{fig:dpele-sft-cold-flange}
+{Images of the \dword{wa105} \dword{sft} cold \fdth with the \dword{fe} cards inserted (right) and signal cables from \dword{crp} connected (left). The \dword{wa105} \dwords{sftchimney} read only \num{320} channels thus requiring \num{5} \dword{fe} cards.}
 \includegraphics[width=0.8\textwidth]{dpele-sft-cold-flange}
 \end{dunefigure}
 
@@ -900,7 +900,7 @@ The design of the \dual electronics system takes into account several risk facto
 \item{\textbf{Modification to \dword{fe} electronics due to evolution in design of \dwords{pd}}: Strict and timely follow-up of the \dword{fe} requirements from the \dual \dword{pds} is required.}
 
 \item{\textbf{Damage to electronics due \dword{hv} discharges or other causes}: %reasons}: 
-The \dword{fe} cards should include suitable protection components. The TVS diodes used in the current design  have been sufficient to protect the electronics in \dword{wa105} detector. 
+The \dword{fe} cards should include suitable protection components. The TVS diodes used in the current design  have been sufficient to protect the electronics in the \dword{wa105}. 
  In addition, the cards are accessible and could be replaced if damaged. }
  
 \item{\textbf{Overpressure in the \dwords{sftchimney}}: The \dwords{sftchimney} are equipped with safety valves that vent the excess gas in case of the sudden pressure rise. The overpressure threshold %should 
@@ -976,7 +976,7 @@ USA: Southern Methodist University & Thomas Coan & coan@smu.edu  \\
 The %present 
 %\fixme{present?} 
 design of the \dual TPC electronics system %mostly relies 
-largely on the elements that have already been developed and tested in the \dword{wa105} detector. Commissioning of the \dword{pddp} towards the end of 2018 should provide some additional information, but is not expected to affect the design of principal components. Some additional improvements related to the increase in the channel density supported by \dwords{amc}  %could be envisioned 
+largely on the elements that have already been developed and tested in the \dword{wa105}. Commissioning of the \dword{pddp} towards the end of 2018 should provide some additional information, but is not expected to affect the design of principal components. Some additional improvements related to the increase in the channel density supported by \dwords{amc}  %could be envisioned 
 is possible for the purpose of further cost reduction. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
