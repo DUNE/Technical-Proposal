@@ -169,13 +169,13 @@
 
 
 % Global Trigger Logic
-\newduneabbrev{gtl}{ETL}{External Trigger Logic}{Trigger processing
-  which consumes \gls{detmodule} level \gls{trignote} information
+\newduneabbrev{etl}{ETL}{external trigger logic}{Trigger processing
+  that consumes \gls{detmodule} level \gls{trignote} information
   and other global sources of trigger input and emits
   \gls{trigcommand} information back to the \glspl{mtl}}
 
 \newduneword{trignote}{trigger notification}{Information provided by
-  \gls{mtl} to \gls{gtl} about \gls{trigdecision} its processing}
+  \gls{mtl} to \gls{etl} about \gls{trigdecision} its processing}
 
 % trigger primitive
 \newduneword{trigprimitive}{trigger primitive}{Information derived by
@@ -192,10 +192,10 @@
   dispatcher}{This component is responsible for dispatching a SNB dump
   command to all \glspl{daqfer} in the \gls{detmodule}.}
 
-\newduneabbrev{mtl}{MTL}{Module Trigger Logic}{Trigger processing
+\newduneabbrev{mtl}{MTL}{module trigger logic}{Trigger processing
   which consumes \gls{detunit}-level \gls{trigcommand} information
   and emits \glspl{trigcommand}. 
-  It provides the \gls{gtl} with \glspl{trignote} and receives back any
+  It provides the \gls{etl} with \glspl{trignote} and receives back any
   \glspl{externtrigger}}
 
 % octant
@@ -267,7 +267,7 @@
   electronics.}
 
 % \fixme{Needs improvement}
-\newduneabbrev{fpga}{FPGA}{Field Programmable Gate Array}{An
+\newduneabbrev{fpga}{FPGA}{field programmable gate array}{An
   integrated circuit technology which the hardware to be reconfigured
   to execute different algorithms after manufacture}
 
@@ -432,11 +432,11 @@ Each \gls{detunit} of a  certain granularity, such as two SP APAs, has one front
 
 \newduneword{beamline}{beamline}{A sequence of control and monitoring devices used for the formation of a directed collection of particles}
 
-\newduneabbrev{cdr}{CDR}{Conceptual Design Report}{A formal project
+\newduneabbrev{cdr}{CDR}{conceptual design report}{A formal project
   document required by funding agencies which describes the experiment
   at a conceptual level}
 
-\newduneabbrev{cf}{CF}{Conventional Facilities}{Pertaining to
+\newduneabbrev{cf}{CF}{conventional facilities}{Pertaining to
   construction and operation of buildings or caverns}
 
 \newduneabbrev{cp}{CP}{charge parity}{Product of charge and parity

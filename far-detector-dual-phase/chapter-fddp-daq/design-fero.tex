@@ -64,8 +64,7 @@ but the basic design itself is
 fairly elastic between them.
 
 The \dword{lro} crates are nominally not involved in self-triggering although
-the data from all five \dword{lro} crates are considered 
-\fixme{expected?} to flow through a \dword{lro} \dword{bow}. 
+the data from all five \dword{lro} crates are assumed to flow through a \dword{lro} \dword{bow}. 
 %This includes data from all five \dword{lro} crates; 
 The data are then sent to a
 single \dword{felix} board. 
@@ -81,7 +80,7 @@ achieved about three times this speed.
 This would allow an individual \dword{bow} computer to aggregate \numrange{10}{30} \dword{cro}
 data streams before the \dwords{ssd} become a bottleneck. 
 The five \dword{lro} data streams, each producing \SI{5}{Gbps}, could together be
-streamed to a two modern \dwords{ssd}. \fixme{??}
+streamed to a two modern \dwords{ssd}. %\fixme{??}
 The \dword{bow} computers must also have sufficient RAM to hold
 pre-\dword{snb}-trigger data of about \num{10} seconds.
 

@@ -37,7 +37,7 @@ This processing begins with the data being received by the
 \dword{felix} PCIe board hosted in the \dword{fec}. 
 The \dword{felix} board performs a DMA transfer of the data into the
 \dword{daqbuf} for the \dword{daqfrag} which resides in the
-\dword{fec} host system RAM.  \fixme{DMA not defined in gloss}
+\dword{fec} host system RAM.  %\fixme{DMA not defined in gloss}
 This buffer is sized to hold ten seconds of data assuming the maximum 
 uncompressed input rate associated with the fragment.
 While data is being written to the buffer, a delayed portion is
@@ -84,18 +84,16 @@ The \dword{eb} finally assembles all responses into a
 it becomes responsibility of DUNE offline computing.
 
 The \dword{daqds} and \dword{eb} services are implemented using
-\dword{artdaq}, which is a modern, general-purpose software framework for
+ the general-purpose \fnal data acquisition framework \dword{artdaq} for
 distributed data combination and processing. 
-It has been used in \dword{protodune} and other experiments.
 It is designed to exploit the parallelism that is possible with
-modern multi-core and networked computers. 
-It is the principal architecture that will be used for the DUNE \dword{daq}
-back-end computing.
-The authors of \dword{artdaq} have accomodated DUNE-specific feature-addition
-requests and a number of libraries have been developed based on
+modern multi-core and networked computers, and has been used in \dword{protodune} and other experiments.
+The \dword{artdaq} framework is the principal architecture that will be used for the DUNE \dword{daq} back-end computing.
+The authors of \dword{artdaq} have accommodated DUNE-specific 
+requests for feature additions. Also a number of libraries have been developed based on
 existing parts of \dword{artdaq} used to handle incoming data from data
 sources. 
-It is likely that future DUNE extensions will be by one of these two
+It is likely that future DUNE extensions will be made by one of these two
 routes.
 
 Unlike the dispatch of data initiated by a normal \dwords{trigcommand},
@@ -106,8 +104,8 @@ for a rather extended time of \snbtime starting from \snbpretime
 before the time associated with the \dword{trigcommand}. 
 As no data selection is being performed, the bandwidth needed requires
 special buffering to nonvolatile storage in the form of \dword{ssd}. 
-\fixme{awkward: bandwidth needed requires special buffering. Maybe: ``given the required bandwidth, special buffering to nonvolatile storage, in the form of \dword{ssd}, is required''} 
-Today's technology supplies individual \dword{ssd} in M.2 form factor,
+%\fixme{awkward: bandwidth needed requires special buffering. Maybe: ``given the required bandwidth, special buffering to nonvolatile storage, in the form of \dword{ssd}, is required''} 
+Today's technology supplies individual \dword{ssd} in the M.2 expansion card form factor,
 which supports individual write speeds up to \SI{2.5}{\GB/\s}. 
 The two designs differ as to the location of and data source for these
 buffers.
@@ -150,7 +148,7 @@ With current commodity computing hardware it is expected that each
 \dword{fec} will need to be augmented with about two computers in the trigger
 farm. 
 These trigger processors will need to accept the entire \dual and
-$\frac{3}{8}$'s of the \single data stream from their \dword{daqfrag}. 
+three-eighths of the \single data stream from their \dword{daqfrag}. 
 If they instead accepted the entire stream, they can also provide
 RAM buffering and split up the data rate which must be sunk to
 \dword{ssd} buffers.

@@ -46,11 +46,9 @@ The concept of \textit{run} represents a period of time in which the same
 \dword{fe} elements are active or the same data selection criteria
 are in effect (possibly with maximum lengths for offline processing
 reasons). 
-
 More than just orchestrating data taking, the run control
 provides the mechanisms allowing \dword{daq} applications to publish
 their availability, subscribe to information, and exchange messages. 
-
 In addition, the online software provides a configuration service
 for \dword{daq} elements to store their settings and a conditions
 archive, keeping track of varying detector electronics settings and
@@ -65,14 +63,11 @@ computing and network infrastructure) and the monitoring of the
 physics data.
 Both are essential to the success of the experiment and must be %should be
 designed and integrated into the \dword{daq} system from the start.
-\fixme{Anne removed: In particular, for such a large and distributed system, it is important to have a well thought through information sharing and archival system, and also to put human resources into the development of scalable and easily accessible data visualization tools, which will evolve during the lifetime of the experiment.}
-In particular, for such a large and distributed system, the information sharing and archival system is very important, as are \fixme{Anne removed:  and also to put human resources into the development of }
+In particular, for such a large and distributed system, the information sharing and archival system is very important, as are 
 scalable and easily accessible data visualization tools, which will evolve during the lifetime of the experiment.
-
 The online software provides the glue that holds the
 \dword{daq} applications together and enables %allows to operate the 
 data taking.
-\fixme{Anne removed: While it is not involved in physics data flow nor selection, it has a large impact on the \dword{daq}: }
 Its architecture guides the
 approach to \dword{daq} application design and also shapes the view
 that the operators will have of the experiment.

@@ -3,7 +3,7 @@
 \label{sec:fd-daq-intfc-fnal-cmptg}
 
 The interface between the \dword{daq} and offline computing is
-described in DUNE-doc-7123~\cite{docdb-7123}.
+described in \docdb-7123~\cite{docdb-7123}.
 The \dword{daq} team is responsible for reducing the data volume
 to the level that is agreed upon by all interested parties, and the
 raw data files are transfered from \surf to \fnal using a
@@ -59,8 +59,8 @@ This allows bi-directional communications between the \dword{daq} and \dword{cis
 reading or inserting data into the database as needed for non
 time-critical information.  
 
-For prompt, time sensitive status information such as \textit{Run is in
-progress} or \textit{Camera is on}, a low-latency software status register
+For prompt, time sensitive status information such as \textit{run is in
+progress} or \textit{camera is on}, a low-latency software status register
 is available on the local network to both systems.
 
 %There is not a hardware interface, aside from the fact that several racks of \dword{cisc} servers will be in the /counting room/ in the \dword{cuc}, and that rack monitors in \dword{daq} racks will be read out into the \dword{cisc} data stream.
@@ -109,19 +109,19 @@ report a potential \dword{snb} signal within \SI{10}{\s}.
 %to receive the alert.
 A script running on the \dword{snews} server at BNL, provided by a given experiment that wishes to receive an alert,  sends out a message with the earliest time in the coincidence.
 The latency from the neutrino burst is set by the response time of the
-second fastest detector to report to \dword{snews}: this could be as
+second fastest detector to report to \dword{snews}. This could be as
 short as seconds, but could be tens of seconds.
 At latencies larger than \SI{10}{\s}, full data might not be
-available, but selected data is expected to be manageable. \fixme{what is this trying to say? }
+available, but selected data is expected to be manageable. 
 
-\fixme{Anne replacing: There are other astrophysical triggers available for occurrences which DUNE might not sensitive to individually, but could be either rarely or if taken as an ensemble. Gravitational wave triggers will be available (details being worked out during the current LIGO shutdown), as will high energy photon transients, most notably gamma ray bursts. In fact, cooperation between LIGO/VIRGO, the Gamma Ray Coordinates Network (GCN)(footnote removed here), and a number of automated telescopes via network sockets on the time scale of seconds enabled the discovery that ``short/hard'' gamma ray bursts are caused by colliding neutron stars - cite kilonova.}
+%\fixme{Anne replacing: There are other astrophysical triggers available for occurrences which DUNE might not sensitive to individually, but could be either rarely or if taken as an ensemble. Gravitational wave triggers will be available (details being worked out during the current LIGO shutdown), as will high energy photon transients, most notably gamma ray bursts. In fact, cooperation between LIGO/VIRGO, the Gamma Ray Coordinates Network (GCN)(footnote removed here), and a number of automated telescopes via network sockets on the time scale of seconds enabled the discovery that ``short/hard'' gamma ray bursts are caused by colliding neutron stars - cite kilonova.}
 
-Other astrophysical triggers are available to which DUNE alone is unlikely to be sensitive to, except in rare cases, or if the triggers are taken as an ensemble. 
+Other astrophysical triggers are available to which DUNE alone is unlikely to have sensitivity, except in rare cases, or if the triggers are taken as an ensemble. 
  Among these are gravitational wave triggers %will be available 
  (the details are being worked
-out during the current LIGO shutdown), and high energy photon
+out during the current LIGO shutdown), and high-energy photon
 transients, most notably gamma ray bursts.
-In fact, the use of network sockets on the time scale of seconds
+In fact, the use of network sockets on the timescale of seconds
 enabled cooperation between LIGO, VIRGO, the Gamma Ray Coordinates
 Network (GCN)~\footnote{Described in detail at
   \url{https://gcn.gsfc.nasa.gov/gcn_describe.html}}, and a number of

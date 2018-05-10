@@ -4,7 +4,7 @@
 \label{sec:fd-daq-org}
 
 %\metainfo{2 Pages}
-At the time of writing, the \dword{daq} consortium comprises \num{30} institutions, including universities and national labs, from five countries. Since its conception, the \dword{daq} consortium has met on roughly a weekly basis, and has so far held two international workshops dedicated to advancing the  \dword{fd} \dword{daq} design.
+At the time of writing, the \dword{daq} consortium comprises \num{30} institutions, including universities and national labs, from five countries. Since its conception, the \dword{daq} consortium has met on roughly a weekly basis, and has so far held two international workshops dedicated to advancing the  \dword{fd} \dword{daq} design. The current \dword{daq} consortium leader is Dave Newbold, U. Bristol, UK.
 
 Several key technical and architectural decisions have been made in the last months, that have formed an agreed basis for the \dword{daq} design and implementation presented in this document.
 
@@ -29,7 +29,7 @@ During the ongoing early stages of the design, the architecture and hardware WGs
 \subsection{Planning Assumptions}
 \label{sec:fd-daq-org-assmp}
 
-The \dword{daq} planning is based the assumption of a \dword{spmod} first, followed by a \dword{dpmod}. The schedule is sensitive to this assumption, as the \dword{daq} requirements for the two module types are quite different. We plan five partially overlapping phases of activity (see Figure~\ref{fig:daq-schedule}):
+The \dword{daq} planning is based the assumption of a \dword{spmod} first, followed by a \dword{dpmod}. The schedule is sensitive to this assumption, as the \dword{daq} requirements for the two module types are quite different. Five partially overlapping phases of activity are planned (see Figure~\ref{fig:daq-schedule}):
 
 \begin{itemize}
 	\item A further period of R\&D activity, beginning at the time of writing, and culminating in a documented system design in the \dword{tdr} around July 2019;
@@ -39,8 +39,8 @@ The \dword{daq} planning is based the assumption of a \dword{spmod} first, follo
 	\item Production and delivery of final hardware, computing, software and firmware for the second module.
 \end{itemize}
 
-This schedule assumes beneficial occupancy of the \dword{cuc} ounting room by end of 22Q1, and the availability of facilities to support an extended large-scale integration test in 2020 (e.g., CERN or \fnal). We assume the availability of resources for installation and commissioning of final \dword{daq} hardware (e.g., surface control room and server room facilities) from around 23Q1, and the \dword{itf} from 22Q2. The majority of capital resources for \dword{daq} construction will be required from 22Q2, with a first %tranche 
-portion of funds for the minimal \dword{daq} slice from 21Q1.
+This schedule assumes beneficial occupancy of the \dword{cuc} ounting room by end of the first quarter of 2022, and the availability of facilities to support an extended large-scale integration test in 2020 (e.g., CERN or \fnal). We assume the availability of resources for installation and commissioning of final \dword{daq} hardware (e.g., surface control room and server room facilities) from around the first quarter of 2023, and the \dword{itf} from the second quarter of 2022. The majority of capital resources for \dword{daq} construction will be required from the second quarter of 2022, with a first %tranche 
+portion of funds for the minimal \dword{daq} slice from the first quarter of 2021.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{WBS and Responsibilities}
@@ -59,17 +59,6 @@ The high-level \dword{daq} schedule, which is based upon the current DUNE \dword
 \includegraphics[width=0.8\textwidth]{DAQ-schedule.pdf}
 \end{dunefigure}
 
-A high-level breakdown of the \dword{daq} cost for the first two detectors is summarised in Table~\ref{tab:daq-cost}.
+%A high-level breakdown of the \dword{daq} cost for the first two detectors is summarised in Table~\ref{tab:daq-cost}.
 
-\begin{dunetable}[\Dword{daq} high-level cost breakdown (2017 kUSD)]{lllll}{tab:daq-cost}{\dword{daq} high-level cost breakdown}
-	Cost item &  Module 1 & Module 2 & Common costs & Total \\ \toprowrule
-	Data links & \num{741} & \num{133} & \num{0} & \num{874} \\
-	Front-end hardware & \num{5110} & \num{0} & \num{0} & \num{5110} \\
-	Front-end computing & \num{1029} & \num{710} & \num{0} & \num{1739} \\
-	Back-end computing & \num{151} & \num{56} & \num{122} & \num{329} \\
-	Service computing & \num{45} & \num{45} & \num{6} & \num{96} \\
-	Timing system & \num{96} & \num{61} & \num{24} & \num{181} \\
-	Network & \num{103} & \num{343} & \num{5} & \num{451} \\
-	Infrastructure & \num{106} & \num{106} & \num{145} & \num{357} \\
-	\bf{Total} & \num{7380} & \num{1454} & \num{303} & \bf{\num{9136}} \\
-\end{dunetable}
+%\begin{dunetable}[\Dword{daq} high-level cost breakdown (2017 kUSD)]{lllll}{tab:daq-cost}{\dword{daq} high-level cost breakdown} (full table in earler versions of this file 10 May )

@@ -15,7 +15,7 @@ in the \dword{mtl}.
 When executed, they lead to readout of a small subset of the total
 data. 
 In addition, \dwords{trigcandidate} are provided to the
-\dword{mtl} from external sources such as the \dword{gtl} in order to
+\dword{mtl} from external sources such as the \dword{etl} in order to
 indicate external events such as beam spills, or \dword{snb} candidates
 detected by the other \dwords{detmodule}. 
 In addition to supplying triggers to \dword{snews}, triggers from
@@ -36,7 +36,7 @@ and~\ref{sec:fd-daq-fetp}, \dwords{trigprimitive} will be generated in
 either in \dwords{daqfer} (in the nominal design) or in trigger
 processing computers (in the alternative design). 
 In both designs, and for both \dword{sp} and \dword{dp}
-\dwords{detmodule}, only data from TPC collection channels ($\frac{3}{8}$ of \single and all of \dual channels) will feed
+\dwords{detmodule}, only data from TPC collection channels (three-eighths of \single and all of \dual channels) will feed
 the self-triggering, as their waveforms directly supply a measure of
 ionization activity without computationally costly signal processing.
 The \dwords{trigprimitive} contains summary information for each
@@ -122,11 +122,11 @@ If not rejected, it is sent out of the \dword{daq} to permanent offline
 storage.
 
 In addition, the \dword{mtl} passes \dwords{trigcandidate} up to a
-detector-wide \dfirst{gtl}, which among other functions, can decide
+detector-wide \dword{etl}, which among other functions, can decide
 whether, integrated across all modules, enough \dwords{detunit} have
 detected interactions to qualify as an \dword{snb}, even if within a
 particular module the threshold is not exceeded. 
-\Dwords{trigcandidate} from the \dword{gtl} are passed to the
+\Dwords{trigcandidate} from the \dword{etl} are passed to the
 \dword{mtl} for dispatch to the \dwords{fec} (or \dwords{daqfer} in the
 case of \dword{snb} dump commands in the nominal design). 
 That is, to the \dword{mtl}, an \dword{externtrigger} looks like just
@@ -139,29 +139,30 @@ hit in a given fragment within a time window (roughly \SI{100}{\micro\s}),
 the total charge collected in these adjacent channels, and possibly the
 union of time-over-threshold for the \dwords{trigprimitive} in the
 collection plane.
-Our studies show that even for low-energy events (roughly
+Studies show that even for low-energy events (roughly
 \SIrange{10}{20}{\MeV}) the reduction in radiological backgrounds is
 extremely high with such criteria.
-The highest-rate background, $^{39}$Ar, which has a decay rate of
+The highest-rate background, $^{39}$Ar, which has an overall rate of
 \SI{10}{MBq} within a \nominalmodsize volume of argon, has an endpoint 
 of \SI{500}{keV} and requires significant pileup in both space and time to get near
 a \SI{10}{\MeV} threshold.
 One important background source is $^{42}$Ar, which has a \SI{3.5}{MeV}
-endpoint and a decay rate of \SI{1}{kBq}. 
-$^{222}$Rn decays via a highly-quenched $\alpha$ of \SI{5.5}{MeV} and is
+endpoint and an overall rate of \SI{1}{kBq}. 
+$^{222}$Rn decays via a %highly-quenched 
+ \SI{5.5}{MeV} kinetic energy $\alpha$  and is
 also an important source of background.
-\fixme{Need Rn-222 decay rate.  Punted and removed mention of ``decay rate XXXX''.  Someone please fix. Anne finds half life of 3.5 days, but other measures in Bq per cubic m}
+%\fixme{Need Rn-222 decay rate.  Punted and removed mention of ``decay rate XXXX''.  Someone please fix. Anne finds half life of 3.5 days, but other measures in Bq per cubic m}
 The radon decays to $^{218}$Po, which within a few minutes leads to a
-quenched $\alpha$ of \SI{6}{MeV}, and ultimately a $^{214}$Bi daughter (many
-minutes later), which has a $\beta$ decay with endpoint near \SI{3.5}{MeV}. 
-The $\alpha$ ranges are short and will hit at most a few electrodes,
+\SI{6}{MeV} kinetic energy $\alpha$, and ultimately to a $^{214}$Bi daughter (many
+minutes later), which has a $\beta$ decay with its endpoint near \SI{3.5}{MeV}  kinetic energy. 
+The $\alpha$ ranges are short, resulting in charge being collected on one or two anode wires at most,
 but the charge deposit can be large, and therefore the charge
 threshold must be well above the $\alpha$ deposits plus any
 pileup from $^{39}$Ar and noise.
 
 At the level of one \dword{detunit}, two kinds of local
 \dwords{trigcandidate} can be generated.
-One is a \textit{high-energy} trigger that indicates local ionization
+One is a high-energy trigger that indicates local ionization
 activity corresponding to more than than \SI{10}{\MeV}. % has been found.
 The per-channel thresholds on total charge and time-over-threshold
 will be optimized to achieve at least \SI{50}{\%} efficiency at this energy
@@ -179,7 +180,7 @@ fluctuations due to noise and backgrounds in order to form an
 
 The \dword{mtl} takes as input \dwords{trigcandidate} (both low-energy
 and high-energy) from the participating \dwords{daqfrag}, as well as
-\dword{externtrigger} sources, such as the \dword{gtl}, which includes
+\dword{externtrigger} sources, such as the \dword{etl}, which includes
 global, detector-wide triggers, external trigger sources such as
 \dword{snews}, and information about the time of a \fnal beam
 spill. 
@@ -217,7 +218,7 @@ backgrounds that require some level of reconstruction or pattern
 recognition. 
 An \dword{hlt} might also allow for efficiently triggering on
 lower-energy single interactions, or allow for better sensitivity for
-supernovae beyond the Milky Way, by employing a weighting scheme to
+supernovae originating outside the Milky Way galaxy, by employing a weighting scheme to
 individual \dwords{trigcandidate} -- higher-energy
 \dwords{trigcandidate} receiving higher weights. 
 Thus, for example, two \dwords{trigcandidate} consistent with
@@ -235,7 +236,7 @@ a \dword{snb}, to extend sensitivity beyond the \SI{10}{\s}
 volume associated with \dword{snb} candidates linearly. 
 
 All low-energy \dwords{trigcandidate} are also passed upwards to the
-\dword{gtl} so that they may be integrated across all \SI{10}{\kton}
+\dword{etl} so that they may be integrated across all \SI{10}{\kton}
 \dwords{detmodule} in order to determine that a \dword{snb} may be
 occurring. 
 This approach increases the sensitivity to trigger on \dwords{snb} by
@@ -244,7 +245,7 @@ sensitivity to a distance twice as far as for a single \nominalmodsize
 \dword{detmodule}. 
 
 	
-The \dword{mtl} is also responsible to include in the
+The \dword{mtl} is also responsible for including in the
 \dword{trigcommand} a global timestamp built from its input
 \dwords{trigcandidate}, and information on what type of trigger was
 created. 
@@ -261,4 +262,4 @@ that tell the \dwords{daqfer} to stream all data from the past
 This command may be produced based on \dwords{trigcandidate} from
 inside the \dword{mtl} itself or it may be produced based on an external
 \dword{snb} \dword{trigcandidate} passed to the \dword{mtl} by the
-\dword{gtl}.
+\dword{etl}.
