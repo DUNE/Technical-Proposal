@@ -1,7 +1,7 @@
 digraph top {
         graph[compound=true,ordering=out,outputorder=edgesfirst,splines=false,layout=dot,rankdir=LR,fontsize=60,ranksep=2];
         node[shape=box,style="rounded,filled",fillcolor=white,fontsize=40];
-        label="Dual-Phase Module -- 8 of N CRO and all 5 LRO crates";
+        //label="Dual-Phase Module -- 8 of N CRO and all 5 LRO crates";
         edge[fontsize=32];
         
         subgraph cluster_cros {

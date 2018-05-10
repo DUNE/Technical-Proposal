@@ -3,7 +3,7 @@ digraph top {
         node[shape=box,style="rounded",fontsize=30];
         edge[fontsize=30];
         
-        label="Single-Phase Module -- two APAs";
+//        label="Single-Phase Module -- two APAs";
         
         subgraph cluster_wibs {
                 label="Cold\nElectronics";
