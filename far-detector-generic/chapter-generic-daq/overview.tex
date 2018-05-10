@@ -93,11 +93,11 @@ In such an environment, power, cooling, space, and access is far more
 costly than typical data centers. % residing on the surface of the Earth.
 
 Past \lartpc and \dword{lbl} neutrino detectors have successfully
-demonstrated external triggering using information related to their beam. \fixme{FROM their beam operations?}
+demonstrated external triggering using information related to their beam. %\fixme{FROM their beam operations?}
 %associated particle beam. 
 %And indeed t
 The DUNE \dword{fd} \dword{daq} will accept external information on recent
-times of Main Injector beam spills from \fnal. \fixme{accept spill time information?}
+times of Main Injector beam spills from \fnal. %\fixme{accept spill time information?}
 This will assure triggering with high efficiency to capture activity
 pertaining to interactions from the produced neutrinos. 
 
@@ -201,11 +201,11 @@ changes in \dword{hv}, cut network connectivity and other issues that could aris
   }
 % This PDF is made from the .dot of the same name.
 % \includegraphics[width=0.8\textwidth]{high-level-daq.pdf}%
-  \includegraphics[width=0.8\textwidth]{daq-nom-hl.pdf}%
+  \includegraphics[width=\textwidth{}, trim={1cm 0 1cm 0},clip]{daq-nom-hl.pdf}%
 \end{dunefigure}
 
 \begin{dunefigure}[\dword{daq} overview]{fig:daq-overview-alt}
-  {The high-level, \textit{alternative} design for the DUNE \dword{fd}\dword{fd} \dword{daq} in
+  {The high-level, alternative design for the DUNE \dword{fd}\dword{fd} \dword{daq} in
     terms of data (solid) and trigger (dashed) flows between one
     \dword{daqfrag} \dword{fe} and the trigger processing and event
     building back end for one \dword{daqpart}. 
@@ -223,7 +223,7 @@ changes in \dword{hv}, cut network connectivity and other issues that could aris
   }
 % This PDF is made from the .dot of the same name.
 % \includegraphics[width=0.8\textwidth]{high-level-daq-alt.pdf}%
-  \includegraphics[width=0.8\textwidth]{daq-alt-hl.pdf}%
+  \includegraphics[width=\textwidth{}, trim={1cm 0 1cm 0},clip]{daq-alt-hl.pdf}%
 \end{dunefigure}
 
 Currently, two major variations for the DUNE \dword{daq} are under consideration. %being considered. 
@@ -233,7 +233,7 @@ expected to support the third and forth modules to come.
 The first design, designated in this proposal as \textit{nominal}, is
 illustrated in a high-level way in terms of its data and trigger flow
 in Figure~\ref{fig:daq-overview}. 
-The second design, designated as \textit{alternative}, is similarly
+The second design, designated as alternative, is similarly
 illustrated in Figure~\ref{fig:daq-overview-alt}. 
 The two variants differ largely at their \dwords{fe} in terms of the
 order in which they buffer the data received from the \dword{detmodule} 
@@ -250,7 +250,7 @@ For both, the diagrams are %drawn
 centered on one \dword{daqfrag}
 \dword{fe}, which is a portion of the entire \dword{daqpart} servicing a
 \dword{detmodule} that has one \dword{fec} accepting about
-\numrange{10}{20}~\si{\Gbps/\s} of data (uncompressed rate) from some integral
+\numrange{10}{20}~\si{\Gbps} of data (uncompressed rate) from some integral
 number of \dwords{detunit}. 
 Each of the participating \dwords{daqfrag} provide the actions:
 \begin{itemize}
@@ -267,7 +267,7 @@ The trigger processing system must:
 \begin{itemize}
 \item Receive the stream of per-channel \dwords{trigprimitive} from all \dwords{daqfrag}.
 \item Correlate the primitives in time and spatially (across channels), and otherwise use them to form higher-level \dwords{trigcandidate}.
-\item Exchange \dwords{trigcandidate} with the \dword{gtl}.
+\item Exchange \dwords{trigcandidate} with the \dword{etl}.
 \item From them form \dwords{trigcommand}, each of which describes a
   portion of the data in time and a channel to be read out, such that
   no two trigger commands overlap.
@@ -297,7 +297,7 @@ When a \dword{snb} trigger command is raised it is forwarded to the
 After the \dword{snb} data is dumped to \dwords{ssd} it is
 ``trickled'' out via a path separate from the normal data to the
 \dword{diskbuffer}. 
-On the other hand, the \textit{alternative} design places these
+On the other hand, the alternative design places these
 functions downstream of the \dword{fec} in trigger processing and data
 buffering nodes.
 The RAM of those nodes is used to provide the primary \dword{daq} buffer for
@@ -311,7 +311,7 @@ The \dword{fe} buffering nodes, instead of directly attempting to
 return the full \dword{sbn} data immediately, streams it to local
 \dword{ssd} storage. 
 From that storage, the data is sent to the \dword{eb} as a low
-priority (ie.., also \textit{trickled out}).
+priority (i.e., also trickled out).
 Since the \dword{mtl} ensures no overlapping commands, the buffer
 nodes may service subsequent requests from post-dump data that is %will be
 in the RAM buffer.
@@ -328,9 +328,8 @@ is
 given in Section~\ref{sec:fd-daq-design}.
 
 
-The high-level requirements for the DUNE \dword{fd} \dword{daq} are provided in
-\cite{daq:reqs}.
-The most critical requirements %in consideration of the overall design
+%The high-level requirements for the DUNE \dword{fd} \dword{daq} are provided in\cite{daq:reqs}.
+The most critical requirements for the DUNE \dword{fd} \dword{daq} 
 are summarized in Table~\ref{tab:daqrequirements}.
 
 \begin{dunetable}[Important requirements on the \dword{daq} system design]
@@ -445,7 +444,7 @@ to $10\times$ may be achieved with the \dual data.
 Of course, the compression factor achieved will ultimately depend on
 the level of excess noise experienced in each \dword{detmodule}
 cryostat. 
-Studies using data from the LBNE \dword{35t} prototype and early \microboone
+Studies using data from the DUNE \dword{35t} and early \microboone
 running have shown that a compression factor of at least $4\times$ can
 be expected even in the case of rather high levels of excess noise.
 

@@ -9,7 +9,7 @@ A \dword{sls} at the far detector site will locate the time periods in
 the data when beam could be present, based on network packets received
 from Fermilab containing predictions of the GPS-time of spills soon to
 occur or absolute time stamps of spills recently occurring. 
-Experience from MINOS and NOvA shows that this can provide beam
+Experience from MINOS and \nova shows that this can provide beam
 triggering with high reliability with some small fraction of late or
 dropped packets.
 To improve further the system outlined here contains an extra layer
@@ -20,13 +20,13 @@ time (sub-\si{\ms}) in time for the data to be selected from
 the \dword{daq} buffers. 
 Ultimately, an offline database will match the actual time of the
 spill with the data, thus removing any reliance on real-time network
-transfer for this crucial stage of the oscillation measurements, the
+transfer for this crucial stage of the oscillation measurements. The
 network transfer of spill-timing information is simply to ensure a
 correctly located and sufficiently wide window of data is considered
 as beam data. This system is not required, and is not designed to
 provide signals accurate enough to measure neutrino time-of-flight.
 
-The precision to which the spill time can be predicted at Fermilab
+The precision to which the spill time can be predicted at \fnal
 improves as the acceleration process of the protons producing the
 spill in question advances.  The spills currently occur at intervals
 of \SI{1.3}{\s}; the system will be designed to work with any interval, and
@@ -39,11 +39,11 @@ neutrinos and the time is subject to a few ms of jitter.  The second
 is about \SI{0.7}{\s} before the spill, at the point where the main injector
 acceleration is no longer coupled to the booster timing; this is
 governed by a crystal oscillator and so has a few \si{\us} of jitter.
-The third will be at the so called `\texttt{\$74}' signal which is just before the beam line kicker magnet fires
+The third will be at the so called `\texttt{\$74}' signal generated before the beam line kicker magnet fires
 to direct the protons at the LBNF target; this doesn't improve the
 timing at the far detector much, but serves as a cross check for
 missing packets.  This system is enhanced compared to that of
-MINOS/NOvA, which only use the third of the above timing signals.  The
+MINOS-\nova, which only use the third of the above timing signals.  The
 reason for the larger uncertainty in the time interval from \SI{1.6}{\s} to
 \SI{0.7}{\s} is that the booster cycle time is synchronised to the
 electricity supply company's \SI{60}{\Hz} which has a variation of about
