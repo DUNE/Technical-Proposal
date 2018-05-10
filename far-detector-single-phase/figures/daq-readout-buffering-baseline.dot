@@ -1,10 +1,12 @@
 digraph top {
-        graph[compound=true,ordering=out,splines=false,layout=dot,rankdir=LR,fontsize=20];
-        node[shape=box,style="rounded",fontsize=16];
+        graph[compound=true,ordering=out,splines=false,layout=dot,rankdir=LR,fontsize=50,ranksep=1.5];
+        node[shape=box,style="rounded",fontsize=30];
+        edge[fontsize=30];
+        
         label="Single-Phase Module -- two APAs";
         
         subgraph cluster_wibs {
-                label="Cold Electronics";
+                label="Cold\nElectronics";
                 subgraph cluster_apa2 {
                         label="APA 2";
                         node[shape=record];
@@ -28,7 +30,7 @@ digraph top {
                 label="Single-Phase Module DAQ";
                 
                 subgraph cluster_daqsp{
-                        label="Single-Phase Module DAQ Components for two APAs"
+                        label="Single-Phase DAQ Front-End Components (2 APAs)"
                         subgraph cluster_ferohw{
                                 label="Front-End Readout\nfor two APAs";
                                 subgraph cluster_rces2 {
@@ -49,25 +51,25 @@ digraph top {
                                 }
                         }
                         subgraph cluster_fecomp{
-                                label="Front-End Computing for two APAs";
+                                label="Front-End Computing\nfor two APAs";
                                 subgraph cluster_felixpc {
-                                        label="FELIX Host Computer";
+                                        label="Front-End Computer\n(FELIX Host)";
                                         felix[label="FELIX\nPCIe board"];
                                         ring[shape=circle,label="RAM\nBuffer"];
-                                        selector[label="Data Selector"];
+                                        selector[label="Data\nSelector"];
                                         
                                 }
                         }
                 }
                 subgraph cluster_daqblob {
-                        label="Single-Phase Module Back-end Computing";
-                        labelloc=top;
+                        label="Single-Phase Module\nBack-end Computing";
+                        labelloc=bottom;
                         
                         eb[label="Event Builder"];
                         oob[label="Out-of-band\ndispatcher",color=red];
                         mtl[label="Module\nTrigger Logic"];
-                        disk[label="Output Disk Buffer"];
-                        snbeb[label="SNB dump Event Builder"];
+                        disk[label="Output\nDisk\nBuffer"];
+                        snbeb[label="SNB dump\nEvent Builder"];
                 }
         }
         wib11:c1->rce11:w;
@@ -128,7 +130,7 @@ digraph top {
         rce13:e->felix;
         rce14:e->felix;
 
-        rce21:e->felix[label="Data and Trigger Primitives"];
+        rce21:e->felix[taillabel="   Data and Trigger Primitives"];
         rce22:e->felix;
         rce23:e->felix;
         rce24:e->felix;
@@ -148,19 +150,19 @@ digraph top {
         
         
         edge[penwidth=1,style=dashed,color=black];
-        selector->eb[dir=back];
+        selector:s->eb[dir=back];
         selector->ring;
         
 
         edge[penwidth=1,style=dotted];
         felix->mtl[label="trigger\ncandidates"];
         
-        mtl->eb[label="trigger commands"];
+        mtl->eb[taillabel="trigger\ncommands"];
 
 
         // Send trigger back to each rce
         edge[penwidth=1,style=dashed,color=red];
-        oob->mtl[dir=back,label="OOB dump command"];
+        oob->mtl[dir=back,taillabel="OOB\ndump\ncommand"];
         rce14->oob[dir=back,ltail=cluster_rces1];
         rce24->oob[dir=back,ltail=cluster_rces2];
         

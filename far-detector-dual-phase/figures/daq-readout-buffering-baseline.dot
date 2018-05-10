@@ -1,76 +1,77 @@
 digraph top {
-        graph[compound=true,ordering=out,outputorder=edgesfirst,splines=false,layout=dot,rankdir=LR,fontsize=40,ranksep=.01,nodesep=.01,sep=0.01];
-        node[shape=box,style="rounded,filled",fillcolor=white,fontsize=32];
+        graph[compound=true,ordering=out,outputorder=edgesfirst,splines=false,layout=dot,rankdir=LR,fontsize=60,ranksep=2];
+        node[shape=box,style="rounded,filled",fillcolor=white,fontsize=40];
         label="Dual-Phase Module -- 8 of N CRO and all 5 LRO crates";
         edge[fontsize=32];
         
         subgraph cluster_cros {
-                label="CRO uTCA Crates\n8 out of 240 ";
+                label="CRO\nuTCA Crates\n8 out of 240 ";
                 subgraph cluster_cro1 {
-                        label="CRO crate 1";
+                        label="crate 1";
                         cronic1[label="NIC"];
                 }
                 subgraph cluster_cro2 {
-                        label="CRO crate 2";
+                        label="crate 2";
                         cronic2[label="NIC"];
                 }
                 subgraph cluster_cro3 {
-                        label="CRO crate 3";
+                        label="crate 3";
                         cronic3[label="NIC"];
                 }
                 subgraph cluster_cro4 {
-                        label="CRO crate 4";
+                        label="crate 4";
                         cronic4[label="NIC"];
                 }
                 subgraph cluster_cro5 {
-                        label="CRO crate 5";
+                        label="crate 5";
                         cronic5[label="NIC"];
                 }
                 subgraph cluster_cro6 {
-                        label="CRO crate 6";
+                        label="crate 6";
                         cronic6[label="NIC"];
                 }
                 subgraph cluster_cro7 {
-                        label="CRO crate 7";
+                        label="crate 7";
                         cronic7[label="NIC"];
                 }
                 subgraph cluster_cro8 {
-                        label="CRO crate 8";
+                        label="crate 8";
                         cronic8[label="NIC"];
                 }
         }
         subgraph cluster_lros {
-                label="LRO uTCA Crates\nAll 5";
+                label="LRO\nuTCA Crates\nAll 5";
 
                 subgraph cluster_lro1 {
-                        label="LRO crate 1";
+                        label="crate 1";
                         lronic1[label="NIC"];
                 }
                 subgraph cluster_lro2 {
-                        label="LRO crate 2";
+                        label="crate 2";
                         lronic2[label="NIC"];
                 }
                 subgraph cluster_lro3 {
-                        label="LRO crate 3";
+                        label="crate 3";
                         lronic3[label="NIC"];
                 }
                 subgraph cluster_lro4 {
-                        label="LRO crate 4";
+                        label="crate 4";
                         lronic4[label="NIC"];
                 }
                 subgraph cluster_lro5 {
-                        label="LRO crate 5";
+                        label="crate 5";
                         lronic5[label="NIC"];
                 }
         }
         subgraph cluster_dp{
                 label="Dual-Phase Module DAQ";
+                labelloc=bottom;
                 
                 subgraph cluster_daqdp{
-                        label="Dual-Phase Module DAQ Components for N crates"
+                        label="Dual-Phase DAQ Front-End Components (8+5 crates)"
 
                         subgraph cluster_ferohwlro {
-                                label="Front-End Readout for all 5 LRO crates";
+                                label="Front-End Readout\nfor all 5 LRO crates";
                                 
                                 subgraph cluster_bow0 {
                                         label="DP BOW for LRO";
@@ -93,7 +94,7 @@ digraph top {
                         }
 
                         subgraph cluster_ferohwcro{
-                                label="Front-End Readout for 8 CRO crates";
+                                label="Front-End Readout\nfor 8 CRO crates";
                                 
                                 subgraph cluster_bow4 {
                                         label="DP BOW 4";
@@ -148,36 +149,36 @@ digraph top {
                                 }
                         }
                         subgraph cluster_fecomp{
-                                label="Front-End Computing needed for\n8 of 240 CRO uTCA crates and all 5 LRO crates";
+                                label="Front-End Computing\nfor 8 of 240 CRO uTCA crates\nand all 5 LRO crates";
                                 labelloc=bottom;
                                 style=filled;
                                 fillcolor=white;
                                 
                                 subgraph cluster_felixpc0 {
-                                        label="Front-End Computer (FELIX Host)";
+                                        label="Front-End Computer\n(FELIX Host)";
                                         felix0[label="FELIX\nPCIe board"];
                                         ring0[shape=circle,label="RAM\nBuffer"];
-                                        selector0[label="Data Selector"];
+                                        selector0[label="Data\nSelector"];
                                         
                                 }
                                 subgraph cluster_felixpc1 {
-                                        label="Front-End Computer (FELIX Host)";
+                                        label="Front-End Computer\n(FELIX Host)";
                                         felix1[label="FELIX\nPCIe board"];
                                         ring1[shape=circle,label="RAM\nBuffer"];
-                                        selector1[label="Data Selector"];
+                                        selector1[label="Data\nSelector"];
                                         
                                 }
                         }
                 }
                 subgraph cluster_daqblob {
-                        label="Detector Module Back-end Computing";
+                        label="Dual-Phase Module\nBack-end Computing";
                         labelloc=top;
                         
                         eb[label="Event Builder"];
                         oob[label="Out-of-band\ndispatcher",color=red];
                         mtl[label="Module\nTrigger Logic"];
-                        disk[label="Output Disk Buffer"];
-                        snbeb[label="SNB dump Event Builder"];
+                        disk[label="Output\nDisk\nBuffer"];
+                        snbeb[label="SNB dump\nEvent Builder"];
                 }
         }
         
@@ -235,15 +236,15 @@ digraph top {
         
 
         edge[penwidth=1,style=dotted];
-        felix0->mtl[label="trigger\ncandidates"];
-        felix1->mtl[label="trigger\ncandidates"];
+        felix0->mtl[taillabel="trigger\ncandidates"];
+        felix1->mtl;
         
-        mtl->eb[label="trigger commands"];
+        mtl->eb[taillabel="trigger commands"];
 
 
         // Send trigger back to each rce
-        edge[penwidth=1,style=dashed,color=red,constraint=false];
-        mtl->oob[label="OOB\ndump\ncommand"];
+        edge[penwidth=1,style=dashed,color=red,constraint=true];
+        mtl->oob[taillabel="OOB\ndump\ncommand"];
         bow0nic0->oob[dir=back];
         bow1nic0->oob[dir=back];
         bow2nic0->oob[dir=back];
