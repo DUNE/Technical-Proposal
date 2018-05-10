@@ -39,11 +39,11 @@ messages distributed to the \dword{sp} \dword{detmodule} are an exact number
 of clock cycles apart even if there is jitter in the \dword{pps}.
 %\fixme{Need reference added for DocDB-1651.}  done - ATH, 4/16/18
 
-The GPS signal is encoded onto optical fibre and transmitted to the
+The GPS signal is encoded onto optical fiber and transmitted to the
 \dword{cuc}, where it is converted back to an RF signal on coaxial cable and
 used as the input to a GPS displined oscillator. The oscillator module
-also houses a IEEE 1588 (PTP) Grand Master and an NTP server. The PTP
-Grand Master provides a timing signal for the \dword{dp} \dword{wr}
+also houses a IEEE 1588 (PTP) grandmaster and an NTP server. The PTP
+grandmaster provides a timing signal for the \dword{dp} \dword{wr}
 timing network. The NTP server provides an absolute time for the
 \dword{pps}. The SPTS relates its time counter onto GPS time by
 timestamping the \dword{pps} onto the SPTS time counter and reading
@@ -68,7 +68,7 @@ issues with the timing path, two independent GPS systems are used. One
 with an antenna at the head of the Yates Shaft, the other with an
 antenna at the head of the Ross Shaft. The two independent timing
 paths are brought together in the same rack in the \dword{cuc}. Using 1:2
-fibre splitters one SPTS unit can be left as a hot spare while the
+fiber splitters one SPTS unit can be left as a hot spare while the
 other is active. This also allows testing of new firmware and software
 during comissioning without the risk of losing the SPTS if a bug is
 introduced.
@@ -82,7 +82,7 @@ introduced.
 All the custom electronic components for the SPTS are contained in two
 \dword{utca} shelves. At any one time one is active and the other is a
 hot spare. The \SI{10}{\MHz} reference clock and the \dword{pps} are received
-by a single width \dword{amc} at the centre of the \dword{utca} shelf. This
+by a single width \dword{amc} at the center of the \dword{utca} shelf. This
 master timing \dword{amc} produces the SPTS signals and encodes them onto a
 serial data stream. This serial datastream is distributed over a
 standard star-point backplane to the fanout \dwords{amc} which each drive the

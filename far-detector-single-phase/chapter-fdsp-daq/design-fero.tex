@@ -11,7 +11,7 @@
     one \single \dword{daq} fragment in the nominal design. 
     Black arrows indicate nominal flow and red indicate special flow
     for handling of potential \dword{snb}.  } %See text for detail description.}
-  \includegraphics[width=0.8\textwidth]{daq-readout-buffering-baseline.pdf}%
+  \includegraphics[width=0.95\textwidth]{daq-readout-buffering-baseline.pdf}%
 \end{dunefigure}
 
 
@@ -22,10 +22,10 @@ Starting from the left, it shows the fiber optic connectivity pattern
 between the four connectors of five \dword{sp} \dwords{wib} associated
 with each \dword{apa} and the elements of one \dword{sp} \dfirst{daqfer}. 
 In total, the \dword{daqfer} is associated with two \dwords{apa}, each of which
-is serviced by one \dfirst{atca} \dfirst{cob} hosting four compute
+is serviced by one \dshort{atca} \dfirst{cob} hosting four compute
 units called \dfirst{rce}. 
 Each \dword{rce} provides \dword{fpga}, RAM and \dword{ssd} resources.
-It's primary functions include:
+Its primary functions include:
 \begin{itemize}
 \item Receive data from \dwords{wib},
 \item Produce trigger primitives from collection channels (see Section~\ref{sec:fd-daq-fetp}),
@@ -106,7 +106,7 @@ any coherent excess noise.
 The threshold must be tuned to maintain high efficiency for a broad
 class of \dword{snb} models while also not flooding the \dword{daq} and
 potentially offline computing. 
-This needs further study but for the purposes of illustration a
+This needs further study, but for the purposes of illustration a
 nominal false positive rate of one \dword{snb} dump per month is
 assumed. 
 Uncompressed, this results in \SI{540}{\TB/\year}. 
