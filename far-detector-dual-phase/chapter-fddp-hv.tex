@@ -302,7 +302,7 @@ Those in category 2 are returned to the vendor for replacements.
 All resistors used for board production are numbered and undergo a three-stage \dword{qa} test for final selection. Resistance is measured at voltages up to \SI{4}{kV} in \SI{500}{V} steps for each stage. The first stage is done at  room temperature, the second at LN temperature, and the third again at room temperature after warming up.  The measured values are histogrammed for the final selection, in order to look for groupings of values.   
 %The selection is made based on the grouping of the resistors whose resistance are within 1\$ of each other using the results from all three testing stages.   
 %It is more important to have the resistance values close to each other than being the given value (unless they are totally out of range from the design values) selecting the tighter grouping provide better quality assurance.
-It is more important that the resistance values be close to each other than that they be at any particular value (unless the values are too far from the design values). The resistors for which the resistance values are within 1\$ of each other are selected.   \fixme{I reworded the prev pgraph}
+It is more important that the resistance values be close to each other than that they be at any particular value (unless they are too far from the design values). The resistors for which the resistance values are within 1\$ of each other are selected.   \fixme{I reworded the prev pgraph}
 
 %All varistors for board production are also numbered for \dword{qa} purposes and undergo a three-step \dword{qa} testing for the final selection; 1. room temperature clamping voltage measurement, 2. liquid nitrogen clamping voltage measurement and 3. clamping voltage measurement after warming up to room temperature.  Once the clamping voltages of all varistors are measured, the measured clamping voltages in all thee stages are histogrammed separately for the final selection.   The selection is made based on the clamping voltage being closer to the design values to ensure proper protection.   
 All varistors for board production are also numbered for \dword{qa} purposes and undergo a three-stage \dword{qa} testing program for the final selection. Each stage is a clamping voltage measurement, first at room temperature, then at LN temperature, and again after warming back up up to room temperature.  
@@ -460,7 +460,8 @@ These interfaces are effectively at the level of design requirements.
 \label{sec:fddp-hv-install-transport}
 
 
-The \dword{fc} FRP beams and G10 parts are shipped in a standard wooden crate.  Parts for each submodule are packed into one IKEA-style package of dimensions $0.2m\times 0.2m\times 2m$ sealed in multiple layers of shrink wrap and a thick soft cushion of plastic for edge protection.   Due to the compact size of each submodule package and since a total of 530 or so submodules are expected, including 10\% spare, the total number of crates for FRP parts to be transported down will be small.
+The \dword{fc} FRP beams and G10 parts are shipped in a standard wooden crate.  Parts for each submodule are packed into one %IKEA-style package 
+flatpack of dimensions $0.2m\times 0.2m\times 2m$ sealed in multiple layers of shrink wrap and a thick soft cushion of plastic for edge protection.   Due to the compact size of each submodule package and since a total of 530 or so submodules are expected, including 10\% spare, the total number of crates for FRP parts to be transported down will be small.
 % Anne started a rewrite A total of \num{530} plus \SI{10}{\%} spare submodules are expected. 
 \fixme{not clear how many submodule packages per crate, and need distinction betw FRP parts and submodules. I'm confused} 
 
@@ -479,15 +480,16 @@ The power supply, \fdth{}s and \dword{hv} extender are sent to \surf in standard
 
 The assembly, testing, transport, and installation procedures required to ensure adequate \dword{qc} of all \dword{hv} system components are being defined, tested and documented during the construction of \dword{pddp}.
 
-The \dword{fc} submodules are assembled inside the cryostat on an assembly table with a precision alignment bar, as was done in \dword{pddp}.  %A submodule FRP part package will be visually inspected for any external damages and will be opened carefully to avoid any damage to the FRP parts.  
-Each submodule-FRP part package is visually inspected for any external damage and is opened carefully to avoid damage to the FRP parts.  
+The \dword{fc} submodules are assembled inside the cryostat on an assembly table with a precision alignment bar, as in \dword{pddp}.  %A submodule FRP part package will be visually inspected for any external damages and will be opened carefully to avoid any damage to the FRP parts.  
+Each submodule-FRP part package is visually inspected for external damage and is opened carefully to avoid damage to the FRP parts.  
 The bags of hardware are removed and set side.   The two \SI{15.2}{\cm} (\SI{6}\,in) I-beams, two \SI{7.62}{cm} (\SI{3}{in}) I-beams and connecting L-brackets are visually inspected for  damage during transport.  Once the FRP parts pass the inspection, they are assembled into the frame on the table.  
 
 %The aluminum profiles are visually and through touching inspected for severe scratches and any excess sharp points.  The profiles that pass will be inserted into the profile slots on the FRP submodule frame, with one fixing slip nut inserted into the rail on the reenforcement rip and follow the assembly and alignment process described above.  The alignment of the profiles will be checked using straight-edge along one end of the profile and using a long level.  The submodule passing this quality criteria will be put on the wheel base and stored for installation.
 
-The aluminum profiles are visually inspected and felt by hand for severe scratches and any excess sharp points.  The profiles that pass are inserted into the profile slots on the FRP submodule frame, with one fixing slip nut inserted into the rail on the reinforcement rip, and follow the assembly and alignment process described in Section~\ref{sec:fddp-hv-prod-assy-fc-frames}.  The alignment of the profiles is checked using a straight-edge along one end of the profile and a long level.  The submodules that pass are put on the wheel base and stored for installation.
+The aluminum profiles are visually inspected and felt by hand for severe scratches and any excess sharp points.  The profiles that pass are inserted into the profile slots on the FRP submodule frame, with one fixing slip nut inserted into the rail on the reinforcement rip, 
+\fixme{what is this?} and follow the assembly and alignment process described in Section~\ref{sec:fddp-hv-prod-assy-fc-frames}.  The alignment of the profiles is checked using a straight-edge along one end of the profile.  The submodules that pass are put on the wheel base and stored for installation.
 
-The \dword{hv} divider boards are tested on-site for resistance for each stage at room temperature to ensure the integrity of the board and each electrical connection of the resistors before installation onto the submodule. 
+The \dword{hv} divider boards are tested on-site for resistance of each stage at room temperature to ensure the integrity of the board and each electrical connection of the resistors before installation onto the submodule. 
 
 
 At \surf, cathode and \dword{gp} modules are checked for the required planarity and mechanical integrity. Also during the installation phase  the electrical continuity between the modules is checked.
