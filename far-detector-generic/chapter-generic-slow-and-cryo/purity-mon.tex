@@ -4,18 +4,18 @@
 \label{sec:fdsp-slow-cryo-purity-mon} % for references from sp volume
 \label{sec:fddp-slow-cryo-purity-mon} % for references from dp volume
 %Laura, Jianming
-A fundamental requirement of a \dword{lar} \dshort{tpc} is to make ionization electrons drift over long distances in \dword{lar}. Part of the charge is inevitably lost due to the presence of electronegative impurities in the liquid. To keep such loss to a minimum, purifying the \dword{lar} during operation is essential, as is the monitoring of impurities.
+A fundamental requirement of a \dword{lar} \dshort{tpc} is that ionization electrons drift over long distances in \dword{lar}. Part of the charge is inevitably lost due to the presence of electronegative impurities in the liquid. To keep such loss to a minimum, purifying the \dword{lar} during operation is essential, as is the monitoring of impurities.
 
-Residual gas analyzers are an obvious choice when analyzing gas argon and can be exploited for the monitoring of the gas in the ullage of the tank. Unfortunately, commercially available and suitable mass spectrometers have a detection limit of \SI{\sim10}{ppb}, whereas DUNE requires a sensitivity down to the \si{ppt} level. This gives us a case to construct small, \textit{portable} devices, called \textit{purity monitors}, to monitor purity in all the phases of operations, and to measure position-dependent purity necessary to achieve DUNE's physics goal. 
+Residual gas analyzers are an obvious choice when analyzing argon gas and can be exploited for the monitoring of the gas in the ullage of the tank. Unfortunately, commercially available and suitable mass spectrometers have a detection limit of \num{\sim10}\dword{ppb}, whereas DUNE requires a sensitivity down to the \dword{ppt} level. Instead, specially constructed purity monitors measure \lar purity in all the phases of operations, and enable the position-dependent purity measurements necessary to achieve DUNE's physics goal. 
 %Purity monitors also have the potential to be developed as a calibration tool that provides high precision and real-time electron lifetime measurements for wire-by-wire detector calibration.
 
 Purity monitors also serve to mitigate \lar contamination risk.  %Because the scale of the \dwords{detmodule} is so large, the risk that sudden changes in the purity of the \dword{lar} being injected back into the cryostat might go unnoticed needs to be taken seriously.  
-The large scale of the \dwords{detmodule} increases the risk of failing to notice a sudden change in the  \lar purity being injected back into the cryostat; it is important to take this seriously.  
-If this state were to last %were to occur 
-for too long, it could cause irreversible contamination to the \dword{lar} and terminate useful data taking.  Strategically placed purity monitors mitigate this risk. 
+The large scale of the \dwords{detmodule} increases the risk of failing to notice a sudden unexpected infusion of contaminated \lar being injected back into the cryostat.   
+If this condition were to persist, it could cause irreversible contamination to the \dword{lar} and terminate useful data taking.  Strategically placed purity monitors mitigate this risk. 
 
 Purity monitors are placed inside the cryostat, but outside of the detector \dshort{tpc}, as well as outside the cryostat within the recirculation system before and after filtration. %The purity monitors continuously monitoring the \dword{lar} supply lines to the detector will provide a strong line of defense against contaminated liquid argon. Gas analyzers (described in \ref{sec:fdgen-slow-cryo-gas-anlyz}) provide a first line of defense against contaminated gas.  Purity monitors inside the detector provide a strong defense against all sources of contamination in the liquid argon volume and contamination from recirculated liquid argon.
-Continuous monitoring of  the \dword{lar} supply lines to the \dword{detmodule} provides a strong line of defense against contaminated \lar. Gas analyzers (described in Section~\ref{sec:fdgen-slow-cryo-gas-anlyz}) provide a first line of defense against contaminated gas.  Purity monitors inside the \dword{detmodule} provide a strong defense against all sources of contamination in the \lar volume and contamination from recirculated \lar.
+Continuous monitoring of  the \dword{lar} supply lines to the \dword{detmodule} provides a strong line of defense against contaminated \lar. Gas analyzers (described in Section~\ref{sec:fdgen-slow-cryo-gas-anlyz}) provide a first line of defense against contaminated gas.  Purity monitors inside the \dword{detmodule} provide a strong defense against all sources of contamination in the \lar volume and contamination from recirculated \lar. 
+Furthermore, multiple purity monitors measuring lifetime with high precision at carefully chosen points can provide key inputs to \dshort{cfd} models of the detector, such as vertical gradients in impurity concentrations.
 
 Purity monitors have been deployed in the ICARUS detector and in the 35-ton prototype detector at Fermilab. In particular during the first run of the \dword{35t}, two out of four purity monitors stopped working during the cooldown, and a third was intermittent. It was later found out that this was due to poor electrical contacts of the resistor chain on the purity monitor. A new design was then implemented and successfully tested in the second run. 
 The \dword{pdsp} and \dword{pddp} employ purity monitors based on the same design principles. \dword{pdsp} utilizes a string of purity monitors similar to that of the \dword{35t}, enabling measurement of the electron drift lifetime as a function of height.  A similar system design is exploited in the DUNE \dword{fd}, with modifications made to accommodate the instrumentation port placement relative to the purity monitor system and the requirements and constraints coming from the different geometric relations between the \dshort{tpc} and cryostat. 
@@ -23,10 +23,7 @@ The \dword{pdsp} and \dword{pddp} employ purity monitors based on the same desig
 \subsubsection{Physics and Simulation}
 % Andrew, Jianming
 
-A purity monitor is a miniature \dshort{tpc} which directly measures the electron lifetime, $\tau$, in the \dword{lar} and does not depend on the \dword{lar} \dshort{tpc} \dword{hv}, electronics, and \dword{daq}.%
-\footnote{The rate of electron attachment on impurities is a weak function of
-the \efield, but this field dependence is not significant for the range of \lartpc operation.%
-\cite{docdb-4482}.}%
+A purity monitor is a small ionization chamber that can be used to independently  infer the effective free electron lifetime in the \lartpc.  The operational principle of the purity monitor consists of generating a known electron current via illumination of a cathode with UV light, followed by collecting at an anode the current that survives after drifting a known distance.  The  attenuation of the current can be related to the electron lifetime.
 The electron loss can be parameterized as
 %
 \(N(t) = N(0)e^{-t/\tau},\)
@@ -62,7 +59,7 @@ The \dword{lar} \dshort{tpc} signal attenuation, \([N(0)-N(t)]/N(0)\), is to be 
 % (The corresponding \dword{lar} O2 purity requirement is about \SI{30}{ppt}.)
 
 For the \dword{dpmod}, the maximum drift distance is \dpmaxdrift{}, therefore the requirement on the electron lifetime is much higher.
-Furthermore, multiple purity monitors measuring lifetime with high precision at carefully chosen points can provide key inputs to \dshort{cfd} models of the detector, such as vertical gradients in impurity concentrations.
+
 
 The %DUNE 35-ton prototype detector 
 \dword{35t} at Fermilab was instrumented with four purity monitors. The data taken with them during the first part of the second phase is shown in Figure~\ref{fig-35t-prm} and clearly shows the ability to measure the electron lifetime between \SI{100}{\micro\second} and \SI{3.5}{\milli\second}.  
@@ -125,7 +122,7 @@ The application continuously displays the waveforms and important parameters, su
 
 The xenon flash lamp and the \dword{fe} electronics are installed close to the purity monitor flange, to reduce light loss through the optical fiber and prevent signal loss. Other pieces of equipment are mounted in a rack separate from the cryostat. They distribute power to the xenon flash lamp and the \dword{fe} electronics, as well as collect data from the electronics. The slow control system communicates with the purity monitor \dword{daq} software and has control of the \dword{hv} and \dword{lv} power supplies of the purity monitor system. As the optical fiber has to be very close to the photocathode (less than \SI{0.5}{\milli\meter}) for efficient \phel extraction, no interference with the \dword{pds} is expected. Nevertheless light interference will be evaluated more precisely at \dword{protodune}.
 
-Conversely the electronics of purity monitors may induce noise in the \dshort{tpc} electronics, largely coming from the current surge in the discharging process of the main capacitor of the purity monitor xenon light source when producing a flash.  This source of noise has largely been mitigated by placing the xenon flash lamp inside its own Faraday cage allowing for proper grounding and shielding; the extent of mitigation will be evaluated at \dword{protodune}.
+Conversely the electronics of purity monitors may induce noise in the \dshort{tpc} electronics, largely coming from the current surge in the discharging process of the main capacitor of the purity monitor xenon light source when producing a flash.  This source of noise can be controlled by placing the xenon flash lamp inside its own Faraday cage allowing for proper grounding and shielding; the extent of mitigation will be evaluated at \dword{protodune}.
 If an unavoidable interference problem is found to exist, then software can be implemented to allow the \dword{daq} to know if and when the purity monitors are running and to veto purity monitor measurements in the event of a \dword{snb} alert or trigger. 
 
 

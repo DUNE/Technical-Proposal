@@ -35,16 +35,15 @@ in each detector side, behind the two front end walls. Inspection cameras will u
 
 Proper placement of purity monitors, thermometers, and liquid level monitors within the \dword{detmodule} requires knowledge of how \dword{lar} behaves within the cryostat in terms of its fluid dynamics, heat and mass transfer, and distribution of impurity concentrations. 
 Fluid motion within the cryostat is driven primarily by small changes in density from thermal gradients, although pump flow rates and inlet and outlet locations also contribute. 
-Heat sources include exterior heat from the surroundings, interior heat from the electronics, and pump inlet temperature. \fixme{pump inlet temperature per se is not a heat source}
+Heat sources include exterior heat from the surroundings, interior heat from the electronics, and heat flow through the pump inlet.
 
-The fluid flow behavior can be determined through simulation of \dword{lar} flow within the detector using ANSYS CFX, a commercially available \dfirst{cfd} code. Such a model must include proper definition of the fluid characteristics, solid bodies and fluid-solid interfaces, and a means for measuring contamination, while still maintaining reasonable solve times.
+The fluid flow behavior can be determined through simulation of \dword{lar} flow within the detector using ANSYS CFX\footnote{ANSYS\texttrademark{}, \url{https://www.ansys.com/products/fluids/ansys-cfx}.}, a commercially available \dfirst{cfd} code. Such a model must include proper definition of the fluid characteristics, solid bodies and fluid-solid interfaces, and a means for measuring contamination, while still maintaining reasonable solve times.
 \fixme{compute times?}
-Although simulation of the \dword{detmodule} presents challenges, there exist acceptable simplifications for accurately representing the fluid, the interfacing solid bodies, and variations of contaminant concentrations. Because of the magnitude of thermal variation within the cryostat, modeling of the \dword{lar} is simplified through use of constant thermophysical properties, calculation of buoyant force through use of the Boussinesq Model (using constant a density for the fluid with application of a temperature dependent buoyant force), and a standard shear stress transport turbulence model. Solid bodies that contact the \dword{lar} include the cryostat wall, the cathode planes, the anode planes, the ground plane, and the \dword{fc}. As in previous \dshort{cfd} models of the \dword{35t} cryostat and \dword{protodune} by South Dakota State University (SDSU)~\cite{docdb-5915}, the \dword{fc} planes, anode planes, and \dword{gp} can be represented by porous bodies. Since impurity concentration and electron lifetime do not impact the fluid flow, these variables can be simulated as  passive scalars, as is commonly done for smoke releases~\cite{cfd-1} in air or dyes released in liquids.
+Although simulation of the \dword{detmodule} presents challenges, there exist acceptable simplifications for accurately representing the fluid, the interfacing solid bodies, and variations of contaminant concentrations. Because of the magnitude of thermal variation within the cryostat, modeling of the \dword{lar} is simplified through use of constant thermophysical properties, calculation of buoyant force through use of the Boussinesq Model (using constant a density for the fluid with application of a temperature dependent buoyant force), and a standard shear stress transport turbulence model. Solid bodies that contact the \dword{lar} include the cryostat wall, the cathode planes, the anode planes, the ground plane, and the \dword{fc}. As in previous \dshort{cfd} models of the DUNE \dword{35t} and \dword{protodune} by South Dakota State University (SDSU)\cite{docdb-5915}, the \dword{fc} planes, anode planes, and \dword{gp} can be represented by porous bodies. Since impurity concentration and electron lifetime do not impact the fluid flow, these variables can be simulated as  passive scalars, as is commonly done for smoke releases~\cite{cfd-1} in air or dyes released in liquids.
 
 \fixme{some of this sounds very SP to me -anne}
 
-Significant discrepancies between real data and simulations can have potential impacts on detector performance, as simulation results contribute to decisions about where to locate sensors and monitors, as well as definitions of various calibration quantities. However, methods of mitigating such risks include well established convergence criteria, sensitivity studies, and comparison to results of previous \dshort{cfd} simulation work by SDSU and \fnal. Additionally, the simulation will be improved with input from temperature measurements and validation tests until the required agreement is achieved.
-\fixme{...tests. (anne)}
+Significant discrepancies between real data and simulations can have potential impacts on detector performance, as simulation results contribute to decisions about where to locate sensors and monitors, as well as definitions of various calibration quantities. However, methods of mitigating such risks include well established convergence criteria, sensitivity studies, and comparison to results of previous \dshort{cfd} simulation work by SDSU and \fnal. Additionally, the simulation will be improved with input from temperature measurements and validation tests. 
 
 %%%%% Must find better pictures. Just use this for now %%% anne to here Fri 4/27
 \begin{dunefigure}[\dshort{cfd} example]{fig:cfd-example}
@@ -53,13 +52,13 @@ Significant discrepancies between real data and simulations can have potential i
   \includegraphics[height=0.4\textwidth]{cisc_cfd_inlet_z52.png}
 \end{dunefigure}
 
-Figure~ref{fig:cfd-example} shows an example of the temperature
+Figure~\ref{fig:cfd-example} shows an example of the temperature
 distribution on a plane intersecting a \dword{lar} inlet and at a
 plane halfway between an inlet and an outlet; the geometry used for
-this simulation is shown in Figure\ \ref{fig:cfd-example-geometry}.
+this simulation is shown in Figure~\ref{fig:cfd-example-geometry}.
 Note the plume of higher temperature \dword{lar} between the walls and
-the outer APA on the inlet plane.  The current locations of instrumentation in
-the cryostat as shown in Figure~ref{fig:sp-slow-cryo-ports} were
+the outer \dword{apa} on the inlet plane.  The current locations of instrumentation in
+the cryostat as shown in Figure~\ref{fig:sp-slow-cryo-ports} were
 determined using the temperature and impurity distributions from these
 previous simulations.
 
@@ -78,7 +77,7 @@ The initial strategy for the future \dword{cfd} simulation effort is to understa
 The following is a prioritized set of studies planned to help drive the requirements for other systems:
 \begin{enumerate}
 \item Review the DUNE \dword{fd} cryogenics system design and verify the current implementation in simulation; this is important to ensure that the model represents what will be built.
-\item Model the \dword{pddp}  liquid and gas regions with the same precision as the \dword{fd}; presently only liquid model exists; the liquid model is needed to interpret the thermometer data and the gas model is needed to understand how to place thermometers in the ullage and verify the design of gaseous argon purge system.
+\item Model the \dword{pddp}  liquid and gas regions with the same precision as the \dword{fd}. Presently only the liquid model exists. The liquid model is needed to interpret the thermometer data, and the gas model is needed to understand how to place thermometers in the ullage and verify the design of the gaseous argon purge system.
 \item Perform a \dword{cfd} study to determine the feasibility of a wier for \dual; this helps to determine if it can be used to clean the \lar surface before the extraction grid is submerged in the \dword{dpmod}.
 \item Verify the \dword{spmod} \single \dword{cfd} model in simulation performed by LBNF; this defines the requirements for instrumentation devices (e.g., thermometry).
 \item Model the \dword{pddp} liquid and gas regions with the same precision as the \dword{fd}. \fixme{same as a previous bullet}

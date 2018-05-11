@@ -3,29 +3,29 @@
 \label{sec:fdgen-slow-cryo-therm}
 % anselmo, jelena,
 
-As mentioned above, a detailed \threed temperature map is important to monitor the correct functioning of the cryogenics system and the \lar uniformity.
+A detailed \threed temperature map is important to monitor the correct functioning of the cryogenics system and the \lar uniformity.
 Given the complexity and size of purity monitors, those can only be installed on the cryostat sides to provide a local measurement of
 the \lar purity. While a direct measurement of the \lar purity across the entire cryostat is not viable, a sufficiently detailed \threed temperature map
-can be used to predict the \lar purity using \dword{cfd} simulations. Specially important is the vertical coordinate since this is closely related to
+can be used to predict the \lar purity using \dword{cfd} simulations. Measuring the vertical temperature profile is especially important since this is closely related to
 the \lar recirculation and uniformity. 
 
 High-precision temperature sensors are distributed near the TPC walls in two ways:
-(1) forming high density (\(>2\) sensors/\si{m}) vertical arrays (the so-called T-gradient monitors), and (2) in coarser ($\sim$ 1 sensor/\SI{5}{m}) \twod arrays 
-at the top and bottom of the detector, which are the most delicate regions (the so-called individual sensors).   
+(1) in high-density (\(>2\) sensors/\si{m}) vertical arrays (the T-gradient monitors), and (2) in coarser ($\sim$ 1 sensor/\SI{5}{m}) \twod arrays 
+at the top and bottom of the detector, which are the most sensitive regions (the individual sensors).   
 
 Since temperature variations inside the cryostat are expected to be very small ($\SI{0.02}{K}$, see Figure~\ref{fig:cfd-example}), to properly measure the \threed temperature map 
 sensors must be cross-calibrated to better than $\SI{0.005}{K}$. Most sensors are calibrated in the laboratory, prior to installation,
-as described in Section~\ref{sp-cisc-thermom-static-t}. \fixme{next section} This is in fact the only viable method for sensors in areas where the available space is restricted: on the long sides of the detector
+as described in Section~\ref{sp-cisc-thermom-static-t}.  This is in fact the only viable method for sensors in areas where the available space is restricted: on the long sides of the detector
 (behind the \dwords{apa} for SP, and behind the lateral %FC end-walls 
 \dword{ewfc} for \dual) and top/bottom of the detector.
 Given the precision required and the unknown longevity of the sensors (which could require a new calibration after some time), a complementary method
 is used for T-gradient monitors behind the front endwalls, at least for the \dword{spmod}.
-In those areas there is sufficient space for a movable system, which can be used to cross-calibrate in situ
-the temperature sensors. This calibration method is described in the section about dynamic T-gradient monitors. 
+In those areas there is sufficient space for a movable system that can be used to cross-calibrate in situ
+the temperature sensors. %This calibration method is described in the section about dynamic T-gradient monitors. 
 
 In the baseline design for all three systems mentioned above, three elements are common: sensors, cables and readout system.
-Platinum sensors with \SI{100}{\ohm} resistance (PT100 series), produced by Lakeshore,~\footnote{Lakeshore\texttrademark{}, \url{https://www.lakeshore.com/Pages/Home.aspx}.}
-are adequate for the temperature range of interest, 83-92\si{K}, since in this range those sensors have high reproducibility 
+Platinum sensors with \SI{100}{\ohm} resistance, PT100 series, produced by Lakeshore\footnote{Lakeshore\texttrademark{}, \url{https://www.lakeshore.com/Pages/Home.aspx}.},
+are adequate for the temperature range of interest, \SIrange{83}{92}{K}, since in this range those sensors have high reproducibility 
 $\sim\SI{5}{mK}$ and absolute temperature accuracy of \SI{100}{mK}.
 In addition, the plan is to use the four-wire readout, greatly reducing the issues related to the lead resistance, any parasitic resistances,
 connections through the flange, and general electromagnetic noise pick-up. The Lakeshore PT102 sensors
