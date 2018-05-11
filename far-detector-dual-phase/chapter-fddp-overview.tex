@@ -1,32 +1,29 @@
 \chapter{Overview of the \dpmod Design}
 \label{ch:fddp-ov}
 
-\subsection{Photon Detection system}
-\label{v4:fddp-ov:pd}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Description}
 \label{sec:fddp-ov-description}
 
 This \dual design implements a \dual liquid argon time projection chamber (\lartpc) augmented with a light-readout system.  \textit{\dual} refers to the extraction of ionization electrons at the interface between the liquid and gas argon and their amplification and collection in the gas phase.
 
-The \dword{dpmod} features a \SI{12}{kt} active mass \lartpc, with all associated cryogenics, electronic readout, computing, and safety systems. The \dword{dpmod} is designed to maximize the active volume within the confines of the membrane cryostat while minimizing dead regions and the presence of dead materials in the drift region. The detector is built as a single active volume \dptpclen long, \dptpcwdth wide and \tpcheight high, with the anode at the top, the cathode near the bottom, and an array of \dwords{pmt} located  at the bottom %of the vessel 
+The \dword{dpmod} features a  \dpactivelarmass active mass \lartpc, with all associated cryogenics, electronic readout, computing, and safety systems. The \dword{dpmod} is designed to maximize the active volume within the confines of the membrane cryostat while minimizing dead regions and the presence of dead materials in the drift region. The detector is built as a single active volume \dptpclen long, \dptpcwdth wide and \tpcheight high, with the anode at the top, the cathode near the bottom, and an array of \dwords{pmt} located  at the bottom %of the vessel 
 underneath the cathode. The active volume (see Figure~\ref{fig:DPdet1}) is surrounded by the \dword{fc}. The ionization electrons in the liquid phase drift  in a uniform \efield towards the anode plane at the top of the active volume. This is made by an array of \num{80} independent \dword{crp} modules, \num{3}\,$\times$\,\SI{3}{m$^2$} each. The cryogenic \dword{fe} electronics is %hosted 
 installed in the \dwords{sftchimney}
 % signal penetrations (chimneys)
 on the roof of the cryostat. There are no active electronics elements in the cryostat volume besides the \dword{pmt} bases.
-The proposed design optimally exploits the cryostat volume of \cryostatwdth{}(w)\,$\times$\,\cryostatht{}(h)\,$\times$\cryostatlen{}(l) with an anode active area of  \SI{12}{m}\,$\times$\,\cryostatlen{} and a maximum drift length of \dpmaxdrift{}, corresponding to an active \lar mass of \dpactivelarmass  (\dpfidlarmass fiducial). 
+The proposed design optimally exploits the cryostat volume of \cryostatwdth{}(w)\,$\times$\,\cryostatht{}(h)\,$\times$\cryostatlen{}(l) with an anode active area of \dptpcwdth{}\,$\times$\,\cryostatlen{} and a maximum drift length of \dpmaxdrift{}, corresponding to an active \lar mass of \dpactivelarmass  (\dpfidlarmass fiducial). 
 
-The detector elements (\dwords{crp}, \dword{fc} and cathode modules) have been modularized such that their production can proceed in parallel with the construction of the DUNE caverns and cryostats, and sized so that they conform to the access restrictions for transport underground. Table~\ref{tab:dune-dp-parameters} summarizes %some of 
+The detector elements (\dwords{crp}, \dword{fc} and cathode) have been modularized such that their production can proceed in parallel with the construction of the DUNE caverns and cryostats, and sized so that they conform to the access restrictions for transport underground. Table~\ref{tab:dune-dp-parameters} summarizes %some of 
 the high-level parameters of the \dword{dpmod} while Figure~\ref{fig:DPdet1} shows %an overview of the \dword{dpmod}  with its main components.
 the \dword{dpmod}'s main components.
 
-\begin{dunetable}[\Dword{dpmod} Parameters]{lll}{tab:dune-dp-parameters}{\Dword{dpmod} Parameters}
+\begin{dunetable}[\dword{dp} module parameters]{lll}{tab:dune-dp-parameters}{\Dword{dpmod} parameters}
 Parameter & Value & Note \\ \toprowrule
 Cryostat \lar Mass & \larmass & \\ \colhline 
 Active \lar Mass & \dpactivelarmass & \\  \colhline 
 Active height & \tpcheight & \\  \colhline 
-Active hength & \dptpclen & \\  \colhline 
+Active length & \dptpclen & \\  \colhline 
 Maximum drift & \dpmaxdrift & \\ \colhline 
 Number of \dwords{crp} &\dptotcrp & \\  \colhline 
 Number of \dword{crp} channels & \dpnumcrpch & \\ \colhline 
@@ -34,11 +31,11 @@ Number of \dword{pmt} channels & \dpnumpmtch & \\
 \end{dunetable}
 
 % %% % %
-\begin{dunefigure}[The \dword{dpmod}]{fig:DPdet1}
+\begin{dunefigure}[Diagram of the \dword{dpmod}]{fig:DPdet1}
   {The \dword{dpmod} with cathode, \dwords{pmt}, \dword{fc} and anode plane with \dwords{sftchimney}.}
 %  {The \dword{dpmod} with cathode, \dwords{pmt}, \dword{fc} and anode
 %    plane with \dword{sft} \dword{chimney}.}
-  \includegraphics[width=0.8\textwidth]{DUNE-CDR-detectors-volume-optim.png}
+  \includegraphics[width=0.9\textwidth]{DUNE-CDR-detectors-volume-optim.png}
 \end{dunefigure}
 
 The extraction of the electrons from the liquid to vapor phase is performed thanks to the submersed horizontal extraction grid, integrated in each \dword{crp} structure. A \dword{crp} unit includes \dpswchpercrp (0.5~m$\times$0.5~m) \dword{lem}/anode sandwiches, providing tunable amplification and charge collection on two independent views organized in strips of \SI{3}{m} length and \dpstrippitch pitch. There are \dpchpercrp readout channels for each \dword{crp}. Signals in each \dword{crp} unit are collected via three \dwords{sftchimney}
@@ -52,29 +49,29 @@ Each \dword{crp} unit is independently suspended by three stainless steel ropes.
 
 The number of components and corresponding parameters for the \dpactivelarmass \dword{dpmod} are summarized in Table~\ref{tab:DP_numbers}.
 
-\begin{dunetable}[Quantities of items or parameters for the \dpactivelarmass  \dword{dpmod}]{ll}{tab:DP_numbers}{Quantities of Items or parameters for the \dpactivelarmass  \dword{dpmod}}  Item & Number or Parameter    \\ \toprowrule
+\begin{dunetable}[Quantities of items or parameters for the \dword{dpmod}]{ll}{tab:DP_numbers}{Quantities of items or parameters for the \dpactivelarmass  \dword{dpmod}}  Item & Number or Parameter    \\ \toprowrule
 Anode plane size & W = \dptpcwdth, L = \dptpclen \\ \colhline
 \dword{crp} unit size & W = \SI{3}{m}, L = SI{3}{m}  \\ \colhline
 \dword{crp} units & \num{4}\,$\times$\,\num{20} = \dptotcrp \\ \colhline
-\dword{lem}/Anode sadwiches per \dword{crp} unit & \dpswchpercrp \\ \colhline 
-\dword{lem}/Anode sandwiches (total) & \dpnumswch \\ \colhline
-\dword{sftchimney} / \dword{crp} unit & \num{3} \\ \colhline
-\dword{sftchimney} (total) & 240 \\ \colhline
+\dword{lem}-anode sandwiches per \dword{crp} unit & \dpswchpercrp \\ \colhline 
+\dword{lem}-anode sandwiches (total) & \dpnumswch \\ \colhline
+\dword{sftchimney} per \dword{crp} unit & \num{3} \\ \colhline
+\dword{sftchimney} (total) & \num{240} \\ \colhline
 Charge readout channels / \dword{sftchimney} & \num{640}  \\ \colhline
 Charge readout channels (total) & \dpnumcrpch \\ \colhline
-Suspension \fdth / \dword{crp} unit & \num{3}  \\ \colhline
+Suspension \fdth per \dword{crp} unit & \num{3}  \\ \colhline
 Suspension \fdth{}s (total) & \num{240}  \\ \colhline
-Slow Control \fdth / sub-anode & \num{1}  \\ \colhline
+Slow Control \fdth per sub-anode & \num{1}  \\ \colhline
 Slow Control \fdth{}s (total) & \num{80} \\ \colhline
 \dword{hv} \fdth & \num{1}  \\ \colhline
-\dword{hv} for vertical drift & \SI{600}{kV} \\ \colhline
+\dword{hv} for vertical drift & \dptargetdriftvoltpos \\ \colhline
 Voltage degrader resistive chains & \num{4} \\ \colhline
 Cathode modules & \dpnumfcres  \\ \colhline
 Field cage rings & \dpnumfcrings     \\ \colhline
 Field cage ring vertical spacing & \SI{200}{mm}  \\ \colhline
 Field cage resistors (total) & \dpnumfcres    \\ \colhline
 Field cage modules & \dpnumfcmod  \\ \colhline
-\dwords{pmt} (total) & \dpnumpmtch (\num{1}/~m$^2$) \\ 
+\dwords{pmt} (total) & \dpnumpmtch (\num{1}/m$^2$) \\ 
 \end{dunetable}
 
 
@@ -85,7 +82,6 @@ construction by optimally exploiting the long vertical dimensions of the cryosta
 
 
 The \dwords{crp} collect the charge in a projective way,  with practically no dead region, and read the signals out  in two collection views, eliminating the need for  induction views, 
-%\fixme{need plural?}  Yes
 which  simplifies the reconstruction of complicated topologies. The tunable high \dword{s/n} provides operative margins with respect to the noise and electron lifetime conditions, and lowers the threshold on the minimal  detectable energy depositions .
 
 The scope of a \dword{dpmod} includes the design, procurement, fabrication, testing, delivery, installation and
@@ -116,7 +112,7 @@ The use of avalanches to amplify the charges in the gas phase increases the \dwo
 
 The  collection, amplification and readout components are combined in an array of independent (layered) modules called \dwords{crp}. A \dword{crp} is  composed of several \num{0.5}\,$\times$\,\SI{0.5}{m$^2$} units, each of which is composed  of a \dword{lem}-anode \textit{sandwich}.  These units are embedded in a mechanically reinforced frame of FR-4 and iron-nickel invar alloy. This design guarantees the planarity requirements over the \dword{crp} span although the temperature gradient present in the gas phase and possible sagging effects with respect to the three suspension points. The \dword{crp} structure also integrates  the submersed extraction grid, which is an array of $x$ and $y$ oriented stainless steel wires, \SI{0.1}{mm} in diameter, with \dpstrippitch pitch. Thicknesses and possible biasing voltages for the different layers are indicated in Figure~\ref{fig:CRP_struct}.
 
-\begin{dunefigure}[Thicknesses and \dword{hv} values for electron extraction from liquid to gaseous argon]{fig:CRP_struct}
+\begin{dunefigure}[Thicknesses and HV values for electron extraction from liquid to gaseous Ar]{fig:CRP_struct}
 {Thicknesses and \dword{hv} values for electron extraction from liquid to gaseous argon, their  multiplication by \dwords{lem} and their collection on the $x$ and $y$ readout anode plane. The \dword{hv} values are indicated for a drift field of \SI{0.5}{kV/cm} in \lar.}
 \includegraphics[width=0.8\textwidth]{CRP_gaps.png}
 \end{dunefigure}
@@ -153,10 +149,11 @@ from possible noise pickup from the digital electronics.
 %The digital electronics for the  charge digitization system is located at warm on the roof the cryostat. This layout makes possible the use of low cost/high speed  networking technologies used in the telecommunication industries such as microTCA. The digital electronics was also developed thanks to a long R\&D process started in 2006.  Digitization cards in the microTCA  Advanced Mezzanine Card (\dword{amc}) format read 64 channels/card. Each \dword{amc} card can digitize all the 64 channels at 2.5 MHz and compress and transmit this continuous data stream, without zero skipping, over a network link operating at 10 Gbit/s. Lossless data compression is particularly effective thanks to the high S/R of \dual which limits noise contributions at the level of 1 ADC count. Each signal \dword{sftchimney} is coupled to a \dword{utca} crate housing in 10 \dword{amc} digitization cards in order to read 640 channels and transmit the data via the  microTCA Carrier Hub (\dword{mch}) switch via a 10 Gbit/s optical link connected to the \dword{daq} back-end. 240 \dword{utca} crates are sufficient to read the entire detector module. The \dword{sftchimney} warm flange is used to connect the analog differential signals, via shielded VHDCI cables, to the \dword{amc} digitization cards and also to distribute the low voltage and slow control signals to the analog \dword{fe} electronics.  
 
 The digital electronics for the charge digitization system, also resulting from a long R\&D process started in 2006, is located %at warm 
-on the roof the cryostat at room temperature. This makes it possible to use the low-cost, high-speed  networking technologies used in the telecommunication industries, such as microTCA. 
-Digitization cards in the \dword{amc} format read \num{64} channels per card. Each \dword{amc} card can digitize all  \num{64} channels at \SI{2.5}{MHz} and compress and transmit this continuous data stream, without zero skipping, over a network link operating at \SI{10}{Gbit/s}. Lossless data compression is particularly effective thanks to the high S/R of \dual{}, which limits noise contributions at the level of one ADC count. Each \dword{sftchimney} is coupled to a \dword{utca} crate housing in \num{10} \dword{amc} digitization cards in order to read  \num{640} channels and transmit the data via the \dword{mch} switch via a \SI{10}{Gbit/s} optical link connected to the \dword{daq} back-end. It requires \num{240} \dword{utca} crates to read the entire \dword{detmodule}. The \dword{sftchimney} warm flange is used to connect the analog differential signals, via shielded VHDCI cables, to the \dword{amc} digitization cards and also to distribute the \dword{lv} and slow control signals to the analog \dword{fe} electronics.  
+on the roof the cryostat at room temperature. This makes it possible to use the low-cost, high-speed  networking technologies used in the telecommunication industries, such as \dword{utca}. 
+Digitization cards in the \dword{amc} format read \num{64} channels per card. Each \dword{amc} card can digitize all  \num{64} channels at \SI{2.5}{MHz} and compress and transmit this continuous data stream, without zero skipping, over a network link operating at \SI{10}{Gbit/s}. Lossless data compression is particularly effective thanks to the high S/R 
+\fixme{S/N?} of \dual{}, which limits noise contributions at the level of one \dword{adc} count. Each \dword{sftchimney} is coupled to a \dword{utca} crate housing in \num{10} \dword{amc} digitization cards in order to read  \num{640} channels and transmit the data via the \dword{mch} switch via a \SI{10}{Gbit/s} optical link connected to the \dword{daq} back-end. It requires \num{240} \dword{utca} crates to read the entire \dword{detmodule}. The \dword{sftchimney} warm flange is used to connect the analog differential signals, via shielded VHDCI cables, to the \dword{amc} digitization cards and also to distribute the \dword{lv} and slow control signals to the analog \dword{fe} electronics.  
 
-The light-readout digitization system is also based on \dword{utca} \dword{amc} cards derived from the design of the charge readout and hosting a specific circuitry, based on the CATIROC \dword{asic} for the light-readout triggering. By assuming a \dword{pmt} channel density similar to that in \dword{pddp}, five microTCA crates are sufficient to read \dpnumpmtch \dwords{pmt}.
+The light-readout digitization system is also based on \dword{utca} \dword{amc} cards derived from the design of the charge readout and hosting a specific circuitry, based on the CATIROC \dword{asic} for the light-readout triggering. By assuming a \dword{pmt} channel density similar to that in \dword{pddp}, five \dword{utca} crates are sufficient to read \dpnumpmtch \dwords{pmt}.
 
 The timing synchronization is based on the \dword{wr} standard. Specifically developed timing \dword{mch} connected to a \dword{wr} network ensure the distribution of clock, absolute timing, and trigger information on the backplane of the \dword{utca} crates. The \dword{wrmch} are connected via \SI{1}{Gbit/s} optical fibers to a system of \dword{wr} switches which interconnect the \dword{wr} network. This ensures that the digitization performed by the various \dword{amc} cards is completely aligned and it also refers to the absolute UTC time. 
 %\fixme{...ensures...  that it connects to the absolute...?}
@@ -242,11 +239,11 @@ as a prelude to selecting relevant events to be recorded on disk (both neutrino 
 %The event builders combine the continuous lossless-compressed data streaming from the charge readout with beam data and with light data in order to define the window T0 and select disk streams from beam events, cosmics and SNa events. The data decompression in necessary on the event builders in order to perform the charge data analysis while compressed are kept in memory for further writing on disk from level 2 machines of the output streams: beam, cosmics/proton decay, SNa neutrino burst. The level 1 events builders exchange trigger primitive data on the network with a global supervisor machine which then decides for the data writing on disk. The supervisor can order the dump on disk of the event builders memory  windows if a certain number of candidate energy depositions is found from the charge data. It is possible to put in communication in this scheme also parts of different 10 kton modules
 %For beam data and cosmic events typically the amount of data written on disk can be limited to one or two ROI in case events are not contained in a single ROI but happen at the border in between two ROI. 
 
-The \dual readout architecture can be organized organized into \num{20} ROI, each similar to the \dword{pddp} back-end architecture. Triggers are searched on the level-1 event builder machines, interconnecting multiple \dword{utca} crates, on a sliding windows of \SI{10}{s}  contained in the event builder RAM. % memory.
+The \dual readout architecture can be organized organized into \num{20} \dwords{roi}, each similar to the \dword{pddp} back-end architecture. Triggers are searched on the level-1 event builder machines, interconnecting multiple \dword{utca} crates, on a sliding windows of \SI{10}{s}  contained in the event builder RAM. % memory.
 
 %\fixme{I'm not sure how to parse prev sentence (anne)}
 
-The event builders combine the continuous lossless, compressed data (streaming from the charge readout) with beam data and light data in order to define the window $t_0$ and select disk streams from beam events, cosmics and \dword{snb} events. The data decompression is necessary on the event builders in order to perform the charge data analysis while compressed are kept in memory for further writing on disk from level 2 machines of the output streams: beam, cosmics/proton decay, SNa neutrino burst. 
+The event builders combine the continuous lossless, compressed data (streaming from the charge readout) with beam data and light data in order to define the window $t_0$ and select disk streams from beam events, cosmics and \dword{snb} events. The data decompression is necessary on the event builders in order to perform the charge data analysis. However, compressed data are kept in memory for further writing on disk from level-2 machines from the output streams: beam, cosmics and proton decay, and \dword{snb}. \fixme{check prev sentences; they were garbled and I fixed. Anne}
 The level-1 event builders exchange trigger primitive data on the network with a global supervisor machine, which then decides what data to write onto disk.  The supervisor can order the dump onto disk of the event builder's memory  windows if a certain number of candidate energy depositions is found from the charge data. 
 This scheme makes it possible to put selected portions of different \dwords{detmodule} in communication with one another.  
-Typically for beam data and cosmic events, the amount of data written to disk can be limited to one or two ROIs; there are cases in which in case events occur at the border between two ROIs rather than in a single one.
+Typically for beam data and cosmic events, the amount of data written to disk can be limited to one or two \dwords{roi}; there are cases in which in case events occur at the border between two \dwords{roi} rather than in a single one.
