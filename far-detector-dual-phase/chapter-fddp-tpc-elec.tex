@@ -13,11 +13,11 @@
 
 The aim of the \dword{dp} TPC electronics is to collect and digitize the signals from the %Charge Readout Planes 
 \dwords{crp} (see chapter~\ref{ch:fddp-CRP}) and \dwords{pds} (see chapter~\ref{ch:fddp-pd}), which implements %\dwords{pd}, 
-\dword{pmt} tubes (\dwords{pmt}). %, in the \dword{dpmod}. 
+\dwords{pmt}. %, in the \dword{dpmod}. 
 These two tasks are respectively accomplished by the \dword{cro} and \dword{lro} sub-systems.
 %\fixme{something about its components: e.g., This system comprises a \dword{cro} to read out the \dwords{crp} (see chapter xyz) and a \dword{lro} to read out the \dwords{pmt} (see chapter xyz).}
 %\fixme{Also, if we have the TPC electronics ``system'' do we want the CRO and LRO ``subsystems''?}
-The design of the system incorporates the components already developed for \dword{pddp} as a result of an R\&D activity started in 2006. One of the key objectives of this R\&D program has been the design of an electronics system that is easily scalable and cost-effective in order to meet the needs of the large-scale neutrino \dword{lar} detector.  %\dword{dpmod}. % neutrino \dword{lar} detector. <-The R&D was for both SP and DP electronics  
+The design of the system incorporates the components already developed for \dword{pddp} as a result of an R\&D activity started in 2006. One of the key objectives of this R\&D program has been the design of an electronics system that is easily scalable and cost-effective in order to meet the needs of the large-scale neutrino \dword{lar} detector.  %\dword{dpmod}. % neutrino \dword{lar} detector. <-The R&D was for both SP and \dual electronics  
 %\fixme{you need a figure here - schematic maybe - showing the CRO and LRO system and how it fits in with the other systems (anne)} DONE
 
 While a single \dword{dpmod} has a factor of \num{20} more readout (both charge and light) channels than \dword{pddp}, a simple scaling of the number of the components used in the prototype design is sufficient to meet these needs without necessitating any additional R\&D. A small-scale version of the TPC electronics system was used in the \dword{wa105} at CERN, a preliminary \dual \lartpc prototype with an active volume  of \SI[product-units=power]{3x1x1}{m} (\dword{crp} area of \SI[product-units=power]{3x1}{m}) that took data in the summer-fall of 2017. %The experience gained from the \dword{wa105} operation allowed to validate already some of the design choices and check various performance markers (e.g., noise). 
@@ -30,7 +30,7 @@ Operation of the \dword{wa105} validatated the design choices and provided check
 
 The \dword{cro} electronics system, illustrated in the Figure~\ref{fig:dpele-crosystem-sketch}, is designed to provide continuous, non-zero-suppressed, and losslessly compressed digital signals by reading the charge collected on the \dwords{crp}' \SI{3}{m} long strips that are arranged in two collection views, all with a pitch of \SI{3.125}{mm}.% in the \dword{crp}. 
 The system consists of %a 
-the \dword{fe} analog electronics operating at cryogenic temperatures and digital electronics working in the warm environment outside of the cryostat.  The cryogenic \dshort{fe} analog electronics is based on an application-specific integrated circuit (ASIC) chip with a large dynamic range (up to \SI{1200}{fC}) to cope with the charge amplification in the \dwords{crp}. The analog \dword{fe} cards are housed in dedicated \dwords{sftchimney} and are accessible from the outside even after the \dword{dpmod} is in operation, thus removing any significant risks associated with their long-term survivability. The \dwords{sftchimney} are approximately \SI{2.3}{m} long stainless steel pipes 
+the \dword{fe} analog electronics operating at cryogenic temperatures and digital electronics working in the warm environment outside of the cryostat.  The cryogenic \dshort{fe} analog electronics is based on an application-specific integrated circuit (\dword{asic}) chip with a large dynamic range (up to \SI{1200}{fC}) to cope with the charge amplification in the \dwords{crp}. The analog \dword{fe} cards are housed in dedicated \dwords{sftchimney} and are accessible from the outside even after the \dword{dpmod} is in operation, thus removing any significant risks associated with their long-term survivability. The \dwords{sftchimney} are approximately \SI{2.3}{m} long stainless steel pipes 
 %\fixme{metallic cylinders?} DONE 
 that traverse the entire insulation layer of the cryostat allowing placement of the \dword{fe} electronics close to the \dwords{crp} to minimize cable capacitance (noise).  In addition, their metallic structure shields the \dword{fe} cards 
 from any interference from the warm digital electronics and ambient environment. The analog signals are digitized by \dwords{amc}, which are housed in the commercial \dword{utca} crates on top of the cryostat near the \dwords{sftchimney}. 
@@ -54,17 +54,17 @@ The \dword{lro} electronics, consisting of analog and digital stages, is housed 
 Each \dword{utca} crate for either charge or light readout is connected to the \dword{daq} system via an optical fiber link that supports at least \SI{10}{Gbit/s}. 
 %\fixme{so you dont have both LRO and CRO through same chimneys to same crates; all chimneys and crates are either one or the other?} ADDED EXPLANATION
 Every crate also contains a %module, 
-\dword{wrmch} for the time synchronization of the digital electronics. This timing slave unit is connected via \SI{1}{Gbit/s} optical fiber to a master node that serves as a synchronization reference for all the connected slave nodes on the network. This system for the time synchronization is based on the commercially available components developed within the framework of the (\dword{wr}) project\footnote{\url{https://www.ohwr.org/projects/white-rabbit}.} with ad-hoc hardware and firmware development. The system performs automatic and continuous self-calibrations to account for any propagation delays and is able to provide sub-\si{\nano\s} accuracy for the timing synchronization.
+\dword{wrmch} for the time synchronization of the digital electronics. This timing slave unit is connected via \SI{1}{Gbit/s} optical fiber to a master node that serves as a synchronization reference for all the connected slave nodes on the network. This system for the time synchronization is based on the commercially available components developed within the framework of the \dword{wr} project\footnote{\url{https://www.ohwr.org/projects/white-rabbit}.} with ad-hoc hardware and firmware development. The system performs automatic and continuous self-calibrations to account for any propagation delays and is able to provide sub-\si{\nano\s} accuracy for the timing synchronization.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Design Considerations}
 \label{sec:fddp-tpc-elec-des-consid}
 
-%The principal requirements for the DP TPC electronics system can be summarized as:
+%The principal requirements for the \dual TPC electronics system can be summarized as:
 %\fixme{Could we separate out CRO and LRO? It feels like this goes back and forth. They really are separate, aren't they?  Maybe separate into CRO, LRO and common considerations...?  Also I think this section could be trimmed quite a bit.} THEY CANNOT BE SEPARATED SINCE LRO INHERITS THE SAME AMC ELECTRONICS. THE MOST NATURAL WAY IS TO INTRODUE THE CRO AND THEN LRO ELECTRONICS
 
-The \dword{cro} electronics design covers the analog \dword{fe} cards containing pre-amplifier ASICs operating at cryogenic temperatures and digitization cards with the relevant system for their synchronization working in the warm environment outside of the cryostat. The system %should 
+The \dword{cro} electronics design covers the analog \dword{fe} cards containing pre-amplifier \dwords{asic} operating at cryogenic temperatures and digitization cards with the relevant system for their synchronization working in the warm environment outside of the cryostat. The system %should 
 reads and digitizes signals from a total of \num{153600} channels (per one \dword{dpmod}) and is capable of continuously streaming the collected and losslessly compressed data to the \dword{daq} without any zero suppression. 
 The design of the \dshort{cro} electronics system was developed to fit the following requirements:
 \begin{itemize}
@@ -124,7 +124,7 @@ that compensates for the heat input from the chimneys into the cryostat volume.
 The digital electronics for both charge and light readout is located in the warm environment on the top of the cryostat supporting structure and is therefore easily accessible. This fact removes any constraints associated with the accessibility and operation in cryogenic environments allowing for the usage of standard components and industrial solutions in the design. Digital electronics must be continuously and automatically synchronized to better than \SI{400}{\nano\s} to ensure the correct temporal alignment of the \dword{adc} samples from all of the readout channels. This is a minimal requirement dictated by the fact that the sampling rate is \SI{2.5}{\MHz}.  
 
 %Some of the k
-Key parameters for the electronics system design are summarized in Table~\ref{tab:dpele-physicsparams}. %The requirements for the DP electronics system are documented in DUNE-docdb-6428.
+Key parameters for the electronics system design are summarized in Table~\ref{tab:dpele-physicsparams}. %The requirements for the \dual electronics system are documented in DUNE-docdb-6428.
 
 \begin{dunetable}
 [Parameters for the TPC electronics system design]
@@ -170,9 +170,9 @@ The total numbers for components to be procured to instrument one \dword{dpmod} 
 \begin{dunetable}
 [Numbers for \dual electronics components to procure]
 {lr} {tab:dpele-num-components}
-{Numbers for DP electronics components to procure for one \dword{dpmod}.}
+{Numbers for \dual electronics components to procure for one \dword{dpmod}.}
 Name & Number  \\ \toprowrule
-\dword{cro} cryogenic ASICs (\num{16} ch) & \num{9600} \\ \colhline
+\dword{cro} cryogenic \dwords{asic} (\num{16} ch) & \num{9600} \\ \colhline
 \dword{cro} cryogenic analog \dword{fe} cards (\num{64} ch) & \num{2400} \\ \colhline
 \dword{cro} \dwords{amc} & \num{2400} \\ \colhline
 \dwords{sftchimney} & \num{240} \\ \colhline
@@ -202,7 +202,7 @@ installed in \dword{utca} crates placed in the immediate vicinity of the \dwords
 In the design for \dword{pddp}, each \dword{amc} digitizes \num{64} channels, corresponding to reading one \dword{fe} analog card. Each \dword{utca}  contains \num{10} \dwords{amc} reading a total of \num{640} channels. However, an implementation with \dwords{amc} supporting a higher channel density is being investigated for cost-reduction purposes. 
 %\fixme{I need a picture showing the AMC, the \dword{fc} card, and the \dword{utca}!} ALL THESE PICTURES ARE PROVIDED LATTER WHEN THE RESPECTIVE UNIT IS DESCRIBED
 
-The \dword{lro} \dword{fe} analog and digital electronics is based on a custom-built \dword{amc}. The card contains a \dword{catiroc} ASIC, which is used to determine %precisely 
+The \dword{lro} \dword{fe} analog and digital electronics is based on a custom-built \dword{amc}. The card contains a \dword{catiroc} \dword{asic} \cite{Blin:2017}, which is used to determine %precisely 
 the charge and start times of signals from each individual \dword{pmt} to high precision. In addition, a \SI{14}{bit} \SI{65}{MHz} \dword{adc} digitizes the data for continuous streaming of the \dword{pmt} signals. Each card reads up to \num{16} channels. A potential %future 
 upgrade is to increase the channel density per card to \num{32} channels. The \dword{lro} cards are housed in five dedicated \dword{utca} crates located close to the \dword{pmt} instrumentation \fdth{}s.
 
@@ -212,7 +212,7 @@ upgrade is to increase the channel density per card to \num{32} channels. The \d
 \end{dunefigure}
 %\fixme{Need a similar picture for the LRO system. anne} SAME AS ABOVE
 
-Every \dword{utca} crate contains a network switch, MicroTCA Carrier Hub (\dword{mch}), via which the data are sent to the  \dword{daq} and to %as well as a module 
+Every \dword{utca} crate contains a network switch, \dword{mch}, via which the data are sent to the  \dword{daq} and to %as well as a module 
 a (\dword{wrmch}) for %clock/ 
 time synchronization and trigger timestamp distribution to the \dwords{amc}. Both \dword{mch} and \dword{wrmch} require one optical fiber link each. 
 
@@ -247,24 +247,24 @@ Name & Number  \\ \toprowrule
 %   \dword{utca} crates (total)                         & \num{245} \\ \colhline
 \end{dunetable}
 
-A short summary of some of  the number of principal components and channel granularity in the design of the DP electronics is provided in Table~\ref{tab:dpele-numparts}. 
+A short summary of some of  the number of principal components and channel granularity in the design of the \dual electronics is provided in Table~\ref{tab:dpele-numparts}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cryogenic Analog Front-end Electronics}
 \label{sec:fddp-tpc-elec-design-cryofe}
 
-The cryogenic amplifier ASIC is the main component of the \dword{fe} analog cards. Its design is based on the CMOS \SI{0.35}{\micro\meter} technology and is an outcome of an R\&D  activity started in 2006, which resulted in several versions of the cryogenic amplifier for both \single and \dual \dword{lartpc} detectors. Two principal versions of ASIC chips have been produced for \dual \dword{lartpc} operation. In the first version the amplifiers have a constant gain in the region of \numrange{0}{1200}\,\si{\femto\coulomb} (\numrange{0}{40} \dword{mip}). In the second, the amplifiers have a higher linear gain for signals up to \SI{400}{\femto\coulomb} (roughly \num{10} \dword{mip} signals) and a logarithmic response in the \numrange{400}{1200}\,\si{\femto\coulomb} range. This double-slope behavior is obtained by using a MOSCAP capacitor in the feedback loop of the amplifier that changes its capacitance above a certain signal threshold. The aim of this solution is to optimize the resolution for small charge depositions (in a few-\dword{mip} region) while preserving the overall large dynamic range of the amplifier.
+The cryogenic amplifier \dword{asic} is the main component of the \dword{fe} analog cards. Its design is based on the CMOS \SI{0.35}{\micro\meter} technology and is an outcome of an R\&D  activity started in 2006, which resulted in several versions of the cryogenic amplifier for both \single and \dual \dword{lartpc} detectors. Two principal versions of \dword{asic} chips have been produced for \dual \dword{lartpc} operation. In the first version the amplifiers have a constant gain in signal inputs of \numrange{0}{1200}\,\si{\femto\coulomb} (\numrange{0}{40} \dword{mip}). In the second, the amplifiers have a higher linear gain for signals up to \SI{400}{\femto\coulomb} (roughly \num{10} \dword{mip} signals) and a logarithmic response in the \numrange{400}{1200}\,\si{\femto\coulomb} range. This double-slope behavior is obtained by using a MOSCAP capacitor in the feedback loop of the amplifier that changes its capacitance above a certain signal threshold. The aim of this solution is to optimize the resolution for few-\dword{mip} charge depositions while preserving the overall large dynamic range of the amplifier.
 
-\begin{dunefigure}[Cryogenic \dword{fe} ASIC properties]{fig:dpele-fe-asic-prop}
-{Cryogenic \dword{fe} ASIC properties: amplifier response (left) and noise (right) at different temperatures measured at the output of differential buffer.}
+\begin{dunefigure}[Cryogenic \dword{fe} \dword{asic} properties]{fig:dpele-fe-asic-prop}
+{Cryogenic \dword{fe} \dword{asic} properties: amplifier response (left) and noise (right) at different temperatures measured at the output of differential buffer.}
 \includegraphics[width=0.49\textwidth]{dpele-fe-asic-gain}
 \includegraphics[width=0.49\textwidth]{dpele-fe-asic-noise}
 \end{dunefigure}
 
 %Figure~\ref{fig:dpele-fe-asic-noise} 
-The ASIC version with the double-slope gain was selected for \dword{pddp} and has been adopted for the \dual TPC electronics design. The left plot in Figure~\ref{fig:dpele-fe-asic-prop} illustrates the response of this amplifier for different values of the injected charge, while that on the right shows the measured noise in units of Equivalent Noise Charge (ENC) as a function of the detector capacitance at different temperatures. 
+The \dword{asic} version with the double-slope gain was selected for \dword{pddp} and has been adopted for the \dual TPC electronics design. The left plot in Figure~\ref{fig:dpele-fe-asic-prop} illustrates the response of this amplifier for different values of the injected charge, while that on the right shows the measured noise in units of Equivalent Noise Charge (ENC) as a function of the detector capacitance at different temperatures. 
 %\fixme{why in quotes?} REMOVED
-For the \dword{crp} anode (detector) capacitance of \SI{480}{\pico\farad} per \SI{3}{\metre} strip, the expected noise is around \SI{2000}{e^{-}} at \SI{110}{\kelvin}. Each ASIC contains \num{16} amplifier channels with differential line buffers and has a power consumption, which is \SI{11}{\milli\watt/channel} surpassing the \SI{< 50}{\milli\watt/channel} requirement. 
+For the \dword{crp} anode (detector) capacitance of \SI{480}{\pico\farad} per \SI{3}{\metre} strip, the expected noise is around \SI{2000}{e^{-}} at \SI{110}{\kelvin}. Each \dword{asic} contains \num{16} amplifier channels with differential line buffers and has a power consumption of \SI{11}{\milli\watt/channel}, surpassing the \SI{< 50}{\milli\watt/channel} requirement. 
 
 \begin{dunefigure}[Image of an analog \dword{fe} card mounted on the extraction blade]{fig:dpele-fe-card-blade-image}
 {Image of an analog cryogenic \dword{fe} card mounted on the extraction blade, which is a part of the \dword{sftchimney} sub-system.}
@@ -273,8 +273,8 @@ For the \dword{crp} anode (detector) capacitance of \SI{480}{\pico\farad} per \S
 %\fixme{extraction blade is defined lower down; to fix} ADDED AN EXPLANATION THAT IT IS PART OF THE SFT CHIMNEY. IT IS ALSO COVERED IN THE GENERAL OVERVIEW SECTION
 
 Each cryogenic \dword{fe} card, shown in Figure~\ref{fig:dpele-fe-card-blade-image}, %hosts 
-holds four ASIC amplifier chips and a few passive discrete components. The input stage of each amplifier channel has a \SI{1}{\giga\ohm} resistor to ground followed by a \SI{2.2}{\nano\farad} decoupling capacitor; both are rated for \dword{hv} operation. The %function of the 
-resistor grounds the \dword{crp} anode strips. A TVS diode\footnote{Bourns\texttrademark{} CDSOD323-T08LC TVS diode.} protects each input stage against discharges coming from the \dword{dpmod}. This component was selected after studying the performance of different devices for the electrostatic discharge protection by subjecting them systematically to discharges of a few \si{kV} with an energy similar to that of the \dwords{lem} in the \dword{crp}. The \dword{fe} cards also house the blocking capacitors for further filtering of the low-voltage power lines. These are first filtered at the level of the power supply and transported via shielded cables.
+holds four \dword{asic} amplifier chips and a few passive discrete components. The input stage of each amplifier channel has a \SI{1}{\giga\ohm} resistor to ground followed by a \SI{2.2}{\nano\farad} decoupling capacitor; both are rated for \dword{hv} operation. The %function of the 
+resistor grounds the \dword{crp} anode strips. A TVS diode\footnote{Bourns\texttrademark{} CDSOD323-T08LC TVS diode.} protects each input stage against discharges coming from the \dword{dpmod}. This component was selected after studying the performance of different devices for the electrostatic discharge protection by subjecting them systematically to discharges of a few \si{kV} with an energy similar to that of the \dwords{lem} in the \dword{crp}. The \dword{fe} cards also house the blocking capacitors for further filtering of the low-voltage power lines. These are first filtered at the power supply and transported via shielded cables.
 
 \begin{dunefigure}[Noise measurements in the \dword{wa105} in different conditions]{fig:dpele-311-noise}
 {Noise of measurements in the \dword{wa105} in different conditions. Left: warm with the slow control cables connected to the cryostat flanges (red points) and disconnected (black points). Right: warm (red points) and cold (black points) with the slow control cables disconnected. The channels with negative (positive) channel number correspond to the strips of \SI{3}{\meter} (\SI{1}{\meter}).}
@@ -283,13 +283,13 @@ resistor grounds the \dword{crp} anode strips. A TVS diode\footnote{Bourns\textt
 \end{dunefigure}
 
 %While 
-Although the \dword{fe} amplifier ASICs are in a shielded environment provided by the chimneys, which act as Faraday cages,
+Although the \dword{fe} amplifier \dwords{asic} are in a shielded environment provided by the chimneys, which act as Faraday cages,
 %\fixme{``which act as'' Faraday cages?} DONE 
 interference from other equipment (via a noisy ground or ground loops) could significantly worsen the noise performance from the design target. Figure~\ref{fig:dpele-311-noise} shows %some 
 results of %the 
 noise measurements performed under different conditions in the \dword{wa105}. The channels reading \SI{3}{\meter} (\SI{1}{\metre}) long strips correspond to negative (positive) channel numbering in the plots and the \num{1} \dword{adc} count is equivalent to about \num{900} electrons. The left plot of Figure~\ref{fig:dpele-311-noise} shows the noise measurements performed at warm temperature with and without slow control cables (\dword{crp} \dword{hv}, \dword{crp} motors, level meters, temperature probes, etc.) connected. 
 %\fixme{stuff in parentheses all pertain to slow controls?} YES THESE LIST EXAMPLES OF THE E\dword{lem}ENTS OF THE 311 SLOW CONTROL SYSTEM WHICH WERE NOT GROUNDED IN A CLEAN WAY
-The noise is clearly affected by the grounding of the slow controls: the average value of the noise \rms is around \num{1.7} \dword{adc} with slow control cables connected, and decreases to about \num{1.5} \dword{adc} when they are removed. %As explained later,
+The noise is clearly affected by the grounding of the slow controls: the average value of the noise \rms is around \num{1.7} \dword{adc} with slow control cables connected, and decreases to about \num{1.5} \dword{adc} counts when they are removed. %As explained later,
 %\fixme{ref section} IT IS EXPLAINED AT THE END OF THIS SECTION
 The grounding scheme of the \dword{wa105} does not correspond to the one %foreseen for DUNE, 
 planned for the \dword{dpmod}, where all electrical equipment is referred uniquely to the cryostat ground and is completely insulated from the external environment. 
@@ -319,7 +319,7 @@ from the levels observed in the \dword{wa105}.
 \label{sec:fddp-tpc-elec-design-sft}
 
 The \dwords{sftchimney} are designed to enable access to the \dword{fe} analog electronics for a potential repair or exchange while the \dword{dpmod} is filled and in operation. % (filled with the \lar). 
-In addition, their metallic structure acts as a Faraday cage isolating the \dword{fe} ASICs from environmental interference.  Each \dword{sftchimney} hosts \num{10} analog cryogenic \dword{fe} cards (reading \num{640} channels in total).  %Some of the 
+In addition, their metallic structure acts as a Faraday cage isolating the \dword{fe} \dwords{asic} from environmental interference.  Each \dword{sftchimney} hosts \num{10} analog cryogenic \dword{fe} cards (reading \num{640} channels in total).  %Some of the 
 Details of the design are illustrated in Figure~\ref{fig:dpele-sft-chimney-design}. 
 %\fixme{diff between ``SFT chimney'' and just SFT?} FIXED, WAS MISSING CHIMNEY
 
@@ -328,7 +328,7 @@ Details of the design are illustrated in Figure~\ref{fig:dpele-sft-chimney-desig
 \includegraphics[width=0.8\textwidth]{dpele-sft-chimney-design}
 \end{dunefigure}
 
-The chimneys are closed at the bottom and top with vacuum-tight \fdth flanges whose function is to dispatch the signal and slow control lines. The \fdth at the bottom, the cold (signal) \fdth, isolates (Ulta-High Vacuum tightness standard) the inner volume of the \dword{dpmod} from the chimney volume and interconnects the signals from the \dword{crp} to the analog \dword{fe} cards. The \fdth at the top, the warm (signal) \fdth, seals the chimney from the outside environment. It also passes the low voltage and control lines to the \dword{fe} electronics inside and brings out the differential analog signal lines from the \dword{fe} amplifiers. 
+The chimneys are closed at the bottom and top with vacuum-tight \fdth flanges whose function is to dispatch the signal and slow control lines. The \fdth at the bottom, the cold (signal) \fdth, isolates (ultra-high vacuum tightness standard) the inner volume of the \dword{dpmod} from the chimney volume and interconnects the signals from the \dword{crp} to the analog \dword{fe} cards. The \fdth at the top, the warm (signal) \fdth, seals the chimney from the outside environment. It also passes the low voltage and control lines to the \dword{fe} electronics inside and brings out the differential analog signal lines from the \dword{fe} amplifiers. 
 
 The \dword{sftchimney} volume is filled with nitrogen gas at near-atmospheric pressure. The temperature inside the chimney can be adjusted using a heat exchanger copper coil cooled with \lar. It is located at the bottom close to the cold \fdth around the \dword{fe} cards. %The functions of 
 This cooling system %are to 
@@ -346,11 +346,11 @@ The analog \dword{fe} cards are inserted directly onto the PCB of the cold \fdth
 (see Figure~\ref{fig:dpele-sft-cold-pcb}). The other side of the PCB (facing inside the cryostat) hosts the connectors for the flat cables coming from the \dword{crp} anodes.  The \dword{fe} cards are mounted on \SI{2}{\m} long blades made from FR4 that enable the insertion and extraction of the electronics, and also support the flat cables carrying signals, low voltages, and slow control to and from the warm flange interface.  The blades slide along the rails installed inside the chimney at opposite sides; %which 
 these rails guide the \dword{fe} cards to their respective connectors on the cold \fdth. 
 
-Prior to the commissioning of a \dword{dpmod}, the chimneys are evacuated via a dedicated KF16 port (see Figure~\ref{fig:dpele-sft-chimney-design}) and then filled with nitrogen gas. This ensures the removal of % the 
+Prior to the commissioning of a \dword{dpmod}, the chimneys are evacuated via a dedicated ISO standard KF16 port (see Figure~\ref{fig:dpele-sft-chimney-design}) and then filled with nitrogen gas. This ensures the removal of % the 
 any moisture that would otherwise condense around the \dword{fe} cards, once the \dword{dpmod} is filled with the \lar, damaging the electronics. To access the \dword{fe} cards once the \dword{dpmod} is cold, the stainless steel flange at the top of the \dword{sftchimney} (Figure~\ref{fig:dpele-sft-chimney-design}) must be removed. This procedure requires continuous flushing of nitrogen gas at slight over-pressure (with respect to atmospheric) in order to prevent the humid air entering. % and generating condensation inside the chimney. 
 Once a chimney is opened, it is possible to extract the blades with the \dword{fe} cards after unplugging the flat cables (two per card) connected on the inner side of the warm flange (Figure~\ref{fig:dpele-sft-chimney-design}).
 
-The procedure to access the \dword{fe} cards \textit{at cold} was successfully tested during the operation of the \dword{wa105} detector. The %temperature at the 
+The procedure to access the \dword{fe} cards under cold operation was successfully tested during the operation of the \dword{wa105} detector. The %temperature at the 
 top of the chimney was very close to room temperature, allowing manipulation of the cable connections on the warm \fdth flange without %any 
 cryogenic gloves. The movement of the blades on the rails and the \dword{fe} card extraction and insertion did not indicate any mechanical problems %that could have been caused by 
 due to the shrinking of various elements % due to the 
@@ -372,7 +372,9 @@ The %function of the
  transmit them to the \dword{daq} system. The cards also include a last stage of analog shaping before the \dword{adc} input. The analog \dwords{fe} produce differential unipolar signals defined with respect to a baseline offset. 
 % This offset is removed and the signals are subtracted in the analog input stage of the digital electronics prior to the digitization. 
 Prior to the digitization, this offset is removed and the signals are subtracted in the analog input stage of the digital electronics.
-Each card has eight \dword{adc} chips (AD9257, Table~\ref{tab:dpele-adc9257}), two dual-port memories (IDT70T3339), and an FPGA (ALTERA Cyclone V) on board. The FPGA provides a virtual processor (NIOS) that handles the readout and the data transmission. The choices for all of the components have been optimized with respect to the design requirements and technical criteria such as costs, chip footprint (small enough to fit on the \dword{amc}), power consumption, and ease of use (available functionality). 
+Each card has eight \dword{adc} chips (Analog Devices, AD9257\footnote{Analog Devices\texttrademark{}, 
+ \url{http://www.analog.com/media/en/technical-documentation/data-sheets/AD9257.pdf}.}, Table~\ref{tab:dpele-adc9257}), two dual-port memories (Integrated Device Technology IDT70T3339\footnote{Integrated Device Technology\texttrademark{} (IDT), \url{https://www.idt.com/document/dst/70t33391999-data-sheet}.}), and an \dword{fpga} 
+ (Alterra\footnote{Alterra\texttrademark{}, \url{https://www.altera.com/products/fpga/cyclone-series/cyclone-v/overview.html}.} Cyclone V) on board. The \dword{fpga} provides a virtual processor (NIOS) that handles the readout and the data transmission. The choices for all of the components have been optimized with respect to the design requirements and technical criteria such as costs, chip footprint (small enough to fit on the \dword{amc}), power consumption, and ease of use (available functionality). 
 
 \begin{dunetable}
 [Main characteristics of \dword{adc} AD9257]
@@ -394,22 +396,22 @@ Integral non-linearity & typical \num{\pm1.1}  LSB\\
 {Block diagram of \dword{amc}.}
 \includegraphics[width=0.9\textwidth]{dpele-amc-scheme}
 \end{dunefigure}
-Figure~\ref{fig:dpele-amc-scheme} shows block diagram of the \dword{amc} functionality. Each \dword{amc} generates a continuous compressed stream of \SI{2.5}{MSPS} \num{12}\,bit data per readout channel. The on-board ADCs operate at a rate of \SI{25}{\MHz} per channel. The data are down-sampled in the FPGA to \SI{2.5}{\MHz} by performing ten-sample averaging, which leads to the further digital filtering of the noise. The data, consisting of only the  \num{12} most significant bits from each digitized \num{14}\,bit sample, are then compressed using an optimized version of the Huffman algorithm and organized in frames for transmission.  The frames contain the absolute timing information of the first data sample for reliability purposes. In the current design, each \dword{amc} has \num{64} channels and reads one analog \dword{fe} card.
+Figure~\ref{fig:dpele-amc-scheme} shows block diagram of the \dword{amc} functionality. Each \dword{amc} generates a continuous compressed stream of \SI{2.5}{MSPS} \num{12}\,bit data per readout channel. The on-board ADCs operate at a rate of \SI{25}{\MHz} per channel. The data are down-sampled in the \dword{fpga} to \SI{2.5}{\MHz} by performing ten-sample averaging, which leads to further digital filtering of the noise. The data, consisting of only the  \num{12} most significant bits from each digitized \num{14}\,bit sample, are then compressed using an optimized version of the Huffman algorithm and organized in frames for transmission.  The frames contain the absolute timing information of the first data sample for reliability purposes. In the current design, each \dword{amc} has \num{64} channels and reads one analog \dword{fe} card.
 
-The \dwords{amc} are housed in \dword{utca} crates and send their data via the \dword{mch} switch. The timing synchronization of \dwords{amc} is achieved via a \dword{wrmch} module (also housed in the crate) that is connected to the \dword{wr} network. In addition, \dword{wrmch} could also be used for triggered readout of \dwords{amc} by sending it dedicated packets containing trigger timestamp information over the \dword{wr} network.
+The \dwords{amc} are housed in \dword{utca} crates and send their data via the \dword{mch} switch. The timing synchronization of \dwords{amc} is achieved via a \dword{wrmch} module (also housed in the crate) that is connected to the \dword{wr} network. In addition, a  \dword{wrmch} could also be used for triggered readout of \dwords{amc} by sending it dedicated packets containing trigger timestamp information over the \dword{wr} network.
 
 In \dword{pddp}, \dwords{amc} are operated in the triggered mode, reading a \SI{4}{\milli\second} drift time window at a trigger rate of \SI{100}{Hz}, which is not far from %a 
 continuous readout mode. The analog data are continuously digitized and buffered. It is possible to acquire a sub-sample of these data %can then be acquired 
 by providing \dword{amc} with a timestamp generated by an external trigger. The timestamp defines the start time for the data sequence to be read, while the length of the sequence is determined by the size of the drift window. In \dword{pddp} this length corresponds to \num{10000} \SI{400}{\nano\second} samples per full drift window (\SI{4}{\milli\second}). 
 %\fixme{not clear how the \num{10000} helps define the length; you say it's determined from the drift window size; clarify} DONE
- Triggers (beam counters, cosmic-ray counters, \dwords{pmt} reading the UV light, and starts of beam spills) are time stamped in a dedicated \dword{wr} slave node (\dword{wr}-TSN), an FMC-DIO mezzanine mounted on \dword{wr} SPEC carrier card, which runs a custom firmware and is hosted in a computer. The \dword{wr}-TSN is connected to the \dword{wrgm} for synchronization and for transmission of the trigger information. The timestamp data produced by the \dword{wr}-TSN are sent over the \dword{wr} network as Ethernet packets with a customized protocol. 
+ Triggers (beam counters, cosmic-ray counters, \dwords{pmt} detecting the UV light, and starts of beam spills) are time stamped in a dedicated \dword{wr} slave node (\dword{wr}-TSN), an FMC-DIO mezzanine mounted on \dword{wr} SPEC carrier card, which runs a custom firmware and is hosted in a computer. The \dword{wr}-TSN is connected to the \dword{wrgm} for synchronization and for transmission of the trigger information. The timestamp data produced by the \dword{wr}-TSN are sent over the \dword{wr} network as Ethernet packets with a customized protocol. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electronics for Light Readout}
 \label{sec:fddp-tpc-elec-design-lro}
-%\fixme{section title: ``Digital'' Electronics for Light Reaout, in parallel with prev section?} THE ELECTRONICS INCLUDES CATIROC ASIC WITH SOME ANALOG FUNCTIONALITY SO THE TITTLE SHOULD BE MORE GENERAL 
+%\fixme{section title: ``Digital'' Electronics for Light Reaout, in parallel with prev section?} THE ELECTRONICS INCLUDES CATIROC \dword{asic} WITH SOME ANALOG FUNCTIONALITY SO THE TITTLE SHOULD BE MORE GENERAL 
 %
-The \dword{lro} card is a \num{16} channel \dword{amc} containing one \num{16} channel \num{14} bit \SI{65}{\MHz} \dword{adc} (AD9249) and one \dword{catiroc} ASIC \cite{Blin:2017}. A block diagram of the prototype board used for \dword{pddp} is shown in Figure~\ref{fig:dpele-lro-scheme} and a photo in Figure~\ref{fig:dpele-lro-proto} . In this prototype a mezzanine board containing the ASIC and \dword{adc} sits on a commercial (COTS) mother board (Bittware S4 \dword{amc}) with a high specification FPGA (ALTERA Stratix IV). In the final implementation for the \dword{dpmod}, the mezzanine is integrated with the layout of the \dword{amc} board developed for the charge readout.  
+The \dword{lro} card is a \num{16} channel \dword{amc} containing one \num{16} channel \num{14} bit \SI{65}{\MHz} \dword{adc} (AD9249) and one \dword{catiroc} \dword{asic}. A block diagram of the prototype board used for \dword{pddp} is shown in Figure~\ref{fig:dpele-lro-scheme} and a photo in Figure~\ref{fig:dpele-lro-proto} . In this prototype a mezzanine board containing the \dword{asic} and \dword{adc} sits on a commercial mother board (Bittware S4 \dword{amc}\footnote{Bittware\texttrademark{}, Inc., \url{https://www.bittware.com/fpga/intel/boards/s4am/}.}) with a high specification \dword{fpga} (Alterra\footnote{Alterra\texttrademark{}, \url{https://www.altera.com/products/fpga/stratix-series/stratix-iv/overview.html}.} Stratix IV). In the final implementation for the \dword{dpmod}, the mezzanine is integrated with the layout of the \dword{amc} board developed for the charge readout.  
 A proposed upgrade is a \num{32} channel card, %diminishing 
 which would reduce the number of cards required and increase the channel density to \num{352} channels per \dword{utca} crate.
 
@@ -423,7 +425,7 @@ which would reduce the number of cards required and increase the channel density
 \includegraphics[width=0.7\textwidth]{dpele-lro-proto}
 \end{dunefigure}
 
-The analog signals from each \dword{pmt} channel are split equally into two separate branches (see Figure~\ref{fig:dpele-lro-scheme}) . One path (Waveform branch), through an anti-aliasing low-pass filter and the \num{14} bit \SI{65}{\MHz} \dword{adc} (AD9249), produces continuous digitization of the \dword{pmt} waveform data, which are down-sampled to \SI{2.5}{MHz} prior to the transmission to \dword{daq}. The other (\dword{catiroc} branch) is routed directly to the \dword{catiroc} ASIC for precise measurements of pulse charge and timing. Both paths produce data continuously and independently.
+The analog signals from each \dword{pmt} channel are split equally into two separate branches (see Figure~\ref{fig:dpele-lro-scheme}) . One path (waveform branch), through an anti-aliasing low-pass filter and the \num{14} bit \SI{65}{\MHz} \dword{adc} (AD9249), produces continuous digitization of the \dword{pmt} waveform data, which are down-sampled to \SI{2.5}{MHz} prior to the transmission to \dword{daq}. The other (\dword{catiroc} branch) is routed directly to the \dword{catiroc} \dword{asic} for precise measurements of pulse charge and timing. Both paths produce data continuously and independently.
 
 %%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Waveform branch} %\dword{adc}
@@ -447,28 +449,28 @@ Integral non-linearity & typical \num{\pm0.9}  LSB\\
 \end{dunetable}
 %noise llevel??
 
-For normal operation, in the continuous mode, the digitized signals are down-sampled by the FPGA to a coarse \SI{400}{ns} sampling to match that of the \dword{cro} and limit the quantity of data streamed. 
+For normal operation, in the continuous mode, the digitized signals are down-sampled by the \dword{fpga} to a coarse \SI{400}{ns} sampling to match that of the \dword{cro} and limit the quantity of data streamed. 
 %\fixme{is there a way to get rid of at least one or two instances of ``sample'' in the prev sentence?} DONE
 The use of a higher specification \dword{adc}, with time-sampling of \SI{15.4}{ns}, allows for greater flexibility. % It is envisaged that 
 For particular calibration runs, waveforms with finer time sampling could be read-out, allowing studies of, e.g., the \lar scintillation time profiles. %Even 
-%During normal operation, as well, online pulse processing is possible within the FPGA using the finer time-sampled waveforms (before the down sampling), which could be used to make continuous measurements such as the rise and fall times of the pulses. 
-During normal operation, as well, online pulse processing is possible within the FPGA using the finer time-sampled waveforms (before the down sampling; this would enable continuous measurements of quantities such as the rise and fall times of the pulses. Even at the coarse sampling rate of \SI{400}{ns}, studies of the \lar scintillation time profile are possible (given the long fall-time constant of $\sim$\SI{1500}{ns}) %and also 
+%During normal operation, as well, online pulse processing is possible within the \dword{fpga} using the finer time-sampled waveforms (before the down sampling), which could be used to make continuous measurements such as the rise and fall times of the pulses. 
+During normal operation, as well, online pulse processing is possible within the \dword{fpga} using the finer time-sampled waveforms (before the down sampling; this would enable continuous measurements of quantities such as the rise and fall times of the pulses. Even at the coarse sampling rate of \SI{400}{ns}, studies of the \lar scintillation time profile are possible (given the long fall-time constant of $\sim$\SI{1500}{ns}) %and also 
 as is matching of the electroluminescence signal (also known as proportional scintillation light) to that of the charge signal.  Low light-level signals, %such as the 
 as from single or a few \phel{}s, % signals, 
 will show no time structure, but will consist of one sample several LSB above the baseline. 
 
 %%%%%%%%%%%%%%%%%%%%%
-\subsubsection{CATIROC branch} %{Analog Measurements of Charge and Time}%ASIC?
+\subsubsection{CATIROC branch} %{Analog Measurements of Charge and Time}%\dword{asic}?
 
-The \dword{catiroc} is a \num{16} channel ASIC dedicated to measurement of charge and precision timing of negative-polarity \dword{pmt} signals~\cite{Blin:2017}. It auto-triggers on single \phel{}s and can sustain a high dark rate of up to \SI{20}{kHz/channel}. Charge measurements are possible over the range of \SI{160}{fC} to \SI{70}{pC} (corresponding to approximately to a range of \numrange{1}{400} \phel{}s with a \dword{pmt} gain of \num{1E6}). Timing measurements per channel can %be made with 
+The \dword{catiroc} is a \num{16} channel \dword{asic} dedicated to measurement of charge and precision timing of negative-polarity \dword{pmt} signals~\cite{Blin:2017}. It auto-triggers on single \phel{}s and can sustain a high dark rate of up to \SI{20}{kHz/channel}. Charge measurements are possible over the range of \SI{160}{fC} to \SI{70}{pC} (corresponding to approximately to a range of \numrange{1}{400} \phel{}s with a \dword{pmt} gain of \num{1E6}). Timing measurements per channel can %be made with 
 reflect an accuracy of \SI{200}{ps}.
 
-\begin{dunefigure}[\dword{catiroc} ASIC]{fig:dpele-lro-catiroc}
-{Functional diagram of \dword{catiroc} ASIC.}
+\begin{dunefigure}[\dword{catiroc} \dword{asic}]{fig:dpele-lro-catiroc}
+{Functional diagram of \dword{catiroc} \dword{asic}.}
 \includegraphics[width=0.8\textwidth]{dpele-lro-catiroc}
 \end{dunefigure}
 
-Figure~\ref{fig:dpele-lro-catiroc} shows the schematic of the \dword{catiroc} ASIC. Its main properties are summarized in Table~\ref{tab:dpele-catiroc}. The slow channel, from which precision charge and timing measurements are made, is formed by two variable-gain (\SI{8}{bit}) amplifiers followed by two variable slow shapers; one high gain for small signals, and one low gain for larger signals, and two track-and-hold stages. The slow shaper has a tunable shaping time (up to \SI{100}{ns}) and a variable gain.  If the high gain is saturated, corresponding to passing a predetermined threshold common to all \num{16} channels, the lower gain value is chosen. The chosen charge value is converted by an internal 10-bit Wilkinson \dword{adc} operating at \SI{160}{MHz}.  This slow channel operates in a ping-pong mode, with two capacitors to store the slow shaper signals, giving an effective buffer of 2 events. If both capacitors are full, a deadtime of \SI{5}{\micro\second} arises.
+Figure~\ref{fig:dpele-lro-catiroc} shows the schematic of the \dword{catiroc} \dword{asic}. Its main properties are summarized in Table~\ref{tab:dpele-catiroc}. The slow channel, from which precision charge and timing measurements are made, is formed by two variable-gain (\SI{8}{bit}) amplifiers followed by two variable slow shapers; one high gain for small signals, and one low gain for larger signals, and two track-and-hold stages. The slow shaper has a tunable shaping time (up to \SI{100}{ns}) and a variable gain.  If the high gain is saturated, corresponding to passing a predetermined threshold common to all \num{16} channels, the lower gain value is chosen. The chosen charge value is converted by an internal 10-bit Wilkinson \dword{adc} operating at \SI{160}{MHz}.  This slow channel operates in a ping-pong mode, with two capacitors to store the slow shaper signals, giving an effective buffer of 2 events. If both capacitors are full, a deadtime of \SI{5}{\micro\second} arises.
 
 \begin{dunetable}
 [Main characteristics of \dword{catiroc}.]
@@ -495,16 +497,16 @@ Features & Common trigger threshold \\
          & Common gain threshold \\ 
 \end{dunetable}
 
-The fast channel is used to auto-trigger the ASIC and make the fine-timing measurement. It comprises a high gain preamplifier, fast shaper (shaping time \SI{5}{ns}) and discriminator with a \num{10} bit programmable threshold that is common to all \num{16} channels. The output of the discriminator is used for the two Time to Digital Convertors to get the fine-timing. A coarse timestamp could also be obtained from a \num{26} bit counter running at \SI{40}{MHz}.  Only the data from the triggered channels are digitized; their information is transferred to the internal memory, which is read by the external FPGA. 
+The fast channel is used to auto-trigger the \dword{asic} and make the fine-timing measurement. It comprises a high gain preamplifier, fast shaper (shaping time \SI{5}{ns}) and discriminator with a \num{10} bit programmable threshold that is common to all \num{16} channels. The output of the discriminator is used for the two time-to-digital convertors to get the fine timing. A coarse timestamp could also be obtained from a \num{26} bit counter running at \SI{40}{MHz}.  Only the data from the triggered channels are digitized; their information is transferred to the internal memory, which is read by the external \dword{fpga}. 
 
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Network-based $\mu$TCA Architecture}
 \label{sec:fddp-tpc-elec-design-utca}
 
-The digital electronics is based on \dword{utca} standard which offers industrial solution with a very compact and easily scalable architecture to handle a large number of channels at low cost.  The standard (or related standards such as ATCA or xTCA) is widely used in the telecommunication industry and is being adapted by the HEP community. The backplane of the \dword{utca} crates host high-speed serial links that support a variety of transmission protocols (Ethernet, PCI Express, SRIO, etc.). In addition, dedicated lanes are available for the distribution of the clock signals to all the boards hosted in the crate.  The Ethernet-based solution has been adopted for both the data and clock distribution in this design of the DP electronics system for both Charge and Light Read Out. 
+The digital electronics is based on \dword{utca} standard which offers an industrial solution with a very compact and easily scalable architecture to handle a large number of channels at low cost.  The standard (or related standards such as \dword{atca} or xTCA) is widely used in the telecommunication industry and is being adopted by the HEP community. The backplane of the \dword{utca} crates host high-speed serial links that support a variety of transmission protocols (Ethernet, PCI Express, SRIO, etc.). In addition, dedicated lanes are available for the distribution of the clock signals to all the boards hosted in the crate.  The Ethernet-based solution has been adopted for both the data and clock distribution in this design of the \dual electronics system for both charge and light readout (\dword{cro} and \dword{lro}. 
 
-Each \dword{amc} for either charge or light readout plugged into the \dword{utca} is connected to the crate \dword{mch} board through the backplane serial links. The \dword{mch} provides the switch functionality that enables \dwords{amc} to communicate with each other or external systems through the \dword{mch} uplink interface. In the DP electronics system design, \dword{mch} also manages the WR clock distribution. 
+Each \dword{amc} for either charge or light readout plugged into the \dword{utca} is connected to the crate \dword{mch} board through the backplane serial links. The \dword{mch} provides the switch functionality that enables \dwords{amc} to communicate with each other or external systems through the \dword{mch} uplink interface. In the \dual electronics system design, \dword{mch} also manages the WR clock distribution. 
 
 \begin{dunetable}
 [Bandwidth requirements per $\mu$TCA crate.]
@@ -517,39 +519,40 @@ Parameter & Value  \\ \toprowrule
   Upgradable \dword{mch} bandwidth & \SI{40}{Gibit/s}           \\ 
 \end{dunetable}
 
-In the current design, as used for \dword{pddp}, the \dword{mch} operates with a \SI{10}{Gbit/s} uplink. Given that a \dword{utca} crate hosts \num{10} \dwords{amc} for charge readout, the required bandwidth to stream the data to \dword{daq} is about \SI{1.8}{Gbit/s}. This assumes that the data exiting the \dwords{amc} are losslessly compressed with the compression factor of \num{10}. The bandwidth required per crate link for streaming the \dword{lro} data is \SI{4.7}{Gbit/s}. The \SI{10}{Gbit/s} \dword{mch} is therefore sufficient to support these data rates. However, the technology is moving towards supporting the \SI{40}{Gbit/s} rates. In addition, the channel density per \dword{amc} could also be increased for cost optimization. For these reasons an upgrade to a \SI{40}{Gbit/s} \dword{mch} could be foreseen in the future. This would also imply that the optical links connecting the \dword{daq} system to \dword{utca} \dword{mch} should be operable at \SI{40}{Gbit/s}. A summary of the required and supported bandwidths per \dword{utca} crate for continous data streaming is provided in Table~\ref{tab:dp-utcabandwidth}.
+In the current design, as used for \dword{pddp}, the \dword{mch} operates with a \SI{10}{Gbit/s} uplink. Given that a \dword{utca} crate hosts \num{10} \dwords{amc} for charge readout, the required bandwidth to stream the data to \dword{daq} is about \SI{1.8}{Gbit/s}. This assumes that the data exiting the \dwords{amc} are losslessly compressed with the compression factor \num{10}. The bandwidth required per crate link for streaming the \dword{lro} data is \SI{4.7}{Gbit/s}. The \SI{10}{Gbit/s} \dword{mch} is therefore sufficient to support these data rates. However, the technology is moving towards supporting the \SI{40}{Gbit/s} rates. In addition, the channel density per \dword{amc} could also be increased for cost optimization. For these reasons an upgrade to a \SI{40}{Gbit/s} \dword{mch} could be foreseen in the future. This would also imply that the optical links connecting the \dword{daq} system to \dword{utca} \dword{mch} should be operable at \SI{40}{Gbit/s}. A summary of the required and supported bandwidths per \dword{utca} crate for continous data streaming is provided in Table~\ref{tab:dp-utcabandwidth}.
 
 \begin{dunefigure}[Instrumented \dword{utca} crate from the \dword{wa105}]{fig:dpele-311-utca-image}
 {Pictures of an instrumented \dword{utca} crate from the \dword{wa105}. The crate contains five \dword{amc} cards, correspondingly to the number of readout channels per the \dword{sftchimney}. The images below show the crate after the  cables are connected to the warm flange of the \dword{sftchimney}.}
 \includegraphics[width=0.6\textwidth]{dpele-311-utca-image}
 \end{dunefigure}
 
-As an illustration, Figure~\ref{fig:dpele-311-utca-image} shows pictures of one of the instrumented \dword{utca} crates used for the charge readout of the \dword{wa105} at CERN. In this detector each \dword{sftchimney} reads \num{320} channels thus requiring only five \dwords{amc} per the \dword{utca} crate. The two optical fiber links, one (\SI{10}{Gbit/s}) for data and the other (\SI{1}{Gbit/s}) for clock/trigger timing distribution, are visible in the images.       
+As an illustration, Figure~\ref{fig:dpele-311-utca-image} shows pictures of one of the instrumented \dword{utca} crates used for the charge readout of the \dword{wa105} at CERN. In this detector each \dword{sftchimney} reads \num{320} channels, thus requiring only five \dwords{amc} per the \dword{utca} crate. The two optical fiber links, one (\SI{10}{Gbit/s}) for data and the other (\SI{1}{Gbit/s}) for clock and trigger timing distribution, are visible in the images.       
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Timing Distribution}
 \label{sec:fddp-tpc-elec-wr}
 % WR description and card development
-The time synchronization system selected for the \dword{dpmod} utilizes a \dword{wr} network, which combines the synchronous \SI{1}{Gbit/s} Ethernet (SyncE) technology with the exchange of PTPV2 packets, to synchronize clocks of distant nodes to a common time. A high stability GPS disciplined oscillator (GPSDO) with  accuracy similar to that of an atomic clock provides a clock reference signal to be distributed over the physical layer interface of the \dword{wr} Ethernet network. The network topology is built using specially designed switches that have the standard IEEE802.1x Ethernet Bridge functionality with an addition of \dword{wr}-specific extensions to preserve the clock accuracy. Time and frequency information are distributed to the nodes on the \dword{wr} network via optical fibers. The \dword{wr} protocol automatically performs dynamic self-calibrations to account for any propagation delays and keeps all connected nodes continuously synchronized to sub-ns precision. 
+The time synchronization system selected for the \dword{dpmod} utilizes a \dword{wr} network, which combines the synchronous \SI{1}{Gbit/s} Ethernet (SyncE) technology with the exchange of PTPV2 packets, to synchronize clocks of distant nodes to a common time. A high stability GPS disciplined oscillator (GPSDO) with  accuracy similar to that of an atomic clock provides a clock reference signal to be distributed over the physical layer interface of the \dword{wr} Ethernet network. The network topology is built using specially designed switches that have the standard IEEE802.1x Ethernet bridge functionality with an addition of \dword{wr}-specific extensions to preserve the clock accuracy. Time and frequency information are distributed to the nodes on the \dword{wr} network via optical fibers. The \dword{wr} protocol automatically performs dynamic self-calibrations to account for any propagation delays and keeps all connected nodes continuously synchronized to sub-ns precision. 
 
 The sub-ns %accuracy 
 precision on the clock synchronization is not strictly needed for aligning samples in the different \dword{amc} digitization units, since the %data have the timing granularity of 400 ns.
 timing granularity on the data is \SI{400}{ns}. However, the \dword{wr} timing system offers readily available industrial components and the necessary protocols %needed 
 for synchronization with automatic calibration of delay propagation. % and it, therefore, has been adopted. 
 %This solution for the timing distribution was part of the R\&D started in 2006 and the final design for integrating this system with the readout of \dword{pddp} was completed in 2016.
-R\&D on this timing distribution solution started in 2006; the final design for integrating this system, foreseen for the \dword{dpmod}, into the \dword{pddp} and the \dword{wa105} readout was completed in 2016. 
+R\&D on this timing distribution solution started in 2006; the final design for integrating this system, %foreseen for the \dword{dpmod}, the \dword{pddp} and the \dword{wa105} 
+planned for the \dword{wa105}, \dword{pddp}, and the \dword{dpmod} readout, was completed in 2016. 
 %\fixme{Is this relevant? what about timing of decision on using it for dp det module?} YES, THIS DEMONSTRATE THE STATE OF THE DESIGN READINESS
 
 In the implementation specific to \dword{pddp}, a GPS-disciplined 
 %fixme{`disciplined' seems a funny word here, but maybe that's what you call it?} YES THIS IS THE TERM USED FOR GPS TIMING SYSTEM (e.g., GPSDO)
-clock unit (Meinberg LANTIME M600) feeds \SI{10}{MHz} and \num{1}\,PPS reference signals to a commercial \dword{wr} switch (Seven Solutions WRS V3.4). The switch acts as Grand Master of the \dword{wr} network. It is connected via \SI{1}{Gbit/s} optical links to the dedicated \dword{wr} timestamping node (\dword{wr}-TSN) and the \dword{wr} end-node slave cards present within each \dword{utca} crate (\dword{wrmch}) keeping these synchronized to its reference time. The \dword{wrgm} also communicates through a standard Ethernet port with the LANTIME unit for its date and time synchronization via NTP. The \dword{wr}-TSN module recieves analog TTL-level trigger signals, generates their timestamps, and transmits them over the \dword{wr} network to the connected \dword{wrmch} units. This timestamp information is then used by \dwords{amc} to find the data frame corresponding to the trigger. 
+clock unit (Meinberg LANTIME M600\footnote{Meinberg\texttrademark{}, \url{https://www.meinbergglobal.com/english/products/advanced-1u-ntp-server.htm}.}) feeds \SI{10}{MHz} and \num{1}\,PPS reference signals to a commercial \dword{wr} switch (Seven Solutions WRS v3.4\footnote{Seven Solutions\texttrademark{}, \url{http://sevensols.com/index.php/products/white-rabbit-switch/}.}). The switch acts as grandmaster of the \dword{wr} network. It is connected via \SI{1}{Gbit/s} optical links to the dedicated \dword{wr} timestamping node (\dword{wr}-TSN) and the \dword{wr} end-node slave cards present within each \dword{utca} crate (\dword{wrmch}) keeping these synchronized to its reference time. The \dword{wrgm} also communicates through a standard Ethernet port with the LANTIME unit for its date and time synchronization via NTP. The \dword{wr}-TSN module recieves analog TTL-level trigger signals, generates their timestamps, and transmits them over the \dword{wr} network to the connected \dword{wrmch} units. This timestamp information is then used by \dwords{amc} to find the data frame corresponding to the trigger. 
 
 \begin{dunefigure}[Picture of \dword{wr} slave node card]{fig:dpele-wrmch-image}
 {Picture of the \dword{wr} slave node card (\dword{wrmch}) present in each \dword{utca} crate for time synchronization.The \dword{wr}-LEN mezzanine card is visible in the bottom right corner.}
 \includegraphics[width=0.45\textwidth]{dpele-wrmch-image}
 \end{dunefigure}
 
-The \dword{wrmch} card (Figure~\ref{fig:dpele-wrmch-image}) enables clock/timing/trigger distribution to \dwords{amc}. It communicates with them via dedicated lines in the backplane of the \dword{utca} crate using a customized data-frame protocol. The module contains a commercial WR slave node card, the \dword{wr} Lite Embedded Node (Seven Solutions OEM WR-LEN), as mezzanine card. WR-LEN runs on a customized firmware which also enables it to decode the trigger timestamp data packet received over the WR network.
+The \dword{wrmch} card (Figure~\ref{fig:dpele-wrmch-image}) enables clock/timing/trigger distribution to \dwords{amc}. It communicates with them via dedicated lines in the backplane of the \dword{utca} crate using a customized data-frame protocol. The module contains a commercial WR slave node card, the \dword{wr} Lite Embedded Node (Seven Solutions OEM WR-LEN\footnote{Seven Solutions\texttrademark{}, \url{http://sevensols.com/index.php/products/oem-wr-len/}.}), as mezzanine card. WR-LEN runs on a customized firmware which also enables it to decode the trigger timestamp data packet received over the WR network.
 
 \begin{dunefigure}[Architecture of \dword{wr} network]{fig:dpele-wrnet-layout}
 {Architecture of WR network for time synchronization of digital readout electronics.}
@@ -568,7 +571,7 @@ The architecture of the \dword{wr} network layout for one \dword{dpmod} is illus
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cryogenic Analog FE Electronics}
 \label{sec:fddp-tpc-elec-prod-fe}
-The production of the cryogenic ASICs and analog \dword{fe} cards is envisioned to be split between several sites located in France and Japan at the moment. The delivered cards are then split between five institutions in France (IPNL), Japan (KEK, NITKC, IU), and USA (SMU), where they are tested for various performance parameters such as noise levels, dead channels, hot channels, gain and its uniformity across channels, etc., at both room and operating cold temperature. An appropriate and common database will be developed and populated with test results. 
+The production of the cryogenic \dwords{asic} and analog \dword{fe} cards is envisioned to be split between several sites located in France and Japan at the moment. The delivered cards are then split between five institutions in France (IPNL), Japan (KEK, NITKC, IU), and USA (SMU), where they are tested for various performance parameters such as noise levels, dead channels, hot channels, gain and its uniformity across channels, etc., at both room and operating cold temperature. An appropriate and common database will be developed and populated with test results. 
 %\fixme{I don't think we want to list specific partners...} REQUESTED BY THE TC
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -624,22 +627,20 @@ The production of the \dword{amc} cards for the charge readout as well as the \d
 
 The production of the \dword{lro} \dword{amc} cards is %currently envisaged to be made 
 occurs in the same manner as the cards for \dword{pddp} since the number of cards to be produced and the channels to test are both small. The cards' electronic components, meeting required specifications, are purchased commercially. % to required specifications, for the production of the card. 
-The project will be managed by a qualified engineer manages this project, working with a specialist in \dword{qa}.
+The project will be managed by a qualified engineer, working with a specialist in \dword{qa}.
 %\fixme{working with?} DONE 
 
 The produced cards are %first 
 delivered to %the home institutes 
 designated consortium institutions. %for testing before being shipped to the DUNE far site.  
 %prior to shipment to SURF. %Basic quality tests are made upon delivery to ensure conformity of production; including visual inspection and electrical testing.
-Upon delivery, teams conduct basic quality tests, including visual inspection and electrical testing, to ensure conformity of production.
-
+Upon delivery, teams conduct basic quality tests, including visual inspection and electrical testing, to ensure conformity of production. 
 Another series of tests is performed on %each 
 the cards to ensure their correct functionality and to evaluate their performance. Measurements include: linearity measurements (DNL and INL) of each \dword{adc} channel, and %tests of the 
-linearity of response of the ASIC. The level of cross-talk on the ASIC %must also be 
+linearity of response of the \dword{asic}. The level of cross-talk on the \dword{asic} %must also be 
 is also quantified.
 
-A dedicated single-channel setup, with \dword{pmt} (Hamamatsu R5912-02-mod), and identical cabling and splitter, can be used to characterize the expected noise level of each channel, and response to single \phel{}s up to saturation. 
-
+A dedicated single-channel setup, with \dword{pmt} (Hamamatsu R5912-02-mod), and identical cabling and splitter as in the \dword{fd}, can be used to characterize the expected noise level of each channel, and response to single \phel{}s up to saturation. 
 Multiple cards are operated in a \dword{utca} crate with the %DUNE 
 \dword{daq}.
 
@@ -669,7 +670,7 @@ Table~\ref{tab:dpele-interfaces} provides the references to the relevant interfa
 
 \begin{dunetable}
 [Interface documents relevant to \dual TPC electronics system]
-{lr}{tab:dpele-interfaces}{Interface documents relevant to DP electronics system.}   
+{lr}{tab:dpele-interfaces}{Interface documents relevant to \dual electronics system.}   
 Interface document    & DUNE DocDB No. \\ \toprowrule
 \dword{dp} TPC electronics to \dword{dp} \dword{crp} & 6751 \\ \colhline
 \dword{dp} TPC electronics to \dword{dp} \dword{pd} & 6772 \\ \colhline
@@ -690,7 +691,7 @@ Software and computing to \dword{dp} TPC electronics & 7117 \\
 \label{sec:fddp-tpc-elec-intfc-crppmt}
 %\fixme{clarify CRO vs LRO anne} CLARIFIED
 
-The cold \fdth flange of the \dwords{sftchimney} forms the interface between the \dword{crp} and the \dword{cro} electronics system. On the side facing the cryostat the flange PCB has \num{20} \num{68}\,pin connectors (KEL 8930E-068-178MS-F) for plugging the flat cables from the \dword{crp}. These are \num{68}\,channel twisted-pair flat cables, each carrying signals from \num{32} anode strips and are within the scope of the \dword{crp} system. Each analog \dword{fe} card reads \num{64} anode strips, i.e., % implying receiving 
+The cold \fdth flange of the \dwords{sftchimney} forms the interface between the \dword{crp} and the \dword{cro} electronics system. On the side facing the cryostat the flange PCB has \num{20} \num{68}\,pin connectors (KEL 8930E-068-178MS-F\footnote{KEL Corporation\texttrademark{}, \url{https://www.kel.jp/english/product/product_detail/?id=490\&pageID=3\%20}.}) for plugging the flat cables from the \dword{crp}. These are \num{68}\,channel twisted-pair flat cables, each carrying signals from \num{32} anode strips and are within the scope of the \dword{crp} system. Each analog \dword{fe} card reads \num{64} anode strips, i.e., % implying receiving 
 signals from two KEL connectors. The order in which the cables are connected %into 
 to the cold flange determines the mapping of the electronic channels to the physical location of the strips on the \dword{crp} and is %should be 
 coordinated carefully with the \dword{crp} consortium. %As an illustration, 
@@ -702,8 +703,8 @@ Figure~\ref{fig:dpele-sft-cold-flange} shows two images of the cold \fdth from t
 \includegraphics[width=0.8\textwidth]{dpele-sft-cold-flange}
 \end{dunefigure}
 
-The \dword{lro} electronics system is connected to the specific \dword{lro} signal \fdth flanges on top of the cryostat via coaxial cables, which are within the scope of the \dwords{pds} system.
-The \dword{lro} electronics is designed for negative polarity \dword{pmt} signals, with the amplitude of single \phel{}s on the input of the card between \num{1} and \SI{10}{\milli\volt}. Typically assuming a \dword{pmt} gain of \num{1E6} (no accounting for attenuation of the signals), the Catiroc ASIC can measure a range of \num{1} to \num{400} \phel{}s (\SI{160}{\femto\coulomb} to \SI{70}{\pico\coulomb}), the \dword{adc} samples from \SI{1}{\milli\volt} to \SI{1}{\volt} corresponding to \num{1} to \num{1000} \phel{}s, including the time response of the scintillator the range can increase to $\sim$\num{6000}. Increasing the gain of the \dword{pmt} to \num{1E7}, lowers the upper values by a factor of 10. The internal noise level of the \dword{catiroc} is below \SI{0.1}{\milli\volt}. The objective for the noise level of the \dword{adc} is for each channel to have the \rms noise level greater than \SI{0.5}{LSB}, aiming for \SI{1}{LSB} \SI{0.1}{\milli\volt}.
+The \dword{lro} electronics system is connected to the specific \dword{lro} signal \fdth flanges on top of the cryostat via coaxial cables, which are within the scope of the \dword{pds}.
+The \dword{lro} electronics is designed for negative polarity \dword{pmt} signals, with the amplitude of single \phel{}s on the input of the card between \num{1} and \SI{10}{\milli\volt}. Assuming a typical \dword{pmt} gain of \num{1E6} (not accounting for attenuation of the signals), the Catiroc \dword{asic} can measure a range of \num{1} to \num{400} \phel{}s (\SI{160}{\femto\coulomb} to \SI{70}{\pico\coulomb}). The \dword{adc} samples from \SI{1}{\milli\volt} to \SI{1}{\volt} corresponding to \num{1} to \num{1000} \phel{}s, including the time response of the scintillator the range can increase to $\sim$\num{6000}. Increasing the gain of the \dword{pmt} to \num{1E7}, lowers the upper values by a factor of 10. The internal noise level of the \dword{catiroc} is below \SI{0.1}{\milli\volt}. The objective for the noise level of the \dword{adc} is for each channel to have the \rms noise level greater than \SI{0.5}{LSB}, aiming for \SI{1}{LSB} \SI{0.1}{\milli\volt}.
 %at 65 MHz...
 %\fixme{Why is this last bit of info under interfaces? I don't see anything about cables or connections; not needed? } ADDED A SENTENCE
 
@@ -717,22 +718,23 @@ The first interface is the \SI{10}{Gbit/s} optical fibers for data transfer betw
 
 In the current design 
 %\fixme{we shouldn't be talking about baseline vs current (below), right? ``The design...''} DONE
-a given \dword{dpmod} would have \num{245} \SI{10}{Gbit/s} optical links for streaming the digitized data to the \dword{daq} from the \dword{cro} (\num{240} links) and \dword{lro} (\num{5} links) electronics housed in \dword{utca} crates on top of the cryostat structure.  In the current specifications, the fibers are multimode OM3 fibers \cite{om3fibers} with LC-LC connectors suitable for the transmission over distances of up to \SI{300}{\metre}.  They are provided by the \dword{daq} consortium. On the side of the \dword{utca} crate, the fibers are connected to an optical transceiver in the \dword{mch} (two SFP+ (XAUI) links) \cite{natmch}.  On the \dword{daq}, they go to the Level 1 (LV1) machines of the trigger farm, or switches, depending on the network topology adopted in the \dword{daq} system design.
+a given \dword{dpmod} would have \num{245} \SI{10}{Gbit/s} optical links for streaming the digitized data to the \dword{daq} from the \dword{cro} (\num{240} links) and \dword{lro} (\num{5} links) electronics housed in \dword{utca} crates on top of the cryostat structure.  In the current specifications, the fibers are multimode OM3 fibers \cite{om3fibers} with LC-LC connectors suitable for the transmission over distances of up to \SI{300}{\metre}.  They are provided by the \dword{daq} consortium. On the side of the \dword{utca} crate, the fibers are connected to an optical transceiver in the \dword{mch} (two SFP+XAUI links) \cite{natmch}.  On the \dword{daq}, they go to the level-1 machines of the trigger farm, or switches, depending on the network topology adopted in the \dword{daq} system design.
 
-The \SI{1}{Gbit/s} link going from the \dword{wrgm} to the \dual electronics time distribution network serves to provide the synchronization to the reference clock common for the entire FD and derived from a GPSDO (GPS-Disciplined Oscillator) clock unit installed on the surface. The clock information is distributed to the \dword{wrmch} slave module in each \dword{utca} crate via a set of \dword{wr} switches. These switches and the interconnecting \SI{1}{Gbit/s} fibers form the timing sub-system of the DP electronics system and are included in the design of the latter. The \dword{wr} synchronization protocol includes the automatic and continuous calibration of the propagation delays between the master and the connected slaves. This allows maintaining the overall synchronization between different nodes at sub-ns level. The \dword{wrgm} %could be possibly located 
+The \SI{1}{Gbit/s} link going from the \dword{wrgm} to the \dual electronics time distribution network serves to provide the synchronization to the reference clock common for the entire FD and derived from a GPSDO %(GPS-Disciplined Oscillator) 
+clock unit installed on the surface. The clock information is distributed to the \dword{wrmch} slave module in each \dword{utca} crate via a set of \dword{wr} switches. These switches and the interconnecting \SI{1}{Gbit/s} fibers form the timing sub-system of the \dual electronics system and are included in the design of the latter. The \dword{wr} synchronization protocol includes the automatic and continuous calibration of the propagation delays between the master and the connected slaves. This allows maintaining the overall synchronization between different nodes at sub-ns level. The \dword{wrgm} %could be possibly located 
 will be located either:
 \begin{itemize}
-\item{On the surface (above-ground) near the GPSDO. In this case, a single fiber connects it to the \dual timing system underground. %The incurred latency due to the  necessary fiber length to deliver the timing signals underground is automatically taken into account by the system. 
+\item{On the surface near the GPSDO. In this case, a single fiber connects it to the \dual timing system underground. %The incurred latency due to the  necessary fiber length to deliver the timing signals underground is automatically taken into account by the system. 
 The system automatically accounts for the incurred latency due to the extensive 
  fiber length.}
-\item{Underground in the \dword{cuc}. In this case, calibration of the propagation delays between GPSDO and the \dword{wrgm} is performed manually and a timing correction %would need be 
+\item{Underground in the \dword{cuc}. In this case, calibration of the propagation delays between GPSDO and the \dword{wrgm} is performed manually, and a timing correction %would need be 
 is applied to the data afterward.}
 \end{itemize} 
 
 The TPC electronics design assumes that the data are streamed continuously via the \SI{10}{Gbit/s} links to the \dword{daq}, where they are buffered until a trigger decision %could be 
 is made. The triggers are to be issued by processing the buffered data in some suitable sliding time window on the trigger farm machines. 
 %The depth of the window may go up to \SI{10}{s} as needed for the definition of the Supernova triggered events. 
-The window may be as long as \SI{10}{s} for Supernova-triggered events.
+The window may be as long as \SI{10}{s} for \dword{snb}-triggered events.
 The triggers determine whether the data contained in the buffers are to be written on disk. 
 
 The software interface between the \dword{daq} and the electronics system
@@ -752,7 +754,7 @@ accommodates the chimney (of external diameter \SI{254}{\mm}). Each chimney has 
 \includegraphics[width=0.7\textwidth]{dpele-sft-chimney-crosspipe}
 \end{dunefigure}
 
-Each chimney contains a heat exchanger copper coil cooled with \lar. There are two (inlet and outlet) stainless steel pipe connections with \SI{10}{\mm} (\SI{12}{\mm}) inner (outer) diameter that need to be branched to the respective system for the \lar delivery and recirculation. In addition, %there is 
+Each chimney contains a heat exchanger copper coil cooled with \lar. There are two (inlet and outlet) stainless steel pipe connections with \SI{10}{\mm} and \SI{12}{\mm} inner and outer diameters, respectively, that need to be branched to the respective system for the \lar delivery and recirculation. In addition, %there is 
 a connection for nitrogen gas line with the same pipe dimensions as those for the \lar cooling, %which 
 is used for filling the chimney after it is closed following the installation of the \dword{fe} electronics. The nitrogen line is also required for flushing the chimney in the case of an access to the \dword{fe} cards after the \dword{dpmod} is cooled for the operation. 
 %\fixme{does last sentence belong here?} IT PROVIDES CONTEXT FOR THIS PARTICAL PART OF THE SFT SYSTEM
@@ -764,7 +766,7 @@ are installed within a short \SI{<0.5}{\meter} distance from the \dwords{sftchim
 \subsection{Electronics System to Slow Control System}
 \label{sec:fddp-tpc-elec-intfc-sc}
 
-The integration with the slow control of the low-voltage power supply system for the \dword{fe} cards and \dword{utca} crates is required to enable the remote management and monitoring (current consumption by ASICs, set voltage, etc.). In addition, the \dwords{sftchimney} contain several sensors that need to be monitored. These include a pressure transducer that measures the pressure inside the chimney and at least two temperature probes (PT1000) that monitor the gas temperature inside near the cold flange at the bottom and close to the warm flange at the top. The readout of the \dword{utca} crate information and the sensors in the \dwords{sftchimney} is part of the Slow Control system.
+The integration with the slow control of the low-voltage power supply system for the \dword{fe} cards and \dword{utca} crates is required to enable the remote management and monitoring (current consumption by \dwords{asic}, set voltage, etc.). In addition, the \dwords{sftchimney} contain several sensors that need to be monitored. These include a pressure transducer that measures the pressure inside the chimney and at least two temperature probes (PT1000) that monitor the gas temperature inside near the cold flange at the bottom and close to the warm flange at the top. The readout of the \dword{utca} crate information and the sensors in the \dwords{sftchimney} is part of the Slow Control system.
 %\fixme{specify who is responsible for what}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -781,7 +783,7 @@ is then responsible for unpacking the crates and installing the \dwords{sftchimn
 %\fixme{ I took out mention of ``one or several participating institutions'' Why not put that in section~\ref{sec:fddp-tpc-elec-design-sft}?}
 
 The boxes containing the electronic cards and \dword{utca} crates are also handled by \dual electronics consortium personnel. These are expected to be lightweight and %could be easily carried. 
-easy to carry. A box containing \num{100} \dword{amc} cards has a maximal dimesions of \SI{60}{\cm} and weights less than \SI{10}{\kg}. 
+easy to carry. A box containing \num{100} \dword{amc} cards has a maximal dimesions of \SI{60}{\cm} and weighs less than \SI{10}{\kg}. 
 % \fixme{transport info on the cards?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -818,7 +820,7 @@ In parallel with the \dword{sftchimney} installation, the \dword{fe} cards are u
 With \dwords{sftchimney} secured in the cryostat structure, the blades with mounted \dword{fe} cards %can be inserted and the chimney can be sealed. 
 are inserted prior to sealing the chimney.
 %At this stage, the connections with the pipes for the \lar and gas nitrogen delivery could also be made, if these latter have already been installed. The pressure probes and temperature sensors can be connected to the slow control system.
-At this stage, the \lar and gas nitrogen delivery pipes are already installed and  
+At this stage, the \lar and gas nitrogen delivery pipes are already installed, and  
 %\fixme{will the sequence be known?} THIS IS TO BE PROVIDED BY THE CRYOSTAT INFRASTRACTURE 
 it is possible to make the connections with them. The pressure probes and temperature sensors are also connected to the slow control system.
  
@@ -862,7 +864,7 @@ is connected to specified inputs on the cards.
 %\label{sec:fddp-tpc-elec-install-calib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Comissioning}
+\subsection{Commissioning}
 \label{sec:fddp-tpc-elec-comission}
 
 The \dwords{sftchimney} are commissioned as a first step. This consists of evacuating and then filling them with nitrogen gas at slight overpressure with respect to %the atmospheric. % pressure. 
@@ -871,7 +873,7 @@ It is necessary to check the leak rate when the chimney is under vacuum and to m
 
 The electronics system %can be 
 is commissioned after completing the installation of the \dword{utca} crates with the \dwords{amc}, and the timing system. %are completed. 
-(The functionality of the full \dword{daq} system is not strictly required at this stage.) The data from each crate %could be 
+The functionality of the full \dword{daq} system is not strictly required at this stage. The data from each crate %could be 
 is read with a portable computer connected to the crate \dword{mch} \SI{10}{Gbit/s} or \SI{1}{Gbit/s} interface. %By pulsing the \dword{crp} strips, the non-functioning channels could be identified. The data quality would also be examined to ensure the correct functioning of the digital electronics and the temporal alignment of the data segments.  
 The non-functioning channels are identified by pulsing the \dword{crp} strips and the data quality is examined to ensure the correct functioning of the digital electronics and the temporal alignment of the data segments.   
 
@@ -919,9 +921,9 @@ for proper crate functioning. It is important to avoid liberation of large quant
 \end{itemize}
 %\fixme{Data flow bullet: currently? Will it remain 5 and is 5 enough?} THIS IS DETERMINED BY THE LINK
 %\begin{dunetable}
-%[Risks associated with DP electronics system]
+%[Risks associated with \dual electronics system]
 %{lr}
-%{tab:dpele-risks}{Risks associated with DP electronics system}
+%{tab:dpele-risks}{Risks associated with \dual electronics system}
 %Risk factor  &  Solution \\ \toprowrule
 %Obsoleteness of electronic components over the period of experiment & \\ \colhline
 %Modification to \dword{fe} electronics due to evolution in design of \dwords{pd} & \\ \colhline
@@ -993,10 +995,10 @@ The description of the \dword{wbs} including the assignments of the responsible 
 The key milestones are listed in Table~\ref{tab:dpele-milestones}. 
 Table~\ref{tab:dpele-schedule} shows an extract from the international project schedule pertaining to the technical activities of this consortium. The detailed cost model has been developed based on the scaling of the costs for the electronics system of \dword{pddp}. It is provided in an addendum. 
 
-\begin{dunetable}[DP TPC electronics consortium key milestones]
+\begin{dunetable}[\dual TPC electronics consortium key milestones]
 {ll}
 {tab:dpele-milestones}
-{DP TPC electronics consortium key milestones.}
+{\dual TPC electronics consortium key milestones.}
 Date & Milestone \\ \toprowrule
 September 2018 & Number of \dword{lro} channels finalized \\ \colhline
 November 2018 & Final routing for \dword{lro} \dwords{amc} for production \\ \colhline
@@ -1018,10 +1020,10 @@ January  2025 & Commissioning of the \dual TPC electronics system \\ \colhline
 August   2025 & Closure of the cryostat \dword{tco} \\
 \end{dunetable}
 
-\begin{dunetable}[DP TPC electronics consortium schedule]
+\begin{dunetable}[\dual TPC electronics consortium schedule]
 {p{0.6\linewidth}lll}
 {tab:dpele-schedule}
-{DP TPC electronics consortium schedule.}
+{\dual TPC electronics consortium schedule.}
  Techincal activity  &  Days & Start date & End date \\ \toprowrule
 Preparation of costing for Technical Proposal & \num{20} & 02/26/18 & 03/23/18 \\ \colhline
 Initial Development of Installation Schedule & \num{20} & 02/26/18 & 03/23/18 \\ \colhline
