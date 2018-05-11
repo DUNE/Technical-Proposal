@@ -4,7 +4,7 @@ requires \SI{12}{V} and draws approximately \SI{20}{A}, for a total power of app
 described in Section~\ref{sec:fdsp-tpc-elec-design-warm}. The \dword{spmod} implementation should require much 
 less power as the \dword{fpga} will be replaced by the \dword{coldata} chips.
 
-As the \dword{lv} power is delivered at \SI{48}{V} to the \dword{ptc}, each \dword{lv} power mainframe is chosen to have 
+As the \dword{lv} power is delivered at \SI{48}{V} to the \dword{ptc}, each \dword{lv} power mainframe is chosen to bracket that value; each has  
 roughly \numrange{30}{60}{V}, \SI{13.5}{A}, \SI{650}{W} maximum capacity per \dword{apa}. Using 10AWG cable, a \SI{0.8}{V} drop is 
 expected along the cable with a required power of \SI{306}{W} out of \SI{650}{W} available.  
 This leaves a significant margin that allows for larger distances between the power supplies and 
