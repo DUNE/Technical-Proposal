@@ -12,11 +12,11 @@
 
 A \dword{lartpc} requires an equipotential cathode plane at \dword{hv} and a precisely regulated interior \efield to drive 
 electrons from particle interactions to sensor planes.  In the case of the DUNE \dlong{dp} technology, 
-this requires a horizontal cathode plane, held at negative \dword{hv}; a horizontal charge readout plane (\dword{crp}) in the gas phase as described in  Chapter~\ref{sec:fddp-crp-intro}; and formed sets of conductors at graded voltages surrounding the
+this requires a horizontal cathode plane, held at negative \dword{hv}; a horizontal \dword{crp} in the gas phase as described in  Chapter~\ref{sec:fddp-crp-intro}; and formed sets of conductors at graded voltages surrounding the
  the central drift volume, collectively called the \dlong{fc} as shown in Figure~\ref{fig:dune_dp_fd}. The \dword{fc} consists of continuous field shaping rings that provide voltage degradation in the vertical direction and forms one continuous active volume.
 
 
-\begin{dunefigure}[\Dword{dpmod} overview]{fig:dune_dp_fd}
+\begin{dunefigure}[\dword{dpmod} overview]{fig:dune_dp_fd}
 {A cutaway showing an overview of a \dword{dpmod}, with the cathode plane and the \dword{pds} on the floor, the \tpcheight tall \dword{fc} modules surrounding the active volume, and the anode plane, the only part of the \dword{crp} visible from this angle.}
 \includegraphics[width=0.8\textwidth]{Overview_Cutaway.png}
 \end{dunefigure}
@@ -26,8 +26,7 @@ constitute a large fraction of the %total
 internal structures of the \dword{tpc}. % itself. 
 Mechanical and structural concerns are taken into account, together with the electrical design to meet the requirements. 
 
-The design presented in this chapter is primarily based on the \dword{pddp} and the  \dword{wa105} experience. This document could not have been possible without the tremendous amounts of work and leadership ETHZ team has devoted throughout the entire efforts of \dual \lartpc development.
-\fixme{not sure we want this kind of acknowledgment here - anne}
+The design presented in this chapter is primarily based on the \dword{pddp} and the  \dword{wa105} experience. %This document could not have been possible without the tremendous amounts of work and leadership ETHZ team has devoted throughout the entire efforts of \dual \lartpc development.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Design Considerations}
@@ -49,8 +48,8 @@ No. & Requirement & Physics requirement driver & Requirement & Goal \\ \toprowru
 3 & Minimize power supply ripple & Keep readout electronics free from external noise %, which confuses event reconstruction.  
 \\ \colhline
 4 &  Maximize power supply stability & Maintain the ability to reconstruct data taken over long period.  Maintain high operational uptime to maximize experimental statistics. \\ \colhline
-5 & Provide adequate decay time constant for discharge of the cathode plane and \dword{fc} as well as cathode plane resistive segmentation & Avoid damage to detector to enable data collection over long periods. Maintain high operational uptime to maximize experimental statistics. & \si{\giga\ohm} resistors per each connection of the $3\times3$m$_2$ cathode units  \\ \colhline
-6 & Provide redundancy in all \dword{hv} connections & Avoid single-point failures in detector that interrupt data taking. & > 2 voltage divider chains to distribute \dword{hv} to the \dword{fc} profiles & one voltage divider chain every four \dword{fc} modules\\ 
+5 & Provide adequate decay time constant for discharge of the cathode plane and \dword{fc} as well as cathode plane resistive segmentation & Avoid damage to detector to enable data collection over long periods. Maintain high operational uptime to maximize experimental statistics. & \si{\giga\ohm} resistors per each connection of the $3\times3$\,m$^2$ cathode units  \\ \colhline
+6 & Provide redundancy in all \dword{hv} connections & Avoid single-point failures in detector that interrupt data taking. & >2 voltage divider chains to distribute \dword{hv} to the \dword{fc} profiles & one voltage divider chain every four \dword{fc} modules\\ 
 \end{dunetable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,22 +58,22 @@ No. & Requirement & Physics requirement driver & Requirement & Goal \\ \toprowru
 The scope of the \dword{hv} system 
 includes the continued procurement of materials for, and the fabrication, testing, delivery and installation of systems to generate, distribute, and regulate voltages so as to create a precision \efield within the \detmodule volume. 
 
-The \dword{hv} system consists of components both exterior and interior to the cryostat. The \dword{hv} power supply is located external to the cryostat.  In the \dword{dpmod}, the \dword{hv} power supply is expected to be located on top of the \dword{hv} \fdth. \Dword{hv} is further distributed by interior components that form part of the TPC structure, as depicted in Figure~\ref{fig:dune-dp-hvs}.a.  These components are:
+The \dword{hv} system consists of components both exterior and interior to the cryostat. The \dword{hv} power supply is located external to the cryostat.  In the \dword{dpmod}, the \dword{hv} power supply is expected to be located on top of the \dword{hv} \fdth. The \dword{hv} is further distributed by interior components that form part of the TPC structure, as depicted in Figure~\ref{fig:dune-dp-hvs}.a.  These components are:
 
 \begin{itemize}
 \item power supply,
 \item \dword{hv} \fdth
 \item \dword{hv} extender and voltage degrader,
 \item cathode plane and \dword{gp}, 
-\item \dword{fc}age{},
+\item \dlong{fc},
 \item \dword{hv} return \fdth and resistor box.
 \end{itemize}
 
 
 \begin{dunefigure}[HV system for a \dpmod ]
 {fig:dune-dp-hvs}
-{(a) Schematic overview of the \dword{hv} system for a \dpmod{}, 
-(b) photo of the \SI{300}{\kV} Heinzinger power supply\footnote{Heinzinger\texttrademark{} PNChp 300000 power supply.}, (c) the VHV \fdth{}, and (d) the \dword{hv} return connection. (All photos from the \dword{wa105}.).}
+{(a) Schematic overview of the VHV system for a \dpmod{}, 
+(b) photo of the \SI{300}{\kV} Heinzinger power supply\footnote{Heinzinger\texttrademark{} PNChp 300000 power supply.}, (c) the VHV \fdth{}, and (d) the VHV return connection. (All photos from the \dword{wa105}.).}
 \includegraphics[width=1.0\textwidth,height=1.2\textwidth]{dp-hvs-n-photos.png}
 \end{dunefigure}
 
@@ -83,7 +82,7 @@ The \dword{hv} system consists of components both exterior and interior to the c
 
 A \dpmod  has a single modular cathode plane that forms the bottom of the single
   \dptpcwdth (W) $\times$ \tpcheight (H) $\times$ \dptpclen (L) drift volume. It is constructed of eighty \SI{3}{\m} $\times$ \SI{3}{\m} contiguous units. 
-The cathode units consist of stainless steel tube frames that hold a stainless steel grid. It is kept at a potential of \dptargetdriftvoltneg.  A similar but highly transparent ground plane is placed just above \dword{pds}, below the cathode to shield it from the \dword{hv}.
+The cathode units consist of stainless steel tube frames that hold a stainless steel grid. It is kept at a potential of \dptargetdriftvoltneg.  A similar but highly transparent \dword{gp} is placed just above the  \dword{pds}, which is located near the bottom of the cryostat and below the cathode to shield it from the \dword{hv}.
 The cathode bias is provided by an external \dword{hv} power supply through a \dword{hv} \fdth and a voltage extender unit that reaches the cathode.
  
 The \dword{fc} surrounds the drift volume in a set of equidistant, stacked, horizontal, rectangular-shaped aluminum rings. Its function is to ensure a uniformity drift field of \SI{500}{\V\per\cm}. This is accomplished by gradually decreasing the voltage over the \tpcheight height from the cathode voltage of \dptargetdriftvoltneg to \SI{-10}{\kV} at the top-most field shaping ring, to allow for electron extraction into the gas volume of the \dword{crp}. The \dword{fc} consists of aluminum field-shaping rings, made up of mechanically and electrically connected \SI{3}{m} long aluminum profiles.  
@@ -99,14 +98,14 @@ The \dword{hv} delivery system consists of
 \begin{itemize}
 \item one power supply,
 \item \dword{hv} cryogenic \fdth{}s,
-\item an \dword{hv} cryogenic extender.
+\item \dword{hv} cryogenic extender.
 \end{itemize}
 
 To ensure the nominal \efield of \SI{500}{V/cm} over  the \dpmaxdrift drift distance, an external power supply must deliver \dptargetdriftvoltneg to  the cathode through one \dword{hv} cryogenic \fdth, with a maximum current draw of \SI{0.5}{\milli\ampere}.
 At present such a power supply does not exist, but  Heinzinger, the industrial partner and leader in the production of \dword{hv} power supplies, is executing a vigorous R\&D program towards this goal, relying on the following facts:
 
 \begin{itemize}
-\item \dptargetdriftvoltpos power supplies are feasible, scaling the present industrial technology;
+\item \dptargetdriftvoltpos power supplies are feasible, scaling from present industrial technology;
 \item The same is possibly true for the \dword{hv} cryogenic \fdth, scaling to large diameter and longer size with respect to the present \SI{300}{\kV} prototypes;
 \item The critical points of the \dword{hv} distribution are then the cable and its connectors on the power supply and on the \dword{hv}{}-\fdth. 
 \end{itemize}
@@ -129,8 +128,7 @@ Typical Heinzinger power supplies have ripples in the range of $\sim$\SI{30}{k\h
 The \dword{hv} \fdth is based on the same successful ICARUS design that was adopted in both \dword{pdsp} and \dword{pddp}.  In this design, the voltage is transmitted along a stainless steel center conductor on the warm exterior of the cryostat, where this conductor mates with a cable end.  Inside the cryostat, the end of the center conductor has a spring-loaded tip that  contacts a receptacle cup mounted on the cathode, from which point \dword{hv} is delivered to the \dword{fc}.  The center conductor of the \fdth is surrounded by Ultra-High Molecular Weight Polyethylene (UHMW PE).  
 
 
-To first order, the upper bound of operating voltage on a \fdth is set by the maximum \efield on the \fdth.  Increasing the insulator radius reduces the \efield.  For the target voltage, the \fdth uses a UHMW PE cylinder of at least \SI{15.2}{\cm} (\SI{6}\,in) diameter.  In the gas space and into at least \SI{15.2}{\cm} of the liquid, a tight-fitting stainless steel ground tube surrounds the insulator.  The ground tube has a Conflat~\footnote{Conflat\texttrademark{}, \url{}.} 
-\fixme{I can't find url for Conflat - anne}
+To first order, the upper bound of operating voltage on a \fdth is set by the maximum \efield on the \fdth.  Increasing the insulator radius reduces the \efield.  For the target voltage, the \fdth uses a UHMW PE cylinder of at least \SI{15.2}{\cm} (\SI{6}\,in) diameter.  In the gas space and into at least \SI{15.2}{\cm} of the liquid, a tight-fitting stainless steel ground tube surrounds the insulator.  The ground tube has a CF-type 
 flange of at least \SI{25.4}{\cm} (\SI{10}\,in) welded on for attachment to the cryostat.  A prototype\footnote{The prototype was manufactured by the company CINEL\texttrademark{} Strumenti Scientifici Srl.}  has been successfully tested up to \SI{-300}{\kV} in pure argon in a dedicated setup; two similar prototypes are currently being installed in \dword{pdsp} and \dword{pddp}.
 
 
@@ -155,11 +153,9 @@ drift volume and provides a constant potential surface at \dptargetdriftvoltneg{
 The cathode plane consists of eighty \SI{3}{\m} $\times$ \SI{3}{\m} modules. 
 The cathode module design is based on the design used in  \dword{pddp}, for which the cathode consists of a stainless steel (316L) mechanical structure 
 made from two types of tubes: 
-\fixme{it seems like 3: the \SI{60}{\milli\m} diameter tubes, the internal oval pipes of $\SI{20}{\milli\m}\times \SI{40}{\milli\m}$ and the smaller tubes of \SI{12}{\milli\m} diameter. Pls clarify. -anne}
-an external frame made from \SI{60}{\milli\m} diameter tubes, internal oval pipes of $\SI{20}{\milli\m}\times \SI{40}{\milli\m}$ with \SI{1.5}{mm} thickness, as shown in Figure~\ref{fig:dune-dp-cathode}. 
-This frame is filled with smaller tubes of \SI{12}{\milli\m} diameter (not shown in the figure), forming a grid, to provide a uniform equippotential surface, while ensuring \SI{60}{\%} optical transparency. All diameters are optimized to guarantee a uniform potential across the cathode, to satisfy the maximum local field requirement of $\SI{30}{kV/\centi\m}$, and to minimize the local \efield{}s to ground. 
+an external frame made from \SI{60}{\milli\m} diameter tubes, and the internal portion is made from oval pipes of $\SI{20}{\milli\m}\times \SI{40}{\milli\m}$ with \SI{1.5}{mm} thickness, as shown in Figure~\ref{fig:dune-dp-cathode}. 
+This frame is filled with smaller tubes of \SI{12}{\milli\m} diameter (not shown in the figure), forming a grid, to provide a uniform equipotential surface, while ensuring \SI{60}{\%} optical transparency. All diameters are optimized to guarantee a uniform potential across the cathode, to satisfy the maximum local field requirement of $\SI{30}{kV/\centi\m}$, and to minimize the local \efield{}s to ground. 
 The cathode plane components are bolted together and fixed to the supporting  fiber-reinforced plastic (FRP) I-beams of the \dword{fc}. 
-
 
 \begin{dunefigure}[Cutaway view of \dword{pddp} cathode]{fig:dune-dp-cathode}
 {A cutaway view of \dword{pddp} cathode(Credit: ETHZ)}
@@ -180,7 +176,7 @@ to the other units is slowed to the several-hundred-millisecond range.
 
 Detailed calculations are in progress to determine the final shape and the size of the cathode and \dword{gg} frames to %meet the requirement that 
 limit the maximum \efield to \SI{30}{\kV\per\cm}  
-throughout the \lar volume (Figure~\ref{fig:dune-dp-cathode-field}), as per requirement 2 (Table~\ref{tab:hvphysicsreqs}.  Structural calculations are also needed to verify the planarity of the cathode as it hangs on the \dword{fc} supports.
+throughout the \lar volume (Figure~\ref{fig:dune-dp-cathode-field}), as per requirement 2 (Table~\ref{tab:hvphysicsreqs}).  Structural calculations are also needed to verify the planarity of the cathode as it hangs on the \dword{fc} supports.
 Value and voltage characteristics of the connecting resistors will also be defined according to results from dedicated simulations of the cathode electrical model.
 
 
@@ -206,7 +202,7 @@ as characterized by ASTM E84.
 
 
 Each of these modules is composed of three 
-styles of submodules of dimensions \SI{3}{\m} (W) $\times$ \SI{2}{\m} (H). These submodules are supported by two \SI{15.2}{cm} (\SI{6}{in}) FRP I-beams (with profile slots cut out) and two \SI{7.62}{cm} (\SI{3}{in}) \textit{cross bar} I-beams that form a rectangular frame.  
+styles of submodules of dimensions \SI{3}{\m} (W) $\times$ \SI{2}{\m} (H). These submodules are supported by two \SI{15.2}{cm} (\SI{6}{in}) FRP I-beams (with profile slots cut out) and two \SI{7.62}{cm} (\SI{3}{in}) cross bar I-beams that form a rectangular frame.  
 
 
 The \dword{fc} is modular, each module covering a vertical area of \SI{3}{\m} (W) $\times$ \tpcheight (H). 
@@ -233,13 +229,13 @@ The extruded aluminum profiles are mounted to the \SI{15.2}{\cm} (\SI{6}{in}) I-
 \subsubsection{Electrical Interconnections}
 
 An aluminum clip connects the ends of each set of two end-to-end \dword{fc} profiles, forming continuous equipotential rectangular rings  \SI{144}{\m} long. 
-\Dwords{hvdb}, consisting of two resistors and a series of four surge-protection varistors in parallel, bridge the gap between the two neighboring stacked profile rings.   The total number of rows of \dword{hvdb} will be determined based on the redundancy and the current-limit requirements;  one row of \dword{hvdb} is in principle sufficient to provide the required potential difference of \SI{3}{\kV} between neighboring rings, but more are desirable for redundancy.
+Rows of \dwords{hvdb}, consisting of two resistors and a series of four surge-protection varistors in parallel, bridge the gap between the two neighboring stacked profile rings.   The total number of rows will be determined based on the redundancy and the current-limit requirements;  one row of \dwords{hvdb} is in principle sufficient to provide the required potential difference of \SI{3}{\kV} between neighboring rings, but more are desirable for redundancy.
 
 
 The resistive chain for voltage division between the profiles provides a linear voltage gradient between the cathode and the top-most field shaping ring. It is critical as it determines the strength of the \efield between one profile and its neighbors, as well as between the profile and other surrounding parts, e.g., the grounded stainless steel membrane. The \efield needs to be kept well below \SI{30}{\kV\per\cm} at all points in the \lar bath to enable safe TPC operation.
 
-The identified profile, Dahlstrom Roll Form \#1071,
-\footnote{Dahlstrom Roll Form \#1071, Dahlstrom\texttrademark{}.}  is estimated to lead to \efield{}s of up to \SI{12}{\kV\per\cm}  
+The identified profile, Dahlstrom Roll Form \#1071
+\footnote{Dahlstrom Roll Form \#1071, Dahlstrom\texttrademark{}.}  is estimated to lead to \efield{}s of up to \SI{12}{\kV\per\cm},   
 for the planned \dword{fc} configuration and operating voltage. Figure~\ref{fig:profile-e-field} illustrates results from an \efield calculation.
 
 
@@ -249,7 +245,7 @@ for the planned \dword{fc} configuration and operating voltage. Figure~\ref{fig:
 \includegraphics[width=0.8\textwidth]{pddp-field-map.png}
 \end{dunefigure}
 
-Two distinct types of \dword{hv} divider boards are used for \dword{pddp}: \num{10} stage and \num{8} stage boards.  Each stage consists of two \SI{2}{\giga\ohm} resistors in parallel and four variable resistors of threshold voltage \SI{1.28}{kV} to protect the resistors in case of a sudden discharge.  The total expected current at \dptargetdriftvoltpos is therefore \SI{3}{\micro\ampere} per row.  Since multiple rows, which are connected in parallel, are used for redundancy, the expected current in the entire system is simply the number of rows times the current per each row.
+Two distinct types of \dword{hv} divider boards are used for \dword{pddp}: \num{10} stage and \num{8} stage boards.  Each stage consists of two \SI{2}{\giga\ohm} resistors in parallel and four varistors of threshold voltage \SI{1.28}{kV} to protect the resistors in case of a sudden discharge.  The total expected current at \dptargetdriftvoltpos is therefore \SI{3}{\micro\ampere} per row.  Since multiple rows, which are connected in parallel, are used for redundancy, the expected current in the entire system is simply the number of rows times the current per each row.
 For optimization purposes, one \dword{dpmod} \dword{hvdb} will connect \num{11} stages.  This enables  one \tpcheight tall module to be covered by fifteen \num{11} stage \dword{hvdb} and one \num{10} stage \dword{hvdb} at the bottom to make the final connection.  
 
 
@@ -279,7 +275,7 @@ Multiple devices are planned for monitoring the \dword{hv}.
 \item The Heinzinger units have typical sensitivities down to tens of nanoamperes with current readback capability.  The units are able to sample the current and voltage every few \SI{100}{\milli\s}.  
 \item Inside the cryostat, so-called pick-off points near the anode will monitor the current through the \dword{hvdb} resistor chain.  
 
-Additional pick-off points could be implemented on the \dword{gg} below the cathode to monitor possible stray currents.
+\item Additional pick-off points could be implemented on the \dword{gg} below the cathode to monitor possible stray currents.
 \end{itemize}
 \noindent 
 
@@ -302,16 +298,16 @@ Those in category 2 are returned to the vendor for replacements.
 All resistors used for board production are numbered and undergo a three-stage \dword{qa} test for final selection. Resistance is measured at voltages up to \SI{4}{kV} in \SI{500}{V} steps for each stage. The first stage is done at  room temperature, the second at LN temperature, and the third again at room temperature after warming up.  The measured values are histogrammed for the final selection, in order to look for groupings of values.   
 %The selection is made based on the grouping of the resistors whose resistance are within 1\$ of each other using the results from all three testing stages.   
 %It is more important to have the resistance values close to each other than being the given value (unless they are totally out of range from the design values) selecting the tighter grouping provide better quality assurance.
-It is more important that the resistance values be close to each other than that they be at any particular value (unless they are too far from the design values). The resistors for which the resistance values are within 1\$ of each other are selected.   \fixme{I reworded the prev pgraph}
+It is more important that the resistance values be close to each other than that they be at any particular value (unless they are too far from the design values). The resistors for which the resistance values are within 1\% of each other are selected.  
 
 %All varistors for board production are also numbered for \dword{qa} purposes and undergo a three-step \dword{qa} testing for the final selection; 1. room temperature clamping voltage measurement, 2. liquid nitrogen clamping voltage measurement and 3. clamping voltage measurement after warming up to room temperature.  Once the clamping voltages of all varistors are measured, the measured clamping voltages in all thee stages are histogrammed separately for the final selection.   The selection is made based on the clamping voltage being closer to the design values to ensure proper protection.   
 All varistors for board production are also numbered for \dword{qa} purposes and undergo a three-stage \dword{qa} testing program for the final selection. Each stage is a clamping voltage measurement, first at room temperature, then at LN temperature, and again after warming back up up to room temperature.  
 The measured values are histogrammed for the final selection; those for which the clamping voltage is closer to the design values are selected, to ensure proper protection.   
 
 %Once the electrical parts are mounted on the \dword{hvdb} by the vendor, they undergo three step quality assurance tests; 1. room temperature resistance measurement of each stage, 2. liquid nitrogen resistance measurement of each stage and 3. resistance measurement of each stage after warming up to room temperature.  These measurements for each board is histogrammed and used for \dword{hvdb} selection.  The boards with any of the resistance of any stage is more than 0.5\% out of the mean do not pass the quality assurance.  The boards are in three categories: 0. Pass, 1. Repairable and 2. Reject.  Board in category 1 will be sent back to the vendor with the selected resistors so that the parts in the failed stages can be replaced.
-Once the electrical parts are mounted on the \dword{hvdb} by the vendor, they undergo a three-stage \dword{qa} testing program. Each stage involves a resistance measurement, , first at room temperature, then at LN temperature, and again after warming back up up to room temperature.  The measured values are histogrammed for the final selection.
+Once the electrical parts are mounted on the \dword{hvdb} by the vendor, they undergo a three-stage \dword{qa} testing program. Each stage involves a resistance measurement, first at room temperature, then at LN temperature, and again after warming back up up to room temperature.  The measured values are histogrammed for the final selection.
 The boards can fall into three categories: 0. Pass, 1. Repairable and 2. Rejected.  
-If at any testing stage the resistance is more than \SI{0.5}{\%} away from the mean, the part does not fall into category 0, pass.  Boards in category 1 are sent back to the vendor with the selected resistors so that the parts in the failed stages can be replaced. \fixme{with the selected resistors? pls clarify}
+If at any testing stage the resistance is more than \SI{0.5}{\%} away from the mean, the part does not fall into category 0, pass.  Boards in category 1 are sent back to the vendor with the selected resistors so that the parts in the failed stages can be replaced. 
 
 {\bf Aluminum Profiles and Clips}
 The \dword{qa} testing of the aluminum profiles and clips is done on prototype production samples prior to full production.   The samples are visually inspected for their shape and their adherence to the design drawing, the surface smoothness, the surface-coating quality, and the smoothness of the bend (for the profiles with the \num{45}$^{\circ}$ bend).  Clip samples are visually inspected for their shape and their adherence to the drawing, their edge smoothness, their mechanical fitness, and how tightly they fit to the profiles. 
@@ -320,7 +316,7 @@ The \dword{qa} testing of the aluminum profiles and clips is done on prototype p
 {\bf Cathode, HVFT and the Extender} The \dword{qa} for other components is under development as part of the \dword{pddp} construction efforts.
 
 
-{\bf Power Supply and Feedthrough} The power supply is tested extensively along with the controls and monitoring software.  %Features to be included in the software \fixme{tests?} are:
+{\bf Power Supply and Feedthrough} The power supply is tested extensively along with the controls and monitoring software.  
 Capabilities to test include:
 \begin{itemize}
 \item Ramp and change the voltage; including rate change and pause capabilities and settings. 
@@ -351,7 +347,7 @@ In previous experiments, the trip function in software would set the output to \
 %Once all profiles are inserted, each of the profiles will be mounted onto the I-beam using two M4 button head- hex drive stainless steel screws with the length 5cm (check the number) onto the aluminum slip nut.   When all screws are hand tightened as much as possible, final torque setting will be applied using the 12V Dewalt Power Screw Driver torque set at 1.  The final alignment of the profiles will then be made using hand screwed driver only by tightening further one of the two screws.  A wheel based with a unistruct bars will then be mounted to the bottom of the submodule and stored into an area for installation.   The wheel will have the submodule number clearly attached for tracking purposes.
 
 
-All FRP parts that pass the \dword{qa}  process undergo the preparation process, which involves \dword{qc} at each step.  Each of the parts is first defibered, deburred, sanded to smooth the edges, then varnished to
+All FRP parts that pass the \dword{qa}  process undergo the preparation process, which involves \dword{qc} at each step.  Each of the parts is first defibered, deburred, sanded to smooth the edges, and then varnished to
 suppress any remaining fibers.  Once the part completes the preparation process, it is stored in a humidity- and temperature-controlled drying area for \numrange{24}{48} hours to fully cure the varnish.  Upon full curing, each module is laser-engraved with a unique part number and recorded in a \dword{qc}  database. 
 
 At this point the submodule is pre-assembled on a table prior to packaging to ensure fitness of all parts, including inserts, screws and slip nuts.   When the fitness is verified, the submodule is disassembled and packaged into a \SI{2}{\cm}$\times$\SI{20}{\cm}$\times$\SI{2}{\m} compact package with the edges wrapped with a thick plastic layer to protect the parts from mechanical damage, e.g., from a fall.  This package includes all necessary parts to assemble the given submodule 
@@ -359,16 +355,16 @@ along with \numrange{10}{20}\% spare parts.  This ensures that each package is s
 
 These packages are shipped to \surf and transported underground 
 for final assembly prior to the installation.   
-The \SI{3}{\m} long aluminum profiles are produced and shipped to \surf separately for final assembly.  The final \dword{qc} of the profiles is conducted during submodule assembly.   Profiles with deep scratches and sharp protrusions that could cause excess charge concentration will be rejected. This process must be done underground at the time of submodule assembly because of the delicate nature of the coated surface and the smoothness requirement. \fixme{I took out: of the smoothness to meet the local maximum field requirement.}
+The \SI{3}{\m} long aluminum profiles are produced and shipped to \surf separately for final assembly.  The final \dword{qc} of the profiles is conducted during submodule assembly.   Profiles with deep scratches and sharp protrusions that could cause excess charge concentration will be rejected. This process must be done underground at the time of submodule assembly because of the delicate nature of the coated surface and the smoothness requirement. 
 
-Assembly of submodules from the parts is carried out inside the cryostat.   An assembly table with a precision alignment bar for rapid profile alignment is used for this task.   The package is opened on the table and the FRP frame is assembled with four L-brackets and sixteen \SI{5.61}{\cm} (\num{2.21}\,in) threaded rods through the G10 insert and eight \SI{5.77}{\cm} (\num{2.27}\,in) threaded rods through G10 inserts held by the plastic nuts.  These nuts are hand-tightened first and then torque-set using the specific setting (12V Dewalt Power Screw Driver\footnote{12V Dewalt\texttrademark{} Power Screw Driver \url{https://www.dewalt.com/} .} torque set at 8).
+Assembly of submodules from the parts is carried out inside the cryostat.   An assembly table with a precision alignment bar for rapid profile alignment is used for this task.   The package is opened on the table and the FRP frame is assembled with four L-brackets and sixteen \SI{5.61}{\cm} (\num{2.21}\,in) threaded rods through the G10 insert and eight \SI{5.77}{\cm} (\num{2.27}\,in) threaded rods through G10 inserts held by the plastic nuts.  These nuts are first hand-tightened and then set with a torque wrench. 
 
 Once the frame is assembled, aluminum profiles are inserted through the corresponding slots on the \SI{15.2}{\cm} (\num{6}\,in) on either side.  One slip-nut 
 is inserted onto the center rib rail prior to the profile insertion.  
 Care must be taken to ensure that the profiles are not scratched during the insertion process. 
 
 Once all profiles are inserted into the frame, each of the profiles is mounted onto the I-beam using two \SI{45}{\mm} M4 button head hex drive stainless steel screws into the aluminum slip nut. 
-When all screws are hand-tightened as much as possible, the final torque is applied using the 12V Dewalt Power Screw Driver torque set at 1.  The final alignment of the profiles is then made by hand, tightening only one or two screws, as necessary.
+When all screws are hand-tightened as much as possible, the final torque is applied using a torque wrench.  The final alignment of the profiles is then made by hand, tightening only one or two screws, as necessary.
 A wheel base made of unistrut bars is then mounted to the bottom of the submodule and the entire unit is placed in a designated area to await installation.   The wheel is clearly labeled with the submodule number for tracking purposes.
 
 
@@ -394,7 +390,7 @@ Each \dword{gg} module is assembled off-site and shipped to \surf in its transpo
 \subsection{Electrical Interconnections}
 \label{sec:fddp-prod-assy-elec-connec}
 
-The \dwords{hvdb} are mounted on the profiles as the submodules are built.  For optimization purposes, one \dword{dpmod} \dword{hvdb} connects \num{11} stages.  \fixme{stages of what?} %This enables one \tpcheight tall module to be covered by fifteen \num{11}-stage \dwords{hvdb} and one \num{10}-stage \dword{hvdb} at the bottom to make the final connection.   One row of \dword{hvdb} is mounted every four \dword{fc} modules.  All connections and electrical functionality must be checked with high sensitivity electrometer.
+The \dwords{hvdb} are mounted on the profiles as the submodules are built.  For optimization purposes, one \dword{dpmod} \dword{hvdb} connects \num{11} \dword{fc} stages.   %This enables one \tpcheight tall module to be covered by fifteen \num{11}-stage \dwords{hvdb} and one \num{10}-stage \dword{hvdb} at the bottom to make the final connection.   One row of \dword{hvdb} is mounted every four \dword{fc} modules.  All connections and electrical functionality must be checked with high sensitivity electrometer.
 One \tpcheight tall module is covered by fifteen \num{11}-stage \dwords{hvdb}, and one \num{10}-stage \dword{hvdb} is at the bottom to make the final connection.   One row of \dwords{hvdb} is mounted every four \dword{fc} modules.  All connections and electrical functionality must be checked with a high-sensitivity electrometer.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  anne to here sunday evening
@@ -410,7 +406,7 @@ Each \dword{fc} module is suspended and raised by two ropes hung from the cryost
 Once an \dword{fc} module of the full height is completed for \dword{dpmod}, it will be hung 
 from the cables attached to the final suspension hook and the  
  the suspension \fdth is then fully sealed. 
-A possible improvement on the \dword{pddp} interface is to use remote-controlled electrical wrenches (as opposed to manual) to ensure synchronized lifting of the modules.
+A possible improvement on the \dword{pddp} interface is to use remote-controlled electrical winches (as opposed to manual) to ensure synchronized lifting of the modules.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Charge Readout Plane}
@@ -426,49 +422,22 @@ No direct hardware interface exists between the \dword{hv} and \dword{crp} syste
 No direct hardware interface exists between the \dword{hv} and \dword{pd} systems. The cryostat penetrations and \fdth{}s for the two systems are completely independent, as are their control electronics. The only interfaces envisaged include (1) maintenance of a safe minimum distance between the \dwords{pd} and the \dptargetdriftvoltneg cathode; and (2)
  definition of the \dword{pd} power dissipation limit (production of bubbles would compromise the \dword{hv} stability). The power dissipation depends on the final \dword{pd} density chosen, which is awaiting simulation results. Aspects of the cathode design are also awaiting simulation results to determine its impact on the \dword{pds}. 
 These interfaces are effectively at the level of design requirements. 
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Interfaces to APA}
-%\label{sec:fddp-hv-intfc-cpa-fc}
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Interface to DSS}
-%\label{sec:fddp-hv-intfc-dss}
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Interface to PDS}
-%\label{sec:fddp-hv-intfc-pds}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Interface to CE}
-%\label{sec:fddp-hv-intfc-ce}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Interface to Calibration}
-%\label{sec:fddp-hv-intfc-cal}
-%
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Installation, Integration and Commissioning}
-\label{sec:fddp-hv-install}
-\fixme{this is kind of mixed up with the next section -anne}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Transport, Handling and Integration}
 \label{sec:fddp-hv-install-transport}
 
 
 The \dword{fc} FRP beams and G10 parts are shipped in a standard wooden crate.  Parts for each submodule are packed into one %IKEA-style package 
-flatpack of dimensions $0.2m\times 0.2m\times 2m$ sealed in multiple layers of shrink wrap and a thick soft cushion of plastic for edge protection.   Due to the compact size of each submodule package and since a total of 530 or so submodules are expected, including 10\% spare, the total number of crates for FRP parts to be transported down will be small.
+flatpack of dimensions \SI{0.2}{m}$\times$\SI{0.2}{m}$\times$\SI{2}{m} sealed in multiple layers of shrink wrap and a thick soft cushion of plastic for edge protection.   Due to the compact size of each submodule package and since a total of 530 or so submodules are expected, including 10\% spare, the total number of crates for FRP parts to be transported down will be small.
 % Anne started a rewrite A total of \num{530} plus \SI{10}{\%} spare submodules are expected. 
 \fixme{not clear how many submodule packages per crate, and need distinction betw FRP parts and submodules. I'm confused} 
 
-The extruded aluminum profiles for \dword{fc} are shipped separately in  standard wooden crates.  Total of \num{197} profiles are needed for each \tpcheight module. Therefore, the total number of profiles to be transported down underground would be of the order \num{18000}, including \SI{10}{\%} spares.  The same number of aluminum clips are also shipped in standard wooden crates and are transported underground separately. 
+The extruded aluminum profiles for \dword{fc} are shipped separately in  standard wooden crates.  A total of \num{197} profiles are needed for each \tpcheight module. Therefore, the total number of profiles to be transported down underground would be of the order \num{18000}, including \SI{10}{\%} spares.  The same number of aluminum clips are also shipped in standard wooden crates and are transported underground separately. 
 
 
-The cathode modules of dimension $3m\times3m$ are assembled off-site and shipped to \surf in their transport containers. Given the paucity of storage space at the 4850L, the cathode plane is assembled as each unit cathode plane arrives at the cavern -- in its assigned order -- and is unwrapped. The cathode plane is assembled inside the cryostat by connecting the cathode units mechanically and electrically. 
+The cathode modules of dimension  \SI{3}{m}$\times$\SI{3}{m} are assembled off-site and shipped to \surf in their transport containers. Given the paucity of storage space at the 4850L, the cathode plane is assembled as each unit cathode plane arrives at the cavern -- in its assigned order -- and is unwrapped. The cathode plane is assembled inside the cryostat by connecting the cathode units mechanically and electrically. 
 
 
 The power supply, \fdth{}s and \dword{hv} extender are sent to \surf in standard shipping crates. Unwrapping requires clean areas and careful handling. Surfaces can be cleaned with alcohol and allowed to dry.
@@ -486,16 +455,16 @@ The bags of hardware are removed and set side.   The two \SI{15.2}{\cm} (\SI{6}\
 
 %The aluminum profiles are visually and through touching inspected for severe scratches and any excess sharp points.  The profiles that pass will be inserted into the profile slots on the FRP submodule frame, with one fixing slip nut inserted into the rail on the reenforcement rip and follow the assembly and alignment process described above.  The alignment of the profiles will be checked using straight-edge along one end of the profile and using a long level.  The submodule passing this quality criteria will be put on the wheel base and stored for installation.
 
-The aluminum profiles are visually inspected and felt by hand for severe scratches and any excess sharp points.  The profiles that pass are inserted into the profile slots on the FRP submodule frame, with one fixing slip nut inserted into the rail on the reinforcement rip, 
-\fixme{what is this?} and follow the assembly and alignment process described in Section~\ref{sec:fddp-hv-prod-assy-fc-frames}.  The alignment of the profiles is checked using a straight-edge along one end of the profile.  The submodules that pass are put on the wheel base and stored for installation.
+The aluminum profiles are visually inspected and felt by hand for severe scratches and any excess sharp points.  The profiles that pass are inserted into the profile slots on the FRP submodule frame, with one alignment-fixing slip nut inserted into the rail on the reinforcement rib, 
+ and follow the assembly and alignment process described in Section~\ref{sec:fddp-hv-prod-assy-fc-frames}.  The alignment of the profiles is checked using a straight-edge along one end of the profile.  The submodules that pass are put on the wheel base and stored for installation.
 
 The \dword{hv} divider boards are tested on-site for resistance of each stage at room temperature to ensure the integrity of the board and each electrical connection of the resistors before installation onto the submodule. 
 
 
 At \surf, cathode and \dword{gp} modules are checked for the required planarity and mechanical integrity. Also during the installation phase  the electrical continuity between the modules is checked.
 
-The \fdth and the \dword{hv} extender are tested simultaneously at the \dword{itf} 
-\fixme{I replaced: testing facility  site (possibly at CERN) }
+The \fdth and the \dword{hv} extender are tested simultaneously at the 
+testing facility  site (possibly at CERN or the \dword{itf}), 
 preferably with the planned %purchased 
 power supply.  To pass, the \fdth must hold the goal voltage (\dptargetdriftvoltneg{}) in ultra pure \lar (TPC-quality purity corresponding to a free electron lifetime, $\tau\geq$\SI{7}{\ms}) for at least \num{24} hours. The ground tube submersion and \efield environment of the test setup must be comparable to the real \dword{fc} setup or more challenging.  Additionally, the \fdth must be UHV-grade leak-tight.
 
@@ -600,12 +569,11 @@ The related results could lead to revision of design details such as the shape o
 \dword{gp} structures, the distance from the cryostat walls, the distance between the cathode and the %\dword{gg} 
 \dword{gp} protecting the \dwords{pd}, and resistive connections of the cathode modules. It is important to ensure that the \efield intensity in the \lar is below the critical value of  about \SI{30}{\kV/\cm} everywhere and that the energy stored in the \dword{fc} is not  released catastrophically to the detector membrane. % skin.
 
-As for the \dword{spmod}, \dword{pdsp} is the playground where to understand and optimize detector element assembly, installation sequence, and integration as well as requirements in %manpower, 
+As for the \dword{spmod}, \dword{pdsp} serves as the test-bed for understanding and optimizing detector element assembly, installation sequence, and integration as well as requirements in %manpower, 
 human resources, space and tooling, and schedule. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\fixme{The editors at meeting of 2/13 suggest that the WBS section should be deleted in the TP. Accordingly, I have commented it out. RKP}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{WBS and Responsibilities}
@@ -616,62 +584,3 @@ human resources, space and tooling, and schedule.
 %\fixme{(Here: table to be extracted for the WBS excel file)}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{High-level Cost and Schedule}
-\label{sec:fddp-hv-org-cs}
-
-A first high-level summary of the cost estimate for the \dword{hv} system of one \dword{dpmod} has been obtained by extrapolating from the as-realized \dword{pddp} costs and effort. These estimates do not include any projected cost savings that would be realized by producing many units at each production site. %Given the small numbers of each unit required for the \dword{pddp} the assembly sites were still climbing the learning curve; this could give substantial savings. 
-Substantial savings from higher-volume production is still possible, however. For \dword{pddp} the assembly sites produced only small numbers of each unit, and thus were still on the learning curve. 
-
-\begin{dunetable}
-[Cost estimates for the \dword{hv} system materials]
-{p{0.40\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}}
-{tab:HVcost}
-{Cost estimates for the \dword{hv} system materials}   
-Element&Unit Cost  (FY18 k\$)& Units per \dword{fd} Module & Total Cost  (FY18 k\$)\\ \toprowrule
-cathode plane (\SI{3x3}{\m} unit) &\num{10}&\num{80}&\num{800}\\ \colhline
-\dword{gg} plane (\SI{3x3}{\m} unit) &\num{5}&\num{80}&\num{400}\\ \colhline
-\dword{fc} submodule (\SI{3x2}{\m} unit as for \dword{pddp})&\num{10}&\num{288}&\num{2,880}\\ \colhline
-\dword{hv} distribution (one power supply + one and one \dword{hv} extender \fdth{}s)&\num{250}&\num{1}&\num{250}\\ \colhline
-Total DP1&&&\num{6},\num{718}\\ 
-\end{dunetable}
-
-\fixme{(this is to be extracted from the Cost excel file)}
-\begin{dunetable}
-[\dword{hv} system R\&D program and milestones to lead to CD-2 approval]
-{p{0.07\linewidth}p{0.55\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}}
-{tab:HVschedule}
-{DRAFT- \dword{hv} system R\&D program and milestones to lead to CD-2 approval.}   
-WBS&Task Name&Duration (Days)&Start&Finish \\ \toprowrule
-1&DUNE Milestones&394&4/2/18&10/4/19 \\
-1.1&   Submit DUNE Technical Proposal (internal)&0&4/2/18&4/2/18 \\
-1.2&   Begin Operation of \dword{pdsp} detector (external)&0&10/1/18&10/1/18 \\
-1.3&   Begin Operation of \dword{pddp} detector (external)&0&12/1/18&12/1/18 \\
-1.4&   Submission of DUNE Technical Design Report (TDR) (internal)&0&4/1/19&4/1/19 \\
-1.5&   CD-2 DOE Review&0&10/4/19&10/4/19 \\
-7&\dword{hv} System&325&1/1/18&3/29/19 \\
-7.1&   \Dword{fc} R\&D&205&2/19/18&11/30/18 \\
-7.1.1&      Additional studies of \single \dword{fc} design&92&2/19/18&6/26/18 \\
-7.1.2&      Finalize SP \dword{fc} design&113&6/27/18&11/30/18 \\
-7.1.3&      Additional studies of \dual \dword{fc} design&92&2/19/18&6/26/18 \\
-7.1.4&      Finalize \dual \dword{fc} design&113&6/27/18&11/30/18 \\
-7.2&   Cathode Panel Assembly R\&D&205&2/19/18&11/30/18 \\
-7.2.1&      Additional studies of \single cathode design&92&2/19/18&6/26/18 \\
-7.2.2&      Finalize \single cathode design&113&6/27/18&11/30/18 \\
-7.2.3&      Additional studies of \dual cathode design&92&2/19/18&6/26/18 \\
-7.2.4&      Finalize \dual cathode design&113&6/27/18&11/30/18 \\
-7.3&   \dword{hv} \fdth R\&D&281&1/1/18&1/28/19 \\
-7.3.1&      Complete necessary R\&D on \fdth design&281&1/1/18&1/28/19 \\
-7.4&   \dword{hv} system design integration tests&135&9/3/18&3/8/19 \\
-7.4.1&      Design instrumentation for \dword{hv} design integration test &65&9/3/18&11/30/18 \\
-7.4.2&      Assemble test facility for \dword{sp} \dword{hv} design integration test &15&12/3/18&12/21/18 \\
-7.4.3&      Run \dword{sp} \dword{hv} design integration test &15&12/31/18&1/18/19 \\
-7.4.4&      Assemble test facility for \dword{dp} \dword{hv} design integration test &15&1/28/19&2/15/19 \\
-7.4.5&      Run \dword{dp} \dword{hv} design integration test &15&2/18/19&3/8/19 \\
-7.5&   TP/TDR&265&3/26/18&3/29/19 \\
-7.5.1&      \dword{hv} Technical Proposal - Submit for Internal Review&0&3/26/18&3/26/18 \\
-7.5.2&      Analysis of \dword{pdsp} data&65&10/1/18&12/28/18 \\
-7.5.3&      Analysis of \dword{pddp}  data&65&12/3/18&3/1/19 \\
-7.5.4&      Final editing of TDR&15&3/11/19&3/29/19 \\
-7.5.5&      \dword{hv} TDR - Submit for internal review&0&3/29/19&3/29/19 \\
-\end{dunetable}
-\fixme{(to do: Schedule)}
