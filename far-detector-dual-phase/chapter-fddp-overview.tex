@@ -198,25 +198,6 @@ A system of optical fibers provides for the \dwords{pmt} calibration.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cryogenics Instrumentation and Slow Controls}
-\label{v4:fddp-ov:sc}
-The \dword{cisc} system is designed by a joint \single{}-\dual consortium. %The slow control system has to deal with the readout of the following items
-This system controls the % biasing of the \dword{hv} for the \dwords{lem}s and \dwords{crp}, and manages the 
-following items:
-
-\begin{itemize}
-\item Cryogenic instrumentation: measurements of temperatures (gas and liquid), pressure (gas), liquid level, purity monitors;
-\item \dword{crp} instrumentation: temperatures, pulsing system, precision level meters, readout of \dword{crp} stepping motors;
-\item Generation and control of \dword{hv} biasing of \dword{lem} and grid;
-\item Generation and control of \dword{hv} biasing for the \dwords{pmt} and calibration (via optical pulsing);
-\item Slow control of the \dword{utca} crates, analog \dword{fe}\dword{lv} control, charge injection control to preamplifiers;
-\item Control of the cathode \dword{hv} biasing system;
-\item Alignment survey of \dword{crp} position (via external reference points);
-\item Control of the laser system;
-\item Analysis of \lar purity and \dword{lem}  gain calibration.
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data Acquisition}
 \label{v4:fddp-ov:daq}
 
@@ -247,3 +228,23 @@ The event builders combine the continuous lossless, compressed data (streaming f
 The level-1 event builders exchange trigger primitive data on the network with a global supervisor machine, which then decides what data to write onto disk.  The supervisor can order the dump onto disk of the event builder's memory  windows if a certain number of candidate energy depositions is found from the charge data. 
 This scheme makes it possible to put selected portions of different \dwords{detmodule} in communication with one another.  
 Typically for beam data and cosmic events, the amount of data written to disk can be limited to one or two \dwords{roi}; there are cases in which in case events occur at the border between two \dwords{roi} rather than in a single one.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cryogenics Instrumentation and Slow Controls}
+\label{v4:fddp-ov:sc}
+The \dword{cisc} system is designed by a joint \single{}-\dual consortium. %The slow control system has to deal with the readout of the following items
+This system controls the % biasing of the \dword{hv} for the \dwords{lem}s and \dwords{crp}, and manages the 
+following items:
+
+\begin{itemize}
+\item Cryogenic instrumentation: measurements of temperatures (gas and liquid), pressure (gas), liquid level, purity monitors;
+\item \dword{crp} instrumentation: temperatures, pulsing system, precision level meters, readout of \dword{crp} stepping motors;
+\item Generation and control of \dword{hv} biasing of \dword{lem} and grid;
+\item Generation and control of \dword{hv} biasing for the \dwords{pmt} and calibration (via optical pulsing);
+\item Slow control of the \dword{utca} crates, analog \dword{fe}\dword{lv} control, charge injection control to preamplifiers;
+\item Control of the cathode \dword{hv} biasing system;
+\item Alignment survey of \dword{crp} position (via external reference points);
+\item Control of the laser system;
+\item Analysis of \lar purity and \dword{lem}  gain calibration.
+\end{itemize}

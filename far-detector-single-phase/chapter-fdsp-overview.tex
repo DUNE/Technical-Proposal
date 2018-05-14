@@ -33,7 +33,7 @@ open sides of the four drift regions to ensure that the \efield within is unifor
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Primary Detector Systems}
+\section{Detector Systems}
 \label{sec:fdsp-ov-sys}
 
 
@@ -87,7 +87,16 @@ Among the novel features of the \single \lartpc are the presence of wrapped anod
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{High Voltage}
+\subsection{TPC Electronics}
+\label{sec:fdsp-ov-elec}
+
+The electronics system, described in full detail in Chapter~\ref{ch:fdsp-tpc-elec}, is responsible for manipulating the signals present on the \dword{apa} wires and ultimately transferring them out of the cryostat and on to the \dword{daq} system.  The first stage of low-noise electronics in the experiment are located directly on the end of the \dword{apa}, where the ionization signals are initially shaped and amplified before further processing. 
+
+\fixme{check how division between \dword{ce} and readout is being addressed.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{CPA, Field Cage and High Voltage}
 \label{sec:fdsp-ov-hv}
 
 The \dword{hv} system, described in full detail in Chapter~\ref{ch:fdsp-hv}, creates the uniform electric field in the TPC volume that causes ionization to drift towards the \dwords{apa}.  The \dword{hv} system contains both the \dwords{cpa}, which are operated at a 
@@ -95,15 +104,6 @@ voltage of \SI{-180}{kV}, as well as the \dword{fc} elements which progressively
 
 Among the novel features of the \single \lartpc is the use of resistive panels for the \dwords{cpa}, which serves to control the flow of stored energy in the \dword{hv} system in the event of an unexpected electrical discharge.  This features provides protection to the \dword{spmod} elements and guards against damage that would negatively impact detector performance.  
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Electronics}
-\label{sec:fdsp-ov-elec}
-
-The electronics system, described in full detail in Chapter~\ref{ch:fdsp-tpc-elec}, is responsible for manipulating the signals present on the \dword{apa} wires and ultimately transferring them out of the cryostat and on to the \dword{daq} system.  The first stage of low-noise electronics in the experiment are located directly on the end of the \dword{apa}, where the ionization signals are initially shaped and amplified before further processing. 
-
-\fixme{check how division between \dword{ce} and readout is being addressed.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Photon Detection}
@@ -116,6 +116,7 @@ The \dword{pds}, described in full detail in Chapter~\ref{ch:fdsp-pd}, is used t
 \label{sec:fdsp-ov-daq}
 
 The \dword{daq} system, described in full detail in Chapter~\ref{ch:fdsp-daq}, ...
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cryogenic Instrumentation and Slow Controls}
 \label{sec:fdsp-ov-instr}
