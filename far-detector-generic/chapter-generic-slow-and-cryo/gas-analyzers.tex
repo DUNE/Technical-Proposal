@@ -3,7 +3,7 @@
 \label{sec:fdgen-slow-cryo-gas-anlyz}
 % alan h
 
- Gas analyzers are commercially produced modules that measure trace quantities of specific gases contained within a stream of carrier gas. The carrier gas for DUNE is argon, and the trace gases of interest are oxygen ($\text{O}_2$), water ($\text{H}_2\text{O}$), and nitrogen ($\text{N}_2$). $\text{O}_2$ and $\text{H}_2\text{O}$ impact the electron lifetime in \dword{lar}, while $\text{N}_2$ impacts the efficiency of scintillation light production. In the \dword{lar} environment, these trace gases represent contaminants that need to be kept at levels below \SI{0.1}{ppb}.
+ Gas analyzers are commercially produced modules that measure trace quantities of specific gases contained within a stream of carrier gas. The carrier gas for DUNE is argon, and the trace gases of interest are oxygen ($\text{O}_2$), water ($\text{H}_2\text{O}$), and nitrogen ($\text{N}_2$). Oxygen and water impact the electron lifetime in \dword{lar}, while $\text{N}_2$ impacts the efficiency of scintillation light production. In the \dword{lar} environment, these trace gases represent contaminants that need to be kept at levels below \SI{0.1}{ppb}.
 The argon is sampled from either the argon vapor in the ullage or from the \dword{lar} by the use of small diameter tubing run from the sampling point to the gas analyzer. Typically the tubing runs from the sampling points are connected to a switchyard valve that is used to route the sample points to the desired gas analyzers. Figure~\ref{fig:GA-switchyard} is a photo of such a switchyard.
 
 \begin{dunefigure}[Gas Analyzer switchyard]{fig:GA-switchyard}
@@ -11,16 +11,16 @@ The argon is sampled from either the argon vapor in the ullage or from the \dwor
   \includegraphics[width=0.35\textwidth]{GasAnalyzerSwitchyard.png}%
 \end{dunefigure}
 
-Three examples of usage:
+Three examples of gas analyzer usage:
 
 \begin{enumerate}
-\item A proven procedure to eliminate the air atmosphere from the cryostat after detector installation to levels low enough to begin cooldown is an Argon piston purge followed by a recirculation of the remaining argon gas through the filtration system. This process is described more fully in Section~\ref{sec:fdgen-slow-cryo-install}. Figure~\ref{fig:GA-purge} shows the evolution of the $\text{N}_2$, $\text{O}_2$, and $\text{H}_2\text{O}$ levels from gas analyzer data taken during the purge and recirculation stages of the DUNE \dword{35t} %Prototype P
+\item A proven procedure to eliminate the air atmosphere from the cryostat after detector installation to levels low enough to begin cooldown is an argon piston purge followed by a recirculation of the remaining argon gas through the filtration system. This process is described more fully in Section~\ref{sec:fdgen-slow-cryo-install}. Figure~\ref{fig:GA-purge} shows the evolution of the $\text{N}_2$, $\text{O}_2$, and $\text{H}_2\text{O}$ levels from gas analyzer data taken during the purge and recirculation stages of the DUNE \dword{35t} %Prototype P
 phase 1 run.
 
 \item High-precision $\text{O}_2$ and $\text{H}_2\text{O}$ analyzers can track the trace contaminants from the $\>$tens of ppb to the \num{100}s of ppt. This is useful when other means of monitoring the impurity level (e.g., purity monitors, or \dshort{tpc} tracks) are not yet sensitive. Figure~\ref{fig:GA-O2} shows an example plot of the $\text{O}_2$ level at the beginning of \dword{lar} purification from one of the later \num{35}\si{t} %Prototype 
 \dword{hv} runs.
 
-\item The gas analyzers can also monitor the tanker \dword{lar} deliveries purity during the cryostat-filling period. This allows tracking the impurity load on the filtration system and rejecting any deliveries that are out of specifications. Likely specifications for the delivered \dword{lar} are in the $\sim$ten \si{ppm} range per contaminant.
+\item The gas analyzers can also monitor the tanker \dword{lar} deliveries purity during the cryostat-filling period. This allows tracking the impurity load on the filtration system and rejecting any deliveries that are out of specifications. Likely specifications for the delivered \dword{lar} are in the ten \si{ppm} range per contaminant.
 
 \end{enumerate}
 
@@ -36,9 +36,9 @@ phase 1 run.
   \includegraphics[width=0.7\textwidth]{O2AnalyzerPrM2_HVRun1}% 
 \end{dunefigure}
 
-As any one gas analyzer covers only one contaminant species and $\sim$\numrange{3}{4} orders of magnitude of range, multiple units are needed both for the three contaminant gases and to cover the ranges that are seen between the cryostat closure to the beginning of \dshort{tpc} operations:
-$\sim \SI{20}{\percent}$ to $\lesssim 100$~ppt for $\text{O}_2$,
-$\sim \SI{80}{\percent}$ to $\lesssim 1$~ppm for $\text{N}_2$, and
+As any one gas analyzer covers only one contaminant species and \numrange{3}{4} orders of magnitude of range, multiple units are needed both for the three contaminant gases and to cover the ranges that are seen between the cryostat closure to the beginning of \dshort{tpc} operations:
+\SI{20}{\percent} to $\lesssim 100$~ppt for $\text{O}_2$,
+\SI{80}{\percent} to $\lesssim 1$~ppm for $\text{N}_2$, and
 $\sim \SI{1}{\percent}$ to $\lesssim 1$~ppb for $\text{H}_2\text{O}$.
 Since the total cost of these analyzers exceeds $\SI{100}[\textdollar]{k}$, it is useful to be able sample more than a single location or cryostat with the same gas analyzers. At the same time, the tubing run lengths from the sample point should be as short as possible in order to keep the response of the gas analyzer timely. This puts some constraints on the sharing of devices since, for example, the argon deliveries are at the surface, perhaps necessitating a separate surface gas analyzer.
 

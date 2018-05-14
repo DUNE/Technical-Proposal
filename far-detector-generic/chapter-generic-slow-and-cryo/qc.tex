@@ -3,7 +3,7 @@
 \label{sec:fdgen-slow-cryo-qc}
 % carmen
 The purpose of  \dword{qc} is to ensure that the equipment is capable of performing its intended function. The \dword{qc} includes post-fabrication tests and also tests to run after shipping and installation. A series of tests should be done by the manufacturer and the institute in charge of the device assembly. In case of a complex system, the whole system performance will be tested before shipping. 
-An additional \dword{qc} should be applied in the Integration Test Facility (ITF) and underground after installation if possible. The planned tests for each subsystem are described below.  
+Additional \dword{qc} procedures can be performed at the \dword{itf} and underground after installation if possible. The planned tests for each subsystem are described below.  
 \fixme{the organization of prev pgraph is confusing}
 
 \subsection{Purity Monitors}
@@ -56,7 +56,7 @@ The dynamic T-gradient monitor consists of an array of high-precision temperatur
 
 \begin{itemize}
 \item
-Before installation, temperature sensors are tested in LN to verify correct operation and to set the baseline calibration for each sensor with respect to the reference absolutely calibrated temperature sensor. \fixme{wrt the reference (period). Not sure I understand ``absolute'' calibration beyond calling it a baseline or reference (anne)}
+Before installation, temperature sensors are tested in LN to verify correct operation and to set the baseline calibration for each sensor with respect to the absolutely caibrated reference sensor. 
 \item
 Warm and cold temperature readings are taken with each sensor after mounting on the PCB board and soldering %of 
 the readout cables.
@@ -67,14 +67,15 @@ The stepper motor is tested before and after connecting to the gear and pinion s
 \item
 The fully assembled rod is connected to the pinion and gear, and moved with the stepper motor on a high platform many times to verify repeatability, possible offsets and uncertainty in the positioning. Finally, by repeating the test a large number of times, the sturdiness of the system will be verified.
 \item
-The full system is tested after installation in the cryostat: both motion and sensor operation is tested by checking readout for sensors and motion of the system vertically. \fixme{by checking sensor readout and vertical motion of the system?}
+The full system is tested after installation in the cryostat: both motion and sensor operation are tested by checking % readout for sensors and motion of the system vertically. 
+sensor readout and vertical motion of the system.
 \end{itemize} 
 
 \subsubsection{Individual Sensors}
 \label{sec:fdgen-slow-cryo-qc-is}
 
 The method to address the quality of individual precision sensors is the same as for the static T-gradient monitors.
-\Dword{qc} of the sensors is part of the laboratory calibration. \fixme{??} After mounting six sensors with their corresponding cables a
+The \dword{qc} of the sensors is part of the laboratory calibration. After mounting six sensors with their corresponding cables, a
 temporary SUBD-25 connector will be added and the six sensors tested at room temperature. All sensors should work and give values within specifications.  
 If any of the sensors gives problems, it is replaced.  If the problem persists the cable is checked and replaced if needed.
 
@@ -89,7 +90,7 @@ The gas analyzers will be guaranteed by the manufacturer. However, once received
 
 The pressure sensors will be purchased requiring a \dword{qc} by the manufacturer.
 While the capacitive and thermal sensors can be tested with a modest sample of \lar in the lab,
-the pressure sensors require testing over a greater range.  But they do not
+the pressure sensors require testing over a greater range.  They do not
 necessarily need to be tested in \lar over the whole range,  lab tests
 can be done in \lar over a range of a meter or two to ensure operation
 at cryogenic temperatures.  Depth tests can be accomplished with a
@@ -98,15 +99,14 @@ pressurization chamber with water.
 \subsection{Cameras}
 \label{sec:fdgen-slow-cryo-qc-c}
 
-Before transport to \surf, each cryogenic camera unit (comprising the enclosure, camera, and internal thermal control and monitoring) is checked for correct operation of all operating features, for recovery from \SI{87}{K} non-operating mode, for no leakage, and for physical defects. Lighting systems are similarly checked for operation. Operations tests will include correct current draw, image quality, and temperature readback and control. The movable inspection camera apparatus is inspected for physical defects, and checked for proper mechanical operation before shipping. A checklist is completed for each unit, filed electronically in the DUNE logbook, and a hard copy sent with each unit. 
+Before transport to \surf, each cryogenic camera unit (comprising the enclosure, camera, and internal thermal control and monitoring) is checked for correct operation of all operating features, for recovery from \SI{87}{K} non-operating mode, for no leakage, and for physical defects. Lighting systems are similarly checked for operation. Operations tests will include verification of correct current draw, image quality, and temperature readback and control. The movable inspection camera apparatus is inspected for physical defects, and checked for proper mechanical operation before shipping. A checklist is completed for each unit, filed electronically in the DUNE logbook, and a hard copy sent with each unit. 
 
-Before installation, each fixed cryogenic camera unit is inspected for physical damage or defects and checked in CTF 
-\fixme{by calibration?} for correct operation of all operating features, for recovery from \SI{87}{K} non-operating mode, and for no contamination of the \lar{}. Lighting systems are similarly checked for operation. Operations tests include correct current draw, image quality, and temperature readback and control. After installation and connection of wiring, fixed cameras and lighting are again  checked for operation. The movable inspection camera apparatus is inspected for physical defects and, after integration with a camera unit, tested in CTF for proper mechanical and electronic operation and cleanliness, before installation or storage. A checklist is completed for each \dword{qc} check and filed electronically in the DUNE logbook. 
+Before installation, each fixed cryogenic camera unit is inspected for physical damage or defects and checked in the CTF  for correct operation of all operating features, for recovery from \SI{87}{K} non-operating mode, and for no contamination of the \lar{}. Lighting systems are similarly checked for operation. Operations tests include correct current draw, image quality, and temperature readback and control. After installation and connection of wiring, fixed cameras and lighting are again  checked for operation. The movable inspection camera apparatus is inspected for physical defects and, after integration with a camera unit, tested in CTF for proper mechanical and electronic operation and cleanliness, before installation or storage. A checklist is completed for each \dword{qc} check and filed electronically in the DUNE logbook. 
 
 \subsection{Light-emitting System}
 \label{sec:fdgen-slow-cryo-qc-les}
 
-The complete system is checked before installation to ensure the light emission. 
+The complete system is checked before installation to ensure the functionality of the light emission. 
 \fixme{to ensure it meets requirements?}
 Initial testing of the light-emitting system (see Figure~\ref{fig:gen-cisc-LED}) is done by first
 measuring the current when a low voltage (\SI{1}{V}) is applied, to check

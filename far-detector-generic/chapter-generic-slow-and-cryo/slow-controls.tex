@@ -54,12 +54,12 @@ Section~\ref{sec:fdgen-slow-cryo-slow-infra}.
 \label{sec:fdgen-slow-cryo-slow-compute}
 
 Two servers (a primary server and a replicated backup) suitable for the needed relational database discussed
-in Section~\ref{sec:fdgen-slow-cryo-sw} is located in the \dshort{cuc} data
+in Section~\ref{sec:fdgen-slow-cryo-sw} are located in the \dshort{cuc} data
 room, with an additional
 two servers to perform \dword{fe} monitoring interface services: for
 example, assembling dynamic \dword{cisc} monitoring web pages from the adjacent
 databases.  Any special purpose software, such as iFix or EPICS, would
-also run here: it expected one or two more servers will accommodate
+also run here. It is expected that one or two more servers will accommodate
 these programs.
 % (The exact number of iFix machines will be determined based
 % on input from the LBNF cryogenics experts.)
@@ -111,7 +111,7 @@ Somewhat less space than that is currently envisioned, as described in
 The slow controls software includes the following components in order 
 to provide complete monitoring and control of detector subsystems:
 %
-\begin{description}
+\begin{itemize}
  \item{Control systems base} that performs input and output operations
   and defines processing logic, scan conditions, alarm conditions,
   archiving rate, etc.;
@@ -119,9 +119,9 @@ to provide complete monitoring and control of detector subsystems:
   messages to operators; 
  \item{Data archiver} that performs automatic sampling and storage of
   values for history tracking;
- \item{Integrated Operator interface} that provides display panels for
+ \item{Integrated operator interface} that provides display panels for
   controls and monitoring.
-\end{description}
+\end{itemize}
 
 An additional requirement for the software is the ability to indirectly
 interface with external systems (e.g., cryogenics control
@@ -131,8 +131,8 @@ displays. This allows integrating displays and warnings into one
 system for the experiment operators, and %to provide 
 provides integrated
 archiving for sampled data in the archived database. In this case, one
-can imagine an Input Output Controller (IOC) running on a central \dword{daq}
-server provides \textit{soft} channels for these data.
+can imagine an input output controller (IOC) running on a central \dword{daq}
+server provides soft channels for these data.
 Figure~\ref{fig:gen-slow-controls-diagram} shows a typical workflow of a
 slow controls system.
 
@@ -160,7 +160,7 @@ number of channels and subsystems.
 
 The final set of quantities to monitor will ultimately be determined
 by the needs of the subsystems being monitored, as documented in
-appropriate ICDs (Interface Control Documents), and continually revised based on operational
+appropriate  interface control documents (ICDs), and continually revised based on operational
 experience.  The total number of quantities to monitor has been very
 roughly estimated by taking the total number of quantities monitored
 in \microboone and scaling by the detector length and the number of
@@ -218,7 +218,7 @@ This includes the following:
 \begin{itemize}
 \item readings from the LBNF-managed external cryogenics systems, for status of pumps, flow rates, inlet and return temperature and pressure, which are implemented via OPC or a similar SCADA interfaces;
 \item beam status, such as protons on target, rate, target steering, beam pulse timing, which are retrieved via IFBeamDB;
-\item near detector status, which can be retrieved from a common slow controls database).
+\item near detector status, which can be retrieved from a common slow controls database.
 \end{itemize}
 
 This integration occurs after both the slow controls and non-detector

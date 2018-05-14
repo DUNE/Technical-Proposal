@@ -7,8 +7,7 @@
 % Good idea for TDR, but let's not do this for the TechPro, due to space. [gahs]
 
 The \dword{cisc} consortium interfaces with all other consortia, task forces (calibration), working groups (physics, software/computing) and technical coordination.
-\footnote{
-Detailed descriptions of \dword{cisc} interfaces are kept in DUNE \dword{fd} interface documents: 
+This section provides a brief summary.\footnote{ 
  \cite{bib:docdb6745},
 \cite{bib:docdb6991},
 \cite{bib:docdb6790},
@@ -22,14 +21,12 @@ Detailed descriptions of \dword{cisc} interfaces are kept in DUNE \dword{fd} int
 \cite{bib:docdb7099},
 \cite{bib:docdb7072},
 \cite{bib:docdb7045},
-\cite{bib:docdb7018}.} This section provides a brief summary. 
+\cite{bib:docdb7018}.}  
 
 There are obvious iterfaces with detector consortia since \dword{cisc} provides full rack monitoring (rack fans, thermometers and rack protection system),
-interlock status bit monitoring (not the actual interlock mechanism) and monitoring and control for all \pwrsupps. % (PS). The choice of these   
-\pwrsupps as well as the cables from any device connected to SC ethernet switches (\pwrsupps, electronics, heaters, fans, ...)
-should be a combined decision between \dword{cisc} and each consortium so that the hardware choices allow for robust control and monitoring, and for the required precision. % needed.  
+interlock status bit monitoring (not the actual interlock mechanism) and monitoring and control for all \pwrsupps. The  \dword{cisc} consortium must maintain close contacts with all other consortia to ensure that specific hardware choices have acceptable slow controls (SC)  solutions.  
 Also, installation of instrumentation devices interferes with other devices and must be coordinated with the respective consortia.  
-On the software side \dword{cisc} must define in coordination with other consortia the quantities to be monitored and controlled by slow controls and the corresponding alarms,
+On the software side \dword{cisc} must define, in coordination with other consortia, the quantities to be monitored and controlled by slow controls and the corresponding alarms,
 archiving and GUIs. 
 
 %Rack space distribution and interaction between slow controls (SC) modules and other modules (\dwords{apa}, \dword{hv}, PD, \dword{daq}, etc)
@@ -82,23 +79,21 @@ reading or inserting data into the database as needed for non-time-critical info
 
 Assuming that the scope of software \& computing \dword{swc} group includes scientific computing support to project activities, there are substancial interfaces with that group~\cite{bib:docdb7126}. 
 The hardware interfaces resposibility of the \dword{swc} include networking installation and maintenance,
-maintenance of SC servers 
-\fixme{SC=scientific computing?}
-and any additional computing hardware needed by instrumentation devices.
+maintenance of SC servers  and any additional computing hardware needed by instrumentation devices.
 \dword{cisc} provides the needed monitoring for power distribution units (PDUs). Regarding software interfaces the \dword{swc} group  provides:
 (1) SC database maintenance, (2) API for accessing the SC database offline,
 (3) UPS packages, local installation and maintenace of software needed by \dword{cisc}, and (4) \dword{swc} creating and maintaining computer accounts on production clusters. 
-On the other direction \fixme{on the other hand?}  \dword{cisc} provides the required monitoring and control of \dword{swc} quantities including alarms, archiving, and GUIs, where applicable. 
+Additionally  \dword{cisc} provides the required monitoring and control of \dword{swc} quantities including alarms, archiving, and GUIs, where applicable. 
 
 
-\dword{cisc} has profound \fixme{crucial?} hardware interfaces with the Calibration Task Force (CTF) \cite{bib:docdb7072}. Indeed, since \dword{cisc} and CTF ports are multi-purpose to enable deploying various devices,
+\dword{cisc} has profound hardware interfaces with the not-as-yet formed calibration consortium \cite{bib:docdb7072}. Indeed, since \dword{cisc} and CTF ports are multi-purpose to enable deploying various devices,
 both systems must interact in terms of flange design and sharing space around the ports. Also, \dword{cisc} might use calibration ports to extract cables from \dword{cisc} devices. 
 At the software level, \dword{cisc} is responsible for calibration device monitoring (and control to the extent needed) and 
 monitors the interlock bit status for laser and radioactive sources. 
 %Understand the location of Cold cameras & lights for inspection of CFT related devices, as well as the
 %requirements of Cold/Warm cameras: resolution, field of view, light sensitivity, low light operation, frames per second, operation in triggered mode?  etc.
 
-\dword{cisc} indirectly interfaces to physics through the CFT devices. One specific need for physics is to extract
+\dword{cisc} indirectly interfaces to physics through the CTF devices. One specific need for physics is to extract
 instrumentation or slow controls data to correlate high-level quantities to low-level or calibration data.
 This requires tools to extract data from the slow controls database (see \dword{cisc}-\dword{swc} interface document \cite{bib:docdb7126}).
 A brief list of what \dword{cisc} data is needed by physics is given in the \dword{cisc}-Physics interface document \cite{bib:docdb7099}. 

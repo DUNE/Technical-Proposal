@@ -16,7 +16,7 @@ cryostat\cite{Adamowski:2014daa} to study \dword{hv} discharges in
 have been used to observe \dword{hv} discharges in \lar in
 fine detail \cite{Auger:2015xlo}.  Cameras are commonly used during
 calibration source deployment in many experiments ({\em e.g.,} the
-\kamland \textit{ultra-clean} system \cite{Banks:2014hra}).
+\kamland ultra-clean system \cite{Banks:2014hra}).
 
 In DUNE, cameras are used to verify the stability, straightness,
 and alignment of the hanging TPC structures during cool-down and
@@ -71,10 +71,10 @@ design may be used for both the single and dual phase detectors.
 The fixed cameras %will be used to 
 monitor the following items during filling:
 \begin{itemize}
-\item Positions of corners of \dword{apa} or \dword{crp}, \dword{cpa} or cathode, \dwords{fc}, \dwords{gp} (\(\sim\SI{1}{mm}\) scale);
+\item Positions of corners of \dword{apa} or \dword{crp}, \dword{cpa} or cathode, \dwords{fc}, \dwords{gp} (\SI{1}{mm} resolution);
 \item Relative straightness and alignment of \dword{apa}/\dword{crp}, \dword{cpa}/cathode, and \dword{fc} (\(<\sim\SI{1}{mm}\));
-\item Relative position of profiles and endcaps (\(\sim\SI{0.5}{mm}\))
-\item State of \lar surface: is there bubbling? significant? detritus?
+\item Relative position of profiles and endcaps (\SI{0.5}{mm} resolution);
+\item State of \lar surface: i.e., bubbling, debris.
 \end{itemize}
 
 There are published articles and unpublished presentations describing
@@ -83,7 +83,7 @@ off-the-shelf \dword{cmos} cameras in custom enclosures immersed in cryogens.
 (e.g., EXO-100: \cite{Delaquis:2013hva}; DUNE \dword{35t} test
 \cite{McConkey:2016spe}; \dword{wa105}: \cite{Murphy:20170516}.)  Generally
 it is reported that such cameras show poor performance and ultimately
-fail to function below some temperature of order \(150\sim\SI{200}{K}\), but some report that their cameras recover fully after
+fail to function below some temperature of order \SIrange{150}{200}{K}, but some report that their cameras recover fully after
 being stored (not operated) at temperatures as low as \SI{77}{K} and
 then brought up to minimum operating temperature.
 
@@ -95,11 +95,11 @@ electrical integrity of such cameras in the cryogenic environment.
 components are generally only specified by the vendors and original
 manufacturers for operation down to \SI{-40}{\celsius} or \SI{-50}{\celsius}.
 In addition, many low-cost cameras use digital interfaces not intended
-for long distances, such as USB (\(2\sim\SI{5}{m}\)) or CSI (circuit
+for long distance deployment, such as USB (\(2\sim\SI{5}{m}\)) or CSI (circuit
 board scale), leading to signal degradation and noise problems.
 
 The design for the DUNE fixed cameras uses an enclosure based on
-the successful EXO-100 design\cite{Delaquis:2013hva} which was also
+the successful EXO-100 design\cite{Delaquis:2013hva}, which was also
 used successfully in
 LAPD. (See Figure~ref{fig:gen-fdgen-cameras-enclosure}) The enclosure is
  connected to a stainless steel gas line to allow the enclosure to be
@@ -109,7 +109,7 @@ tested in the \dword{35t} \dword{hv} test and in \dword{protodune}.  A thermocou
 enclosure allows temperature monitoring, and a heating element
 provides temperature control.  The camera transmits its video
 signal using either a composite video signal over shielded coax or
-ethernet over optical fiber.  Most importantly, the DUNE \dword{cisc}
+Ethernet over optical fiber.  Most importantly, the DUNE \dword{cisc}
 consortium must work with vendors to design camera circuit boards that
 are robust and reliable in the cryogenic environment.
 
@@ -130,18 +130,18 @@ However, the following locations have been identified as likely
 to be of interest:
 \begin{itemize}
 \item Status of \dword{hv} \fdth and cup;
-\item Status of profiles, endcaps (\(\sim\SI{0.5}{mm}\) scale);
+\item Status of \dword{fc} profiles, endcaps (\SI{0.5}{mm} resolution);
 \item $y$-axis deployment of calibration sources;
 \item Status of thermometers, especially dynamic thermometers;
 \item \dword{hv} discharge, corona, or streamers on \dword{hv} \fdth, cup, or \dword{fc};
-\item relative straightness and alignment of \dword{apa}/CRV, \dword{cpa}/cathode, and \dword{fc} (\(<\sim\SI{1}{mm}\));
-\item gaps between \dword{cpa} frames (\(<\sim\SI{1}{mm}\));
-\item relative position of profiles and endcaps (\(\sim\SI{0.5}{mm}\));
-\item sense wires at top of outer wire planes in \single \dword{apa} (\(\sim\SI{0.5}{mm}\)).
+\item relative straightness and alignment of \dword{apa}/\dword{crp}, \dword{cpa}/cathode, and \dword{fc} (\SI{1}{mm} resolution);
+\item gaps between \dword{cpa} frames (\SI{1}{mm} resolution);
+\item relative position of profiles and endcaps (\SI{0.5}{mm} resolution);
+\item sense wires at top of outer wire planes in \single \dword{apa} (\SI{0.5}{mm}resolution).
 \end{itemize}
 
 Unlike the fixed cameras, the inspection cameras need operate only as
-long as inspection lasts, as camera replacable in case of failure.  It
+long as inspection lasts, as the camera can be replaced in case of failure.  It
 is also more practical to keep the cameras continuously \textit{warm}
 (above \SI{-150}{\celsius}) during deployment; this offers %and therefore we willhave 
 more options for commercial cameras, e.g., %.  For example, we could deploy 
