@@ -102,6 +102,29 @@ with a large number of systems to establish two-way communication for
 control and monitoring. Table \ref{tab:dp-cisc-requirements} shows
 some of the important \dword{cisc} system design requirements.
 
+There are several aspects specific to the \dual design impacting the \dword{cisc} system design requirements:
+\begin{itemize}
+\item At the level of the cryogenic instrumentation, additional care is needed in order to monitor the gas phase above the liquid level. The temperature and the pressure of the gas phase affect the gas density, and consequently, the \dword{lem} gain calibration. The gas pressure must be accurately monitored. In proximity to the liquid surface the temperature gradient of the gas %has to be 
+is measured with an array of temperature probes with a vertical pitch of about \SI{1}{cm}. Each \dword{crp} is also equipped with \num{36} thermometers to sample the temperature across its structure.
+
+\item The \dword{crp}-specific instrumentation also includes: 
+
+%%%%
+\begin{itemize}
+\item the pulsing system for charge injection in the anode strips,
+\item the precision level meters implemented only on the \dwords{crp} located at the cryostat borders, and 
+\item the measurement of the \dword{lem}-grid capacitance allowing to know \fixme{which provides} the position of the \dword{crp} with respect to the liquid level for all \dwords{crp}, \fixme{what makes the measurement?}
+\item the control of the stepping motors, \fixme{control mechanism?} which allows positioning each \dword{crp} parallel to the liquid level (keeping the extraction grid immersed in the liquid and the \dwords{lem} in the gas phase).
+\end{itemize}
+%%%%%%
+
+%\item The slow control system should provide the generation and control of \dword{hv} biasing of \dword{lem} and of the extraction grid respectively at a maximum voltage of  -5 kV/channels for the LEM (41 channels/CRP) biasing and -10kV/channel for the grid biasing (1 channel/CRP);
+\item The slow control system generates and controls the \dword{hv} for biasing the \dwords{lem} (\num{41} channels/\dword{crp}) and the extraction grid  (\num{1} channel/\dword{crp}), at maximum voltages of  \SI{-5}{kV/channel} and \SI{-10}{kV/channel}, respectively;
+\item The requirements related to the \dword{pds} include the generation and control of \dword{hv} biasing for the \dwords{pmt} (up to \SI{-3}{kV}) and the control of the calibration of the  \dwords{pmt},  performed with a  light distribution system with a common light source and a network of optical fibers;
+\item The \dword{fe} electronics requires the control of the \dword{utca} crates, the control of the  analog \dword{fe} cards, the control of the \dword{lv} and of the charge injection system connected to the pre-amplifiers mounted on the \dword{fe} cards;
+%\item The \dual design also enables surveying of the \dword{crp} alignment by surveying from the cryostat roof the position of reference points connected to the \dword{crp} suspension system. This aspect needs as well to be integrated in the alignment scheme;
+\item The \dual design also enables surveying from the cryostat roof the position of reference points connected to the \dword{crp} suspension system, to ensure proper \dword{crp} alignment. This aspect needs as well to be integrated in the alignment scheme. \fixme{IS integrated?}
+\end{itemize}
 %A full list of
 % requirements for design parameters can be found in DUNE Doc-DB 6440.
 
@@ -126,10 +149,25 @@ Thermometer precision
 & Driven by \dshort{cfd} simulation validation; based on \dword{pdsp} design
 & Expected \dword{protodune} performance \SI{2}{mK}
 \\ \colhline
+Pressure meters precision (\dual)
+ & $<1mbar$
+& To measure the pressure (density) of the gas phase; based on \dword{pddp} design
+&  \dword{wa105} / \dword{pddp} design $<\SI{1}{mbar}$
+\\ \colhline
 Thermometer density
  & \(>2/\si{m}\) (vert.), \(\sim\)~\SI{0.2}{m} (horiz.)
- & Driven by \dshort{cfd} simulation
- & Achieved by design
+ & Driven by \dshort{cfd} simulation.
+ & Achieved by design. 
+\\ \colhline
+Thermometer density gas phase (\dual)
+ & \(>1/\si{cm}\) (vert.), \(\sim\)~\SI{1}{m} (horiz.)
+ & Vertical array of thermometers with finer pitch close to the liquid level to measure the temperature gradient in the gas phase.
+ & Achieved by design. 
+\\ \colhline
+Thermometer density \dword{crp} structure (\dual)
+ & 36 thermometers on each \dword{crp}
+ & Monitoring the temperature across the \dword{crp}  structure.
+ & Achieved by design. 
 \\ \colhline
 % Liquid level meters precision (SP)
 %  & \SI{0.1}{\%} over \SI{14}{m}
@@ -138,7 +176,7 @@ Thermometer density
 % \\  \colhline
 Liquid level meters precision (\dual)
  & \(<\SI{1}{mm}\)
-& Maintain constant gas phase drift
+&  Maintain constant \dword{crp} alignment with respect to the liquid surface
 & \dword{wa105} / \dword{pddp} design \SI{0.1}{mm}
 \\  \colhline
  Cameras
