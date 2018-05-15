@@ -51,7 +51,7 @@ The number of components and corresponding parameters for the \dpactivelarmass \
 
 \begin{dunetable}[Quantities of items or parameters for the \dword{dpmod}]{ll}{tab:DP_numbers}{Quantities of items or parameters for the \dpactivelarmass  \dword{dpmod}}  Item & Number or Parameter    \\ \toprowrule
 Anode plane size & W = \dptpcwdth, L = \dptpclen \\ \colhline
-\dword{crp} unit size & W = \SI{3}{m}, L = SI{3}{m}  \\ \colhline
+\dword{crp} unit size & W = \SI{3}{m}, L = \SI{3}{m}  \\ \colhline
 \dword{crp} units & \num{4}\,$\times$\,\num{20} = \dptotcrp \\ \colhline
 \dword{lem}-anode sandwiches per \dword{crp} unit & \dpswchpercrp \\ \colhline 
 \dword{lem}-anode sandwiches (total) & \dpnumswch \\ \colhline
@@ -66,11 +66,14 @@ Slow Control \fdth{}s (total) & \num{80} \\ \colhline
 \dword{hv} \fdth & \num{1}  \\ \colhline
 \dword{hv} for vertical drift & \dptargetdriftvoltpos \\ \colhline
 Voltage degrader resistive chains & \num{4} \\ \colhline
-Cathode modules & \dpnumfcres  \\ \colhline
-Field cage rings & \dpnumfcrings     \\ \colhline
-Field cage ring vertical spacing & \SI{200}{mm}  \\ \colhline
-Field cage resistors (total) & \dpnumfcres    \\ \colhline
-Field cage modules & \dpnumfcmod  \\ \colhline
+%Cathode modules & \dpnumfcres  \\ \colhline
+Cathode modules & \num{80}  \\ \colhline
+%Field cage rings & \dpnumfcrings     \\ \colhline
+Field cage rings & \num{197}     \\ \colhline
+%Field cage ring vertical spacing & \SI{200}{mm}  \\ \colhline
+%Field cage resistors (total) & \dpnumfcres    \\ \colhline
+%Field cage modules & \dpnumfcmod  \\ \colhline
+Field cage modules & \num{288}  \\ \colhline
 \dwords{pmt} (total) & \dpnumpmtch (\num{1}/m$^2$) \\ 
 \end{dunetable}
 
@@ -176,7 +179,7 @@ This optimization adds to the fact that the number of readout channels is natura
 \label{v4:fddp-ov:cathode}
 
 The \dword{hv} system is designed by a common \single{}-\dual consortium.
-The drift field (E ${\simeq}$ \SI{0.5}{kV/cm}) inside the fully active \lar volume is produced by applying \dword{hv} to the cathode plane at the bottom of the cryostat and is kept uniform by the \dword{fc}, a stack of \num{60} equally spaced field-shaping electrodes,  polarized at linearly decreasing voltages from the cathode  voltage to almost ground potential, reached at the level of the \dword{crp}. The electrodes are rectangles made of extruded aluminum profiles (vertical pitch \SI{200}{mm}) with rounded corners running horizontally (and stacked vertically) around the active volume. The aluminum profiles are supported and insulated by FRP supporting beams with a pattern of slots where the aluminum profiles can be mounted. Similarly as in \dword{pddp} the profiles are arranged in modules of about \SI{3}{m} size including two FRP supporting columns. These modules are chained together and  are hanging from the cryostat roof. A chain of \num{12} modules covers the \dpmaxdrift drift. The aluminum profiles of the different modules are joined together with short clipping profiles in order to ensure the electrical continuity over the
+The drift field (E ${\simeq}$ \SI{0.5}{kV/cm}) inside the fully active \lar volume is produced by applying \dword{hv} to the cathode plane at the bottom of the cryostat and is kept uniform by the \dword{fc}, a stack of \num{60} equally spaced field-shaping electrodes,  polarized at linearly decreasing voltages from the cathode  voltage to almost ground potential, reached at the level of the \dword{crp}. The electrodes are rectangles made of extruded aluminum profiles (vertical pitch \SI{60.6}{mm}) with rounded corners running horizontally (and stacked vertically) around the active volume. The aluminum profiles are supported and insulated by FRP supporting beams with a pattern of slots where the aluminum profiles can be mounted. Similarly as in \dword{pddp} the profiles are arranged in modules of \SI{3}{m} width including two FRP supporting columns. These modules are chained together and  are hanging from the cryostat roof. A chain of \num{6} modules covers the \dpmaxdrift drift. The aluminum profiles of the different modules are joined together with short clipping profiles in order to ensure the electrical continuity over the
 %\fixme{specific?}  in order to ensure the electrical continuity of the %60 m 
 \dptpclen long horizontal rings. 
 
