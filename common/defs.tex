@@ -95,6 +95,7 @@
 \newcommand\isotope[2]{\textsuperscript{#2}#1} % use as, e.g.,: \isotope{Si}{28}
 
 % Parameters common to SP DP
+\def\fdfiducialmass{\SI{40}{\kt}\xspace}
 \def\driftvelocity{\SI{1.6}{\milli\meter/\micro\second}\xspace} % same for sp and dp?
 \def\lartemp{\SI{88}\,K\xspace}
 \def\larmass{\SI{17.5}{\kt}\xspace} % full mass in cryostat
@@ -105,7 +106,7 @@
 \def\nominalmodsize{\SI{10}{kt}\xspace} % nominal module size 10 kt
 
 \def\dunelifetime{\SI{20}{year}\xspace} % nominal operational life time of DUNE experiment
-
+\def\beamturnon{{2026}\xspace} % the year we expect beam to turn on
 
 % Parameters SP
 \def\spmaxfield{\SI{500}{\volt/\centi\meter}} % SPfield strength
@@ -119,6 +120,7 @@
 \def\uvpitch{\SI{4.669}{\milli\meter}\xspace}
 \def\xgpitch{\SI{4.790}{\milli\meter}\xspace}
 \def\planespace{\SI{4.75}{\milli\meter}\xspace}
+\def\sptargetdriftvoltpos{\SI{180}{kV}\xspace} % target drift voltage - positive
 
 % Parameters DP
 \def\dpactivelarmass{\SI{12.096}{\kt}\xspace} % active mass in cryostat
@@ -137,6 +139,7 @@
 \def\dpnumfcmod{\num{244}\xspace} % number of FC modules
 \def\dpnumfcres{\num{240}\xspace} % number of FC resistors
 \def\dpnumfcrings{\num{60}\xspace} % number of FC rings
+\def\dpnominaldriftfield{\SI{500}{kV/cm}\xspace} % target drift voltage - positive
 \def\dptargetdriftvoltpos{\SI{600}{kV}\xspace} % target drift voltage - positive
 \def\dptargetdriftvoltneg{\SI{-600}{kV}\xspace} % target drift voltage - negative
 
