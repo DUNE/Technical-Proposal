@@ -30,11 +30,12 @@ the culmination of several worldwide efforts that developed independent paths to
 It was formed in April 2015, combining the strengths of the LBNE project in the USA and the LBNO project in Europe, adding many new international 
 partners in the process. DUNE thus represents the convergence of a substantial fraction of the worldwide neutrino-physics community around the 
 opportunity provided by the large investment planned by the U.S. Department of Energy (DOE) to support 
-a significant expansion of the underground infrastructure at \surf in South Dakota, and to create a megawatt neutrino-beam facility at  \fnal by 2026. 
+a significant expansion of the underground infrastructure at \surf in South Dakota, and to create a megawatt neutrino-beam facility at  \fnal by \beamturnon{}. 
 The PIP-II upgrade~\cite{pip2-2013}
-will enable the accelerator to drive the new neutrino beamline with a beam power. %\footnote{assuming a \SI{120}{\GeV} primary proton beam. 
-For a \SI{80}{\GeV} primary proton beam, the corresponding beam power is \SI{1.07}{\MW} of up to \SI{1.2}{\MW}. A further planned upgrade 
-of the accelerator complex will enable it to provide up to \SI{2.4}{\MW} of beam power by 2030.  \fixme{fix above - anne}
+will enable the accelerator to drive the new neutrino beamline with %a beam power of up to \pipiibeampower{}. %\footnote{assuming a \SI{120}{\GeV} primary proton beam. For 
+a \SI{80}{\GeV} primary proton beam at a beam power %from \SI{1.07}{\MW} 
+up to \pipiibeampower{}. A further planned upgrade 
+of the accelerator complex will enable it to provide up to \SI{2.4}{\MW} of beam power by 2030. 
 
 The LBNF/DUNE project (the \textit{project}) strategy presented in this technical proposal has been developed to meet the requirements set out in the report of the Particle Physics Project Prioritization Panel (P5). It also takes into account the recommendations of the European Strategy for Particle  Physics (ESPP) adopted by CERN Council in 2013, which classified the \dword{lbl} neutrino program as one of the four scientific objectives that requires international infrastructure.
 %which recommends development of
@@ -55,10 +56,9 @@ improvement in discovery sensitivity over current searches for the proton lifeti
 %the strategy presented here meets these criteria. 
 
 
-This document presents 
-a technical proposal (TP) developed by an international collaboration of scientists and engineers to construct DUNE,
-a groundbreaking science experiment for \dword{lbl} neutrino oscillation studies, neutrino astrophysics, and nucleon decay searches. As will be described in the final section of this executive summary, this technical proposal for the DUNE far \dwords{detmodule} is an intermediate milestone toward the production of a full \dword{tdr} approximately one year later.
+This document serves as the \dword{tp} for the DUNE \dword{fd}.  The \dword{tp}  is intended to provide a clear statement of the physics goals and methods of the DUNE experiment, and to describe the detector technologies that have been designed to achieve these goals. Introductions to each chapter are intended to be useful and informative to technical specialists who serve in national science agencies. The body of the document is intended to be useful and informative to members of the international high energy physics community.  The \dword{tp} deliberately emphasizes the connections between the physics and technologies of the DUNE \dword{fd} modules. Very important project related tasks are presented in summary form. No information about cost is included, and schedule information appears only in the form of high-level milestones. The \dword{tp} forms the nucleus of the \dword{tdr}, which will be presented to international science  agencies and the HEP community in 2019.
 
+%Volumes 2 and 3 of the TP provide detailed descriptions of the single phase and dual phase TPC options respectively.  These volumes have been prepared by the appropriated detector consortia with input from the DUNE Technical Coordinator team.  Volume 1, this volume, contains, in addition to this executive summary, chapters that describe the DUNE physics program and two overarching systems required to execute this program: computing and calibration.
 
 %
 
@@ -73,8 +73,7 @@ The DUNE experiment will combine the world's most intense neutrino beam, a deep 
 The primary science goals of DUNE, described in detail in Chapter~\ref{ch:exec-summ-physics}, are to
 \begin{itemize}
 
-\item Carry out a comprehensive program of neutrino oscillation measurements using \numu and \anumu beams from \fnal. This program includes measurements of the \dword{cp} phase, determination of the neutrino mass ordering (the sign of $\Delta m^2_{31} $\fixme{ check}
-\dm{31}$ \equiv m_3^2-m_1^2$), measurement of the mixing angle $\theta_{23}$ and the determination of the octant in which this angle lies,
+\item Carry out a comprehensive program of neutrino oscillation measurements using \numu and \anumu beams from \fnal. This program includes measurements of the \dword{cp} phase, determination of the neutrino mass ordering (the sign of \dm{31}$ \equiv m_3^2-m_1^2$), measurement of the mixing angle $\theta_{23}$ and the determination of the octant in which this angle lies,
 and sensitive tests of the three-neutrino paradigm. Paramount among these is the search for \dword{cpv} in neutrino oscillations, which may give insight into the origin of the matter-antimatter asymmetry, one of the fundamental questions in particle physics and cosmology. 
 
 \item Search for proton decay in several important decay modes, such as $\text{p}\rightarrow\text{K}^+\overline{\nu}$. The observation of proton decay would represent a ground-breaking discovery in physics, providing a key requirement for grand unification of the forces. 
@@ -129,7 +128,7 @@ PIP-III upgrade;
 by 2021 
 under a single contract, with each cavern to be capable of housing a cryostat with 
 a minimum \nominalmodsize fiducial mass \lartpc; and
-%\fixme{changed per SP}
+
 
 
 \item surface, shaft, and underground infrastructure to support 
@@ -316,36 +315,22 @@ The project concludes with CD-4 approval to start operations.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{A Roadmap of the TP}
-\fixme{I played with this section more; I think this is what it needs to say. anne 5/15}
 
 The DUNE \dword{tp} describes the proposed physics program and 
-technical designs of the facility and detectors in preparation for the full \dword{tdr} 
-to be published in 2019.  \fixme{no, it doesn't describe the facility}
+technical designs of the far detector in preparation for the full \dword{tdr} 
+to be published in 2019.  
 It is intended as an intermediate
 milestone on the path to a full \dword{tdr}, justifying the technical choices that flow down from the high-level physics goals through requirements at all levels of the Project. These design choices will enable the DUNE experiment to make the ground-breaking discoveries that will help to  answer %the flagship 
 fundamental physics questions.
 
 The  \dword{tp} is composed of three volumes. Volume 1 contains this executive summary, which describes 
-the general aims of this document. The other chapters introduce DUNE's primary and ancillary science programs, describe a computing and software model for DUNE, and give a possible calibration strategy for the \lar \dwords{detmodule}. 
+the general aims of this document. The remainder of this first volume provides a more detailed description of the DUNE physics program that drives these technologies and concise outlines of two overarching systems that have not yet evolved to consortium structures:  computing and calibration. 
+%The second chapter summarizes DUNE's primary and ancillary science programs, and the third and fourth describe a computing and software model for DUNE and a possible calibration strategy, respectively, important topics that are under development in parallel with the detector development. % for the \lar \dwords{detmodule}.  
 Volumes 2  and 3 describe, for the \dword{spmod} and the \dword{dpmod}, respectively, the module's subsystems, the technical coordination required for its design, construction, installation, and integration, and its organizational structure.
 
 
+
 This \dword{tp}  represents the state of the design for the first three DUNE far detector modules at this moment
-in time. The fourth module could employ a different \lartpc technology, taking into account lessons learned from the design of the first modules, \fixme{and potential advances in technology? anne} to further optimize the sensitivity for physics discoveries. It is beyond the scope of this proposal. Also not covered in this proposal is the DUNE Near Detector, which constitutes an integral but less well developed portion of the experiment's  physics program. Separate \dwords{tdr}  for these detector systems will be
+in time. The fourth module could employ a different \lartpc technology, taking into account  potential advances in technology to further optimize the sensitivity for physics discoveries. It is beyond the scope of this proposal. Also not covered in this proposal is the DUNE Near Detector, which constitutes an integral but less well developed portion of the experiment's  physics program. Separate \dwords{tdr}  for these detector systems will be
 provided in the future.
-
-\fixme{This should be the end of this section}
-%Two prototype liquid-argon detectors, ProtoDUNE Single-phase (SP) and Dual-phase (DP) 
-%The two large prototypes, \dword{pdsp} and \dword{pddp}, are currently under construction at CERN on track to take data later this year. 
-%The experience gained from building and then operating these detectors using cosmic rays and a charged-particle beam will be crucial for refining and optimizing the design choices to be presented in the \dword{tdr}. %At the same time as writing this TP, the Collaboration has made fast progress in constructing and assembling the ProtoDUNE detectors, which are on track to take data later this year. 
-
-%These technical design choices therefore flow from the requirements defined by the high-level physics goals.
-
-%In addition to this Executive Summary, the TP comprises two volumes describing the two liquid-argon detector technologies, as well as the installation and integration plans for the detector.
-%\begin{itemize}
-% \item Single-phase DUNE Far Detector (Volume~2)
-% \item Dual-phase DUNE Far Detector (Volume~3)
-%\end{itemize}
-%The Executive Summary describes the general aims of this document, In addition, it contains discussions of a possible calibration strategy for the liquid-argon detectors, and of a computing and software model for DUNE. It will then introduce the primary and ancillary science programs. Volumes 2 and 3 are devoted to the two complementary technology choices for the liquid-argon detectors. 
-
 
