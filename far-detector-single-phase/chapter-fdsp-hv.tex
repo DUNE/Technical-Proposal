@@ -54,17 +54,16 @@ Electrically, linking such electrodes to span more than \SI{100}{\m} in total le
 
 Having the \dword{fc} divided into mechanically and electrically independent modules eases the construction and assembly of the \dword{fc}, and also greatly restricts the extend of drift field distortion caused by a resistor failure on the divider chain of a \dword{fc} module.
 
-If the cathode is made of metal, a \dword{hv} discharge can cause the electrical potential of the entire cathode surface to swing from its nominal bias (e.g., \SI{-180}{kV}) to \SI{0}{V} in nanoseconds. This would induce a large current into the analog \dword{fe} amplifiers connected to the sensing wires on the \dwords{apa} (mostly to the first induction wire plane channels). Internal study (docdb 1320) has shown that this surge of current would overwhelm the internal ESD protection in the \dword{fe} ASICs.  To reduce this induced current, we chose to construct the cathode out of material with high resistivity.  Figure~\ref{fig:cpa-frame-discharge} shows the release of stored energy in time and the voltage distribution of a section of the cathode at one moment in time.  To minimize the induced current to the amplifiers, the surface resistivity should be raised until the ionization current from the TPC starts to cause significant voltage drop along the cathode.  In the DUNE FD the current is dominated by $^{39}$Ar decay, and we can tolerate surface resistivity well above \SI{1}{\giga\ohm/$\Box$}. 
+If the cathode is made of metal, a \dword{hv} discharge can cause the electrical potential of the entire cathode surface to swing from its nominal bias (e.g., \SI{-180}{kV}) to \SI{0}{V} in nanoseconds. This would induce a large current into the analog \dword{fe} amplifiers connected to the sensing wires on the \dwords{apa} (mostly to the first induction wire plane channels). Internal study (docdb 1320) has shown that this surge of current would overwhelm the internal ESD protection in the \dword{fe} ASICs.  To reduce this induced current, we chose to construct the cathode out of material with high resistivity.  Figure~\ref{fig:cpa-frame-discharge} shows the release of stored energy in time and the voltage distribution of a section of the cathode at one moment in time.  To minimize the induced current to the amplifiers, the surface resistivity should be raised until the ionization current from the TPC starts to cause significant voltage drop along the cathode.  In the DUNE FD the current is dominated by $^{39}$Ar decay, and we can tolerate surface resistivity well above \SI{1}{\giga\ohm/sq}. 
 
 
 \begin{dunefigure}[Simulated \dword{cpa} discharge event]
 {fig:cpa-frame-discharge}
-{Bottom: Simulated \dword{cpa} Discharge event on a highly resistive cathode surface (1\,G$\Omega$/$\Box$), showing the voltage distribution on a section of the cathode (2.3\,m $\times$ 12\.m) 0.2\,ms after the discharge. Top: Time dependence of removal of stored energy.}
-\centering
-\includegraphics[width=0.6\textwidth]{A2r} \\ \vspace{30pt}    %update image with red labels
-\includegraphics[width=0.5\textwidth]{A3r}
+{Simulated \dword{cpa} Discharge event on a highly resistive cathode surface (1\,G$\Omega$/sq). Left: Time dependence of removal of stored energy. Right: Voltage distribution on a section of the cathode (2.3\,m $\times$ 12\.m) 0.2\,ms after the discharge.}
+\includegraphics[width=0.4\textwidth]{A2}
+\includegraphics[width=0.4\textwidth]{A3}
 \end{dunefigure}
-%\fixme{numbers in figures are too small to read. Anne. Answer: old figure, not fixable on this time frame. Added \textbf{axis} labels in response to collaboration comment. Anne again: we could separate them so that they can each be bigger.}
+\fixme{numbers in figures are too small to read. Anne. Answer: old figure, not fixable on this time frame. Added \textbf{axis} labels in response to collaboration comment. Anne again: we could separate them so that they can each be bigger.}
 
 The SP HV system may have modifications if problems are identified in the present design in ProtoDune. Issues identified in earlier testing form the basis of an ongoing R\&D program.
 
@@ -213,16 +212,10 @@ Figure~\ref{fig:ps_filter_ft_schematic} provides a sample schematic of the \dwor
 {Left:  A schematic showing the \dword{hv} delivery system to the cryostat (Credit:  SEL).%The two filters are places such that one is near the power supply and one is near the feedthrough. 
 One of the two filters sits near the power supply; the other sits near the feedthrough. Right:  %An example 
 A Heinzinger power supply (Credit: H.~Wang).}
-%\includegraphics[width=0.2\textwidth]{heinzy}
-%\includegraphics[width=0.7\textwidth]{ps_filter_ft_schematic}  %requested image edits by DeMuth
-\begin{minipage}{6in}
-  \centering
-  $\vcenter{\hbox{\includegraphics[width=0.2\textwidth]{heinzy}}}$
-  \hspace*{.2in}
-  $\vcenter{\hbox{\includegraphics[width=0.7\textwidth]{ps_filter_ft_schematic}}}$
-\end{minipage}
+\includegraphics[width=0.6\textwidth]{ps_filter_ft_schematic}
+\includegraphics[width=0.3\textwidth]{heinzy}
 \end{dunefigure}
-%\fixme{Schematic is too small in this configuration. Is the photo needed to aid understanding? Anne. RKP: Rearranged figure layout.}
+\fixme{Schematic is too small in this configuration. Is the photo needed to aid understanding? Anne. RKP: Rearranged figure layout.}
 The requirement %of 
 on low electronics noise sets the upper limit of residual voltage ripple on the cathode to be \SI{0.9}{mV}.  Typically, commercial supplies %can 
 specify  that the ripple variation is limited to % less than or equal to $0.001\%V_{nom} \pm 50$ mV.  
@@ -276,8 +269,7 @@ The \dword{cpa} also provides \dword{hv} to the first profile on the top and bot
 Details on the electrical connections are found in Section ~\ref{sec:fdsp-hv-design-interconnect}.
 
 \begin{dunefigure}[\dword{hv} input donut connection to \dword{cpa}]{fig:donut_cpa}{\dword{hv} input donut connection to \dword{cpa}.}
-%\includegraphics[width=0.6\textwidth]{donut_cpa} %{ was Latest3D}   %image edit request completedd by DeMuth
-\includegraphics[width=0.6\textwidth]{donut_cpa2} %{ was Latest3D}
+\includegraphics[width=0.6\textwidth]{donut_cpa} %{ was Latest3D}
 \end{dunefigure}
 
 Ideally, the cathode would be constructed from a large thin resistive sheet.  However, inside the cryostat, there is a moderate convective flow of the \lar that can produce a small pressure difference across the cathode surface.  To maintain the position and flatness of the cathode, the cathode surface must be reinforced for stiffness.  This is accomplished using \SI{6}{cm} thick FR-4 frames at \SI{1.2}{m} intervals. Since FR4 is a good insulator at cryogenic temperature with a different dielectric constant that \lar, the presence of the frame causes a local \efield distortion that can become pronounced if the frame surface charges up as a reult from ionization in the TPC.  To minimize this distortion, a resistive field shaping strip is placed on the cathode frame and biased at a different potential.  Figure~\ref{fig:fss_concept} illustrates the drift field uniformity improvement with the field shaping strips.
@@ -556,7 +548,7 @@ The FRP and FR4 components of the  \dwords{topfc} and \dwords{botfc} will be com
 The FRP frame assembly primarily consists of fastening together FRP I-beams with FRP threaded rods and hex nuts, which are secured with a limited and specified torque, to avoid damage to the threads. A detailed view of one of these connections is shown in Figure~\ref{fig:tbfc3}.
 
 \begin{dunefigure}[Top and bottom \dword{fc} module frame assembly]{fig:tbfc3}{The above figure shows the procedure for connecting the cross beams to the main I-beams for the \dword{topfc}. Left: The components of each connection, which (from top to bottom) are the threaded rods, the spacer tubes, washer plates, the hexagonal nuts, and an L-shaped FRP brace. An intermediate stage (middle) and final stage (right) of the assembly are also shown."}
-\includegraphics[width=0.75\textwidth]{tbfc3}  %adjust image size slightly
+\includegraphics[width=0.85\textwidth]{tbfc3}
 \end{dunefigure}
 
 Prior to sliding each profile into the FRP frame, the holes should be covered with Kapton tape to avoid damage to the profile coating. An end cap is attached to each profile using plastic rivets, and then the profiles are aligned against an aligment fixture running the length of the \dword{fc}. After securing each profile to the frame, the tension in the mounting screws is adjusted to remove any angular deflection in the extended portion of the profile.
