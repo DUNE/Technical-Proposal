@@ -26,7 +26,9 @@ constitute a large fraction of the %total
 internal structures of the \dword{tpc}. % itself. 
 Mechanical and structural concerns are taken into account, together with the electrical design to meet the requirements. 
 
-The design presented in this chapter is primarily based on the \dword{pddp} design. \dword{pddp} includes a set of basic elements (field cage sub-modules, cathode and ground grid modules) which are deployed to build a TPC with a $6 \times 6 \times 6$ $m^3$ active volume. The extrapolation to the \dword{dpmod} structure with $12 \times 12 \times 60$ $m^3$ active volume is based on the same elements designed for \dword{pddp} with some electrical and mechanical adaptations.  The size of each element is kept with an envelop of about $3 \times 3$ $m^2$, matching the one of the  \dword{crp} modules, optimized for underground transportation and assembly.
+The design presented in this chapter is primarily based on the \dword{pddp} design, which includes a set of basic elements (i.e., \dword{fc} sub-modules, cathode and ground grid modules) that are deployed to build a TPC with a 6$\times$6$\times$6\,m$^3$ active volume. The extrapolation to the \dword{dpmod} structure with 
+\tpcheight$\times$\dptpcwdth$\times$\dptpclen\,m$^3$ active volume %is based on the same elements designed for \dword{pddp} with 
+requires some electrical and mechanical adaptations.  The size of each element is kept within a roughly 3$\times$3\,m$^2$ envelope, matching the size of the  \dword{crp} modules, which was optimized for underground transportation and assembly.
 
 
 
@@ -160,7 +162,8 @@ made from two types of tubes:
 an external frame made from \SI{60}{\milli\m} diameter tubes, and the internal portion is made from oval pipes of $\SI{20}{\milli\m}\times \SI{40}{\milli\m}$ with \SI{1.5}{mm} thickness, as shown in Figure~\ref{fig:dune-dp-cathode}. 
 This frame is filled with smaller tubes of \SI{12}{\milli\m} diameter (not shown in the figure), forming a grid, to provide a uniform equipotential surface, while ensuring \SI{60}{\%} optical transparency. All diameters are optimized to guarantee a uniform potential across the cathode, to satisfy the maximum local field requirement of $\SI{30}{kV/\centi\m}$, and to minimize the local \efield{}s to ground. 
 The cathode plane components are bolted together and fixed to the supporting  fiber-reinforced plastic (FRP) I-beams of the \dword{fc}. 
-Modules of the same size as for \dword{pddp} are foreseen for the \dpmod{} cathode. Some mechanical modifications will be performed in order to guarantee the flatness over a longer distance of  \SI{12}{\m} compared to the  \SI{6}{\m} of  \dword{pddp}.  In addition the shape of the conductors could undergo some slight modifications in order to lower the local electric field values based on the \dword{pddp} experience.
+%
+Modules of the same size as for \dword{pddp} are foreseen for the \dpmod{} cathode. Some mechanical modifications will be performed in order to guarantee the flatness over the longer distance of  \SI{12}{\m} compared to the  \SI{6}{\m} of  \dword{pddp}.  In addition, the shape of the conductors could undergo some slight modifications in order to lower the local \efield values based on the \dword{pddp} experience.
 
 \begin{dunefigure}[Cutaway view of \dword{pddp} cathode]{fig:dune-dp-cathode}
 {A cutaway view of \dword{pddp} cathode(Credit: ETHZ)}
@@ -229,8 +232,10 @@ A railed rib runs along the length of the aluminum profiles at the center of the
 All profiles at a given height are electrically connected via an aluminum clip screwed onto the slip nut across two neighboring profiles.  A resistive divider chain interconnects the aluminum profiles to provide a linear voltage gradient between the cathode and the top field-shaping ring.   
 
 
-The extruded aluminum profiles are mounted to the \SI{15.2}{\cm} (\SI{6}{in}) I-beam via two stainless screws and aluminum slip nuts in the center enforcement rail of the profile. The mounting is only on one of the \SI{15.2}{\cm} I-beams to allow contraction on either side of the profile. The top submodule has an extended \SI{15.2}{\cm} FRP beam with holes to connect it to the stainless steel I-beam hanging from the ceiling.  The bottom submodule has a cutout to hold the cathode plane onto it. The four middle submodules are symmetric and thus interchangeable.
-Field cage modules are horizontally interconnected with six G10 bars screwed to the vertical FRP I-beams at positions evenly distributed along the 12 m height. This interconnection guarantees the required alignment of the adjacent aluminum profiles for clipping. Given this interconnection the full field cage can be considered as single skeleton mostly composed by FRP which will shrink by about 12 cm over 60 m once the cryostat is filled with liquid argon. This effect is compensated by designing the G10 bars slightly longer than their final length at cold.
+The extruded aluminum profiles are mounted to the \SI{15.2}{\cm} (\SI{6}{in}) I-beam via two stainless screws and aluminum slip nuts in the center enforcement rail of the profile. The mounting is only on one of the \SI{15.2}{\cm} I-beams to allow contraction on either side of the profile. The top submodule has an extended \SI{15.2}{\cm} FRP beam with holes to connect it to the stainless steel I-beam hanging from the ceiling.  The bottom submodule has a cutout to hold the cathode plane onto it. The four middle submodules are symmetric, and thus interchangeable.
+%
+\Dword{fc} modules are horizontally interconnected with six G10 bars screwed to the vertical FRP I-beams at positions evenly distributed along the \tpcheight height. This interconnection guarantees the required alignment of the adjacent aluminum profiles for clipping. Given this interconnection, the full \dword{fc} can be considered as single skeleton that is mostly composed of FRP, which will shrink by about \SI{12}{cm} over \SI{60}{m} once the cryostat is filled with \lar. %This effect is compensated by designing
+To compensate for this, the G10 bars are designed to be slightly longer than their final length in the \lar.
 
 
 \subsubsection{Electrical Interconnections}
@@ -438,7 +443,7 @@ These interfaces are effectively at the level of design requirements.
 
 
 The \dword{fc} FRP beams and G10 parts are shipped in a standard wooden crate.  Parts for each submodule are packed into one %IKEA-style package 
-flatpack of dimensions \SI{0.2}{m}$\times$\SI{0.2}{m}$\times$\SI{2}{m} sealed in multiple layers of shrink wrap and a thick soft cushion of plastic for edge protection.   Due to the compact size of each submodule package and since a total of 530 or so submodules are expected, including 10\% spare, the total number of crates for FRP parts to be transported down will be small. Given the dimensions of the hoist cage an optimal crate size could be \SI{1.2}{m}$\times$\SI{1.5}{m}$\times$\SI{2.3}{m}, containing 30 flatpacks of FRP parts.
+flatpack of dimensions \SI{0.2}{m}$\times$\SI{0.2}{m}$\times$\SI{2}{m} sealed in multiple layers of shrink wrap and a thick soft cushion of plastic for edge protection.   Due to the compact size of each submodule package and since a total of \num{530} or so submodules are expected, including 10\% spare, the total number of crates for FRP parts to be transported down the shaft will be small. Given the dimensions of the hoist cage, an optimal crate size could be \SI{1.2}{m}$\times$\SI{1.5}{m}$\times$\SI{2.3}{m}, each containing \num{30} flatpacks of FRP parts.
 
 % Anne started a rewrite A total of \num{530} plus \SI{10}{\%} spare submodules are expected. 
 %\fixme{not clear how many submodule packages per crate, and need distinction betw FRP parts and submodules. I'm confused} 
@@ -446,7 +451,12 @@ flatpack of dimensions \SI{0.2}{m}$\times$\SI{0.2}{m}$\times$\SI{2}{m} sealed in
 The extruded aluminum profiles for \dword{fc} are shipped separately in  standard wooden crates.  A total of \num{197} profiles are needed for each \tpcheight module. Therefore, the total number of profiles to be transported down underground would be of the order \num{18000}, including \SI{10}{\%} spares.  The same number of aluminum clips are also shipped in standard wooden crates and are transported underground separately. 
 
 
-The cathode modules of dimension  \SI{3}{m}$\times$\SI{3}{m} are assembled off-site and shipped to \surf in their transport containers. Given the paucity of storage space at the 4850L, the cathode plane is assembled as each unit cathode plane arrives at the cavern -- in its assigned order -- and is unwrapped. The cathode plane is assembled inside the cryostat by connecting the cathode units mechanically and electrically. The installation sequence has to take into account the accessibility constraints on the cathode modules assembly given by the ground grid modules and photomultipliers installation. The integration will start from  the cryostat end opposite to the TCO.  The field cage modules covering the 12 m long side of the cryostat will be first installed. This installation will be followed by the CRPs installation which requires the accessibility to the cryostat floor. Once a $3 \times 12$ $m^2$ strip of CRP modules is installed the corresponding field cage side modules will be installed followed by the installation of the 4 cathode modules. The 4 ground grid modules will be initially attached to the cathode modules allowing access for the removal of the false floor  and the subsequent installation and cabling of the photomultipliers below the cathode modules.  After the installation of the photomultipliers the ground grid modules will be lowered to their final positions. This installation sequence is repeated until filling the entire detector. The field cage modules covering the end wall on the TCO side will be installed before the installation of the last  $3 \times 12$ $m^2$ cathode strip.
+The cathode modules of dimension  \SI{3}{m}$\times$\SI{3}{m} are assembled off-site and shipped to \surf in their transport containers. Given the paucity of storage space at the 4850L, the cathode plane is assembled as each unit cathode plane arrives at the cavern -- in its assigned order -- and is unwrapped. The cathode plane is assembled inside the cryostat by connecting the cathode units mechanically and electrically, taking into account the constraints imposed by the installation of the \dword{gg} modules and the \dwords{pmt}. 
+%
+%The installation sequence takes into account the accessibility constraints on the cathode modules assembly imposed by the ground grid modules and photomultipliers installation. %%%%
+
+The integration starts from  the cryostat end opposite to the \dword{tco}.  The field cage modules covering the 12 m long side of the cryostat are installed  first. This installation is followed by the CRP installation, which requires access to the cryostat floor. Once a 3$\times$12\,m$^2$ strip of CRP modules is installed, the corresponding field cage side modules are installed followed by the installation of the four cathode modules. The four ground grid modules are initially attached to the cathode modules allowing access for the removal of the false floor  and the subsequent installation and cabling of the photomultipliers below the cathode modules.  After the installation of the photomultipliers, the ground grid modules are lowered to their final positions. This installation sequence is repeated until %filling 
+the entire detector is complete. The field cage modules covering the endwall on the TCO side are installed before the installation of the last  $3 \times 12$ m$^2$ cathode strip.
 
 
 The power supply, \fdth{}s and \dword{hv} extender are sent to \surf in standard shipping crates. Unwrapping requires clean areas and careful handling. Surfaces can be cleaned with alcohol and allowed to dry.
@@ -493,7 +503,8 @@ Upon arrival at \surf the power supply used in the \dword{dpmod} \dword{hv} syst
 %
 
 In all phases of \dword{hv} system development of the \dpmod, including fabrication, installation, and operations, safety is the highest priority.  %Assembly, testing, transport, and installation procedures will be documented. %Particular attention is presently paid to these topics in the design of the \dword{pddp} detector, with explicit attention paid to the transferability of the procedures to the development of the \dpmod; the most critical of these are noted in the preliminary \dword{hv} risk assessment. \fixme{add reference}
-As for \dword{pddp}, assembly, testing, transport, and installation procedures will be documented. Explicit attention is paid to the transferability of the \dword{pddp} procedures to the \dpmod; the most critical of these are noted in the preliminary \dword{pddp}  risk assessment document (CERN EDMS document number 1856841)  
+As for \dword{pddp}, assembly, testing, transport, and installation procedures will be documented. Explicit attention is paid to the transferability of the \dword{pddp} procedures to the \dpmod; the most critical of these are noted in the preliminary \dword{pddp}  risk assessment document\footnote{CERN EDMS document number 1856841.}.
+\fixme{make a citation later}
 
 %\fixme{add reference}
 
