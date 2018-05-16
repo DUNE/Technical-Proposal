@@ -21,7 +21,7 @@ Number of \dword{apa} channels & \spnumch & \\\colhline
 Number of \dword{pds} channels & \spnumpdch & \\ 
 \end{dunetable}
 
-\fixme{Fix all numbers in previous table.  Pls use/fix values in def.tex. -Anne}
+%\fixme{Fix all numbers in previous table.  Pls use/fix values in def.tex. -Anne}
 
 The cryostat is constructed such that its long axis is aligned with the beam arriving from \fnal.  The TPC  inside the cryostat is composed of two rows of \dwords{cpa} oriented along the long axis of the cryostat, flanked on either side by rows of \dwords{apa}.  A \dword{fc} completely surrounds the four
 open sides of the four drift regions to ensure that the \efield within is uniform and unaffected by the presence of the cryostat walls and other nearby conductive structures.  Integrated within each \dword{apa} are elements of the \dword{pds} as well as electronics to process the \dword{apa} signals.  Around the periphery of the TPC various instrumentation for monitoring the cryogenic environment is present.  Outside of the cryostat, additional electronic readout and data acquisition equipment is present to transfer information from the \dword{detmodule}.  Figure~\ref{fig:dune-sp-overview} illustrates the basic arrangement of the TPC elements within the \dword{spmod}.
@@ -90,9 +90,9 @@ Among the novel features of the \single \lartpc are the presence of wrapped anod
 \subsection{TPC Electronics}
 \label{sec:fdsp-ov-elec}
 
-The electronics system, described in full detail in Chapter~\ref{ch:fdsp-tpc-elec}, is responsible for manipulating the signals present on the \dword{apa} wires and ultimately transferring them out of the cryostat and on to the \dword{daq} system.  The first stage of low-noise electronics in the experiment are located directly on the end of the \dword{apa}, where the ionization signals are initially shaped and amplified before further processing. 
+The electronics system, described in full detail in Chapter~\ref{ch:fdsp-tpc-elec}, is responsible for manipulating the signals present on the \dword{apa} wires and ultimately transferring them out of the cryostat and on to the \dword{daq} system.  %The first stage of low-noise electronics in the experiment are located directly on the end of the \dword{apa}, where the ionization signals are initially shaped and amplified before further processing. 
+Several stages of signal processing occur within the cryostat, including \dword{fe} amplification and pulse shaping, analog-to-digital conversion, and control and communication functions.
 
-\fixme{check how division between \dword{ce} and readout is being addressed.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,21 +109,24 @@ Among the novel features of the \single \lartpc is the use of resistive panels f
 \subsection{Photon Detection}
 \label{sec:fdsp-ov-pds}
 
-The \dword{pds}, described in full detail in Chapter~\ref{ch:fdsp-pd}, is used to capture scintillation light produced by interactions in the TPC.  The scintillation light of argon is very deep in the ultraviolet, so the \dword{pd} elements are designed to shift this wavelength closer to the visible spectrum where the \dword{spmod} has high efficiency.  
+The \dword{pds}, described in full detail in Chapter~\ref{ch:fdsp-pd}, is used to capture scintillation light produced by interactions in the TPC.  The scintillation light of argon is very deep in the ultraviolet, so the \dword{pd} elements are designed to shift this wavelength closer to the visible spectrum where the \dword{spmod} has high efficiency.   
+The \dword{pds} light detectors are geometrically arranged as approximately \SI{15}{cm} wide vertical strips mounted in the \dwords{apa}, with ten strips per \dword{apa}.  The light collection implementation continues to be optimized.  Electronic signals are generated via silicon \dwords{sipm} immersed in the \lar and passed on to readout modules outside the cryostat.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data Acquisition}
 \label{sec:fdsp-ov-daq}
 
-The \dword{daq} system, described in full detail in Chapter~\ref{ch:fdsp-daq}, ...
-
+The \dword{daq} system, described in full detail in Chapter~\ref{ch:fdsp-daq}.
+DUNE physics requires that the \dword{daq} system record \dword{apa} and \dword{pds} signals with high efficiency both from relatively high-energy (>\SI{100}{MeV}) single interactions from beam and atmospheric neutrinos, interactions from proton decay (that are localized in both space and time), and from multiple low-energy (<\SI{100}{MeV}) interactions distributed throughout the detector over tens of seconds from \dwords{snb}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cryogenic Instrumentation and Slow Controls}
 \label{sec:fdsp-ov-instr}
 
-The \dword{cisc} system, described in full detail in Chapter~\ref{ch:fdsp-slow-cryo}, ...
+The \dword{cisc} system, described in full detail in Chapter~\ref{ch:fdsp-slow-cryo}.
+This system provides comprehensive monitoring for all \dword{detmodule} components as well as for the \lar quality and behavior.  Beyond passive monitoring, \dword{cisc} also provides a control system for some of the detector components.
 
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technical Coordination}
+\label{sec:fdsp-ov-tc}
+Chapter~\ref{ch:fdsp-coord} provides an overview of detector integration and installation functions. These include project support, integration, infrastructure, the DUNE \dword{itf}, and installation.
 
