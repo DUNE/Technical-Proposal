@@ -27,7 +27,8 @@ towards the \dwords{apa} at sides and center.
 One should note that the dword{hv} systems for the \single and \dual TPC concepts share components with similar designs. These include the \dwords{fc} profiles and supporting FRP beams as well as the voltage divider boards. More details can be found in \voltitledpfd Chapter 4.
 
 
-\begin{dunefigure}[One unit of \dword{spmod} showing \dwords{cpa} and \dwords{apa}]{fig:dune_sp_fd}
+\begin{dunefigure}[One unit of the \dword{spmod}]% showing \dwords{cpa} and \dwords{apa}]
+{fig:dune_sp_fd}
 {%Interior of a \dword{spmod}. The \dwords{cpa} occupy the second and fourth positions, between the three \dwords{apa}.  \Dwords{topfc} and \dwords{botfc} field cages are shown in blue (Image: CAD model).
 A schematic of a \dword{spmod} showing the three \dword{apa} arrays (at the far left and right and in the center, spanning the entire \dword{detmodule} length) and the two \dword{cpa} arrays, occupying the intermediate second and fourth positions. The top and bottom \dword{fc} modules are shown in blue; the \dwords{ewfc} are not shown. 
 On the right, the front top and bottom \dword{fc} modules are shown folded up against the \dword{cpa} panels to which they connect, as they are positioned for shipping and insertion into the cryostat.  The \dwords{cpa}, \dwords{apa} and \dwords{fc} together define the four drift volumes of the \dword{spmod}.}
@@ -59,13 +60,13 @@ If the cathode is made of metal, a \dword{hv} discharge can cause the electrical
 
 \begin{dunefigure}[Simulated \dword{cpa} discharge event]
 {fig:cpa-frame-discharge}
-{Simulated \dword{cpa} Discharge event on a highly resistive cathode surface (1\,G$\Omega$/sq). Left: Time dependence of removal of stored energy. Right: Voltage distribution on a section of the cathode (2.3\,m $\times$ 12\.m) 0.2\,ms after the discharge.}
-\includegraphics[width=0.4\textwidth]{A2}
-\includegraphics[width=0.4\textwidth]{A3}
+{Bottom: Simulated \dword{cpa} Discharge event on a highly resistive cathode surface (1\,G$\Omega$/$\Box$), showing the voltage distribution on a section of the cathode (2.3\,m $\times$ 12\.m) 0.2\,ms after the discharge. Top: Time dependence of removal of stored energy.}
+\centering
+\includegraphics[width=0.6\textwidth]{A2r} \\ \vspace{30pt}    %update image with red labels
+\includegraphics[width=0.5\textwidth]{A3r}
 \end{dunefigure}
-\fixme{numbers in figures are too small to read. Anne. Answer: old figure, not fixable on this time frame. Added \textbf{axis} labels in response to collaboration comment. Anne again: we could separate them so that they can each be bigger.}
 
-The SP HV system may have modifications if problems are identified in the present design in ProtoDune. Issues identified in earlier testing form the basis of an ongoing R\&D program.
+The SP \dword{hv} system may have modifications if problems are identified in the present design in \dword{pdsp}. Issues identified in earlier testing form the basis of an ongoing R\&D program.
 
 
 
@@ -207,15 +208,20 @@ Filter resistors are placed in between the power supply and the feedthrough.  Al
 
 Figure~\ref{fig:ps_filter_ft_schematic} provides a sample schematic of the \dword{hv} supply circuit.
 
-\begin{dunefigure}[A schematic showing the \dword{hv} delivery system to the cryostat.  %The two filters are placed such that one is near the power supply and one is near the feedthrough.
-]{fig:ps_filter_ft_schematic}
-{Left:  A schematic showing the \dword{hv} delivery system to the cryostat (Credit:  SEL).%The two filters are places such that one is near the power supply and one is near the feedthrough. 
-One of the two filters sits near the power supply; the other sits near the feedthrough. Right:  %An example 
+\begin{dunefigure}[A schematic showing the \dword{hv} delivery system to the cryostat.]  %The two filters are placed such that one is near the power supply and one is near the feedthrough.
+{fig:ps_filter_ft_schematic}
+{Right:  A schematic showing the \dword{hv} delivery system to the cryostat (Credit:  SEL). %The two filters are places such that one is near the power supply and one is near the feedthrough. 
+One of the two filters sits near the power supply; the other sits near the feedthrough. Left:   %An example 
 A Heinzinger power supply (Credit: H.~Wang).}
-\includegraphics[width=0.6\textwidth]{ps_filter_ft_schematic}
-\includegraphics[width=0.3\textwidth]{heinzy}
+%\includegraphics[width=0.2\textwidth]{heinzy}
+%\includegraphics[width=0.7\textwidth]{ps_filter_ft_schematic}  %requested image edits by DeMuth
+\begin{minipage}{5in}
+  \centering
+  $\vcenter{\hbox{\includegraphics[width=0.2\textwidth]{heinzy}}}$
+  \hspace*{.2in}
+  $\vcenter{\hbox{\includegraphics[width=0.7\textwidth]{ps_filter_ft_schematic}}}$
+\end{minipage}
 \end{dunefigure}
-\fixme{Schematic is too small in this configuration. Is the photo needed to aid understanding? Anne. RKP: Rearranged figure layout.}
 The requirement %of 
 on low electronics noise sets the upper limit of residual voltage ripple on the cathode to be \SI{0.9}{mV}.  Typically, commercial supplies %can 
 specify  that the ripple variation is limited to % less than or equal to $0.001\%V_{nom} \pm 50$ mV.  
@@ -262,14 +268,14 @@ are designed such that the ripple is reduced to an acceptable level when install
 \fixme{`minimize ripple'' is not a validatable requirement. What is the acceptable level? Or what dictates it? Anne. RKP: Addressed in collaboration comments.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cathode Plane Assembly (\dword{cpa})}
+\subsection{Cathode Plane Assembly (CPA)}
 
 The \dword{cpa} provides a constant potential surface at \SI{-180}{\kV} for the \dword{spmod}.  It receives its \dword{hv} from the feedthrough that makes contact with the \dword{hv} bus mounted on the \dword{cpa} frame through an attached donut assembly attached to the frame, as shown in Figure~\ref{fig:donut_cpa}. % shows the connection of the \dword{hv} input donut to the \dword{hv} bus on the \dword{cpa} frame. 
 The \dword{cpa} also provides \dword{hv} to the first profile on the top and bottom \dword{fc} elements and to the \dwords{ewfc} as well. %More d
 Details on the electrical connections are found in Section ~\ref{sec:fdsp-hv-design-interconnect}.
 
 \begin{dunefigure}[\dword{hv} input donut connection to \dword{cpa}]{fig:donut_cpa}{\dword{hv} input donut connection to \dword{cpa}.}
-\includegraphics[width=0.6\textwidth]{donut_cpa} %{ was Latest3D}
+\includegraphics[width=0.6\textwidth]{donut_cpa2} %{ was Latest3D}
 \end{dunefigure}
 
 Ideally, the cathode would be constructed from a large thin resistive sheet.  However, inside the cryostat, there is a moderate convective flow of the \lar that can produce a small pressure difference across the cathode surface.  To maintain the position and flatness of the cathode, the cathode surface must be reinforced for stiffness.  This is accomplished using \SI{6}{cm} thick FR-4 frames at \SI{1.2}{m} intervals. Since FR4 is a good insulator at cryogenic temperature with a different dielectric constant that \lar, the presence of the frame causes a local \efield distortion that can become pronounced if the frame surface charges up as a reult from ionization in the TPC.  To minimize this distortion, a resistive field shaping strip is placed on the cathode frame and biased at a different potential.  Figure~\ref{fig:fss_concept} illustrates the drift field uniformity improvement with the field shaping strips.
@@ -511,7 +517,7 @@ The power supply is tested extensively along with the controls and monitoring so
 The \dword{hv} feedthroughs, filters, and splitter are custom devices.  One feedthrough option is to use the \dword{pdsp} design and similar procurement.  \Dword{hv} splitters are already on hand if they are desired.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\dword{cpa}}
+\subsection{Cathode Plane Assemblies}
 \label{sec:fdsp-hv-prod-cpa}
 
 The component parts of the \dword{cpa} %assembly 
@@ -530,7 +536,7 @@ The most basic element of the \dword{cpa} is an RP mounted in a machined slot in
 \dword{fss} strips are mounted on the exposed sides of the FR4 frames, aluminum profiles are attached to the top and bottom of the upper and lower elements, and cables are attached to the RPs to form segments of the \dword{hv} bus.  The shipment \dword{cpa} unit comes in three varieties in order to make a full \SI{12}{\m} tall \dword{cpa} Panel.  These are : (1) an upper \dword{cpa} RP element attached to a middle element, (2) two middle elements connected, and (3) a middle element attached to a lower element.  The \dword{cpa} unit order in the shipping crate from top to bottom is middle-and-lower, middle-and-middle, and upper-and-middle.  For the \SI{10}{\kt} \dword{spmod}, there are 100 upper elements, 100 lower elements and 400 middle elements that make up the 100 \dword{cpa} panels of the \dword{tpc}.
 A comparison of a \SI{6}{\m} \dword{pdsp} \dword{cpa} panel and a \SI{12}{\m} \dword{pdsp} panel is shown at Ash River in Figure~\ref{fig:12m-cpa}.
 
-\begin{dunefigure}[\dwords{cpa} at Ash River]{fig:12m-cpa}{A \SI{6}{\m} \dword{pdsp} \dword{cpa} panel and a \SI{12}{\m} \dword{pdsp} panel mockup at Ash River.}
+\begin{dunefigure}[\dwords{cpa} at Ash River]{fig:12m-cpa}{A \SI{12}{\m} \dword{pdsp} \dword{cpa} panel and a smaller \SI{6}{\m}  panel mockup at Ash River.}  %closest panel 6m, each strip separated by 2m, this image taken in the pit at Ash River (where NOvA modules were stacked/glued.)
 \includegraphics[width=0.35\textwidth]{12m-cpa}
 \end{dunefigure}
 
@@ -548,7 +554,7 @@ The FRP and FR4 components of the  \dwords{topfc} and \dwords{botfc} will be com
 The FRP frame assembly primarily consists of fastening together FRP I-beams with FRP threaded rods and hex nuts, which are secured with a limited and specified torque, to avoid damage to the threads. A detailed view of one of these connections is shown in Figure~\ref{fig:tbfc3}.
 
 \begin{dunefigure}[Top and bottom \dword{fc} module frame assembly]{fig:tbfc3}{The above figure shows the procedure for connecting the cross beams to the main I-beams for the \dword{topfc}. Left: The components of each connection, which (from top to bottom) are the threaded rods, the spacer tubes, washer plates, the hexagonal nuts, and an L-shaped FRP brace. An intermediate stage (middle) and final stage (right) of the assembly are also shown."}
-\includegraphics[width=0.85\textwidth]{tbfc3}
+\includegraphics[width=0.70\textwidth]{tbfc3}
 \end{dunefigure}
 
 Prior to sliding each profile into the FRP frame, the holes should be covered with Kapton tape to avoid damage to the profile coating. An end cap is attached to each profile using plastic rivets, and then the profiles are aligned against an aligment fixture running the length of the \dword{fc}. After securing each profile to the frame, the tension in the mounting screws is adjusted to remove any angular deflection in the extended portion of the profile.
@@ -806,7 +812,7 @@ Assembly of the \dword{fc} panels and resistor-divider boards will involve colla
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\dword{hv} System Consortium Organization}
+\subsection{HV System Consortium Organization}
 \label{sec:fdsp-hv-org-consortium}
 
 The consortium consolidates all the institutions that are participating in the design, construction and assembly of the \dword{hv} systems for both \dword{pdsp}  and \dword{pddp}. It is currently composed of US institutions and CERN, presently the only non-USA participant. As in the case of \dword{protodune}, CERN is heavily committed to a significant role in terms of funding, personnel, 
