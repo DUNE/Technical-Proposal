@@ -12,8 +12,7 @@
 
 A \dword{lartpc} requires an equipotential cathode plane at \dword{hv} and a precisely regulated interior \efield{} to drive 
 electrons from particle interactions to sensor planes.  In the case of the DUNE \dlong{sp} technology, 
-this requires vertical cathode planes, called cathode plane assemblies (\dwords{cpa}), held at \dword{hv}; vertical anode planes, called anode plane assemblies  (\dwords{apa}), \fixme{held at 
-ground? RKP: Graded voltages below addresses this.} described in Chapter~\ref{sec:fdsp-apa-intro}; and formed sets of conductors at graded voltages surrounding the
+this requires vertical cathode planes, called \dwords{cpa}, held at \dword{hv}; vertical anode planes, called \dwords{apa}, described in Chapter~\ref{sec:fdsp-apa-intro}; and formed sets of conductors at graded voltages surrounding the
  the central drift volume, collectively called the \dlong{fc}. The \dword{fc} consists of portions on the top and bottom  
 of the drift volume (called the \dword{topfc} and \dword{botfc}, respectively), and along the sides, called \dwords{ewfc}.
 
@@ -24,7 +23,7 @@ The SP \dword{tpc} construction is shown in Figure~\ref{fig:dune_sp_fd}.
 The  drift fields transport the ionization electrons 
 %in the direction \dword{cpa} $\Rightarrow$ \dword{apa}. 
 towards the \dwords{apa} at sides and center.
-One should note that the dword{hv} systems for the \single and \dual TPC concepts share components with similar designs. These include the \dwords{fc} profiles and supporting FRP beams as well as the voltage divider boards. More details can be found in \voltitledpfd Chapter 4.
+One should note that the \dword{hv} systems for the \single and \dual TPC concepts share components with similar designs. These include the \dwords{fc} profiles and supporting FRP beams as well as the voltage divider boards. More details can be found in \voltitledpfd Chapter 4.
 
 
 \begin{dunefigure}[One unit of the \dword{spmod}]% showing \dwords{cpa} and \dwords{apa}]
@@ -46,14 +45,14 @@ In this configuration, energy is mostly stored in the high \efield{} region betw
 %As an example, if this energy is converted to heat, it is sufficient to melt about 6\,mm$^3$ of stainless steel. 
 It is difficult to predict the distribution of energy along a discharge path. A conservative approach treats this energy as a risk to the TPC and the cryostat membrane.  
 %Given the size of the cryostat and the total TPC volume required, it is difficult to reduce this energy much further.  
-Mitagating this risk entails slowing down the energy release as much as possible to minimize the potential damage by subdividing the \dword{fc} into electrically isolated modules, and constructing the cathode with highly resistive material.
+Mitigating this risk entails slowing down the energy release as much as possible to minimize the potential damage by subdividing the \dword{fc} into electrically isolated modules, and constructing the cathode with highly resistive material.
 
 Previous large \lartpc{}s (ICARUS, \microboone) have used continuous stainless steel tubes as electrodes. 
 %There are disadvantages to scale this design to multi-kiloton  LArTPCs such as the DUNE Far Detector: 
 Electrically, linking such electrodes to span more than \SI{100}{\m} in total length increases the stored energy each electrode has, and increases the risk of damaging the field cage components in a HV discharge. 
 %Moreover, mechanically, such field cages cannot be built as completely independent modules and therefore require labor intensive steps to interconnect the electrodes, many at great heights inside the cryostat; 
 
-Having the \dword{fc} divided into mechanically and electrically independent modules eases the construction and assembly of the \dword{fc}, and also greatly restricts the extend of drift field distortion caused by a resistor failure on the divider chain of a \dword{fc} module.
+Having the \dword{fc} divided into mechanically and electrically independent modules eases the construction and assembly of the \dword{fc}, and also greatly restricts the extent of drift field distortion caused by a resistor failure on the divider chain of a \dword{fc} module.
 
 If the cathode is made of metal, a \dword{hv} discharge can cause the electrical potential of the entire cathode surface to swing from its nominal bias (e.g., \SI{-180}{kV}) to \SI{0}{V} in nanoseconds. This would induce a large current into the analog \dword{fe} amplifiers connected to the sensing wires on the \dwords{apa} (mostly to the first induction wire plane channels). Internal study (docdb 1320) has shown that this surge of current would overwhelm the internal ESD protection in the \dword{fe} ASICs.  To reduce this induced current, we chose to construct the cathode out of material with high resistivity.  Figure~\ref{fig:cpa-frame-discharge} shows the release of stored energy in time and the voltage distribution of a section of the cathode at one moment in time.  To minimize the induced current to the amplifiers, the surface resistivity should be raised until the ionization current from the TPC starts to cause significant voltage drop along the cathode.  In the DUNE FD the current is dominated by $^{39}$Ar decay, and we can tolerate surface resistivity well above \SI{1}{\giga\ohm/sq}. 
 
@@ -122,12 +121,6 @@ An  installation rail supports the panels from above through a single mechanical
 The sides of the drift volumes on both sides of the \dword{cpa} plane are covered by the \dword{fc} and \dword{ewfc}  modules to define a uniform drift field of \spmaxfield{}, with a increasing potential over \SI{3.5}{m} from the \dword{hv} \dword{cpa} (\SI{-180}{kV}) to ground potential at the \dword{apa} sensor planes. The cathode bias is provided by an external \dword{hv} power supply through an \dword{hv} \fdth connecting to the \dword{cpa} plane inside the cryostat.
 The \dword{fc} modules come in two distinct types: the top and bottom (\dword{fc}), which run the full length of the \dword{detmodule}, and the \dwords{ewfc}, %end walls (EW's), 
 which complete the detector at either end. The modules of both systems are constructed from an array of extruded aluminum open profiles supported by FRP\footnote{Fiber-reinforced plastic, a composite material made of a polymer matrix reinforced with fibers, many vendors.} (fiber-reinforced plastic) structural beams. A resistive divider chain connects adjacent metal profiles to provide a linear voltage gradient between the cathode and anode planes.  The \dword{topfc} and \dword{botfc} modules are nominally  \SI{2.3}{\meter} wide by  \SI{3.5}{\meter} long. At the ends, the \dword{ewfc} modules are \SI{3.5}{\meter} wide by \SI{1.5}{\meter} in height.
-
-%\fixme{Anne's below:
-%A \dlong{fc} surrounds both drift volumes on the top, bottom and ends, defining a uniform drift field of \spmaxfield. The potential increases over the \spmaxdrift{} drift length from the \dword{hv} \dword{cpa} (\SI{-180}{\kV}) to ground potential at the \dword{apa} sensor planes. The cathode bias is provided by an external \dword{hv} power supply through an \dword{hv} feedthrough connecting to the \dword{cpa} plane inside the cryostat. }
-
-The \dword{fc} is also modular, and comes in two distinct types. The \dword{topfc} and \dword{botfc} are similar to each other and are arranged to run the full length of the \dword{spmod}; the \dword{ewfc} modules are distinct from those and fit together to complete the detector at either end. Both types of \dword{fc} modules are constructed from an array of extruded aluminum open profiles (with protective anti-oxidizing coating) supported by FRP %(fiber-reinforced plastic) 
-structural beams. A resistive divider chain interconnects  the metal profiles to provide the linear voltage gradient between the cathode and anode planes.  
 
 Structurally, the frames of the cathode and field cages are made from materials with similar thermal expansion coefficients, minimizing issues of differential thermal expansion. The field cage frames support aluminum profiles but these are restrained at only one location and are allowed to float within the frame.
 %Cold testing of a \dword{cpa}, with monitoring of its geometry and electrical resistance is documented in DocDB 2338. In addition, Docdb 1504 documents the testing at cryogenic temperatures of kapton/FR4 laminates and the shrinkage of the detector was examined in Docdb 6011.
@@ -198,7 +191,7 @@ The cryostat design has two feedthrough ports for each \dword{cpa} array, one at
 Each \dword{cpa} connects to two drift volumes in parallel, presenting a net resistance of \SI{1.14}{\giga\ohm} to each supply. At the nominal \SI{180}{kV} cathode voltage, each power supply must provide \SI{0.16}{mA}.
 
 The planned power supply model for the \dword{spmod} is similar to the power supply\footnote{Heinzinger, PNC HP200000 \dword{hv} power supply, Heinzinger\texttrademark{} Power Supplies, \url{http://www.heinzinger.com/}.} used on \dword{pdsp}, with a maximum output voltage of \SI{200}{kV} and a maximum current draw of \SI{0.5}{mA}.  An %additional 
-option is an existing \SI{300}{kV} \SI{0.5}{mA} model from the same vendor.
+option is an existing \SI{300}{kV}, \SI{0.5}{mA} model from the same vendor.
 The \dword{hv} cables are commercially available models compatible with the selected power supplies. 
 
 %The \dword{hv} cables will be either Dielectric Sciences model number 2134 capable of \SI{200}{kV} DC or 2236 capable of \SI{320}{kV} DC. 
@@ -254,7 +247,7 @@ Outside of the cryostat, the \dword{hv} power supply and cable-mounted toroids w
 typically have sensitivities down to tens of \si{\nano\ampere} in current read-back capability 
 \fixme{`in read-back `mode'? or `with' read-back capability? RKP: Believe language clear as written.} and are able to sample the current and voltage every \SI{300}{\ms}.  The cable-mounted toroids are sensitive to fast changes in current; %and can be monitored. when desired.  
 the polarity of a toroid's signal %also points to whether 
-indicates the location of the current-drawing feature as either upstream or downstream of it.  Experience from a \dlong{35t} installation suggested sensitivities to changing currents with a time scale between \SIrange{0.1}{10}{\micro\s} providing information on the timescale of any current changes.
+indicates the location of the current-drawing feature as either upstream or downstream of it.  Experience from the \dword{35t} installation suggested sensitivities to changing currents with a timescale between \SIrange{0.1}{10}{\micro\s}, providing information on the timescale of any current changes.
 
 Inside the cryostat, pick-off points near the anode will monitor the current %going down 
 in each resistor chain.  Additionally, the voltage of the \dwords{gp} above and below each drift region can be equipped to diagnose problems via a high-value resistor connecting the \dword{gp} to the cryostat.  In the \dword{35t}, such instrumentation provided useful information on \dword{hv} stability and where any stray charge was flowing.
@@ -291,7 +284,7 @@ The \dwords{cpa}' constant potential surfaces are resistive panels (\dword{cpa} 
 \includegraphics[width=0.5\textwidth]{cpa_panel-complete}
 \end{dunefigure}
 
-All electrical connections on the \dword{cpa} and between the \dword{cpa} and other \dword{hv} system components (top, bottom, and \dwords{ewfc}) are redundant by at least a factor of two.  Connections between RPs in a \dword{cpa}unit are four-fold redundant.  The \dword{hv} connection from the \dword{hv} power supply is a closed loop around the \dword{cpa} which can sustain at least one broken connection without loss of the cathode plane \dword{hv}.  This ensures compliance with %that 
+All electrical connections on the \dword{cpa} and between the \dword{cpa} and other \dword{hv} system components (top, bottom, and \dwords{ewfc}) are redundant by at least a factor of two.  Connections between RPs in a \dword{cpa} unit are four-fold redundant.  The \dword{hv} connection from the \dword{hv} power supply is a closed loop around the \dword{cpa} which can sustain at least one broken connection without loss of the cathode plane \dword{hv}.  This ensures compliance with %that 
 requirement (6) of Table~\ref{tab:hvphysicsreqs}.
 %is satisfied.
 
