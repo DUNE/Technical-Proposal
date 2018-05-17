@@ -297,7 +297,7 @@ The \dword{cpa} frames are required to support, in addition to the \dword{hv} co
 A uniform \efield{} is required to drift ionization electrons towards the \dwords{apa}. The \dwords{fc} consisting of field shaping electrodes form a band surrounding the top, bottom, and ends of the active drift volume. The electrodes are biased at different potentials to establish a uniform field inside the \dword{lar} volume.
 The \dword{spmod} will use extruded aluminum profiles as a cost-effective way to establish the equipotential surfaces. 
 
-For safe and stable operation of the \lar cryogenic system, the cryostat must have a small fraction of its volume filled with gaseous argon, commonly referred to as the ullage. Since we want to make good use of the \lar in the cryostat, the top boundary of the TPC, the upper \dword{fc}, is not very far from the ullage. There are many grounded metallic components in the ullage with sharp features.  The \efield near these conductors could easily exceed the breakdown strength of gaseous argon. To prevent such breakdowns in the argon gas, a \dword{gp} is added above the upper \dword{fc} electrodes with a safe distance and below the liquid surface to shield the high \efield from entering the gas ullage.  The need for such shielding diminishes toward the \dword{apa} end of the \dword{fc} due to the lower voltages on the \dword{fc} profiles in that region. Therefore the \dword{gp} on the top only covers about \SI{70}{\%} of the \dword{cpa} side of the \dword{fc}, leaving extra room for cable routing near the \dwords{apa}.
+For safe and stable operation of the \lar cryogenic system, the cryostat must have a small fraction of its volume filled with gaseous argon, commonly referred to as the ullage. Since we want to make good use of the \lar in the cryostat, the top boundary of the TPC, the upper \dword{fc}, is not very far from the ullage. There are many grounded metallic components in the ullage with sharp features.  The \efield near these conductors could easily exceed the breakdown strength of gaseous argon. To prevent such breakdowns in the argon gas, a \dword{gp} is added above the upper \dword{fc} electrodes at a safe distance and below the liquid surface to shield the high \efield from entering the gas ullage.  The need for such shielding diminishes toward the \dword{apa} end of the \dword{fc} due to the lower voltages on the \dword{fc} profiles in that region. Therefore the \dword{gp} on the top only covers about \SI{70}{\%} of the \dword{cpa} side of the \dword{fc}, leaving extra room for cable routing near the \dwords{apa}.
 On the bottom of the cryostat, a similar set of \dwords{gp} is planned to prevent breakdown, in the liquid, to cryogenic pipings and other sensors with sharp features.  No \dwords{gp} are planned beyond the two \dwords{ewfc} since there is sufficient clearance in those regions.  
 
 The shape of the electrodes is critical as it determines the strength of the \efield{} between a given profile and its neighboring profiles, as well as
@@ -360,7 +360,7 @@ to lock into position. Two additional boards to connect the modules to the \dwor
 \end{dunefigure}
 
 Between any two adjacent nodes of the resistor divider chain are two \SI{5}{\giga\ohm} resistors, and three serially connected metal oxide varistors (MOVs) in parallel.  The nominal voltage drop is \SI{3}{kV} between each node.
-An open resistor on the divider chain would approximately double the voltage across the remaining resistor to \SI{6}{kV}.  This will force the varistors in parallel to that resistor into conduction mode, results in a voltage drop of roughly \SI{5}{kV} (\SI{1.7}{kV} $\times$ \num{3}), while the rest of the divider chain remains linear, with a slightly lower voltage gradient.
+An open resistor on the divider chain would approximately double the voltage across the remaining resistor to \SI{6}{kV}.  This will force the varistors in parallel to that resistor into conduction mode, resulting in a voltage drop of roughly \SI{5}{kV} (\SI{1.7}{kV} $\times$ \num{3}), while the rest of the divider chain remains linear, with a slightly lower voltage gradient.
 Because the damage to the divider would be local to one module, its impact to the \dword{tpc} drift field is limited to region near this module.  This is part of the intention of the modular design.
 An example of a simulated \efield{} distortion which would be caused by a failed resistor is shown in Figure~\ref{fig:fc-broken-resistor}. 
 
@@ -497,7 +497,7 @@ The \dword{hv} bus cable is rated at the full cathode \dword{hv} such that even 
 \subsection{Power Supplies and Feedthroughs}
 \label{sec:fdsp-hv-supplies-feedthroughs}
 
-Additional power supplies will be commercially procured, for example through Heinzinger. The \dword{hv} cable is commercially available.
+Power supplies will be commercially procured, for example through Heinzinger. The \dword{hv} cable is commercially available.
 
 The power supply is tested extensively along with the controls and monitoring software.  Features to be included in the software are:
 \begin{itemize}
@@ -527,7 +527,7 @@ The above items are packaged into \dword{cpa} panel kits by the vendors and are 
 
 The most basic element of the \dword{cpa} is an RP mounted in a machined slot in the top, bottom and sides of FR4 frames.  There are three different types of these \dword{cpa} RP elements -- an upper, which has as its top frame the \dword{cpa} mounting bracket and \dword{topfc} hinge, a middle, and a lower, which has as its bottom frame a \dword{botfc} hinge.  Two such \dword{cpa} RP elements are bolted together and pinned to form a shipment \dword{cpa} unit of size \SI{1.2}{\m} $\times$ \SI{4}{\m}.  These \dword{cpa} units are assembled horizontally on a smooth, flat table to meet the dimensional requirements of \dword{cpa} construction.  In addition to the frames and RPs, %\dword{fss}s 
 \dword{fss} strips are mounted on the exposed sides of the FR4 frames, aluminum profiles are attached to the top and bottom of the upper and lower elements, and cables are attached to the RPs to form segments of the \dword{hv} bus.  The shipment \dword{cpa} unit comes in three varieties in order to make a full \SI{12}{\m} tall \dword{cpa} Panel.  These are : (1) an upper \dword{cpa} RP element attached to a middle element, (2) two middle elements connected, and (3) a middle element attached to a lower element.  The \dword{cpa} unit order in the shipping crate from top to bottom is middle-and-lower, middle-and-middle, and upper-and-middle.  For the \SI{10}{\kt} \dword{spmod}, there are 100 upper elements, 100 lower elements and 400 middle elements that make up the 100 \dword{cpa} panels of the \dword{tpc}.
-A comparison of a \SI{6}{\m} \dword{pdsp} \dword{cpa} panel and a \SI{12}{\m} \dword{pdsp} panel is shown at Ash River in Figure~\ref{fig:12m-cpa}.
+A comparison of a \SI{6}{\m} \dword{pdsp} \dword{cpa} panel and a \SI{12}{\m} \dword{pdsp} panel is shown at Ash River Laboratory in Minnesota, USA,  in Figure~\ref{fig:12m-cpa}.
 
 \begin{dunefigure}[\dwords{cpa} at Ash River]{fig:12m-cpa}{A \SI{12}{\m} \dword{pdsp} \dword{cpa} panel and a smaller \SI{6}{\m}  panel mockup at Ash River.}  %closest panel 6m, each strip separated by 2m, this image taken in the pit at Ash River (where NOvA modules were stacked/glued.)
 \includegraphics[width=0.35\textwidth]{12m-cpa}
@@ -623,7 +623,7 @@ Extracted modules will be rotated into horizontal position using the ledge on a 
 
 The \dword{hv} bus segments, \dword{fss} bias boards, and  interconnection wires will be integrated with the \dword{cpa} units before shipment, while \dword{cpa} panel interconnections and \dword{fss} connection tabs will be packaged and shipped with the \dword{cpa} panels for integration on site.
 \dword{fc} divider boards will be attached to \dword{fc} modules during \dword{fc} assembly as described in \ref{sec:fdsp-hv-prod-fc}.
-The \dword{cpa}-to-\dword{fc} and \dword{fc}-to-\dword{apa} boards will shipped separately and attached just before each \dword{fc} is hoisted onto its \dword{cpa} panel in order to avoid risk of damage to exposed boards on the ends of the \dwords{fc} during shipment and handling.
+The \dword{cpa}-to-\dword{fc} and \dword{fc}-to-\dword{apa} boards will be shipped separately and attached just before each \dword{fc} is hoisted onto its \dword{cpa} panel in order to avoid risk of damage to exposed boards on the ends of the \dwords{fc} during shipment and handling.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -641,7 +641,7 @@ It should also be noted that the \dword{cpa} panels on each end of each \dword{c
 There are a total of 50 \dword{cpa} panel pairs (\dword{cpa} planes) arranged in the %DUNE cryostat 
 \dword{spmod} in two rows of 25 each.  After the panels are paired, \dword{fc} units are attached folded against the \dword{cpa} and the full \dword{cpa}-\dword{fc} assembly is placed in the \dword{spmod} cryostat through the access door.  Figure~\ref{fig:cpas-in-cryostat} shows on the right two completed \dword{cpa}-\dword{fc} assemblies on their beam in the \dword{pdsp} cryostat. Upon deployment of the folded top and bottom \dword{fc} units, and after the final \dword{ewfc} installations, the \dword{tpc} \dword{fc} is complete.
 
-To assemble the \dword{ewfc}, the modules are rotated vertically in the assembly area, then placed in a stand designed to hold the \SI{120}{\kg} pieces vertically. The \dword{topfc} is lifted and moved above the next module in the vertical stand where the two are bolted together and any electrical connections are made. The two modules are then lifted up and aligned above the following module.  The modules are again bolted, electrically connected and it is raised and aligned above the next piece.  This process is repeated until all eight modules are hanging together.  Once the bolting and electrical connections have been completed on the last piece, the continuity of all the grounding connections of the \dword{ewfc} are checked.
+To assemble the \dword{ewfc}, the modules are rotated vertically in the assembly area, then placed in a stand designed to hold the \SI{120}{\kg} pieces vertically. The \dword{topfc} is lifted and moved above the next module in the vertical stand where the two are bolted together and any electrical connections are made. The two modules are then lifted up and aligned above the following module.  The modules are again bolted, electrically connected and raised and aligned above the next piece.  This process is repeated until all eight modules are hanging together.  Once the bolting and electrical connections have been completed on the last piece, the continuity of all the grounding connections of the \dword{ewfc} are checked.
  
 The completed \dword{ewfc} section is then moved over to the installation beam where its spreader bar is attached to the installation system.  It is then rolled into the cryostat and located on the appropriate beam for installation into the \dword{tpc}.
 
@@ -656,17 +656,17 @@ The completed \dword{ewfc} section is then moved over to the installation beam w
 
 Among \dword{tpc} components there are internal interfaces between the \dword{cpa} and \dword{fc}; the \dword{cpa} and \dword{hv}, and  the \dword{fc} and \dword{hv}. In addition there are significant interfaces with systems from other consortia.
 
-The interfaces with the \dword{hv} system include the electrical connections with the \dword{hv} cup, \dword{hv} bus, and \dword{fc}, interconnect the panels within the \dword{cpa}, and propagate the \dword{hv} bus between adjoining \dwords{cpa}.  A selection of the mechanical interfaces are as follows:
+The interfaces with the \dword{hv} system include the electrical connections with the \dword{hv} cup, \dword{hv} bus, and \dword{fc}, interconnecting the panels within the \dword{cpa}, and propagating the \dword{hv} bus between adjoining \dwords{cpa}.  A selection of the mechanical interfaces are as follows:
 \begin{itemize}
-\item Metal contact plates on the cathode surface at each corner, with two captive screws in each used for making electrical contact with the \dword{hv} bus and the resistor board for the frame field strips;
+\item Metal contact plates on the cathode surface at each corner, with two captive screws in each, used for making electrical contact with the \dword{hv} bus and the resistor board for the frame field strips;
 \item Through holes for the \SI{3}{\milli\m} diameter cable in the sides of each frame adjacent to the contact plates to allow interconnection of the \dword{hv} bus between \dwords{cpa};
 \item A means of securing the \dword{hv} bus cable in place;
 \item Through-holes near the centers of the top and bottom frames for connecting the \dword{topfc} and \dword{botfc} elements to the cathode, with corresponding metal contact plate on the cathode surface;
 %\item Electrical specifications for these parts and interfaces are given in the \dword{hv} design Section 
 \item Between the \dword{cpa} and the \dword{fc} the interface at the hinge joint ensures that the \dword{cpa} and \dword{fc} are properly located relative to each other.
 \end{itemize}
-\fixme{last bullet: hinge joint that ensures...?}
-Since these interfaces occur with the design group that is constructing the \dword{tpc} there is close coordination and communication between the \dword{cpa}, \dword{fc} and \dword{hv} groups to ensure that all requirements are met and that the components all fit together.
+%\fixme{last bullet: hinge joint that ensures...?}
+Since these interfaces occur within the design group that is constructing the \dword{tpc} there is close coordination and communication between the \dword{cpa}, \dword{fc} and \dword{hv} groups to ensure that all requirements are met and that the components all fit together.
 
 The interfaces between the \dword{cpa} system and the \dword{hv} system, and the interfaces among the \dword{cpa}-\dword{fc}-\dword{hv} systems are shown in integration drawings and documented in the project documentation system. \fixme{reference properly. RKP: Requires reference policy, under discussion.}
 
@@ -858,7 +858,7 @@ In the \dword{hv} consortium organization, each institution is naturally assumin
 \item WG6. \dword{hv} supply and filtering, \dword{hv} power supply and cable procurement, R\&D tests, filtering and receptacle design and tests. Conveners: Franco Sergiampietri, Sarah Lockwitz
 \end{itemize}
 
-\noindent Merging of \dword{sp} and \dword{dp} groups is envisaged for the working groups where synergies are being identified: \dword{hv} feedthroughs, voltage dividers, aluminum profiles, FRP beams, assembly infrastructures.
+\noindent Merging of \dword{sp} and \dword{dp} groups is envisaged for the working groups where synergies are being identified: \dword{hv} feedthroughs, voltage dividers, aluminum profiles, FRP beams, and assembly infrastructure.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Planning Assumptions}
