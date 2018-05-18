@@ -13,13 +13,15 @@ tex=$1 ; shift
 out=$1 ; shift
 voltit="$1" ; shift
 chtit="$1" ; shift
+volnum="$1"; shift
 
 volume=$(basename $(dirname $tex))
 chapter=$(basename $tex .tex)
 
-cat $tmpl | sed -e "s/volume/$volume/g" \
-                -e "s/chapter/$chapter/g" \
-                -e "s/voltitle/$voltit/g" \
-                -e "s/chtitle/$chtit/g" \
+cat $tmpl | sed -e "s/@volume@/$volume/g" \
+                -e "s/@chapter@/$chapter/g" \
+                -e "s/@voltitle@/$voltit/g" \
+                -e "s/@chtitle@/$chtit/g" \
+                -e "s/@volnumber@/$volnum/g" \
                 > "${out}"
 

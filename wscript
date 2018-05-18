@@ -68,7 +68,9 @@ def build(bld):
 
     chaptex = bld.path.find_resource("chapters.tex")
 
+    volnum = 0
     for voltex in voltexs:
+        volnum += 1
 
         volname = voltex.replace(".tex","")
         voldir = bld.path.find_dir(volname)
@@ -90,7 +92,7 @@ def build(bld):
 
             bld(source=[chaptex, chtex],
                 target=os.path.basename(str(chmaintex)),
-                rule="${CHAPTERS} ${SRC} ${TGT} '%s' '%s'" % (voltit, chtit))
+                rule="${CHAPTERS} ${SRC} ${TGT} '%s' '%s' %d" % (voltit, chtit, volnum))
 
             bld(features='tex',
                 prompt = prompt_level,

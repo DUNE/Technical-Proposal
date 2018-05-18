@@ -6,18 +6,19 @@
 % Do not modify unless you know what you are doing.
 
 
-\graphicspath{ {figures/}{volume/figures/}{far-detector-generic/figures/}{generated/} }
+\graphicspath{ {figures/}{@volume@/figures/}{far-detector-generic/figures/}{generated/} }
 
 \input{common/preamble}
 
-\renewcommand\thedoctitle{Chapter Breakout:\\\texttt{voltitle}\\\texttt{chtitle}}
-%\def\titleextra{\includegraphics[width=0.55\textwidth]{energy_nu_no}} -- change image file
+\renewcommand\thedoctitle{Chapter Breakout:\\\texttt{@voltitle@}\\\texttt{@chtitle@}}
+\renewcommand\thevolumenumber{@volnumber@}
+
 \begin{document}
 
 \input{common/init}
 
 
-\input{volume/chapter}
+\input{@volume@/@chapter@}
 \cleardoublepage
 
 \input{common/final}
