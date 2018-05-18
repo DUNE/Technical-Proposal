@@ -36,12 +36,12 @@ a \SI{80}{\GeV} primary proton beam at a beam power %from \SI{1.07}{\MW}
 up to \pipiibeampower{}. A further planned upgrade 
 of the accelerator complex will enable it to provide up to \SI{2.4}{\MW} of beam power by 2030. 
 
-The LBNF/DUNE project (the \textit{project}) strategy presented in this technical proposal has been developed to meet the requirements set out in the report of the Particle Physics Project Prioritization Panel (P5 in 2014). It also takes into account the recommendations of the European Strategy for Particle  Physics (ESPP) adopted by CERN Council in 2013, which classified the \dword{lbl} neutrino program as one of the four scientific objectives that requires international infrastructure.
+The LBNF/DUNE project (the \textit{project}) strategy presented in this technical proposal has been developed to meet the requirements set out in the report of the Particle Physics Project Prioritization Panel (P5 in 2014). It also takes into account the recommendations of the European Strategy for Particle  Physics (ESPP) adopted by the CERN Council in 2013, which classified the \dword{lbl} neutrino program as one of the four scientific objectives that require international infrastructure.
 %which recommends development of
 %a program to pave the way for a substantial European role in future long-%baseline experiments.
 
-The P5 report set the goal of reaching a sensitivity to \dword{cpv} of better than \num{3}$\sigma$ over more than $75\%$ 
-of the range of possible values of the unknown \dword{cp}-violating phase \deltacp.
+The P5 report~\cite{p5report} set the goal of reaching a sensitivity to \dword{cpv} of better than three standard deviations (\num{3}$\sigma$) over more than $75\%$ 
+of the range of possible values of the unknown \dshort{cp}-violating phase \deltacp.
 Based partly on this goal, they stated that ``the 
 minimum requirements to proceed are the identified capability to reach an exposure 
 of \num{120}~\ktMWyr{} by the 2035 time frame, the far detector situated underground 
@@ -55,7 +55,7 @@ improvement in discovery sensitivity over current searches for the proton lifeti
 %the strategy presented here meets these criteria. 
 
 
-This document serves as the \dword{tp} for the DUNE \dword{fd}.  The \dword{tp}  is intended to provide a clear statement of the physics goals and methods of the DUNE experiment, and to describe the detector technologies that have been designed to achieve these goals. Introductions to each chapter are intended to be useful and informative to technical specialists who serve in national science agencies. The body of the document is intended to be useful and informative to members of the international high energy physics community.  The \dword{tp} deliberately emphasizes the connections between the physics and technologies of the DUNE \dword{fd} modules. Very important project related tasks are presented in summary form. No information about cost is included, and schedule information appears only in the form of high-level milestones. The \dword{tp} forms the nucleus of the \dword{tdr}, which will be presented to international science  agencies and the HEP community in 2019.
+This document serves as the \dword{tp} for the DUNE \dword{fd}.  The \dword{tp}  is intended to provide a clear statement of the physics goals and methods of the DUNE experiment, and to describe the detector technologies that have been designed to achieve these goals. Introductions to each chapter are intended to be useful and informative to technical specialists who serve in national science agencies. The body of the document is intended to be useful and informative to members of the international high energy physics community.  The \dword{tp} deliberately emphasizes the connections between the physics and technologies of the DUNE \dword{fd} modules. Very important project related tasks are presented in summary form. No information about cost is included, and schedule information appears only in the form of high-level milestones. The \dword{tp} forms the nucleus of the \dword{tdr}, which will be presented to international science  agencies and the high energy physics (HEP) community in 2019.
 
 %Volumes 2 and 3 of the TP provide detailed descriptions of the single phase and dual phase TPC options respectively.  These volumes have been prepared by the appropriated detector consortia with input from the DUNE Technical Coordinator team.  Volume 1, this volume, contains, in addition to this executive summary, chapters that describe the DUNE physics program and two overarching systems required to execute this program: computing and calibration.
 
@@ -96,7 +96,7 @@ to observe very low-energy phenomena such as solar neutrinos or even the diffuse
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The LBNF Facility} %Global LBNF/DUNE Strategy}
+\section{The LBNF Facility} 
 
 The Long-Baseline Neutrino
 Facility (LBNF), hosted by Fermilab, is separate from the DUNE collaboration and is intended to enable the construction and operation of the DUNE detectors in South Dakota and Illinois.
@@ -121,7 +121,7 @@ complex, to become operational by \beamturnon
 at the latest, and to be upgradable to \SI{2.4}{\MW} with the proposed 
 PIP-III upgrade;
 
-\item  the civil construction (\dword{cf}) for the near detector systems at \fnal; (see Figure~\ref{fig:beamline}; 
+\item  the civil construction, or \dword{cf}, for the near detector systems at \fnal; (see Figure~\ref{fig:beamline}); 
 
 \item the excavation of four underground caverns at \surf, planned to be completed 
 by 2021 
@@ -139,20 +139,20 @@ allow.
 
 \end{itemize}
 
-\begin{dunefigure}[Neutrino beamline and DUNE near detector hall in Illinois
-]{fig:beamline}{Neutrino beamline and DUNE near detector hall at Fermilab, in Illinois}
-\includegraphics[width=0.95\textwidth]{figures/beamline-sideview.jpg}
-
-\end{dunefigure}
-
 \begin{dunefigure}[ 	
-Underground caverns for  in South Dakota]{fig:caverns}{Underground caverns for DUNE far detectors and cryogenic systems at \surf{}, in South Dakota.}
+Underground caverns for DUNE in South Dakota]{fig:caverns}{Underground caverns for DUNE far detectors and cryogenic systems at \surf{}, in South Dakota.}
 \includegraphics[width=0.95\textwidth]{far-detector-configuration-hi-res.jpeg}
 \end{dunefigure}
 
+\begin{dunefigure}[Neutrino beamline and DUNE near detector hall in Illinois
+]{fig:beamline}{Neutrino beamline and DUNE near detector hall at Fermilab, in Illinois}
+\includegraphics[width=0.95\textwidth]{figures/beamline-sideview.jpg}
+\end{dunefigure}
+
+
 The success of the DUNE project depends on the successful realization of the LBNF facilities.
 This technical proposal focuses on the DUNE physics program that is enabled by
-the first three \dword{fd} modules, which are expected to be based on the \single and \dual \lar technologies. 
+the first three \dword{fd} modules, which are expected to be based on the \dword{sp} and \dword{dp} \lar technologies. 
 
 \section{The DUNE Experiment} %(Ed)}
 
@@ -170,13 +170,13 @@ choice for the DUNE far detectors. The four identically sized cryostats give fle
 
 DUNE is planning for and prototyping two \lartpc technologies:
 \begin{itemize}
-\item Single-phase (SP): This technology was pioneered by the ICARUS project, and after several decades of worldwide R\&D, is now a mature technology. It is the technology used for \fnal{}'s currently operating \microboone, and the planned SBND. In the \single technology, ionization charges are drifted horizontally in \lar and read out on wires in the liquid. The maximum drift length in the DUNE \dword{spmod} is \spmaxdrift and the nominal drift field is \spmaxfield, corresponding to a total high voltage of \sptargetdriftvoltpos. There is no signal amplification in the liquid, so readout with good \dword{s/n} requires very low-noise electronics.
+\item Single-phase (SP): This technology was pioneered by the ICARUS project, and after several decades of worldwide R\&D, is now a mature technology. It is the technology used for \fnal{}'s currently operating \microboone, and the planned SBND. In the \single technology, ionization charges are drifted horizontally in \lar and read out on wires in the liquid. The maximum drift length in the DUNE \dword{spmod} is \spmaxdrift and the nominal drift field is \spmaxfield, corresponding to a total high voltage of \sptargetdriftvoltpos. There is no signal amplification in the liquid, so readout with good signal-to-noise requires very low-noise electronics.
 
-\item Dual-phase (DP): This technology was pioneered at large scale by the \dword{wa105} collaboration. It is less established than the \single technology but offers a number of potential advantages and challenges. Here, ionization charges are drifted vertically in \lar and transferred into the gas above the liquid. The signal charges are then amplified in the gas phase using \dwords{lem}. This gain reduces the requirements on the electronics, and makes it possible for the \dword{dpmod} to have a longer drift, which requires a correspondingly higher voltage.
+\item Dual-phase (DP): This technology was pioneered at large scale by the \dword{wa105} collaboration. It is less established than the \single technology but offers a number of potential advantages and challenges. Here, ionization charges are drifted vertically in \lar and transferred into the gas above the liquid. The signal charges are then amplified in the gas phase using large electron multipliers (LEMs). This gain reduces the requirements on the electronics, and makes it possible for the \dword{dpmod} to have a longer drift, which requires a correspondingly higher voltage.
 The maximum drift length in the \dword{dpmod} is \dpmaxdrift and the nominal drift field is \dpnominaldriftfield, corresponding to a total high voltage of \dptargetdriftvoltpos. 
 
 \end{itemize}
-The plans for the single and dual-phase TPCs are described in detail in volumes 2 and 3 of this technical proposal.
+The plans for the single and dual-phase TPCs are described in detail in Volumes 2 and 3 of this technical proposal.
 
 The DUNE collaboration is committed to deploying both technologies. 
 For planning purposes, DUNE assumes the first \dword{detmodule} to be
@@ -186,9 +186,7 @@ The actual sequence of \dword{detmodule} installation will depend on results fro
 
 The collaboration is in now in the final stages of constructing two large prototype detectors (called \dwords{protodune}), one employing \single readout (\dword{pdsp}) and the other employing \dual readout (\dword{pddp}). Each is approximately one-twentieth of a DUNE \dword{detmodule}, but uses components identical in size to those of the full-scale module. \dword{pdsp} has the same \spmaxdrift maximum drift length as the full \dword{spmod}. \dword{pddp} has a \SI{6}{m} maximum drift length, half of that planned for the \dword{dpmod}. 
 
-These large-scale prototypes, which are described in more detail in 
-\voltitlespfd and \voltitledpfd %the single-phase and dual-phase volumes 
-of this technical proposal, will allow us to validate key aspects of the TPC designs, test engineering procedures, and collect valuable calibration data using a hadron test beam. The following list includes the key goals of the \dword{protodune} program:
+These large-scale prototypes will allow us to validate key aspects of the TPC designs, test engineering procedures, and collect valuable calibration data using a hadron test beam. The following list includes the key goals of the \dword{protodune} program:
 \begin{enumerate}
 \item Test production of components:
 \begin{itemize}
@@ -212,9 +210,9 @@ performance.
 \end{itemize}
 \end{enumerate}
 
-Items \numrange{1}{3} are required as input to the technical design report. Item 4, collection and the corresponding analysis of test beam data, will be vital to DUNE's physics program, but is not required for the TDR.
+Items \numrange{1}{3} are required as input to the \dword{tdr}. Item 4, collection and the corresponding analysis of test beam data, will be vital to DUNE's physics program, but is not required for the TDR.
 
-As noted above, the full DUNE far detector requires four modules. For the \dword{tdr}, we will describe plans for at least the first two of these modules. Based on our current expectations, we hope to present a plan for two \dwords{spmod}, one of which will be the first module installed, and one \dword{dpmod}. At the time of the \dword{tdr}, it is likely that resources for the fourth \dword{detmodule} will remain to be identified. 
+The full DUNE far detector requires four modules. For the \dword{tdr}, we will describe plans for at least the first two of these modules. Based on our current expectations, we hope to present a plan for two \dwords{spmod}, one of which will be the first module installed, and one \dword{dpmod}. At the time of the \dword{tdr}, it is likely that resources for the fourth \dword{detmodule} will remain to be identified. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -278,7 +276,7 @@ Close and continuous coordination between DUNE and LBNF is required to ensure th
 
 All aspects of DUNE are organized and managed by the DUNE collaboration.  Stakeholders include the collaborating institutions, the funding agencies participating in DUNE, and \fnal as the host laboratory.  All collaborating institutions have a representative on the DUNE Institutional Board (IB). The collaboration is responsible for the design, construction, installation, commissioning, and operation of the detectors and prototypes used to pursue the scientific program. The DUNE Executive Board (EB), described below, is the main management body of the collaboration and approves all significant strategic and technical decisions.
 
-The top-level DUNE management team consists of two elected co-spokespersons, the technical coordinator (TC), and the resource coordinator (RC). The TC and RC are selected jointly by the co-spokespersons and the \fnal director. The management team is responsible for the day-to-day management of the collaboration, and for developing the overall collaboration strategy, which is presented for approval to the executive board. The executive board is made up of the leaders of the main collaboration activities. The composition of the EB, currently including the DUNE management team, IB chair, physics coordinator, beam interface coordinator, computing coordinator, near detector coordinator, and leaders of the \dword{fd} consortia, described below, is intended to ensure
+The top-level DUNE management team consists of two elected co-spokespersons, the technical coordinator (TC), and the resource coordinator (RC). The TC and RC are selected jointly by the co-spokespersons and the \fnal director. The management team is responsible for the day-to-day management of the collaboration, and for developing the overall collaboration strategy, which is presented for approval to the executive board. The executive board consists of the leaders of the main collaboration activities. The composition of the EB, currently including the DUNE management team, IB chair, physics coordinator, beam interface coordinator, computing coordinator, near detector coordinator, and leaders of the \dword{fd} consortia, described below, is intended to ensure
 that all stakeholders in the collaboration have a voice in the decision-making process. 
 In the post-TDR phase of DUNE, the intention is that the consortium leaders and the coordinators of the other major collaboration activities will become elected positions.
 %, giving the full collaboration as a whole is represented in the decision-making process. 
@@ -290,12 +288,12 @@ To carry out design and construction work for the DUNE far detector, DUNE has  f
 \item (\single) \dword{pds}, %Photon Detection System% (E. Segreto, Brazil)
 \item (\dual) \dwords{crp}, %Charge Readout Planes% (D. Duchesneau, France)
 \item (\dual) TPC electronics, %(D. Autiero, France)
-\item (\dual) \dword{pds}, %Photon Detection System %(I. Gil-Botella, Spain)
+\item (\dual) \dlong{pds} (PDS), %Photon Detection System %(I. Gil-Botella, Spain)
 \item \dword{hv} system, %(F. Pietropaolo, CERN)
 \item \dword{daq} system, %DAQ System %(D. Newbold, UK)
 \item \dword{cisc} system. %Slow Controls and Instrumentation. %(S. Gollapinni, US)
 \end{itemize}
-It is possible that one or two additional consortia may be added depending on the organization of computing and calibration systems. Each consortium has an overall leader, a technical lead, and a consortium board with representatives from each consortium institution. The consortia have full responsibility for their subsystems, including developing a full \dword{wbs}, understanding and documenting all interfaces with other systems, preparing final technical designs, and writing their respective sections of the \dword{tp} and the \dword{tdr}. Following approval of the  \dword{tdr}, they will be responsible for construction of their detector systems. %In addition to a variety of other tasks, the consortia are responsible for writing their respective sections of the technical proposal and the TDR.
+It is possible that additional consortia may be added depending on the organization of computing and calibration systems. Each consortium has an overall leader, a technical lead, and a consortium board with representatives from each consortium institution. The consortia have full responsibility for their subsystems, including developing a full \dword{wbs}, understanding and documenting all interfaces with other systems, preparing final technical designs, and writing their respective sections of the \dword{tp} and the \dword{tdr}. Following approval of the  \dword{tdr}, they will be responsible for construction of their detector systems. %In addition to a variety of other tasks, the consortia are responsible for writing their respective sections of the technical proposal and the TDR.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% new 15 May
@@ -324,8 +322,8 @@ another for the %Near Site scope at
 near site (Illinois). %(\fnal). 
 The schedule for the initial work is driven by the \dword{cf} design and construction at each site.
 
-During the initial phase of the project, the far site \dword{cf} are advanced first. The Ross Shaft rehabilitation
-work at \surf was halted at the 4850L due to safety concerns, which have led to delays of two to four months. Early site preparation is timed to be completed 
+During the initial phase of the project, the far site \dword{cf} is advanced first. The Ross Shaft rehabilitation
+work at \surf was recently halted at the 4850L due to safety concerns, which have led to delays of two to four months. Early site preparation is timed to be completed 
 in time to start excavation when the Ross Shaft rehabilitation work finishes. As each detector 
  cavern is excavated and sufficient utilities are installed, the cryostat and cryogenics system work proceeds, followed by detector installation, filling and commissioning. 
 The first \dword{detmodule} is to be operational by 2024, with the second and third modules completed one and two years later, respectively.
@@ -352,7 +350,7 @@ The  \dword{tp} is composed of three volumes. Volume 1 contains this executive s
 the general aims of this document. The remainder of this first volume provides a more detailed description of the DUNE physics program that drives the choice of detector technologies. It also includes concise outlines of two overarching systems that have not yet evolved to consortium structures:  computing and calibration. 
 %The second chapter summarizes DUNE's primary and ancillary science programs, and the third and fourth describe a computing and software model for DUNE and a possible calibration strategy, respectively, important topics that are under development in parallel with the detector development. % for the \lar \dwords{detmodule}.  
 Volumes 2  and 3 describe, for the \single and \dual, %\dword{spmod} and the \dword{dpmod}, 
-respectively, the module's subsystems, the technical coordination required for its design, construction, installation, and integration, and its organizational structure.
+respectively, each module's subsystems, the technical coordination required for its design, construction, installation, and integration, and its organizational structure.
 
 
 
