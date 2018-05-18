@@ -80,6 +80,8 @@
 \RequirePackage{graphicx}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
+% used for local line spacing changes such as in the title
+\RequirePackage{setspace}
 % Anne adds parskip 5/7/15
 \RequirePackage{parskip}
 \setlength{\parskip}{\baselineskip}
