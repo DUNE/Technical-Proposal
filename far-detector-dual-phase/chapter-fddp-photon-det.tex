@@ -97,16 +97,16 @@ The cathode plane, described in Chapter~\ref{ch:fddp-hv}, %the \dword{hv} chapte
 \subsection{Detector Layout}
 \label{sec:fddp-pd-1.4}
 
-The \dword{pmt} plane is placed far enough below the cathode plane to be sufficiently electrically shielded. According to the baseline plan, the \dwords{pmt} is uniformly distributed across this plane with a density of \SI{1}{\dword{pmt}/m^2}, with a total of \dpnumpmtch \dwords{pmt} installed. Other \dword{pmt} configurations as determined by the simulations are also being considered. The \dwords{pmt} are individually mounted to the cryostat floor. The exact location of the \dwords{pmt} will be determined by the location of the other floor structures like the cryogenic piping. The outline of the \dword{dpmod} is shown in Figure~\ref{fig:dppd_3_1}.
+The \dword{pmt} plane is placed far enough below the cathode plane to be sufficiently electrically shielded. According to the baseline plan, the \dwords{pmt} are uniformly distributed across this plane with a density of \SI{1}{\dword{pmt}/m^2}, with a total of \dpnumpmtch \dwords{pmt} installed. Other \dword{pmt} configurations as determined by the simulations are also being considered. The \dwords{pmt} are individually mounted to the cryostat floor. The exact location of the \dwords{pmt} will be determined by the location of the other floor structures like the cryogenic piping. The outline of the \dword{dpmod} is shown in Figure~\ref{fig:dppd_3_1}.
 
 \begin{dunefigure}[The \dword{dpmod} (partially open)]{fig:dppd_3_1}
 {The \dword{dpmod} (partially open) with cathode, \dwords{pmt}, \dword{fc} and anode plane with chimneys.}
 \includegraphics[width=0.95\textwidth]{dppd_3_1}
 \end{dunefigure}
 
-Since few light sensors are directly sensitive to \SI{127}{nm}, a wavelength shifter is required. A \dword{tpb} coating directly on the \dword{pmt} is the default plan. Light collectors to increase the photons detected are under study. A single cable per \dword{pmt} carries power and signal, and splitters are placed out of the cryostat. A photon calibration system will be formed by external light sources and internal optical fibers.  
+Since few light sensors are directly sensitive to \SI{127}{nm}, a wavelength shifter is required. A \dword{tpb} coating directly on the \dword{pmt} is the default plan. Light collectors to increase the photons detected are under study. A single cable per \dword{pmt} carries power and signal, and splitters are placed outside the cryostat. A photon calibration system will be formed by external light sources and internal optical fibers.  
 
-The cable trays from the side walls of the cryostat to the \dwords{pmt} carry the cables and calibration fibers. The cables and fibers are routed from the \fdth flanges at the top of the cryostat and  combined at the side wall trays. These side trays carry the \dword{hv}/signal cables in blocks of \num{24} \dwords{pmt} and four calibration fibers. Therefore, each block of \num{24} \dwords{pmt} in a \num{6}$\times$\SI{4}{m^2} area forms a sector of underground installation, with a total of \num{30} sectors.
+The cable trays from the side walls of the cryostat to the \dwords{pmt} carry the cables and calibration fibers. The cables and fibers are routed from the \fdth flanges at the top of the cryostat and  combined at the side wall trays. These side trays carry the \dword{hv}/signal cables in blocks of \num{24} \dwords{pmt} and four calibration fibers. Each block of \num{24} \dwords{pmt} in a \num{6}$\times$\SI{4}{m^2} area forms a sector of underground installation, with a total of \num{30} sectors.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Operation Principles}
@@ -153,10 +153,10 @@ must be completed at least two years ahead of installation. A staged or staggere
 
 Prior to installation, the most important parameters of the \dword{pmt} response have to be measured with two aims: first, to reject under-performing \dwords{pmt} and second, to store the characterization information in a database for later use during the \dword{dpmod} commissioning and operation.
 
-The basic and most important parameters to characterize are the dark counts rate versus voltage and the gain versus voltage. Both parameters must be measured at both room and  cryogenic temperatures. Prepulsing and afterpulsing are not expected to be an issue, but will be measured, too. 
+The basic and most important parameters to characterize are the dark count rate versus voltage and the gain versus voltage. Both parameters must be measured at both room and  cryogenic temperatures. Prepulsing and afterpulsing are not expected to be an issue, but will be measured, too. 
 
 From the mechanical point of view, the test setup requires a light-tight vessel filled with a cryogenic liquid (argon or nitrogen) plus the infrastructure for filling and operating the vessel with temperature and liquid-level controls. For \dword{pddp}, \num{10} \dwords{pmt} were tested at a time %during 
-over the space of a week, as cryogenic tests of \dwords{pmt} 
+over the course of a week, as cryogenic tests of \dwords{pmt} 
 require several days for the \dword{pmt} thermalization. Figure~\ref{fig:dppd_2_2a} shows the  \dword{pddp} \dwords{pmt} being installed in the testing vessel. % used for the \dwords{pmt}. 
 Increasing the capacity of the vessel, and thus the number of \dwords{pmt} to test simultaneously, %tested at a time, 
 will reduce the characterization test duration.
@@ -519,8 +519,7 @@ G(\textbf{r}, t; \textbf{r}_0, t_0) &=& \frac{1}{[4\pi D c (t-t_0)^{3/2}]}\exp\l
 D &=& \frac{1}{3(\mu_A + (1-g)\mu_S)}
 \end{eqnarray*}
 
-where $\mu_A$ and $\mu_S$ are the absorption and scattering coefficients, respectively (both in units of \si{m$^{-1}$}), $g$ is the average scattering cosine ($g$ = \num{0.025}). In \lar with the default optical properties in Table~\ref{tab:dppd_t_6_0}, $D$ = \SI{18.8}{\cm}. In a bound medium, with full absorption of the photons by the \dword{fc} and \dwords{lem}, a few additional techniques have to be used to obtain a solution. With this method, it takes only a few \si{ms} to generate the photon density at a given \dword{pd} from a specific point source. From preliminary studies, relatively good agreement between analytical approach and full simulation has been found. In particular, the arrival time distributions of photons on the \dwords{pmt} are well reproduced. The only drawback is that one cannot easily implement or study a complicated geometry including regions that are semi-transparent to light. Hence, the visibilities generated by the two methods are not in agreement. 
-in the overall light yield, but have a very similar trend in terms of spatial dependences. Studies to improve the analytical method results are in progress since this approach could be extremely powerful for physics studies in the \dword{spmod}.
+where $\mu_A$ and $\mu_S$ are the absorption and scattering coefficients, respectively (both in units of \si{m$^{-1}$}), $g$ is the average scattering cosine ($g$ = \num{0.025}). In \lar with the default optical properties in Table~\ref{tab:dppd_t_6_0}, $D$ = \SI{18.8}{\cm}. In a bound medium, with full absorption of the photons by the \dword{fc} and \dwords{lem}, a few additional techniques have to be used to obtain a solution. With this method, it takes only a few \si{ms} to generate the photon density at a given \dword{pd} from a specific point source. From preliminary studies, relatively good agreement between analytical approach and full simulation has been found. In particular, the arrival time distributions of photons on the \dwords{pmt} are well reproduced. The only drawback is that one cannot easily implement or study a complicated geometry including regions that are semi-transparent to light. Hence, the visibilities generated by the two methods are not in agreement in the overall light yield, but have a very similar trend in terms of spatial dependences. Studies to improve the analytical method results are in progress since this approach could be extremely powerful for physics studies in the \dword{spmod}.
 %%%%%%% anne to here Wed night  - 
 
 \subsubsection{Simulation of light yield}
