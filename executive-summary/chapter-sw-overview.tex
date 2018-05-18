@@ -11,17 +11,17 @@
 
 Offline computing for  \dword{dune} faces new and considerable challenges due to the large scale and diverse physics goals of the experiment.  In particular, the advent of \dwords{lartpc}  with exquisite resolution and sensitivity, combined with enormous physical volumes, creates challenges in acquiring and storing large data volumes and in analyzing and reducing them.  The computing landscape is changing rapidly, with the traditional HEP architecture of individual cores running Linux being superseded by multi-core machines and GPUs. At the same time, algorithms for \dword{lar} reconstruction are still in their infancy and developing rapidly.  As a result, we have reason to be optimistic about the future, but we are not able to predict it accurately.  The \dword{protodune} single and dual phase tests at CERN in the fall of 2018 will provide a wealth of data that will inform the future evolution of  the \dword{dune} computing models.
 
-The  \dword{dune} offline computing challenges can be classified in several ways.  We will start with the different detector/physics configurations that drive the large scale data storage and reconstruction. 
+The  \dword{dune} offline computing challenges can be classified in several ways.  We will start with the different detector and physics configurations that drive the large scale data storage and reconstruction. 
 This discussion leans heavily on the \dword{daq} design described in \voltitlespfd and \voltitledpfd  of the \dword{dune} Technical Proposal. 
 
 \subsection{Detectors}
 
 %The \dword{dune} experiment will consist of four \larmass \dword{fd} modules located at  \surf, using either \single or \dual \lartpc{}s, and a not fully specified near detector at \fnal. The proposed full-size \larmass modules for the \dwords{detmodule} will have an active volume 12m high, 14.5m wide and 58m long. 
 
-The \dword{dune} experiment will consist of four \larmass \dword{fd} modules located at  \surf, using either \single or \dual \lartpc{}s, and a not fully specified near detector at \fnal. The proposed \dword{fd} \dword{spmod} has an active mass of \spactivelarmass and the \dword{dpmod} has an active mass of \dpactivelarmass{}.
+The \dword{dune} experiment will consist of four \larmass \dword{fd} modules located at  \surf, using either \dword{sp} or \dword{dp} \lartpc{}s, and a not fully specified near detector at \fnal. The proposed \dword{fd} \dword{spmod} has an active mass of \spactivelarmass and the \dword{dpmod} has an active mass of \dpactivelarmass{}.
 
 \subsubsection{Single-phase estimates}
- Each  \dword{sp}  module will consist of 
+ Each  \single  module will consist of 
 150 alternating vertical cathode and anode planes  spaced 3.5 m apart and operated at 180~kV for a 500~V/cm drift field.  The anode planes are made up of \dword{apa}s which are 6.3~m tall by 2.3~m wide and have 2,560 readout channels each. Each channel is sampled with 12-bit precision every 500 nsec. %The APA's are wrapped with readout wires and read out through one of the shorter ends.  %Figure \ref{bigone} illustrates the layout of anode and cathode planes in the full size detector.
 For modules of this size, drift times in the liquid argon are of order 2.5~ms and raw data sizes before compression are of order 6~GB per module per 5.4~ms readout window.  With no triggering and no zero suppression or compression, the raw data volume for four modules would be of order 145~exaB/year. 
 
@@ -31,7 +31,7 @@ For modules of this size, drift times in the liquid argon are of order 2.5~ms an
 \subsubsection{Dual-phase technology}
 
 For dual-phase, electrons drift the full height of the cryostat, emerge from the liquid and are collected,  after gas amplification, on an grid of instrumented pads at the top of the detector.  The \dword{wa105} test of this technology ran successfully in the summer of 2017\cite{Murphy:20170516}. 
-Each 17~kT module will have 153,600 channels. Drift time in the liquid argon is 7.5 ms. Given 20,000 samples in an 8~ms readout, the uncompressed event size is 4.2~GB (for 1 drift window).  Due to gas amplification, the \dword{s/n} ratio is quite high, allowing loss-less compression to be applied at the front-end  with a compression factor of ten, bringing the event size/module to 0.42~GB. Recording the entire module drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. A  far detector module can be treated as 20 smaller  detectors (with similar number  of readout channels to the prototype currently being constructed at CERN), running in parallel, each one defining a \dword{roi}. For beam or cosmic events it is possible to record only the interesting ROI(s) with the compressed size of a single ROI being 22~MB.
+Each 17~kT module will have 153,600 channels. Drift time in the liquid argon is 7.5 ms. Given 20,000 samples in an 8~ms readout, the uncompressed event size is 4.2~GB (for 1 drift window).  Due to gas amplification, the \dword{s/n} ratio is quite high, allowing loss-less compression to be applied at the front-end  with a compression factor of ten, bringing the event size/module to 0.42~GB. Recording the entire module drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. A  far detector module can be treated as 20 smaller  detectors (with similar number  of readout channels to the prototype currently being constructed at CERN), running in parallel, each one defining a region of interest (ROI). For beam or cosmic events it is possible to record only the interesting ROI(s) with the compressed size of a single ROI being 22~MB.
 
 \subsubsection{Beam coincident rates}
 
@@ -126,7 +126,7 @@ Cosmics/atmospherics (DP)& 2.33 & This becomes 230 TB/year if two ROIs/event are
 %Supernova candidates (SP) & 0.5 & 30 seconds full readout, average once per month \\
 %Supernova candidates (DP) & 0.06 & 10 seconds full readout, all ROIs are dumped on disk \\
 %\colhline
-Radiologicals ($^{39}Ar$ snd other).& $\le$1 & fake rate of $\le$100 per year\\ \colhline
+Radiologicals ($^{39}$Ar and other).& $\le$1 & fake rate of $\le$100 per year\\ \colhline
 %Front-end calibration & 0.1 & Four calibration runs per year, 100 measurements per point \\ \colhline 
 %Laser calibration & 0.1 & 1$\times$10$^6$ total laser pulses, lossy readout \\ \colhline
 %\colhline
@@ -235,14 +235,15 @@ The constrained environment at \surf motivates a model where any further data re
 \subsection{Summary}
 In summary, uncompressed data volumes will be dominated by calibration for the far detector modules ($\sim$10~PB/year/module \dword{sp} or $\sim$3 PB/year/module \dword{dp}) and by beam and cosmic ray interactions in the near detectors (2-20 PB/year).   With four \dword{fd} modules, but a conservative factor of four for compression, a total compressed data volume of 12-30~PB per year is anticipated. 
 
-After discussion with the \dword{sp} Trigger/\dword{daq} group, we asked them to include as limits in their design a  maximum data transfer rate from the far detectors to\fnal of \surffnalbw, which is consistent with projected network bandwidths in the mid 2020s and a limit of 30~PB/year raw data stored to tape.  
+
+Data transfer rate from the far detector to \fnal  is limited to \surffnalbw, which is consistent with projected network bandwidths in the mid 2020s and a limit of 30~PB/year raw data stored to tape.  
 %Table \ref{daq:datarates} summarizes the data rates expected from the \dword{daq} section of this proposal. 
 
 
 
 \section{Building the Computing Model}\label{sw:bld-cmp-mdl}
 
-The  \dword{dune} computing model is a work in progress.  We can expect that major advances will take place over the next year on several fronts, with data from \dword{protodune} and the full incorporation of lessons from  \dword{microboone} into \dword{larsoft} . 
+The  \dword{dune} computing model is a work in progress.  Major advances will take place over the next year on several fronts, with data from \dword{protodune} and the full incorporation of lessons from  \dword{microboone} into \dword{larsoft} . 
 
 
 The overall model can be divided into several major parts:  infrastructure, algorithms and adaption for the future.  These are in different stages of planning and completion.  An overarching theme is evaluating and using community codes and resources wherever possible. 
@@ -252,11 +253,11 @@ The overall model can be divided into several major parts:  infrastructure, algo
 \subsection{Infrastructure}
 This category includes the wealth of databases, catalogs, storage systems, compute farms, and the software that drives them.  HEP fortunately has already developed much of this technology and our plan is to adopt pre-existing systems wherever possible.  As  \dword{dune} is a fully global experiment, integrating the resources of multiple institutions is both an opportunity and a logistical challenge.
 
-We are currently planning to have the primary raw data repository at Fermilab, with derived samples and processing distributed among collaborating data centers.  For \dword{protodune}, raw data will also be stored at CERN.  Data processing is being designed to run on HEP grid resources, with significant ongoing effort to containerize it so that DUNE can make use of heterogenous resources worldwide. 
+Current plans have the primary raw data repository at \fnal, with derived samples and processing distributed among collaborating data centers.  For \dword{protodune}, raw data will also be stored at CERN.  Data processing is being designed to run on HEP grid resources, with significant ongoing effort to containerize it so that DUNE can make use of heterogenous resources worldwide. 
 
 
 \subsubsection{Core HEP code infrastructure}
-We plan to use shared HEP infrastructure wherever possible.  Notably the ROOT\cite{root} and \dword{geant4}~\cite{geant4,Allison:2006ve} frameworks.   For event simulation, we plan to use and contribute to  the broad range of available generators (GENIE~\cite{Andreopoulos:2009rq}, NuWro~\cite{NuWro2012}) shared with the worldwide neutrino community.
+Shared HEP infrastructure will be used wherever possible, notably the ROOT\cite{root} and \dword{geant4}~\cite{geant4,Allison:2006ve} frameworks.   For event simulation, we plan to use and contribute to  the broad range of available generators (e.g., GENIE~\cite{Andreopoulos:2009rq}, NuWro~\cite{NuWro2012}) shared with the worldwide neutrino community.
 
 In addition, we are using the infrastructure developed for the LHC and the Intensity Frontier experiments at Fermilab, notably grid infrastructure,  the \dword{art} framework and the \dword{sam} data catalog.  The \dword{nova} and \dword{microboone} experiments are already using these tools for distributed computing and the \dword{protodune} data challenges are integrating CERN and Fermilab storage and CPU resources.  We are now extending this integration to the  institutions within the collaboration who have access to substantial storage and CPU resources. 
 
@@ -267,7 +268,7 @@ This category includes the simulations, signal processing and reconstruction alg
 
 \subsubsection{External products}
 The image-like nature of TPC data allows us to make use of external machine-learning systems such as TensorFlow\cite{DBLP:journals/corr/AbadiABBCCCDDDG16}, 
-Keras\cite{chollet2015keras} and Caffe\cite{Jia:2014:CCA:2647868.2654889}.  Many of these are being evaluated for pattern recognition. While they encapsulate a wealth of experience, they are also somewhat volatile as driven by needs of non-HEP users.  We must have access to and preserve the underlying source codes in order to maintain reproducibility. 
+Keras\cite{chollet2015keras} and Caffe\cite{Jia:2014:CCA:2647868.2654889}.  Many of these are being evaluated for pattern recognition. While they encapsulate a wealth of experience, they are also somewhat volatile as they are driven by needs of non-HEP users.  We must have access to and must preserve the underlying source codes in order to maintain reproducibility. 
 
 
 
@@ -275,7 +276,7 @@ Keras\cite{chollet2015keras} and Caffe\cite{Jia:2014:CCA:2647868.2654889}.  Many
 As the experiment will be expected to run at least two decades past the present we must be prepared for the inevitable and major shifts in the underlying technologies that will occur. The ability to keep operating over decades almost requires that we emphasize open source over proprietary technologies for most applications.  DUNE should also plan to be able to utilize and support a large range of compute architectures in order to fully utilize the resources available to the collaboration.
 
 
-Table \ref{sw:computingTasks} summarizes the responsibilities of the software and computing group and Reconstruction and Algorithms groups for both \dword{dune} and \dword{protodune}.
+Table \ref{sw:computingTasks} summarizes the responsibilities of the software and computing group and reconstruction and algorithms groups for both \dword{dune} and \dword{protodune}.
 
 \begin{dunetable}[Computing tasks]
 {p{0.5\textwidth}p{0.3\textwidth}} 
@@ -309,7 +310,7 @@ The previous sections have concentrated on movement and recording of raw data, a
 \subsubsection{Reconstruction} DUNE has working frameworks for large-scale reconstruction of simulated and real data in place thanks to the \dword{larsoft} effort.  These, and the simulations, have been exercised in large scale data challenges. Optimization of algorithms awaits data from \dword{protodune}. 
  
  \subsubsection{Data Analysis}
- The  data analysis framework has not been defined yet.  We are working to build a distributed model, where derived data samples are available locally and regionally, similar to the LHC experiments.   Provision of samples  of \dword{protodune} data and simulated samples for the Technical Design Report will help define the analysis models that are most useful to the collaboration. However,  previous experience on the Tevatron experiments indicates that data analysis methods are often best designed by end-users rather than imposed by central software mandates. 
+ The  data analysis framework has not been defined yet.  We are working to build a distributed model, where derived data samples are available locally and regionally, similar to the LHC experiments.   Provision of samples  of \dword{protodune} data and simulated samples for the \dword{tdr} will help define the analysis models that are most useful to the collaboration. However,  previous experience on the Tevatron experiments indicates that data analysis methods are often best designed by end-users rather than imposed by central software mandates. 
  
  
 \section{Planning Inputs}
@@ -488,7 +489,7 @@ Requested cosmic storage envelope for \dword{protodune}-DP&2.4\,PB \\
 
 Computing and software is performing a series of data challenges to ensure that systems will be ready when the detectors become fully operational in the summer of 2018.  To date we have performed challenges using simulated single and double-phase data and real data from cold-box tests of single-phase electronics.   DUNE anticipates average rates of $\sim$ 600 MB/sec but have set our design criteria at 2.5~GB/sec for data movement from the experiments to CERN Tier-0 storage and from there to Fermilab. 
 
-In data challenge 1.5 in mid-January 2018, dummy data based on non-zero-suppressed simulated events were produced at EHN1 and successfully transferred via 10-50 parallel transfers to the \dword{eos} disk systems in the CERN Tier-0 data center at a sustained rate of 2~GB/sec.    Transfers to dCache/Enstore at Fermilab achieved rates of 500~MB/sec.  
+In data challenge 1.5 in mid-January 2018, dummy data based on non-zero-suppressed simulated events were produced at CERN's EHN1 and successfully transferred via 10-50 parallel transfers to the \dword{eos} disk systems in the CERN Tier-0 data center at a sustained rate of 2~GB/sec.    Transfers to dCache/Enstore at Fermilab achieved rates of 500~MB/sec.  
 %The rate from \dword{ehn1} to \dword{eos} is already close to the maximum expected during \dword{protodune}-SP running.
 
 Data challenge 2.0 was performed in early April 2018 is still being analyzed but preliminary estimated  rates of 4~GB/sec from CERN's  \dword{ehn1} to the tier-0 were achieved over several days. Rates to Fermilab disk cache were 2~GB/sec.  Movement from FNAL disk cache to tape was substantially slower due to configuration for a lower number of drives than needed and contention for mounts with other running experiments.   Fermilab is in the process of upgrading their tape facilities but we may require additional offsite buffer space if data rates from the experiments exceed the $\sim$ 600~MB/sec expected. 
@@ -497,7 +498,7 @@ A subsample of the data was used for data quality monitoring at CERN and the ful
 Our overall conclusion from this test is that most components for data movement and automated processing are in place.  Remaining issues are integration of beam information, detector configuration and calibrations into the main processing stream, and faster tape access. 
 
 \subsection{Monte Carlo Challenges}
-The collaboration has performed multiple Monte Carlo challenges to create samples for physics studies for the Technical Proposal and in preparation for the Technical Design Report in early 2019.  In the last major challenge,  MCC10 in early 2018, 17M events, taking up 252~TB of space were generated and catalogued automatically using the central \dword{dune} production framework in response to requests by the Physics groups. 
+The collaboration has performed multiple Monte Carlo challenges to create samples for physics studies for the technical proposal and in preparation for the \dword{tdr} in early 2019.  In the last major challenge,  MCC10 in early 2018, 17M events, taking up 252~TB of space were generated and catalogued automatically using the central \dword{dune} production framework in response to requests by the Physics groups. 
 
 \subsection{Reconstruction tests}
 Reconstruction tests have been performed on simulated  single-phase \dword{protodune} test beam interactions with cosmic rays and an electronic noise simulation based on \dword{microboone} experience.  Hit finding and shaping is found to take around 2 minutes/event with a 2~GB memory footprint, leading to a reduction in data size of a factor of four.  Higher-level pattern recognition occupies 10-20 minutes/event with a 4-6~GB memory footprint.  For real data, calibration, electric field non-uniformities and other factors will likely raise the CPU needs per event. We will learn this when real data starts to arrive in late summer. 
