@@ -86,13 +86,14 @@ maintenance of SC servers  and any additional computing hardware needed by instr
 Additionally  \dword{cisc} provides the required monitoring and control of \dword{swc} quantities including alarms, archiving, and GUIs, where applicable. 
 
 
-\dword{cisc} has profound hardware interfaces with the not-as-yet formed calibration consortium \cite{bib:docdb7072}. Indeed, since \dword{cisc} and CTF ports are multi-purpose to enable deploying various devices,
-both systems must interact in terms of flange design and sharing space around the ports. Also, \dword{cisc} might use calibration ports to extract cables from \dword{cisc} devices. 
+\dword{cisc} has profound hardware interfaces with the not-as-yet formed calibration consortium \cite{bib:docdb7072}. Indeed, since %\dword{cisc} and CTF 
+the shared ports are multi-purpose to enable deploying various devices,
+both \dword{cisc} and calibration must interact in terms of flange design and sharing space around the ports. Also, \dword{cisc} might use calibration ports to extract cables from \dword{cisc} devices. 
 At the software level, \dword{cisc} is responsible for calibration device monitoring (and control to the extent needed) and 
 monitors the interlock bit status for laser and radioactive sources. 
 
 
-\dword{cisc} indirectly interfaces to physics through the CTF devices. One specific need for physics is to extract
+\dword{cisc} indirectly interfaces to physics through the shared devices. One specific need for physics is to extract 
 instrumentation or slow controls data to correlate high-level quantities to low-level or calibration data.
 This requires tools to extract data from the slow controls database (see \dword{cisc}-\dword{swc} interface document \cite{bib:docdb7126}).
 A brief list of what \dword{cisc} data is needed by physics is given in the \dword{cisc}-Physics interface document \cite{bib:docdb7099}. 
