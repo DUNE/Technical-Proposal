@@ -336,7 +336,7 @@ mitigates the heat input to the main \dword{dpmod} volume and provides an optima
 
 The expected heat input from a given \dword{sftchimney} is about \SI{20}{\watt}. This number includes the heat through the twisted-pair cables connected to the warm \fdth, the heat in the  \dword{sft} outer metallic tube, as well as the heat dissipation by the \dword{fe} cards. A total heat input from all \num{240} \dwords{sftchimney} is at the level of \SI{5}{\kilo\watt}. 
 
-\begin{dunefigure}[\dword{sft} chimney cold flange]{fig:dpele-sft-cold-pcb}
+\begin{dunefigure}[Signal \fdth chimney cold flange]{fig:dpele-sft-cold-pcb}
 {\dword{sftchimney} cold \fdth flange with one of the \dword{fe} cards mounted.}
 \includegraphics[width=0.6\textwidth]{dpele-sft-cold-pcb}
 \end{dunefigure}
@@ -521,7 +521,7 @@ Parameter & Value  \\ \toprowrule
 
 In the current design, as used for \dword{pddp}, the \dword{mch} operates with a \SI{10}{Gbit/s} uplink. Given that a \dword{utca} crate hosts \num{10} \dwords{amc} for charge readout, the required bandwidth to stream the data to \dword{daq} is about \SI{1.8}{Gbit/s}. This assumes that the data exiting the \dwords{amc} are losslessly compressed with the compression factor \num{10}. The bandwidth required per crate link for streaming the \dword{lro} data is \SI{4.7}{Gbit/s}. The \SI{10}{Gbit/s} \dword{mch} is therefore sufficient to support these data rates. However, the technology is moving towards supporting the \SI{40}{Gbit/s} rates. In addition, the channel density per \dword{amc} could also be increased for cost optimization. For these reasons an upgrade to a \SI{40}{Gbit/s} \dword{mch} could be foreseen in the future. This would also imply that the optical links connecting the \dword{daq} system to \dword{utca} \dword{mch} should be operable at \SI{40}{Gbit/s}. A summary of the required and supported bandwidths per \dword{utca} crate for continous data streaming is provided in Table~\ref{tab:dp-utcabandwidth}.
 
-\begin{dunefigure}[Instrumented \dword{utca} crate from the \dword{wa105}]{fig:dpele-311-utca-image}
+\begin{dunefigure}[Instrumented \dshort{utca} crate from the \dword{wa105}]{fig:dpele-311-utca-image}
 {Pictures of an instrumented \dword{utca} crate from the \dword{wa105}. The crate contains five \dword{amc} cards, correspondingly to the number of readout channels per the \dword{sftchimney}. The images below show the crate after the  cables are connected to the warm flange of the \dword{sftchimney}.}
 \includegraphics[width=0.6\textwidth]{dpele-311-utca-image}
 \end{dunefigure}

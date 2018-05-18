@@ -3,7 +3,7 @@
 % Where we describe the over arching model and boundaries of the
 % computing and provide a guide to the organization of the volume
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Overview of Software and Computing }
+\chapter{DUNE Software and Computing }
 %\fixme{3 pages}
 
 
@@ -31,7 +31,7 @@ For modules of this size, drift times in the liquid argon are of order 2.5~ms an
 \subsubsection{Dual-phase technology}
 
 For dual-phase, electrons drift the full height of the cryostat, emerge from the liquid and are collected,  after gas amplification, on an grid of instrumented pads at the top of the detector.  The \dword{wa105} test of this technology ran successfully in the summer of 2017\cite{Murphy:20170516}. 
-Each 17~kT module will have 153,600 channels. Drift time in the liquid argon is 7.5 ms. Given 20,000 samples in an 8~ms readout, the uncompressed event size is 4.2~GB (for 1 drift window).  Due to gas amplification, the signal to noise ratio is quite high, allowing loss-less compression to be applied at the front-end  with a compression factor of ten, bringing the event size/module to 0.42~GB. Recording the entire module drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. A  far detector module can be treated as 20 smaller  detectors (with similar number  of readout channels to the prototype currently being constructed at CERN), running in parallel, each one defining a \dword{roi}. For beam or cosmic events it is possible to record only the interesting ROI(s) with the compressed size of a single ROI being 22~MB.
+Each 17~kT module will have 153,600 channels. Drift time in the liquid argon is 7.5 ms. Given 20,000 samples in an 8~ms readout, the uncompressed event size is 4.2~GB (for 1 drift window).  Due to gas amplification, the \dword{s/n} ratio is quite high, allowing loss-less compression to be applied at the front-end  with a compression factor of ten, bringing the event size/module to 0.42~GB. Recording the entire module drift window can be considered a pessimistic figure, since events are normally contained in smaller detector regions. A  far detector module can be treated as 20 smaller  detectors (with similar number  of readout channels to the prototype currently being constructed at CERN), running in parallel, each one defining a \dword{roi}. For beam or cosmic events it is possible to record only the interesting ROI(s) with the compressed size of a single ROI being 22~MB.
 
 \subsubsection{Beam coincident rates}
 
@@ -98,7 +98,7 @@ Tables \ref{tab:daq-data-rates-sp} and  \ref{tab:daq-data-rates-dp} summarize th
   Beam interactions & 0.03 & 800 beam and 800 rock muons; \SI{10}{\MeV} threshold in coincidence with beam time; include cosmics\\ \colhline
   Supernova candidates & 0.5 & 30 seconds full readout, average once per month \\ \colhline
  Cosmics and atmospherics & 10 &  \SI{10}{\MeV} threshold\\ \colhline
-  Radiologicals  ($^{39}Ar$ snd others.& $\le$1 & fake rate of $\le$100 per year\\ \colhline
+  Radiologicals  ($^{39}$Ar and others.& $\le$1 & fake rate of $\le$100 per year\\ \colhline
  Front-end calibration & 0.2 & Four calibration runs per year, 100 measurements per point \\ \colhline
  Radioactive source calibration & 0.1 & source rate $\le$10~Hz; single fragment readout; lossless readout \\ \colhline
  Laser calibration & 0.2 & 1$\times$10$^6$ total laser pulses, lossy readout \\ \colhline
@@ -142,7 +142,7 @@ Trigger primitives & $\le$6 &  similar to SP \\ \colhline
 
 \subsubsection{
 Calibration}
-In addition to physics channels, continuous calibration of the detectors will be necessary.  It is likely that, for the far detectors, calibration samples will  dominate the data volume. Cosmic-ray muons and atmospheric neutrino interactions will provide a substantial sample for energy and position calibration.  Dedicated runs with radioactive sources and laser calibration will also generate substantial and extremely valuable samples. Table \ref{tab:daq-data-rates-sp} includes estimates for the single-phase far detector.   Cosmic ray and atmospheric neutrino signals collected for calibration make up the bulk of the uncompressed \dword{sp} data volume at $\sim$ 10~PB/year per 17~kT module and will dominate the rates from the far detectors.  %For the near detectors, calibration samples are likely to make up a smaller fraction of the final data sample.
+In addition to physics channels, continuous calibration of the detectors will be necessary.  It is likely that, for the far detectors, calibration samples will  dominate the data volume. Cosmic-ray muons and atmospheric neutrino interactions will provide a substantial sample for energy and position calibration.  Dedicated runs with radioactive sources and laser calibration will also generate substantial and extremely valuable samples. Table \ref{tab:daq-data-rates-sp} includes estimates for the single-phase far detector.   Cosmic ray and atmospheric neutrino signals collected for calibration make up the bulk of the uncompressed \dword{sp} data volume at $\sim$10~PB/year per 17~kT module and will dominate the rates from the far detectors.  %For the near detectors, calibration samples are likely to make up a smaller fraction of the final data sample.
 
 
 
@@ -233,7 +233,7 @@ The data volumes discussed above are for un-zero-suppressed data.  Efficient zer
 The constrained environment at \surf motivates a model where any further data reduction via zero-suppression is done downstream, either on the surface or after delivery to computing facilities at FNAL or elsewhere. This could be analogous to the HLT's used by LHC experiments. The relative optimization of data movement and processing location is an important consideration for the design of both the \dword{daq} and offline computing.
 
 \subsection{Summary}
-In summary, uncompressed data volumes will be dominated by calibration for the far detector modules ($\sim$10~PB/year/module \dword{sp} or $\sim$ 3 PB/year/module \dword{dp}) and by beam and cosmic ray interactions in the near detectors (2-20 PB/year).   With four \dword{fd} modules, but a conservative factor of four for compression, a total compressed data volume of 12-30~PB per year is anticipated. 
+In summary, uncompressed data volumes will be dominated by calibration for the far detector modules ($\sim$10~PB/year/module \dword{sp} or $\sim$3 PB/year/module \dword{dp}) and by beam and cosmic ray interactions in the near detectors (2-20 PB/year).   With four \dword{fd} modules, but a conservative factor of four for compression, a total compressed data volume of 12-30~PB per year is anticipated. 
 
 After discussion with the \dword{sp} Trigger/\dword{daq} group, we asked them to include as limits in their design a  maximum data transfer rate from the far detectors to\fnal of \surffnalbw, which is consistent with projected network bandwidths in the mid 2020s and a limit of 30~PB/year raw data stored to tape.  
 %Table \ref{daq:datarates} summarizes the data rates expected from the \dword{daq} section of this proposal. 
@@ -256,7 +256,7 @@ We are currently planning to have the primary raw data repository at Fermilab, w
 
 
 \subsubsection{Core HEP code infrastructure}
-We plan to use shared HEP infrastructure wherever possible.  Notably the ROOT\cite{root} and \dword{geant4}~\cite{geant4,Allison:2006ve} frameworks.   For event simulation, we plan to use and contribute to  the broad range of available generators (GENIE~\cite{Andreopoulos:2009rq}, NuWro~\cite{NuWro2012}...) shared with the worldwide neutrino community.
+We plan to use shared HEP infrastructure wherever possible.  Notably the ROOT\cite{root} and \dword{geant4}~\cite{geant4,Allison:2006ve} frameworks.   For event simulation, we plan to use and contribute to  the broad range of available generators (GENIE~\cite{Andreopoulos:2009rq}, NuWro~\cite{NuWro2012}) shared with the worldwide neutrino community.
 
 In addition, we are using the infrastructure developed for the LHC and the Intensity Frontier experiments at Fermilab, notably grid infrastructure,  the \dword{art} framework and the \dword{sam} data catalog.  The \dword{nova} and \dword{microboone} experiments are already using these tools for distributed computing and the \dword{protodune} data challenges are integrating CERN and Fermilab storage and CPU resources.  We are now extending this integration to the  institutions within the collaboration who have access to substantial storage and CPU resources. 
 
@@ -317,7 +317,7 @@ The previous sections have concentrated on movement and recording of raw data, a
 
 \subsection{Running Experiments}\label{sw:IF-input}
 
-The Fermilab intensity frontier program experiments (MINOS\cite{minosNIM},  \dword{minerva}\cite{minerva}, \dword{microboone}\cite{microboone} and  \dword{nova}\cite{Adamson:2016xxw} have developed substantial computing infrastructure for the storage, reconstruction and analysis of data on size scales of order 5\% that of full  \dword{dune} and comparable to the \dword{protodune} experiments. While the \lartpc technology requires unique algorithms, the underlying compute systems, frameworks and database structures already exist and are being adapted for use on both \dword{protodune} and  \dword{dune}.
+The Fermilab intensity frontier program experiments (MINOS\cite{minosNIM},  \dword{minerva}\cite{minerva}, \dword{microboone}\cite{microboone} and  \dword{nova}\cite{Adamson:2016xxw}) have developed substantial computing infrastructure for the storage, reconstruction and analysis of data on size scales of order 5\% that of full  \dword{dune} and comparable to the \dword{protodune} experiments. While the \lartpc technology requires unique algorithms, the underlying compute systems, frameworks and database structures already exist and are being adapted for use on both \dword{protodune} and  \dword{dune}.
 
 For algorithms, the  \dword{microboone}\cite{Acciarri:2016smi} experiment has been running since 2015 with a \lartpc that shares many characteristics with the  \dword{dune} APAs.    \dword{microboone} has, over the past year, published studies of noise sources and signal processing \cite{Acciarri:2017sde,Adams:2018dra}, novel pattern recognition strategies \cite{Acciarri:2016ryt,Acciarri:2017hat} and calibration signatures such as Michel electrons and cosmic rays \cite{Acciarri:2017sjy,Acciarri:2017sde}.   \dword{dune} shares both the \larsoft software framework and many expert collaborators with  \dword{microboone} and is taking direct advantage of their experience in developing simulations and reconstruction algorithms.
 
@@ -387,7 +387,7 @@ Parameter & Value \\
 The \dword{pddp} will either run in the NP02 beamline in late fall 2018, or run at high rate on cosmics soon thereafter.
 %In this detector electrons drift vertically over the full height of the cryostat, emerge from the iquid and are collected, after having been amplified in avalanches occurring micro-pattern detectors operating in pure argon gas, on a segmented anode at the top of the cryostat. The WA105 3x1x1 $m^2$ test of this technology ran successfully in the summer of 2017\cite{Murphy:20170516}.
 %Table \ref{sw:np02_data_rate} shows the originally expected data beam data rates from \dword{protodune}-DP. \dword{sp} and \dword{dp} were not expected to be running at high rates simultaneously. 
-Given the most recent construction schedule for \dword{pddp} is now likely that the collaboration will forgo beam data taking and focus on  detector performance  assessment with two \dword{crp}s read out and cosmics only. \dword{pddp} will then run with cosmics at a rate going from 20 to 100 Hz from late fall 2018 to at least April 2019. During six months of operation, with 50\% efficiency, \dword{pddp} is expected to collect about 300 million cosmic triggers at various rates, corresponing to a total data volume of 2.4 PB.
+Given the most recent construction schedule for \dword{pddp} is now likely that the collaboration will forgo beam data taking and focus on  detector performance  assessment with two \dwords{crp} read out and cosmics only. \dword{pddp} will then run with cosmics at a rate going from 20 to 100 Hz from late fall 2018 to at least April 2019. During six months of operation, with 50\% efficiency, \dword{pddp} is expected to collect about 300 million cosmic triggers at various rates, corresponing to a total data volume of 2.4 PB.
 
 
 \begin{dunetable}[Parameters for a six month \dword{pddp} cosmic run at CERN]

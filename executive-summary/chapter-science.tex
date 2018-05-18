@@ -344,8 +344,7 @@ As is the case for the entire non-accelerator based physics program of DUNE, nuc
 
 Monte Carlo studies of the $p\to K^+ \bar{\nu}$ signal and corresponding atmospheric neutrino backgrounds have been carried out with the DUNE multi-purpose full event reconstruction software (a dedicated version of which is under development for nucleon decay searches).  They reveal that the main challenge in identifying proton decay candidates is due to backgrounds arising from the mis-reconstruction of protons as positive kaons. This happens when a CC neutrino interaction produces a muon and a recoiling proton and the primary vertex for neutrino interaction is mis-labelled as a secondary vertex where the kaon decays.  Complicating the ability to reject pathological events of this type is the presence of final state interactions (FSI) in proton decay, which can shift the spectrum of kaons towards low energies, with possible concurrent emission of nucleons, which together weaken the otherwise distinct energy and $dE/dx$ signature of the kaon. Ongoing work to reject these backgrounds without loss of acceptance includes implementation of convolutional neural networks, as well as efforts to understand the uncertainty associated with the intra-nuclear cascade model (FSI). 
 
-Currently best limit on $p\to K^+ \bar{\nu}$ has been set by Super-Kamiokande \cite{Abe:2014mwa}: $\tau/B > 5.9\times10^{33}$ years (90\% C.L.), obtained from a 260 kt$\cdot$year exposure.\footnote{The lifetime shown here is divided by the branching fraction for this decay mode, $\tau/B$, and
- as such is a \emph{partial lifetime}.} The DUNE FD with more than 40 kt fiducial mass for these searches is expected to extend the sensitivity to $>10^{34}$ years. 
+Currently best limit on $p\to K^+ \bar{\nu}$ has been set by \superk~\cite{Abe:2014mwa}: $\tau/B > 5.9\times10^{33}$ years (90\% C.L.), obtained from a 260 kt$\cdot$year exposure. The DUNE FD with more than 40 kt fiducial mass for these searches is expected to extend the sensitivity to $>10^{34}$ years. 
 
 SUSY GUT models also favor other nucleon decay modes involving positive or neutral kaons in the final state, for instance, $n\to K^+ e^-$. The cosmic-ray muon background for this decay mode is negligible, whereas the neutrino-induced background is limited to CC reactions with $\Delta S = 1$, and to grossly mis-reconstructed $\Delta S = 0$ events. 
 We expect that \dword{protodune} data taken with charged particle beams at CERN will provide important sample of events to train and improve on reconstruction algorithms. 
@@ -398,9 +397,7 @@ second. The neutrino energies are mostly in the range 5--50 MeV, and the
 luminosity is divided roughly equally between the three known neutrino
 flavors.  Current water and scintillator detectors are sensitive primarily to
 electron antineutrinos ($\bar{\nu}_e$), with detection through the inverse-beta decay
-process on free protons\footnote{This refers to neutrino interactions with the nucleus of a
-hydrogen atom in H$_2$O in water detectors or in hydrocarbon chains in 
-liquid scintillator detectors.},
+process on free protons, 
  which dominates the interaction rate in these detectors.  Liquid argon has a unique sensitivity to
 the electron-neutrino ($\nu_e$) component of the flux, via the absorption
 interaction on $^{40}$Ar,
@@ -418,7 +415,7 @@ in the initial core-collapse stages, to a larger degree than is the
 case for the corresponding $\bar{\nu}_e$ spectrum.  
 While $\nu_e$ absorption should represent $\sim$90\% of the signal, there are in addition other channels of interest, including $\bar{\nu}_e$ charged current, elastic scattering on electrons (which provides pointing information) and neutral-current
 interactions which result in final-state deexcitation $\gamma$'s. 
-Each channel has a distinctive signature in the detector, but in all cases, events appear as small (tens of cm scale) tracks and blips.   Figure~\ref{fig:snb} shows an example of a simulated event.  Section~\ref{sec:sb} describes reconstruction and calibration challenges for detecting these events.
+Each channel has a distinctive signature in the detector, but in all cases, events appear as small (tens of cm scale) tracks and blips.   Figure~\ref{fig:snb} shows an example of a simulated event.  Section~\ref{sec:exec-summ-strat-simreco} describes reconstruction and calibration challenges for detecting these events.
 
 
 Observation of the core-collapse neutrino burst in DUNE
@@ -466,10 +463,10 @@ of neutrino-interaction physics in its own right. For an integrated
 beam intensity of \num{1e20} 
 protons-on-target at \SI{120}{GeV}, the expected number of events per
 ton is \num{170000} (\num{59000}) 
-\numu (\anumu) charged-current and \num{60000} (\num{25000}) neutral-current interactions in the $\nu$ ($\overline\nu$) beam\footnote{With PIP-II, the integrated protons-on-target per year is
+\numu (\anumu) charged-current and \num{60000} (\num{25000}) neutral-current interactions in the $\nu$ ($\overline\nu$) beam. With PIP-II, the integrated protons-on-target per year is
   expected to be around $1.1\times 10^{21}$ at \SI{120}\GeV. The mass
-  of the Ar target in the Low-mass Tracker option for the DUNE ND is expected to be approximately
-  80 Tons.}. 
+  of the argon target in the low-mass tracker option for the DUNE near detector is expected to be approximately
+  80 tons. 
   These numbers correspond to \num{e5} neutrino interactions
 on argon per year for the range of beam configurations and near detector
 designs under consideration.  Measurement of fluxes, cross sections
