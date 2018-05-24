@@ -1,18 +1,19 @@
 Directly following the installation of the instrumented \dwords{apa} into the cryostat, commissioning of the
-TPC electronics will commence.  This should be carried out both before and after the \lar fill;
+TPC electronics will commence, and will be carried out both before and after the \lar fill;
 the former establishes whether or not the installation procedure led to impairment of the
 electronics, and the latter checks that the cryogenic electronics do not experience failures
 in the cold \lar.
 
 As described in Section~\ref{sec:fdsp-tpc-elec-install-apa}, the electronics checkout prior to
-\lar fill will begin as soon as the \dword{apa} is installed, and before all \dwords{apa} are installed; that is,
-installation and testing will proceed in parallel.  This has the advantage of informing
-subsequent installation of \dwords{apa} to help minimize total number of electronics channels lost
+\lar fill will begin as soon as the first \dword{apa} is installed; %, and before all \dwords{apa} are installed; 
+that is,
+installation and testing will proceed in parallel.  This has the advantage of informing the 
+ installation of subsequent \dwords{apa}, and thus minimizing the total number of electronics channels lost
 during the installation process.  Items to be checked during the commissioning process include
 the noise level on every channel, dead or noisy (high \rms) channels,
 cross-talk across neighboring wires or neighboring channels in the electronics,
 pick-up noise (including spatial dependence in the detector) if present, and
-noise coherent across channels sharing common electronics (e.g.,~same \dword{femb}).
+noise coherent across channels sharing common electronics (e.g.,~the same \dword{femb}).
 These measurements will be performed first during the tests in the cold box.  Repeating these
 measurements prior to filling the cryostat with \lar will allow for final repairs or replacements
 for all the \dword{ce} components prior to the closure of the \dword{tco}. This will also give an opportunity
@@ -26,12 +27,12 @@ similar to the one described above will be carried out.  Any electronics issues 
 during this procedure will be fixed before continuing, if possible.  The wire bias \dword{hv} and
 cathode \dword{hv} will then be brought up, with noise studies repeated after each subsystem is
 turned on.  With the wire bias \dword{hv} and cathode \dword{hv} up, one can then utilize ionization signals
-(e.g.~from $\mathrm{{}^{39}Ar}$ beta decays) to distinguish between different possible issues
+(e.g.,~from $\mathrm{{}^{39}Ar}$ beta decays) to distinguish between different possible issues
 that might impair the readout of a given channel, such as a short between the wire planes
 (which would alter the wire field response on nearby wires) and a problem with the electronics.
 
 Both during the commissioning phase of the experiment and during normal operations, it may
-be desired to perform an in-situ calibration of one or more parts of the TPC electronics chain.
+be desired to perform an in situ calibration of one or more parts of the TPC electronics chain.
 These calibrations will utilize a combination of noise data and data collected while a
 calibration pulser (internal DAC on the FE \dword{asic}) is periodically injecting charge into the TPC
 electronics channels.  Calibrations of interest include determining the gain and shaping time of
