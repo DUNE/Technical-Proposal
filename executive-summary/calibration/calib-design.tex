@@ -43,7 +43,7 @@ Use of  ${}^{39}$Ar  and other radiological sources, including the DAQ readout c
 
 %\subsection{Limitations}
 
-%A comprehensive list of limitations will be provided for the TDR and here we provide the most critical issues raised:
+%A comprehensive list of limitations will be provided for the \dword{tdr} and here we provide the most critical issues raised:
 
 %\fixme{Can we add any specifics in terms of fundamental parameters?}
 %\fixme{Provide priority of problems! And briefly summarize or ignore other if we need space}
@@ -70,7 +70,7 @@ Use of  ${}^{39}$Ar  and other radiological sources, including the DAQ readout c
 %\end{itemize}
 
 
-\textbf{Remaining Studies:} In advance of the TDR, studies will be done to clarify the physics use limitations of the various sources presented in this section. %existing sources, external measurements and monitors. 
+\textbf{Remaining Studies:} In advance of the \dword{tdr}, studies will be done to clarify the physics use limitations of the various sources presented in this section. %existing sources, external measurements and monitors. 
 For example, quantification of what can be achieved for  electron lifetime measurements and the overall energy scale calibration from cosmic rays,  ${}^{39}$Ar beta decays, long baseline interactions and atmospheric neutrinos, in terms of spatial and temporal granularity using decay electron, $\pi^0$ samples; determining the relative importance of electromagnetic shower photons below pair production threshold. It is expected that combinations of information from cosmic-ray events with proposed and existing systems (laser-based, neutrino-induced events, and dedicated muon systems) will reduce the total uncertainties on mis-alignment.  The impact of misalignments on the physics case needs to be studied, especially for alignment modes which are weakly constrained due to cosmic ray direction, as shown in Figure~\ref{fig:apacurtainalign}, including global shifts and rotations of all detector elements, and crumpling modes where the edges of the \dwords{apa} hold together but angles are slightly different from nominal. The impact of the fluid model on physics needs require quantification via CFD simulations (e.g., overall temperature variation in the cryostat and impact on drift velocity; overall impurity variation across the \detmodule{}, and impact on energy scale especially for \dword{dp} which has a \SI{12}{\m} long single drift path). The CFD studies will also be important in understanding how \lar flow can impact space charge from both ionization and non-ionization sources and ion accumulation (both positive and negative ions), separately for \dword{spmod} and \dword{dpmod} designs. % KM: removed, redundant with next section? This is especially challenging for \dword{dp} due to the liquid-gas interface. 
 
 \begin{dunefigure}[Sample distortion that may be difficult to detect with cosmic rays]{fig:apacurtainalign}{An example of a distortion that may be difficult to detect with cosmic rays.  The \dword{apa} frames are shown as
@@ -112,7 +112,7 @@ Many useful secondary uses of laser include alignment( especially modes that are
 %??!! Are we meeting the target for the physics? Is this under motivation?
 % Remaining studies
 
-Two laser-based systems have been considered to extract the electric field map. They fall into two categories: \phel from from the \lartpc cathode and direct ionization of the \dword{lar}, both driven by a \SI{266}{\nano\m} laser system. The reference design uses direct ionization laser light  with multiple laser paths, as it can provide field map information in $(x, y, z, t)$; \phel only provides integral field across the drift. An ionization-based system has been used in the ARGONTUBE~\cite{Zeller:2013sva}, \dword{microboone}, CAPTAIN, and SBND experiments. Assuming multiple, steerable laser entry points as discussed in Section~\ref{sec:FTs}, the ionization-based system can extract the electric field with fewer dependencies compared to other systems. 
+Two laser-based systems have been considered to extract the electric field map. They fall into two categories: \phel from from the \lartpc cathode and direct ionization of the \dword{lar}, both driven by a \SI{266}{\nano\m} laser system. The reference design uses direct ionization laser light  with multiple laser paths, as it can provide field map information in $(x, y, z, t)$; \phel only provides integral field across the drift. An ionization-based system has been used in the ARGONTUBE~\cite{Zeller:2013sva}, \dword{microboone}, CAPTAIN, and SBND experiments. Assuming multiple, steerable laser entry points as discussed in Section~\ref{sec:FTs}, the ionization-based system can characterize the electric field with fewer dependencies compared to other systems. 
 Two ``laser tracks'' that cross in a detector volume element can be used to estimate the local \efield in that volume. If two tracks enter the same spatial voxel 
 %\footnote{Finer sampling in certain regions may be desirable, but \dword{daq} requirements prevent much finer sampling for overall \efield mapping.} 
 ($10 \times 10 \times 10~\textrm{cm}^3$ volume) in the \dword{detmodule}, the relative position of the tracks provides an estimate of the local \threed \efield. A scan of the full detector using \SI{1}{L} volume elements would take a day, but it is expected that practically shorter runs could be done to investigate specific regions. 
@@ -122,7 +122,7 @@ The direct ionizing laser system may also be used to create \phel{}s from the ca
 
 A \phel{}-based calibration system was used in the T2K gaseous (predominantly Ar), TPCs~\cite{Abgrall:2010hi}. Targets placed on the cathode provided dots and lines that were then imaged by the electronics, and relative distortions of the surveyed positions could be used. The T2K \phel system provided measurements of adjacent electronics modules' relative timing response, drift velocity with few \si{\nano\s} resolution of \SI{870}{\milli\m} drift distance, electronics gain, transverse diffusion, and an integrated measurement of the electric field along the drift direction. For DUNE, the system would be similarly used as on T2K to diagnose electronics or TPC response issues on demand, and provide an integral field measurement and relative distortions of $y$, $z$ positions with time, and of either $x$ or drift velocity. Ejection of \phel{}s from the direct ionization laser system has also been observed, so it is likely this is a reasonable addition to the nominal design.% and would only be considered a primary system if the intensity of the laser is problematic. 
 
-The remaining studies for the laser systems to be done prior to the TDR are as follows: 
+The remaining studies for the laser systems to be done prior to the \dword{tdr} are as follows: 
  Determine a nominal design for photoelectric targets on the cathode, and whether such targets would provide sufficient survey-like information, given that a (cold) survey of the SP system is not possible. Each DP CRP will be able to be surveyed externally under cold conditions, so the additional benefit of this would need quantification for \dual. Determine if the known classes of possible \efield distortions warrant a mechanical penetration of the \dword{fc} (versus reduced sampling from projecting laser light inward between field cage elements and further understand sensitivity of the laser to realistic E field distortions. Continue to study the range of possible \efield distortions to further refine the estimation of overall variation of \efield  in the detector. 
 
 %\begin{itemize}
@@ -170,7 +170,7 @@ Assuming stable detector conditions, a radioactive source would be deployed ever
 If stability fluctuates for any reason (e.g., electronic response changes over time) at a particular location, it is desirable to deploy the source at that location once a month, or more often, depending on how bad the stability is. It would take of order eight hours to deploy the system at one feedthrough location, and a full radioactive source calibration campaign might take a week.
 %\fixme{Remaining studies should be standalone, avoid text repetition. Check this here.}
 
-For the TDR, continued development of geometry and simulation tools of radioactive source system is necessary to demonstrate the usage of these sources, including studies of various radiological contaminants on detector response, and source event rate and methods to suppress them. In addition, a test will be performed at South Dakota School of Mines and Technology. A radioactive source deployment in a potential phase 2 of ProtoDUNE could be envisaged to demonstrate proof of principle of the radioactive source deployment. However, studies need to be performed to first understand how cosmic rays can be vetoed sufficiently well for a radioactive source measurement.
+For the \dword{tdr}, continued development of geometry and simulation tools of radioactive source system is necessary to demonstrate the usage of these sources, including studies of various radiological contaminants on detector response, and source event rate and methods to suppress them. In addition, a test will be performed at South Dakota School of Mines and Technology. A radioactive source deployment in a potential phase 2 of ProtoDUNE could be envisaged to demonstrate proof of principle of the radioactive source deployment. However, studies need to be performed to first understand how cosmic rays can be vetoed sufficiently well for a radioactive source measurement.
 %such that they would not impact the test deployment of a radioactive source in a surface LArTPC.
 %\begin{itemize}
 %\item Continued development of new geometry tools for source deployment system in simulation along with improving the implementation of the details of the DUNE geometry
@@ -202,7 +202,7 @@ The fixed, shielded deuterium-deuterium ($DD$) neutron generator would be locate
 %The $DD$ generator itself is the size of a large thermos bottle. 
 %% KM repetitive with other part % Space needed by the system will be determined by the desired shielding level which is yet to be understood. 
 
-The remaining studies for the TDR for the external neutron source include an assessment of the full design, including degrader materials and shielding and space and mounting (weight) considerations above the cryostat. Detailed simulation studies to understand the neutron transport process will be performed. In addition, the neutron capture gamma spectrum is also being characterized. In Nov 2017, the ACED Collaboration took several hundred thousand neutron capture events at the DANCE facility at LANSCE which will be used to prepare a database of the neutron capture gamma cascade chain. 
+The remaining studies for the \dword{tdr} for the external neutron source include an assessment of the full design: degrader materials, shielding, and the space and mounting (weight) considerations above the cryostat. Detailed simulation studies to understand the neutron transport process will be performed. In addition, the neutron capture gamma spectrum is also being characterized. In Nov 2017, the ACED Collaboration took several hundred thousand neutron capture events at the DANCE facility at LANSCE which will be used to prepare a database of the neutron capture gamma cascade chain. 
 %from Vitaly, consider for future: I think a potential activation of materials due to this neutron source should be added to the remaining studies. Similarly, more detailed Monte Carlo of neutron transport to prove the concept of this calibration would help.
 %KM can omit final detail if we need to.
 %- do we need this detail here?} 
@@ -231,7 +231,7 @@ Additional measurements are possible elsewhere in the detector if the system is 
 
 %\fixme{Remaining studies should be standalone, avoid text repetition. Check this here.}
 
-The remaining studies for the EMT system prior to the TDR include continued study of the precision with which the EMT (including panels on the sides and bottom) can determine biases or other problems with the detector model. Optimization of EMT size and pixelization and possible cost-saving options including re-use of existing scintillators (e.g. MINOS) or counter systems (e.g. ProtoDUNE or SBN) will be investigated. The available space for the EMT around the cryostat needs more investigation. A plan for surveying the EMT relative to the APAs also needs to be developed, to be coordinated with the APA consortium; error in such a survey could be misinterpreted as a reconstruction bias. %Continuation of discussions with the DAQ consortium on EMT needs, although this will depend somewhat on the technology chosen.
+The remaining studies for the EMT system prior to the \dword{tdr} include continued study of the precision with which the EMT (including panels on the sides and bottom) can determine biases or other problems with the detector model. Optimization of EMT size and pixelization and possible cost-saving options including re-use of existing scintillators (e.g. MINOS) or counter systems (e.g., \dword{protodune} or SBN) will be investigated. The available space for the EMT around the cryostat needs more investigation. A plan for surveying the EMT relative to the \dwords{apa} also needs to be developed, to be coordinated with the APA consortium; error in such a survey could be misinterpreted as a reconstruction bias. %Continuation of discussions with the DAQ consortium on EMT needs, although this will depend somewhat on the technology chosen.
 %KM May 
 
 %\begin{itemize}
@@ -240,7 +240,7 @@ The remaining studies for the EMT system prior to the TDR include continued stud
 %\item Continuation of size and pixelization optimization. 
 %\item Assessment of  space surrounding the cryostat for the EMT, including space above (for cosmic rays), along the side, or for a second panel \SI{1}{\m} away from the front face of the cryostat.
 %\item Assessment of cost saving options, including reuse of existing scintillators (from MINOS), or reuse of a counter system (e.g., from \dword{protodune}).
-%\item A plan for surveying the EMT relative to the APAs also needs to be developed, to be coordinated with the APA consortium; error in such a survey could be misinterpreted as a reconstruction bias.
+%\item A plan for surveying the EMT relative to the \dwords{apa} also needs to be developed, to be coordinated with the APA consortium; error in such a survey could be misinterpreted as a reconstruction bias.
 %\item Continuation of discussions with the DAQ consortium on EMT needs, although this will depend somewhat on the technology chosen.
 %\end{itemize}
 %\fixme{SG: done reviewing until here. Need to take a break. }
@@ -251,14 +251,14 @@ The remaining studies for the EMT system prior to the TDR include continued stud
 \label{sec:FTs}
 
 The current cryostat design for the 
-\spmod with multi-purpose cryostat penetrations for various sub-systems is shown in Figure~\ref{fig:ftmap}. The penetrations dedicated for calibrations are highlighted in black ovals. The placement of these penetrations is largely driven by the ionization track laser and radioactive source system requirements but would be usable for the neutron system as well.  The ports that are closer to the center of the cryostat are placed near the APAs (similarly to what is planned for SBND) to minimize any risks due to the \dword{hv} discharge. For the far east and west ports, \dword{hv} is not an issue as they are located outside the \dword{fc} and the penetrations are located near mid-drift to meet radioactive source requirements. 
+\spmod with multi-purpose cryostat penetrations for various sub-systems is shown in Figure~\ref{fig:ftmap}. The penetrations dedicated for calibrations are highlighted in black ovals. The placement of these penetrations is largely driven by the ionization track laser and radioactive source system requirements but would be usable for the neutron system as well.  The ports that are closer to the center of the cryostat are placed near the \dwords{apa} (similarly to what is planned for SBND) to minimize any risks due to the \dword{hv} discharge. For the far east and west ports, \dword{hv} is not an issue as they are located outside the \dword{fc} and the penetrations are located near mid-drift to meet radioactive source requirements. 
 %The multipurpose ports on far east and far west are located outside the field cage; the penetrations on the far east and west can  be used both by laser and radioactive source deployment systems. 
 
 %In addition to these dedicated ports, the Detector Support System (DSS) and cryogenic ports (orange and blue dots in Figure~\ref{fig:ftmap}, respectively) will also be used as needed to route cables for the single phase photon detector calibration system. The DSS and cryogenic ports are accommodated with feedthroughs with a CF63 side flange for this purpose.   
 
 \begin{dunefigure}[Top view of the \dword{spmod} 
 cryostat showing various penetrations]{fig:ftmap}{Top view of the \dword{spmod} 
-cryostat showing various penetrations. Highlighted in black ovals are multi-purpose calibration penetrations. The orange dots are TPC signal cable penetrations. The blue ports are \dword{dss} penetrations. The orange ports are TPC signal cable penetrations. The larger purple ports at the four corners of the cryostat are human access tunnels.}
+cryostat showing various penetrations. Highlighted in black ovals are multi-purpose calibration penetrations. The orange ports are TPC signal cable penetrations. The blue ports are \dword{dss} penetrations. The larger purple ports at the four corners of the cryostat are human access tunnels.}
 \includegraphics[height=2.0in]{FTmap.png}
 \end{dunefigure}
 

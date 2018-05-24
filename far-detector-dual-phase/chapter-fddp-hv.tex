@@ -20,12 +20,12 @@ this requires a horizontal cathode plane, held at negative \dword{hv}; a horizon
 \includegraphics[width=0.8\textwidth]{Overview_Cutaway.png}
 \end{dunefigure}
 
-The \dword{hv} consortium provides systems that operate at the nominal voltages to provide the uniform \SI{500}{V/cm} \efield in the \dword{tpc} drift volume. As a result, its systems %actually 
+The \dword{hv} consortium supplies the systems that operate at the nominal voltages to provide the uniform \SI{500}{\volt/\cm} \efield in the \dword{tpc} drift volume. As a result, its systems %actually 
 constitute a large fraction of the %total 
 internal structures of the \dword{tpc}. % itself. 
 Mechanical and structural concerns are taken into account, together with the electrical design to meet the requirements. 
 
-The design presented in this chapter is primarily based on the \dword{pddp} design, which includes a set of basic elements (i.e., \dword{fc} sub-modules, cathode and ground grid modules) that are deployed to build a TPC with a 6$\times$6$\times$6\,m$^3$ active volume. The extrapolation to the \dword{dpmod} structure with 
+The design presented in this chapter is primarily based on the \dword{pddp} design, which includes a set of basic elements (i.e., \dword{fc} sub-modules, cathode, and ground grid modules) that are deployed to build a TPC with a 6$\times$6$\times$6\,m$^3$ active volume. The extrapolation to the \dword{dpmod} structure with 
 \tpcheight$\times$\dptpcwdth$\times$\dptpclen\,m$^3$ active volume %is based on the same elements designed for \dword{pddp} with 
 requires some electrical and mechanical adaptations.  The size of each element is kept within a roughly 3$\times$3\,m$^2$ envelope, matching the size of the  \dword{crp} modules, which was optimized for underground transportation and assembly.
 
@@ -61,13 +61,13 @@ No. & Requirement & Physics requirement driver & Requirement & Goal \\ \toprowru
 \subsection{Scope}
 \label{sec:fddp-hv-scope}
 The scope of the \dword{hv} system 
-includes the continued procurement of materials for, and the fabrication, testing, delivery and installation of systems to generate, distribute, and regulate voltages so as to create a precision \efield within the \detmodule volume. 
+includes the continued procurement of materials for, and the fabrication, testing, delivery, and installation of systems to generate, distribute, and regulate voltages so as to create a precision \efield within the \detmodule volume. 
 
 The \dword{hv} system consists of components both exterior and interior to the cryostat. The \dword{hv} power supply is located external to the cryostat.  In the \dword{dpmod}, the \dword{hv} power supply is expected to be located on top of the \dword{hv} \fdth. The \dword{hv} is further distributed by interior components that form part of the TPC structure, as depicted in Figure~\ref{fig:dune-dp-hvs}.a.  These components are:
 
 \begin{itemize}
 \item power supply,
-\item \dword{hv} \fdth
+\item \dword{hv} \fdth,
 \item \dword{hv} extender and voltage degrader,
 \item cathode plane and \dword{gp}, 
 \item \dlong{fc},
@@ -86,12 +86,10 @@ The \dword{hv} system consists of components both exterior and interior to the c
 \subsection{System Overview}
 
 A \dpmod  has a single modular cathode plane that forms the bottom of the single
-  \dptpcwdth (W) $\times$ \tpcheight (H) $\times$ \dptpclen (L) drift volume. It is constructed of eighty \SI{3}{\m} $\times$ \SI{3}{\m} contiguous units. 
-The cathode units consist of stainless steel tube frames that hold a stainless steel grid. It is kept at a potential of \dptargetdriftvoltneg.  A similar but highly transparent \dword{gp} is placed just above the  \dword{pds}, which is located near the bottom of the cryostat and below the cathode to shield it from the \dword{hv}.
-The cathode bias is provided by an external \dword{hv} power supply through a \dword{hv} \fdth and a voltage extender unit that reaches the cathode.
+  \dptpcwdth (W) $\times$ \tpcheight (H) $\times$ \dptpclen (L) drift volume. It is constructed from eighty \SI{3}{\m} $\times$ \SI{3}{\m} contiguous units each consisting of a stainless steel tube frame holding a stainless steel grid. %It is kept at a potential of \dptargetdriftvoltneg.  
+A similar but highly transparent \dword{gp} is placed just above the \dword{pds}, which is located near the bottom of the cryostat and below the cathode to shield it from the \dword{hv}. The cathode bias voltage of \dptargetdriftvoltneg is provided by an external \dword{hv} power supply through a \dword{hv} \fdth and a voltage extender unit that reaches the cathode.
  
-The \dword{fc} surrounds the drift volume in a set of equidistant, stacked, horizontal, rectangular-shaped aluminum rings. Its function is to ensure a uniformity drift field of \SI{500}{\V\per\cm}. This is accomplished by gradually decreasing the voltage over the \tpcheight height from the cathode voltage of \dptargetdriftvoltneg to \SI{-10}{\kV} at the top-most field shaping ring, to allow for electron extraction into the gas volume of the \dword{crp}. The \dword{fc} consists of aluminum field-shaping rings, made up of mechanically and electrically connected \SI{3}{m} long aluminum profiles.  
-This is a cost-effective system for establishing the required equipotential surfaces. 
+The \dword{fc} surrounds the drift volume in a set of equidistant, stacked, horizontal, rectangular-shaped aluminum rings. Its function is to ensure a uniform drift field of \SI{500}{\V\per\cm}. This is accomplished by gradually decreasing the voltage over the \tpcheight height from the cathode voltage of \dptargetdriftvoltneg to \SI{-10}{\kV} at the top-most field shaping ring, to allow for electron extraction into the gas volume of the \dword{crp}. The \dword{fc} consists of aluminum field-shaping rings, made up of mechanically and electrically connected \SI{3}{m} long aluminum profiles. This is a cost-effective system for establishing the required equipotential surfaces. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{HV System Design}
@@ -140,7 +138,7 @@ flange of at least \SI{25.4}{\cm} (\SI{10}\,in) welded on for attachment to the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{High Voltage Extender and Voltage Degrader}
 
-Since the \dword{hv} has to be guided from the top of the cryostat to the cathode (\SI{12}{\m} below the \dword{lar} surface), an extension of the \dword{hv} \fdth is required, as shown in Figure~\ref{fig:pd-hvft-extender}a, b and c. The extender contains an inner conductor at \dptargetdriftvoltneg surrounded by an insulator. Since the extension runs the entire height of the drift volume, metallic rings (degrader rings) are installed on the periphery of the extension close to the field-shaping ring. Each degrader ring is electrically connected to the field shaping ring at the same height thus guaranteeing that the \efield in the \lar between the extender and the \dword{fc} remains at 0.
+Since the \dword{hv} has to be guided from the top of the cryostat to the cathode (\SI{12}{\m} below the \dword{lar} surface), an extension of the \dword{hv} \fdth is required, as shown in Figure~\ref{fig:dp-hvft-extender}a, b and c. The extender contains an inner conductor at \dptargetdriftvoltneg surrounded by an insulator. Since the extension runs the entire height of the drift volume, metallic rings (degrader rings) are installed on the periphery of the extension close to the field-shaping ring. Each degrader ring is electrically connected to the field shaping ring at the same height thus guaranteeing that the \efield in the \lar between the extender and the \dword{fc} remains at zero.
 
 
 \begin{dunefigure}[\dual HVFT and extender]{fig:dp-hvft-extender}{Pictures of \dword{hv} \fdth and \dword{hv} extender-degrader; a) Overview of the \dword{hv} FT, \dword{hv} extender and the degrader chain, b) details of the top portion of the \dword{hv} extender and its connections to the field shaping rings, c) detail of the \dword{hv} extender and degrader connection to the bottom part of the \dword{fc}, including the connection to the cathode plane.}
@@ -415,14 +413,15 @@ One \tpcheight tall module is covered by fifteen \num{11}-stage \dwords{hvdb}, a
 Each \dword{fc} module is suspended and raised by two ropes hung from the cryostat roof through the \dword{fc} suspension \fdth{}s, by winches as in \dword{pddp}.  
 
 Once an \dword{fc} module of the full height is completed for \dword{dpmod}, it will be hung 
-from the cables attached to the final suspension hook and the suspension \fdth is then fully sealed. 
+from the cables attached to the final suspension hooks. The suspension \fdth{}s are then fully sealed. 
 A possible improvement on the \dword{pddp} interface is to use remote-controlled electrical winches (as opposed to manual) to ensure synchronized lifting of the modules.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Charge Readout Plane}
 \label{sec:fddp-hv-intfc-to-crp}
 
-No direct hardware interface exists between the \dword{hv} and \dword{crp} systems. The cryostat penetrations and \fdth{}s for the two systems are completely independent, as are their control electronics. The only interface envisaged includes a system for maintaining the proper distance between the top-most field-shaping profile and the extraction grid in order to maintain the proper extraction field and to ensure the physical separation between the two systems. 
+No direct hardware interface exists between the \dword{hv} and \dword{crp} systems. The cryostat penetrations and \fdth{}s for the two systems are completely independent, as are their control electronics. The only interface envisaged includes a system to ensure the appropriate physical separation between the top-most field-shaping profile and the \dword{crp} extraction grid.
+%for maintaining the proper distance between the top-most field-shaping profile and the extraction grid in order to maintain the proper extraction field and to ensure the physical separation between the two systems. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Photon Detection System}
@@ -514,9 +513,11 @@ This design will be tested in \dword{pddp} at \SI{300}{kV} voltage over \SI{9}{\
 
 Integral to the \dword{dp} \dword{fc} design, both in \dword{pddp} and the \dpmod, is the concept of pre-assembled modular panels of field-shaping conductors with individual voltage divider boards. The structural design and installation procedures used in \dword{pddp} were selected to be compatible with use at the \dword{fd} site and were vetted by project engineers, engineering design review teams, and CERN's safety engineers. Some revisions to these designs are expected based on lessons learned in installation and operations; these revisions will be reviewed both within the DUNE project and by \fnal EH\&S personnel. The overall design is on solid footing. 
 
-Assembly of the \dword{fc} panels and resistor-divider boards involves labor on the part of the collaboration members, technical staff, and students, and  does not present unusual industrial hazards. The \dword{hv} consortium will work closely with each assembly site to ensure that procedures meet both \fnal{}'s and institutional requirements for safe procedures, personal protective equipment, environmental protection, %trained 
+%Assembly of the \dword{fc} panels and resistor-divider boards involves labor on the part of the collaboration members, technical staff, and students, and  does not present unusual industrial hazards. 
+Assembly of the \dword{fc} panels and resistor-divider boards does not present unusual industrial hazards. 
+The \dword{hv} consortium will work closely with each assembly site to ensure that procedures meet both \fnal{}'s and institutional requirements for safe procedures, personal protective equipment, environmental protection, %trained 
 materials handling, and training. The vast majority of %production 
-part fabrication will be carried out commercially and shipping will be contracted through approved commercial shipping companies. Prior to approving a site as a production venue, the site will be visited and reviewed by an external safety panel to ensure best practices are in place and maintained. 
+part fabrication will be carried out commercially, and shipping will be contracted through approved commercial shipping companies. Prior to approving a site as a production venue, the site will be visited and reviewed by an external safety panel to ensure best practices are in place and maintained. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Organization and Management}
