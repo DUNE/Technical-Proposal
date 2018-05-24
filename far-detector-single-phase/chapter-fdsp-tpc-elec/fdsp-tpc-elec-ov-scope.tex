@@ -4,18 +4,18 @@ sample from each \dword{apa} channel (wire) up to every \SI{500}{ns} (\SI{2}{MHz
 
 Each individual \dword{apa} has \num{2560} channels that are read out by \num{20} %front-end motherboards (
 \dfirsts{femb}, with
-each \dshort{femb} enabling digitized wire readout from \num{128} channels.  One cable bundle connects each \dword{femb} to
+each \dshort{femb} enabling digitized wire readout from \num{128} channels.  One cable bundle connects each \dshort{femb} to
 the outside of the cryostat via a \dword{ce} signal cable flange located at the \dword{ce} \fdth at the
 top of the cryostat, where a single flange services each \dword{apa}, as shown in Figure~\ref{fig:connections}.  Two \dword{ce} signal flanges are located on each \fdth, together accounting for all electronics channels associated with a pair of \dwords{apa} (upper and lower, vertically arranged).
 Each cable bundle contains wires for low-voltage (\dword{lv}) power, high-speed data readout, and
 clock or digital-control signal distribution.  Eight separate cables carry the TPC wire bias voltages
 from the signal flange to the \dword{apa} wire bias boards, in addition to the bias voltages for the field
-cage termination electrodes and for the electron diverters.  An addition flange on the top of each \fdth services the \dword{pds} cables associated with the \dword{apa} pair.
+cage termination electrodes and for the electron diverters.  An additional flange on the top of each \fdth services the \dword{pds} cables associated with the \dword{apa} pair.
 
 \begin{dunefigure}
 [Connections between the signal flanges and \dword{apa}]
 {fig:connections}
-{Connections between the signal flanges and \dword{apa}. Only the upper \dword{apa} of the hanging \dword{apa} pair, described in Section~\ref{sec:fdsp-apa-frames}, and its connection paths are shown. The lower \dword{apa} will share the \dword{pd} flange with the upper \dword{apa} but have a separate TPC readout flange. A \textit{\dword{ce} module} consists of all \dword{ce} associated with \num{128} channels of digitized readout.}
+{Connections between the signal flanges and \dword{apa}. Only the upper \dword{apa} of the hanging \dword{apa} pair, described in Section~\ref{sec:fdsp-apa-frames}, and its connection paths are shown. The lower \dword{apa} shares the \dword{pd} flange with the upper \dword{apa} but has a separate TPC readout flange. A \textit{\dword{ce} module} consists of all \dword{ce} associated with \num{128} channels of digitized readout.}
 %\hspace{1cm}
 \includegraphics[width=0.9\textwidth]{tpcelec-PDSP_Connections.png}
 \end{dunefigure}

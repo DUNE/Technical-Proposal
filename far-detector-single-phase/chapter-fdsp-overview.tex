@@ -15,12 +15,12 @@ Experience with design, construction, operation, and data
 analysis with numerous single-phase \lartpc experiments and prototypes has informed the approach to
 realizing the massive DUNE \dwords{spmod}. Each far \dword{detmodule} will feature the largest \lartpc{}s ever
 constructed, at approximately \nominalmodsize active volume each.  Aside from the
-challenges inherit in such a large undertaking, DUNE presents the added complication of construction and operation in a location
-that is one mile underground with limited access.
+challenges inherent in such a large undertaking, DUNE presents the added complication of construction and operation in a location
+that is \SI{1.5}{km} (one mile) underground with limited access.
 
-The design of the DUNE \dword{spmod} that is presented in this document
-reflects an approach to achieve the science goals of the experiment, and
-address the challenges of constructing and operating a massive detector in a deep
+The design of the DUNE \dword{spmod} presented in this document
+reflects an approach to achieving the science goals of the experiment, and
+addresses the challenges of constructing and operating a massive detector in a deep
 underground environment.
 
 
@@ -29,7 +29,7 @@ underground environment.
 \label{sec:fdsp-design-op}
 
 The precision tracking and calorimetry offered by the single-phase \lartpc
-technology provides excellent ability to identify interactions of interest
+technology provides excellent capabilities for identifying interactions of interest
 while mitigating sources of background.  The operational principle of a
 single-phase \lartpc is summarized here for reference.
 
@@ -39,10 +39,10 @@ an \efield that is present throughout the volume, towards a series of
 anode layers.  Each anode layer is composed of finely spaced wires arranged at
 characteristic angles, and appropriate biasing of these wires allows the
 ionization to drift through the successive layers before terminating on a wire
-in the Collection layer.  The individual wires in the anode layers can be
+in the collection layer.  The individual wires in the anode layers can be
 instrumented with low-noise electronics that record the current in the wire as
-a function of time.  The argon scintillation light, which at \SI{128}{nm} wavelength
-is deep in the UV spectrum, can be recorded by photon detectors that shift the
+a function of time.  The argon scintillation light, which at \SI{127}{nm} wavelength
+is deep in the UV spectrum, can be recorded by \dwords{pd} that shift the
 wavelength closer to the visible spectrum and subsequently record the time and
 pulse characteristics of the incident light.
 
@@ -54,8 +54,8 @@ pulse characteristics of the incident light.
 %\fixme{Include diagram of basic single-phase \lartpc operational principle.  Expand previous paragraph.}
 
 The performance of the \lartpc hinges on several key factors.  First, the
-purity of the liquid argon must be extremely high in order for ionization to
-be able to drift over several meters towards the anode planes.  The levels of
+purity of the \lar must be extremely high in order to allow ionization to 
+drift over several meters towards the anode planes.  The levels of
 electronegative contaminants (e.g., oxygen, water), must be reduced and
 maintained to \dword{ppt} levels in order to achieve minimum charge attenuation
 over the longest drift lengths in the \lartpc.   Second, the electronic readout
@@ -67,11 +67,11 @@ Third, a uniform \efield must be established over the detector volume, requiring
 \section{Motivation of Single-Phase \lartpc Design at DUNE}
 \label{sec:fdsp-design-impl}
 
-The DUNE Single-Phase Far Detector builds on several decades of experience in designing, constructing, and operating \lartpc{}s.  It implements unique design features to maximize the capability of the experiment, as well as new features motivated by the unprecedented scale of the Far Detector modules and the deep underground location where construction will occur.
+The DUNE Single-Phase \dword{fd} design builds on several decades of experience in designing, constructing, and operating \lartpc{}s.  It implements unique design features to maximize the capability of the experiment, as well as new features motivated by the unprecedented scale of the \dword{fd} modules and the deep underground location where construction will occur.
 
 Among the features driven by the underground location of the experiment, all detector components are sized to fit within the constraints of the \surf shafts and access pathways.
 
-A drift time of several milliseconds is typical for ionization to arrive at the anode wires after drifting several meters.  This lengthy duration of time, as well as aspects of the DUNE physics program looking for rare and low-energy processes, makes the deep underground location essential for the \dword{spmod}.  The  $\sim$\SI{1.5}{km} overburden of earth greatly reduces the rate of cosmic rays reaching the active volume of the \dword{spmod}, greatly enhancing the ability to search for rare and low-energy signatures without the influence of cosmic-induced backgrounds.  
+A drift time of several milliseconds is typical for ionization to arrive at the anode wires after drifting several meters.  This lengthy duration of time, as well as aspects of the DUNE physics program looking for rare and low-energy processes, makes the deep underground location essential for the \dword{spmod}.  The  $\sim$\SI{1.5}{km} overburden of earth greatly reduces the rate of cosmic rays reaching the active volume of the \dword{detmodule}, greatly enhancing the ability to search for rare and low-energy signatures without the influence of cosmic-induced backgrounds.  
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,7 +133,7 @@ System & Name  & Purpose   \\  \toprowrule
 \hyperref[ch:fdsp-tpc-elec]{\dshort{ce}} & cold electronics & process \dword{apa} signals  \\ \colhline
 \hyperref[ch:fdsp-pd]{\dshort{pd}} & photon detection & light collection and triggering\\ \colhline
 \hyperref[ch:fdsp-daq]{\dshort{daq}} & data acquisition & record and handle digital data \\ \colhline
-\hyperref[ch:fdsp-slow-cryo]{\dshort{cisc}} & cryogenics instrumentation and slow controls & Maintain and monitor \lar volume\\ 
+\hyperref[ch:fdsp-slow-cryo]{\dshort{cisc}} & cryogenics instrumentation and slow controls & maintain and monitor \lar volume\\ 
 \end{dunetable}
 
 %\begin{dunetable}[Single-Phase Far Detector TPC components, dimensions and
@@ -154,9 +154,9 @@ System & Name  & Purpose   \\  \toprowrule
 \subsection{Anode Plane Assemblies}
 \label{sec:fdsp-ov-apa}
 
-The \dword{apa} system, described in full detail in Chapter~\ref{ch:fdsp-apa}, is used to capture the signals created by ionization drifting in the TPC volume.  Each \dword{apa} features a metal frame, on each side of which there are three instrumented and two uninstrumented anode layers.  The design of the anode layers is arranged to provide three complementary views of the ionization present in the TPC that can be combined to form \threed representations of the distribution of the charge in the \dword{spmod}.  
+The \dword{apa} system, described in full detail in Chapter~\ref{ch:fdsp-apa}, is used to capture the signals created by ionization drifting in the TPC volume.  Each \dword{apa} features a metal frame, on each side of which there are three instrumented and two uninstrumented anode layers.  The design of the anode layers is arranged to provide three complementary views of the ionization present in the TPC that can be combined to form \threed representations of the distribution of the charge. % in the \dword{spmod}.  
 
-Among the novel features of the \single \lartpc are the presence of wrapped anode wires that follow a helical trajectory around the height of the \dword{apa}.  This design choice was made to minimize the need to tile electronic readout around the perimeter of the \dword{apa}, which would lead to dead space between neighboring \dwords{apa}.  This choice also was driven by reconstruction performance, with the angle of the wrap chosen such that a given induction plane wire does not intersect a given collection plane wire more than once, which greatly reduces pathologies in pattern recognition. 
+Among the novel features of the \single \lartpc is the presence of wrapped anode wires that follow a helical trajectory around the height of the \dword{apa}.  This design choice was made to minimize the need to tile electronic readout around the perimeter of the \dword{apa}, which would lead to dead space between neighboring \dwords{apa}.  This choice also was driven by reconstruction performance, with the angle of the wrap chosen such that a given induction plane wire does not intersect a given collection plane wire more than once, which greatly reduces pathologies in pattern recognition. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,7 +175,8 @@ Several stages of signal processing occur within the cryostat, including \dword{
 The \dword{hv} system, described in full detail in Chapter~\ref{ch:fdsp-hv}, creates the uniform electric field in the TPC volume that causes ionization to drift towards the \dwords{apa}.  The \dword{hv} system contains both the \dwords{cpa}, which are operated at a 
 voltage of \SI{-180}{kV}, as well as the \dword{fc} elements which progressively step the \dword{cpa} voltage down in magnitude.  
 
-Among the novel features of the \single \lartpc is the use of resistive panels for the \dwords{cpa}, which serves to control the flow of stored energy in the \dword{hv} system in the event of an unexpected electrical discharge.  This features provides protection to the \dword{spmod} elements and guards against damage that would negatively impact detector performance.  
+A novel feature of the %\single \lartpc 
+\dword{hv} system is the use of resistive panels for the \dwords{cpa}, which serves to control the flow of stored energy in this system in the event of an unexpected electrical discharge.  This feature provides protection to the \dword{spmod} elements and guards against damage that would negatively impact detector performance.  
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -183,13 +184,13 @@ Among the novel features of the \single \lartpc is the use of resistive panels f
 \label{sec:fdsp-ov-pds}
 
 The \dword{pds}, described in full detail in Chapter~\ref{ch:fdsp-pd}, is used to capture scintillation light produced by interactions in the TPC.  The scintillation light of argon is very deep in the ultraviolet, so the \dword{pd} elements are designed to shift this wavelength closer to the visible spectrum where the \dword{spmod} has high efficiency.   
-The \dword{pds} light detectors are geometrically arranged as approximately \SI{15}{cm} wide vertical strips mounted in the \dwords{apa}, with ten strips per \dword{apa}.  The light collection implementation continues to be optimized.  Electronic signals are generated via silicon \dwords{sipm} immersed in the \lar and passed on to readout modules outside the cryostat.
+The \dword{pds} light detectors are geometrically arranged as approximately \SI{15}{cm} wide vertical strips mounted in the \dwords{apa}, with ten strips per \dword{apa}.  The light collection implementation continues to be optimized.  Electronic signals are generated via \dwords{sipm} immersed in the \lar and passed on to readout modules outside the cryostat.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data Acquisition}
 \label{sec:fdsp-ov-daq}
 
-The \dword{daq} system, described in full detail in Chapter~\ref{ch:fdsp-daq}.
+The \dword{daq} system is described in full detail in Chapter~\ref{ch:fdsp-daq}.
 DUNE physics requires that the \dword{daq} system record \dword{apa} and \dword{pds} signals with high efficiency both from relatively high-energy (>\SI{100}{MeV}) single interactions from beam and atmospheric neutrinos, interactions from proton decay (that are localized in both space and time), and from multiple low-energy (<\SI{100}{MeV}) interactions distributed throughout the detector over tens of seconds from \dwords{snb}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cryogenic Instrumentation and Slow Controls}
