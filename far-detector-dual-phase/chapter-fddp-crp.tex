@@ -10,7 +10,7 @@
 \subsection{Introduction}
 \label{sec:fddp-crp-intro}
 
-In the \dual \lartpc concept, the ionization electrons are multiplied in avalanches  occurring inside micro-pattern detectors, the \dwords{lem}, located in the argon gas phase above the \lar %level. 
+In the \dual \lartpc concept, the ionization electrons are multiplied in avalanches  occurring inside micro-pattern detectors, the \dfirsts{lem}, located in the argon gas phase above the \lar %level. 
 surface. The drift field of the TPC brings the electrons up to the \lar surface where they can  be    extracted into the gas using a 
 \SI{2}{kV/cm} \efield defined across the liquid-gas interface.
 
@@ -34,7 +34,7 @@ illustrated in Figure~\ref{fig:setup}. Table~\ref{tab:crp_dist} shows the inter-
  \dword{lem} bottom electrode-grid        &\num{10} & \num{1} & \num{2} (in \lar) and \num{3} (in gaseous argon)\\
  \end{dunetable}
 
-The extraction grid, \dword{lem} and anode are assembled into three-layered \textit{sandwiches} with precisely defined inter-stage distances and inter-alignment,  which are then connected together horizontally into modular units of area \SI{9}{m$^2$}. These units are called \dwords{crp}. Figure~\ref{fig:figure-label-crp} shows an 
+The extraction grid, \dword{lem} and anode are assembled into a three-layered unit, called a \dword{las}, with precisely defined inter-stage distances and inter-alignment. The \dwords{las}    are then connected together horizontally into modular units of area \SI{9}{m$^2$}. These units are called \dwords{crp}. Figure~\ref{fig:figure-label-crp} shows an 
 engineering view of one \dword{crp} fully assembled.
 
 \begin{dunefigure}
@@ -44,7 +44,7 @@ engineering view of one \dword{crp} fully assembled.
 \includegraphics[width=0.75\textwidth]{CRP-fig1.png}
 \end{dunefigure}
 
-The \dword{crp} mechanical structure provides the integration of the \dword{lem}-anode sandwiches over a large area by minimizing the dead spaces. The planarity of the active surface must be guaranteed despite possible sagging effects with respect to the three hanging points, differential thermal contraction effects on the various  components and the presence of a temperature gradient in the gas phase, which could induce different thermal contractions as a function of the distance from the liquid surface. In order to %solve these aspects 
+The \dword{crp} mechanical structure provides the integration of the \dwords{las} over a large area by minimizing the dead spaces. The planarity of the active surface must be guaranteed despite possible sagging effects with respect to the three hanging points, differential thermal contraction effects on the various  components and the presence of a temperature gradient in the gas phase, which could induce different thermal contractions as a function of the distance from the liquid surface. In order to %solve these aspects 
 ensure the planarity, the design % is based on 
 incorporates a supporting frame in Invar, which % . Invar allows building 
 can provide a stiff supporting structure, extending vertically into the gas phase, with little sagging and %little 
@@ -58,8 +58,9 @@ properties. The G10 structure is mechanically decoupled on the horizontal plane 
 Each \dword{crp} is an independent detector element that performs charge
 extraction, multiplication and collection, and has its own \dword{hv} system and independent signal \fdth{}s. The entire area of the \dword{lem} and anode in a \dword{crp} is active. The position and the parallelism with respect to the \lar surface can be individually adjusted for each \dword{crp}.
 
-The \dword{lem} and corresponding anode are mounted in units of \num{50}$\times$\SI{50}{cm$^2$}, called %\dword{lem}/Anode Sandwich (LAS) 
-\dword{las} modules, before being assembled with an extraction grid into a \dword{crp}. Each anode in a \dword{las} is segmented in 50-cm long $x$ and $y$ strips . Adjacent \dword{las} anodes are bridged together to form readout strips of the required length by connecting short flat cables to KEL\footnote{KEL 8925E-068-1795 .27mm Pitch, 2 piece, IDC for 0.635mm FC Connector, Low profile type, KEL Corporation\texttrademark{}, \url{https://www.kel.jp/english/product/}.} connectors soldered onto the top sides of the anodes. The signals from the last anode in each  strip chain are brought to \fdth{}s mounted on the other side of the front-end electronics embedded inside dedicated signal-\fdth chimneys using \SI{50}{cm}-long flat cables.
+The \dword{lem} and corresponding anode are mounted into %units of 
+\num{50}$\times$\SI{50}{cm$^2$}  %\dword{lem}/Anode Sandwich (LAS) 
+\dwords{las} before being assembled with an extraction grid into a \dword{crp}. Each anode in a \dword{las} is segmented in \SI{50}{cm} long $x$ and $y$ strips . Adjacent \dword{las} anodes are bridged together to form readout strips of the required length by connecting short flat cables to KEL\footnote{KEL 8925E-068-1795 .27mm Pitch, 2 piece, IDC for 0.635mm FC Connector, Low profile type, KEL Corporation\texttrademark{}, \url{https://www.kel.jp/english/product/}.} connectors soldered onto the top sides of the anodes. The signals from the last anode in each  strip chain are brought to \fdth{}s mounted on the other side of the front-end electronics embedded inside dedicated signal-\fdth chimneys using \SI{50}{cm}-long flat cables.
 
 Each \dword{crp} is independently hung from the vessel deck through its three
 suspension \fdth{}s. It has its own \dword{hv} system and  independent signal and slow-control \fdth{}s.
@@ -68,18 +69,18 @@ Table~\ref{tab:crpphysicsparams} summarizes the set of requirements and paramete
 
 \begin{dunetable}
 [Important parameters for the \dword{crp} system design]
-{p{0.8\textwidth}}
+{p{0.7\textwidth}r}
 {tab:crpphysicsparams}
 {Important parameters for the \dword{crp} system design}   
-Parameter \\ \toprowrule
- Planarity tolerance on the detection plane over \num{3}$\times$\SI{3}{m$^{2}$}  $\pm$\SI{0.5}{mm} \\ \colhline
- \dword{crp} vertical positioning precision  $\pm$\SI{0.5}{mm} \\ \colhline
- Range of vertical displacement is $\pm$\SI{20}{mm}\\ \colhline
- Lateral inter \dword{crp} dead space  less than \SI{10}{mm} \\\colhline
- Distance between the extraction grid wires and the \dword{lem} plane: 10mm\\ \colhline 
- \dword{hv} of the extraction grid wires in \lar:  \SI{6.8}{kV} \\ \colhline
- \dword{hv} of the \dword{lem} down surface in gas argon:  \SI{4.5}{kV}\\ \colhline
- \dword{hv} of the \dword{lem} up surface in gas argon: \SI{1}{kV}\\ \colhline
+Parameter & Value \\ \toprowrule
+ Planarity tolerance on the detection plane over \num{3}$\times$\SI{3}{m$^{2}$} & $\pm$\SI{0.5}{mm} \\ \colhline
+ \dword{crp} vertical positioning precision & $\pm$\SI{0.5}{mm} \\ \colhline
+ Range of vertical displacement& $\pm$\SI{20}{mm}\\ \colhline
+ Lateral inter-\dword{crp} dead space & < \SI{10}{mm} \\\colhline
+ Distance between the extraction grid wires and the \dword{lem} plane & 10mm\\ \colhline 
+ \dword{hv} of the extraction grid wires in \lar &  \SI{6.8}{kV} \\ \colhline
+ \dword{hv} of the \dword{lem} down surface in gas argon & \SI{4.5}{kV}\\ \colhline
+ \dword{hv} of the \dword{lem} up surface in gas argon & \SI{1}{kV}\\ 
 \end{dunetable}
 
 The \dword{crp} design foreseen for the \dword{dpmod} is based on the one developed for \dword{pddp}.
@@ -95,16 +96,17 @@ The scope of the \dwords{crp} includes the continued procurement of materials fo
 \item  Production of the G10 and Invar frames;
 \item Production of the suspension \fdth{}s and motorization;
 \item Production of the extraction grid elements;
-\item Production of the HV distribution system associated to the \dword{crp} to apply voltages to the \dword{lem} and anodes;
-\item Production of the system of temperature probes associated to the \dword{crp};
-\item Production of the system of level meters associated to the \dword{crp};
-\item Production of the system to pulse the strips associated to the \dword{crp};
+\item Production of the \dword{hv} distribution system associated with the \dword{crp} for applying voltages to the \dword{lem} and anodes;
+\item Production of the temperature probe system associated with the \dword{crp};
+\item Production of the level meter system associated with the \dword{crp};
+\item Production of the strip-pulsing system  %to pulse the strips 
+associated with the \dwords{crp};
 \item Production of the transportation and storage boxes for the \dwords{crp};
 \item Assembly of the \dwords{las};
-\item Assembly of the \dword{crp} structures, \dwords{las}  grid elements, \dword{hv}, slow controls and cabling for each \dword{crp};
+\item Assembly of the \dword{crp} structures, \dword{las}  grid elements, \dword{hv}, slow controls and cabling for each \dword{crp};
 \item Testing of the assembled \dwords{crp};
-\item Installation in the storage boxes of the produced \dwords{crp};
-\item Installation in the transportation boxes and delivery of the \dwords{crp} to \surf{}; % to be installed;
+\item Installation of the produced \dwords{crp} into the storage boxes ;
+\item Installation of the \dwords{crp} into the transportation boxes and delivery to \surf{}; % to be installed;
 \item Installation, cabling and test of the \dwords{crp} in the cryostat.
 \end{itemize}
 
@@ -115,12 +117,12 @@ The scope of the \dwords{crp} includes the continued procurement of materials fo
 
 The complete \dword{crp} system includes, as illustrated in Figure~\ref{fig:figure-label-crp2}:
 \begin{itemize}
-\item Mechanical frames  ;
-\item The detection plane made of \dwords{lem} and anodes ;
-\item The extraction grid;
-\item Instrumentation devices: level meters, distance meters, temperature probes;
-\item Internal cabling: to patch panels (\dword{lem} \dword{hv}, slow control instruments);
-\item Suspension and control system.
+\item mechanical frames ;
+\item the detection plane made of \dwords{lem} and anodes;
+\item the extraction grid;
+\item instrumentation devices: level meters, distance meters, anf temperature probes;
+\item internal cabling: to patch panels (\dword{lem} \dword{hv}, slow control instruments);
+\item suspension and control system.
 \end{itemize}
 
 \begin{dunefigure}[Main components of a \dword{crp} module of  \SI{9}{m$^{2}$}]{fig:figure-label-crp2}
@@ -168,7 +170,7 @@ The G10 structure is \SI{15}{mm} thick and weights about \SI{68}{kg}.
 %During cooling, Invar is nearly keeping its dimensions while G10 frame and \dwords{lem}/Anodes are contracting in similar ways. 
 During cooling, Invar's dimensions remain nearly unchanged whereas the G10 frame and \dwords{lem}-anodes contract in similar ways. Thermal decoupling allows a lateral sliding of the G10 frame, without changing the level. 
 %\fixme{altitude? maybe `level' is better?}
-Dedicated decoupling systems are installed at each corner of the Invar frame (\num{50} systems by  \num{3}$\times$\SI{3}{m$^{2}$} module). One decoupling system that allows the G10+ \dword{lem}-anodes elements to slide is shown in  Figure~\ref{fig:crp-decoupling}.
+Dedicated decoupling systems are installed at each corner of the Invar frame (\num{50} systems by  \num{3}$\times$\SI{3}{m$^{2}$} module). One decoupling system that allows the G10 and \dword{lem}-anode elements to slide is shown in  Figure~\ref{fig:crp-decoupling}.
 
 \begin{dunefigure}[Decoupling system attached to the Invar frame]{fig:crp-decoupling}
 {Decoupling system attached to the Invar frame, with detailed view. Example of one of the systems built for \dword{pddp}.}
@@ -193,7 +195,7 @@ soldering process each wire is tensioned and positioned in a groove. The PCB is 
 %The wires, \SI{3}{m} long in both $x$ and $y$ directions, have their sags minimized to \SI{0.1}{mm} thanks to $x$ and $y$ oriented supporting comb-teeth blades  inserted between G10 subframes of 1 m$^2$ size. 
 Supporting comb-teeth blades that are inserted between the \SI{1}{m$^2$} G10 subframes in both $x$ and $y$ restrict the sag to \SI{0.1}{mm} in the wires, which are \SI{3}{m} long in both directions. The array of blades penetrates the liquid surface and has the additional benefit of acting as a baffle against potential surface waves in the \lar.
 
-The grid \dword{hv}-connection for a \dword{crp} is made through a varnished copper track into two of the \dword{crp}'s \num{60} PCB plates; a special isolated connection %performed 
+The grid-\dword{hv} connection for a \dword{crp} is made through a varnished copper track into two of the \dword{crp}'s \num{60} PCB plates; a special isolated connection %performed 
 is made inside the \dword{crp} structure.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -215,7 +217,7 @@ The total active area of a \dword{lem} module used for  \dword{pddp} represents 
 \subsection{Anode}
 \label{sec:fddp-crp-anode}
  
-The anode is a four-layer PCB having a set of orthogonal strips with a \dpstrippitch pitch that provide the two views of the collected charge. The area of the anode is  \num{50}$\times$\SI{50}{cm$^2$}, identical to the \dword{lem} one. Twenty nine holes of \SI{2.2}{mm} diameter matching the \dword{lem} holes are used for the \dword{lem} and anode assembly on their G10 frame. The \SI{2}{mm} distance between the anode and the \dword{lem} is ensured by \num{29} precisely machined spacers made of polyetheretherketone (PEEK). 
+The anode is a four-layer PCB having a set of orthogonal strips with a \dpstrippitch pitch that provide the two views of the collected charge. The area of the anode is the same as that of the \dword{lem},  \num{50}$\times$\SI{50}{cm$^2$}. Twenty nine holes of \SI{2.2}{mm} diameter matching the \dword{lem} holes are used for the \dword{lem} and anode assembly on their G10 frame. The \SI{2}{mm} distance between the anode and the \dword{lem} is ensured by \num{29} precisely machined spacers made of polyetheretherketone (PEEK). 
 
 The pattern of readout strips, printed on the bottom PCB layer and used for charge collection, is optimized such that the charge is evenly split between both views (Figure~\ref{fig:Anode}). Electrical insulation in the locations where orthogonal tracks would superimpose is achieved by 
 %having tracks crossing over and under each other using a system of vias between the top and bottom layers of the PCB. 
@@ -238,7 +240,7 @@ Each strip, made of thin gold-plated copper tracks, has a capacitance per unit l
 
 The vertical and lateral positions of the \dwords{crp} are measured by different means. 
 It is possible to know the vertical position of the \dword{crp} both from the suspension system and from dedicated capacitive measurements.
-The  suspension system and its motorization on three points provides an accurate measurement for each \dword{crp} of order\SI{0.1}{mm} due to the accuracy of the steps motors and encoders. 
+The  suspension system and its motorization on three points provides an accurate measurement for each \dword{crp} of order \SI{0.1}{mm} due to the accuracy of the steps motors and encoders. 
 In order to exploit the information from the encoders,  the anchor points on the \dword{crp} must be surveyed during construction and the absolute positions of the suspensions must be surveyed from the roof of the cryostat during the installation of the \fdth.
 
 There will be also the possibility to get relative measurements of the \dword{crp} position with respect to the \lar level using capacitive level meters put on the sides of the \dword{crp}s located at the periphery of the detection plane.  The  measurements of the capacitance between the \dword{lem} and the extraction grid, which depends on the height of the liquid above the grid, can also provide a relative measurement  of the \dword{crp}'s vertical position with respect to the liquid surface. This method is used for the \dword{crp}s which are not located at the periphery, while the ones at the periphery can exploit both the  \dword{lem}-grid capacitance measurements and the capacitive level meters.
@@ -249,7 +251,8 @@ The measurement of the distance between each \dword{crp} pair is performed by us
 This measurement enables positioning of the \dwords{crp} with the correct  inter-\dword{crp} distance all along the detection plane. These devices do not require any contact among  \dword{crp}s and give an accuracy of the order of \SI{0.1}{mm} on the  inter-\dword{crp} distance.  Four devices per \dword{crp} side are embedded in the G10 frame side as can be seen on Figure~\ref{fig:distancemeter}.
 
 \begin{dunefigure}[View of the distance meter plates on the sides of a \dword{crp}]{fig:distancemeter}
-{CAD views (left, center) of the distance meter plates, represented by the yellow rectangles, on the sides of a \dword{crp}. Two different plate sizes are used in pairs facing from one \dword{crp} to the neighbour one in order to increase the measurement accuracy of the overlapping surface which translates in the capacitance to be measured. A set of five distance meter plates of the two sizes (right) received from the production factory}
+{CAD views (left, center) of the distance meter plates, represented by the yellow rectangles, on the sides of a \dword{crp}. Two different plate sizes are used in pairs, installed on facing sides of neighboring \dwords{crp}, % facing from one \dword{crp} to the neighbor one in order 
+to increase the measurement accuracy of the overlapping surface which translates in the capacitance to be measured. A set of five distance meter plates of the two sizes (right) received from the production factory}
 \includegraphics[width=0.85\textwidth]{distancemeter.png}
 \end{dunefigure}
 
@@ -262,7 +265,7 @@ sensors per PCB. The configuration and the Pt positions are shown in Figure~\ref
 
 \begin{dunefigure}[View of the thermometer board]{fig:ptsensor}
 {View of the thermometer board and the positions of the Pt sensors along the PCB plate.}
-\includegraphics[width=0.35\textwidth]{ptsensor.png}
+\includegraphics[width=0.55\textwidth]{ptsensor.png}
 \end{dunefigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -320,14 +323,14 @@ They had to organize the procurement of raw Invar plates, which depends on the a
 % \fixme{I cannot find the url for SDMS (anne)} DONE
 The manufacturing process followed by the manufacturer (SDMS) included eight steps:\\
 \begin{itemize}
-\item Plate rectification,
-\item  Laser cutting,
-\item  Assembly,
-\item  Welding,
-\item  Geometrical controls,
-\item  Washing,
-\item  Packing, and
-\item  Shipping.
+\item plate rectification,
+\item  laser cutting,
+\item  assembly,
+\item  welding,
+\item  geometrical controls,
+\item  washing,
+\item  packing, and
+\item  shipping.
 \end{itemize}
 
 During the process a special validation step was included  for a full-size test frame to verify all the technical aspects and conformity to the requirements. 
@@ -390,11 +393,12 @@ Rim size & \num{40}$\pm$4\,$\mu$m \\ \colhline
 Electrical insulation & >\SI{1}{\giga\ohm} \\
  \end{dunetable}
 
-Once manufactured, the \dword{lem} modules are shipped to one or several collaboration sites for their final characterization and validation. Several infrastructures are necessary in order to performthese tasks, e.g., a survey bench, clean rooms and storage rooms, cleaning stations and \dword{hv} test setups. Here is a list of tasks to be performed, in sequential order:
+Once manufactured, the \dword{lem} modules are shipped to one or several collaboration sites for their final characterization and validation. Several infrastructures are necessary in order to perform these tasks, e.g., a survey bench, clean rooms and storage rooms, cleaning stations and \dword{hv} test setups. Here is a list of tasks to be performed, in sequential order:
 
 \begin{itemize}
 \item {\bf Visual inspection and survey.} Upon receipt of the \dword{lem} modules from the manufacturing sites, the first operations to be carried out are the visual inspection to examine the quality of the \dword{lem} surfaces, %and then,
-followed by the detector survey. The parameters that determine the \dword{lem} amplification gain are the thickness of the PCB and the geometry of the holes. It is therefore important to assess the uniformity of these parameters over the entire area of a \dword{lem} module. For  \dword{pddp}, this is performed on a sampling basis with the use of a confocal laser scanning microscope (CLSM). Several hundred measurements are done in each of \num{25} predefined locations, distributed uniformly over the \dword{lem} surface. With such an optical system, the total \dword{lem} and copper layer thicknesses as well as the rim size can be measured with a precision of a few microns. For a very large production as for a \dword{dpmod}, the development of a fully automated survey system is mandatory. 
+followed by the detector survey. The parameters that determine the \dword{lem} amplification gain are the thickness of the PCB and the geometry of the holes. It is therefore important to assess the uniformity of these parameters over the entire area of a \dword{lem} module. For  \dword{pddp}, this is performed on a sampling basis with the use of a confocal laser scanning microscope (CLSM). Several hundred measurements are done in each of \num{25} predefined locations, distributed uniformly over the \dword{lem} surface. With such an optical system, the total \dword{lem} and copper layer thicknesses as well as the rim size can be measured with a precision of a few microns.  %For a very large production as for a \dword{dpmod}, 
+For the magnitude of production required for a \dword{dpmod}, the development of a fully automated survey system is mandatory. 
 
 \item {\bf \dword{hv} connection.} The next step consists of soldering the \dword{hv} connection pins on the two \dword{lem} copper surfaces as well as gluing the MACOR insulators around the connectors.
 
@@ -427,7 +431,7 @@ site, the subsequent operations could be dispatched among several sites. In that
 site %involved in the final validation steps 
 have the necessary infrastructure for 
 both the cleaning phase and the \dword{hv} tests, as iterations are sometimes necessary in order to fully validate the 
-\dword{lem} modules. With the assumption of \num{36} \dword{lem} modules produced per effective week, a reasonable number of setups needed for the \dword{hv}  tests, together with their associated instrumentation and infrastructure, could amount to three or four. Finally, based on the experience gained in  \dword{pddp}, the processing time needed for the preparation, characterization and tests of a batch of nine to \num{12} \dword{lem} modules can be estimated to about three weeks.  
+\dword{lem} modules. With the assumption of \num{36} \dword{lem} modules produced per effective week, a reasonable number of setups needed for the \dword{hv}  tests, together with their associated instrumentation and infrastructure, could amount to three or four. Finally, based on the experience gained in  \dword{pddp}, the processing time needed for the preparation, characterization and tests of a batch of nine to twelve \dword{lem} modules is estimated to be about three weeks.  
 
 \begin{dunefigure}
 [High-pressure vessel for the characterization of the  \dword{pddp} \dword{lem} modules.]
