@@ -483,13 +483,13 @@ PCB sagitta & < 1\,mm \\
 Once the anodes, the \dwords{lem}, the mechanical Invar and G10 frames are produced and delivered, the \dwords{crp} production site should be equipped with several toolings.
 The \dwords{crp} construction activity requires a clean room large enough to accommodate the different work spaces. Separate work areas are required in this clean room for: %It can be divided into four main work areas, requiring:
 \begin{itemize}
-\item{a \SI{10}{m$^2$} table for assembling the G10 subframes and for surveying the whole structure}
-\item{a supporting structure to hang the Invar frame and to allow coupling of the G10 frame and the installation of the anodes, \dword{lem} and extraction grid modules.}
-\item{storage of the anodes and \dwords{lem} on special shelves }
-\item{construction of the extraction grid modules and storage of the modules before mounting on the \dword{crp} structure}
+\item{a \SI{10}{m$^2$} table for assembling the G10 subframes and for surveying the whole structure;}
+\item{a supporting structure to hang the Invar frame and to allow coupling of the G10 frame and the installation of the anodes, \dword{lem} and extraction grid modules;}
+\item{storage of the anodes and \dwords{lem} on special shelves;}
+\item{construction of the extraction grid modules and storage of the modules before mounting on the \dword{crp} structure.}
 \end{itemize}
 The required tooling includes: two mobile cranes (\SI{4}{m} span) to manipulate the Invar frame, an aluminum support frame and parts of the transport boxes, a large assembly table, storage shelves for the \dword{lem} and anodes and for cables, and a fabrication bench for the extraction grid modules.
-Figure~\ref{fig:gridtooling} shows the \SI{3}{m} long wiring bench with details and the real tooling at CERN used for the \dword{crp} of \dword{pddp}.
+Figure~\ref{fig:gridtooling} shows the \SI{3}{m} long wiring bench with details and the real tooling at CERN used for the \dword{crp} in \dword{pddp}.
 
 \begin{dunefigure}[Extraction grid construction bench details]{fig:gridtooling}
 {Extraction grid construction bench details and picture in the clean room 185 at CERN.}
@@ -516,12 +516,14 @@ This is divided in the following way:
 \begin{enumerate}
 \item Reception of the Invar frame in the clean room;
 \item  Suspension of the Invar frame below the supporting structure;
-\item  Vertical position of the frame is adjusted using lifting cranks;
-\item  In parallel, assembly of the G10 frame proceeds on the optical table;
-\item  The Invar frame is brought above the G10 frame, and connected through \num{50} decoupling systems;
-\item  Assembly of \dword{lem} and anodes is done from below;
-\item  Anodes are connected with jumpers;
-\item  In parallel, the extraction grid is woven and soldered on the special tooling, then stored on shelves, or directly installed on the \dword{crp}.
+\item  Adjustment of vertical position of the frame using lifting cranks;
+\item  Assembly of the G10 frame on the optical table (proceeds in parallel);
+\item  Positioning of the Invar frame %is brought 
+above the G10 frame, and connection through \num{50} decoupling systems;
+\item  Assembly of \dword{lem} and anodes (done from below);
+\item  Connection of anodes  with jumpers;
+\item  Weaving and soldering of the extraction grid on the special tooling (done in parallel), then storage on shelves, or direct installation on the \dword{crp}.
+%\item  In parallel, the extraction grid is woven and soldered on the special tooling, then stored on shelves, or directly installed on the \dword{crp}.
 \end{enumerate}
 Some of the steps are illustrated in Figure~\ref{fig:assembly} and real components and tooling for \dword{pddp} are shown in Figure~\ref{fig:assembly2}.
 
@@ -549,13 +551,13 @@ All the components and instrumentation of the \dword{crp} are carefully checked,
 \section{Interfaces}
 \label{sec:fddp-crp-intfc}
 
-The main interfaces with the \dword{crp} are with the elements directly connected to them. The documents that describe the interfaces are referenced.
+The main \dword{crp} interfaces  are with the elements connected directly to them. The documents that describe the interfaces are referenced.
 \begin{itemize}
 \item The readout electronics  (DocDB 6751), concerning the cabling of the signal cables on the bottom part of the cold 
-flange of the signal chimneys.  
-\item The \dword{cisc} (DocDB 6760),  concerning the power supplies for the \dword{lem} and extraction grid, the cameras, \dword{led} ribbons, temperature sensors, and distance meters. All these devices go to the \dword{crp} instrumentation \fdth{}s. 
+flange of the signal chimneys; 
+\item The \dword{cisc} (DocDB 6760),  concerning the power supplies for the \dword{lem} and extraction grid, the cameras, \dword{led} ribbons, temperature sensors, and distance meters; all these devices go to the \dword{crp} instrumentation \fdth{}s; 
 
-\item Drift \dword{hv} (DocDB 6754), at the level of design requirements. This includes the system for maintaining the proper distance between the top-most field shaping profile to the extraction grid in order to maintain the proper extraction field and to protect the contact between the two systems.
+\item Drift \dword{hv} (DocDB 6754), at the level of design requirements; this includes the system for maintaining the proper distance between the top-most field shaping profile to the extraction grid in order to maintain the proper extraction field and to protect the contact between the two systems.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -573,10 +575,10 @@ Calibration of the strips is then performed jointly by the two consortia.
 The \num{36} \dword{lem} modules of a \dword{crp} are supplied with \dword{hv} by \num{42} coaxial cables 
 connecting the \fdth flange from the top of the cryostat to distribution boxes located on the \dword{crp} (Figure \ref{fig:CRP_DB}). Each cable (\num{20}\,AWG, \SI{50}{\ohm} Kapton\footnote{DuPont\texttrademark{} Kapton, polymide film,  E. I. du Pont de Nemours and Company,  \url{http://www.dupont.com/}.} insulated coaxial cable from ACCU-GLASS\footnote{ACCU-GLASS\texttrademark{}, \url{http://www.accu-glass.com/}.}) can sustain \SI{30}{kV} in air and has SHV plugs on each end in order to facilitate connections during the \dword{crp} installation.
 
-
-There are six cables used for the \dword{lem} top electrodes and \num{36} cables for the bottom ones. Each of the coaxial cables for the \dword{lem} top electrodes is connected to a single distribution box. The latter contains a PCB that %allows to 
-distributes \dword{hv} to six individual \dword{lem} modules with a \SI{500}{\mega\ohm} resistor in series for each 
-\dword{lem} (Figure~\ref{fig:LEM_DB}). The \num{36} coaxial cables for the \dword{lem} bottom electrodes are connected in groups of four to nine distribution boxes. In this case, each \dword{hv} cable is directly linked to an individual \dword{lem} bottom electrode. In total, \num{72} output coaxial cables rated for \SI{10}{kV} (\num{26}\,AWG, \SI{50}{\ohm} Kapton insulated coaxial cable from ACCU-GLASS) are used to supply \dword{hv} to both electrodes of all \dword{lem} modules of a \dword{crp}. The grounding of each coaxial line is ensured by the \fdth flange down to about \SI{5}{cm} from the \dword{lem} final connection point via the PCB located inside each of the \num{15} distribution boxes. In this way, contributions from the \dword{hv} lines to the electronic noise is limited as much as possible. In order to avoid electrical discharges inside the distribution boxes, the latter are filled with Arathane\footnote{Arathane\texttrademark{} advanced polyurethane based adhesives, Huntsman Advanced Materials , \url{http://www.huntsman.com/advanced\_materials/a/Home}.} epoxy glue. Finally, the connections to the \dword{hv} contacts of the \dword{lem} modules are done via  Deutsch 6862-201-22278 female connectors and each of them is covered by a heat-shrink sleeve. 
+Six coaxial cables are used for the top \dword{lem} electrodes and \num{36} cables for the bottom ones. Each of the cables for the top \dword{lem} electrodes is connected to a single distribution box that contains a PCB for distributing \dword{hv} individually to the six \dword{lem} modules through a \SI{500}{\mega\ohm} resistor in series (see Figure~\ref{fig:LEM_DB}). The \num{36} coaxial cables for the bottom  \dword{lem} electrodes are connected in groups of four to nine distribution boxes. 
+%There are six cables used for the \dword{lem} top electrodes and \num{36} cables for the bottom ones. Each of the coaxial cables for the \dword{lem} top electrodes is connected to a single distribution box. The latter contains a PCB that distributes \dword{hv} to six individual \dword{lem} modules with a \SI{500}{\mega\ohm} resistor in series for each \dword{lem} (Figure~\ref{fig:LEM_DB}). The \num{36} coaxial cables for the \dword{lem} bottom electrodes are connected in groups of four to nine distribution boxes. 
+%
+For these, each \dword{hv} cable is directly linked to an individual bottom \dword{lem}  electrode. In total, \num{72} output coaxial cables rated for \SI{10}{kV} (\num{26}\,AWG, \SI{50}{\ohm} Kapton insulated coaxial cable from ACCU-GLASS) are used to supply \dword{hv} to both electrodes of all \dword{lem} modules of a \dword{crp}. The grounding of each coaxial line is ensured by the \fdth flange down to about \SI{5}{cm} from the \dword{lem} final connection point via the PCB located inside each of the \num{15} distribution boxes. In this way, contributions from the \dword{hv} lines to the electronic noise is limited as much as possible. In order to avoid electrical discharges inside the distribution boxes, the latter are filled with Arathane\footnote{Arathane\texttrademark{} advanced polyurethane based adhesives, Huntsman Advanced Materials , \url{http://www.huntsman.com/advanced\_materials/a/Home}.} epoxy glue. Finally, the connections to the \dword{hv} contacts of the \dword{lem} modules are done via  Deutsch 6862-201-22278 female connectors and each of them is covered by a heat-shrink sleeve. 
 
 \begin{dunefigure}
 [\dword{lem} \dword{hv} distribution boxes mounted on a \dword{crp}]
@@ -630,7 +632,7 @@ plans for three two-person teams working in parallel inside the cryostat to %man
 install three \dwords{crp} at a time. It is assumed that %of the order of 
 approximately \num{1.3} weeks is needed for a team to prepare, survey, tune and cable a \dword{crp} in the  cryostat, and \num{35} working weeks for the overall installation of the \dptotcrp \dwords{crp}.
 
-Once the three \dwords{crp} are ready to be lifted, three people are needed to manipulate the manual winches on the top of the cryostat for a few hours. This activity is expected to occur during the \num{1.3}-week period just before the cabling activity for the connection to the flanges.
+Once the three \dwords{crp} are ready to be lifted, three people are needed to manipulate the manual winches on the top of the cryostat for a few hours. This activity is expected to occur during the \num{1.3} week period just before the cabling activity for the connection to the flanges.
 
 %\fixme{Put here more details of the different steps for the underground installation/ positioning of the box, suspension of the \dword{crp}, cabling at height, etc .. and the associated tooling ! (not anne)}
 
@@ -640,8 +642,8 @@ The sequence of operations needed underground per \dword{crp} is similar to the 
 \begin{enumerate}
 \item A \dword{crp} module in its transport box is brought to the entrance of the cryostat.
 \item The box is hung from the side of the insertion rail, and guided through the \dword{tco}.
-\item  Inside the cryostat, the \dword{crp} is laid down horizontally, rolled below the \dwords{sftchimney}.
-\item The structure is suspended from temporary cables going down from the chimney.
+\item  Inside the cryostat the \dword{crp} is laid down horizontally, and rolled below the \dwords{sftchimney}.
+\item The structure is suspended from temporary cables coming down from the chimney.
 \item The transport box is dismounted and removed.
 \item The \dword{crp} planarity is measured and tuned based on metrology survey.
 \item The \dword{crp} is raised up with the manual winches, then the mechanical stop is assembled.
@@ -666,9 +668,9 @@ The cabling activity is done  working at the nominal height position using eleva
 \subsection{Transport and Handling}
 \label{sec:fddp-crp-install-transport}
 
-The transportation boxes are sized (\num{3.5} $\times$ \num{3.5} $\times$ \SI{0.8}{m}) for the shafts and underground handling at \surf{}.
+The transportation boxes are sized (\num{3.5}$\times$\num{3.5}$\times$\SI{0.8}{m}) for the shafts and underground handling at \surf{}.
 %\fixme{provide here the external envelope of the box(not anne)}
-They are protected by a plastic layer that should be removed once the transportation box arrives at the clean area underground.
+They are protected by a plastic layer that should be removed once the transportation box arrives at the clean area 
 %\fixme{never heard of gray room area}
 underground so that the box can be introduced into the cryostat in a clean state via the \dword{tco}. The transportation box is also essential for manipulating the \dword{crp} from the vertical orientation (i.e., for insertion in the \dword{tco}) to the horizontal orientation, required %in which the \dword{crp} should be
  prior to hanging it from the suspension system. Once the installation is complete the transportation boxes are wrapped again with a protective layer and shipped back to the production centers. 
@@ -677,11 +679,11 @@ underground so that the box can be introduced into the cryostat in a clean state
 \subsection{Calibration}
 \label{sec:fddp-crp-install-calib}
 
-The \dword{crp} calibration relies on a pulsing system that performs charge injection in the strips via \SI{1}{pF} capacitors. The pulse distribution system and related cabling, and the boards with the charge-injection capacitors are integrated  with the \dword{crp} at the time of the \dword{crp} assembly. At this time, this system is connected via flat cables to the instrumentation flange. A pulse distribution system external to the cryostat and  provided by the \dword{cisc} consortium ensures the signals feeding to the charge injection system. 
+The \dword{crp} calibration relies on a pulsing system that performs charge injection in the strips via \SI{1}{pF} capacitors. The pulse distribution system and related cabling, and the boards with the charge-injection capacitors are integrated  with the \dword{crp} during  \dword{crp} assembly. This system is connected via flat cables to the instrumentation flange. A pulse distribution system external to the cryostat (provided by the \dword{cisc} consortium) ensures the signals feeding to the charge injection system. 
 %\fixme{drives the system?} 
 The information from the pulse calibration is then combined
 %\fixme{combined?} 
-with the one from the \dword{fe} electronics calibration and the one from the analysis of the reconstructed charged tracks in order to extract the overall calibration constants per channel.
+with that from the \dword{fe} electronics calibration and the analysis of the reconstructed charged tracks, enabling extraction of the overall calibration constants per channel.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quality Control}
@@ -689,7 +691,7 @@ with the one from the \dword{fe} electronics calibration and the one from the an
 
 Several quality control 
 %\fixme{qa or qc?}
-procedures are applied at the level of the \dword{lem} and anode production, as described in more detail in their corresponding sections. The components of the \dword{hv} distribution system are also individually tested. Continuity tests are performed at the time of the \dword{crp} assembly. The \dword{crp} geometry is also systematically surveyed as well as the tensioning of the grid wires. On a small subsample of the \dwords{crp} production, it will be also possible to perform cold-box testing by using the infrastructure set up at CERN for \dword{pddp}.
+procedures are applied at the level of the \dword{lem} and anode production, as described in more detail in their corresponding sections. The components of the \dword{hv} distribution system are also individually tested. Continuity tests are performed at the time of the \dword{crp} assembly. The \dword{crp} geometry is also systematically surveyed as well as the tensioning of the grid wires. It will also be possible to perform cold-box testing on a small subsample of the \dwords{crp} production using the infrastructure set up at CERN for \dword{pddp}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
