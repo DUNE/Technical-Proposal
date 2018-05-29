@@ -16,11 +16,12 @@ this requires a horizontal cathode plane, held at negative \dword{hv}; a horizon
 
 
 \begin{dunefigure}[\dword{dpmod} overview]{fig:dune_dp_fd}
-{A cutaway showing an overview of a \dword{dpmod}, with the cathode plane and the \dword{pds} on the floor, the \tpcheight tall \dword{fc} modules surrounding the active volume, and the anode plane, the only part of the \dword{crp} visible from this angle.}
+{A cutaway showing an overview of a \dword{dpmod}, with the cathode plane and the \dword{pds} on the floor, the \tpcheight tall \dword{fc} modules surrounding the active volume, and the top view of the %anode plane, the only part of the
+ \dwords{crp} showing the anode plane (the only portion visible from this angle).}
 \includegraphics[width=0.8\textwidth]{Overview_Cutaway.png}
 \end{dunefigure}
 
-The \dword{hv} consortium supplies the systems that operate at the nominal voltages to provide the uniform \SI{500}{\volt/\cm} \efield in the \dword{tpc} drift volume. As a result, its systems %actually 
+The \dword{hv} consortium supplies the systems that operate at the nominal voltages to establish the uniform \SI{500}{\volt/\cm} \efield in the \dword{tpc} drift volume. As a result, its systems %actually 
 constitute a large fraction of the %total 
 internal structures of the \dword{tpc}. % itself. 
 Mechanical and structural concerns are taken into account, together with the electrical design to meet the requirements. 
@@ -54,7 +55,7 @@ No. & Requirement & Physics requirement driver & Requirement & Goal \\ \toprowru
 \\ \colhline
 4 &  Maximize power supply stability & Maintain the ability to reconstruct data taken over long period.  Maintain high operational uptime to maximize experimental statistics. \\ \colhline
 5 & Provide adequate decay time constant for discharge of the cathode plane and \dword{fc} as well as cathode plane resistive segmentation & Avoid damage to detector to enable data collection over long periods. Maintain high operational uptime to maximize experimental statistics. & \si{\giga\ohm} resistors per each connection of the $3\times3$\,m$^2$ cathode units  \\ \colhline
-6 & Provide redundancy in all \dword{hv} connections & Avoid single-point failures in detector that interrupt data taking. & >2 voltage divider chains to distribute \dword{hv} to the \dword{fc} profiles & one voltage divider chain every four \dword{fc} modules\\ 
+6 & Provide redundancy in all \dword{hv} connections & Avoid single-point failures in detector that interrupt data taking. & >2 voltage divider chains to distribute \dword{hv} to the \dword{fc} profiles & One voltage divider chain every four \dword{fc} modules\\ 
 \end{dunetable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
