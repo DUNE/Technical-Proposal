@@ -39,23 +39,23 @@ requirements for the camera system.
 {tab:fdgen-cameras-req}
 {Camera system requirements}   
  Requirement & Physics Requirement Driver \\ \toprowrule
- {\bf General} \\ \colhline
- No component may contaminate the \lar{}. & High \lar purity is required for TPC operation. \\ \toprowrule
- No component may produce bubbles in the liquid argon if the \dword{hv} is on. & Bubbles increase risk of \dword{hv} discharge. \\ \toprowrule
- No point in the camera system shall have a field greater than \SI{15}{kV/cm} when the drift field is at nominal voltage. & Fields must be well below \SI{30}{kV/cm} to avoid risk of \dword{hv} discharge.\\ \toprowrule
-The camera system shall not produce measurable noise in any detector system. & Low noise is required for TPC operation. \\ \toprowrule
+ \multicolumn{2}{l}{\bf General} \\ \specialrule{1.5pt}{1pt}{1pt}
+ No component may contaminate the \lar{}. & High \lar purity is required for TPC operation. \\ \colhline
+ No component may produce bubbles in the liquid argon if the \dword{hv} is on. & Bubbles increase risk of \dword{hv} discharge. \\ \colhline
+ No point in the camera system shall have a field greater than \SI{15}{kV/cm} when the drift field is at nominal voltage. & Fields must be well below \SI{30}{kV/cm} to avoid risk of \dword{hv} discharge.\\ \colhline
+The camera system shall not produce measurable noise in any detector system. & Low noise is required for TPC operation. \\ \colhline
  Cameras provide the viewing functionality as agreed upon with the other subsystems for viewing, as documented in the ICDs with the individual systems. \\ \toprowrule
-{\bf Cold cameras} \\ \colhline
-minimal heat dissipation when camera not in operation & do not generate bubbles when \dword{hv} is on \\ \colhline
-longevity exceeds 18 months & cameras must function throughout cryostat filling and detector commissioning \\ \colhline
-Frame rate \(\geq\SI{10}{\per s}\) & observe bubbling, waves, detritus, etc. \\ \colhline
-{\bf Inspection cameras} \\ \colhline
-low heat transfer to \lar when in operation & do not generate bubbles, some use cases may require operation when \dword{hv} is on \\ \colhline
-deployable without exposing \lar to air & keep \lar free N2 and other electronegative contaminants \\ \colhline
-replaceable camera enclosure & replace broken camera, or upgrade, throughout life of experiment \\ \colhline
+\multicolumn{2}{l}{\bf Cold cameras}\\ \specialrule{1.5pt}{1pt}{1pt}
+minimal heat dissipation when camera not in operation & Do not generate bubbles when \dword{hv} is on \\ \colhline
+longevity exceeds 18 months & Cameras must function throughout cryostat filling and detector commissioning \\ \colhline
+Frame rate \(\geq\SI{10}{\per s}\) & Observe bubbling, waves, detritus, etc. \\ \toprowrule
+\multicolumn{2}{l}{\bf Inspection cameras}\\ \specialrule{1.5pt}{1pt}{1pt}
+Low heat transfer to \lar when in operation & Do not generate bubbles, some use cases may require operation when \dword{hv} is on \\ \colhline
+deployable without exposing \lar to air & Keep \lar free N2 and other electronegative contaminants \\ \colhline
+replaceable camera enclosure & Replace broken camera, or upgrade, throughout life of experiment \\ \colhline
 {\bf Light emitting system} \\ \colhline
-no emitted wavelength shorter than \(\SI{400}{nm}\) & avoid damaging \dword{tpb} waveshifter \\ \colhline
-longevity exceeds \num{18} months & lighting for fixed cameras must function throughout cryostat filling and detector commissioning \\ \colhline
+No emitted wavelength shorter than \(\SI{400}{nm}\) & Avoid damaging \dword{tpb} waveshifter \\ \colhline
+longevity exceeds \num{18} months & Lighting for fixed cameras must function throughout cryostat filling and detector commissioning \\ \colhline
 \end{dunetable}
 
 
@@ -134,10 +134,10 @@ to be of interest:
 \item $y$-axis deployment of calibration sources;
 \item Status of thermometers, especially dynamic thermometers;
 \item \dword{hv} discharge, corona, or streamers on \dword{hv} \fdth, cup, or \dword{fc};
-\item relative straightness and alignment of \dword{apa}/\dword{crp}, \dword{cpa}/cathode, and \dword{fc} (\SI{1}{mm} resolution);
-\item gaps between \dword{cpa} frames (\SI{1}{mm} resolution);
-\item relative position of profiles and endcaps (\SI{0.5}{mm} resolution);
-\item sense wires at top of outer wire planes in \single \dword{apa} (\SI{0.5}{mm}resolution).
+\item Relative straightness and alignment of \dword{apa}/\dword{crp}, \dword{cpa}/cathode, and \dword{fc} (\SI{1}{mm} resolution);
+\item Gaps between \dword{cpa} frames (\SI{1}{mm} resolution);
+\item Relative position of profiles and endcaps (\SI{0.5}{mm} resolution);
+\item Sense wires at top of outer wire planes in \single \dword{apa} (\SI{0.5}{mm}resolution).
 \end{itemize}
 
 Unlike the fixed cameras, the inspection cameras need operate only as
