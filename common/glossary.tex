@@ -75,34 +75,33 @@
 
 %%%%%%     START ADDING WORDS, IN ALPHABETICAL ORDER IF POSSIBLE!    %%%%%%%%
 
-\newduneabbrev{nd}{ND}{near detector}{Refers to the detector(s) or more
-  generally the experimental site at \fnal }
+\newduneabbrev{nd}{ND}{near detector}{Refers to the detector(s) %or more  generally the experimental site
+ installed close to the neutrino source at \fnal }
 
-\newduneabbrev{fd}{FD}{far detector}{Refers to the detector or more
-  generally the experimental site at \surf in
-  Lead, SD}
+\newduneabbrev{fd}{FD}{far detector}{Refers to the \fdfiducialmass fiducial mass DUNE detector %or more generally the experimental 
+  to be installed at the far site at \surf in
+  Lead, SD, to be composed of four \nominalmodsize modules}
 
-\newduneabbrev{sp}{SP}{single-phase}{Distinguishes one of the four
-  \SI{10}{\kton} \glspl{detmodule} of the DUNE far detector by the
-  fact that it operates using argon in just its liquid phase}
+\newduneabbrev{sp}{SP}{single-phase}{Distinguishes one of the DUNE far detector technologies by the fact that it operates using argon in its liquid phase only
+  %Distinguishes one of the four  \SI{10}{\kton} \glspl{detmodule} of the DUNE far detector by the  fact that it operates using argon in just its liquid phase
+  }
 
 
-\newduneabbrev{dp}{DP}{dual-phase}{Distinguishes one of the four
-  \SI{10}{\kton} \glspl{detmodule} of the DUNE far detector by the
-  fact that it operates using argon in both gas and liquid phases}
+\newduneabbrev{dp}{DP}{dual-phase}{Distinguishes one of the DUNE far detector technologies by the fact that it operates using argon %Distinguishes one of the four \SI{10}{\kton} \glspl{detmodule} of the DUNE far detector by the fact that it operates using argon 
+ in both gas and liquid phases}
 
-\newduneabbrev{pds}{PDS}{photon detection system}{The \gls{submodule}
-  system sensitive to light produced in the \lar }
+\newduneabbrev{pds}{PDS}{photon detection system}{The detector 
+  subsystem sensitive to light produced in the \lar }
 
 \newduneabbrev{tpc}{TPC}{time projection chamber}{The portion of each
-  DUNE \gls{submodule} that records ionization electrons
+  DUNE \gls{detmodule} that records ionization electrons
   after they drift away from a cathode through the \lar{}, and also
   through gaseous argon in a \dual module. 
   The activity is recorded by digitizing the waveforms of current
   induced on the anode as the distribution of ionization charge passes by
   or is collected on the electrode}
 
-\newduneabbrevs{apa}{APA}{anode plane assembly}{anode plane assemblies}{One unit the \single
+\newduneabbrevs{apa}{APA}{anode plane assembly}{anode plane assemblies}{A unit of the \single
   detector module containing the elements sensitive to activity in the \lar. 
   It contains two faces each of three planes of wires, and interfaces to the cold
   electronics and photon detection system} 
@@ -129,7 +128,7 @@
 % data acquisition
 \newduneabbrev{daq}{DAQ}{data acquisition}{The data acquisition system
   accepts data from the detector FE electronics, buffers
-  it, performs a \gls{trigdecision}, builds events from the selected
+  the data, performs a \gls{trigdecision}, builds events from the selected
   data and delivers the result to the offline \gls{diskbuffer}}
 
 % detector module
@@ -208,7 +207,7 @@
 % sub-detector ??? %%%%%%%%%%%%%%%%%%%      Why not ``subdet''? (Anne)  %%%%%% ???????
 \newduneword{submodule}{subdetector}{A detector unit of granularity less
   than one \gls{detmodule} such as the TPC of either a \single or \dual 
-  \gls{detmodule}}
+  module}
 
 \newduneword{trigcandidate}{trigger candidate}{Summary information derived
   from the full data stream and representing a contribution toward
@@ -251,9 +250,9 @@
 % \fixme{Needs improvement}
 \newduneabbrev{atca}{ATCA}{Advanced Telecommunications Computing
   Architecture}{A computer architecture specification developed for
-  telecommunication, military and aerospace industry} 
+  the telecommunication, military and aerospace industries} 
 
-\newduneabbrev{utca}{$\mu$TCA}{Micro Telecommunications Computing Architecture}{A computer architecture. Vertical card-edge connectors, Amphenol ICC,  \url{https://www.amphenol-icc.com/product-series/micro-tca-card-edge.html}} %?? needs work
+\newduneabbrev{utca}{$\mu$TCA}{Micro Telecommunications Computing Architecture}{A computer architecture. Vertical card-edge connectors, Amphenol ICC }%,  \url{https://www.amphenol-icc.com/product-series/micro-tca-card-edge.html}} %?? needs work
 
 \newduneabbrev{udp}{UDP}{user datagram protocol}{A simple,
   connectionless Internet protocol that supports data integrity
@@ -276,7 +275,7 @@
   and the standard PCIe computer bus}
 
 \newduneword{daqpart}{DAQ partition}{A cohesive and
- coherent collection of DAQ hardware and software working together to trigger and read out some portion of one detector module; it consists of an integral number of\glspl{daqfrag}. 
+ coherent collection of DAQ hardware and software working together to trigger and read out some portion of one detector module; it consists of an integral number of \glspl{daqfrag}. 
  Multiple DAQ partitions may operate simultaneously, but each instance operates independently}
  
 \newduneabbrev{fec}{FEC}{front-end computer}{The portion of one
@@ -322,17 +321,17 @@ Each \gls{detunit} of a  certain granularity, such as two \single \glspl{apa}, h
   and ADC ASICs covering 128 channels}
 
 \newduneword{asic}{ASIC}{application-specific integrated circuit}
-\newduneword{lv}{LV}{low volatage}
+\newduneword{lv}{LV}{low voltage}
 \newduneword{coldata}{COLDATA}{COLDATA needs def ???}
 \newduneword{larasic}{LArASIC}{LArASIC needs def ???}
-\newduneword{cmos}{CMOS}{Complementary metal–oxide–semiconductor}
+\newduneword{cmos}{CMOS}{Complementary metal-oxide-semiconductor}
 \newduneword{enc}{ENC}{equivalent noise charge}
 \newduneword{dre}{DRE}{dynamic range enhancement}
 \newduneword{sar}{SAR}{successive approximation register}
 
-\newduneword{protodune}{ProtoDUNE}{Either of two DUNE prototype detectors operated in
-  a CERN beam test. 
-  One prototypes \gls{sp} and the other \gls{dp} technology}
+\newduneword{protodune}{ProtoDUNE}{Either of the two DUNE prototype detectors constructed at CERN and operated in
+  a CERN test beam (expected fall 2018). 
+  One prototype implements \single and the other \dual technology}
 
 \newduneword{pdsp}{ProtoDUNE-SP}{The \single ProtoDUNE detector}
 
@@ -373,9 +372,8 @@ Each \gls{detunit} of a  certain granularity, such as two \single \glspl{apa}, h
 \newduneabbrev{rc}{RC}{run control}{The system for configuring,
   starting and terminating the DAQ}
 
-\newduneabbrev{snb}{SNB}{supernova neutrino burst}{A prompt and brief
-  increase in the flux of low energy neutrinos. 
-  Can also refer to a trigger command type that may be due to an SNB,
+\newduneabbrev{snb}{SNB}{supernova neutrino burst}{A prompt 
+  increase in the flux of low-energy neutrinos emitted in the first few seconds of a core-collapse supernova.  It can also refer to a trigger command type that may be due to an SNB,
   or detector conditions that mimic its interaction signature}
 
 \newduneabbrev{snble}{SNB/LE}{supernova neutrino burst and low
@@ -436,7 +434,8 @@ modern multi-core and networked computers}
 \newduneword{beamline}{beamline}{A sequence of control and monitoring devices used for the formation of a directed collection of particles}
 
 \newduneabbrev{cdr}{CDR}{conceptual design report}{A formal project
-  document required by funding agencies that describes the experiment
+  document %required by funding agencies
+   that describes the experiment
   at a conceptual level}
 
 \newduneabbrev{cf}{CF}{conventional facilities}{Pertaining to
@@ -478,9 +477,9 @@ modern multi-core and networked computers}
   It typically entails observation of ionization activity by
   electrical signals and of scintillation by optical signals}
 
-\newduneabbrev{lbl}{LBL}{long-baseline}{Refers to the distance between
-  neutrino source (or near detector) and the far detector. 
-  The ``long'' designation is an approximate and relative distinction. For DUNE, this distance is approximately \SI{1300}{km}}
+\newduneabbrev{lbl}{LBL}{long-baseline}{Refers to the distance between the 
+  neutrino source  and the far detector.  It can also refer to the distance between the near and far detectors. 
+  The ``long'' designation is an approximate and relative distinction. For DUNE, this distance  (between \fnal and \surf) is approximately \SI{1300}{km}}
 
 \newduneabbrev{lbnf}{LBNF}{Long-Baseline Neutrino Facility}{The
   organizational entity responsible for developing the neutrino beam, the cryostats
@@ -509,8 +508,9 @@ modern multi-core and networked computers}
   the interaction of elementary particles}
 
 \newduneabbrev{tdr}{TDR}{technical design report}{A formal project
-  document required by funding agencies that describes the experiment
-  at a technical level}
+  document %required by funding agencies 
+  that describes the experiment at a technical level}
+  
 \newduneabbrev{tp}{TP}{technical proposal}{An intermediate
 milestone on the path to a full \gls{tdr}}
 
@@ -539,7 +539,7 @@ milestone on the path to a full \gls{tdr}}
 
 \newduneabbrevs{cpa}{CPA}{cathode plane assembly}{cathode plane assemblies}{The component of the \single detector module that provides the drift HV cathode}
 
-\newduneabbrev{fc}{FC}{field cage}{The component of a LArTPC that contains and shapes the applied electric field}
+\newduneabbrev{fc}{FC}{field cage}{The component of a LArTPC that contains and shapes the applied \efield}
 
 \newduneabbrev{topfc}{top FC}{top field cage}{The horizontal portions of the \single FC on the top}
 
@@ -684,7 +684,7 @@ milestone on the path to a full \gls{tdr}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%% DETECTORS VOLUME list for acronyms below %%%%%%%%%%%%%%%
 
-\newduneabbrev{ce}{CE}{cold electronics}{Generally, describes readout electronics that operate at cryogenic temperatures}
+\newduneabbrev{ce}{CE}{cold electronics}{Refers to readout electronics that operate at cryogenic temperatures}
 
 \newduneabbrev{crp}{CRP}{charge-readout plane}{In the \dual technology, a  collection of
   electrodes in a planar arrangement placed at a particular voltage
@@ -727,7 +727,7 @@ milestone on the path to a full \gls{tdr}}
 
 \newduneabbrev{pmt}{PMT}{photomultiplier tube}{A device that makes use
   of the photoelectric effect to produce an electrical signal from the
-  arrival of a optical photons}
+  arrival of optical photons}
 
 \newduneabbrev{ppm}{PPM}{parts per million}{A number equal to $10^{-6}$}
 \newduneabbrev{ppb}{PPB}{parts per billion}{A number equal to $10^{-9}$}
@@ -753,7 +753,7 @@ milestone on the path to a full \gls{tdr}}
 \newduneabbrev{tpb}{TPB}{tetra-phenyl butadiene}{A type of wavelength shifting material}
 
 \newduneabbrev{sft}{SFT}{signal feedthrough}{A cryostat penetration allowing for the passage of cables or other extended parts}
-\newduneabbrev{sftchimney}{SFT chimney}{signal feedthrough chimney}{A volume above the cryostat penetration for a signal feedthrough}
+\newduneabbrev{sftchimney}{SFT chimney}{signal feedthrough chimney}{In the \dual technology, a volume above the cryostat penetration used for a signal feedthrough}
 
 
 \newduneword{catiroc}{CATIROC}{charge and time integrated readout chip}
@@ -774,20 +774,20 @@ milestone on the path to a full \gls{tdr}}
 
 \newduneword{qam}{QAM}{quality assurance manager} %{The manager of \gls{qa} for the LBNF/DUNE project}
 
-\newduneabbrev{dss}{DSS}{detector support system}{A system of supporting a \single detector within the cryostat}
+\newduneabbrev{dss}{DSS}{detector support system}{The system used to support the \single detector within the cryostat}
 
 \newduneabbrev{itf}{ITF}{integration and test facility}{A facility where various detector components will be tested prior to installation}
 
-\newduneabbrev{tco}{TCO}{temporary construction opening}{An opening in the cryostat utilized during construction and installation}
+\newduneabbrev{tco}{TCO}{temporary construction opening}{An opening in the side of a cryostat through which detector elements are brought into the cryostat; utilized during construction and installation}
 
-\newduneabbrev{uit}{UIT}{underground installation team}{An organizational unit responsible for installation in the \surf underground area}
+\newduneabbrev{uit}{UIT}{underground installation team}{An organizational unit responsible for installation in the underground area at the \surf site}
 
 \newduneabbrev{pdr}{PDR}{preliminary design review}{A project management device by which an early design is reviewed}
 \newduneabbrev{fdr}{FDR}{final design review}{A project management device by which a final design is reviewed}
 \newduneabbrev{prr}{PRR}{production readiness review}{A project management device by which the production readiness is reviewed}
 \newduneabbrev{orr}{ORR}{operational readiness review}{A project management device by which the operational readiness is reviewed}
 \newduneabbrev{ppr}{PPR}{production progress review}{A project management device by which the progress of production is reviewed}
-\newduneabbrev{edms}{EDMS}{electronic document management system}{A computerized system by which documents are managed}
+\newduneabbrev{edms}{EDMS}{electronic document management system}{A computerized system used at CERN by which documents are managed}
 
 \newduneword{wrgm}{WR grandmaster}{White Rabbit grandmaster}
 
@@ -815,7 +815,7 @@ milestone on the path to a full \gls{tdr}}
 \newduneword{led}{LED}{Light-emitting diode}
 \newduneword{rtd}{RTD}{?? Email sent to Glenn}
 \newduneword{swc}{SWC}{Software \& Computing}
-\newduneabbrev{las}{LAS}{LEM-anode Sandwich}{A \gls{lem} and its corresponding anode are mounted together in a module called a LEM-anode sandwich}
+\newduneabbrev{las}{LAS}{LEM-anode Sandwich}{In the \dual technology, a \gls{lem} and its corresponding anode are mounted together in a module called a LEM-anode sandwich}
 
 \newduneword{roi}{ROI}{region of interest}
 \newduneword{hpc}{HPC}{high-performance computing facilities; generally computing facilities emphasizing parallel computing with aggregate power of more than a teraflop}
