@@ -148,84 +148,6 @@ In addition to physics channels, continuous calibration of the detectors will be
 
 
 
-
-%\subsection{Relation to Trigger and \dword{daq}}
-
-
-%\subsection{Data reduction strategies}
-%
-%The raw data volume estimate of 10-30 PB/year  is daunting but lower than that already achieved by the large LHC experiments and only a factor of 3-10 higher than for NOvA and \dword{microboone}. 
-%
-%This final data volume depends critically on the tradeoffs between complexity and cost in the detector and data acquisition systems and the cost of storing, moving and reconstructing uninteresting data.  These are discussed in the \dword{daq} portions of the technical proposal but are summarized below. 
-%
-%After discussion with the Trigger/\dword{daq} group, we asked them to include as limits in their design a  maximum data transfer rate from the far detectors to Fermilab of \surffnalbw, which is consistent with projected network bandwidths in the mid 2020's and a limit of 30 PB/year raw data stored to tape.  %Achieving these rates will require triggering and lossless compression, which are discussed in much more detail in the technical proposals for the individual detector systems.  A brief summary of the issues follows.  
-
-%\subsubsection{Triggering}
-%
-%%If a decision can be made to read  out the detector based on internal information, data volumes can be substantially reduced.  
-%Challenges for triggering include electronic noise, differential response as a function of drift distance and radiological backgrounds.
-%Another major challenge will be the limited space and power availability at the far detector where critical electronics will need to be located underground in a tightly constrained environment.  This is the responsibility of the \dword{daq} group with assistance from Software and Computing where needed. 
-%
-%\subsubsection{Lossless Compression}
-%
-%Lossless compression will substantially reduce the data volume at the cost of some CPU time.  The exact degree of compression  depends on the electronic noise present and the detector occupancy.  Estimates for single phase are currently a factor of four to five and for dual phase, a factor of ten reduction.  This reduction will be done onboard in the \dword{daq} system.  \dword{protodune} experience will give us much better estimates on these factors.
-
-
-
-
-%\fixme{Make certain this is the same as in the FD book }
-%\begin{dunetable}
-%[Anticipated event and data rates in the  \dword{dune} FD (from the single-phase chapter.]
-%{p{0.25\textwidth}p{0.15\textwidth}p{0.4\textwidth}}
-%{daq:datarates}
-%{Anticipated event and data rates in the  \dword{dune} FD assuming all four
-%  modules are single phase. The
-%  rates assume continuous readout (without any data reduction) for
-%  5.4~ms for non-extended events, and for 10 seconds for extended events.}   
-%Event Type  & Annual Data Volume & Assumptions \\ \toprowrule
-% Beam interactions & 27 x & 800 beam and 800 dirt muons; 10~MeV
-% threshold in coincidence with beam time; include cosmics\\ \colhline
-% Cosmics and atmospherics & 10 PB &  \\ \colhline
-% Radioactive decays& $\le$1~PB & fake rate of $\le$100 per year \cite{daq:simreport}\\ \colhline
-% Front-end calibration & 200~TB & Four calibration runs per year, 100
-% measurements per point \\ \colhline
-% Radioactive source calibration & 100~TB & source rate $\le$10~Hz;
-% single APA readout; lossless readout \\ \colhline
-% Laser calibration & 200~TB & 1$\times$10$^6$ total laser
-% pulses, lossy readout \\ \colhline
-% Random triggers & 60 TB & 45 per day\\ \colhline
-% Trigger primitives & $\le$6~PB &  all three wire planes; 12 bits per
-% primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
-%\end{dunetable}
-
-%
-%\begin{dunetable} [Uncompressed data volumes for four 17 kt SP-modules, assuming a factor of four lossless compression.]
-%  {p{0.30\textwidth}p{0.13\textwidth}p{0.4\textwidth}}
-%  {tab:daq-data-rates-sw} {Anticipated annual, data volumes with lossless compression
-%    for  four \dword{sp} modules. The rates for normal (non-SNB triggers)
-%    assume a readout window of \SI{5.4}{\ms}. 
-%    For planning purposes these rates are assumed to apply to the DP
-%    modules as well which has a longer readout time but fewer channels. 
-%  This is derived from table \ref{tab:daq-data-rates} in section \ref{sec:fd-daq-ov}.}   
-%  Event Type  & Data Volume \si{\PB/year} & Assumptions \\ \toprowrule
-%  Beam interactions & 0.03 & 6,400 beam and 6,400 rock muons; \SI{10}{\MeV} threshold in coincidence with beam time; include cosmics\\ \colhline
-%  Cosmics and atmospherics & 10 &  \SI{10}{\MeV} threshold \\ \colhline
-%  Radiologicals & $\le$1 & fake rate of $\le$400 per year \cite{daq:simreport}\\ \colhline
-% Front-end calibration & 0.2 & Four calibration runs per year, 100 measurements per point \\ \colhline
-% Radioactive source calibration & 0.1 & source rate $\le$10~Hz; single fragment readout; lossless readout \\ \colhline
-% Laser calibration & 0.2 & 4$\times$10$^6$ total laser pulses, lossy readout \\ \colhline
-% Supernova candidates & 0.5 & 30 seconds full readout, average once per month \\ \colhline
-% Random triggers & 0.06 & 45 per day\\ \colhline
-% Trigger primitives & $\le$6 &  all three wire planes; 12 bits per primitive word; 4 primitive quantities; $^{39}$Ar-dominated\\ \colhline
-%\end{dunetable}
-
-
-
-%For single-phase far detectors, lossless compression by a factor of four and triggering with a 10 MeV threshold are expected to reduce data volumes to 2-4 PB/year/module.
-%For a dual-phase far detector,  more efficient compression leads to anticipated data volumes of less than  1 PB/year/module. 
-
-%The near detector will contain useful information for every beam pulse at $\sim$ 1 Hz so triggering (aside from beam coincidence requirements) will not reduce the data rate further from the 2-20 PB/year estimated from event sizes and running time. 
-
 \subsubsection{Zero suppression}
 
 The data volumes discussed above are for un-zero-suppressed data.  Efficient zero suppression mechanisms can substantially reduce the final data volume but previous experience in HEP indicates that signal processing must be done carefully and often happens well into data-taking when the data are well understood.  Experience from  \dword{microboone} and the \dword{protodune} experiments will aid us in developing these algorithms, but it is likely that they will be applied later in the processing chain for single-phase.  No zero-suppression is planned for dual-phase.
@@ -350,32 +272,23 @@ shows the anticipated data rates and sizes.
 {Parameters for the \dword{pdsp} run at CERN}
 %including both
 %  the in-spill and out-of-spill data. }
-%\begin{table}[htbp]
- % \centering
- % \begin{tabular}[h]{l|r}
-%\hline
+
 Parameter & Value \\ \colhline
-    Trigger rate & 25\,Hz \\ \colhline
-    Spill duration & 4.5\,s\\ \colhline
-    SPS Cycle & 22.5\,s \\ \colhline
-    Readout time window & 5\,ms \\ \colhline
+    Beam trigger rate & 25\,Hz \\ \colhline
+    Cosmic trigger rate & 1\,Hz \\ \colhline
+    Spill duration & 2$\times$4.5\,s\\ \colhline
+    SPS cycle & 32\,s \\ \colhline
+    Average trigger rate& 7.8\, Hz\\ \colhline
+    Readout time window & 5.4\,ms \\ \colhline
     \# of APAs to be read out & 6 \\ \colhline
-    Uncompressed single readout size (per trigger) & 230.4\,MB \\ \colhline
+    Uncompressed single readout size (per trigger) & 276\,MB \\ \colhline
     Lossless compression factor & 4 \\ \colhline
-    Instantaneous data rate (in-spill) & 1440\,MB/s \\ \colhline
-    Average data rate & 576\,MB/s \\ \colhline
-    3-Day buffer depth & 300\,TB \\ \colhline
+    Instantaneous compressed data rate (in-spill) & 1728\,MB/s \\ \colhline
+    Average compressed data rate & 536\,MB/s \\ \colhline
+    Three-day buffer depth & 300\,TB \\ \colhline
     Planned total statistics of beam triggers in 42 beam days &18M\\ \colhline
-    Planned overall storage size of beam events&   1.0 PB\\ \colhline
-   %Cosmic rays in 30  beam days&  2.1  M\\ \colhline
-   %Planned storage size for cosmic rays during beam period&  0.04 PB\\ \colhline
-   Requested storage envelope for \dword{protodune}-SP&5~PB at FNAL, 1.5~PB at CERN \\ \colhline
-    \hline
-%  \end{tabular}
-%  \caption{Parameters for \dword{protodune}-SP run at CERN including both
- % the in-spill and out-of-spill data.  }
- % \label{tab:np04_data_rate}
-\end{dunetable}
+    Planned overall storage size of beam events&   1.25 PB\\ \colhline
+   Requested storage envelope for \dword{pdsp} &5~PB at \fnal, 1.5~PB at CERN \\ \end{dunetable}
 
 %\subsection{Dual-Phase prototype}
 
@@ -407,7 +320,7 @@ Maximum data rate & $\le$800\,MB/s \\ \colhline
 %Planned storage size for cosmic rays during beam period& 0.02 PB\\ \colhline
 Cosmic rays over a 6 month run& 300\,M\\ \colhline
 %Requested beam storage envelope for \dword{protodune}-DP&0.2 PB \\ \colhline
-Requested cosmic storage envelope for \dword{protodune}-DP&2.4\,PB \\ \colhline
+Requested cosmic storage envelope for \dword{protodune}-DP&2.4\,PB \\ 
 \end{dunetable}
 
 % 3-Day buffer depth & 300\,TB \\
