@@ -365,16 +365,15 @@ Table~\ref{tab:daq-input-bandwidth}.
     Compression is an estimate and will be reduced if excess noise is
     introduced.  
   }
-  parameter & \dlong{sp} & \dlong{dp} \\
+  Parameter & \dlong{sp} & \dlong{dp} \\
   \colhline
-  TPC unit & \dword{apa} & \dword{cro} crate \\
-  unit multiplicity & \num{150} & \num{240} \\
-  channels per unit & \num{2560} (\num{800} collection) & \num{640} (all collection) \\
+  TPC unit & \dword{apa} & \dword{cro} crate \\ \colhline
+  Unit multiplicity & \num{150} & \num{240} \\ \colhline
+  Channels per unit & \num{2560} (\num{800} collection) & \num{640} (all collection) \\ 
   \dword{adc} sampling & \SI{2}{\MHz} & \SI{2.5}{\MHz} \\
-	  \dword{adc} resolution & \num{12}\,bit & \num{12}\,bit \\
-  \colhline
-  aggregate from \dword{ce} & \SI{1440}{\GB/\s} & \SI{576}{\GB/\s} \\
-  with compression & \SI{288}{\GB/\s} (5$\times$) & \SI{58}{\GB/\s} (10$\times$)  \\
+	\dword{adc} resolution & \num{12}\,bit & \num{12}\,bit \\ \specialrule{1.5pt}{1pt}{1pt}
+  Aggregate from \dword{ce} & \SI{1440}{\GB/\s} & \SI{576}{\GB/\s} \\
+  Aggregate with compression & \SI{288}{\GB/\s} (5$\times$) & \SI{58}{\GB/\s} (10$\times$)  \\
   \colhline
 \end{dunetable}
 
@@ -420,11 +419,11 @@ optimize this threshold.
   Beam interactions & \num{0.03} & \num{800} beam and \num{800} dirt muons; \SI{10}{\MeV} threshold in coincidence with beam time; include cosmics\\ \colhline
   Cosmics and atmospherics & \num{10} &  \SI{10}{\MeV} threshold, anti-coincident with beam time \\ \colhline
 	 Front-end calibration & \num{0.2} & Four calibration runs per year, \num{100} measurements per point \\ \colhline
- Radioactive source calibration & \num{0.1} & source rate $\le$\SI{10}{Hz}; single fragment readout; lossless readout \\ \colhline
+ Radioactive source calibration & \num{0.1} & Source rate $\le$\SI{10}{Hz}; single fragment readout; lossless readout \\ \colhline
  Laser calibration & \num{0.2} & \num{1e6} total laser pulses, lossy readout \\ \colhline
  Supernova candidates & \num{0.5} & \num{30} seconds full readout, average once per month \\ \colhline
  Random triggers & \num{0.06} & \num{45} per day\\ \colhline
- Trigger primitives & $\le$\num{6} &  all three wire planes; \num{12} bits per primitive word; \num{4} primitive quantities; $^{39}$Ar-dominated\\ \colhline
+ Trigger primitives & $\le$\num{6} &  All three wire planes; \num{12} bits per primitive word; \num{4} primitive quantities; $^{39}$Ar-dominated\\ \colhline
 \end{dunetable}
 
 The data volume estimates also assume that any excess noise beyond

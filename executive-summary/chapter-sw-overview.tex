@@ -285,20 +285,20 @@ Table \ref{sw:computingTasks} summarizes the responsibilities of the software an
 Task & Status \\
 \toprowrule
 
-\\ Code management & in place
-\\ Documentation and logging of \dword{daq} and detector configurations & in design
-\\ Data movement & design rates achieved for short periods
-\\ Grid processing infrastructure & early version in use for data challenges
-\\ Data catalog & sam, in place
-\\ Beam instrumentation and databases & ifbeam, in test
-\\ Calibration and Alignment processing & needs development
-\\ Calibration and Alignment databases & needs development
-\\ Noise reduction & tested in simulation
-\\ Hit finding & tested in simulation 
-\\ Pattern recognition algorithms & tested in simulation
-\\ Event simulation & use existing software
-\\ Analysis formats & no common format
-\\ Distribution of analysis samples to collaborators& needs development \\
+Code management & in place  \\ \colhline
+Documentation and logging of \dword{daq} and detector configurations & in design \\ \colhline
+Data movement & design rates achieved for short periods \\ \colhline
+Grid processing infrastructure & early version in use for data challenges \\ \colhline
+Data catalog & sam, in place \\ \colhline
+Beam instrumentation and databases & ifbeam, in test \\ \colhline
+Calibration and Alignment processing & needs development \\ \colhline
+Calibration and Alignment databases & needs development \\ \colhline
+Noise reduction & tested in simulation \\ \colhline
+Hit finding & tested in simulation \\ \colhline
+Pattern recognition algorithms & tested in simulation \\ \colhline
+Event simulation & use existing software \\ \colhline
+Analysis formats & no common format \\ \colhline
+Distribution of analysis samples to collaborators& needs development \\ \colhline
 \end{dunetable}
 
 \subsection{Downstream Activities}
@@ -354,24 +354,22 @@ shows the anticipated data rates and sizes.
  % \centering
  % \begin{tabular}[h]{l|r}
 %\hline
-Parameter & Value \\
-    Trigger rate & 25\,Hz \\
-    Spill duration & 4.5\,s\\
-    SPS Cycle & 22.5\,s \\
-    Readout time window & 5\,ms \\
-    \# of APAs to be read out & 6 \\
-    \hline
-    Uncompressed single readout size (per trigger) & 230.4\,MB \\
-    Lossless compression factor & 4 \\
-    Instantaneous data rate (in-spill) & 1440\,MB/s \\
-    Average data rate & 576\,MB/s \\
-    \hline
-    3-Day buffer depth & 300\,TB \\
-    Planned total statistics of beam triggers in 42 beam days &18M\\
-    Planned overall storage size of beam events&   1.0 PB\\
-   %Cosmic rays in 30  beam days&  2.1  M\\
-   %Planned storage size for cosmic rays during beam period&  0.04 PB\\
-   Requested storage envelope for \dword{protodune}-SP&5~PB at FNAL, 1.5~PB at CERN \\
+Parameter & Value \\ \colhline
+    Trigger rate & 25\,Hz \\ \colhline
+    Spill duration & 4.5\,s\\ \colhline
+    SPS Cycle & 22.5\,s \\ \colhline
+    Readout time window & 5\,ms \\ \colhline
+    \# of APAs to be read out & 6 \\ \colhline
+    Uncompressed single readout size (per trigger) & 230.4\,MB \\ \colhline
+    Lossless compression factor & 4 \\ \colhline
+    Instantaneous data rate (in-spill) & 1440\,MB/s \\ \colhline
+    Average data rate & 576\,MB/s \\ \colhline
+    3-Day buffer depth & 300\,TB \\ \colhline
+    Planned total statistics of beam triggers in 42 beam days &18M\\ \colhline
+    Planned overall storage size of beam events&   1.0 PB\\ \colhline
+   %Cosmic rays in 30  beam days&  2.1  M\\ \colhline
+   %Planned storage size for cosmic rays during beam period&  0.04 PB\\ \colhline
+   Requested storage envelope for \dword{protodune}-SP&5~PB at FNAL, 1.5~PB at CERN \\ \colhline
     \hline
 %  \end{tabular}
 %  \caption{Parameters for \dword{protodune}-SP run at CERN including both
@@ -395,22 +393,21 @@ Given the most recent construction schedule for \dword{pddp} is now likely that 
 {p{0.5\textwidth}p{0.3\textwidth}}
 {sw:np02_data_rate}
 {Parameters for a six month \dword{pddp} cosmic run at CERN}
-Parameter & Value \\
-Trigger rate & 20-100\,Hz \\
-\dword{crp}s read out &2\\
-Uncompressed single readout size (per trigger) & 80\,MB \\
-Lossless compression factor & 10\\
-Maximum data rate & $\le$800\,MB/s \\
-%Average data rate & 160\,MB/s \\
-\hline
-%Average off-spill cosmic data flow to offline data storage & 6.4 MB/s\\
-%Planned total statistics of beam triggers in 30 beam days &25M\\
-%Planned overall storage size of beam events& 0.2 PB\\
-%Cosmic rays in 30 beam days& 2.1 M\\
-%Planned storage size for cosmic rays during beam period& 0.02 PB\\
-Cosmic rays over a 6 month run& 300\,M\\
-%Requested beam storage envelope for \dword{protodune}-DP&0.2 PB \\
-Requested cosmic storage envelope for \dword{protodune}-DP&2.4\,PB \\
+Parameter & Value \\ \colhline
+Trigger rate & 20-100\,Hz \\ \colhline
+\dword{crp}s read out &2\\ \colhline
+Uncompressed single readout size (per trigger) & 80\,MB \\ \colhline
+Lossless compression factor & 10\\ \colhline
+Maximum data rate & $\le$800\,MB/s \\ \colhline
+%Average data rate & 160\,MB/s \\ \colhline
+%Average off-spill cosmic data flow to offline data storage & 6.4 MB/s\\ \colhline
+%Planned total statistics of beam triggers in 30 beam days &25M\\ \colhline
+%Planned overall storage size of beam events& 0.2 PB\\ \colhline
+%Cosmic rays in 30 beam days& 2.1 M\\ \colhline
+%Planned storage size for cosmic rays during beam period& 0.02 PB\\ \colhline
+Cosmic rays over a 6 month run& 300\,M\\ \colhline
+%Requested beam storage envelope for \dword{protodune}-DP&0.2 PB \\ \colhline
+Requested cosmic storage envelope for \dword{protodune}-DP&2.4\,PB \\ \colhline
 \end{dunetable}
 
 % 3-Day buffer depth & 300\,TB \\

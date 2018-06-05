@@ -61,8 +61,8 @@ If the cathode is made of metal, a \dword{hv} discharge can cause the electrical
 {fig:cpa-frame-discharge}
 {Bottom: Simulated \dword{cpa} Discharge event on a highly resistive cathode surface (1\,G$\Omega$/$\Box$), showing the voltage distribution on a section of the cathode (2.3\,m $\times$ 12\.m) 0.2\,ms after the discharge. Top: Time dependence of removal of stored energy.}
 \centering
-\includegraphics[width=0.6\textwidth]{A2r} \\ \vspace{30pt}    %update image with red labels
-\includegraphics[width=0.5\textwidth]{A3r}
+\includegraphics[width=0.6\textwidth,trim=2mm 2mm 2mm 2mm,clip]{A2r} \\ \vspace{30pt}    %update image with red labels, trim border
+\includegraphics[width=0.5\textwidth,trim=2mm 2mm 2mm 2mm,clip]{A3r}
 \end{dunefigure}
 
 The SP \dword{hv} system may have modifications if problems are identified in the present design in \dword{pdsp}. Issues identified in earlier testing form the basis of an ongoing R\&D program.
@@ -208,7 +208,7 @@ One of the two filters sits near the power supply; the other sits near the feedt
 A Heinzinger power supply (Credit: H.~Wang).}
 %\includegraphics[width=0.2\textwidth]{heinzy}
 %\includegraphics[width=0.7\textwidth]{ps_filter_ft_schematic}  %requested image edits by DeMuth
-\begin{minipage}{5in}
+\begin{minipage}{6in}
   \centering
   $\vcenter{\hbox{\includegraphics[width=0.2\textwidth]{heinzy}}}$
   \hspace*{.2in}
@@ -467,17 +467,17 @@ required.
 {tab:sp-hv-interconnects}
 {\dword{hv} System Interconnections}   
  Connection & Method \\ \toprowrule
- \dword{hv} cup to \dword{hv} bus & wire to screw in \dword{hv} cup mount on \dword{cpa} frame \\
- \dword{hv} bus between \dword{cpa} panels & wire between screws in brass tabs \\
- \dword{hv} bus to \dword{fss} & wire to circuit board mounted on \dword{fss} \\
- \dword{fss} to \dword{topfc} and \dword{botfc} & wire to circuit board on first \dword{fc} profile, two per \dword{fc} module \\
- \dword{hv} bus to endwall \dword{fc} & wire to circuit board mounted on first \dword{fc} profile, two per endwall \\
- \dword{fc} divider circuit boards & directly attached to profiles using screws \\
- \dword{fc} to bias and monitoring termination & redundant wires from board mounted on last \dword{fc} profile \\
- \dword{hv} bus to \dword{cpa} panels & brass tab on \dword{cpa} resistive panel \\
- \dword{cpa} RP interconnections & solid wire between screws in brass tabs \\
+ \dword{hv} cup to \dword{hv} bus & wire to screw in \dword{hv} cup mount on \dword{cpa} frame \\ \colhline
+ \dword{hv} bus between \dword{cpa} panels & wire between screws in brass tabs \\ \colhline
+ \dword{hv} bus to \dword{fss} & wire to circuit board mounted on \dword{fss} \\ \colhline
+ \dword{fss} to \dword{topfc} and \dword{botfc} & wire to circuit board on first \dword{fc} profile, two per \dword{fc} module \\ \colhline
+ \dword{hv} bus to endwall \dword{fc} & wire to circuit board mounted on first \dword{fc} profile, two per endwall \\ \colhline
+ \dword{fc} divider circuit boards & directly attached to profiles using screws \\ \colhline
+ \dword{fc} to bias and monitoring termination & redundant wires from board mounted on last \dword{fc} profile \\ \colhline
+ \dword{hv} bus to \dword{cpa} panels & brass tab on \dword{cpa} resistive panel \\ \colhline
+ \dword{cpa} RP interconnections & solid wire between screws in brass tabs \\ \colhline
  Endwall \dword{fc} module interconnections & metal strips, first and last profiles only
- \\
+ \\ \colhline
 \end{dunetable}
 
 The redundancy in electrical connections described above meets requirement (6).
