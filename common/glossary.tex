@@ -2,18 +2,16 @@
 
 % http://mirrors.ctan.org/macros/latex/contrib/glossaries/glossaries-user.pdf
 
-\usepackage[acronyms,toc]{glossaries}
+% \usepackage[acronyms,toc]{glossaries}
+\usepackage[toc]{glossaries}
 \makeglossaries
 
 
-% \newcommand{\dshort}[1]{\acrshort{abbrev-#1}}
-% \newcommand{\dshorts}[1]{\acrshorplt{abbrev-#1}}
-% \newcommand{\dlong}[1]{\acrlong{abbrev-#1}}
-% \newcommand{\dlongs}[1]{\acrlongpl{abbrev-#1}}
-\newcommand{\dshort}[1]{\acrshort{#1}}
-\newcommand{\dshorts}[1]{\acrshortpl{#1}}
-\newcommand{\dlong}[1]{\glsentrylong{gloss-#1}}
-\newcommand{\dlongs}[1]{\acrlongpl{#1}}
+% for terms with acronyms
+\newcommand{\dshort}[1]{\glsentrytext{#1}}
+\newcommand{\dshorts}[1]{\glsentryshortpl{#1}}
+\newcommand{\dlong}[1]{\glsentrylong{#1}}
+\newcommand{\dlongs}[1]{\glsentrylongpl{#1}}
 
 % force the "first time" behavior
 \newcommand{\dfirst}[1]{\glsfirst{#1}}
@@ -42,13 +40,14 @@
 %                 1      2     3       4 
 % \newduneabbrev{label}{abbrev}{term}{description}
 \newcommand{\newduneabbrev}[4]{
-  \newacronym[first={#3 (#2)\glsadd{gloss-#1}}]{#1}{#2}{#3}
-  \newglossaryentry{gloss-#1}{
+  \newglossaryentry{#1}{
     text={#2},
     long={#3},
-    name={\glsentrylong{gloss-#1}{} (\glsentrytext{gloss-#1}{})},
-    first={\glsentryname{gloss-#1}},
-    firstplural={\glsentrylong{gloss-#1}\glspluralsuffix{} (\glsentrytext{gloss-#1}\glspluralsuffix{})},
+    shortplural={{#2}\glspluralsuffix},
+    longplural={{#3}\glspluralsuffix{}},
+    name={\glsentrylong{#1}{} (\glsentrytext{#1}{})},
+    first={\glsentryname{#1}},
+    firstplural={\glsentrylong{#1}\glspluralsuffix{} (\glsentrytext{#1}\glspluralsuffix{})},
     description={#4}
   }
 }
@@ -57,13 +56,14 @@
 %                 1      2     3       4        5
 % \newduneabbrev{label}{abbrev}{term}{terms}{description}
 \newcommand{\newduneabbrevs}[5]{
-  \newacronym[first={#3 (#2)\glsadd{gloss-#1}}, longplural={#4}]{#1}{#2}{#3}
-  \newglossaryentry{gloss-#1}{
+  \newglossaryentry{#1}{
     text={#2},
     long={#3},
     plural={#4},
-    name={\glsentrylong{gloss-#1}{} (\glsentrytext{gloss-#1}{})},
-    first={\glsentryname{gloss-#1}},
+    shortplural={{#2}\glspluralsuffix},
+    longplural={#4},
+    name={\glsentrylong{#1}{} (\glsentrytext{#1}{})},
+    first={#3 (#2)},
     firstplural={#4 (\glsentrytext{#1}\glspluralsuffix{})},
     description={#5}
   }

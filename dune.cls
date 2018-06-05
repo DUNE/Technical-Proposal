@@ -110,7 +110,7 @@
 \RequirePackage[table,usenames,pdftex,dvipsnames]{xcolor}
 
 %% fixme: this needs to be controlled by "draft"
-\RequirePackage[color]{showkeys}
+% \RequirePackage[color]{showkeys}
 \RequirePackage[pagewise]{lineno}
 
 

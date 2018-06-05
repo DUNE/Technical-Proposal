@@ -4,7 +4,7 @@
 
 \metainfo{DP/SP shared.  Georgia Karagiorgi and Dave Newbold. 2 Pages - largely
   generic but some highlighting of SP-specifics. 
-  Focus on describing to HEP but non-\dword{daq} expert. 
+  Focus on describing to HEP but non-DAQ expert. 
   Include how design is resilient in the face of potential
   uncertainties such as excess noise or the need to reduce drift HV
   (just two examples, maybe there are more).}
@@ -24,7 +24,7 @@ The practical constraints of managing this output requires that the
 \dword{daq} achieve these goals while reducing the input data volume by almost four
 orders of magnitude.
 
-The current generation of \lartpc \dword{daq}, such as used in
+The current generation of \dword{lartpc} \dword{daq}, such as used in
 \dword{protodune} and \microboone, produce data spanning a fixed window of
 time which is chosen based on the acceptance of an external trigger. 
 The DUNE \dword{daq} faces several major challenges beyond those of the
@@ -59,8 +59,8 @@ inevitable asymmetries in the details of how data are read out from
 each must be absorbed by the unified \dword{daq} at its front end. 
 Further, each \dword{detmodule} is not monolithic but has at least one
 layer of divisions, here generically named \dwords{detunit}. 
-For example, the \dword{spmod} has \dwords{apa} each
-providing data from a number of \dwords{wib} and the \dword{dpmod} has
+For example, the \dword{sp} \dword{detmodule} has \dwords{apa} each
+providing data from a number of \dwords{wib} and the \dword{dp} \dword{detmodule} has
 \dword{cro} and \dword{lro} units associated with specific electronics
 crates.
 In each \dword{detmodule}, there are on the order of \num{100} \dwords{detunit}
