@@ -12,7 +12,7 @@
 Offline computing for  \dword{dune} faces new and considerable challenges due to the large scale and diverse physics goals of the experiment.  In particular, the advent of \dwords{lartpc}  with exquisite resolution and sensitivity, combined with enormous physical volumes, creates challenges in acquiring and storing large data volumes and in analyzing and reducing them.  The computing landscape is changing rapidly, with the traditional HEP architecture of individual cores running Linux being superseded by multi-core machines and GPUs. At the same time, algorithms for \dword{lar} reconstruction are still in their infancy and developing rapidly.  As a result, we have reason to be optimistic about the future, but we are not able to predict it accurately.  The \dword{protodune} single and dual phase tests at CERN in the fall of 2018 will provide a wealth of data that will inform the future evolution of  the \dword{dune} computing models.
 
 The  \dword{dune} offline computing challenges can be classified in several ways.  We will start with the different detector and physics configurations that drive the large scale data storage and reconstruction. 
-This discussion leans heavily on the \dword{daq} design described in \voltitlespfd and \voltitledpfd  of the \dword{dune} Technical Proposal. 
+This discussion leans heavily on the \dword{daq} design described in \voltitlespfd and \voltitledpfd  of the \dword{dune} \dword{tp}. 
 
 \subsection{Detectors}
 
@@ -89,7 +89,7 @@ Tables \ref{tab:daq-data-rates-sp} and  \ref{tab:daq-data-rates-dp} summarize th
 \begin{dunetable} [Uncompressed data volumes/year for one \dword{sp} module.]
   {p{0.30\textwidth}p{0.13\textwidth}p{0.4\textwidth}}
   {tab:daq-data-rates-sp} {Anticipated annual, uncompressed data rates
-    for a single \dword{sp} module from the far detector Technical Proposals. The rates for normal (non-\dword{snb} triggers)
+    for a single \dword{sp} module (from the \dword{spmod} \dword{tp} volume). The rates for normal (non-\dword{snb} triggers)
     assume a readout window of \SI{5.4}{\ms}. 
     In reality, lossless compression will be applied which is expected
     to provide as much as a $4\times$ reduction in data volume for each \dword{sp} module.}
@@ -408,7 +408,7 @@ A subsample of the data was used for data quality monitoring at CERN and the ful
 Our overall conclusion from this test is that most components for data movement and automated processing are in place.  Remaining issues are integration of beam information, detector configuration and calibrations into the main processing stream, and faster tape access. 
 
 \subsection{Monte Carlo Challenges}
-The collaboration has performed multiple Monte Carlo challenges to create samples for physics studies for the technical proposal and in preparation for the \dword{tdr} in early 2019.  In the last major challenge,  MCC10 in early 2018, 17M events, taking up 252~TB of space were generated and catalogued automatically using the central \dword{dune} production framework in response to requests by the Physics groups. 
+The collaboration has performed multiple Monte Carlo challenges to create samples for physics studies for the \dword{tp} and in preparation for the \dword{tdr} in early 2019.  In the last major challenge,  MCC10 in early 2018, 17M events, taking up 252~TB of space were generated and catalogued automatically using the central \dword{dune} production framework in response to requests by the Physics groups. 
 
 \subsection{Reconstruction tests}
 Reconstruction tests have been performed on simulated  single-phase \dword{protodune} test beam interactions with cosmic rays and an electronic noise simulation based on \dword{microboone} experience.  Hit finding and shaping is found to take around 2 minutes/event with a 2~GB memory footprint, leading to a reduction in data size of a factor of four.  Higher-level pattern recognition occupies 10-20 minutes/event with a 4-6~GB memory footprint.  For real data, calibration, electric field non-uniformities and other factors will likely raise the CPU needs per event. We will learn this when real data starts to arrive in late summer. 
