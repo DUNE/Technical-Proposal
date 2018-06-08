@@ -315,7 +315,7 @@
 \newcommand{\hlfix}[2]{}
 \newcommand{\fixme}[1]{}
 \newcommand{\metainfo}[1]{}
-%\linenumbers.  %<---- uncomment if you want ONLY linenumbers with otherwise print-ready copy
+%\linenumbers  %<---- uncomment if you want ONLY linenumbers with otherwise print-ready copy
 \else
 % "draft"
 %Set default style for todonotes
