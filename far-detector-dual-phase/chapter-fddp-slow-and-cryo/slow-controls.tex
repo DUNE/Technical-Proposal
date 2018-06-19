@@ -30,7 +30,7 @@ computing hardware as described below.  It also relies on common
 infrastructure, as described in
 Section~\ref{sec:fddp-slow-cryo-slow-infra}.
 
-In the current concept of the \dual detector, \dword{hv} biasing for the \dword{lem}, extraction grid, and \dword{pds} also falls within the scope of slow controls.  This hardware could be assigned to different consortia in the future.  For now its description is provided here.
+% removed per SG  In the current concept of the \dual detector, \dword{hv} biasing for the \dword{lem}, extraction grid, and \dword{pds} also falls within the scope of slow controls.  This hardware could be assigned to different consortia in the future.  For now its description is provided here.
 
 % % % % Alec
 \subsubsection{Slow Controls Network Hardware}
@@ -71,15 +71,7 @@ design (and the resulting differences in database tables), and ensure
 sufficient capacity.  Including four sets of networking hardware, this
 would fit tightly into one rack or very comfortably into two.
 
-\subsubsection{High Voltage Biasing}
-\label{sec:fddp-slow-cryo-slow-hvbias}
 
-The HV biasing for LEM requires \SI{-5}{kV/channel}, with 41 channels per \dword{crp}.  The extraction grid requires \SI{-10}{kV/channel}, with  one channel per \dword{crp}. The LEM biasing system requires a current measurement sensitivity of \SI{50}{pA}. The biasing of the photomultipliers for the PDS needs of order of \num{1000} channels operating up to a voltage of \SI{-3}{kV}.
-
-\subsubsection{CRP and PDS Calibration}
-\label{sec:fddp-slow-cryo-slow-crppdscalib}
-
-Calibration of the charge readout system will be performed  charge injection onto the anode strips of the \dwords{crp} and into the preamplifiers. The slow control system must include a high accuracy pulser connected to the \dword{daq} system for time-tagging of the pulse triggers. The pulser will be configurable as a function of the different calibration runs (pulsing of the strips or pulsing of the amplifiers) acting as common pulse source. This will be connected to a distribution system which will allow dispatching the pulses to the \dword{crp} anode strips or to the signal chimneys hosting the analog \dword{fe} cards.The distribution system will also include the possibility of selecting specific channels to which the pulses will be distributed. The photon detection system will require as well a calibration system constituted by common light source constantly monitored with reference photodetectors and a network of optical fibers distributing the light to each photomultiplier.
 
 % % % % Alec and Sowjanya
 %% \subsubsection{Slow Controls Signal Processing Hardware}
