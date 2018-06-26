@@ -78,19 +78,19 @@ is the maximum noise level induced by instrumentation devices on the readout ele
 
 Some of the common design considerations for
 instrumentation devices include stability, reliability and longevity
-such that the devices can survive for a period of at least \dunelifetime{}s.  Since it is uncommon for any device
+such that the devices can survive for a period of at least \dunelifetime{}.  Since it is uncommon for any device
 to have such a long lifetime, provisions are made in the overall
 design to allow replacement of devices where possible.
 
 As for any other element inside the cryostat, 
-the \efield on the instrumentation devices is 
+the electric field on the instrumentation devices is 
 required to be less than \SI{30}{kV\per\cm},
 so that the risk of dielectric breakdown in \dword{lar} is minimized.
 This requirement imposes stringent constraints on the location and mechanical 
 design of some devices. Electrostatic simulations  
 will be performed to compute the expected field on the boundaries of 
 instrumentation devices and to design the appropriate \efield shielding
-in the case the \efield approaches the limit. 
+in the case the electric field approaches the limit. 
 
 Another common consideration for all instrumentation devices is their support structure
 design, which is expected to be substantially different from the one used in \dword{protodune}.
@@ -99,12 +99,36 @@ For slow controls, the system needs to be designed such that it is
 robust enough to support a large number of monitored variables, a broad range of
 monitoring and archiving rates, and has the capability of interfacing 
 with a large number of systems to establish two-way communication for
-control and monitoring.  
-%% Replacement text from SG 6/15/18
-Specific to the \dual design, \dword{cisc} must also provide instrumentation in the gas phase volume to monitor the temperature and pressure, as they affect the \dword{lem} gain calibration. 
-
-Table~\ref{tab:dp-cisc-requirements} shows
+control and monitoring. Table \ref{tab:dp-cisc-requirements} shows
 some of the important \dword{cisc} system design requirements.
+
+There are several aspects specific to the \dual design impacting the \dword{cisc} system design requirements:
+\begin{itemize}
+\item At the level of the cryogenic instrumentation, additional care is needed in order to monitor the gas phase above the liquid level. The temperature and the pressure of the gas phase affect the gas density, and consequently, the \dword{lem} gain calibration. The gas pressure must be accurately monitored. In proximity to the liquid surface the temperature gradient of the gas %has to be 
+is measured with an array of temperature probes with a vertical pitch of about \SI{1}{cm}. Each \dword{crp} is also equipped with \num{36} thermometers to sample the temperature across its structure.
+
+\item The \dword{crp}-specific instrumentation also includes: 
+
+%%%%
+\begin{itemize}
+\item the pulsing system for charge injection in the anode strips,
+\item the precision level meters implemented only on the \dwords{crp} located at the cryostat borders, and 
+\item the measurement of the \dword{lem}-grid capacitance allowing to know \fixme{which provides} the position of the \dword{crp} with respect to the liquid level for all \dwords{crp}, \fixme{what makes the measurement?}
+\item the control of the stepping motors, \fixme{control mechanism?} which allows positioning each \dword{crp} parallel to the liquid level (keeping the extraction grid immersed in the liquid and the \dwords{lem} in the gas phase).
+\end{itemize}
+%%%%%%
+
+%\item The slow control system should provide the generation and control of \dword{hv} biasing of \dword{lem} and of the extraction grid respectively at a maximum voltage of  -5 kV/channels for the LEM (41 channels/CRP) biasing and -10kV/channel for the grid biasing (1 channel/CRP);
+\item The slow control system generates and controls the \dword{hv} for biasing the \dwords{lem} (\num{41} channels/\dword{crp}) and the extraction grid  (\num{1} channel/\dword{crp}), at maximum voltages of  \SI{-5}{kV/channel} and \SI{-10}{kV/channel}, respectively;
+\item The requirements related to the \dword{pds} include the generation and control of \dword{hv} biasing for the \dwords{pmt} (up to \SI{-3}{kV}) and the control of the calibration of the  \dwords{pmt},  performed with a  light distribution system with a common light source and a network of optical fibers;
+\item The \dword{fe} electronics requires the control of the \dword{utca} crates, the control of the  analog \dword{fe} cards, the control of the \dword{lv} and of the charge injection system connected to the pre-amplifiers mounted on the \dword{fe} cards;
+%\item The \dual design also enables surveying of the \dword{crp} alignment by surveying from the cryostat roof the position of reference points connected to the \dword{crp} suspension system. This aspect needs as well to be integrated in the alignment scheme;
+\item The \dual design also enables surveying from the cryostat roof the position of reference points connected to the \dword{crp} suspension system, to ensure proper \dword{crp} alignment. This aspect needs as well to be integrated in the alignment scheme. \fixme{IS integrated?}
+\end{itemize}
+%A full list of
+% requirements for design parameters can be found in DUNE Doc-DB 6440.
+
+
 
 \begin{dunetable}
 [Important design requirements on the DP CISC system design]
@@ -126,7 +150,7 @@ Thermometer precision
 & Expected \dword{protodune} performance \SI{2}{mK}
 \\ \colhline
 Pressure meters precision (\dual)
- & <\SI{1}{mbar}
+ & $<1mbar$
 & To measure the pressure (density) of the gas phase; based on \dword{pddp} design
 &  \dword{wa105} / \dword{pddp} design $<\SI{1}{mbar}$
 \\ \colhline
@@ -140,6 +164,21 @@ Thermometer density gas phase (\dual)
  & Vertical array of thermometers with finer pitch close to the liquid level to measure the temperature gradient in the gas phase.
  & Achieved by design. 
 \\ \colhline
+Thermometer density \dword{crp} structure (\dual)
+ & 36 thermometers on each \dword{crp}
+ & Monitoring the temperature across the \dword{crp}  structure.
+ & Achieved by design. 
+\\ \colhline
+% Liquid level meters precision (SP)
+%  & \SI{0.1}{\%} over \SI{14}{m}
+% & Standard sensitivity; will use two level meters for redundancy
+% & \dword{protodune} design
+% \\  \colhline
+Liquid level meters precision (\dual)
+ & \(<\SI{1}{mm}\)
+&  Maintain constant \dword{crp} alignment with respect to the liquid surface
+& \dword{wa105} / \dword{pddp} design \SI{0.1}{mm}
+\\  \colhline
  Cameras
  & \multicolumn{3}{p{0.64\textwidth}}{--- multiple requirements imposed by interfaces: see Table~\ref{tab:fdgen-cameras-req} ---}
  \\ \colhline
@@ -148,7 +187,7 @@ Cryogenic Instrumentation Test Facility cryostat volumes
 & Based on filling costs and turn around times
 & Under design
 \\  \colhline
- Max.\ \efield on instrumentation devices
+ Max.\ E-field on instrumentation devices
  & \(<\SI{30}{kV/cm}\)
  & The mechanical design of the system should be such that \efield is below this value, 
  to minimize the risk of dielectric breakdown in \dword{lar}
@@ -177,6 +216,8 @@ Max.\ archiving rate per channel
 %    \\ \colhline
 %  ...\\ 
 \end{dunetable}
+
+% \fixme{By the end of the volume, for every requirement listed in this section, there should exist an explanation of how it will be satisfied.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -233,6 +274,7 @@ Ethernet switch, some power supplies might need special cables (e.g.,
 GPIB or RS232) for communication. The \dword{cisc} consortium is responsible for
 providing such control cables.
 
+The \dword{dpmod} has historically defined the scope of its slow controls system in a different way from that of the \dword{spmod}.  This chapter respects that historic definition and includes two systems within \dword{cisc} for now that could be taken on by other consortia at a later date.  These are: \dword{hv} biasing for the \dword{lem} and extraction grid, and  \dword{hv} biasing for the \dual \dword{pds}; and (2)  a calibration system for the \dwords{crp}.
 
 In addition to the listed activities, \dword{cisc} also has activities that span
 outside the scope of the consortium and require interfacing with other
