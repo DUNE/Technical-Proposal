@@ -56,7 +56,7 @@ The prefabricated spool pieces and the cool down nozzles undergo testing at the 
 \subsection{Purity Monitors}
 \label{sec:fdgen-slow-cryo-instal-pm}
 
-The purity monitor system is built in a modular way, such that is can be assembled outside of \dword{detmodule} cryostat.  The assembly of the purity monitors themselves occurs outside of the cryostat and includes everything described in the previous section.  The installation of the purity monitor system can then be carried out with the least number of steps inside the cryostat.  The assembly itself is transported into the cryostat with the three individual purity monitors mounted to the support tubes but before installation of \dword{hv} cables and optical fibers. The support tube at the top and bottom of the assembly is then mounted to the brackets inside the cryostat that could be attached to the cables trays or the detector support structure. \fixme{brackets attached to trays or DSS depending on SP vs DP?} In parallel to this work, the \dword{fe} electronics and light source can be installed on the top of the cryostat, along with the installation of the electronics and power supplies into the electronics rack.  
+The purity monitor system is built in a modular way, such that it can be assembled outside of \dword{detmodule} cryostat.  The assembly of the purity monitors themselves occurs outside of the cryostat and includes everything described in the previous section.  The installation of the purity monitor system can then be carried out with the least number of steps inside the cryostat.  The assembly itself is transported into the cryostat with the three individual purity monitors mounted to the support tubes but before installation of \dword{hv} cables and optical fibers. The support tube at the top and bottom of the assembly is then mounted to the brackets inside the cryostat that could be attached to the cables trays or the detector support structure. \fixme{brackets attached to trays or DSS depending on SP vs DP?} In parallel to this work, the \dword{fe} electronics and light source can be installed on the top of the cryostat, along with the installation of the electronics and power supplies into the electronics rack.  
 
 Integration begins by running the \dword{hv} cables and optical fibers to the purity monitors, coming from the top of the cryostat.  The \dword{hv} cables are attached to the \dword{hv} \fdth{}s with enough length to reach each of the respective purity monitors.  The cables are run through the port reserved for the purity monitor system, along cable trays inside the cryostat until they reach the purity monitor system, and are terminated through the support tube down to each of the purity monitors.  Each purity monitor has three \dword{hv} cables that connect it to the \fdth, and then along to the \dword{fe} electronics.  The optical fibers are run through the special optical fiber \fdth, into the cryostat, and guided to the purity monitor system either using the cables trays or guide tubes.  Whichever solution is adopted for running the optical fibers from the \fdth to the purity monitor system, it must protect the fibers from accidental breakage during the remainder of the detector and instrumentation installation process.  The optical fibers are then run inside of the purity monitor support tube and to the respective purity monitors,  terminating at the photocathode of each. %, protecting them from breakage near the purity monitor system itself.
 
@@ -77,7 +77,7 @@ they are cut to the same length such that they can be properly soldered
 to the pins of the SUBD-25 connectors on the flange. 
 To avoid damage, the sensors are installed at a later stage, just before unfolding the bottom \dwords{gp}.
 
-Static T-gradient monitors are installed before the outer \dwords{apa}, e.g., %. Thus, the best moment could be right 
+Static T-gradient monitors are installed before the outer \dwords{apa}, %e.g., %. Thus, the best moment could be right 
 after the installation of the pipes
 and before the installation of individual sensors. This proceeds in several steps: (1) installation of the two stainless steel strings to the bottom and top corners of the cryostat,
 (2) tension and verticality checks, (3) installation of cable supports in one of the strings, (4) installation of sensor supports in the other string, (5) cable routing starting from
@@ -92,7 +92,7 @@ exceeding the \dshort{gp} limits can be routed to the corresponding cryostat por
 Dynamic T-gradient monitors are installed after the completion of the detector.
 The monitor comes in several segments with sensors and cabling already
 in place. Additional slack is provided at segment joints to ease the
-installation process. Segments are fed into the flange one at the
+installation process. Segments are fed into the flange one at a 
 time. The segments being fed into the \dword{detmodule} are held at the top
 with a pin that prevents the segment from sliding in all the way. Then the next
 segment is connected. The pin is removed, and the
@@ -112,7 +112,7 @@ motion mechanism in place as well. The moving mechanism enclosure  is then conne
 installation process of the dynamic T-gradient monitor.
 \fixme{prev pgraph needs work}
 
-Commissioning of all thermometers proceeds in several steps. Since in a first stage only cables are installed,
+Commissioning of all thermometers proceeds in several steps. Since in the first stage only cables are installed,
 the readout performance and the noise level inside the cryostat are
 tested with precision resistors. Once sensors are installed the entire chain is checked again at room temperature.
 The final commissioning phase occurs during and after cryostat filling.  
@@ -124,7 +124,7 @@ The final commissioning phase occurs during and after cryostat filling.
 Prior to the piston purge and gas recirculation phases of the cryostat commissioning, the gas analyzers are installed near the %location of the 
 tubing switchyard. This minimizes tubing runs and is  convenient for switching the sampling points and gas analyzers. Since each is a standalone module, a single rack with shelves, should be adequate to house the modules.
 
-Concerning the integration, the gas analyzers typically have an analog output (\numrange{4}{20} \si{mA} or \numrange{0}{10}\si{V}) that maps to the input range of the analyzers. They also usually have a number of relays that indicate the scale they are currently running. These outputs can be connected to the slow controls for readout. However, using a digital readout is preferred since this directly gives the analyzer reading at any scale. Currently there are a number of digital output connections, ranging from RS-232, RS-485, USB, and Ethernet. At the time of purchase, one can choose the preferred option, since the protocol is likely to evolve. The readout usually responds to a simple set of text commands. Due to the natural time scales of the gas analyzers, and lags in the gas delivery times (depending on the length of the tubing runs), sampling at the minute level most likely is adequate. \fixme{``sampling on timescales of a minute...'' otherwise `minute' may strike reader as pronounced ``minoot''}
+Concerning the integration, the gas analyzers typically have an analog output (\numrange{4}{20} \si{mA} or \numrange{0}{10}\si{V}) that maps to the input range of the analyzers. They also usually have a number of relays that indicate the scale they are currently running. These outputs can be connected to the slow controls for readout. However, using a digital readout is preferred since this directly gives the analyzer reading at any scale. Currently there are a number of digital output connections, ranging from RS-232, RS-485, USB, and Ethernet. At the time of purchase, one can choose the preferred option, since the protocol is likely to evolve. The readout usually responds to a simple set of text commands. Due to the natural time scales of the gas analyzers, and lags in the gas delivery times (depending on the length of the tubing runs), sampling on timescales of a minute most likely is adequate. \fixme{``sampling on timescales of a minute...'' otherwise `minute' may strike reader as pronounced ``minoot''}
 
 %For commissioning, 
 Before the beginning of the gas phase of the cryostat commissioning, the analyzers must be brought online and calibrated. Calibration varies for the different modules, but often requires using argon gas with both zero contaminants (usually removed with a local inline filter) for the zero of the analyzer, and argon with a known level of the contaminant to check the scale. Since the start of the gas phase  begins with normal air, the more sensitive analyzers are valved off at the switchyard to prevent overloading their inputs and potentially saturating their detectors. As the argon purge and gas recirculation progress, the various analyzers are valved back in when the contaminant levels reach the upper limits of the analyzer ranges. 
@@ -204,7 +204,7 @@ installation.
 \subsection{Slow Controls Hardware}
 \label{sec:fdgen-slow-cryo-install-sc-hard}
 
-Slow controls hardware installation includes installing multiple
+Slow controls hardware installation includes multiple
 servers, network cables, any specialized cables needed
 for device communication, and possibly some custom-built rack
 monitoring hardware. The installation sequence is interfaced and

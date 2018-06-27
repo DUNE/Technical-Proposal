@@ -7,21 +7,8 @@
 % Good idea for TDR, but let's not do this for the TechPro, due to space. [gahs]
 
 The \dword{cisc} consortium interfaces with all other consortia, task forces (calibration), working groups (physics, software/computing) and technical coordination.
-This section provides a brief summary.\footnote{ 
- \cite{bib:docdb6745},
-\cite{bib:docdb6991},
-\cite{bib:docdb6790},
-\cite{bib:docdb6787},
-\cite{bib:docdb6784},
-\cite{bib:docdb6781},
-\cite{bib:docdb6760},
-\cite{bib:docdb6679},
-\cite{bib:docdb6730},
-\cite{bib:docdb7126},
-\cite{bib:docdb7099},
-\cite{bib:docdb7072},
-\cite{bib:docdb7045},
-\cite{bib:docdb7018}.}  
+This section provides a brief summary; further details can be found in references~\cite{bib:docdb6745}-\cite{bib:docdb7018}.
+%\cite{bib:docdb6991},\cite{bib:docdb6790},\cite{bib:docdb6787},\cite{bib:docdb6784},\cite{bib:docdb6781},\cite{bib:docdb6760},\cite{bib:docdb6679},\cite{bib:docdb6730},\cite{bib:docdb7126},\cite{bib:docdb7099},\cite{bib:docdb7072},\cite{bib:docdb7045},\cite{bib:docdb7018}.}  
 
 There are obvious interfaces with detector consortia since \dword{cisc} provides full rack monitoring (rack fans, thermometers and rack protection system),
 interlock status bit monitoring (not the actual interlock mechanism) and monitoring and control for all \pwrsupps. The  \dword{cisc} consortium must maintain close contacts with all other consortia to ensure that specific hardware choices have acceptable slow controls (SC)  solutions.  
@@ -38,7 +25,7 @@ to mitigate the liquid argon contamination risk. The appropriate interlock mecha
 must be designed and implemented. 
 
 Another important interface is the one with the \dword{hv} system \cite{bib:docdb6787} since several aspects related with safety must be taken into account. 
-For all instrumentation devices inside the cryostat, \efield simulations are needed to guaranty proper shielding is in place.
+For all instrumentation devices inside the cryostat, electric field simulations are needed to guaranty proper shielding is in place.
 Although this is a \dword{cisc} responsibility, input from \dword{hv} is crucial.
 %The location of cold cameras and lights for inspection of \dword{hv} related devices,
 %as well as the requirements of cold/warm cameras (see Sec.~\ref{sec:fdgen-slow-cryo-cameras}) have to be understood
@@ -86,7 +73,7 @@ maintenance of SC servers  and any additional computing hardware needed by instr
 Additionally  \dword{cisc} provides the required monitoring and control of \dword{swc} quantities including alarms, archiving, and GUIs, where applicable. 
 
 
-\dword{cisc} has profound hardware interfaces with the not-as-yet formed calibration consortium \cite{bib:docdb7072}. Indeed, since %\dword{cisc} and CTF 
+The \dword{cisc} consortium may have additional hardware interfaces with the not-as-yet formed calibration consortium \cite{bib:docdb7072}. Indeed, since %\dword{cisc} and CTF 
 the shared ports are multi-purpose to enable deploying various devices,
 both \dword{cisc} and calibration must interact in terms of flange design and sharing space around the ports. Also, \dword{cisc} might use calibration ports to extract cables from \dword{cisc} devices. 
 At the software level, \dword{cisc} is responsible for calibration device monitoring (and control to the extent needed) and 

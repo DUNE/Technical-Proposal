@@ -7,7 +7,7 @@
 Cameras provide direct visual information about the state of the
 \dword{detmodule} during critical operations and when damage or unusual
 conditions are suspected.  Cameras in the \dword{wa105} allowed spray from cool-down
-nozzles to be seen, and the level and state of the \lar to be
+nozzles to be seen and the level and state of the \lar to be
 observed as it covered the \dword{crp} \cite{Murphy:20170516}.  A camera was
 used in the Liquid Argon Purity Demonstrator
 cryostat\cite{Adamowski:2014daa} to study \dword{hv} discharges in
@@ -46,16 +46,16 @@ requirements for the camera system.
 The camera system shall not produce measurable noise in any detector system. & Low noise is required for TPC operation. \\ \colhline
  Cameras provide the viewing functionality as agreed upon with the other subsystems for viewing, as documented in the ICDs with the individual systems. \\ \toprowrule
 \multicolumn{2}{l}{\bf Cold cameras}\\ \specialrule{1.5pt}{1pt}{1pt}
-minimal heat dissipation when camera not in operation & Do not generate bubbles when \dword{hv} is on \\ \colhline
-longevity exceeds 18 months & Cameras must function throughout cryostat filling and detector commissioning \\ \colhline
-Frame rate \(\geq\SI{10}{\per s}\) & Observe bubbling, waves, detritus, etc. \\ \toprowrule
+Minimize heat dissipation when camera not in operation. & Do not generate bubbles when \dword{hv} is on. \\ \colhline
+Longevity must exceed \num{18} months. & Cameras must function throughout cryostat filling and detector commissioning. \\ \colhline
+Frame rate \(\geq\SI{10}{\per s}\). & Observe bubbling, waves, detritus, etc. \\ \toprowrule
 \multicolumn{2}{l}{\bf Inspection cameras}\\ \specialrule{1.5pt}{1pt}{1pt}
-Low heat transfer to \lar when in operation & Do not generate bubbles, some use cases may require operation when \dword{hv} is on \\ \colhline
-deployable without exposing \lar to air & Keep \lar free N2 and other electronegative contaminants \\ \colhline
-replaceable camera enclosure & Replace broken camera, or upgrade, throughout life of experiment \\ \colhline
+Keep heat transfer to \lar low when in operation. & Do not generate bubbles, some use cases may require operation when \dword{hv} is on. \\ \colhline
+Deploy without exposing \lar to air. & Keep \lar free of N2 and other electronegative contaminants. \\ \colhline
+Camera enclosure must be replaceable. & Replace broken camera, or upgrade, throughout life of experiment. \\ \colhline
 {\bf Light emitting system} \\ \colhline
-No emitted wavelength shorter than \(\SI{400}{nm}\) & Avoid damaging \dword{tpb} waveshifter \\ \colhline
-longevity exceeds \num{18} months & Lighting for fixed cameras must function throughout cryostat filling and detector commissioning \\ \colhline
+No emission of wavelengths shorter than \(\SI{400}{nm}\) & Avoid damaging \dword{tpb} waveshifter. \\ \colhline
+Longevity must exceed \num{18} months. & Lighting for fixed cameras must function throughout cryostat filling and detector commissioning. \\ \colhline
 \end{dunetable}
 
 
@@ -74,7 +74,7 @@ monitor the following items during filling:
 \item Positions of corners of \dword{apa} or \dword{crp}, \dword{cpa} or cathode, \dwords{fc}, \dwords{gp} (\SI{1}{mm} resolution);
 \item Relative straightness and alignment of \dword{apa}/\dword{crp}, \dword{cpa}/cathode, and \dword{fc} (\(<\sim\SI{1}{mm}\));
 \item Relative position of profiles and endcaps (\SI{0.5}{mm} resolution);
-\item State of \lar surface: i.e., bubbling, debris.
+\item State of \lar surface: e.g., the presence of bubbling or debris.
 \end{itemize}
 
 There are published articles and unpublished presentations describing
@@ -102,7 +102,7 @@ The design for the DUNE fixed cameras uses an enclosure based on
 the successful EXO-100 design\cite{Delaquis:2013hva}, which was also
 used successfully in
 LAPD (see Figure~\ref{fig:gen-fdgen-cameras-enclosure}). The enclosure is
- connected to a stainless steel gas line to allow the enclosure to be
+ connected to a stainless steel gas line to allow it to be
 flushed with argon gas at low enough pressure to prevent
 liquification, using the same design as the gas line for the beam plug
 tested in the \dword{35t} \dword{hv} test and in \dword{protodune}.  A thermocouple in the
@@ -137,7 +137,7 @@ to be of interest:
 \item Relative straightness and alignment of \dword{apa}/\dword{crp}, \dword{cpa}/cathode, and \dword{fc} (\SI{1}{mm} resolution);
 \item Gaps between \dword{cpa} frames (\SI{1}{mm} resolution);
 \item Relative position of profiles and endcaps (\SI{0.5}{mm} resolution);
-\item Sense wires at top of outer wire planes in \single \dword{apa} (\SI{0.5}{mm}resolution).
+\item Sense wires at top of outer wire planes in \single \dword{apa} (\SI{0.5}{mm} resolution).
 \end{itemize}
 
 Unlike the fixed cameras, the inspection cameras need operate only as

@@ -2,31 +2,27 @@
 \subsection{Liquid Level Monitoring}
 \label{sec:fdgen-slow-cryo-liq-lev}
 % john L, anselmo
+% SP
 
 The goals for the level monitoring system are basic level sensing when filling, and precise level sensing during static operations. 
 
 For filling the \dword{detmodule} the differential pressure between the top of
-the detector and known points below it can be converted to depth with
+the detector and known points below it can be converted to depth using
 the known density of \lar.  The temperatures of \dwords{rtd} at known
-heights may also be used to determine when the cold liquid has reached
+heights may also be used to determine when the cold liquid reaches 
 each \dword{rtd}.
 
 During operation, the purpose of liquid level monitoring is twofold:
-the cryogenics system uses it to tune the \lar flow and 
-the \dword{detmodule} uses it to guarantee that the top \dwords{gp} are always
+the cryogenics system uses it to tune the \lar flow, and 
+the \dword{spmod} uses it to guarantee that the top \dwords{gp} are always
 submerged (otherwise the risk of dielectric breakdown is high).
 Two differential pressure level meters are installed as part of
 the cryogenics system, one on each side of the \dword{detmodule}.  They 
 have a precision of \SI{0.1}{\%}, which corresponds to \SI{14}{mm} at the
-nominal \lar surface.  This precision is sufficient for the single
-phase detector, since the plan is to keep the \lar surface at least \SI{20}{cm} above the \dwords{gp} (this is the value used for the \dword{hv}
+nominal \lar surface.  This precision is sufficient for the  \dword{spmod}, since the plan is to keep the \lar surface at least \SI{20}{cm} above the \dwords{gp} (this is the value used for the \dword{hv}
 interlock in \dword{pdsp}); thus, no additional level meters are
-required for the single phase. However, in the \dual \lar
-system the surface level should be controlled at the millimeter level,
-which can be accomplished with capacitive monitors. Using the same
-capacitive monitor system in each detector reduces design differences
-and provides a redundant system for the \single.  Either system
-could be used for the \dword{hv} interlock.
+required for the \single. 
+However, in the \dual \lar system the surface level should be controlled at the millimeter level, which can be accomplished with capacitive monitors. Using the same capacitive monitor system in each \dword{detmodule} reduces design differences and provides a redundant system for the \single.  Either system could be used for the \dword{hv} interlock.
 
 Table \ref{tab:fdgen-liq-lev-req} summarizes the
 requirements for the liquid level monitor system.
@@ -54,6 +50,6 @@ the fluid to be used during stable operation and checked against each
 other.
 
 %"Challenges associated with the DP liquid level in the 3X1X1 and any lessons learned for DUNE."
-During operations of the \dword{wa105}, the cryogenic programmable logic controller (PLC) continuously checked the measurements from one level meter on the charge readout plane (\dword{crp}) in order to regulate the flow from the liquid recirculation to maintain a constant liquid level inside the cryostat. Continuous measurements from the level meters around the drift cage and the \dword{crp} illustrated the stability of the liquid level within the \SI{100}{\micro\meter} intrinsic precision of the instruments. The observation of the level was complemented by live feeds from the custom built cryogenic cameras, hereby providing qualitative feedback on the position and flatness of the surface.
+During operations of the \dword{wa105}, the cryogenic programmable logic controller (PLC) continuously checked the measurements from one level meter on the charge readout plane (\dword{crp}) in order to regulate the flow from the liquid recirculation to maintain a constant liquid level inside the cryostat. Continuous measurements from the level meters around the drift cage and the \dword{crp} demonstrated the stability of the liquid level within the \SI{100}{\micro\meter} intrinsic precision of the instruments. The observation of the level was complemented by live feeds from the custom built cryogenic cameras, thereby providing qualitative feedback on the position and flatness of the surface.
 
 In addition to the installed level meters, the liquid height in the extraction region of the \dword{crp} could be inferred by measuring the capacitance between the grid and the bottom electrode of each \dword{lem}. Averaging over all \num{12} \dwords{lem} the measured values of this capacitance typically ranged from \SI{150}{pF} with the liquid below the grid to around  \SI{350}{pF}  when the \dwords{lem} are submerged.This method offers the potential advantage of monitoring the liquid level in the \dword{crp} extraction region with a \num{50}$\times$\SI{50}{\cm^2} granularity and could be used for the \dword{crp} level adjustment in a DUNE \dword{dpmod} where, due to the space constraints, placement of the level meters along the \dword{crp} perimeter is not possible.

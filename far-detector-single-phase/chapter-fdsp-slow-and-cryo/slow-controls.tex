@@ -42,7 +42,7 @@ where data is archived in a central \dword{cisc} database.
 The instrumentation data is transported over
 conventional network hardware from any sensors located in the cryogenic
 plant.  However, the readouts that are located in the racks on top the
-cryostats have to be careful about grounding and noise.  Therefore, each
+cryostats must take care withgrounding and noise.  Therefore, each
 rack on the cryostat has a small network switch that sends
 any network traffic from that rack to the \dshort{cuc} via a fiber transponder.
 This is the only network hardware specific to slow controls;
@@ -145,7 +145,7 @@ archiver software should allow data storage in an SQL database with
 adjustable rates and thresholds such that one can easily retrieve data
 for any channel by using channel name and time range. Among the key
 features, the alarm server software should remember state, support
-arbitrary number of clients and provide logic for delayed alarms and
+arbitrary number of clients, and provide logic for delayed alarms and
 acknowledging alarms. As part of the software, a standard naming
 convention for channels is followed to aid dealing with large
 number of channels and subsystems.
@@ -164,7 +164,7 @@ appropriate  interface control documents (ICDs), and continually revised based o
 experience.  The total number of quantities to monitor has been very
 roughly estimated by taking the total number of quantities monitored
 in \microboone and scaling by the detector length and the number of
-planes, giving a number in the range of \numrange{50}{100}k.
+planes, giving a number in the range of \numrange{50}{100} thousand.
 Quantities are expected to update on average no faster than once per minute.
 The subsystems
 to be monitored include the %detector 
@@ -223,8 +223,7 @@ This includes the following:
 
 This integration occurs after both the slow controls and non-detector
 systems are in place.  The LBNF-\dword{cisc} interface is managed by the
-Cryogenics Systems working group described in Section
-\ref{sec:fdgen-slow-cryo-int-piping}.  IFBeamDB is already well established.
+cryogenics systems working group described in Section~\ref{sec:fdgen-slow-cryo-int-piping}.  IFBeamDB is already well established.
 An internal near-detector--\dword{fd} working group may be established
 to coordinate detector status exchange between near and far sites interfacing.
 
