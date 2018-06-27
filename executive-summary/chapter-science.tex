@@ -339,12 +339,59 @@ of the mixing angles $\theta_{23}$ and $\theta_{13}$.
 
 \subsection{Nucleon Decay}
 
-Unification of three of the fundamental forces in the universe, the strong, electromagnetic and weak interactions, is a central paradigm for the current world-wide program in particle physics. Grand Unified Theories (GUTs), aiming at extending the standard model of particle physics to include a unified force at very high energies  (above $10^{15}$ GeV), predict a number of observable effects at low energies, such as nucleon decay \cite{Pati:1973rp,Georgi:1974sy,Dimopoulos:1981dw,Langacker:1980js,deBoer:1994dg,Nath:2006ut}. Several experiments have been searching for signatures of nucleon decay, with the best limits for most decay modes set by the Super-Kamiokande experiment \cite{Nishino:2012bnw}, which features the largest sensitive mass to date. 
+Unification of three of the fundamental forces in the universe, the strong, 
+electromagnetic and weak interactions, is a central paradigm for the current 
+world-wide program in particle physics. Grand Unified Theories (GUTs), aiming 
+at extending the standard model of particle physics to include a unified force 
+at very high energies  (above $10^{15}$ GeV), predict a number of observable 
+effects at low energies, such as nucleon 
+decay \cite{Pati:1973rp,Georgi:1974sy,Dimopoulos:1981dw,Langacker:1980js,deBoer:1994dg,Nath:2006ut}. 
+Several experiments have been searching for signatures of nucleon decay, with the best limits 
+for most decay modes set by the Super-Kamiokande experiment \cite{Nishino:2012bnw}, 
+which features the largest sensitive mass to date. 
 
-The DUNE far detector, as the largest active volume of argon, will be highly sensitive to a number of possible nucleon decay modes, in many cases complementing the capabilities of large water detectors.  
-%In particular, the \lartpc technology should have advantages over water detectors for observing nucleon decays into charged kaons, which are below Cherenkov threshold in water. These modes are favored by SUSY models, and the tests of these models are within reach of multi-kiloton \lartpc{}s such as DUNE. One of the most promising modes of the proton decay search with DUNE is $p\to K^+ \bar{\nu}$, which is expected to have a lifetime of the order of $>10^{33}$ years in SUSY models. This decay can be tagged in a \lartpc if a single kaon within a proper energy/momentum range can be reconstructed with its primary vertex to lie within the fiducial volume. Background events initiated by cosmic-ray muons can be rejected by requiring no activity close to the edges of the TPCs and by stringent single kaon identification within the energy range of interest. Atmospheric neutrino-induced background with positive kaon production will either have an associated strange baryon (for reactions with $\Delta S = 0$) whose decay can be reconstructed, or an identifiable charged lepton (for reactions with $\Delta S = 1$). 
-As is the case for the entire non-accelerator based physics program of DUNE, nucleon decay searches require efficient triggering and event localization (within the far detector) capabilities.  Given the 1-GeV energy release, the requirements on tracking and calorimetry capabilities are similar to those for the beam-based neutrino oscillation program described in the previous section.  Especially critical is the exquisite $dE/dx$ resolution offered by the \lartpc response. 
-We expect that \dword{protodune} data taken with charged particle beams at CERN will provide important sample of events to train and improve on reconstruction algorithms. 
+The DUNE far detector, as the largest active volume of argon, 
+will be highly sensitive to a number of possible nucleon decay modes, 
+in many cases complementing the capabilities of large water detectors.  
+In particular, the \lartpc technology is expected to be well-suited for observing 
+nucleon decays into charged kaons, which can be identified with redundancy 
+from their distinctive $dE/dx$ signature as well as by their decays.
+%have advantages over water detectors for observing nucleon decays into charged kaons, which are below Cherenkov threshold in water. These modes are favored by SUSY models, and the tests of these models are within reach of multi-kiloton \lartpc{}s such as DUNE. 
+A particularly interesting mode for the proton decay search with DUNE is 
+$p\to K^+ \bar{\nu}$, which is expected to have a lifetime of the order of 
+$>10^{33}$ years in SUSY models. This decay can be tagged in a \lartpc if a 
+single kaon within a proper energy/momentum range can be reconstructed with 
+its point of origin lying within the fiducial volume. 
+Background events initiated by cosmic-ray muons can be controlled  by requiring 
+no activity close to the edges of the TPCs and by stringent single kaon identification 
+within the energy range of interest. 
+Atmospheric neutrino-induced background with real kaon production will either have an 
+associated strange baryon (for reactions with $\Delta S = 0$) whose decay can be 
+reconstructed, or an identifiable charged lepton (for reactions with $\Delta S = 1$). 
+Atmospheric neutrino-induced background may also arise from misidentification of protons 
+from abundant quasielastic interactions.  Work is ongoing (see below) to understand 
+in detail how to fully exploit the capabilities of the DUNE \lartpc FD modules to suppress the above 
+backgrounds while maintaining the high acceptance necessary for discovery-level sensitivity.
+Similarly, the DUNE FD is expected to have good sensitivity to other compelling 
+nucleon decay modes, 
+such as $n\to K^+ e$, $p\to l^+ K^0$, and $p\to \pi^0 e^+$, which are also under study. 
+
+As is the case for the entire non-accelerator based physics program of DUNE, nucleon decay 
+searches require efficient triggering and event localization (within the far detector) 
+capabilities.  Given the 1-GeV energy release, the requirements on tracking and calorimetry 
+capabilities are similar to those for the beam-based neutrino oscillation program described 
+in the previous section.  
+Experimental challenges such as particle identification to separate protons from kaons, 
+the impact of final state interactions (FSI) on proton decay kinematics, and full control 
+of the potential background processes, are presently under study with realistic detector simulations.
+This includes opportunities for enhanced background rejection 
+by using convolutional neural networks, as well as efforts to understand the 
+uncertainty associated with the intra-nuclear cascade model used to simulate FSI. 
+%Especially critical is the exquisite $dE/dx$ resolution offered by the \lartpc response. 
+We expect that \dword{protodune} data taken with charged particle beams at CERN will 
+provide important sample of events to train and improve on reconstruction algorithms 
+and the resulting $dE/dx$ resolution.
+ 
 
 %Monte Carlo studies of the $p\to K^+ \bar{\nu}$ signal and corresponding atmospheric neutrino backgrounds have been carried out with the DUNE multi-purpose full event reconstruction software (a dedicated version of which is under development for nucleon decay searches).  They reveal that the main challenge in identifying proton decay candidates is due to backgrounds arising from the mis-reconstruction of protons as positive kaons. This happens when a charged current (CC) neutrino interaction produces a muon and a recoiling proton and the primary vertex for neutrino interaction is mis-labelled as a secondary vertex where the kaon decays.  Complicating the ability to reject pathological events of this type is the presence of final state interactions (FSI) in proton decay, which can shift the spectrum of kaons towards low energies, with possible concurrent emission of nucleons, which together weaken the otherwise distinct energy and $dE/dx$ signature of the kaon. Ongoing work to reject these backgrounds without loss of acceptance includes implementation of convolutional neural networks, as well as efforts to understand the uncertainty associated with the intra-nuclear cascade model (FSI). 
 
@@ -353,7 +400,8 @@ We expect that \dword{protodune} data taken with charged particle beams at CERN 
 %SUSY GUT models also favor other nucleon decay modes involving positive or neutral kaons in the final state, for instance, $n\to K^+ e^-$. The cosmic-ray muon background for this decay mode is negligible, whereas the neutrino-induced background is limited to CC reactions with $\Delta S = 1$, and to grossly mis-reconstructed $\Delta S = 0$ events. 
 
 
-%The DUNE FD will be sensitive to other nucleon decay modes, such as $p\to \pi^0 e^+$ but in many cases the sensitivity will not exceed that of Super-Kamiokande.
+%The DUNE FD will be sensitive to other nucleon decay modes, such as $p\to \pi^0 e^+$. 
+%but in many cases the sensitivity will not exceed that of Super-Kamiokande.
 
 Baryon number non-conservation can also be manifested by neutron-antineutron oscillations leading to subsequent antineutron annihilation with a neutron or a proton. This annihilation event will have a distinct signature of a vertex with several emitted light hadrons, with total energy of twice the nucleon mass and net momentum zero. The ability to re-construct these hadrons correctly and measure their energies is key to the identification of the signal event. The main background for these $n\bar n$ annihilation events is caused by atmospheric neutrinos. Most commonly mis-classified events are neutral current deep inelastic scattering events without a lepton in the final state. As above, nuclear effects and final state interactions make the picture more complicated and are probably the major component of the systematic uncertainty for the sensitivity studies carried out thus far.  Initial signal vs background discrimination studies have been performed using convolutional neural networks resulting in an equivalent sensitivity for the $n\rightarrow \bar n$ oscillation lifetime of $1.6 \times 10^9$~s at 90\% confidence level, a factor of 5 improvement on the current limit from Super-Kamiokande.
 More information about particle identification and energy measurements will be provided by the \dword{protodune} experiment with charged particle beams. 
@@ -495,7 +543,7 @@ The unique combination of the high-intensity LBNF neutrino beam with DUNE's near
 \subsection{New Particle Searches}
 {\bf Search for Low-mass Dark Matter.}
 Various cosmological and astrophysical observations strongly support the existence of dark matter (DM) representing $\approx$27$\%$ of the mass-energy of the universe, but its nature and potential non-gravitational interactions with regular matter remain undetermined. 
-The lack of evidence for weakly interacting massive particles (WIMP) at direct detection and the LHC experiments has resulted in a reconsideration of the WIMP paradigm. For instance, if  dark matter has a mass which is much lighter than the electroweak scale (e.g., below the GeV level), it motivates theories for  dark matter candidates that interact with ordinary matter through a new "vector portal" mediator.
+The lack of evidence for weakly interacting massive particles (WIMP) at direct detection and the LHC experiments has resulted in a reconsideration of the WIMP paradigm. For instance, if  dark matter has a mass which is much lighter than the electroweak scale (e.g., below the GeV level), it motivates theories for  dark matter candidates that interact with ordinary matter through a new ``vector portal'' mediator.
 High flux neutrino beam experiments, such as DUNE, have been shown to provide coverage of DM+$mediator$ parameter space which cannot be covered by either direct detection or collider experiments. %[1-4]. 
 Dark
 matter particles can be detected in the near detector through neutral-current-like interactions 
@@ -596,6 +644,4 @@ full range of DUNE's science objectives.
 %particle physics and astrophysics. The highly capable beam and
 %detectors will enable a large suite of new physics measurements with
 %potentially groundbreaking discoveries.
-
-
 
