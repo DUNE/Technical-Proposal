@@ -21,7 +21,7 @@ The design of the system incorporates the components already developed for \dwor
 %\fixme{you need a figure here - schematic maybe - showing the CRO and LRO system and how it fits in with the other systems (anne)} DONE
 
 While a single \dword{dpmod} has a factor of \num{20} more readout (both charge and light) channels than \dword{pddp}, a simple scaling of the number of the components used in the prototype design is sufficient to meet these needs without necessitating any additional R\&D. A small-scale version of the TPC electronics system was used in the \dword{wa105} at CERN, a preliminary \dual \lartpc prototype with an active volume  of \SI[product-units=power]{3x1x1}{m} (\dword{crp} area of \SI[product-units=power]{3x1}{m}) that took data in the summer-fall of 2017. %The experience gained from the \dword{wa105} operation allowed to validate already some of the design choices and check various performance markers (e.g., noise). 
-Operation of the \dword{wa105} validatated the design choices and provided checks on various performance markers, e.g., noise. 
+Operation of the \dword{wa105} validated the design choices and provided checks on various performance markers, e.g., noise. 
 
 \begin{dunefigure}[Schematic layout of the \dword{dp} \dword{cro} sub-system]{fig:dpele-crosystem-sketch}
 {Schematic layout of the \dword{dp} \dword{cro} sub-system.}
@@ -69,34 +69,34 @@ reads and digitizes signals from a total of \num{153600} channels (per one \dwor
 The design of the \dshort{cro} electronics system was developed to fit the following requirements:
 \begin{itemize}
 \item{The \dword{cro} electronics %must be able to 
-shall measure signals of up to \SI{1200}{\femto\coulomb} without saturation; this has been optimized following \dword{mc} studies on the maximal occupancy per channel in shower events~\cite{WA105_TDR}. For a nominal \dword{crp} gain of \num{20}, a \dword{mip} signal is expected to be around \SI{30}{fC} -- the lowest limit that assumes a particle travelling horizontally with an azimuthal angle of \num{0} degrees -- giving %the 
+must measure signals of up to \SI{1200}{\femto\coulomb} without saturation; this has been optimized following \dword{mc} studies on the maximal occupancy per channel in shower events~\cite{WA105-TDR}. For a nominal \dword{crp} gain of \num{20}, a \dword{mip} signal is expected to be around \SI{30}{fC} -- the lowest limit that assumes a particle travelling horizontally with an azimuthal angle of \num{0} degrees -- giving %the 
 a maximal operational range of up to \num{40} \dwords{mip}.}
 
 \item{The electronic noise in the \dshort{cro} analog electronics is required to be \SI{< 2500}{e^{-}}. This condition can be derived from the requirement on the minimal \dword{s/n}, which should be greater than \num{5}:\num{1} once the charge attenuation is taken into account. Given the maximum drift distance of \SI{12}{\meter}, the largest attenuation factor due to electro-negative impurities assuming the \SI{3}{\milli\second} (minimally required) electron lifetime and the drift field of \SI{0.5}{\kilo\volt/\cm} is \num{0.08}. The smallest \dword{mip} signal with the \dword{crp} effective gain of \num{20} is therefore \SI{2.5}{\femto\coulomb} (\SI{15600}{e^{-}}).}
 
 \item{The peaking time of the \dword{fe} analog amplifiers %should 
-shall be \SI{1}{\micro\second}. This requirement is driven by the need for optimal vertex resolution, determined in turn by the single track resolution and the power to separate two or more tracks that are close to one another.}
+must be \SI{1}{\micro\second}. This requirement is driven by the need for optimal vertex resolution, determined in turn by the single track resolution and the power to separate two or more tracks that are close to one another.}
 
 \item{The sampling frequency %should 
-shall be \SI{2.5}{\MHz} to match the peaking time of the \dword{fe} electronics.}
+must be \SI{2.5}{\MHz} to match the peaking time of the \dword{fe} electronics.}
 
 \item{The power dissipated by the \dword{fe} analog electronics %must 
-shall be below \SI{50}{\milli\watt/channel} in order to minimize the heat input to the cryostat volume.}
+must be below \SI{50}{\milli\watt/channel} in order to minimize the heat input to the cryostat volume.}
 
 \item{The \dword{fe} analog electronics %should 
-shall be replaceable without the risk of contaminating the main \lar volume in order to guarantee the long-term reliability of the system.}
+must be replaceable without the risk of contaminating the main \lar volume in order to guarantee the long-term reliability of the system.}
 
 \item{The \dword{adc} resolution %should 
-shall be such that the noise is at the level of an \dword{adc}
+must be such that the noise is at the level of an \dword{adc}
 %\fixme{does not exceed?} the level of an \dword{adc}, %while THIS WAS CORRECT
 given a dynamic range wide enough to match the response of the \dword{fe} amplifier. This can be achieved with a \num{12} bit \dword{adc}.}
 
 \item{The digital electronics to be placed outside of the cryostat in the warm environment %can 
-shall be capable of adopting standard industrial components and solutions, to keep the costs lower and to benefit from  %ensuring low costs and benefiting of the 
+must be capable of adopting standard industrial components and solutions, to keep the costs lower and to benefit from  %ensuring low costs and benefiting of the 
 technological evolution, e.g., higher network speeds.}
 \end{itemize}
 As described %in the details 
-in subsequent sections, the achieved performance of the final system is significantly better with respect to many of the listed requirements.  %\fixme{above sentence not clear: performance exceeds requirements? (anne)} YES, THERE WERE MINIMAL REQUIREMNTS COMING FROM EXPERIENCE WITH SP DETECTORS
+in subsequent sections, the achieved performance of the final system is significantly better than many of the listed requirements.  %\fixme{above sentence not clear: performance exceeds requirements? (anne)} YES, THERE WERE MINIMAL REQUIREMNTS COMING FROM EXPERIENCE WITH SP DETECTORS
 
 The magnitude of the noise also %plays a role in 
 has an effect on the quality of the lossless compression of the raw data. % performed by the digital electronics. 
@@ -907,7 +907,7 @@ The \dword{fe} cards should include suitable protection components. The TVS diod
  In addition, the cards are accessible and could be replaced if damaged. }
  
 \item{\textbf{Overpressure in the \dwords{sftchimney}}: The \dwords{sftchimney} are equipped with safety valves that vent the excess gas in case of the sudden pressure rise. The overpressure threshold %should 
-shall be set low enough such that no significant damage could happen to the flanges. }
+must be set low enough such that no significant damage could happen to the flanges. }
 
 \item{\textbf{Leak of nitrogen inside the \dword{dpmod} via cold flange}: The chimney volume %would be
 is  filled with argon gas instead of nitrogen.}
