@@ -9,14 +9,14 @@
 hardware associated with each \dword{apa} from TPC data on a per-channel basis.
 They are sent along with the waveform data to the \dword{fe} \dword{daq}
 computing.
-In the alternative design, the data is directly sent from the \dwords{apa} to
+In the alternate design, the data is directly sent from the \dwords{apa} to
 the \dwords{fec} and the data are sent to the trigger processing
 computers.  
 In both designs, the primitives from one \dword{daqfrag} are further
 processed to produce \dwords{trigcandidate}. 
-As such they represent a localization of activity to the corresponding
-\dwords{apa} and for some period of time. 
-These candidates are emitted to the \dword{mtl} which may consider
+As such they represent a localization of activity on the corresponding
+\dwords{apa}  for a given period of time. 
+These candidates are emitted to the \dword{mtl}, which may consider
 candidates from other \dwords{detmodule} or external sources before
 generating trigger commands.
 Section~\ref{sec:fd-daq-sel} describes the selections involved in this
@@ -28,12 +28,15 @@ Reasons for this limitation include the fact that collection
 channels:
 
 \begin{itemize}
-\item have higher signal to noise ratio compared to induction channels;
+\item have higher signal to noise ratios compared to induction channels;
 \item are fully and independently sensitive to activity on their \dword{apa} face;
-\item have unipolar signals that directly give an approximate measure
-  of ionization charge without costly computation required to
-  deconvolve the field response functions as required to make use of
-  the induction channels;
+%\item have unipolar signals that directly give an approximate measure
+ % of ionization charge without costly computation required to
+  %deconvolve the field response functions as required to make use of
+  %the induction channels;
+\item have unipolar signals that give direct approximate measures
+  of ionization charge without the costly computation that would be needed to 
+  deconvolve the field response functions required for the the induction channels;
 \item can be easily divided into smaller, independent groups in order
   to better exploit parallel processing.
   % fixme: do we need a statement about efficiency here?
@@ -45,9 +48,8 @@ four connectors on each of the five \dwords{wib} and the \dword{fe} readout hard
 The data is received via eighty \SI{1}{Gbps} fiber optical links by four \dwords{rce}
 in the \dword{atca} \dword{cob} system. 
 
-The pattern of connectivity between \dwords{wib} and \dwords{rce} results in the data
-from the collection channels covering one contiguous half of one \dword{apa}
-face being received by each \dword{rce}.
+%The pattern of connectivity between \dwords{wib} and \dwords{rce} results in the data from the collection channels covering one contiguous half of one \dword{apa} face being received by each \dword{rce}.
+Due to the pattern of connectivity between \dwords{wib} and \dwords{rce}, each \dword{rce} receives the data from the collection channels that cover one contiguous half of one \dword{apa} face. 
 Each \dword{rce} has two primary functions. 
 The first is transmission of all data as described in
 Section~\ref{sec:fd-daq-hlt}. 
@@ -73,7 +75,7 @@ wires.
 Depending on the threshold set, these \dwords{trigprimitive} may be
 numerous due to $^{39}$Ar decays and noise fluctuations.
 If their rate cannot be sustained, the threshold may be raised or
-further processing may be done still at the \dword{apa} level,  which
+further processing may be done, still at the \dword{apa} level, that %,  which
 considers more global information.
 This may be performed either in the \dwords{rce} or later in the
 \dword{fe} computing hosts. 

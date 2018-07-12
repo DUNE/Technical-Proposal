@@ -6,13 +6,13 @@
 \metainfo{Giles Barr \& Josh Klein \& Giovanna Miotto \& Kurt Biery \& Brett Viren.  This is a DP/SP shared section.  It's file is \texttt{far-detector-generic/chapter-generic-daq/design-flow.tex}}
 
 In the general data and trigger flow diagrams for the nominal
-(Figure~\ref{fig:daq-overview}) and alternative
+(Figure~\ref{fig:daq-overview}) and alternate
 (Figure~\ref{fig:daq-overview-alt}) designs, the dataflow, trigger and
 event builder functions take as input data from the \dword{detmodule}
-electronics and culminate in files deposited to \dword{diskbuffer} for
+electronics and culminate in files deposited to the \dword{diskbuffer} for
 transfer to permanent storage by offline computing processes.  
 The continuous, uncompressed data rate of the input from one
-\dword{detmodule} is on order of \SI{1}{\TB/\s}. 
+\dword{detmodule} is on the order of \SI{1}{\TB/\s}. 
 The final output data rate, for all \dwords{detmodule} operating at
 any given time is approximately limited to \offsitegbyteps. 
 
@@ -27,7 +27,7 @@ The exact choice maps to some integral number of physical
 \dword{detmodule} units (e.g., \dword{sp} \dwords{apa} or \dword{dp}
 \dwords{cro} and \dwords{lro}).
 
-As described in the previous sections, the nominal and alternative
+As described in the previous sections, the nominal and alternate
 designs differ essentially in the order and manner in which the
 \dword{snb} buffering occurs and the \dwords{trigprimitive} are
 formed. 
@@ -36,7 +36,7 @@ The overall data flow, higher level triggering and building of
 This processing begins with the data being received by the
 \dword{felix} PCIe board hosted in the \dword{fec}. 
 The \dword{felix} board performs a DMA transfer of the data into the
-\dword{daqbuf} for the \dword{daqfrag} which resides in the
+\dword{daqbuf} for the \dword{daqfrag}, which resides in the
 \dword{fec} host system RAM.  %\fixme{DMA not defined in gloss}
 This buffer is sized to hold ten seconds of data assuming the maximum 
 uncompressed input rate associated with the fragment.
@@ -45,24 +45,24 @@ also being read in order to dispatch it for various purposes.
 Any and all requests to further dispatch a subset of this data from
 the \dword{daqbuf} must arrive within this buffer time.
 In the nominal design, the only dispatching will be from a request
-made by an \dword{eb} (described more below) on its receipt of a
+made by an \dword{eb} (described more below) upon receipt of a
 \dword{trigcommand}. 
-In the alternative design, a suitable fraction of the data is also
+In the alternate design, a suitable fraction of the data is also
 dispatched via high bandwidth (at least \numrange{25}{50}\,\si{\Gbps} simplex, less
 if data is compressed at this stage) network connections to a trigger
 farm so that \dwords{trigprimitive} may be formed. 
 Whether the primitives are formed in this manner or extracted from the
 stream sent by the \dword{daqfer} (as in the nominal design) these
 trigger primitives from one \dword{daqfrag} are collectively sent for
-further processing in order to be combined across channels and so to
+further processing in order to be combined across channels and  to then 
 produce \dwords{trigcandidate}. 
 These are finally combined for one \dword{detmodule} in the
 \dword{mtl}. 
 It is in the \dword{mtl} where \dwords{trigcandidate} from additional
-sources are also considered as described more in
+sources are also considered, as described in
 section~\ref{sec:fd-daq-sel}.
 
-In both the nominal and alternative design the dispatch of data
+In both the nominal and alternate designs the dispatch of data
 initiated by normal (non-\dword{snb}) \dwords{trigcommand} is
 identical. 
 This dispatch, commonly termed \textit{event building} involves collection
@@ -70,18 +70,18 @@ of data spanning an identical and continuous period of time from
 multiple \dwords{daqbuf} across the \dword{daq}.
 As introduced above, each \dword{trigcommand} is consumed by an
 \dword{eb} process. 
-It will use fragment address information in the \dword{trigcommand} to
+It  uses fragment address information in the \dword{trigcommand} to
 query the \dword{daqds} process representing each referenced
-\dword{daqfrag} and accept the returned a \dword{datafrag}.
+\dword{daqfrag} and accepts the returned a \dword{datafrag}.
 In the exceptional case that the delay of this request is so large
 that the \dword{daqbuf} no longer contains the data, then an error
-return will be supplied and recorded by the \dword{eb} in place of the
+return is supplied and recorded by the \dword{eb} in place of the
 lost data. 
 Such failures lead to indicators displayed by the detector operation
 monitoring system.
 The \dword{eb} finally assembles all responses into a
-\dword{rawevent} and write it to file on the \dword{diskbuffer} where
-it becomes responsibility of DUNE offline computing.
+\dword{rawevent} and writes it to file on the \dword{diskbuffer} where
+it becomes the responsibility of DUNE offline computing.
 
 The \dword{daqds} and \dword{eb} services are implemented using
  the general-purpose \fnal data acquisition framework \dword{artdaq} for
@@ -90,7 +90,7 @@ It is designed to exploit the parallelism that is possible with
 modern multi-core and networked computers, and has been used in \dword{protodune} and other experiments.
 The \dword{artdaq} framework is the principal architecture that will be used for the DUNE \dword{daq} back-end computing.
 The authors of \dword{artdaq} have accommodated DUNE-specific 
-requests for feature additions. Also a number of libraries have been developed based on
+requests for feature additions. Also, a number of libraries have been developed based on
 existing parts of \dword{artdaq} used to handle incoming data from data
 sources. 
 It is likely that future DUNE extensions will be made by one of these two
@@ -98,13 +98,11 @@ routes.
 
 Unlike the dispatch of data initiated by a normal \dwords{trigcommand},
 a command formed to indicate the possibility of a \dword{snb} is
-handled differently between the nominal and alternative designs. 
+handled differently between the nominal and alternate designs. 
 Such a command is interpreted to save all data from all channels
 for a rather extended time of \snbtime starting from \snbpretime
 before the time associated with the \dword{trigcommand}. 
-As no data selection is being performed, the bandwidth needed requires
-special buffering to nonvolatile storage in the form of \dword{ssd}. 
-%\fixme{awkward: bandwidth needed requires special buffering. Maybe: ``given the required bandwidth, special buffering to nonvolatile storage, in the form of \dword{ssd}, is required''} 
+As no data selection is being performed, given the required bandwidth, special buffering to nonvolatile storage, in the form of \dword{ssd}, is required.  
 Today's technology supplies individual \dword{ssd} in the M.2 expansion card form factor,
 which supports individual write speeds up to \SI{2.5}{\GB/\s}. 
 The two designs differ as to the location of and data source for these
@@ -116,32 +114,33 @@ In that location, due to larger granularity of computing units, the
 data rate into any one \dword{ssd} is within the quoted write
 bandwidth. 
 However, and as shown in Figure~\ref{fig:daq-overview}, the data and
-trigger flow for \dword{snb} in the nominal case, takes a special
+trigger flow for \dword{snb} in the nominal case takes a special
 path. 
 Instead of an \dword{eb} consuming the \dword{trigcommand} as
-described above, it is sent to the \dfirst{daqoob} which dispatches
+described above, it is sent to the \dfirst{daqoob}, which dispatches
 it to each \dword{daqfer} unit hosting an \dword{ssd}. 
-This component is used in order to immediately free up the \dword{mtl}
+This component is used %in order 
+to immediately free up the \dword{mtl}
 to continue to process normal triggers.
 When the command is received, each host must begin to stream data from
-its local RAM supplying at least \snbpretime of buffer to the
-\dword{ssd} and continue until the full \snbtime has elapsed. 
+its local RAM, supplying at least \snbpretime of buffer to the
+\dword{ssd}, and continue until the full \snbtime has elapsed. 
 While it is performing this dump it must continue to form
 \dwords{trigprimitive} and pass them and the full data stream to the
 connected \dword{fec}.
 
-In the alternative design the same \dword{daqbuf} provides the
+In the alternate design the same \dword{daqbuf} provides the
 \snbpretime of pre-trigger \dword{snb} buffering. 
-Like in the nominal case, it must rely on fast, local \dword{ssd}
+As in the nominal case, it must rely on fast, local \dword{ssd}
 storage to sink the dump. 
 Current \dword{ssd} technology allows four M.2 \dword{ssd} devices to
 be hosted on a PCIe board. 
-Initial benchmarks of this technology show such a combination can
+Initial benchmarks of this technology show that such a combination can
 achieve \SI{7.5}{\GB/\s} write bandwidth, which is short of linear
 scaling. 
 To support the maximum of \SI{20}{\GB/\s}, three such boards would be
 required.
-The alternative design presents a synergy between the need to dump
+The alternate design presents a synergy between the need to dump
 high-rate data and the need to provide CPU to form the
 \dwords{trigprimitive}. 
 With current commodity computing hardware it is expected that each
@@ -149,8 +148,8 @@ With current commodity computing hardware it is expected that each
 farm. 
 These trigger processors will need to accept the entire \dual and
 three-eighths of the \single data stream from their \dword{daqfrag}. 
-If they instead accepted the entire stream, they can also provide
-RAM buffering and split up the data rate which must be sunk to
+If they instead accept the entire stream, they can also provide
+RAM buffering and split up the data rate, which must be sunk to
 \dword{ssd} buffers.
 
 
@@ -159,7 +158,7 @@ information about a potential \dword{snb}.
 It must be extracted from the buffer, processed and either discarded
 or saved to permanent storage. 
 The requirements on these processes are not easy to determine.
-The average period between actual \dword{snb} to which DUNE is
+The average period between actual \dwords{snb} to which DUNE is
 sensitive is measured in decades. 
 However, to maintain high efficiency for capturing such important
 physics, the thresholds will be placed as low as feasible, limited
@@ -184,7 +183,7 @@ storage is available for subsequent dumps.
 If every dump were to be sent to permanent storage, it would represent
 a sustained \SI{0.14}{\Gbps} (per \dword{detmodule}), which is a small
 perturbation on the bandwidth supplied throughout the \dword{daq} network. 
-Saved to permanent storage this rate integrates to \SI{0.5}{\PB/\year}
+Saved to permanent storage this rate integrates to \SI{0.5}{\PB/\year}, 
 which while substantial, is a minor fraction of the total data budget.
 The size of each dump is still larger than is convenient to place into
 a single file, so the \dword{snb} event-building will likely differ from
@@ -194,7 +193,7 @@ Finally, it is important to qualify that these rates assume
 uncompressed data. 
 At the cost of additional processing elements, lossless compression
 can be expected to reduce this data rate by \numrange{5}{10}\,$\times$ or
-alternatively allow lower thresholds leading to the same factor of %that factor 
+alternatively allow lower thresholds that lead to the same factor of %that factor 
 more
 dumps.
 Additional study is required to optimize the costs against the expected

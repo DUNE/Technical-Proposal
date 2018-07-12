@@ -3,21 +3,24 @@
 \label{sec:fd-daq-intfc-fnal-cmptg}
 
 The interface between the \dword{daq} and offline computing is
-described in \docdb-7123~\cite{docdb-7123}.
+described in~\cite{docdb-7123}.
 The \dword{daq} team is responsible for reducing the data volume
 to the level that is agreed upon by all interested parties, and the
 raw data files are transfered from \surf to \fnal using a
 dedicated network connection.
 A disk buffer is provided by the \dword{daq} on or near the \surf
-site to hold the data from several days of data taking so that the
-operation of the experiment is be affected if there happens to
+site to hold %the data from 
+several days worth of data %taking 
+so that the
+operation of the experiment is not %be 
+affected if there happens to
 be a network disruption between \surf and \fnal.
 %\fixme{Add ref for docdb-7123.}  done - ATH, 4/16/18
 
 During stable running, the data volume produced by the
 \dword{daq} systems of all four \dwords{detmodule} will be no larger
 than \offsitepbpy.
-This maximum data rate is expected to be independent of the number of
+The maximum data rate is expected to be independent of the number of
 \dwords{detmodule} that are operational.
 During the construction of the second, third, and fourth
 \dwords{detmodule}, the extra rate per \dword{detmodule} will be used
@@ -25,7 +28,7 @@ to gather data to aid in the refinement of the data selection
 algorithms.
 During commissioning, the data rate is expected to be higher than
 nominal running and it is anticipated that  %something on order of one year data volume will be necessary to commission a \dword{detmodule}.
-a data volume on the order of one year will be necessary to commission a \dword{detmodule}.
+a data volume corresponding to (order) one year will be necessary to commission a \dword{detmodule}.
 
 The disk buffer at \surf is planned to be \SI{300}{\TB} in size.
 The data link from \surf to \fnal will support \surffnalbw

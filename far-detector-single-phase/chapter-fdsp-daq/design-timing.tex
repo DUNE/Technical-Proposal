@@ -8,7 +8,7 @@
 All components of the \dword{spmod} are
 synchronized to a common clock.  In order make full use of the
 information from the \dword{pds}, the common clock must be
-aligned within a single \dword{detunit} with an accuracy of $O\,1$\si{ns}).
+aligned within a single \dword{detunit} with an accuracy of $O\,1$\si{ns}.
 In order to form a common trigger for \dword{snb} between
 \dwords{detmodule}, the timing between them must be aligned with an
 accuracy of $O\,1$\si{ms}.  However, a tighter constraint is the need to
@@ -85,7 +85,7 @@ hot spare. The \SI{10}{\MHz} reference clock and the \dword{pps} are received
 by a single width \dword{amc} at the center of the \dword{utca} shelf. This
 master timing \dword{amc} produces the SPTS signals and encodes them onto a
 serial data stream. This serial datastream is distributed over a
-standard star-point backplane to the fanout \dwords{amc} which each drive the
+standard star-point backplane to the fanout \dwords{amc}, which each drive the
 signal onto up to \num{13} SFP cages. The SFP cages are either occupied by
 1000Base-BX SFPs, each of which connects to a fiber running to an \dword{apa},
 or to a Direct Attach cable which connects to systems elsewhere in the

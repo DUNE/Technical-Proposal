@@ -26,27 +26,27 @@ The latency of arrival for these sources must be less than the nominal
 \snbpretime buffers used to capture low-level early \dword{snb}
 activity.
 A \dword{hlt} may also be active within the \dword{mtl}. 
-The hierarchical approach is both natural from a design standpoint, and 
+The hierarchical approach is natural from a design standpoint and 
 it allows for vertical slice testing and running multiple
 \dwords{daqpart} simultaneously during commissioning of the system or
 when debugging of individual \dwords{detunit} is required.
 
 As discussed in Sections~\ref{sec:fd-daq-fero}
-and~\ref{sec:fd-daq-fetp}, \dwords{trigprimitive} will be generated in
+and~\ref{sec:fd-daq-fetp}, \dwords{trigprimitive} are generated in
 either in \dwords{daqfer} (in the nominal design) or in trigger
-processing computers (in the alternative design). 
+processing computers (in the alternate design). 
 In both designs, and for both \dword{sp} and \dword{dp}
-\dwords{detmodule}, only data from TPC collection channels (three-eighths of \single and all of \dual channels) will feed
+\dwords{detmodule}, only data from TPC collection channels (three-eighths of \single and all of \dual channels) feed
 the self-triggering, as their waveforms directly supply a measure of
 ionization activity without computationally costly signal processing.
-The \dwords{trigprimitive} contains summary information for each
+The \dwords{trigprimitive} contains summary information for each 
 channel, such as the time of any threshold-crossing pulse, its
 integral charge, and time over threshold. 
 A channel with an associated \dword{trigprimitive} is said to be
 \textit{hit} for the time spanned by the primitive. 
 Trigger primitives from one \dword{detunit} are then further processed
 to produce a \dword{trigcandidate}. 
-The candidate represents a cluster of \textit{hits} across time and
+The candidate represents a cluster of hits across time and
 channel, localized to the \dword{detunit}.
 The candidates from all \dwords{daqfrag} are passed to the
 \dword{mtl}.
@@ -60,7 +60,7 @@ It also may employ a \dword{hlt} to reduce or aggregate triggers into
 fewer \dwords{trigcommand} so as to optimize the subsequent readout. 
 For example, aggregating many small readouts into fewer but larger
 ones may allow for more efficient processing.   This can be particularly
-important during periods of high rate activity such as due to various
+important during periods of high-rate activity due to e.g., various
 backgrounds or instrumental effects.
 
 When activity leads to the formation of a \dword{trigcommand} this
@@ -68,7 +68,7 @@ command is sent down to the \dwords{fec} instructing which slice of
 time of its buffered data should be saved. 
 The \dword{trigcommand} information is saved along with this data. 
 At the start of DUNE data taking, it is anticipated that for any given
-single-interaction trigger (a cosmic-ray track, for example) waveforms
+single-interaction trigger (a cosmic-ray track, for example), waveforms
 from all channels in the \dword{detmodule} will be recorded over a one
 \dword{readout window} (nominally, \spreadout for \dword{sp} and
 \dpreadout for \dword{dp}, chosen to be two drift times  plus an

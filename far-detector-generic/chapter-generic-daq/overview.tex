@@ -15,18 +15,18 @@
 
 The DUNE \dword{fd} \dword{daq} system must enable the readout,
 triggering, processing and distribution to permanent storage of data
-from all \dwords{detmodule} which includes both their electrical
+from all \dwords{detmodule}, which includes both their electrical
 \dword{tpc} and optical \dword{pds} signals.  
 The final output data must retain, with very high efficiency and low
-bias, a record of all activity in the detector which pertains to the
+bias, a record of all activity in the detector that pertains to the
 recognized physics goals of the DUNE experiment. 
 The practical constraints of managing this output requires that the
 \dword{daq} achieve these goals while reducing the input data volume by almost four
 orders of magnitude.
 
-The current generation of \dword{lartpc} \dword{daq}, such as used in
+The current generation of \dword{lartpc} \dwords{daq}, such as used in
 \dword{protodune} and \microboone, produce data spanning a fixed window of
-time which is chosen based on the acceptance of an external trigger. 
+time that is chosen based on the acceptance of an external trigger. 
 The DUNE \dword{daq} faces several major challenges beyond those of the
 current generation. 
 Foremost, it must accept data from about two orders of magnitude more
@@ -37,14 +37,14 @@ throughput of approximately one terabyte per second per
 \dword{detmodule}. 
 From this data stream, triggers must be raised based on two very
 different patterns of activity. 
-The first is activity %which 
-is localized in a small region of one
+The first is activity %which is 
+localized in a small region of one
 \dword{detmodule}, such as due to beam neutrino interactions or the
 passage of relatively rare cosmic-ray muons. 
 This activity tends to correspond to a relatively large deposition of
 energy, around \SI{100}{\MeV} or more. 
 The second pattern that must lead to a trigger is lower energy activity
-dispersed in both time and spatial extent of the \dword{detmodule}, such as due to
+dispersed in both time and spatial extent of the \dword{detmodule}, such as due to a 
 \dword{snb}.
 
 The %DUNE \dword{fd} 
@@ -67,12 +67,12 @@ In each \dword{detmodule}, there are on the order of \num{100} \dwords{detunit}
 (\num{150} for \dword{sp} and \num{245} for \dword{dp}) and each unit has a
 channel count that is of the same order as that of an entire \lartpc
 detector of the current generation.
-The DUNE \dword{daq}, composed of a cohesive collection \dword{daq} instances
+The DUNE \dword{daq}, composed of a cohesive collection of \dword{daq} instances
 %or really individual instances of the \dword{daq} 
 called
 \dwords{daqpart}, must run on a subset of all possible
 \dwords{detunit} for each given \dword{detmodule}. 
-Each instance effectively runs independently from all others, however
+Each instance effectively runs independently of all the others, however
 some instances indirectly communicate through the exchange of
 high-level trigger information. 
 This allows, for example, each \dword{detmodule} to take data in
@@ -86,11 +86,11 @@ Substantial computing hardware is required to provide the processing
 capability needed to identify such activity while keeping up with the
 rate of data.
 The nature of various technical, financial and physical constraints
-leads to the need to house much of the computing hardware %needed to host 
+leads to the need for much of the computing hardware 
 required for this processing
 to reside underground, near the \dwords{detmodule}. 
 In such an environment, power, cooling, space, and access is far more
-costly than typical data centers. % residing on the surface of the Earth.
+costly than in typical data centers. % residing on the surface of the Earth.
 
 Past \lartpc and \dword{lbl} neutrino detectors have successfully
 demonstrated external triggering using information related to their beam. %\fixme{FROM their beam operations?}
@@ -141,7 +141,7 @@ Individually, these interactions will be of low energy (relative to
 that of beam neutrino interactions, for example), and will be spread
 over time and over the bulk of the \dwords{detmodule}. 
 Because of their signature and their importance, special attention is
-required to first ascertain that a \dwords{snb} may be occurring and to save as
+required to first ascertain that a \dword{snb} may be occurring and to save as
 much data as possible over its duration.
 
 Thus the \dword{daq} must greatly reduce the full-stream of its input data
@@ -205,7 +205,7 @@ changes in \dword{hv}, cut network connectivity and other issues that could aris
 \end{dunefigure}
 
 \begin{dunefigure}[\dword{daq} overview]{fig:daq-overview-alt}
-  {The high-level, alternative design for the DUNE \dword{fd}\dword{fd} \dword{daq} in
+  {The high-level, alternate design for the DUNE \dword{fd}\dword{fd} \dword{daq} in
     terms of data (solid) and trigger (dashed) flows between one
     \dword{daqfrag} \dword{fe} and the trigger processing and event
     building back end for one \dword{daqpart}. 
@@ -233,7 +233,7 @@ expected to support the third and forth modules to come.
 The first design, designated in this proposal as \textit{nominal}, is
 illustrated in a high-level way in terms of its data and trigger flow
 in Figure~\ref{fig:daq-overview}. 
-The second design, designated as alternative, is similarly
+The second design, designated as the alternate, is similarly
 illustrated in Figure~\ref{fig:daq-overview-alt}. 
 The two variants differ largely at their \dwords{fe} in terms of the
 order in which they buffer the data received from the \dword{detmodule} 
@@ -252,7 +252,7 @@ centered on one \dword{daqfrag}
 \dword{detmodule} that has one \dword{fec} accepting about
 \numrange{10}{20}~\si{\Gbps} of data (uncompressed rate) from some integral
 number of \dwords{detunit}. 
-Each of the participating \dwords{daqfrag} provide the actions:
+Each of the participating \dwords{daqfrag} do the following: %provide the actions:
 \begin{itemize}
 \item Accept TPC and \dword{pds} data from the \dwords{detunit} associated with the \dword{daqfrag}.
 \item Produce and emit a stream of per-channel \dwords{trigprimitive}.
@@ -273,7 +273,7 @@ The trigger processing system must:
   no two trigger commands overlap.
 \item Dispatch these commands as required (in general to the \dword{eb}).
 \end{itemize}
-The event building system is responsible to perform the following actions:
+The event building system is responsible for performing the following actions:
 \begin{itemize}
 \item Accept a trigger command and allocate one \dword{eb} instance to dispatch it.
 \item %The \dword{eb} 
@@ -286,10 +286,10 @@ Accept the returned \dword{datafrag} from each
   shared with DUNE offline computing.
 \end{itemize}
 
-The nominal and the alternative \dword{daq} designs differ largely in where
+The nominal and the alternate \dword{daq} designs differ largely in where
 the \dword{trigprimitive} and \dword{snb} buffering exist. 
 The \textit{nominal} design places these functions in machines
-comprising a \dword{daqfer} which is upstream to the \dword{fec}. 
+comprising a \dword{daqfer}, which is upstream of the \dword{fec}. 
 This then requires the \dword{snb} data and trigger handling to be
 different than that for normal (non-\dword{snb}) data. 
 When a \dword{snb} trigger command is raised it is forwarded to the
@@ -297,12 +297,13 @@ When a \dword{snb} trigger command is raised it is forwarded to the
 After the \dword{snb} data is dumped to \dwords{ssd} it is
 ``trickled'' out via a path separate from the normal data to the
 \dword{diskbuffer}. 
-On the other hand, the alternative design places these
+%
+The \textit{alternate} design, on the other hand, places these
 functions downstream of the \dword{fec} in trigger processing and data
 buffering nodes.
-The RAM of those nodes is used to provide the primary \dword{daq} buffer for
+The RAM of these nodes is used to provide the primary \dword{daq} buffer for
 normal triggering as well as the deeper buffers needed for \dword{snb}. 
-The alternative design handles the \dword{snb} data somewhat
+This design handles the \dword{snb} data somewhat
 symmetrically with normal data. 
 When an \dword{eb} makes a request for \dword{snb} data, it differs
 only in its duration, spanning tens of seconds of instead just a few
@@ -310,7 +311,7 @@ milliseconds.
 The \dword{fe} buffering nodes, instead of directly attempting to
 return the full \dword{sbn} data immediately, streams it to local
 \dword{ssd} storage. 
-From that storage, the data is sent to the \dword{eb} as a low
+From that storage, the data is sent to the \dword{eb} as low
 priority (i.e., also trickled out).
 Since the \dword{mtl} ensures no overlapping commands, the buffer
 nodes may service subsequent requests from post-dump data that is %will be
@@ -346,7 +347,7 @@ functionality as well as self-triggering
 functionality; the data selection shall maintain high efficiency to
 physics events while operating within a total bandwidth of \offsitepbpy
 for all operating \dwords{detmodule} \\ \colhline
-Synchronization & The DUNE \dword{fd} \dword{daq} will provide synchronization of
+Synchronization & The DUNE \dword{fd} \dword{daq} shall provide synchronization of
 different \dwords{detmodule} to within \SI{1}{$\mu$s}, and of different subsystems
 within a module to within \SI{10}{ns}\\ 
 \end{dunetable}
@@ -370,8 +371,8 @@ Table~\ref{tab:daq-input-bandwidth}.
   TPC unit & \dword{apa} & \dword{cro} crate \\ \colhline
   Unit multiplicity & \num{150} & \num{240} \\ \colhline
   Channels per unit & \num{2560} (\num{800} collection) & \num{640} (all collection) \\ 
-  \dword{adc} sampling & \SI{2}{\MHz} & \SI{2.5}{\MHz} \\
-	\dword{adc} resolution & \num{12}\,bit & \num{12}\,bit \\ \specialrule{1.5pt}{1pt}{1pt}
+  ADC sampling & \SI{2}{\MHz} & \SI{2.5}{\MHz} \\
+  ADC resolution & \num{12}\,bit & \num{12}\,bit \\ \specialrule{1.5pt}{1pt}{1pt}
   Aggregate from \dword{ce} & \SI{1440}{\GB/\s} & \SI{576}{\GB/\s} \\
   Aggregate with compression & \SI{288}{\GB/\s} (5$\times$) & \SI{58}{\GB/\s} (10$\times$)  \\
   \colhline
@@ -382,11 +383,11 @@ expected to be provided by the available bandwidth to the tape,
 disk and processing capacity of \fnal. 
 An ample guideline has been established that places this limit at
 about \offsitepbpy or \offsitegbps.
-Extrapolating to four \dword{detmodule} this requires the \dword{daq} to
-perform a data reduction factor of almost four orders of magnitude. 
+Extrapolating to four \dwords{detmodule}, this requires a \dword{daq} data reduction factor of almost four orders of magnitude. 
+%this requires the \dword{daq} to perform a data reduction factor of almost four orders of magnitude. 
 This is achieved through a simple self-triggered readout strategy.
 
-An overestimate of the annual, triggered but uncompressed data volume
+An overestimate of the annual triggered but uncompressed data volume
 for one \nominalmodsize  \dword{detmodule} is summarized in
 Table~\ref{tab:daq-data-rates}. 
 It assumes a very generous and simple trigger scheme whereby the data
@@ -407,12 +408,12 @@ optimize this threshold.
 
 \begin{dunetable} [Uncompressed data rates for one \dword{spmod}.]
   {p{0.30\textwidth}p{0.13\textwidth}p{0.4\textwidth}}
-  {tab:daq-data-rates} {Anticipated anual, uncompressed data rates
+  {tab:daq-data-rates} {Anticipated annual, uncompressed data rates
     for a single \dword{spmod}. The rates for normal (non-\dword{snb} triggers)
     assume a readout window of \SI{5.4}{\ms}. 
-    For planning purposes these rates are assumed to apply to the 
+    For planning purposes these rates are assumed to apply to a  
     \dword{dpmod} as well, which has a longer readout time but fewer channels. 
-    In reality, lossless compression will be applied which is expected
+    In reality, application of lossless compression is expected
     to provide as much as a $5\times$ reduction in data volume for the \dword{spmod}
     and as much as $10\times$ for the \dword{dpmod}.}   
   Event Type  & Data Volume \si{\PB/year} & Assumptions \\ \toprowrule
@@ -430,7 +431,7 @@ The data volume estimates also assume that any excess noise beyond
 what is expected due to intrinsic electronics noise will not lead to
 an increase in trigger rates. 
 If, for example, excess noise occurs such that it frequently mimics
-more than about \SI{10}{\MeV} of localized ionization then this would
+more than about \SI{10}{\MeV} of localized ionization, this would
 lead to an increase in various types of triggers and subsequently more
 data.
 However, at the same time, these estimates do not take into account
@@ -438,17 +439,16 @@ that some amount of lossless compression of the TPC data will be
 achieved. 
 In the absence of excess noise it is expected that a compression
 factor of at least $5\times$ can be achieved with the \single data and up
-to $10\times$ may be achieved with the \dual data. 
-Of course, the compression factor achieved will ultimately depend on
-the level of excess noise experienced in each \dword{detmodule}
-cryostat. 
+to $10\times$ may be achieved with the \dual data, although the actual  
+%Of course, the compression 
+factor achieved will ultimately depend on
+the level of excess noise experienced in each \dword{detmodule}. 
 Studies using data from the DUNE \dword{35t} and early \microboone
 running have shown that a compression factor of at least $4\times$ can
 be expected even in the case of rather high levels of excess noise.
 
-One category that will be particularly sensitive to excess noise will
-be the trigger primitives. 
-As discussed more in Section~\ref{sec:fd-daq-fetp}, their primary
+One category that will be particularly sensitive to excess noise is the trigger primitives. 
+As discussed further in Section~\ref{sec:fd-daq-fetp}, their primary
 intended use is as transient objects produced and consumed locally
 and directly by the \dword{daq} in the \dword{trigdecision} process. 
 However, as their production is expected to be dominated by $^{39}$Ar
@@ -465,14 +465,14 @@ evaluate other selection criteria.
 It is expected that efficient and bias-free selections can be
 developed and validated that save a subset of the entire
 \dword{detmodule} for any given trigger type. 
-For example, a cosmic-muon trigger command will indicate which \dwords{apa}
+For example, a cosmic-muon trigger command for a \dword{spmod} will indicate which \dwords{apa}
 contributed to its formation (i.e., which ones had local ionization activity). 
 This command can then direct reading out these \dwords{apa}, possibly also
 including their neighbors, while discarding the data from all other
 \dwords{apa}. 
 This may reduce the estimated \SI{10}{\PB/year} for cosmics and
 atmospherics by an order of magnitude. 
-A similar advanced scheme can be applied the 
+A similar advanced scheme can be applied to the 
 \dword{dpmod} by retaining data for the given readout window from
 only the subset of \dword{cro} crates (and again, potentially their
 nearest neighbors) that contributed to the formation of the given
@@ -487,13 +487,13 @@ trigger.
 %\metainfo{This section may also wish to refer to Fig.~\ref{fig:daq-overview}.}
 
 The nominal scope of the \dword{daq} system is illustrated in
-Figure~\ref{fig:daq-overview} by the boxes that are not grayed out. It 
-includes the continued procurement of materials for, and the
+Figure~\ref{fig:daq-overview} by the white boxes. % that are not grayed out. 
+It includes the continued procurement of materials for, and the
 fabrication, testing, delivery and installation of the following
 systems:
 
 \begin{itemize}
-\item \dword{fe} readout (nominal design) or trigger farm (alternative
+\item \dword{fe} readout (nominal design) or trigger farm (alternate
   design) hardware and firmware or software development for
   \dword{trigprimitive} generation.
 \item \dword{fe} computing for hosting of \dword{daqdr}, \dword{daqbuf} and \dword{daqds}.
