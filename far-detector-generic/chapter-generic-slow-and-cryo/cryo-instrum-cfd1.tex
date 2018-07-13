@@ -9,14 +9,14 @@ Instrumentation inside the cryostat must ensure that the condition of the \dword
 This instrumentation includes devices to monitor the impurity level of the argon, e.g., the purity monitors, which provide high precision electron lifetime measurements,
 and gas analyzers to ensure that the levels of atmospheric contamination drop below certain limits during the cryostat purging, cooling and filling.
 The cryogenics system operation is monitored by temperature sensors deployed in vertical arrays and at the top and bottom of the detector, providing a 
-detailed \threed temperature map which can help to predict the \dword{lar} purity across the entire cryostat. The cryogenics instrumentation also includes \lar level monitors and
+detailed \threed temperature map that can help to predict the \dword{lar} purity across the entire cryostat. The cryogenics instrumentation also includes \lar level monitors and
 a system of internal cameras to help in locating sparks in the cryostat and for overall monitoring of the cryostat interior. 
-As mentioned in the Introduction, cryogenics instrumentation requires simulation work to identify the proper location for these devices inside the cryostat and
+As mentioned in the introduction, cryogenics instrumentation requires simulation work to identify the proper location for these devices inside the cryostat and
 for the coherent analysis of the instrumentation data. 
 
 Figure~\ref{fig:sp-slow-cryo-ports} shows the current map of cryostat ports for the \dword{spmod}, highlighting the ones assigned to instrumentation devices,
 as well as the preliminary location for some of these devices. Vertical temperature profilers are located behind the \dwords{apa} ($T_S$) and behind the east end wall ($T_D$).
-They are complemented by a coarser \twod grid of sensors at the top and bottom of the cryostat (not shown in the figure). Purity monitors as well as level meters are planned
+They are complemented by a coarser \twod grid of sensors at the top and bottom of the cryostat (not shown in the figure). Purity monitors and level meters are planned
 in each detector side, behind the two front end walls. Inspection cameras will use some of the multipurpose instrumentation ports, but their exact locations are yet to be decided. 
 
 
@@ -24,4 +24,18 @@ in each detector side, behind the two front end walls. Inspection cameras will u
 {Cryostat ports and preliminary location of some instrumentation devices. }
 \includegraphics[width=0.95\textwidth]{cisc_cryostat_ports.png}
 \end{dunefigure}
-% end here - dual needs a pgraph inserted
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fluid Dynamics Simulations}
+\label{sec:fdgen-slow-cryo-cfd}
+% P. Strons
+% S. Gollapinni
+
+Proper placement of purity monitors, thermometers, and liquid level monitors within the \dword{detmodule} requires knowledge of how \dword{lar} behaves within the cryostat in terms of its fluid dynamics, heat and mass transfer, and distribution of impurity concentrations. 
+Fluid motion within the cryostat is driven primarily by small changes in density from thermal gradients, although pump flow rates and inlet and outlet locations also contribute. 
+Heat sources include exterior heat from the surroundings, interior heat from the electronics, and heat flow through the pump inlet.
+
+The fluid flow behavior can be determined through simulation of \dword{lar} flow within the detector using ANSYS CFX\footnote{ANSYS\texttrademark{}, \url{https://www.ansys.com/products/fluids/ansys-cfx}.}, a commercially available \dfirst{cfd} code. Such a model must include proper definition of the fluid characteristics, solid bodies and fluid-solid interfaces, and a means for measuring contamination, while still maintaining reasonable computation times. 
+
+% end here - SP needs a pgraph inserted

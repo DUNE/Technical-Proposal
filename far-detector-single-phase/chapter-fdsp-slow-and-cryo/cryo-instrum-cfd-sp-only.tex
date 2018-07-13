@@ -1,0 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Cryogenics Instrumentation}
+
+
+Although simulation of the \dword{detmodule} presents challenges, there exist acceptable simplifications for accurately representing the fluid, the interfacing solid bodies, and variations of contaminant concentrations. Because of the magnitude of thermal variation within the cryostat, modeling of the \dword{lar} is simplified through use of constant thermophysical properties, calculation of buoyant force through use of the Boussinesq Model (using constant a density for the fluid with application of a temperature dependent buoyant force), and a standard shear stress transport turbulence model. Solid bodies that contact the \dword{lar} include the cryostat wall, the cathode planes, the anode planes, the ground plane, and the \dword{fc}. As in previous \dshort{cfd} models of the DUNE \dword{35t} and \dword{protodune} by South Dakota State University (SDSU)\cite{docdb-5915}, the \dword{fc} planes, anode planes, and \dword{gp} can be represented by porous bodies. Since impurity concentration and electron lifetime do not impact the fluid flow, these variables can be simulated as  passive scalars, as is commonly done for smoke releases~\cite{cfd-1} in air or dyes released in liquids.
+
+

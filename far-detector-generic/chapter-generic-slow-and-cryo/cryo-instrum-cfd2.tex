@@ -1,23 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Cryogenics Instrumentation}
-
-% % restart here - dual needs a pgraph inserted
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Fluid Dynamics Simulations}
-\label{sec:fdgen-slow-cryo-cfd}
+%\subsection{Fluid Dynamics Simulations}
+%\label{sec:fdgen-slow-cryo-cfd}
 % P. Strons
 % S. Gollapinni
 
-Proper placement of purity monitors, thermometers, and liquid level monitors within the \dword{detmodule} requires knowledge of how \dword{lar} behaves within the cryostat in terms of its fluid dynamics, heat and mass transfer, and distribution of impurity concentrations. 
-Fluid motion within the cryostat is driven primarily by small changes in density from thermal gradients, although pump flow rates and inlet and outlet locations also contribute. 
-Heat sources include exterior heat from the surroundings, interior heat from the electronics, and heat flow through the pump inlet.
-
-The fluid flow behavior can be determined through simulation of \dword{lar} flow within the detector using ANSYS CFX\footnote{ANSYS\texttrademark{}, \url{https://www.ansys.com/products/fluids/ansys-cfx}.}, a commercially available \dfirst{cfd} code. Such a model must include proper definition of the fluid characteristics, solid bodies and fluid-solid interfaces, and a means for measuring contamination, while still maintaining reasonable solve times.
-\fixme{compute times?}
-Although simulation of the \dword{detmodule} presents challenges, there exist acceptable simplifications for accurately representing the fluid, the interfacing solid bodies, and variations of contaminant concentrations. Because of the magnitude of thermal variation within the cryostat, modeling of the \dword{lar} is simplified through use of constant thermophysical properties, calculation of buoyant force through use of the Boussinesq Model (using constant a density for the fluid with application of a temperature dependent buoyant force), and a standard shear stress transport turbulence model. Solid bodies that contact the \dword{lar} include the cryostat wall, the cathode planes, the anode planes, the ground plane, and the \dword{fc}. As in previous \dshort{cfd} models of the DUNE \dword{35t} and \dword{protodune} by South Dakota State University (SDSU)\cite{docdb-5915}, the \dword{fc} planes, anode planes, and \dword{gp} can be represented by porous bodies. Since impurity concentration and electron lifetime do not impact the fluid flow, these variables can be simulated as  passive scalars, as is commonly done for smoke releases~\cite{cfd-1} in air or dyes released in liquids.
-
-\fixme{some of this sounds very SP to me -anne}
+% restart here
 
 Significant discrepancies between real data and simulations can have potential impacts on detector performance, as simulation results contribute to decisions about where to locate sensors and monitors, as well as definitions of various calibration quantities. However, methods of mitigating such risks include well established convergence criteria, sensitivity studies, and comparison to results of previous \dshort{cfd} simulation work by SDSU and \fnal. Additionally, the simulation will be improved with input from temperature measurements and validation tests. 
 
