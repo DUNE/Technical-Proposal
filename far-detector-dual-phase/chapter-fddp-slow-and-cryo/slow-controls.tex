@@ -30,7 +30,8 @@ computing hardware as described below.  It also relies on common
 infrastructure, as described in
 Section~\ref{sec:fddp-slow-cryo-slow-infra}.
 
-% removed per SG  In the current concept of the \dual detector, \dword{hv} biasing for the \dword{lem}, extraction grid, and \dword{pds} also falls within the scope of slow controls.  This hardware could be assigned to different consortia in the future.  For now its description is provided here.
+% removed per SG  - put back in 7/18 AH
+In the current concept of the \dual detector, \dword{hv} biasing for the \dword{lem}, extraction grid, and \dword{pds} also falls within the scope of slow controls.  This hardware could be assigned to different consortia in the future.  For now its description is provided here.
 
 % % % % Alec
 \subsubsection{Slow Controls Network Hardware}
@@ -72,6 +73,15 @@ sufficient capacity.  Including four sets of networking hardware, this
 would fit tightly into one rack or very comfortably into two.
 
 
+\subsubsection{High Voltage Biasing}
+\label{sec:fddp-slow-cryo-slow-hvbias}
+
+The \dword{hv} biasing for a \dword{lem} requires \SI{-5}{kV/channel}, with \num{41} channels per \dword{crp}.  The extraction grid requires \SI{-10}{kV/channel}, with  one channel per \dword{crp}. The  \dword{lem} biasing system requires a current measurement sensitivity of \SI{50}{pA}. The biasing of the photomultipliers for the \dword{pds} needs of order \num{1000} channels operating up to a voltage of \SI{-3}{kV}.
+
+\subsubsection{CRP and PDS Calibration}
+\label{sec:fddp-slow-cryo-slow-crppdscalib}
+
+Calibration of the charge readout system will be performed by charge injection onto the anode strips of the \dwords{crp} and into the preamplifiers. The slow controls system must include a high-accuracy pulser connected to the \dword{daq} system for time-tagging of the pulse triggers. The pulser will be configurable as a function of the different calibration runs (pulsing of the strips or pulsing of the amplifiers) acting as common pulse source. This will be connected to a distribution system that allows dispatching the pulses to the \dword{crp} anode strips or to the signal chimneys hosting the analog \dword{fe} cards.The distribution system will also include the possibility of selecting specific channels to which the pulses will be distributed. The \dword{pds} will also require a calibration system constituted by a common light source constantly monitored with reference photodetectors and a network of optical fibers distributing the light to each photomultiplier.
 
 % % % % Alec and Sowjanya
 %% \subsubsection{Slow Controls Signal Processing Hardware}
@@ -202,10 +212,6 @@ Near detector & Near detector run status (through common slow controls database)
 Racks power and status & PDU current and voltage, air temperature, fan status if applicable, interlock status (fire, moisture, etc.) \\
 \end{dunetable}
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sowjanya and Anselmo
 \subsection{Local Integration}
@@ -219,9 +225,9 @@ The local integration for the slow controls consists entirely of software
 and network interfaces with systems outside of the scope of the \dword{detmodule}.
 This includes the following:
 \begin{itemize}
-\item readings from the LBNF-managed external cryogenics systems, for status of pumps, flow rates, inlet and return temperature and pressure, which are implemented via OPC or a similar SCADA interfaces;
-\item beam status, such as protons on target, rate, target steering, beam pulse timing, which are retrieved via IFBeamDB;
-\item near detector status, which can be retrieved from a common slow controls database.
+\item Readings from the LBNF-managed external cryogenics systems, for status of pumps, flow rates, inlet and return temperature and pressure, which are implemented via OPC or a similar SCADA interfaces;
+\item Beam status, such as protons on target, rate, target steering, beam pulse timing, which are retrieved via IFBeamDB;
+\item Near Detector status, which can be retrieved from a common slow controls database.
 \end{itemize}
 
 This integration occurs after both the slow controls and non-detector
@@ -230,29 +236,4 @@ Cryogenics Systems working group described in Section
 \ref{sec:fdgen-slow-cryo-int-piping}.  IFBeamDB is already well established.
 An internal near-detector--\dword{fd} working group may be established
 to coordinate detector status exchange between near and far sites interfacing.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% commenting out this subsection because QA is addressed in device subsections
-% in the Cryo Instruments section =gahs
-%
-%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-%  \subsection{Quality Assurance}
-%  \label{sec:fddp-slow-cryo-slow-qa}
-%  
-%  \fixme{need this one? not assigned}
-%  
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% commenting out this section because Production and Assembly is addressed
-% in earlier device sections. =gahs
-%
-%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  \section{Production and Assembly}
-%  \label{sec:fddp-slow-cryo-prod-assy}
-%  
-%  \fixme{This section not needed? Not assigned; may be addressed in earlier sections.}
 

@@ -46,9 +46,9 @@ distribution of instrumentation devices inside the cryostat.
 
 
 From the organizational point of view, the 
-cryogenic instrumentation has been divided into three main parts: (1) cryogenics systems, which includes all components directly related to the external cryogenics system as
-liquid level monitoring, gas analyzers and internal cryogenic piping, all having substantial interfaces with LBNF; (2)  physics and simulation; and (3) \lar  instrumentation, which includes all
-other instrumentation devices and a test facility for the devices. 
+cryogenic instrumentation has been divided into three main parts: (1) cryogenics systems, which includes all components directly related to the external cryogenics system, such as
+liquid level monitoring, gas analyzers and internal cryogenic piping -- all having substantial interfaces with LBNF; (2)  physics and simulation; and (3) \lar  instrumentation, which includes all
+other instrumentation devices. 
 
 The second branch of \dword{cisc} is the slow controls system, in charge of monitoring and controlling most detector elements, including power supplies, electronics, racks, instrumentation devices, and  
 calibration devices, etc. It includes four main components: hardware, infrastructure,
@@ -57,7 +57,7 @@ networking hardware, signal processing hardware, computing hardware, and relevan
 rack infrastructure. The slow controls software and firmware are needed for
 signal processing, alarms, archiving, and control room displays.
 
-%Two other systems have been included by the DUNE management as part of the \dword{cisc} consortium, a test facility for the instrumentation devices and the cryogenic piping inside the cryostat. Those are included inside the cryogenic instrumentation branch.
+Two other systems have been included by the DUNE management as part of the \dword{cisc} consortium, a test facility for the instrumentation devices and the cryogenic piping inside the cryostat. Those are included inside the cryogenic instrumentation branch.
 
 %The instrumentation work related to gas analyzers, liquid level
 %monitors and internal cryogenic piping has significant
@@ -103,15 +103,30 @@ monitoring and archiving rates. It must be capable %, and has the capability of
 interfacing 
 with a large number of systems to establish two-way communication for
 control and monitoring.  
-%% Replacement text from SG 6/15/18
-Specific to the \dual design, \dword{cisc} must also provide instrumentation in the gas phase volume to monitor the temperature and pressure, as they affect the \dword{lem} gain calibration. 
- %% 6/25 For \dual, additional care must be taken to monitor the gas phase above the liquid level as the temperature and pressure of argon gas affect gas pressure, and consequently the \dword{lem} calibration.  
-The gas pressure must be monitored to \SI{1}{mbar} precision and accuracy. 
-In proximity to the liquid surface the temperature gradient of the  gas has to be measured with an array of temperature probes with a vertical pitch of about \SI{1}{cm}, and with a coarser \SI{5}{cm} pitch up to the cryostat roof. 
-%% 6/25 
-
 Table~\ref{tab:dp-cisc-requirements} shows
 some of the important \dword{cisc} system design requirements and parameters.
+
+There are several aspects specific to the \dual design impacting the \dword{cisc} system design requirements:
+\begin{itemize}
+\item At the level of the cryogenic instrumentation, additional care is needed in order to monitor the gas phase above the liquid level. The temperature and the pressure of the gas phase affect the gas density, and consequently, the \dword{lem} gain calibration. The gas pressure must be accurately monitored. In proximity to the liquid surface the temperature gradient of the gas %has to be 
+is measured with an array of temperature probes with a vertical pitch of about \SI{1}{cm}. Each \dword{crp} is also equipped with \num{36} thermometers to sample the temperature across its structure.
+
+\item The \dword{crp}-specific instrumentation also includes: 
+
+%%%%
+\begin{itemize}
+\item the pulsing system for charge injection in the anode strips,
+\item the precision level meters implemented only on the \dwords{crp} located at the cryostat borders, and 
+\item the measurement of the \dword{lem}-grid capacitance allowing to know \fixme{which provides} the position of the \dword{crp} with respect to the liquid level for all \dwords{crp}, \fixme{what makes the measurement?}
+\item the control of the stepping motors, \fixme{control mechanism?} which allows positioning each \dword{crp} parallel to the liquid level (keeping the extraction grid immersed in the liquid and the \dwords{lem} in the gas phase).
+\end{itemize}
+%%%%%%
+
+\item The slow control system generates and controls the \dword{hv} for biasing the \dwords{lem} (\num{41} channels/\dword{crp}) and the extraction grid  (\num{1} channel/\dword{crp}), at maximum voltages of  \SI{-5}{kV/channel} and \SI{-10}{kV/channel}, respectively;
+\item The requirements related to the \dword{pds} include the generation and control of \dword{hv} biasing for the \dwords{pmt} (up to \SI{-3}{kV}) and the control of the calibration of the  \dwords{pmt},  performed with a  light distribution system with a common light source and a network of optical fibers;
+\item The \dword{fe} electronics requires the control of the \dword{utca} crates, the control of the  analog \dword{fe} cards, the control of the \dword{lv} and of the charge injection system connected to the pre-amplifiers mounted on the \dword{fe} cards;
+\item The \dual design also enables surveying from the cryostat roof the position of reference points connected to the \dword{crp} suspension system, to ensure proper \dword{crp} alignment. This aspect needs as well to be integrated in the alignment scheme. \fixme{IS integrated?}
+\end{itemize}
 
 \begin{dunetable}
 [Important design requirements on the DP CISC system design]
@@ -147,7 +162,17 @@ Thermometer density gas phase (\dual)
  & Vertical array of thermometers with finer pitch close to the liquid level to measure the temperature gradient in the gas phase.
  & Achieved by design. 
 \\ \colhline
- Cameras
+ Thermometer density \dword{crp} structure (\dual)
+ & \num{36} thermometers on each \dword{crp}
+ & Monitoring the temperature across the \dword{crp}  structure.
+ & Achieved by design. 
+\\ \colhline
+Liquid level meters precision (\dual)
+ & \(<\SI{1}{mm}\)
+&  Maintain constant \dword{crp} alignment with respect to the liquid surface
+& \dword{wa105} / \dword{pddp} design \SI{0.1}{mm}
+\\  \colhline
+Cameras
  & \multicolumn{3}{p{0.64\textwidth}}{--- multiple requirements imposed by interfaces: see Table~\ref{tab:fdgen-cameras-req} ---}
  \\ \colhline
 Cryogenic Instrumentation Test Facility cryostat volumes
@@ -218,7 +243,7 @@ The scope of systems that slow controls includes is listed below:
 \item {\bf Slow Controls for External Systems}: export data from systems external to the detector and provide status to operators and archiving.
   \begin{itemize}
   \item Beam status, cryogenics status, \dword{daq} status, and facilities systems status;
-  \item For the systems above, import other interesting monitoring data as needed (e.g., pumps data from cryogenics system, heaters data from facility systems, etc.),
+  \item For the systems above, import other interesting monitoring data as needed (e.g., pumps data from cryogenics system, heaters data from facility systems, etc.);
   \item Building controls, detector hall monitoring, and ground impedance monitoring; 
   \item Interlock status bit monitoring (but not the actual interlock mechanism).
   \end{itemize}
@@ -240,6 +265,7 @@ Ethernet switch, some power supplies might need special cables (e.g.,
 GPIB or RS232) for communication. The \dword{cisc} consortium is responsible for
 providing such control cables.
 
+The \dword{dpmod} has historically defined the scope of its slow controls system in a different way from that of the \dword{spmod}.  This chapter respects that historic definition and includes two systems within \dword{cisc} for now that could be taken on by other consortia at a later date.  These are: \dword{hv} biasing for the \dword{lem} and extraction grid, and  \dword{hv} biasing for the \dual \dword{pds}; and (2)  a calibration system for the \dwords{crp}.
 
 In addition to the listed activities, \dword{cisc} also has activities that span
 outside the scope of the consortium and require interfacing with other

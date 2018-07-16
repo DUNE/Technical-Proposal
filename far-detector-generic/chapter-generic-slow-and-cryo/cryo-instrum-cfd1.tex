@@ -6,7 +6,7 @@
 % Jim G %Carmen
 
 Instrumentation inside the cryostat must ensure that the condition of the \dword{lar} is adequate for operation of the \dshort{tpc}.
-This instrumentation includes devices to monitor the impurity level of the argon, e.g., the purity monitors, which provide high precision electron lifetime measurements,
+This instrumentation includes devices to monitor the impurity level of the argon, e.g., the purity monitors, which provide high-precision electron lifetime measurements,
 and gas analyzers to ensure that the levels of atmospheric contamination drop below certain limits during the cryostat purging, cooling and filling.
 The cryogenics system operation is monitored by temperature sensors deployed in vertical arrays and at the top and bottom of the detector, providing a 
 detailed \threed temperature map that can help to predict the \dword{lar} purity across the entire cryostat. The cryogenics instrumentation also includes \lar level monitors and
@@ -26,16 +26,3 @@ in each detector side, behind the two front end walls. Inspection cameras will u
 \end{dunefigure}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Fluid Dynamics Simulations}
-\label{sec:fdgen-slow-cryo-cfd}
-% P. Strons
-% S. Gollapinni
-
-Proper placement of purity monitors, thermometers, and liquid level monitors within the \dword{detmodule} requires knowledge of how \dword{lar} behaves within the cryostat in terms of its fluid dynamics, heat and mass transfer, and distribution of impurity concentrations. 
-Fluid motion within the cryostat is driven primarily by small changes in density from thermal gradients, although pump flow rates and inlet and outlet locations also contribute. 
-Heat sources include exterior heat from the surroundings, interior heat from the electronics, and heat flow through the pump inlet.
-
-The fluid flow behavior can be determined through simulation of \dword{lar} flow within the detector using ANSYS CFX\footnote{ANSYS\texttrademark{}, \url{https://www.ansys.com/products/fluids/ansys-cfx}.}, a commercially available \dfirst{cfd} code. Such a model must include proper definition of the fluid characteristics, solid bodies and fluid-solid interfaces, and a means for measuring contamination, while still maintaining reasonable computation times. 
-
-% end here - SP needs a pgraph inserted
