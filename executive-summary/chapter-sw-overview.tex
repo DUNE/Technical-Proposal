@@ -21,8 +21,10 @@ This discussion leans heavily on the \dword{daq} design described in \voltitlesp
 The \dword{dune} experiment will consist of four \larmass \dword{fd} modules located at  \surf, using either \dword{sp} or \dword{dp} \lartpc{}s, and a not fully specified near detector at \fnal. The proposed \dword{fd} \dword{spmod} has an active mass of \spactivelarmass and the \dword{dpmod} has an active mass of \dpactivelarmass{}.
 
 \subsubsection{Single-phase estimates}
- Each  \single  module will consist of 
-150 alternating vertical cathode and anode planes  spaced 3.5 m apart and operated at 180~kV for a 500~V/cm drift field.  The anode planes are made up of \dword{apa}s which are 6.3~m tall by 2.3~m wide and have 2,560 readout channels each. Each channel is sampled with 12-bit precision every 500 nsec. %The APA's are wrapped with readout wires and read out through one of the shorter ends.  %Figure \ref{bigone} illustrates the layout of anode and cathode planes in the full size detector.
+% Each  \single  module will consist of 150 alternating vertical cathode and anode planes  spaced 3.5 m apart and operated at 180~kV for a 500~V/cm drift field.  
+Each \single module will consist of three rows of anode planes with a cathode plane between  each anode plane pair. The planes are spaced \SI{3.5}{m} 
+apart and operated at \SI{180}{kV} for a \SI{500}{V/cm} drift field. 
+The anode planes are made up of \dwords{apa} which are 6.3~m tall by 2.3~m wide and have 2,560 readout channels each. Each channel is sampled with 12-bit precision every 500 nsec. %The APA's are wrapped with readout wires and read out through one of the shorter ends.  %Figure \ref{bigone} illustrates the layout of anode and cathode planes in the full size detector.
 For modules of this size, drift times in the liquid argon are of order 2.5~ms and raw data sizes before compression are of order 6~GB per module per 5.4~ms readout window.  With no triggering and no zero suppression or compression, the raw data volume for four modules would be of order 145~EB/year. 
 
 
