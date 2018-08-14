@@ -55,9 +55,9 @@ If you need a reliable LaTeX installation, Tom Junk has installed texlive 2017 i
 There is also a script to run with the above as well as build bibliography and indices.
 
 ```
-   $ ./compilit software-computing
-   $ ./compilit software-computing print
-   $ ./compilit software-computing clean
+   $ ./compileit software-computing
+   $ ./compileit software-computing print
+   $ ./compileit software-computing clean
 ```
 
 The first will build with line numbers, fixme's and other things useful for editing, the second will build with "print quality".  The third deletes intermediate files except the final PDF.
